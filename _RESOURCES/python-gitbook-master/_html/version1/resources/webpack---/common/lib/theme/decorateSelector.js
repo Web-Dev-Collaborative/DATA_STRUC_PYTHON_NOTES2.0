@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,24 +8,24 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.decorateSelector = void 0;
-const color_1 = __importDefault(require("color"));
-const utils_1 = require("../utils");
+const color_1 = __importDefault(require('color'));
+const utils_1 = require('../utils');
 const colorMethods = [
-  "negate",
-  "lighten",
-  "darken",
-  "saturate",
-  "desaturate",
-  "greyscale",
-  "whiten",
-  "blacken",
-  "clearer",
-  "opaquer",
-  "rotate",
+  'negate',
+  'lighten',
+  'darken',
+  'saturate',
+  'desaturate',
+  'greyscale',
+  'whiten',
+  'blacken',
+  'clearer',
+  'opaquer',
+  'rotate',
 ];
 /**
  * Takes a selector that returns a color string and returns new decorated selector that calls the

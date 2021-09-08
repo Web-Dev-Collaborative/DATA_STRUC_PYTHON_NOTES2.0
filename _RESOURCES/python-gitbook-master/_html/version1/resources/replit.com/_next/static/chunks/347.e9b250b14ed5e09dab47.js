@@ -26,26 +26,26 @@
                 });
             }),
             (n.r = function (e) {
-              "undefined" != typeof Symbol &&
+              'undefined' != typeof Symbol &&
                 Symbol.toStringTag &&
                 Object.defineProperty(e, Symbol.toStringTag, {
-                  value: "Module",
+                  value: 'Module',
                 }),
-                Object.defineProperty(e, "__esModule", {
+                Object.defineProperty(e, '__esModule', {
                   value: !0,
                 });
             }),
             (n.t = function (e, t) {
               if ((1 & t && (e = n(e)), 8 & t)) return e;
-              if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+              if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
               var r = Object.create(null);
               if (
                 (n.r(r),
-                Object.defineProperty(r, "default", {
+                Object.defineProperty(r, 'default', {
                   enumerable: !0,
                   value: e,
                 }),
-                2 & t && "string" != typeof e)
+                2 & t && 'string' != typeof e)
               )
                 for (var o in e)
                   n.d(
@@ -66,18 +66,18 @@
                   : function () {
                       return e;
                     };
-              return n.d(t, "a", t), t;
+              return n.d(t, 'a', t), t;
             }),
             (n.o = function (e, t) {
               return Object.prototype.hasOwnProperty.call(e, t);
             }),
-            (n.p = ""),
+            (n.p = ''),
             n((n.s = 0))
           );
         })([
           function (e, t, n) {
-            "use strict";
-            Object.defineProperty(t, "__esModule", {
+            'use strict';
+            Object.defineProperty(t, '__esModule', {
               value: !0,
             }),
               (t.Unicode11Addon = void 0);
@@ -90,8 +90,8 @@
             };
           },
           function (e, t, n) {
-            "use strict";
-            Object.defineProperty(t, "__esModule", {
+            'use strict';
+            Object.defineProperty(t, '__esModule', {
               value: !0,
             }),
               (t.UnicodeV11 = void 0);
@@ -566,7 +566,7 @@
             }
             t.UnicodeV11 = class {
               constructor() {
-                if (((this.version = "11"), !c)) {
+                if (((this.version = '11'), !c)) {
                   (c = new Uint8Array(65536)),
                     r.fill(c, 1),
                     (c[0] = 0),
@@ -594,7 +594,7 @@
             };
           },
           function (e, t, n) {
-            "use strict";
+            'use strict';
 
             function r(e, t, n, r) {
               if (
@@ -608,7 +608,7 @@
               for (var o = n; o < r; ++o) e[o] = t;
               return e;
             }
-            Object.defineProperty(t, "__esModule", {
+            Object.defineProperty(t, '__esModule', {
               value: !0,
             }),
               (t.concat = t.fillFallback = t.fill = void 0),

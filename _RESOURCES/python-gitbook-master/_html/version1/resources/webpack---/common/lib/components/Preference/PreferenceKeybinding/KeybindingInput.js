@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,14 +8,14 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const react_1 = __importDefault(require("react"));
-const components_1 = require("@codesandbox/components");
-const keybindings_1 = require("../../../utils/keybindings");
-const SPECIAL_KEYS = ["Meta", "Control", "Alt", "Shift", "Enter", "Backspace"];
-const IGNORED_KEYS = ["Backspace", "Escape", "CapsLock"];
+const react_1 = __importDefault(require('react'));
+const components_1 = require('@codesandbox/components');
+const keybindings_1 = require('../../../utils/keybindings');
+const SPECIAL_KEYS = ['Meta', 'Control', 'Alt', 'Shift', 'Enter', 'Backspace'];
+const IGNORED_KEYS = ['Backspace', 'Escape', 'CapsLock'];
 
 function sortKeys(keys) {
   return keys.sort((a, b) => {
@@ -48,12 +48,12 @@ class KeybindingInput extends react_1.default.Component {
     this.handleKeyDown = (e) => {
       e.preventDefault();
       e.stopPropagation();
-      if (e.key === "Enter") {
+      if (e.key === 'Enter') {
         this.props.setValue(this.state.recordedKeys);
-      } else if (e.key === "Backspace") {
+      } else if (e.key === 'Backspace') {
         this.props.setValue(undefined);
       }
-      if (e.key === "Escape" || e.key === "Enter" || e.key === "Backspace") {
+      if (e.key === 'Escape' || e.key === 'Enter' || e.key === 'Backspace') {
         this.setState({
           recordedKeys: [],
         });
@@ -85,9 +85,9 @@ class KeybindingInput extends react_1.default.Component {
         recording: true,
         recordedKeys: [],
       });
-      document.addEventListener("keydown", this.handleKeyDown);
-      document.addEventListener("keyup", this.handleKeyUp);
-      document.addEventListener("keypress", this.handleKeyPress);
+      document.addEventListener('keydown', this.handleKeyDown);
+      document.addEventListener('keyup', this.handleKeyUp);
+      document.addEventListener('keypress', this.handleKeyPress);
     };
     this.handleBlur = () => {
       this.keypresses = 0;
@@ -95,24 +95,24 @@ class KeybindingInput extends react_1.default.Component {
         this.setState({
           recording: false,
         });
-        document.removeEventListener("keydown", this.handleKeyDown);
-        document.removeEventListener("keyup", this.handleKeyUp);
-        document.removeEventListener("keypress", this.handleKeyPress);
+        document.removeEventListener('keydown', this.handleKeyDown);
+        document.removeEventListener('keyup', this.handleKeyUp);
+        document.removeEventListener('keypress', this.handleKeyPress);
       }
     };
   }
   render() {
     const { recording, recordedKeys } = this.state;
-    const { value, placeholder = "Enter Keystroke" } = this.props;
+    const { value, placeholder = 'Enter Keystroke' } = this.props;
     const keys = recording ? recordedKeys : value || [];
     return react_1.default.createElement(components_1.Input, {
       style: Object.assign(
         {
-          width: "6rem",
+          width: '6rem',
         },
         this.props.style
       ),
-      value: keys.map(keybindings_1.formatKey).join(" + "),
+      value: keys.map(keybindings_1.formatKey).join(' + '),
       placeholder: placeholder,
       onFocus: this.handleFocus,
       onBlur: this.handleBlur,

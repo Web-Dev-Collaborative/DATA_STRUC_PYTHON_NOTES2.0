@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __rest =
   (this && this.__rest) ||
   function (s, e) {
@@ -6,7 +6,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -25,17 +25,17 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const react_1 = __importDefault(require("react"));
-const eye_1 = __importDefault(require("react-icons/lib/fa/eye"));
+const react_1 = __importDefault(require('react'));
+const eye_1 = __importDefault(require('react-icons/lib/fa/eye'));
 const repo_forked_1 = __importDefault(
-  require("react-icons/lib/go/repo-forked")
+  require('react-icons/lib/go/repo-forked')
 );
-const heart_1 = __importDefault(require("react-icons/lib/go/heart"));
-const Stat_1 = __importDefault(require("./Stat"));
-const elements_1 = require("./elements");
+const heart_1 = __importDefault(require('react-icons/lib/go/heart'));
+const Stat_1 = __importDefault(require('./Stat'));
+const elements_1 = require('./elements');
 
 function StatsComponent(_a) {
   var {
@@ -47,12 +47,12 @@ function StatsComponent(_a) {
       style,
     } = _a,
     props = __rest(_a, [
-      "viewCount",
-      "likeCount",
-      "forkCount",
-      "vertical",
-      "text",
-      "style",
+      'viewCount',
+      'likeCount',
+      'forkCount',
+      'vertical',
+      'text',
+      'style',
     ]);
   return react_1.default.createElement(
     elements_1.Stats,
@@ -63,22 +63,22 @@ function StatsComponent(_a) {
       props
     ),
     react_1.default.createElement(Stat_1.default, {
-      text: text ? "views" : undefined,
-      textOne: text ? "view" : undefined,
+      text: text ? 'views' : undefined,
+      textOne: text ? 'view' : undefined,
       vertical: vertical,
       Icon: react_1.default.createElement(eye_1.default, null),
       count: viewCount,
     }),
     react_1.default.createElement(Stat_1.default, {
-      text: text ? "likes" : undefined,
-      textOne: text ? "like" : undefined,
+      text: text ? 'likes' : undefined,
+      textOne: text ? 'like' : undefined,
       vertical: vertical,
       Icon: react_1.default.createElement(heart_1.default, null),
       count: likeCount,
     }),
     react_1.default.createElement(Stat_1.default, {
-      text: text ? "forks" : undefined,
-      textOne: text ? "fork" : undefined,
+      text: text ? 'forks' : undefined,
+      textOne: text ? 'fork' : undefined,
       vertical: vertical,
       Icon: react_1.default.createElement(repo_forked_1.default, null),
       count: forkCount,

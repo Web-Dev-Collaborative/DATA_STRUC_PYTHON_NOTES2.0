@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,12 +8,12 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const _1 = __importDefault(require("."));
-const ui_1 = __importDefault(require("./prettierRC/ui"));
-const ui_2 = __importDefault(require("./sandbox/ui"));
+const _1 = __importDefault(require('.'));
+const ui_1 = __importDefault(require('./prettierRC/ui'));
+const ui_2 = __importDefault(require('./sandbox/ui'));
 
 function getUI(configType) {
   switch (configType) {

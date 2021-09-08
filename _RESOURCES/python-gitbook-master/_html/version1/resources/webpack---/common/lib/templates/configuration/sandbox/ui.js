@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -48,18 +48,18 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.ConfigWizard = void 0;
-const react_1 = __importStar(require("react"));
-const sortBy_1 = __importDefault(require("lodash/sortBy"));
-const templates = __importStar(require("../../../templates"));
-const elements_1 = require("../elements");
+const react_1 = __importStar(require('react'));
+const sortBy_1 = __importDefault(require('lodash/sortBy'));
+const templates = __importStar(require('../../../templates'));
+const elements_1 = require('../elements');
 exports.ConfigWizard = (props) => {
   const getValue = (file, property, defaultValue) => {
-    if (property.includes(".")) {
-      const [parent, key] = property.split(".");
+    if (property.includes('.')) {
+      const [parent, key] = property.split('.');
       if (!file[parent]) return defaultValue;
       const value = file[parent][key];
       return value ? value.toString() : defaultValue;
@@ -77,8 +77,8 @@ exports.ConfigWizard = (props) => {
           null,
           2
         );
-        if (property.includes(".")) {
-          const [parent, key] = property.split(".");
+        if (property.includes('.')) {
+          const [parent, key] = property.split('.');
           code = JSON.stringify(
             Object.assign(Object.assign({}, file), {
               [parent]: Object.assign(Object.assign({}, file[parent]), {
@@ -104,22 +104,22 @@ exports.ConfigWizard = (props) => {
   }
   if (error) {
     return react_1.default.createElement(
-      "div",
+      'div',
       null,
-      "Problem parsing sandbox.config.json: ",
+      'Problem parsing sandbox.config.json: ',
       error.message
     );
   }
   if (!parsedFile) {
     return react_1.default.createElement(
-      "div",
+      'div',
       null,
-      "Could not parse sandbox.config.json"
+      'Could not parse sandbox.config.json'
     );
   }
   const currentTemplate = templates.default(sandbox.template);
   const possibleTemplates = Object.keys(templates)
-    .filter((t) => t !== "default")
+    .filter((t) => t !== 'default')
     .map((n) => templates[n]);
   const templateOptions = sortBy_1
     .default(
@@ -136,7 +136,7 @@ exports.ConfigWizard = (props) => {
     templateNameMap[template.name] = template.niceName;
   });
   return react_1.default.createElement(
-    "div",
+    'div',
     null,
     react_1.default.createElement(
       elements_1.PaddedConfig,
@@ -148,17 +148,17 @@ exports.ConfigWizard = (props) => {
           elements_1.PaddedPreference,
           Object.assign(
             {
-              title: "Infinite Loop Protection",
-              type: "boolean",
+              title: 'Infinite Loop Protection',
+              type: 'boolean',
             },
-            bindValue(parsedFile, "infiniteLoopProtection")
+            bindValue(parsedFile, 'infiniteLoopProtection')
           )
         )
       ),
       react_1.default.createElement(
         elements_1.ConfigDescription,
         null,
-        "Whether we should stop execution of the code when we detect an infinite loop."
+        'Whether we should stop execution of the code when we detect an infinite loop.'
       )
     ),
     react_1.default.createElement(
@@ -171,17 +171,17 @@ exports.ConfigWizard = (props) => {
           elements_1.PaddedPreference,
           Object.assign(
             {
-              title: "Hard Reload on Change",
-              type: "boolean",
+              title: 'Hard Reload on Change',
+              type: 'boolean',
             },
-            bindValue(parsedFile, "hardReloadOnChange")
+            bindValue(parsedFile, 'hardReloadOnChange')
           )
         )
       ),
       react_1.default.createElement(
         elements_1.ConfigDescription,
         null,
-        "Force refresh the sandbox for a change. This is helpful for sandboxes with global state, like intervals."
+        'Force refresh the sandbox for a change. This is helpful for sandboxes with global state, like intervals.'
       )
     ),
     react_1.default.createElement(
@@ -194,19 +194,19 @@ exports.ConfigWizard = (props) => {
           elements_1.PaddedPreference,
           Object.assign(
             {
-              title: "Template",
-              type: "dropdown",
+              title: 'Template',
+              type: 'dropdown',
               options: templateOptions,
               mapName: (name) => templateNameMap[name],
             },
-            bindValue(parsedFile, "template", currentTemplate.name)
+            bindValue(parsedFile, 'template', currentTemplate.name)
           )
         )
       ),
       react_1.default.createElement(
         elements_1.ConfigDescription,
         null,
-        "Which template to use for this sandbox."
+        'Which template to use for this sandbox.'
       )
     ),
     !currentTemplate.isServer
@@ -220,17 +220,17 @@ exports.ConfigWizard = (props) => {
               elements_1.PaddedPreference,
               Object.assign(
                 {
-                  title: "Disable Console",
-                  type: "boolean",
+                  title: 'Disable Console',
+                  type: 'boolean',
                 },
-                bindValue(parsedFile, "disableLogging")
+                bindValue(parsedFile, 'disableLogging')
               )
             )
           ),
           react_1.default.createElement(
             elements_1.ConfigDescription,
             null,
-            "Disable the in-browser console to prevent slowing down of the page when there are many logs to the console."
+            'Disable the in-browser console to prevent slowing down of the page when there are many logs to the console.'
           )
         )
       : null,
@@ -245,21 +245,21 @@ exports.ConfigWizard = (props) => {
               elements_1.PaddedPreference,
               Object.assign(
                 {
-                  title: "Port",
-                  type: "number",
+                  title: 'Port',
+                  type: 'number',
                   innerStyle: {
-                    width: "5rem",
+                    width: '5rem',
                   },
                   min: 1024,
                   max: 65535,
                 },
-                bindValue(parsedFile, "container.port")
+                bindValue(parsedFile, 'container.port')
               )
             ),
             react_1.default.createElement(
               elements_1.ConfigDescription,
               null,
-              "What is the main port of your application. Values from 1024 to 65535"
+              'What is the main port of your application. Values from 1024 to 65535'
             )
           ),
           react_1.default.createElement(
@@ -269,17 +269,17 @@ exports.ConfigWizard = (props) => {
               elements_1.PaddedPreference,
               Object.assign(
                 {
-                  title: "Node Version",
-                  type: "dropdown",
-                  options: ["10", "12", "14"],
+                  title: 'Node Version',
+                  type: 'dropdown',
+                  options: ['10', '12', '14'],
                 },
-                bindValue(parsedFile, "container.node")
+                bindValue(parsedFile, 'container.node')
               )
             ),
             react_1.default.createElement(
               elements_1.ConfigDescription,
               null,
-              "Which node version to use for this sandbox. Please restart the server after changing."
+              'Which node version to use for this sandbox. Please restart the server after changing.'
             )
           )
         )

@@ -47,7 +47,7 @@
 .EditableName:after,
 .Name:after {
   color: var(--color-text);
-  content: ": ";
+  content: ': ';
   margin-right: 0.5rem;
 }
 

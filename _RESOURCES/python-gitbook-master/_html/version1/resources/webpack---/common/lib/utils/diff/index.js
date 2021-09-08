@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.getTextOperation = exports.findDiff = void 0;
-const ot_1 = require("ot");
-const lcs_1 = require("./lcs");
+const ot_1 = require('ot');
+const lcs_1 = require('./lcs');
 const MAX_DIFF_SIZE = 10000;
 
 function findDiff(originalText, modifiedText, pretty) {
@@ -19,7 +19,7 @@ function getTextOperation(originalText, modifiedText) {
     ot.insert(modifiedText);
     // eslint-disable-next-line
     console.warn(
-      "Not optimizing edits, file is larger than " + MAX_DIFF_SIZE + "b"
+      'Not optimizing edits, file is larger than ' + MAX_DIFF_SIZE + 'b'
     );
     return ot;
   }

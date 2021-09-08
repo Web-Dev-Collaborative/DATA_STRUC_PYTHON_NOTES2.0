@@ -1,13 +1,13 @@
 !(function (t) {
-  "object" == typeof exports && "undefined" != typeof module
+  'object' == typeof exports && 'undefined' != typeof module
     ? (module.exports = t())
-    : "function" == typeof define && define.amd
+    : 'function' == typeof define && define.amd
     ? define([], t)
-    : (("undefined" != typeof window
+    : (('undefined' != typeof window
         ? window
-        : "undefined" != typeof global
+        : 'undefined' != typeof global
         ? global
-        : "undefined" != typeof self
+        : 'undefined' != typeof self
         ? self
         : this
       ).buffer = t());
@@ -16,11 +16,11 @@
     function i(s, a) {
       if (!r[s]) {
         if (!e[s]) {
-          var u = "function" == typeof require && require;
+          var u = 'function' == typeof require && require;
           if (!a && u) return u(s, !0);
           if (o) return o(s, !0);
           var c = new Error("Cannot find module '" + s + "'");
-          throw ((c.code = "MODULE_NOT_FOUND"), c);
+          throw ((c.code = 'MODULE_NOT_FOUND'), c);
         }
         var f = (r[s] = {
           exports: {},
@@ -41,7 +41,7 @@
       return r[s].exports;
     }
     for (
-      var o = "function" == typeof require && require, s = 0;
+      var o = 'function' == typeof require && require, s = 0;
       s < n.length;
       s++
     )
@@ -52,12 +52,12 @@
       1: [
         function (t, e, r) {
           (function (e) {
-            "use strict";
-            var n = t("base64-js"),
-              i = t("ieee754"),
+            'use strict';
+            var n = t('base64-js'),
+              i = t('ieee754'),
               o =
-                "function" == typeof Symbol && "function" == typeof Symbol.for
-                  ? Symbol.for("nodejs.util.inspect.custom")
+                'function' == typeof Symbol && 'function' == typeof Symbol.for
+                  ? Symbol.for('nodejs.util.inspect.custom')
                   : null;
             (r.Buffer = e),
               (r.SlowBuffer = function (t) {
@@ -76,8 +76,8 @@
             }
 
             function e(t, e, r) {
-              if ("number" == typeof t) {
-                if ("string" == typeof e)
+              if ('number' == typeof t) {
+                if ('string' == typeof e)
                   throw new TypeError(
                     'The "string" argument must be of type string. Received type number'
                   );
@@ -87,13 +87,13 @@
             }
 
             function u(t, r, n) {
-              if ("string" == typeof t)
+              if ('string' == typeof t)
                 return (function (t, r) {
                   if (
-                    (("string" == typeof r && "" !== r) || (r = "utf8"),
+                    (('string' == typeof r && '' !== r) || (r = 'utf8'),
                     !e.isEncoding(r))
                   )
-                    throw new TypeError("Unknown encoding: " + r);
+                    throw new TypeError('Unknown encoding: ' + r);
                   var n = 0 | p(t, r),
                     i = a(n),
                     o = i.write(t, r);
@@ -102,7 +102,7 @@
               if (ArrayBuffer.isView(t)) return l(t);
               if (null == t)
                 throw new TypeError(
-                  "The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " +
+                  'The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type ' +
                     typeof t
                 );
               if (K(t, ArrayBuffer) || (t && K(t.buffer, ArrayBuffer)))
@@ -127,7 +127,7 @@
                     i
                   );
                 })(t, r, n);
-              if ("number" == typeof t)
+              if ('number' == typeof t)
                 throw new TypeError(
                   'The "value" argument must not be of type number. Received type number'
                 );
@@ -140,28 +140,28 @@
                   return 0 === n.length ? n : (t.copy(n, 0, 0, r), n);
                 }
                 return void 0 !== t.length
-                  ? "number" != typeof t.length || N(t.length)
+                  ? 'number' != typeof t.length || N(t.length)
                     ? a(0)
                     : l(t)
-                  : "Buffer" === t.type && Array.isArray(t.data)
+                  : 'Buffer' === t.type && Array.isArray(t.data)
                   ? l(t.data)
                   : void 0;
               })(t);
               if (o) return o;
               if (
-                "undefined" != typeof Symbol &&
+                'undefined' != typeof Symbol &&
                 null != Symbol.toPrimitive &&
-                "function" == typeof t[Symbol.toPrimitive]
+                'function' == typeof t[Symbol.toPrimitive]
               )
-                return e.from(t[Symbol.toPrimitive]("string"), r, n);
+                return e.from(t[Symbol.toPrimitive]('string'), r, n);
               throw new TypeError(
-                "The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " +
+                'The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type ' +
                   typeof t
               );
             }
 
             function c(t) {
-              if ("number" != typeof t)
+              if ('number' != typeof t)
                 throw new TypeError('"size" argument must be of type number');
               if (t < 0)
                 throw new RangeError(
@@ -186,9 +186,9 @@
             function h(t) {
               if (t >= s)
                 throw new RangeError(
-                  "Attempt to allocate Buffer larger than maximum size: 0x" +
+                  'Attempt to allocate Buffer larger than maximum size: 0x' +
                     s.toString(16) +
-                    " bytes"
+                    ' bytes'
                 );
               return 0 | t;
             }
@@ -197,7 +197,7 @@
               if (e.isBuffer(t)) return t.length;
               if (ArrayBuffer.isView(t) || K(t, ArrayBuffer))
                 return t.byteLength;
-              if ("string" != typeof t)
+              if ('string' != typeof t)
                 throw new TypeError(
                   'The "string" argument must be one of type string, Buffer, or ArrayBuffer. Received type ' +
                     typeof t
@@ -207,25 +207,25 @@
               if (!i && 0 === n) return 0;
               for (var o = !1; ; )
                 switch (r) {
-                  case "ascii":
-                  case "latin1":
-                  case "binary":
+                  case 'ascii':
+                  case 'latin1':
+                  case 'binary':
                     return n;
-                  case "utf8":
-                  case "utf-8":
+                  case 'utf8':
+                  case 'utf-8':
                     return j(t).length;
-                  case "ucs2":
-                  case "ucs-2":
-                  case "utf16le":
-                  case "utf-16le":
+                  case 'ucs2':
+                  case 'ucs-2':
+                  case 'utf16le':
+                  case 'utf-16le':
                     return 2 * n;
-                  case "hex":
+                  case 'hex':
                     return n >>> 1;
-                  case "base64":
+                  case 'base64':
                     return M(t).length;
                   default:
                     if (o) return i ? -1 : j(t).length;
-                    (r = ("" + r).toLowerCase()), (o = !0);
+                    (r = ('' + r).toLowerCase()), (o = !0);
                 }
             }
 
@@ -237,7 +237,7 @@
             function y(t, r, n, i, o) {
               if (0 === t.length) return -1;
               if (
-                ("string" == typeof n
+                ('string' == typeof n
                   ? ((i = n), (n = 0))
                   : n > 2147483647
                   ? (n = 2147483647)
@@ -252,18 +252,18 @@
                 if (!o) return -1;
                 n = 0;
               }
-              if (("string" == typeof r && (r = e.from(r, i)), e.isBuffer(r)))
+              if (('string' == typeof r && (r = e.from(r, i)), e.isBuffer(r)))
                 return 0 === r.length ? -1 : m(t, r, n, i, o);
-              if ("number" == typeof r)
+              if ('number' == typeof r)
                 return (
                   (r &= 255),
-                  "function" == typeof Uint8Array.prototype.indexOf
+                  'function' == typeof Uint8Array.prototype.indexOf
                     ? o
                       ? Uint8Array.prototype.indexOf.call(t, r, n)
                       : Uint8Array.prototype.lastIndexOf.call(t, r, n)
                     : m(t, [r], n, i, o)
                 );
-              throw new TypeError("val must be string, number or Buffer");
+              throw new TypeError('val must be string, number or Buffer');
             }
 
             function m(t, e, r, n, i) {
@@ -273,10 +273,10 @@
                 u = e.length;
               if (
                 void 0 !== n &&
-                ("ucs2" === (n = String(n).toLowerCase()) ||
-                  "ucs-2" === n ||
-                  "utf16le" === n ||
-                  "utf-16le" === n)
+                ('ucs2' === (n = String(n).toLowerCase()) ||
+                  'ucs-2' === n ||
+                  'utf16le' === n ||
+                  'utf-16le' === n)
               ) {
                 if (t.length < 2 || e.length < 2) return -1;
                 (s = 2), (a /= 2), (u /= 2), (r /= 2);
@@ -425,7 +425,7 @@
               return (function (t) {
                 var e = t.length;
                 if (e <= S) return String.fromCharCode.apply(String, t);
-                for (var r = "", n = 0; n < e; )
+                for (var r = '', n = 0; n < e; )
                   r += String.fromCharCode.apply(String, t.slice(n, (n += S)));
                 return r;
               })(n);
@@ -449,24 +449,24 @@
                 }
               })()),
               e.TYPED_ARRAY_SUPPORT ||
-                "undefined" == typeof console ||
-                "function" != typeof console.error ||
+                'undefined' == typeof console ||
+                'function' != typeof console.error ||
                 console.error(
-                  "This browser lacks typed array (Uint8Array) support which is required by `buffer` v5.x. Use `buffer` v4.x if you require old browser support."
+                  'This browser lacks typed array (Uint8Array) support which is required by `buffer` v5.x. Use `buffer` v4.x if you require old browser support.'
                 ),
-              Object.defineProperty(e.prototype, "parent", {
+              Object.defineProperty(e.prototype, 'parent', {
                 enumerable: !0,
                 get: function () {
                   if (e.isBuffer(this)) return this.buffer;
                 },
               }),
-              Object.defineProperty(e.prototype, "offset", {
+              Object.defineProperty(e.prototype, 'offset', {
                 enumerable: !0,
                 get: function () {
                   if (e.isBuffer(this)) return this.byteOffset;
                 },
               }),
-              "undefined" != typeof Symbol &&
+              'undefined' != typeof Symbol &&
                 null != Symbol.species &&
                 e[Symbol.species] === e &&
                 Object.defineProperty(e, Symbol.species, {
@@ -488,7 +488,7 @@
                     t <= 0
                       ? a(t)
                       : void 0 !== e
-                      ? "string" == typeof r
+                      ? 'string' == typeof r
                         ? a(t).fill(e, r)
                         : a(t).fill(e)
                       : a(t)
@@ -527,17 +527,17 @@
               }),
               (e.isEncoding = function (t) {
                 switch (String(t).toLowerCase()) {
-                  case "hex":
-                  case "utf8":
-                  case "utf-8":
-                  case "ascii":
-                  case "latin1":
-                  case "binary":
-                  case "base64":
-                  case "ucs2":
-                  case "ucs-2":
-                  case "utf16le":
-                  case "utf-16le":
+                  case 'hex':
+                  case 'utf8':
+                  case 'utf-8':
+                  case 'ascii':
+                  case 'latin1':
+                  case 'binary':
+                  case 'base64':
+                  case 'ucs2':
+                  case 'ucs-2':
+                  case 'utf16le':
+                  case 'utf-16le':
                     return !0;
                   default:
                     return !1;
@@ -570,7 +570,7 @@
                 var t = this.length;
                 if (t % 2 != 0)
                   throw new RangeError(
-                    "Buffer size must be a multiple of 16-bits"
+                    'Buffer size must be a multiple of 16-bits'
                   );
                 for (var e = 0; e < t; e += 2) d(this, e, e + 1);
                 return this;
@@ -579,7 +579,7 @@
                 var t = this.length;
                 if (t % 4 != 0)
                   throw new RangeError(
-                    "Buffer size must be a multiple of 32-bits"
+                    'Buffer size must be a multiple of 32-bits'
                   );
                 for (var e = 0; e < t; e += 4)
                   d(this, e, e + 3), d(this, e + 1, e + 2);
@@ -589,7 +589,7 @@
                 var t = this.length;
                 if (t % 8 != 0)
                   throw new RangeError(
-                    "Buffer size must be a multiple of 64-bits"
+                    'Buffer size must be a multiple of 64-bits'
                   );
                 for (var e = 0; e < t; e += 8)
                   d(this, e, e + 7),
@@ -601,60 +601,60 @@
               (e.prototype.toString = function () {
                 var t = this.length;
                 return 0 === t
-                  ? ""
+                  ? ''
                   : 0 === arguments.length
                   ? k(this, 0, t)
                   : function (t, e, r) {
                       var n = !1;
                       if (((void 0 === e || e < 0) && (e = 0), e > this.length))
-                        return "";
+                        return '';
                       if (
                         ((void 0 === r || r > this.length) && (r = this.length),
                         r <= 0)
                       )
-                        return "";
-                      if ((r >>>= 0) <= (e >>>= 0)) return "";
-                      for (t || (t = "utf8"); ; )
+                        return '';
+                      if ((r >>>= 0) <= (e >>>= 0)) return '';
+                      for (t || (t = 'utf8'); ; )
                         switch (t) {
-                          case "hex":
+                          case 'hex':
                             return I(this, e, r);
-                          case "utf8":
-                          case "utf-8":
+                          case 'utf8':
+                          case 'utf-8':
                             return k(this, e, r);
-                          case "ascii":
+                          case 'ascii':
                             return A(this, e, r);
-                          case "latin1":
-                          case "binary":
+                          case 'latin1':
+                          case 'binary':
                             return B(this, e, r);
-                          case "base64":
+                          case 'base64':
                             return x(this, e, r);
-                          case "ucs2":
-                          case "ucs-2":
-                          case "utf16le":
-                          case "utf-16le":
+                          case 'ucs2':
+                          case 'ucs-2':
+                          case 'utf16le':
+                          case 'utf-16le':
                             return O(this, e, r);
                           default:
                             if (n)
-                              throw new TypeError("Unknown encoding: " + t);
-                            (t = (t + "").toLowerCase()), (n = !0);
+                              throw new TypeError('Unknown encoding: ' + t);
+                            (t = (t + '').toLowerCase()), (n = !0);
                         }
                     }.apply(this, arguments);
               }),
               (e.prototype.toLocaleString = e.prototype.toString),
               (e.prototype.equals = function (t) {
                 if (!e.isBuffer(t))
-                  throw new TypeError("Argument must be a Buffer");
+                  throw new TypeError('Argument must be a Buffer');
                 return this === t || 0 === e.compare(this, t);
               }),
               (e.prototype.inspect = function () {
-                var t = "",
+                var t = '',
                   e = r.INSPECT_MAX_BYTES;
                 return (
-                  (t = this.toString("hex", 0, e)
-                    .replace(/(.{2})/g, "$1 ")
+                  (t = this.toString('hex', 0, e)
+                    .replace(/(.{2})/g, '$1 ')
                     .trim()),
-                  this.length > e && (t += " ... "),
-                  "<Buffer " + t + ">"
+                  this.length > e && (t += ' ... '),
+                  '<Buffer ' + t + '>'
                 );
               }),
               o && (e.prototype[o] = e.prototype.inspect),
@@ -674,7 +674,7 @@
                   void 0 === o && (o = this.length),
                   r < 0 || n > t.length || i < 0 || o > this.length)
                 )
-                  throw new RangeError("out of range index");
+                  throw new RangeError('out of range index');
                 if (i >= o && r >= n) return 0;
                 if (i >= o) return -1;
                 if (r >= n) return 1;
@@ -705,17 +705,17 @@
                 return y(this, t, e, r, !1);
               }),
               (e.prototype.write = function (t, e, r, n) {
-                if (void 0 === e) (n = "utf8"), (r = this.length), (e = 0);
-                else if (void 0 === r && "string" == typeof e)
+                if (void 0 === e) (n = 'utf8'), (r = this.length), (e = 0);
+                else if (void 0 === r && 'string' == typeof e)
                   (n = e), (r = this.length), (e = 0);
                 else {
                   if (!isFinite(e))
                     throw new Error(
-                      "Buffer.write(string, encoding, offset[, length]) is no longer supported"
+                      'Buffer.write(string, encoding, offset[, length]) is no longer supported'
                     );
                   (e >>>= 0),
                     isFinite(r)
-                      ? ((r >>>= 0), void 0 === n && (n = "utf8"))
+                      ? ((r >>>= 0), void 0 === n && (n = 'utf8'))
                       : ((n = r), (r = void 0));
                 }
                 var i = this.length - e;
@@ -724,50 +724,50 @@
                   (t.length > 0 && (r < 0 || e < 0)) || e > this.length)
                 )
                   throw new RangeError(
-                    "Attempt to write outside buffer bounds"
+                    'Attempt to write outside buffer bounds'
                   );
-                n || (n = "utf8");
+                n || (n = 'utf8');
                 for (var o = !1; ; )
                   switch (n) {
-                    case "hex":
+                    case 'hex':
                       return v(this, t, e, r);
-                    case "utf8":
-                    case "utf-8":
+                    case 'utf8':
+                    case 'utf-8':
                       return g(this, t, e, r);
-                    case "ascii":
+                    case 'ascii':
                       return w(this, t, e, r);
-                    case "latin1":
-                    case "binary":
+                    case 'latin1':
+                    case 'binary':
                       return b(this, t, e, r);
-                    case "base64":
+                    case 'base64':
                       return _(this, t, e, r);
-                    case "ucs2":
-                    case "ucs-2":
-                    case "utf16le":
-                    case "utf-16le":
+                    case 'ucs2':
+                    case 'ucs-2':
+                    case 'utf16le':
+                    case 'utf-16le':
                       return E(this, t, e, r);
                     default:
-                      if (o) throw new TypeError("Unknown encoding: " + n);
-                      (n = ("" + n).toLowerCase()), (o = !0);
+                      if (o) throw new TypeError('Unknown encoding: ' + n);
+                      (n = ('' + n).toLowerCase()), (o = !0);
                   }
               }),
               (e.prototype.toJSON = function () {
                 return {
-                  type: "Buffer",
+                  type: 'Buffer',
                   data: Array.prototype.slice.call(this._arr || this, 0),
                 };
               });
             var S = 4096;
 
             function A(t, e, r) {
-              var n = "";
+              var n = '';
               r = Math.min(t.length, r);
               for (var i = e; i < r; ++i) n += String.fromCharCode(127 & t[i]);
               return n;
             }
 
             function B(t, e, r) {
-              var n = "";
+              var n = '';
               r = Math.min(t.length, r);
               for (var i = e; i < r; ++i) n += String.fromCharCode(t[i]);
               return n;
@@ -776,21 +776,21 @@
             function I(t, e, r) {
               var n = t.length;
               (!e || e < 0) && (e = 0), (!r || r < 0 || r > n) && (r = n);
-              for (var i = "", o = e; o < r; ++o) i += L[t[o]];
+              for (var i = '', o = e; o < r; ++o) i += L[t[o]];
               return i;
             }
 
             function O(t, e, r) {
-              for (var n = t.slice(e, r), i = "", o = 0; o < n.length; o += 2)
+              for (var n = t.slice(e, r), i = '', o = 0; o < n.length; o += 2)
                 i += String.fromCharCode(n[o] + 256 * n[o + 1]);
               return i;
             }
 
             function C(t, e, r) {
               if (t % 1 != 0 || t < 0)
-                throw new RangeError("offset is not uint");
+                throw new RangeError('offset is not uint');
               if (t + e > r)
-                throw new RangeError("Trying to access beyond buffer length");
+                throw new RangeError('Trying to access beyond buffer length');
             }
 
             function P(t, r, n, i, o, s) {
@@ -800,12 +800,12 @@
                 );
               if (r > o || r < s)
                 throw new RangeError('"value" argument is out of bounds');
-              if (n + i > t.length) throw new RangeError("Index out of range");
+              if (n + i > t.length) throw new RangeError('Index out of range');
             }
 
             function D(t, e, r, n, i, o) {
-              if (r + n > t.length) throw new RangeError("Index out of range");
-              if (r < 0) throw new RangeError("Index out of range");
+              if (r + n > t.length) throw new RangeError('Index out of range');
+              if (r < 0) throw new RangeError('Index out of range');
             }
 
             function T(t, e, r, n, o) {
@@ -1129,7 +1129,7 @@
               }),
               (e.prototype.copy = function (t, r, n, i) {
                 if (!e.isBuffer(t))
-                  throw new TypeError("argument should be a Buffer");
+                  throw new TypeError('argument should be a Buffer');
                 if (
                   (n || (n = 0),
                   i || 0 === i || (i = this.length),
@@ -1140,16 +1140,16 @@
                 )
                   return 0;
                 if (0 === t.length || 0 === this.length) return 0;
-                if (r < 0) throw new RangeError("targetStart out of bounds");
+                if (r < 0) throw new RangeError('targetStart out of bounds');
                 if (n < 0 || n >= this.length)
-                  throw new RangeError("Index out of range");
-                if (i < 0) throw new RangeError("sourceEnd out of bounds");
+                  throw new RangeError('Index out of range');
+                if (i < 0) throw new RangeError('sourceEnd out of bounds');
                 i > this.length && (i = this.length),
                   t.length - r < i - n && (i = t.length - r + n);
                 var o = i - n;
                 if (
                   this === t &&
-                  "function" == typeof Uint8Array.prototype.copyWithin
+                  'function' == typeof Uint8Array.prototype.copyWithin
                 )
                   this.copyWithin(r, n, i);
                 else if (this === t && n < r && r < i)
@@ -1158,33 +1158,33 @@
                 return o;
               }),
               (e.prototype.fill = function (t, r, n, i) {
-                if ("string" == typeof t) {
+                if ('string' == typeof t) {
                   if (
-                    ("string" == typeof r
+                    ('string' == typeof r
                       ? ((i = r), (r = 0), (n = this.length))
-                      : "string" == typeof n && ((i = n), (n = this.length)),
-                    void 0 !== i && "string" != typeof i)
+                      : 'string' == typeof n && ((i = n), (n = this.length)),
+                    void 0 !== i && 'string' != typeof i)
                   )
-                    throw new TypeError("encoding must be a string");
-                  if ("string" == typeof i && !e.isEncoding(i))
-                    throw new TypeError("Unknown encoding: " + i);
+                    throw new TypeError('encoding must be a string');
+                  if ('string' == typeof i && !e.isEncoding(i))
+                    throw new TypeError('Unknown encoding: ' + i);
                   if (1 === t.length) {
                     var o = t.charCodeAt(0);
-                    (("utf8" === i && o < 128) || "latin1" === i) && (t = o);
+                    (('utf8' === i && o < 128) || 'latin1' === i) && (t = o);
                   }
                 } else
-                  "number" == typeof t
+                  'number' == typeof t
                     ? (t &= 255)
-                    : "boolean" == typeof t && (t = Number(t));
+                    : 'boolean' == typeof t && (t = Number(t));
                 if (r < 0 || this.length < r || this.length < n)
-                  throw new RangeError("Out of range index");
+                  throw new RangeError('Out of range index');
                 if (n <= r) return this;
                 var s;
                 if (
                   ((r >>>= 0),
                   (n = void 0 === n ? this.length : n >>> 0),
                   t || (t = 0),
-                  "number" == typeof t)
+                  'number' == typeof t)
                 )
                   for (s = r; s < n; ++s) this[s] = t;
                 else {
@@ -1237,7 +1237,7 @@
                     (63 & r) | 128
                   );
                 } else {
-                  if (!(r < 1114112)) throw new Error("Invalid code point");
+                  if (!(r < 1114112)) throw new Error('Invalid code point');
                   if ((e -= 4) < 0) break;
                   o.push(
                     (r >> 18) | 240,
@@ -1254,10 +1254,10 @@
               return n.toByteArray(
                 (function (t) {
                   if (
-                    (t = (t = t.split("=")[0]).trim().replace(R, "")).length < 2
+                    (t = (t = t.split('=')[0]).trim().replace(R, '')).length < 2
                   )
-                    return "";
-                  for (; t.length % 4 != 0; ) t += "=";
+                    return '';
+                  for (; t.length % 4 != 0; ) t += '=';
                   return t;
                 })(t)
               );
@@ -1289,20 +1289,20 @@
             var L = (function () {
               for (var t = new Array(256), e = 0; e < 16; ++e)
                 for (var r = 16 * e, n = 0; n < 16; ++n)
-                  t[r + n] = "0123456789abcdef"[e] + "0123456789abcdef"[n];
+                  t[r + n] = '0123456789abcdef'[e] + '0123456789abcdef'[n];
               return t;
             })();
-          }.call(this, t("buffer").Buffer));
+          }.call(this, t('buffer').Buffer));
         },
         {
-          "base64-js": 2,
+          'base64-js': 2,
           buffer: 5,
           ieee754: 3,
         },
       ],
       2: [
         function (t, e, r) {
-          "use strict";
+          'use strict';
           (r.byteLength = function (t) {
             var e = c(t),
               r = e[0],
@@ -1356,21 +1356,21 @@
               return (
                 1 === i
                   ? ((e = t[r - 1]),
-                    o.push(n[e >> 2] + n[(e << 4) & 63] + "=="))
+                    o.push(n[e >> 2] + n[(e << 4) & 63] + '=='))
                   : 2 === i &&
                     ((e = (t[r - 2] << 8) + t[r - 1]),
                     o.push(
-                      n[e >> 10] + n[(e >> 4) & 63] + n[(e << 2) & 63] + "="
+                      n[e >> 10] + n[(e >> 4) & 63] + n[(e << 2) & 63] + '='
                     )),
-                o.join("")
+                o.join('')
               );
             });
           for (
             var n = [],
               i = [],
-              o = "undefined" != typeof Uint8Array ? Uint8Array : Array,
+              o = 'undefined' != typeof Uint8Array ? Uint8Array : Array,
               s =
-                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+                'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
               a = 0,
               u = s.length;
             a < u;
@@ -1381,8 +1381,8 @@
           function c(t) {
             var e = t.length;
             if (e % 4 > 0)
-              throw new Error("Invalid string. Length must be a multiple of 4");
-            var r = t.indexOf("=");
+              throw new Error('Invalid string. Length must be a multiple of 4');
+            var r = t.indexOf('=');
             return -1 === r && (r = e), [r, r === e ? 0 : 4 - (r % 4)];
           }
 
@@ -1398,9 +1398,9 @@
                     n[(o >> 6) & 63] +
                     n[63 & o]
                 );
-            return s.join("");
+            return s.join('');
           }
-          (i["-".charCodeAt(0)] = 62), (i["_".charCodeAt(0)] = 63);
+          (i['-'.charCodeAt(0)] = 62), (i['_'.charCodeAt(0)] = 63);
         },
         {},
       ],
@@ -1482,9 +1482,9 @@
       5: [
         function (t, e, r) {
           (function (e) {
-            "use strict";
-            var n = t("base64-js"),
-              i = t("ieee754");
+            'use strict';
+            var n = t('base64-js'),
+              i = t('ieee754');
             (r.Buffer = e),
               (r.SlowBuffer = function (t) {
                 return +t != t && (t = 0), e.alloc(+t);
@@ -1502,8 +1502,8 @@
             }
 
             function e(t, e, r) {
-              if ("number" == typeof t) {
-                if ("string" == typeof e)
+              if ('number' == typeof t) {
+                if ('string' == typeof e)
                   throw new TypeError(
                     'The "string" argument must be of type string. Received type number'
                   );
@@ -1513,13 +1513,13 @@
             }
 
             function a(t, r, n) {
-              if ("string" == typeof t)
+              if ('string' == typeof t)
                 return (function (t, r) {
                   if (
-                    (("string" == typeof r && "" !== r) || (r = "utf8"),
+                    (('string' == typeof r && '' !== r) || (r = 'utf8'),
                     !e.isEncoding(r))
                   )
-                    throw new TypeError("Unknown encoding: " + r);
+                    throw new TypeError('Unknown encoding: ' + r);
                   var n = 0 | h(t, r),
                     i = s(n),
                     o = i.write(t, r);
@@ -1528,7 +1528,7 @@
               if (ArrayBuffer.isView(t)) return f(t);
               if (null == t)
                 throw TypeError(
-                  "The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " +
+                  'The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type ' +
                     typeof t
                 );
               if (K(t, ArrayBuffer) || (t && K(t.buffer, ArrayBuffer)))
@@ -1552,7 +1552,7 @@
                     i
                   );
                 })(t, r, n);
-              if ("number" == typeof t)
+              if ('number' == typeof t)
                 throw new TypeError(
                   'The "value" argument must not be of type number. Received type number'
                 );
@@ -1565,28 +1565,28 @@
                   return 0 === n.length ? n : (t.copy(n, 0, 0, r), n);
                 }
                 return void 0 !== t.length
-                  ? "number" != typeof t.length || N(t.length)
+                  ? 'number' != typeof t.length || N(t.length)
                     ? s(0)
                     : f(t)
-                  : "Buffer" === t.type && Array.isArray(t.data)
+                  : 'Buffer' === t.type && Array.isArray(t.data)
                   ? f(t.data)
                   : void 0;
               })(t);
               if (o) return o;
               if (
-                "undefined" != typeof Symbol &&
+                'undefined' != typeof Symbol &&
                 null != Symbol.toPrimitive &&
-                "function" == typeof t[Symbol.toPrimitive]
+                'function' == typeof t[Symbol.toPrimitive]
               )
-                return e.from(t[Symbol.toPrimitive]("string"), r, n);
+                return e.from(t[Symbol.toPrimitive]('string'), r, n);
               throw new TypeError(
-                "The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " +
+                'The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type ' +
                   typeof t
               );
             }
 
             function u(t) {
-              if ("number" != typeof t)
+              if ('number' != typeof t)
                 throw new TypeError('"size" argument must be of type number');
               if (t < 0)
                 throw new RangeError(
@@ -1611,9 +1611,9 @@
             function l(t) {
               if (t >= o)
                 throw new RangeError(
-                  "Attempt to allocate Buffer larger than maximum size: 0x" +
+                  'Attempt to allocate Buffer larger than maximum size: 0x' +
                     o.toString(16) +
-                    " bytes"
+                    ' bytes'
                 );
               return 0 | t;
             }
@@ -1622,7 +1622,7 @@
               if (e.isBuffer(t)) return t.length;
               if (ArrayBuffer.isView(t) || K(t, ArrayBuffer))
                 return t.byteLength;
-              if ("string" != typeof t)
+              if ('string' != typeof t)
                 throw new TypeError(
                   'The "string" argument must be one of type string, Buffer, or ArrayBuffer. Received type ' +
                     typeof t
@@ -1632,25 +1632,25 @@
               if (!i && 0 === n) return 0;
               for (var o = !1; ; )
                 switch (r) {
-                  case "ascii":
-                  case "latin1":
-                  case "binary":
+                  case 'ascii':
+                  case 'latin1':
+                  case 'binary':
                     return n;
-                  case "utf8":
-                  case "utf-8":
+                  case 'utf8':
+                  case 'utf-8':
                     return j(t).length;
-                  case "ucs2":
-                  case "ucs-2":
-                  case "utf16le":
-                  case "utf-16le":
+                  case 'ucs2':
+                  case 'ucs-2':
+                  case 'utf16le':
+                  case 'utf-16le':
                     return 2 * n;
-                  case "hex":
+                  case 'hex':
                     return n >>> 1;
-                  case "base64":
+                  case 'base64':
                     return M(t).length;
                   default:
                     if (o) return i ? -1 : j(t).length;
-                    (r = ("" + r).toLowerCase()), (o = !0);
+                    (r = ('' + r).toLowerCase()), (o = !0);
                 }
             }
 
@@ -1662,7 +1662,7 @@
             function d(t, r, n, i, o) {
               if (0 === t.length) return -1;
               if (
-                ("string" == typeof n
+                ('string' == typeof n
                   ? ((i = n), (n = 0))
                   : n > 2147483647
                   ? (n = 2147483647)
@@ -1677,18 +1677,18 @@
                 if (!o) return -1;
                 n = 0;
               }
-              if (("string" == typeof r && (r = e.from(r, i)), e.isBuffer(r)))
+              if (('string' == typeof r && (r = e.from(r, i)), e.isBuffer(r)))
                 return 0 === r.length ? -1 : y(t, r, n, i, o);
-              if ("number" == typeof r)
+              if ('number' == typeof r)
                 return (
                   (r &= 255),
-                  "function" == typeof Uint8Array.prototype.indexOf
+                  'function' == typeof Uint8Array.prototype.indexOf
                     ? o
                       ? Uint8Array.prototype.indexOf.call(t, r, n)
                       : Uint8Array.prototype.lastIndexOf.call(t, r, n)
                     : y(t, [r], n, i, o)
                 );
-              throw new TypeError("val must be string, number or Buffer");
+              throw new TypeError('val must be string, number or Buffer');
             }
 
             function y(t, e, r, n, i) {
@@ -1698,10 +1698,10 @@
                 u = e.length;
               if (
                 void 0 !== n &&
-                ("ucs2" === (n = String(n).toLowerCase()) ||
-                  "ucs-2" === n ||
-                  "utf16le" === n ||
-                  "utf-16le" === n)
+                ('ucs2' === (n = String(n).toLowerCase()) ||
+                  'ucs-2' === n ||
+                  'utf16le' === n ||
+                  'utf-16le' === n)
               ) {
                 if (t.length < 2 || e.length < 2) return -1;
                 (s = 2), (a /= 2), (u /= 2), (r /= 2);
@@ -1850,7 +1850,7 @@
               return (function (t) {
                 var e = t.length;
                 if (e <= k) return String.fromCharCode.apply(String, t);
-                for (var r = "", n = 0; n < e; )
+                for (var r = '', n = 0; n < e; )
                   r += String.fromCharCode.apply(String, t.slice(n, (n += k)));
                 return r;
               })(n);
@@ -1873,24 +1873,24 @@
                 }
               })()),
               e.TYPED_ARRAY_SUPPORT ||
-                "undefined" == typeof console ||
-                "function" != typeof console.error ||
+                'undefined' == typeof console ||
+                'function' != typeof console.error ||
                 console.error(
-                  "This browser lacks typed array (Uint8Array) support which is required by `buffer` v5.x. Use `buffer` v4.x if you require old browser support."
+                  'This browser lacks typed array (Uint8Array) support which is required by `buffer` v5.x. Use `buffer` v4.x if you require old browser support.'
                 ),
-              Object.defineProperty(e.prototype, "parent", {
+              Object.defineProperty(e.prototype, 'parent', {
                 enumerable: !0,
                 get: function () {
                   if (e.isBuffer(this)) return this.buffer;
                 },
               }),
-              Object.defineProperty(e.prototype, "offset", {
+              Object.defineProperty(e.prototype, 'offset', {
                 enumerable: !0,
                 get: function () {
                   if (e.isBuffer(this)) return this.byteOffset;
                 },
               }),
-              "undefined" != typeof Symbol &&
+              'undefined' != typeof Symbol &&
                 null != Symbol.species &&
                 e[Symbol.species] === e &&
                 Object.defineProperty(e, Symbol.species, {
@@ -1912,7 +1912,7 @@
                     t <= 0
                       ? s(t)
                       : void 0 !== e
-                      ? "string" == typeof r
+                      ? 'string' == typeof r
                         ? s(t).fill(e, r)
                         : s(t).fill(e)
                       : s(t)
@@ -1951,17 +1951,17 @@
               }),
               (e.isEncoding = function (t) {
                 switch (String(t).toLowerCase()) {
-                  case "hex":
-                  case "utf8":
-                  case "utf-8":
-                  case "ascii":
-                  case "latin1":
-                  case "binary":
-                  case "base64":
-                  case "ucs2":
-                  case "ucs-2":
-                  case "utf16le":
-                  case "utf-16le":
+                  case 'hex':
+                  case 'utf8':
+                  case 'utf-8':
+                  case 'ascii':
+                  case 'latin1':
+                  case 'binary':
+                  case 'base64':
+                  case 'ucs2':
+                  case 'ucs-2':
+                  case 'utf16le':
+                  case 'utf-16le':
                     return !0;
                   default:
                     return !1;
@@ -1994,7 +1994,7 @@
                 var t = this.length;
                 if (t % 2 != 0)
                   throw new RangeError(
-                    "Buffer size must be a multiple of 16-bits"
+                    'Buffer size must be a multiple of 16-bits'
                   );
                 for (var e = 0; e < t; e += 2) p(this, e, e + 1);
                 return this;
@@ -2003,7 +2003,7 @@
                 var t = this.length;
                 if (t % 4 != 0)
                   throw new RangeError(
-                    "Buffer size must be a multiple of 32-bits"
+                    'Buffer size must be a multiple of 32-bits'
                   );
                 for (var e = 0; e < t; e += 4)
                   p(this, e, e + 3), p(this, e + 1, e + 2);
@@ -2013,7 +2013,7 @@
                 var t = this.length;
                 if (t % 8 != 0)
                   throw new RangeError(
-                    "Buffer size must be a multiple of 64-bits"
+                    'Buffer size must be a multiple of 64-bits'
                   );
                 for (var e = 0; e < t; e += 8)
                   p(this, e, e + 7),
@@ -2025,60 +2025,60 @@
               (e.prototype.toString = function () {
                 var t = this.length;
                 return 0 === t
-                  ? ""
+                  ? ''
                   : 0 === arguments.length
                   ? x(this, 0, t)
                   : function (t, e, r) {
                       var n = !1;
                       if (((void 0 === e || e < 0) && (e = 0), e > this.length))
-                        return "";
+                        return '';
                       if (
                         ((void 0 === r || r > this.length) && (r = this.length),
                         r <= 0)
                       )
-                        return "";
-                      if ((r >>>= 0) <= (e >>>= 0)) return "";
-                      for (t || (t = "utf8"); ; )
+                        return '';
+                      if ((r >>>= 0) <= (e >>>= 0)) return '';
+                      for (t || (t = 'utf8'); ; )
                         switch (t) {
-                          case "hex":
+                          case 'hex':
                             return B(this, e, r);
-                          case "utf8":
-                          case "utf-8":
+                          case 'utf8':
+                          case 'utf-8':
                             return x(this, e, r);
-                          case "ascii":
+                          case 'ascii':
                             return S(this, e, r);
-                          case "latin1":
-                          case "binary":
+                          case 'latin1':
+                          case 'binary':
                             return A(this, e, r);
-                          case "base64":
+                          case 'base64':
                             return E(this, e, r);
-                          case "ucs2":
-                          case "ucs-2":
-                          case "utf16le":
-                          case "utf-16le":
+                          case 'ucs2':
+                          case 'ucs-2':
+                          case 'utf16le':
+                          case 'utf-16le':
                             return I(this, e, r);
                           default:
                             if (n)
-                              throw new TypeError("Unknown encoding: " + t);
-                            (t = (t + "").toLowerCase()), (n = !0);
+                              throw new TypeError('Unknown encoding: ' + t);
+                            (t = (t + '').toLowerCase()), (n = !0);
                         }
                     }.apply(this, arguments);
               }),
               (e.prototype.toLocaleString = e.prototype.toString),
               (e.prototype.equals = function (t) {
                 if (!e.isBuffer(t))
-                  throw new TypeError("Argument must be a Buffer");
+                  throw new TypeError('Argument must be a Buffer');
                 return this === t || 0 === e.compare(this, t);
               }),
               (e.prototype.inspect = function () {
-                var t = "",
+                var t = '',
                   e = r.INSPECT_MAX_BYTES;
                 return (
-                  (t = this.toString("hex", 0, e)
-                    .replace(/(.{2})/g, "$1 ")
+                  (t = this.toString('hex', 0, e)
+                    .replace(/(.{2})/g, '$1 ')
                     .trim()),
-                  this.length > e && (t += " ... "),
-                  "<Buffer " + t + ">"
+                  this.length > e && (t += ' ... '),
+                  '<Buffer ' + t + '>'
                 );
               }),
               (e.prototype.compare = function (t, r, n, i, o) {
@@ -2097,7 +2097,7 @@
                   void 0 === o && (o = this.length),
                   r < 0 || n > t.length || i < 0 || o > this.length)
                 )
-                  throw new RangeError("out of range index");
+                  throw new RangeError('out of range index');
                 if (i >= o && r >= n) return 0;
                 if (i >= o) return -1;
                 if (r >= n) return 1;
@@ -2128,17 +2128,17 @@
                 return d(this, t, e, r, !1);
               }),
               (e.prototype.write = function (t, e, r, n) {
-                if (void 0 === e) (n = "utf8"), (r = this.length), (e = 0);
-                else if (void 0 === r && "string" == typeof e)
+                if (void 0 === e) (n = 'utf8'), (r = this.length), (e = 0);
+                else if (void 0 === r && 'string' == typeof e)
                   (n = e), (r = this.length), (e = 0);
                 else {
                   if (!isFinite(e))
                     throw new Error(
-                      "Buffer.write(string, encoding, offset[, length]) is no longer supported"
+                      'Buffer.write(string, encoding, offset[, length]) is no longer supported'
                     );
                   (e >>>= 0),
                     isFinite(r)
-                      ? ((r >>>= 0), void 0 === n && (n = "utf8"))
+                      ? ((r >>>= 0), void 0 === n && (n = 'utf8'))
                       : ((n = r), (r = void 0));
                 }
                 var i = this.length - e;
@@ -2147,50 +2147,50 @@
                   (t.length > 0 && (r < 0 || e < 0)) || e > this.length)
                 )
                   throw new RangeError(
-                    "Attempt to write outside buffer bounds"
+                    'Attempt to write outside buffer bounds'
                   );
-                n || (n = "utf8");
+                n || (n = 'utf8');
                 for (var o = !1; ; )
                   switch (n) {
-                    case "hex":
+                    case 'hex':
                       return m(this, t, e, r);
-                    case "utf8":
-                    case "utf-8":
+                    case 'utf8':
+                    case 'utf-8':
                       return v(this, t, e, r);
-                    case "ascii":
+                    case 'ascii':
                       return g(this, t, e, r);
-                    case "latin1":
-                    case "binary":
+                    case 'latin1':
+                    case 'binary':
                       return w(this, t, e, r);
-                    case "base64":
+                    case 'base64':
                       return b(this, t, e, r);
-                    case "ucs2":
-                    case "ucs-2":
-                    case "utf16le":
-                    case "utf-16le":
+                    case 'ucs2':
+                    case 'ucs-2':
+                    case 'utf16le':
+                    case 'utf-16le':
                       return _(this, t, e, r);
                     default:
-                      if (o) throw new TypeError("Unknown encoding: " + n);
-                      (n = ("" + n).toLowerCase()), (o = !0);
+                      if (o) throw new TypeError('Unknown encoding: ' + n);
+                      (n = ('' + n).toLowerCase()), (o = !0);
                   }
               }),
               (e.prototype.toJSON = function () {
                 return {
-                  type: "Buffer",
+                  type: 'Buffer',
                   data: Array.prototype.slice.call(this._arr || this, 0),
                 };
               });
             var k = 4096;
 
             function S(t, e, r) {
-              var n = "";
+              var n = '';
               r = Math.min(t.length, r);
               for (var i = e; i < r; ++i) n += String.fromCharCode(127 & t[i]);
               return n;
             }
 
             function A(t, e, r) {
-              var n = "";
+              var n = '';
               r = Math.min(t.length, r);
               for (var i = e; i < r; ++i) n += String.fromCharCode(t[i]);
               return n;
@@ -2199,21 +2199,21 @@
             function B(t, e, r) {
               var n = t.length;
               (!e || e < 0) && (e = 0), (!r || r < 0 || r > n) && (r = n);
-              for (var i = "", o = e; o < r; ++o) i += R(t[o]);
+              for (var i = '', o = e; o < r; ++o) i += R(t[o]);
               return i;
             }
 
             function I(t, e, r) {
-              for (var n = t.slice(e, r), i = "", o = 0; o < n.length; o += 2)
+              for (var n = t.slice(e, r), i = '', o = 0; o < n.length; o += 2)
                 i += String.fromCharCode(n[o] + 256 * n[o + 1]);
               return i;
             }
 
             function O(t, e, r) {
               if (t % 1 != 0 || t < 0)
-                throw new RangeError("offset is not uint");
+                throw new RangeError('offset is not uint');
               if (t + e > r)
-                throw new RangeError("Trying to access beyond buffer length");
+                throw new RangeError('Trying to access beyond buffer length');
             }
 
             function C(t, r, n, i, o, s) {
@@ -2223,12 +2223,12 @@
                 );
               if (r > o || r < s)
                 throw new RangeError('"value" argument is out of bounds');
-              if (n + i > t.length) throw new RangeError("Index out of range");
+              if (n + i > t.length) throw new RangeError('Index out of range');
             }
 
             function P(t, e, r, n, i, o) {
-              if (r + n > t.length) throw new RangeError("Index out of range");
-              if (r < 0) throw new RangeError("Index out of range");
+              if (r + n > t.length) throw new RangeError('Index out of range');
+              if (r < 0) throw new RangeError('Index out of range');
             }
 
             function D(t, e, r, n, o) {
@@ -2552,7 +2552,7 @@
               }),
               (e.prototype.copy = function (t, r, n, i) {
                 if (!e.isBuffer(t))
-                  throw new TypeError("argument should be a Buffer");
+                  throw new TypeError('argument should be a Buffer');
                 if (
                   (n || (n = 0),
                   i || 0 === i || (i = this.length),
@@ -2563,16 +2563,16 @@
                 )
                   return 0;
                 if (0 === t.length || 0 === this.length) return 0;
-                if (r < 0) throw new RangeError("targetStart out of bounds");
+                if (r < 0) throw new RangeError('targetStart out of bounds');
                 if (n < 0 || n >= this.length)
-                  throw new RangeError("Index out of range");
-                if (i < 0) throw new RangeError("sourceEnd out of bounds");
+                  throw new RangeError('Index out of range');
+                if (i < 0) throw new RangeError('sourceEnd out of bounds');
                 i > this.length && (i = this.length),
                   t.length - r < i - n && (i = t.length - r + n);
                 var o = i - n;
                 if (
                   this === t &&
-                  "function" == typeof Uint8Array.prototype.copyWithin
+                  'function' == typeof Uint8Array.prototype.copyWithin
                 )
                   this.copyWithin(r, n, i);
                 else if (this === t && n < r && r < i)
@@ -2581,30 +2581,30 @@
                 return o;
               }),
               (e.prototype.fill = function (t, r, n, i) {
-                if ("string" == typeof t) {
+                if ('string' == typeof t) {
                   if (
-                    ("string" == typeof r
+                    ('string' == typeof r
                       ? ((i = r), (r = 0), (n = this.length))
-                      : "string" == typeof n && ((i = n), (n = this.length)),
-                    void 0 !== i && "string" != typeof i)
+                      : 'string' == typeof n && ((i = n), (n = this.length)),
+                    void 0 !== i && 'string' != typeof i)
                   )
-                    throw new TypeError("encoding must be a string");
-                  if ("string" == typeof i && !e.isEncoding(i))
-                    throw new TypeError("Unknown encoding: " + i);
+                    throw new TypeError('encoding must be a string');
+                  if ('string' == typeof i && !e.isEncoding(i))
+                    throw new TypeError('Unknown encoding: ' + i);
                   if (1 === t.length) {
                     var o = t.charCodeAt(0);
-                    (("utf8" === i && o < 128) || "latin1" === i) && (t = o);
+                    (('utf8' === i && o < 128) || 'latin1' === i) && (t = o);
                   }
-                } else "number" == typeof t && (t &= 255);
+                } else 'number' == typeof t && (t &= 255);
                 if (r < 0 || this.length < r || this.length < n)
-                  throw new RangeError("Out of range index");
+                  throw new RangeError('Out of range index');
                 if (n <= r) return this;
                 var s;
                 if (
                   ((r >>>= 0),
                   (n = void 0 === n ? this.length : n >>> 0),
                   t || (t = 0),
-                  "number" == typeof t)
+                  'number' == typeof t)
                 )
                   for (s = r; s < n; ++s) this[s] = t;
                 else {
@@ -2621,7 +2621,7 @@
             var F = /[^+\/0-9A-Za-z-_]/g;
 
             function R(t) {
-              return t < 16 ? "0" + t.toString(16) : t.toString(16);
+              return t < 16 ? '0' + t.toString(16) : t.toString(16);
             }
 
             function j(t, e) {
@@ -2661,7 +2661,7 @@
                     (63 & r) | 128
                   );
                 } else {
-                  if (!(r < 1114112)) throw new Error("Invalid code point");
+                  if (!(r < 1114112)) throw new Error('Invalid code point');
                   if ((e -= 4) < 0) break;
                   o.push(
                     (r >> 18) | 240,
@@ -2678,10 +2678,10 @@
               return n.toByteArray(
                 (function (t) {
                   if (
-                    (t = (t = t.split("=")[0]).trim().replace(F, "")).length < 2
+                    (t = (t = t.split('=')[0]).trim().replace(F, '')).length < 2
                   )
-                    return "";
-                  for (; t.length % 4 != 0; ) t += "=";
+                    return '';
+                  for (; t.length % 4 != 0; ) t += '=';
                   return t;
                 })(t)
               );
@@ -2710,10 +2710,10 @@
             function N(t) {
               return t != t;
             }
-          }.call(this, t("buffer").Buffer));
+          }.call(this, t('buffer').Buffer));
         },
         {
-          "base64-js": 4,
+          'base64-js': 4,
           buffer: 5,
           ieee754: 6,
         },
@@ -2732,13 +2732,13 @@
   )(1);
 }),
   (function (t, e) {
-    "object" == typeof exports && "undefined" != typeof module
+    'object' == typeof exports && 'undefined' != typeof module
       ? (module.exports = e())
-      : "function" == typeof define && define.amd
+      : 'function' == typeof define && define.amd
       ? define(e)
       : (t.Dexie = e());
   })(this, function () {
-    "use strict";
+    'use strict';
     var t = function () {
         return (t =
           Object.assign ||
@@ -2752,22 +2752,22 @@
       e = Object.keys,
       r = Array.isArray,
       n =
-        "undefined" != typeof self
+        'undefined' != typeof self
           ? self
-          : "undefined" != typeof window
+          : 'undefined' != typeof window
           ? window
           : global;
 
     function i(t, r) {
       return (
-        "object" != typeof r ||
+        'object' != typeof r ||
           e(r).forEach(function (e) {
             t[e] = r[e];
           }),
         t
       );
     }
-    "undefined" == typeof Promise || n.Promise || (n.Promise = Promise);
+    'undefined' == typeof Promise || n.Promise || (n.Promise = Promise);
     var o = Object.getPrototypeOf,
       s = {}.hasOwnProperty;
 
@@ -2776,7 +2776,7 @@
     }
 
     function u(t, r) {
-      "function" == typeof r && (r = r(o(t))),
+      'function' == typeof r && (r = r(o(t))),
         e(r).forEach(function (e) {
           f(t, e, r[e]);
         });
@@ -2788,7 +2788,7 @@
         t,
         e,
         i(
-          r && a(r, "get") && "function" == typeof r.get
+          r && a(r, 'get') && 'function' == typeof r.get
             ? {
                 get: r.get,
                 set: r.set,
@@ -2809,7 +2809,7 @@
         from: function (e) {
           return (
             (t.prototype = Object.create(e.prototype)),
-            f(t.prototype, "constructor", t),
+            f(t.prototype, 'constructor', t),
             {
               extend: u.bind(null, t.prototype),
             }
@@ -2829,7 +2829,7 @@
     }
 
     function m(t) {
-      if (!t) throw new Error("Assertion Failed");
+      if (!t) throw new Error('Assertion Failed');
     }
 
     function v(t) {
@@ -2846,14 +2846,14 @@
     function w(t, e) {
       if (a(t, e)) return t[e];
       if (!e) return t;
-      if ("string" != typeof e) {
+      if ('string' != typeof e) {
         for (var r = [], n = 0, i = e.length; n < i; ++n) {
           var o = w(t, e[n]);
           r.push(o);
         }
         return r;
       }
-      var s = e.indexOf(".");
+      var s = e.indexOf('.');
       if (-1 !== s) {
         var u = t[e.substr(0, s)];
         return void 0 === u ? void 0 : w(u, e.substr(s + 1));
@@ -2861,16 +2861,16 @@
     }
 
     function b(t, e, n) {
-      if (t && void 0 !== e && !("isFrozen" in Object && Object.isFrozen(t)))
-        if ("string" != typeof e && "length" in e) {
-          m("string" != typeof n && "length" in n);
+      if (t && void 0 !== e && !('isFrozen' in Object && Object.isFrozen(t)))
+        if ('string' != typeof e && 'length' in e) {
+          m('string' != typeof n && 'length' in n);
           for (var i = 0, o = e.length; i < o; ++i) b(t, e[i], n[i]);
         } else {
-          var s = e.indexOf(".");
+          var s = e.indexOf('.');
           if (-1 !== s) {
             var a = e.substr(0, s),
               u = e.substr(s + 1);
-            if ("" === u)
+            if ('' === u)
               void 0 === n
                 ? r(t) && !isNaN(parseInt(a))
                   ? t.splice(a, 1)
@@ -2900,13 +2900,13 @@
       return E.apply([], t);
     }
     var k =
-        "Boolean,String,Date,RegExp,Blob,File,FileList,ArrayBuffer,DataView,Uint8ClampedArray,ImageData,Map,Set"
-          .split(",")
+        'Boolean,String,Date,RegExp,Blob,File,FileList,ArrayBuffer,DataView,Uint8ClampedArray,ImageData,Map,Set'
+          .split(',')
           .concat(
             x(
               [8, 16, 32, 64].map(function (t) {
-                return ["Int", "Uint", "Float"].map(function (e) {
-                  return e + t + "Array";
+                return ['Int', 'Uint', 'Float'].map(function (e) {
+                  return e + t + 'Array';
                 });
               })
             )
@@ -2922,7 +2922,7 @@
       });
 
     function B(t) {
-      if (!t || "object" != typeof t) return t;
+      if (!t || 'object' != typeof t) return t;
       var e;
       if (r(t)) {
         e = [];
@@ -2942,35 +2942,35 @@
       return I.call(t).slice(8, -1);
     }
     var C = function (t, e) {
-      return "Array" === e
-        ? "" +
+      return 'Array' === e
+        ? '' +
             t.map(function (t) {
               return C(t, O(t));
             })
-        : "ArrayBuffer" === e
-        ? "" + new Uint8Array(t)
-        : "Date" === e
+        : 'ArrayBuffer' === e
+        ? '' + new Uint8Array(t)
+        : 'Date' === e
         ? t.getTime()
         : ArrayBuffer.isView(t)
-        ? "" + new Uint8Array(t.buffer)
+        ? '' + new Uint8Array(t.buffer)
         : t;
     };
 
     function P(t, r, n, i) {
       return (
         (n = n || {}),
-        (i = i || ""),
+        (i = i || ''),
         e(t).forEach(function (e) {
           if (a(r, e)) {
             var o = t[e],
               s = r[e];
-            if ("object" == typeof o && "object" == typeof s && o && s) {
+            if ('object' == typeof o && 'object' == typeof s && o && s) {
               var u = O(o),
                 c = O(s);
               u === c
                 ? A[u]
                   ? C(o, u) !== C(s, c) && (n[i + e] = r[e])
-                  : P(o, s, n, i + e + ".")
+                  : P(o, s, n, i + e + '.')
                 : (n[i + e] = r[e]);
             } else o !== s && (n[i + e] = r[e]);
           } else n[i + e] = void 0;
@@ -2981,7 +2981,7 @@
         n
       );
     }
-    var D = "undefined" != typeof Symbol && Symbol.iterator,
+    var D = 'undefined' != typeof Symbol && Symbol.iterator,
       T = D
         ? function (t) {
             var e;
@@ -2996,13 +2996,13 @@
       var e, n, i, o;
       if (1 === arguments.length) {
         if (r(t)) return t.slice();
-        if (this === F && "string" == typeof t) return [t];
+        if (this === F && 'string' == typeof t) return [t];
         if ((o = T(t))) {
           for (n = []; !(i = o.next()).done; ) n.push(i.value);
           return n;
         }
         if (null == t) return [t];
-        if ("number" != typeof (e = t.length)) return [t];
+        if ('number' != typeof (e = t.length)) return [t];
         for (n = new Array(e); e--; ) n[e] = t[e];
         return n;
       }
@@ -3010,7 +3010,7 @@
       return n;
     }
     var j =
-      "undefined" != typeof location &&
+      'undefined' != typeof location &&
       /^(http|https):\/\/(localhost|127\.0\.0\.1)/.test(location.href);
 
     function M(t, e) {
@@ -3019,7 +3019,7 @@
     var U = function () {
         return !0;
       },
-      K = !new Error("").stack;
+      K = !new Error('').stack;
 
     function N() {
       if (K)
@@ -3036,56 +3036,56 @@
       return r
         ? ((e = e || 0),
           0 === r.indexOf(t.name) &&
-            (e += (t.name + t.message).split("\n").length),
+            (e += (t.name + t.message).split('\n').length),
           r
-            .split("\n")
+            .split('\n')
             .slice(e)
             .filter(U)
             .map(function (t) {
-              return "\n" + t;
+              return '\n' + t;
             })
-            .join(""))
-        : "";
+            .join(''))
+        : '';
     }
     var z = [
-        "Unknown",
-        "Constraint",
-        "Data",
-        "TransactionInactive",
-        "ReadOnly",
-        "Version",
-        "NotFound",
-        "InvalidState",
-        "InvalidAccess",
-        "Abort",
-        "Timeout",
-        "QuotaExceeded",
-        "Syntax",
-        "DataClone",
+        'Unknown',
+        'Constraint',
+        'Data',
+        'TransactionInactive',
+        'ReadOnly',
+        'Version',
+        'NotFound',
+        'InvalidState',
+        'InvalidAccess',
+        'Abort',
+        'Timeout',
+        'QuotaExceeded',
+        'Syntax',
+        'DataClone',
       ],
       q = [
-        "Modify",
-        "Bulk",
-        "OpenFailed",
-        "VersionChange",
-        "Schema",
-        "Upgrade",
-        "InvalidTable",
-        "MissingAPI",
-        "NoSuchDatabase",
-        "InvalidArgument",
-        "SubTransaction",
-        "Unsupported",
-        "Internal",
-        "DatabaseClosed",
-        "PrematureCommit",
-        "ForeignAwait",
+        'Modify',
+        'Bulk',
+        'OpenFailed',
+        'VersionChange',
+        'Schema',
+        'Upgrade',
+        'InvalidTable',
+        'MissingAPI',
+        'NoSuchDatabase',
+        'InvalidArgument',
+        'SubTransaction',
+        'Unsupported',
+        'Internal',
+        'DatabaseClosed',
+        'PrematureCommit',
+        'ForeignAwait',
       ].concat(z),
       V = {
-        VersionChanged: "Database version changed by other database connection",
-        DatabaseClosed: "Database has been closed",
-        Abort: "Transaction aborted",
-        TransactionInactive: "Transaction has already completed or failed",
+        VersionChanged: 'Database version changed by other database connection',
+        DatabaseClosed: 'Database has been closed',
+        Abort: 'Transaction aborted',
+        TransactionInactive: 'Transaction has already completed or failed',
       };
 
     function W(t, e) {
@@ -3095,7 +3095,7 @@
     function G(t, e) {
       return (
         t +
-        ". Errors: " +
+        '. Errors: ' +
         Object.keys(e)
           .map(function (t) {
             return e[t].toString();
@@ -3103,7 +3103,7 @@
           .filter(function (t, e, r) {
             return r.indexOf(t) === e;
           })
-          .join("\n")
+          .join('\n')
       );
     }
 
@@ -3117,7 +3117,7 @@
 
     function Y(t, e) {
       (this._e = N()),
-        (this.name = "BulkError"),
+        (this.name = 'BulkError'),
         (this.failures = e),
         (this.message = G(t, e));
     }
@@ -3128,44 +3128,44 @@
           get: function () {
             return (
               this._stack ||
-              (this._stack = this.name + ": " + this.message + L(this._e, 2))
+              (this._stack = this.name + ': ' + this.message + L(this._e, 2))
             );
           },
         },
         toString: function () {
-          return this.name + ": " + this.message;
+          return this.name + ': ' + this.message;
         },
       }),
       l($).from(W),
       l(Y).from(W);
     var H = q.reduce(function (t, e) {
-        return (t[e] = e + "Error"), t;
+        return (t[e] = e + 'Error'), t;
       }, {}),
       X = W,
       J = q.reduce(function (t, e) {
-        var r = e + "Error";
+        var r = e + 'Error';
 
         function n(t, n) {
           (this._e = N()),
             (this.name = r),
             t
-              ? "string" == typeof t
-                ? ((this.message = t + (n ? "\n " + n : "")),
+              ? 'string' == typeof t
+                ? ((this.message = t + (n ? '\n ' + n : '')),
                   (this.inner = n || null))
-                : "object" == typeof t &&
-                  ((this.message = t.name + " " + t.message), (this.inner = t))
+                : 'object' == typeof t &&
+                  ((this.message = t.name + ' ' + t.message), (this.inner = t))
               : ((this.message = V[e] || r), (this.inner = null));
         }
         return l(n).from(X), (t[e] = n), t;
       }, {});
     (J.Syntax = SyntaxError), (J.Type = TypeError), (J.Range = RangeError);
     var Q = z.reduce(function (t, e) {
-        return (t[e + "Error"] = J[e]), t;
+        return (t[e + 'Error'] = J[e]), t;
       }, {}),
       Z = q.reduce(function (t, e) {
         return (
-          -1 === ["Syntax", "Type", "Range"].indexOf(e) &&
-            (t[e + "Error"] = J[e]),
+          -1 === ['Syntax', 'Type', 'Range'].indexOf(e) &&
+            (t[e + 'Error'] = J[e]),
           t
         );
       }, {});
@@ -3256,7 +3256,7 @@
         ? e
         : function () {
             var r = t.apply(this, arguments);
-            if (r && "function" == typeof r.then) {
+            if (r && 'function' == typeof r.then) {
               for (var n = this, i = arguments.length, o = new Array(i); i--; )
                 o[i] = arguments[i];
               return r.then(function () {
@@ -3269,13 +3269,13 @@
     (Z.ModifyError = $), (Z.DexieError = W), (Z.BulkError = Y);
     var ct = {},
       ft =
-        "undefined" == typeof Promise
+        'undefined' == typeof Promise
           ? []
           : (function () {
               var t = Promise.resolve();
-              if ("undefined" == typeof crypto || !crypto.subtle)
+              if ('undefined' == typeof crypto || !crypto.subtle)
                 return [t, t.__proto__, t];
-              var e = crypto.subtle.digest("SHA-512", new Uint8Array([0]));
+              var e = crypto.subtle.digest('SHA-512', new Uint8Array([0]));
               return [e, e.__proto__, t];
             })(),
       lt = ft[0],
@@ -3293,13 +3293,13 @@
         ? setImmediate.bind(null, Kt)
         : n.MutationObserver
         ? function () {
-            var t = document.createElement("div");
+            var t = document.createElement('div');
             new MutationObserver(function () {
               Kt(), (t = null);
             }).observe(t, {
               attributes: !0,
             }),
-              t.setAttribute("i", "1");
+              t.setAttribute('i', '1');
           }
         : function () {
             setTimeout(Kt, 0);
@@ -3314,7 +3314,7 @@
       kt = null,
       St = et,
       At = {
-        id: "global",
+        id: 'global',
         global: !0,
         ref: 0,
         unhandleds: [],
@@ -3335,16 +3335,16 @@
       Ct = [];
 
     function Pt(t) {
-      if ("object" != typeof this)
-        throw new TypeError("Promises must be constructed via new");
+      if ('object' != typeof this)
+        throw new TypeError('Promises must be constructed via new');
       (this._listeners = []), (this.onuncatched = tt), (this._lib = !1);
       var e = (this._PSD = Bt);
       if (
         (j &&
           ((this._stackHolder = N()), (this._prev = null), (this._numPrev = 0)),
-        "function" != typeof t)
+        'function' != typeof t)
       ) {
-        if (t !== ct) throw new TypeError("Not a function");
+        if (t !== ct) throw new TypeError('Not a function');
         return (
           (this._state = arguments[1]),
           (this._value = arguments[2]),
@@ -3360,10 +3360,10 @@
               if (null === e._state) {
                 if (r === e)
                   throw new TypeError(
-                    "A promise cannot be resolved with itself."
+                    'A promise cannot be resolved with itself.'
                   );
                 var n = e._lib && Nt();
-                r && "function" == typeof r.then
+                r && 'function' == typeof r.then
                   ? t(e, function (t, e) {
                       r instanceof Pt ? r._then(t, e) : r.then(t, e);
                     })
@@ -3395,7 +3395,7 @@
       set: function (t) {
         f(
           this,
-          "then",
+          'then',
           t && t.prototype === ct
             ? Dt
             : {
@@ -3409,8 +3409,8 @@
     };
 
     function Tt(t, e, r, n, i) {
-      (this.onFulfilled = "function" == typeof t ? t : null),
-        (this.onRejected = "function" == typeof e ? e : null),
+      (this.onFulfilled = 'function' == typeof t ? t : null),
+        (this.onRejected = 'function' == typeof e ? e : null),
         (this.resolve = r),
         (this.reject = n),
         (this.psd = i);
@@ -3424,7 +3424,7 @@
           (t._value = e),
           j &&
             null !== e &&
-            "object" == typeof e &&
+            'object' == typeof e &&
             !e._promise &&
             (function (t, e, r) {
               try {
@@ -3434,9 +3434,9 @@
               var r = (function t(e, r) {
                 var n;
                 return h(e, r) || ((n = o(e)) && t(n, r));
-              })(e, "stack");
+              })(e, 'stack');
               (e._promise = t),
-                f(e, "stack", {
+                f(e, 'stack', {
                   get: function () {
                     return vt
                       ? r && (r.get ? r.get.apply(e) : r.value)
@@ -3558,7 +3558,7 @@
         if (1 === arguments.length) return this.then(null, t);
         var e = t,
           r = arguments[1];
-        return "function" == typeof e
+        return 'function' == typeof e
           ? this.then(null, function (t) {
               return t instanceof e ? r(t) : qt(t);
             })
@@ -3583,17 +3583,17 @@
             vt = !0;
             var t = (function t(e, r, n) {
               if (r.length === n) return r;
-              var i = "";
+              var i = '';
               if (!1 === e._state) {
                 var o,
                   s,
                   a = e._value;
                 null != a
-                  ? ((o = a.name || "Error"),
+                  ? ((o = a.name || 'Error'),
                     (s = a.message || a),
                     (i = L(a, 0)))
-                  : ((o = a), (s = "")),
-                  r.push(o + (s ? ": " + s : "") + i);
+                  : ((o = a), (s = '')),
+                  r.push(o + (s ? ': ' + s : '') + i);
               }
               return (
                 j &&
@@ -3603,7 +3603,7 @@
                   e._prev && t(e._prev, r, n)),
                 r
               );
-            })(this, [], 20).join("\nFrom previous: ");
+            })(this, [], 20).join('\nFrom previous: ');
             return null !== this._state && (this._stack = t), t;
           } finally {
             vt = !1;
@@ -3622,9 +3622,9 @@
           : this;
       },
     }),
-      "undefined" != typeof Symbol &&
+      'undefined' != typeof Symbol &&
         Symbol.toStringTag &&
-        f(Pt.prototype, Symbol.toStringTag, "Dexie.Promise"),
+        f(Pt.prototype, Symbol.toStringTag, 'Dexie.Promise'),
       (At.env = ne()),
       u(Pt, {
         all: function () {
@@ -3641,7 +3641,7 @@
         },
         resolve: function (t) {
           if (t instanceof Pt) return t;
-          if (t && "function" == typeof t.then)
+          if (t && 'function' == typeof t.then)
             return new Pt(function (e, r) {
               t.then(e, r);
             });
@@ -3806,7 +3806,7 @@
         (ht.then = o.nthen),
           (i.prototype.then = o.gthen),
           (r.global || t.global) &&
-            (Object.defineProperty(n, "Promise", o.PromiseProp),
+            (Object.defineProperty(n, 'Promise', o.PromiseProp),
             (i.all = o.all),
             (i.race = o.race),
             (i.resolve = o.resolve),
@@ -3819,7 +3819,7 @@
       return mt
         ? {
             Promise: t,
-            PromiseProp: Object.getOwnPropertyDescriptor(n, "Promise"),
+            PromiseProp: Object.getOwnPropertyDescriptor(n, 'Promise'),
             all: t.all,
             race: t.race,
             resolve: t.resolve,
@@ -3840,7 +3840,7 @@
     }
 
     function oe(t, e, r) {
-      return "function" != typeof t
+      return 'function' != typeof t
         ? t
         : function () {
             var n = Bt;
@@ -3858,8 +3858,8 @@
         return t.call(this, oe(r, e, !1), oe(n, e, !1));
       };
     }
-    -1 === ("" + dt).indexOf("[native code]") && (Qt = Zt = tt);
-    var ae = "unhandledrejection";
+    -1 === ('' + dt).indexOf('[native code]') && (Qt = Zt = tt);
+    var ae = 'unhandledrejection';
 
     function ue(t, e) {
       var r;
@@ -3875,7 +3875,7 @@
             };
           if (
             (n.document && document.createEvent
-              ? ((o = document.createEvent("Event")).initEvent(ae, !0, !0),
+              ? ((o = document.createEvent('Event')).initEvent(ae, !0, !0),
                 i(o, s))
               : n.CustomEvent &&
                 i(
@@ -3895,7 +3895,7 @@
           j &&
             o &&
             !o.defaultPrevented &&
-            console.warn("Unhandled rejection: " + (t.stack || t));
+            console.warn('Unhandled rejection: ' + (t.stack || t));
         } catch (t) {}
     }
     var ce = Pt.reject;
@@ -3903,20 +3903,20 @@
     function fe(t) {
       return !/(dexie\.js|dexie\.min\.js)/.test(t);
     }
-    var le = "3.0.0-beta.1",
+    var le = '3.0.0-beta.1',
       he = String.fromCharCode(65535),
       pe =
-        "Invalid key provided. Keys must be of type string, number, Date or Array<string | number | Date>.",
-      de = "String expected.",
+        'Invalid key provided. Keys must be of type string, number, Date or Array<string | number | Date>.',
+      de = 'String expected.',
       ye = [],
       me =
-        "undefined" != typeof navigator &&
+        'undefined' != typeof navigator &&
         /(MSIE|Trident|Edge)/.test(navigator.userAgent),
       ve = me,
       ge = me,
-      we = "__dbnames",
-      be = "readonly",
-      _e = "readwrite";
+      we = '__dbnames',
+      be = 'readonly',
+      _e = 'readwrite';
 
     function Ee(t, e) {
       return t
@@ -3943,7 +3943,7 @@
 
             function o(t, r, n) {
               if (!n.schema[i])
-                throw new J.NotFound("Table " + i + " not part of transaction");
+                throw new J.NotFound('Table ' + i + ' not part of transaction');
               return e(n.idbtrans, n);
             }
             var s = Nt();
@@ -3997,7 +3997,7 @@
             var r = this;
             return t && t.constructor === Object
               ? this.where(t).first(e)
-              : this._trans("readonly", function (e) {
+              : this._trans('readonly', function (e) {
                   return r.core
                     .get({
                       trans: e,
@@ -4009,9 +4009,9 @@
                 }).then(e);
           }),
           (t.prototype.where = function (t) {
-            if ("string" == typeof t) return new this.db.WhereClause(this, t);
+            if ('string' == typeof t) return new this.db.WhereClause(this, t);
             if (r(t))
-              return new this.db.WhereClause(this, "[" + t.join("+") + "]");
+              return new this.db.WhereClause(this, '[' + t.join('+') + ']');
             var n = e(t);
             if (1 === n.length) return this.where(n[0]).equals(t[n[0]]);
             var i = this.schema.indexes
@@ -4036,13 +4036,13 @@
             !i &&
               j &&
               console.warn(
-                "The query " +
+                'The query ' +
                   JSON.stringify(t) +
-                  " on " +
+                  ' on ' +
                   this.name +
-                  " would benefit of a compound index [" +
-                  n.join("+") +
-                  "]"
+                  ' would benefit of a compound index [' +
+                  n.join('+') +
+                  ']'
               );
             var o = this.schema.idxByName,
               s = this.db._deps.indexedDB;
@@ -4090,7 +4090,7 @@
               ? this.where(c.name).equals(t[c.keyPath]).filter(f)
               : i
               ? this.filter(f)
-              : this.where(n).equals("");
+              : this.where(n).equals('');
           }),
           (t.prototype.filter = function (t) {
             return this.toCollection().and(t);
@@ -4115,7 +4115,7 @@
           }),
           (t.prototype.orderBy = function (t) {
             return new this.db.Collection(
-              new this.db.WhereClause(this, r(t) ? "[" + t.join("+") + "]" : t)
+              new this.db.WhereClause(this, r(t) ? '[' + t.join('+') + ']' : t)
             );
           }),
           (t.prototype.reverse = function () {
@@ -4137,7 +4137,7 @@
               this.schema.readHook &&
                 this.hook.reading.unsubscribe(this.schema.readHook),
               (this.schema.readHook = e),
-              this.hook("reading", e),
+              this.hook('reading', e),
               t
             );
           }),
@@ -4148,10 +4148,10 @@
           }),
           (t.prototype.add = function (t, e) {
             var r = this;
-            return this._trans("readwrite", function (n) {
+            return this._trans('readwrite', function (n) {
               return r.core.mutate({
                 trans: n,
-                type: "add",
+                type: 'add',
                 keys: null != e ? [e] : null,
                 values: [t],
               });
@@ -4168,10 +4168,10 @@
               });
           }),
           (t.prototype.update = function (t, n) {
-            if ("object" != typeof n || r(n))
-              throw new J.InvalidArgument("Modifications must be an object.");
-            if ("object" != typeof t || r(t))
-              return this.where(":id").equals(t).modify(n);
+            if ('object' != typeof n || r(n))
+              throw new J.InvalidArgument('Modifications must be an object.');
+            if ('object' != typeof t || r(t))
+              return this.where(':id').equals(t).modify(n);
             e(n).forEach(function (e) {
               b(t, e, n[e]);
             });
@@ -4179,17 +4179,17 @@
             return void 0 === i
               ? ce(
                   new J.InvalidArgument(
-                    "Given object does not contain its primary key"
+                    'Given object does not contain its primary key'
                   )
                 )
-              : this.where(":id").equals(i).modify(n);
+              : this.where(':id').equals(i).modify(n);
           }),
           (t.prototype.put = function (t, e) {
             var r = this;
-            return this._trans("readwrite", function (n) {
+            return this._trans('readwrite', function (n) {
               return r.core.mutate({
                 trans: n,
-                type: "put",
+                type: 'put',
                 values: [t],
                 keys: null != e ? [e] : null,
               });
@@ -4207,10 +4207,10 @@
           }),
           (t.prototype.delete = function (t) {
             var e = this;
-            return this._trans("readwrite", function (r) {
+            return this._trans('readwrite', function (r) {
               return e.core.mutate({
                 trans: r,
-                type: "delete",
+                type: 'delete',
                 keys: [t],
               });
             }).then(function (t) {
@@ -4219,10 +4219,10 @@
           }),
           (t.prototype.clear = function () {
             var t = this;
-            return this._trans("readwrite", function (e) {
+            return this._trans('readwrite', function (e) {
               return t.core.mutate({
                 trans: e,
-                type: "deleteRange",
+                type: 'deleteRange',
                 range: xe,
               });
             }).then(function (t) {
@@ -4231,7 +4231,7 @@
           }),
           (t.prototype.bulkGet = function (t) {
             var e = this;
-            return this._trans("readonly", function (r) {
+            return this._trans('readonly', function (r) {
               return e.core.getMany({
                 keys: t,
                 trans: r,
@@ -4240,20 +4240,20 @@
           }),
           (t.prototype.bulkAdd = function (t, e) {
             var r = this;
-            return this._trans("readwrite", function (n) {
+            return this._trans('readwrite', function (n) {
               if (!r.core.schema.primaryKey.outbound && e)
                 throw new J.InvalidArgument(
-                  "bulkAdd(): keys argument invalid on tables with inbound keys"
+                  'bulkAdd(): keys argument invalid on tables with inbound keys'
                 );
               if (e && e.length !== t.length)
                 throw new J.InvalidArgument(
-                  "Arguments objects and keys must have the same length"
+                  'Arguments objects and keys must have the same length'
                 );
               var i = t.length;
               return r.core
                 .mutate({
                   trans: n,
-                  type: "add",
+                  type: 'add',
                   keys: e,
                   values: t,
                 })
@@ -4264,11 +4264,11 @@
                   if (0 === e) return n;
                   throw new Y(
                     r.name +
-                      ".bulkAdd(): " +
+                      '.bulkAdd(): ' +
                       e +
-                      " of " +
+                      ' of ' +
                       i +
-                      " operations failed",
+                      ' operations failed',
                     Object.keys(o).map(function (t) {
                       return o[t];
                     })
@@ -4278,20 +4278,20 @@
           }),
           (t.prototype.bulkPut = function (t, e) {
             var r = this;
-            return this._trans("readwrite", function (n) {
+            return this._trans('readwrite', function (n) {
               if (!r.core.schema.primaryKey.outbound && e)
                 throw new J.InvalidArgument(
-                  "bulkPut(): keys argument invalid on tables with inbound keys"
+                  'bulkPut(): keys argument invalid on tables with inbound keys'
                 );
               if (e && e.length !== t.length)
                 throw new J.InvalidArgument(
-                  "Arguments objects and keys must have the same length"
+                  'Arguments objects and keys must have the same length'
                 );
               var i = t.length;
               return r.core
                 .mutate({
                   trans: n,
-                  type: "put",
+                  type: 'put',
                   keys: e,
                   values: t,
                 })
@@ -4302,11 +4302,11 @@
                   if (0 === e) return n;
                   throw new Y(
                     r.name +
-                      ".bulkPut(): " +
+                      '.bulkPut(): ' +
                       e +
-                      " of " +
+                      ' of ' +
                       i +
-                      " operations failed",
+                      ' operations failed',
                     Object.keys(o).map(function (t) {
                       return o[t];
                     })
@@ -4317,10 +4317,10 @@
           (t.prototype.bulkDelete = function (t) {
             var e = this,
               r = t.length;
-            return this._trans("readwrite", function (r) {
+            return this._trans('readwrite', function (r) {
               return e.core.mutate({
                 trans: r,
-                type: "delete",
+                type: 'delete',
                 keys: t,
               });
             }).then(function (t) {
@@ -4330,11 +4330,11 @@
               if (0 === n) return i;
               throw new Y(
                 e.name +
-                  ".bulkDelete(): " +
+                  '.bulkDelete(): ' +
                   n +
-                  " of " +
+                  ' of ' +
                   r +
-                  " operations failed",
+                  ' operations failed',
                 o
               );
             });
@@ -4351,21 +4351,21 @@
               o[i - 1] = arguments[i];
             return n[e].subscribe.apply(null, o), t;
           }
-          if ("string" == typeof e) return n[e];
+          if ('string' == typeof e) return n[e];
         };
       i.addEventType = a;
       for (var o = 1, s = arguments.length; o < s; ++o) a(arguments[o]);
       return i;
 
       function a(t, o, s) {
-        if ("object" == typeof t)
+        if ('object' == typeof t)
           return (function (t) {
             e(t).forEach(function (e) {
               var n = t[e];
               if (r(n)) a(e, t[e][0], t[e][1]);
               else {
-                if ("asap" !== n)
-                  throw new J.InvalidArgument("Invalid event config");
+                if ('asap' !== n)
+                  throw new J.InvalidArgument('Invalid event config');
                 var i = a(e, et, function () {
                   for (var t = arguments.length, e = new Array(t); t--; )
                     e[t] = arguments[t];
@@ -4432,11 +4432,11 @@
       var r = e.getIndexByKeyPath(t.index);
       if (!r)
         throw new J.Schema(
-          "KeyPath " +
+          'KeyPath ' +
             t.index +
-            " on object store " +
+            ' on object store ' +
             e.name +
-            " is not indexed"
+            ' is not indexed'
         );
       return r;
     }
@@ -4446,7 +4446,7 @@
       return e.openCursor({
         trans: r,
         values: !t.keysOnly,
-        reverse: "prev" === t.dir,
+        reverse: 'prev' === t.dir,
         unique: !!t.unique,
         query: {
           index: n,
@@ -4474,8 +4474,8 @@
               )
             ) {
               var s = r.primaryKey,
-                u = "" + s;
-              "[object ArrayBuffer]" === u && (u = "" + new Uint8Array(s)),
+                u = '' + s;
+              '[object ArrayBuffer]' === u && (u = '' + new Uint8Array(s)),
                 a(o, u) || ((o[u] = !0), e(t, r, n));
             }
           };
@@ -4533,13 +4533,13 @@
           var r = this._ctx;
           return r.error
             ? r.table._trans(null, ce.bind(null, r.error))
-            : r.table._trans("readonly", t).then(e);
+            : r.table._trans('readonly', t).then(e);
         }),
         (t.prototype._write = function (t) {
           var e = this._ctx;
           return e.error
             ? e.table._trans(null, ce.bind(null, e.error))
-            : e.table._trans("readwrite", t, "locked");
+            : e.table._trans('readwrite', t, 'locked');
         }),
         (t.prototype._addAlgorithm = function (t) {
           var e = this._ctx;
@@ -4593,14 +4593,14 @@
           }).then(t);
         }),
         (t.prototype.sortBy = function (t, e) {
-          var r = t.split(".").reverse(),
+          var r = t.split('.').reverse(),
             n = r[0],
             i = r.length - 1;
 
           function o(t, e) {
             return e ? o(t[r[e]], e - 1) : t[n];
           }
-          var s = "next" === this._ctx.dir ? 1 : -1;
+          var s = 'next' === this._ctx.dir ? 1 : -1;
 
           function a(t, e) {
             var r = o(t, i),
@@ -4615,7 +4615,7 @@
           var e = this;
           return this._read(function (t) {
             var r = e._ctx;
-            if ("next" === r.dir && Be(r, !0) && 0 < r.limit) {
+            if ('next' === r.dir && Be(r, !0) && 0 < r.limit) {
               var n = r.valueMapper,
                 i = Ce(r, r.table.core.schema);
               return r.table.core
@@ -4728,7 +4728,7 @@
         }),
         (t.prototype.reverse = function () {
           return (
-            (this._ctx.dir = "prev" === this._ctx.dir ? "next" : "prev"),
+            (this._ctx.dir = 'prev' === this._ctx.dir ? 'next' : 'prev'),
             this._ondirectionchange && this._ondirectionchange(this._ctx.dir),
             this
           );
@@ -4746,7 +4746,7 @@
           );
         }),
         (t.prototype.eachUniqueKey = function (t) {
-          return (this._ctx.unique = "unique"), this.eachKey(t);
+          return (this._ctx.unique = 'unique'), this.eachKey(t);
         }),
         (t.prototype.eachPrimaryKey = function (t) {
           var e = this._ctx;
@@ -4771,7 +4771,7 @@
         }),
         (t.prototype.primaryKeys = function (t) {
           var e = this._ctx;
-          if ("next" === e.dir && Be(e, !0) && 0 < e.limit)
+          if ('next' === e.dir && Be(e, !0) && 0 < e.limit)
             return this._read(function (t) {
               var r = Ce(e, e.table.core.schema);
               return e.table.core.query({
@@ -4799,7 +4799,7 @@
             .then(t);
         }),
         (t.prototype.uniqueKeys = function (t) {
-          return (this._ctx.unique = "unique"), this.keys(t);
+          return (this._ctx.unique = 'unique'), this.keys(t);
         }),
         (t.prototype.firstKey = function (t) {
           return this.limit(1)
@@ -4830,7 +4830,7 @@
             n = this._ctx;
           return this._write(function (i) {
             var o;
-            if ("function" == typeof t) o = t;
+            if ('function' == typeof t) o = t;
             else {
               var s = e(t),
                 a = s.length;
@@ -4853,7 +4853,7 @@
               f = c.schema.primaryKey,
               l = f.outbound,
               h = f.extractKey,
-              p = "testmode" in wr ? 1 : 2e3,
+              p = 'testmode' in wr ? 1 : 2e3,
               d = r.db.core.cmp,
               y = [],
               m = 0,
@@ -4892,7 +4892,7 @@
                           c
                             .mutate({
                               trans: i,
-                              type: "add",
+                              type: 'add',
                               values: a,
                             })
                             .then(function (t) {
@@ -4907,7 +4907,7 @@
                             c
                               .mutate({
                                 trans: i,
-                                type: "put",
+                                type: 'put',
                                 keys: y,
                                 values: f,
                               })
@@ -4922,7 +4922,7 @@
                             c
                               .mutate({
                                 trans: i,
-                                type: "delete",
+                                type: 'delete',
                                 keys: m,
                               })
                               .then(function (t) {
@@ -4937,7 +4937,7 @@
                 };
                 return e(0).then(function () {
                   if (0 < y.length)
-                    throw new $("Error modifying one or more objects", y, m, v);
+                    throw new $('Error modifying one or more objects', y, m, v);
                   return t.length;
                 });
               });
@@ -4962,7 +4962,7 @@
                     return t.table.core
                       .mutate({
                         trans: r,
-                        type: "deleteRange",
+                        type: 'deleteRange',
                         range: i,
                       })
                       .then(function (t) {
@@ -4970,7 +4970,7 @@
                           n = (t.lastResult, t.results, t.numFailures);
                         if (n)
                           throw new $(
-                            "Could not delete some values",
+                            'Could not delete some values',
                             Object.keys(r).map(function (t) {
                               return r[t];
                             }),
@@ -5003,7 +5003,7 @@
 
     function Ue(t) {
       return new t.Collection(t, function () {
-        return ze("");
+        return ze('');
       }).limit(0);
     }
 
@@ -5020,9 +5020,9 @@
             : null;
         i(t[u], c) < 0 && (a = u);
       }
-      return s < n.length && "next" === o
+      return s < n.length && 'next' === o
         ? t + r.substr(t.length)
-        : s < t.length && "prev" === o
+        : s < t.length && 'prev' === o
         ? t.substr(0, r.length)
         : a < 0
         ? null
@@ -5040,14 +5040,14 @@
         l = r.length;
       if (
         !r.every(function (t) {
-          return "string" == typeof t;
+          return 'string' == typeof t;
         })
       )
         return Me(t, de);
 
       function h(t) {
         (i = (function (t) {
-          return "next" === t
+          return 'next' === t
             ? function (t) {
                 return t.toUpperCase();
               }
@@ -5056,7 +5056,7 @@
               };
         })(t)),
           (o = (function (t) {
-            return "next" === t
+            return 'next' === t
               ? function (t) {
                   return t.toLowerCase();
                 }
@@ -5064,7 +5064,7 @@
                   return t.toUpperCase();
                 };
           })(t)),
-          (s = "next" === t ? Re : je);
+          (s = 'next' === t ? Re : je);
         var e = r
           .map(function (t) {
             return {
@@ -5081,9 +5081,9 @@
           (u = e.map(function (t) {
             return t.lower;
           })),
-          (f = "next" === (c = t) ? "" : n);
+          (f = 'next' === (c = t) ? '' : n);
       }
-      h("next");
+      h('next');
       var p = new t.Collection(t, function () {
         return Le(a[0], u[l - 1] + n);
       });
@@ -5094,7 +5094,7 @@
       return (
         p._addAlgorithm(function (t, r, n) {
           var i = t.key;
-          if ("string" != typeof i) return !1;
+          if ('string' != typeof i) return !1;
           var h = o(i);
           if (e(h, u, d)) return !0;
           for (var p = null, y = d; y < l; ++y) {
@@ -5138,7 +5138,7 @@
     var qe = (function () {
       function t() {}
       return (
-        Object.defineProperty(t.prototype, "Collection", {
+        Object.defineProperty(t.prototype, 'Collection', {
           get: function () {
             return this._ctx.table.db.Collection;
           },
@@ -5192,12 +5192,12 @@
               });
         }),
         (t.prototype.startsWith = function (t) {
-          return "string" != typeof t
+          return 'string' != typeof t
             ? Me(this, de)
             : this.between(t, t + he, !0, !0);
         }),
         (t.prototype.startsWithIgnoreCase = function (t) {
-          return "" === t
+          return '' === t
             ? this.startsWith(t)
             : Ne(
                 this,
@@ -5215,7 +5215,7 @@
               return t === e[0];
             },
             [t],
-            ""
+            ''
           );
         }),
         (t.prototype.anyOfIgnoreCase = function () {
@@ -5228,7 +5228,7 @@
                   return -1 !== e.indexOf(t);
                 },
                 t,
-                ""
+                ''
               );
         }),
         (t.prototype.startsWithAnyOfIgnoreCase = function () {
@@ -5260,7 +5260,7 @@
             return Le(e[0], e[e.length - 1]);
           });
           n._ondirectionchange = function (n) {
-            (r = "next" === n ? t._ascending : t._descending), e.sort(r);
+            (r = 'next' === n ? t._ascending : t._descending), e.sort(r);
           };
           var i = 0;
           return (
@@ -5324,7 +5324,7 @@
           )
             return Me(
               this,
-              "First argument to inAnyRange() must be an Array of two-value Arrays [lower,upper] where upper must not be lower than lower",
+              'First argument to inAnyRange() must be an Array of two-value Arrays [lower,upper] where upper must not be lower than lower',
               J.InvalidArgument
             );
           var u,
@@ -5370,7 +5370,7 @@
             });
           return (
             (v._ondirectionchange = function (t) {
-              (l = "next" === t ? ((m = d), i) : ((m = y), o)), u.sort(h);
+              (l = 'next' === t ? ((m = d), i) : ((m = y), o)), u.sort(h);
             }),
             v._addAlgorithm(function (t, e, n) {
               for (var o = t.key; m(o); ) if (++p === u.length) return e(n), !1;
@@ -5392,7 +5392,7 @@
         (t.prototype.startsWithAnyOf = function () {
           var t = R.apply(F, arguments);
           return t.every(function (t) {
-            return "string" == typeof t;
+            return 'string' == typeof t;
           })
             ? 0 === t.length
               ? Ue(this)
@@ -5401,7 +5401,7 @@
                     return [t, t + he];
                   })
                 )
-            : Me(this, "startsWithAnyOf() only works with strings");
+            : Me(this, 'startsWithAnyOf() only works with strings');
         }),
         t
       );
@@ -5464,9 +5464,9 @@
             n = this.db._state.dbOpenError;
           if ((m(!this.idbtrans), !t && !r))
             switch (n && n.name) {
-              case "DatabaseClosedError":
+              case 'DatabaseClosedError':
                 throw new J.DatabaseClosed(n);
-              case "MissingAPIError":
+              case 'MissingAPIError':
                 throw new J.MissingAPI(n.message, n);
               default:
                 throw new J.OpenFailed(n);
@@ -5484,7 +5484,7 @@
               $e(r),
                 e.active && e._reject(new J.Abort(t.error)),
                 (e.active = !1),
-                e.on("abort").fire(r);
+                e.on('abort').fire(r);
             })),
             (t.oncomplete = Vt(function () {
               (e.active = !1), e._resolve();
@@ -5494,8 +5494,8 @@
         }),
         (t.prototype._promise = function (t, e, r) {
           var n = this;
-          if ("readwrite" === t && "readwrite" !== this.mode)
-            return ce(new J.ReadOnly("Transaction is readonly"));
+          if ('readwrite' === t && 'readwrite' !== this.mode)
+            return ce(new J.ReadOnly('Transaction is readonly'));
           if (!this.active) return ce(new J.TransactionInactive());
           if (this._locked())
             return new Pt(function (i, o) {
@@ -5568,7 +5568,7 @@
           if (a(e, t)) return e[t];
           var r = this.schema[t];
           if (!r)
-            throw new J.NotFound("Table " + t + " not part of transaction");
+            throw new J.NotFound('Table ' + t + ' not part of transaction');
           var n = new this.db.Table(t, r, this);
           return (n.core = this.db.core.table(t)), (e[t] = n);
         }),
@@ -5584,16 +5584,16 @@
         multi: n,
         auto: i,
         compound: o,
-        src: (r ? "&" : "") + (n ? "*" : "") + (i ? "++" : "") + Xe(e),
+        src: (r ? '&' : '') + (n ? '*' : '') + (i ? '++' : '') + Xe(e),
       };
     }
 
     function Xe(t) {
-      return "string" == typeof t
+      return 'string' == typeof t
         ? t
         : t
-        ? "[" + [].join.call(t, "+") + "]"
-        : "";
+        ? '[' + [].join.call(t, '+') + ']'
+        : '';
     }
 
     function Je(t, e, r) {
@@ -5611,9 +5611,9 @@
     function Qe(t) {
       return null == t
         ? function () {}
-        : "string" == typeof t
+        : 'string' == typeof t
         ? (function (t) {
-            return 1 === t.split(".").length
+            return 1 === t.split('.').length
               ? function (e) {
                   return e[t];
                 }
@@ -5627,7 +5627,7 @@
     }
 
     function Ze(t, e) {
-      return "delete" === e.type
+      return 'delete' === e.type
         ? e.keys
         : e.keys || e.values.map(t.extractKey);
     }
@@ -5639,10 +5639,10 @@
 
     function rr(t) {
       return null == t
-        ? ":id"
-        : "string" == typeof t
+        ? ':id'
+        : 'string' == typeof t
         ? t
-        : "[" + t.join("+") + "]";
+        : '[' + t.join('+') + ']';
     }
 
     function nr(t, e, n, i) {
@@ -5651,7 +5651,7 @@
       function s(t) {
         if (3 === t.type) return null;
         if (4 === t.type)
-          throw new Error("Cannot convert never type to IDBKeyRange");
+          throw new Error('Cannot convert never type to IDBKeyRange');
         var e = t.lower,
           r = t.upper,
           i = t.lowerOpen,
@@ -5719,7 +5719,7 @@
                       },
                     };
                   return (
-                    (s[":id"] = a.primaryKey),
+                    (s[':id'] = a.primaryKey),
                     null != e && (s[rr(e)] = a.primaryKey),
                     a
                   );
@@ -5727,9 +5727,9 @@
             },
             hasGetAll:
               0 < c.length &&
-              "getAll" in u.objectStore(c[0]) &&
+              'getAll' in u.objectStore(c[0]) &&
               !(
-                "undefined" != typeof navigator &&
+                'undefined' != typeof navigator &&
                 /Safari/.test(navigator.userAgent) &&
                 !/(Chrome\/|Edge\/)/.test(navigator.userAgent) &&
                 [].concat(navigator.userAgent.match(/Safari\/(\d*)/))[1] < 604
@@ -5755,9 +5755,9 @@
                   e = Vt(e);
                   var l = n.objectStore(r),
                     h = null == l.keyPath,
-                    p = "put" === i || "add" === i;
-                  if (!p && "delete" !== i && "deleteRange" !== i)
-                    throw new Error("Invalid operation type: " + i);
+                    p = 'put' === i || 'add' === i;
+                  if (!p && 'delete' !== i && 'deleteRange' !== i)
+                    throw new Error('Invalid operation type: ' + i);
                   var d = (
                     o ||
                     a || {
@@ -5766,7 +5766,7 @@
                   ).length;
                   if (o && a && o.length !== a.length)
                     throw new Error(
-                      "Given keys array must have same length as given values array."
+                      'Given keys array must have same length as given values array.'
                     );
                   if (0 === d)
                     return e({
@@ -5800,7 +5800,7 @@
                       ).slice(),
                     w = [],
                     b = 0;
-                  if ("deleteRange" === i) {
+                  if ('deleteRange' === i) {
                     if (4 === u.type)
                       return e({
                         numFailures: b,
@@ -5913,7 +5913,7 @@
                     } else {
                       var v = 0,
                         g =
-                          !a && "openKeyCursor" in d
+                          !a && 'openKeyCursor' in d
                             ? d.openKeyCursor(y)
                             : d.openCursor(y),
                         w = [];
@@ -5948,13 +5948,13 @@
                     h = c.isPrimaryKey ? l : l.index(c.name),
                     p = o
                       ? a
-                        ? "prevunique"
-                        : "prev"
+                        ? 'prevunique'
+                        : 'prev'
                       : a
-                      ? "nextunique"
-                      : "next",
+                      ? 'nextunique'
+                      : 'next',
                     d =
-                      !n && "openKeyCursor" in h
+                      !n && 'openKeyCursor' in h
                         ? h.openKeyCursor(s(f), p)
                         : h.openCursor(s(f), p);
                   (d.onerror = Ge(u)),
@@ -5967,7 +5967,7 @@
                         o && (o = o.bind(n));
                         var s = n.advance.bind(n),
                           a = function () {
-                            throw new Error("Cursor not stopped");
+                            throw new Error('Cursor not stopped');
                           };
                         (n.trans = e),
                           (n.stop =
@@ -5975,7 +5975,7 @@
                             n.continuePrimaryKey =
                             n.advance =
                               function () {
-                                throw new Error("Cursor not started");
+                                throw new Error('Cursor not started');
                               }),
                           (n.fail = Vt(u)),
                           (n.next = function () {
@@ -5998,7 +5998,7 @@
                               else
                                 (n.done = !0),
                                   (n.start = function () {
-                                    throw new Error("Cursor behind last entry");
+                                    throw new Error('Cursor behind last entry');
                                   }),
                                   n.stop();
                             }
@@ -6056,7 +6056,7 @@
           return (d[t.name] = t);
         }),
         {
-          stack: "dbcore",
+          stack: 'dbcore',
           transaction: t.transaction.bind(t),
           table: function (t) {
             if (!d[t]) throw new Error("Table '" + t + "' not found");
@@ -6151,18 +6151,18 @@
       for (var i = r.db.objectStoreNames, o = 0; o < i.length; ++o) {
         var s = i[o],
           a = r.objectStore(s);
-        t._hasGetAll = "getAll" in a;
+        t._hasGetAll = 'getAll' in a;
         for (var u = 0; u < a.indexNames.length; ++u) {
           var c = a.indexNames[u],
             f = a.index(c).keyPath,
-            l = "string" == typeof f ? f : "[" + d(f).join("+") + "]";
+            l = 'string' == typeof f ? f : '[' + d(f).join('+') + ']';
           if (e[s]) {
             var h = e[s].idxByName[l];
             h && (h.name = c);
           }
         }
       }
-      "undefined" != typeof navigator &&
+      'undefined' != typeof navigator &&
         /Safari/.test(navigator.userAgent) &&
         !/(Chrome\/|Edge\/)/.test(navigator.userAgent) &&
         n.WorkerGlobalScope &&
@@ -6180,10 +6180,10 @@
                 var i = (function (t) {
                     var e = [];
                     return (
-                      t.split(",").forEach(function (t) {
-                        var n = (t = t.trim()).replace(/([&*]|\+\+)/g, ""),
+                      t.split(',').forEach(function (t) {
+                        var n = (t = t.trim()).replace(/([&*]|\+\+)/g, ''),
                           i = /^\[/.test(n)
-                            ? n.match(/^\[(.*)\]$/)[1].split("+")
+                            ? n.match(/^\[(.*)\]$/)[1].split('+')
                             : n;
                         e.push(
                           He(
@@ -6201,15 +6201,15 @@
                   })(t[e]),
                   o = i.shift();
                 if (o.multi)
-                  throw new J.Schema("Primary key cannot be multi-valued");
+                  throw new J.Schema('Primary key cannot be multi-valued');
                 i.forEach(function (t) {
                   if (t.auto)
                     throw new J.Schema(
-                      "Only primary key can be marked as autoIncrement (++)"
+                      'Only primary key can be marked as autoIncrement (++)'
                     );
                   if (!t.keyPath)
                     throw new J.Schema(
-                      "Index must have a name and cannot be an empty string"
+                      'Index must have a name and cannot be an empty string'
                     );
                 }),
                   (n[e] = Je(e, o, i));
@@ -6272,11 +6272,11 @@
         new Pt(function (i, s) {
           if (!n)
             throw new J.MissingAPI(
-              "indexedDB API not found. If using IE10+, make sure to run your code on a server URL (not locally). If using old Safari versions, make sure to include indexedDB polyfill."
+              'indexedDB API not found. If using IE10+, make sure to run your code on a server URL (not locally). If using old Safari versions, make sure to include indexedDB polyfill.'
             );
           var a = t.name,
             u = r.autoSchema ? n.open(a) : n.open(a, Math.round(10 * t.verno));
-          if (!u) throw new J.MissingAPI("IndexedDB API not available");
+          if (!u) throw new J.MissingAPI('IndexedDB API not available');
           (u.onerror = Ge(s)),
             (u.onblocked = Vt(t._fireOnBlocked)),
             (u.onupgradeneeded = Vt(function (i) {
@@ -6286,14 +6286,14 @@
                 (u.onerror = $e), o.abort(), u.result.close();
                 var c = n.deleteDatabase(a);
                 c.onsuccess = c.onerror = Vt(function () {
-                  s(new J.NoSuchDatabase("Database " + a + " doesnt exist"));
+                  s(new J.NoSuchDatabase('Database ' + a + ' doesnt exist'));
                 });
               } else {
                 o.onerror = Ge(s);
                 var f = i.oldVersion > Math.pow(2, 62) ? 0 : i.oldVersion;
                 !(function (t, r, n, i) {
                   var o = t._dbSchema,
-                    s = t._createTransaction("readwrite", t._storeNames, o);
+                    s = t._createTransaction('readwrite', t._storeNames, o);
                   s.create(n), s._completion.catch(i);
                   var a = s._reject.bind(s),
                     u = Bt.transless || Bt;
@@ -6316,7 +6316,7 @@
                               })[0];
                             if (!a)
                               throw new J.Upgrade(
-                                "Dexie specification of currently installed DB version is missing"
+                                'Dexie specification of currently installed DB version is missing'
                               );
                             var u = (t._dbSchema = a._cfg.dbschema),
                               c = !1;
@@ -6382,7 +6382,7 @@
                                       a.change.forEach(function (t) {
                                         if (t.recreate)
                                           throw new J.Upgrade(
-                                            "Not yet support for changing primary key"
+                                            'Not yet support for changing primary key'
                                           );
                                         var e = i.objectStore(t.name);
                                         t.add.forEach(function (t) {
@@ -6420,7 +6420,7 @@
                                           } else Zt();
                                         else Zt();
                                       });
-                                      return l && "function" == typeof l.then
+                                      return l && 'function' == typeof l.then
                                         ? Pt.resolve(l)
                                         : p.then(function () {
                                             return l;
@@ -6474,7 +6474,7 @@
                 s = d(n.objectStoreNames);
               if (0 < s.length)
                 try {
-                  var c = n.transaction(Ve(s), "readonly");
+                  var c = n.transaction(Ve(s), 'readonly');
                   r.autoSchema
                     ? (function (t, r, n) {
                         t.verno = r.version / 10;
@@ -6487,11 +6487,11 @@
                                 r = e.keyPath,
                                 o = He(
                                   Xe(r),
-                                  r || "",
+                                  r || '',
                                   !1,
                                   !1,
                                   !!e.autoIncrement,
-                                  r && "string" != typeof r
+                                  r && 'string' != typeof r
                                 ),
                                 s = [],
                                 a = 0;
@@ -6506,7 +6506,7 @@
                                 !!u.unique,
                                 !!u.multiEntry,
                                 !1,
-                                r && "string" != typeof r
+                                r && 'string' != typeof r
                               );
                               s.push(c);
                             }
@@ -6519,7 +6519,7 @@
                 } catch (n) {}
               ye.push(t),
                 (n.onversionchange = Vt(function (e) {
-                  (r.vcFired = !0), t.on("versionchange").fire(e);
+                  (r.vcFired = !0), t.on('versionchange').fire(e);
                 })),
                 lr.add(a),
                 i();
@@ -6574,7 +6574,7 @@
             s = o.value;
           return o.done
             ? s
-            : s && "function" == typeof s.then
+            : s && 'function' == typeof s.then
             ? s.then(n, i)
             : r(s)
             ? Promise.all(s).then(n, i)
@@ -6589,8 +6589,8 @@
       return i;
     }
     var vr = {
-        stack: "dbcore",
-        name: "VirtualIndexMiddleware",
+        stack: 'dbcore',
+        name: 'VirtualIndexMiddleware',
         level: 1,
         create: function (e) {
           return t({}, e, {
@@ -6603,7 +6603,7 @@
               function a(e, r, n) {
                 var i = rr(e),
                   u = (o[i] = o[i] || []),
-                  c = null == e ? 0 : "string" == typeof e ? 1 : e.length,
+                  c = null == e ? 0 : 'string' == typeof e ? 1 : e.length,
                   f = 0 < r,
                   l = t({}, n, {
                     isVirtual: f,
@@ -6624,7 +6624,7 @@
                 );
               }
               var u = a(i.primaryKey.keyPath, 0, i.primaryKey);
-              o[":id"] = [u];
+              o[':id'] = [u];
               for (var c = 0, f = i.indexes; c < f.length; c++) {
                 var l = f[c];
                 a(l.keyPath, 0, l);
@@ -6732,8 +6732,8 @@
         },
       },
       gr = {
-        stack: "dbcore",
-        name: "HooksMiddleware",
+        stack: 'dbcore',
+        name: 'HooksMiddleware',
         level: 2,
         create: function (e) {
           return t({}, e, {
@@ -6748,37 +6748,37 @@
                     u = s.creating,
                     c = s.updating;
                   switch (e.type) {
-                    case "add":
+                    case 'add':
                       if (u.fire === tt) break;
                       return o._promise(
-                        "readwrite",
+                        'readwrite',
                         function () {
                           return f(e);
                         },
                         !0
                       );
-                    case "put":
+                    case 'put':
                       if (u.fire === tt && c.fire === tt) break;
                       return o._promise(
-                        "readwrite",
+                        'readwrite',
                         function () {
                           return f(e);
                         },
                         !0
                       );
-                    case "delete":
+                    case 'delete':
                       if (a.fire === tt) break;
                       return o._promise(
-                        "readwrite",
+                        'readwrite',
                         function () {
                           return f(e);
                         },
                         !0
                       );
-                    case "deleteRange":
+                    case 'deleteRange':
                       if (a.fire === tt) break;
                       return o._promise(
-                        "readwrite",
+                        'readwrite',
                         function () {
                           return (function (e) {
                             return (function e(r, o, s) {
@@ -6795,7 +6795,7 @@
                                 .then(function (n) {
                                   var i = n.result;
                                   return f({
-                                    type: "delete",
+                                    type: 'delete',
                                     keys: i,
                                     trans: r,
                                   }).then(function (n) {
@@ -6828,11 +6828,11 @@
                   function f(e) {
                     var r = Bt.trans,
                       o = e.keys || Ze(i, e);
-                    if (!o) throw new Error("Keys missing");
+                    if (!o) throw new Error('Keys missing');
                     return (
-                      "delete" !==
+                      'delete' !==
                         (e =
-                          "add" === e.type || "put" === e.type
+                          'add' === e.type || 'put' === e.type
                             ? t({}, e, {
                                 keys: o,
                                 wantResults: !0,
@@ -6840,7 +6840,7 @@
                             : t({}, e)).type && (e.values = e.values.slice()),
                       e.keys && (e.keys = e.keys.slice()),
                       (function (t, e, r) {
-                        return "add" === e.type
+                        return 'add' === e.type
                           ? Promise.resolve(new Array(e.values.length))
                           : t.getMany({
                               trans: e.trans,
@@ -6853,8 +6853,8 @@
                               onerror: null,
                               onsuccess: null,
                             };
-                          if ("delete" === e.type) a.fire.call(f, n, s, r);
-                          else if ("add" === e.type || void 0 === s) {
+                          if ('delete' === e.type) a.fire.call(f, n, s, r);
+                          else if ('add' === e.type || void 0 === s) {
                             var l = u.fire.call(f, n, e.values[o], r);
                             null == n &&
                               null != l &&
@@ -6891,7 +6891,7 @@
                                 ? l.onerror && l.onerror(n[c])
                                 : l.onsuccess &&
                                   l.onsuccess(
-                                    "put" === e.type && t[c] ? e.values[c] : f
+                                    'put' === e.type && t[c] ? e.values[c] : f
                                   );
                             }
                             return {
@@ -6961,7 +6961,7 @@
             })),
             (this._state = a),
             (this.name = e),
-            (this.on = Se(this, "populate", "blocked", "versionchange", {
+            (this.on = Se(this, 'populate', 'blocked', 'versionchange', {
               ready: [ut, tt],
             })),
             (this.on.ready.subscribe = y(this.on.ready.subscribe, function (t) {
@@ -7006,8 +7006,8 @@
                       o.index === s.schema.primKey.name),
                   range: n,
                   keysOnly: !1,
-                  dir: "next",
-                  unique: "",
+                  dir: 'next',
+                  unique: '',
                   algorithm: null,
                   filter: null,
                   replayFilter: null,
@@ -7045,7 +7045,7 @@
                   (this.storeNames = r),
                   (this.schema = n),
                   (this.idbtrans = null),
-                  (this.on = Se(this, "complete", "error", "abort")),
+                  (this.on = Se(this, 'complete', 'error', 'abort')),
                   (this.parent = i || null),
                   (this.active = !0),
                   (this._reculock = 0),
@@ -7094,11 +7094,11 @@
                 (this.db = t),
                   (this._ctx = {
                     table: e,
-                    index: ":id" === r ? null : r,
+                    index: ':id' === r ? null : r,
                     or: n,
                   });
                 var i = t._deps.indexedDB;
-                if (!i) throw new J.MissingAPI("indexedDB API missing");
+                if (!i) throw new J.MissingAPI('indexedDB API missing');
                 (this._cmp = this._ascending = i.cmp.bind(i)),
                   (this._descending = function (t, e) {
                     return i.cmp(e, t);
@@ -7112,7 +7112,7 @@
                   (this._IDBKeyRange = t._deps.IDBKeyRange);
               });
             })(this)),
-            this.on("versionchange", function (t) {
+            this.on('versionchange', function (t) {
               0 < t.newVersion
                 ? console.warn(
                     "Another connection wants to upgrade database '" +
@@ -7126,7 +7126,7 @@
                   ),
                 i.close();
             }),
-            this.on("blocked", function (t) {
+            this.on('blocked', function (t) {
               !t.newVersion || t.newVersion < t.oldVersion
                 ? console.warn("Dexie.delete('" + i.name + "') was blocked")
                 : console.warn(
@@ -7141,13 +7141,13 @@
               return new i.Transaction(t, e, r, n);
             }),
             (this._fireOnBlocked = function (t) {
-              i.on("blocked").fire(t),
+              i.on('blocked').fire(t),
                 ye
                   .filter(function (t) {
                     return t.name === i.name && t !== i && !t._state.vcFired;
                   })
                   .map(function (e) {
-                    return e.on("versionchange").fire(t);
+                    return e.on('versionchange').fire(t);
                   });
             }),
             this.use(vr),
@@ -7162,7 +7162,7 @@
               ((t = Math.round(10 * t) / 10),
               this.idbdb || this._state.isBeingOpened)
             )
-              throw new J.Schema("Cannot add version when database is open");
+              throw new J.Schema('Cannot add version when database is open');
             this.verno = Math.max(this.verno, t);
             var e = this._versions,
               r = e.filter(function (e) {
@@ -7267,7 +7267,7 @@
               }
               if (e)
                 throw new J.InvalidArgument(
-                  "Arguments not allowed in db.delete()"
+                  'Arguments not allowed in db.delete()'
                 );
               r.isBeingOpened ? r.dbReadyPromise.then(o) : o();
             });
@@ -7280,7 +7280,7 @@
           }),
           (r.prototype.hasBeenClosed = function () {
             var t = this._state.dbOpenError;
-            return t && "DatabaseClosed" === t.name;
+            return t && 'DatabaseClosed' === t.name;
           }),
           (r.prototype.hasFailed = function () {
             return null !== this._state.dbOpenError;
@@ -7288,7 +7288,7 @@
           (r.prototype.dynamicallyOpened = function () {
             return this._state.autoSchema;
           }),
-          Object.defineProperty(r.prototype, "tables", {
+          Object.defineProperty(r.prototype, 'tables', {
             get: function () {
               var t = this;
               return e(this._allTables).map(function (e) {
@@ -7301,7 +7301,7 @@
           (r.prototype.transaction = function () {
             var t = function (t, e, r) {
               var n = arguments.length;
-              if (n < 2) throw new J.InvalidArgument("Too few arguments");
+              if (n < 2) throw new J.InvalidArgument('Too few arguments');
               for (var i = new Array(n - 1); --n; ) i[n - 1] = arguments[n];
               return (r = i.pop()), [t, x(i), r];
             }.apply(this, arguments);
@@ -7310,34 +7310,34 @@
           (r.prototype._transaction = function (t, e, r) {
             var n = this,
               i = Bt.trans;
-            (i && i.db === this && -1 === t.indexOf("!")) || (i = null);
+            (i && i.db === this && -1 === t.indexOf('!')) || (i = null);
             var o,
               s,
-              a = -1 !== t.indexOf("?");
-            t = t.replace("!", "").replace("?", "");
+              a = -1 !== t.indexOf('?');
+            t = t.replace('!', '').replace('?', '');
             try {
               if (
                 ((s = e.map(function (t) {
                   var e = t instanceof n.Table ? t.name : t;
-                  if ("string" != typeof e)
+                  if ('string' != typeof e)
                     throw new TypeError(
-                      "Invalid table argument to Dexie.transaction(). Only Table or String are allowed"
+                      'Invalid table argument to Dexie.transaction(). Only Table or String are allowed'
                     );
                   return e;
                 })),
-                "r" == t || t === be)
+                'r' == t || t === be)
               )
                 o = be;
               else {
-                if ("rw" != t && t != _e)
-                  throw new J.InvalidArgument("Invalid transaction mode: " + t);
+                if ('rw' != t && t != _e)
+                  throw new J.InvalidArgument('Invalid transaction mode: ' + t);
                 o = _e;
               }
               if (i) {
                 if (i.mode === be && o === _e) {
                   if (!a)
                     throw new J.SubTransaction(
-                      "Cannot enter a sub-transaction with READWRITE mode when parent transaction is READONLY"
+                      'Cannot enter a sub-transaction with READWRITE mode when parent transaction is READONLY'
                     );
                   i = null;
                 }
@@ -7346,7 +7346,7 @@
                     if (i && -1 === i.storeNames.indexOf(t)) {
                       if (!a)
                         throw new J.SubTransaction(
-                          "Table " + t + " not included in parent transaction."
+                          'Table ' + t + ' not included in parent transaction.'
                         );
                       i = null;
                     }
@@ -7377,19 +7377,19 @@
                       o.then(t, t);
                     } else
                       Zt(),
-                        "function" == typeof o.next &&
-                          "function" == typeof o.throw &&
+                        'function' == typeof o.next &&
+                          'function' == typeof o.throw &&
                           (o = yr(o));
                   else Zt();
                 }, u);
                 return (
-                  o && "function" == typeof o.then
+                  o && 'function' == typeof o.then
                     ? Pt.resolve(o).then(function (t) {
                         return a.active
                           ? t
                           : ce(
                               new J.PrematureCommit(
-                                "Transaction committed too early. See http://bit.ly/2kdckMn"
+                                'Transaction committed too early. See http://bit.ly/2kdckMn'
                               )
                             );
                       })
@@ -7411,7 +7411,7 @@
               });
             }.bind(null, this, o, s, i, r);
             return i
-              ? i._promise(o, u, "lock")
+              ? i._promise(o, u, 'lock')
               : Bt.trans
               ? ie(Bt.transless, function () {
                   return n._whenReady(u);
@@ -7420,7 +7420,7 @@
           }),
           (r.prototype.table = function (t) {
             if (!a(this._allTables, t))
-              throw new J.InvalidTable("Table " + t + " does not exist");
+              throw new J.InvalidTable('Table ' + t + ' does not exist');
             return this._allTables[t];
           }),
           r
@@ -7442,7 +7442,7 @@
               .then(function (t) {
                 return t.close(), !0;
               })
-              .catch("NoSuchDatabaseError", function () {
+              .catch('NoSuchDatabaseError', function () {
                 return !1;
               });
           },
@@ -7462,7 +7462,7 @@
             return function () {
               try {
                 var e = yr(t.apply(this, arguments));
-                return e && "function" == typeof e.then ? e : Pt.resolve(e);
+                return e && 'function' == typeof e.then ? e : Pt.resolve(e);
               } catch (e) {
                 return ce(e);
               }
@@ -7471,7 +7471,7 @@
           spawn: function (t, e, r) {
             try {
               var n = yr(t.apply(r, e || []));
-              return n && "function" == typeof n.then ? n : Pt.resolve(n);
+              return n && 'function' == typeof n.then ? n : Pt.resolve(n);
             } catch (t) {
               return ce(t);
             }
@@ -7483,7 +7483,7 @@
           },
           waitFor: function (t, e) {
             var r = Pt.resolve(
-              "function" == typeof t ? br.ignoreTransaction(t) : t
+              'function' == typeof t ? br.ignoreTransaction(t) : t
             ).timeout(e || 6e4);
             return Bt.trans ? Bt.trans.waitFor(r) : r;
           },
@@ -7495,7 +7495,7 @@
             set: function (t) {
               M(
                 t,
-                "dexie" === t
+                'dexie' === t
                   ? function () {
                       return !0;
                     }
@@ -7511,9 +7511,9 @@
           getByKeyPath: w,
           setByKeyPath: b,
           delByKeyPath: function (t, e) {
-            "string" == typeof e
+            'string' == typeof e
               ? b(t, e, void 0)
-              : "length" in e &&
+              : 'length' in e &&
                 [].map.call(e, function (e) {
                   b(t, e, void 0);
                 });
@@ -7545,7 +7545,7 @@
           })(),
           semVer: le,
           version: le
-            .split(".")
+            .split('.')
             .map(function (t) {
               return parseInt(t);
             })
@@ -7567,9 +7567,9 @@
                 addons: [],
               });
               n.version(1).stores({
-                dbnames: "name",
+                dbnames: 'name',
               }),
-                (e = n.table("dbnames"));
+                (e = n.table('dbnames'));
             }
             return {
               getDatabaseNames: function () {
@@ -7613,8 +7613,8 @@
           return t;
         var r = new Q[t.name](e || t.message, t);
         return (
-          "stack" in t &&
-            f(r, "stack", {
+          'stack' in t &&
+            f(r, 'stack', {
               get: function () {
                 return this.inner.stack;
               },
@@ -7683,120 +7683,120 @@ class LFUCache {
       (this._maxHits = 1);
   }
 }
-var IDB = new Dexie("ProjectStore");
+var IDB = new Dexie('ProjectStore');
 IDB.version(1).stores({
-  projects: "pid, name, hash, repo",
-  files: "id, &path, &fid, type, hash",
-  folders: "id, &path, hash",
-  data: "fid",
-  libraries: "url",
-  sessions: "pid",
-  meta: "key",
+  projects: 'pid, name, hash, repo',
+  files: 'id, &path, &fid, type, hash',
+  folders: 'id, &path, hash',
+  data: 'fid',
+  libraries: 'url',
+  sessions: 'pid',
+  meta: 'key',
 }),
   IDB.version(2)
     .stores({
-      projects: "pid",
-      files: "id, &path, &fid",
-      folders: "id, &path",
-      data: "fid",
-      libraries: "url",
-      meta: "key",
+      projects: 'pid',
+      files: 'id, &path, &fid',
+      folders: 'id, &path',
+      data: 'fid',
+      libraries: 'url',
+      meta: 'key',
     })
     .upgrade((t) =>
       Promise.all([
         t.projects
           .filter((t) => !t.dir)
           .modify((t) => {
-            const e = t.ref ? `${t.pid}:${t.ref.split("/").pop()}` : t.pid;
+            const e = t.ref ? `${t.pid}:${t.ref.split('/').pop()}` : t.pid;
             (t.olddir = e), (t.dir = `${e}/${t.name}`);
           }),
         t.folders.filter((t) => t.deleted).delete(),
         t.files.filter((t) => t.deleted).delete(),
         t.data
-          .filter((t) => "base64" === t.encoding)
+          .filter((t) => 'base64' === t.encoding)
           .modify((t) => {
-            (t.text = castAsReadableArrayBuffer(Buffer.from(t.text, "base64"))),
-              (t.encoding = "binary");
+            (t.text = castAsReadableArrayBuffer(Buffer.from(t.text, 'base64'))),
+              (t.encoding = 'binary');
           }),
       ])
     ),
   IDB.version(3).stores({
-    files: "id, &path, &fid",
-    folders: "id, &path",
-    data: "fid",
-    meta: "key",
+    files: 'id, &path, &fid',
+    folders: 'id, &path',
+    data: 'fid',
+    meta: 'key',
   });
 var Buffer = buffer.Buffer,
   GlobalErrorCodes = {
-    ProjectNotFound: "project:404",
-    FileNotFound: "file:404",
-    RemoveFailed: "rm:500",
-    NotADirectory: "rmdir:405",
-    DestinationExists: "mv:403",
-    SourceNotFound: "src:404",
-    INodeNotFound: "inode:404",
-    RemoteNotFound: "remote:404",
-    CriticalDeletionError: "delete:500",
-    InvalidArgument: "args:400",
+    ProjectNotFound: 'project:404',
+    FileNotFound: 'file:404',
+    RemoveFailed: 'rm:500',
+    NotADirectory: 'rmdir:405',
+    DestinationExists: 'mv:403',
+    SourceNotFound: 'src:404',
+    INodeNotFound: 'inode:404',
+    RemoteNotFound: 'remote:404',
+    CriticalDeletionError: 'delete:500',
+    InvalidArgument: 'args:400',
   };
 class ExtError extends Error {
   constructor(t) {
     super(t.message), Object.assign(this, t);
   }
 }
-const ERROR_SOURCE = "filesystem",
-  isIDB = (t) => t.startsWith("idb/"),
+const ERROR_SOURCE = 'filesystem',
+  isIDB = (t) => t.startsWith('idb/'),
   ext = (t) => {
     const e = basename(t),
-      r = e.lastIndexOf(".");
-    return -1 == r ? "" : e.substr(r).toLowerCase();
+      r = e.lastIndexOf('.');
+    return -1 == r ? '' : e.substr(r).toLowerCase();
   },
   normPathCache = new LFUCache(800, 0.8),
   normalizePath = (t) => {
     const e = normPathCache.get(t);
     if (e) return e;
-    if (t.indexOf("\0") >= 0)
+    if (t.indexOf('\0') >= 0)
       throw new ExtError({
-        name: "InvalidArgument",
-        src: "filesystem:normalizePath",
+        name: 'InvalidArgument',
+        src: 'filesystem:normalizePath',
         message: RES_I18N.ErrorMessages.InvalidFor(RES_I18N.Objects.Path),
         code: GlobalErrorCodes.InvalidArgument,
       });
     if (!t)
       throw new ExtError({
-        name: "InvalidArgument",
-        src: "filesystem:normalizePath",
+        name: 'InvalidArgument',
+        src: 'filesystem:normalizePath',
         message: RES_I18N.ErrorMessages.CannotBeEmptyFor(RES_I18N.Objects.Path),
         code: GlobalErrorCodes.InvalidArgument,
       });
     return normPathCache.set(
       t,
       t
-        .split("/")
-        .filter((t, e) => ("" !== t || 0 === e) && "." !== t)
-        .join("/")
+        .split('/')
+        .filter((t, e) => ('' !== t || 0 === e) && '.' !== t)
+        .join('/')
     );
   },
   dirname = (t) => {
-    const e = t.lastIndexOf("/");
-    return -1 === e ? "." : 0 === e ? "/" : t.slice(0, e);
+    const e = t.lastIndexOf('/');
+    return -1 === e ? '.' : 0 === e ? '/' : t.slice(0, e);
   },
   relativeTo = (t, e) =>
-    e ? t.slice(e.length + (e.endsWith("/") ? 0 : 1)) : t,
+    e ? t.slice(e.length + (e.endsWith('/') ? 0 : 1)) : t,
   childOf = (t, e) =>
     !!t &&
     ((t = normalizePath(t)),
     (e = normalizePath(e)),
-    t.startsWith(e + "/") || t === e),
+    t.startsWith(e + '/') || t === e),
   basename = (t) => {
-    const e = t.lastIndexOf("/");
+    const e = t.lastIndexOf('/');
     return -1 === e ? t : t.slice(e + 1);
   },
   hasExt = (t, e) => t && ext(t) === e,
   join = (t, e) =>
     null == t || null == e
       ? null
-      : t.replace(/\/$/, "") + "/" + e.replace(/^\//, ""),
+      : t.replace(/\/$/, '') + '/' + e.replace(/^\//, ''),
   $warn = console ? console.warn : () => {},
   FileType = {
     FILE: 32768,
@@ -7806,9 +7806,9 @@ const ERROR_SOURCE = "filesystem",
 class Stats {
   constructor({ size: t, mode: e, atimeMs: r = null, mtimeMs: n, ctimeMs: i }) {
     let o = Date.now();
-    (this.atimeMs = "number" != typeof r ? o : r),
-      (this.mtimeMs = "number" != typeof n ? o : n),
-      (this.ctimeMs = "number" != typeof i ? o : i),
+    (this.atimeMs = 'number' != typeof r ? o : r),
+      (this.mtimeMs = 'number' != typeof n ? o : n),
+      (this.ctimeMs = 'number' != typeof i ? o : i),
       (this.size = t),
       (this.mode = Stats.normalizeMode(e)),
       (this.uid = this.gid = this.ino = 0);
@@ -7864,95 +7864,95 @@ if (messageHandlers && messageHandlers.file && messageHandlers.system) {
     }
     showToast(t, e) {
       this._system.postMessage({
-        method: "showToast",
+        method: 'showToast',
         message: t,
         duration: e,
       });
     }
     launchWebView(t) {
       this._system.postMessage({
-        method: "launchWebView",
+        method: 'launchWebView',
         url: t,
       });
     }
     appVersion() {
-      return this.call("appVersion");
+      return this.call('appVersion');
     }
     versionName() {
-      return this.call("versionName");
+      return this.call('versionName');
     }
     clipboardText() {
-      return this.call("clipboardText");
+      return this.call('clipboardText');
     }
     getOrientation() {
-      return this.call("getOrientation");
+      return this.call('getOrientation');
     }
     getFileContent() {
-      return this.call("getFileContent");
+      return this.call('getFileContent');
     }
     getDirectory() {
-      return this.call("getDirectory");
+      return this.call('getDirectory');
     }
     mkdirp(t) {
-      return this.call("mkdirp", {
+      return this.call('mkdirp', {
         path: t,
       });
     }
     exists(t) {
-      return this.call("exists", {
+      return this.call('exists', {
         path: t,
       });
     }
     readFile(t, e) {
-      return this.call("readFile", {
+      return this.call('readFile', {
         path: t,
         encoding: e,
       });
     }
     remove(t) {
-      return this.call("remove", {
+      return this.call('remove', {
         path: t,
       });
     }
     readlink(t) {
-      return this.call("readlink", {
+      return this.call('readlink', {
         path: t,
       });
     }
     writelink(t, e) {
-      return this.call("writelink", {
+      return this.call('writelink', {
         path: t,
         target: e,
       });
     }
     write(t, e, r) {
-      return this.call("write", {
+      return this.call('write', {
         path: t,
         contents: e,
         base64: r,
       });
     }
     readdir(t, e, r) {
-      return this.call("readdir", {
+      return this.call('readdir', {
         path: t,
         skipFiles: e,
         skipFolders: r,
       });
     }
     readdirDeep(t, e, r) {
-      return this.call("readdirDeep", {
+      return this.call('readdirDeep', {
         path: t,
         files: e,
         folders: r,
       });
     }
     lstat(t) {
-      return this.call("lstat", {
+      return this.call('lstat', {
         path: t,
       });
     }
     mv(t, e) {
-      return this.call("mv", {
+      return this.call('mv', {
         src: t,
         target: e,
       });
@@ -8002,7 +8002,7 @@ class DeviceSystem {
   showToast(t, e) {
     const r = this._device;
     r && r.showToast
-      ? r.showToast(t, "long")
+      ? r.showToast(t, 'long')
       : (((e = e || {}).timeout = 3500), UI.message(t, e));
   }
   launchWebView(t) {
@@ -8016,7 +8016,7 @@ class DeviceSystem {
   async saveBase64(t, e) {
     const r = this._device;
     return r && r.saveBase64
-      ? r.saveBase64(Buffer.from(e).toString("base64"), t)
+      ? r.saveBase64(Buffer.from(e).toString('base64'), t)
       : saveAs(new Blob([e]), t);
   }
   async appVersion() {
@@ -8065,7 +8065,7 @@ class DeviceFileSystem {
           t.mv
         )),
       this._supported ||
-        $warn("DeviceFileSystem is not operational: interface missing");
+        $warn('DeviceFileSystem is not operational: interface missing');
   }
   get legacy() {
     return this.device.appVersion && this.device.appVersion() <= 33;
@@ -8082,14 +8082,14 @@ class DeviceFileSystem {
     const { contents: r } = await DeviceFileSystem.promisifyStatus(
       await this.device.readFile(t, e)
     );
-    return "utf8" === e ? r : Buffer.from(r, "base64");
+    return 'utf8' === e ? r : Buffer.from(r, 'base64');
   }
   async remove(t) {
     if (t === this._directory)
       throw new ExtError({
-        name: "CriticalDeletionError",
+        name: 'CriticalDeletionError',
         src: `${this.constructor.name}:remove`,
-        message: "Critical deletion error.",
+        message: 'Critical deletion error.',
         code: GlobalErrorCodes.CriticalDeletionError,
       });
     return DeviceFileSystem.promisifyStatus(await this.device.remove(t));
@@ -8159,9 +8159,9 @@ class DeviceFileSystem {
   }
   static async promisifyStatus(t) {
     switch (t) {
-      case "{}":
+      case '{}':
         return {};
-      case "[]":
+      case '[]':
         return [];
       default: {
         const e = tryParseJSON(t);
@@ -8225,7 +8225,7 @@ class GitFileSystem {
     if (e) return e;
     throw new ExtError({
       src: `${this.constructor.name}:inodePath`,
-      message: "Could not find inode.",
+      message: 'Could not find inode.',
       inode: t,
       code: GlobalErrorCodes.INodeNotFound,
     });
@@ -8278,7 +8278,7 @@ class GitFileSystem {
     if (((t = normalizePath(t)), (e = normalizePath(e)), t === e)) return;
     if (await this.exists(e))
       throw new ExtError({
-        name: "DestinationExists",
+        name: 'DestinationExists',
         src: `${this.constructor.name}:mv`,
         message: RES_I18N.ErrorMessages.ExistsFor(RES_I18N.Objects.TargetPath),
         path: e,
@@ -8294,12 +8294,12 @@ class GitFileSystem {
             path: e,
             mtimeMs: Date.now(),
           }),
-          (s = "file");
+          (s = 'file');
       else {
         const r = await this.lookupFolder(t);
         if (!r)
           throw new ExtError({
-            name: "SourceNotFound",
+            name: 'SourceNotFound',
             src: `${this.constructor.name}:mv`,
             message: RES_I18N.ErrorMessages.NotExistsFor(
               RES_I18N.Objects.SourcePath
@@ -8311,14 +8311,14 @@ class GitFileSystem {
           await this.mkdir(dirname(e));
           const i = Date.now();
           await n.files
-            .where("path")
-            .startsWith(t + "/")
+            .where('path')
+            .startsWith(t + '/')
             .modify((r) => {
               (r.path = e + r.path.slice(t.length)), (r.mtimeMs = i);
             }),
             await n.folders
-              .where("path")
-              .startsWith(t + "/")
+              .where('path')
+              .startsWith(t + '/')
               .modify((r) => {
                 (r.path = e + r.path.slice(t.length)), (r.mtimeMs = i);
               }),
@@ -8326,21 +8326,21 @@ class GitFileSystem {
               path: e,
               mtimeMs: i,
             }),
-            (s = "folder");
+            (s = 'folder');
         }
       }
     }
     const { updateStatus: a, atomic: u } = r;
     return (
       u ||
-        ("file" === s
+        ('file' === s
           ? i.rename(t, e)
-          : "folder" === s &&
+          : 'folder' === s &&
             i.keys
-              .filter((e) => e.startsWith(t + "/"))
+              .filter((e) => e.startsWith(t + '/'))
               .forEach((r) => i.rename(r, r.replace(t, e))),
         await this.observable.run({
-          action: "mv",
+          action: 'mv',
           updateStatus: a,
           oldpath: t,
           path: e,
@@ -8365,22 +8365,22 @@ class GitFileSystem {
       const e = await this.lookupFile(t);
       if (e) {
         const t = await n.data.get(e.fid),
-          r = (t && t.text) || "",
-          o = (t && t.encoding) || "";
+          r = (t && t.text) || '',
+          o = (t && t.encoding) || '';
         return o
-          ? "utf8" === i && "utf8" === o
+          ? 'utf8' === i && 'utf8' === o
             ? r
             : i
             ? Buffer.from(r, o).toString(i)
             : Buffer.from(r, o)
-          : "utf8" === i
+          : 'utf8' === i
           ? r
           : i
           ? Buffer.from(r).toString(i)
           : Buffer.from(r);
       }
       throw new ExtError({
-        name: "FileNotFound",
+        name: 'FileNotFound',
         src: `${this.constructor.name}:read`,
         message: RES_I18N.ErrorMessages.NotExistsFor(RES_I18N.Objects.File),
         path: t,
@@ -8396,13 +8396,13 @@ class GitFileSystem {
   ) {
     t = normalizePath(t);
     const { _fs: r, _store: n } = this,
-      i = t.split("/").map((t, e, r) => r.slice(0, e + 1).join("/"));
+      i = t.split('/').map((t, e, r) => r.slice(0, e + 1).join('/'));
     let o;
     (o =
       r.supported && !isIDB(t)
         ? await r.mkdirp(t)
         : await n.folders
-            .where("path")
+            .where('path')
             .anyOf(i)
             .keys((t) => {
               const e = i.filter((e) => !t.includes(e));
@@ -8411,13 +8411,13 @@ class GitFileSystem {
       o &&
         !e.atomic &&
         (await this.observable.run({
-          action: "mkdir",
+          action: 'mkdir',
           path: t,
-          type: "folder",
+          type: 'folder',
         }));
   }
   async write(t, e, r) {
-    (t = normalizePath(t)), (e = e || "");
+    (t = normalizePath(t)), (e = e || '');
     let { mode: n, target: i, updateStatus: o, atomic: s } = r || {};
     const { _fs: a, _store: u } = this;
     await this.mkdir(dirname(t), {
@@ -8430,7 +8430,7 @@ class GitFileSystem {
         mtimeMs: f,
         size: l,
         mode: n,
-      } = await a.write(t, c ? Buffer.from(e).toString("base64") : e, c));
+      } = await a.write(t, c ? Buffer.from(e).toString('base64') : e, c));
     else {
       const r = await this.lookupFile(t),
         o = c ? castAsReadableArrayBuffer(e) : e;
@@ -8450,21 +8450,21 @@ class GitFileSystem {
         await u.data.put({
           fid: a,
           text: o,
-          encoding: c ? "binary" : "utf8",
+          encoding: c ? 'binary' : 'utf8',
         });
     }
     return (
       s ||
         (await this.observable.run({
-          action: "write",
+          action: 'write',
           path: t,
-          type: "file",
+          type: 'file',
           updateStatus: o,
         })),
       {
         mode: n,
         mtimeMs: f,
-        type: "file",
+        type: 'file',
         ino: 0,
         size: l,
       }
@@ -8498,7 +8498,7 @@ class GitFileSystem {
       } else u = !0;
     }
     if (u) {
-      const e = "file";
+      const e = 'file';
       if (i)
         return {
           oldpath: t,
@@ -8507,9 +8507,9 @@ class GitFileSystem {
         };
       a.del(t);
       const r = dirname(t);
-      return "." === r || "" === r || (await this.fileCount(r)) > 0
+      return '.' === r || '' === r || (await this.fileCount(r)) > 0
         ? (await this.observable.run({
-            action: "rm",
+            action: 'rm',
             updateStatus: n,
             oldpath: t,
             path: null,
@@ -8523,7 +8523,7 @@ class GitFileSystem {
         : this.rmdir(r);
     }
     throw new ExtError({
-      name: "RemoveFailed",
+      name: 'RemoveFailed',
       src: `${this.constructor.name}:rm`,
       message: `Could not remove ${t}.`,
       path: t,
@@ -8534,7 +8534,7 @@ class GitFileSystem {
     const { tmpDir: r, updateStatus: n } = e;
     t = normalizePath(t);
     const { _inodes: i, _fs: o, _store: s } = this,
-      a = t + "/";
+      a = t + '/';
     if ((i.keys.filter((t) => t.startsWith(a)).forEach((t) => i.del(t)), r))
       return this.mv(t, r + t, {
         updateStatus: n,
@@ -8545,7 +8545,7 @@ class GitFileSystem {
       if (e) {
         if (!e.isDirectory())
           throw new ExtError({
-            name: "NotADirectory",
+            name: 'NotADirectory',
             src: `${this.constructor.name}:rmdir`,
             message: `${t} is not a directory.`,
             path: t,
@@ -8555,18 +8555,18 @@ class GitFileSystem {
         o.supported && !isIDB(t)
           ? (r = await o.remove(t))
           : (await Promise.all([
-              s.folders.where("path").equals(t).delete(),
-              s.files.where("path").startsWith(a).delete(),
-              s.folders.where("path").startsWith(a).delete(),
+              s.folders.where('path').equals(t).delete(),
+              s.files.where('path').startsWith(a).delete(),
+              s.folders.where('path').startsWith(a).delete(),
             ]),
             (r = !0));
       } else r = !0;
       if (r) {
-        const e = "folder",
+        const e = 'folder',
           r = dirname(t);
-        return "." === r || "" === r || (await this.fileCount(r)) > 0
+        return '.' === r || '' === r || (await this.fileCount(r)) > 0
           ? (await this.observable.run({
-              action: "rmdir",
+              action: 'rmdir',
               updateStatus: n,
               oldpath: t,
               path: null,
@@ -8580,7 +8580,7 @@ class GitFileSystem {
           : this.rmdir(r);
       }
       throw new ExtError({
-        name: "RemoveFailed",
+        name: 'RemoveFailed',
         src: `${this.constructor.name}:rmdir`,
         message: `Could not remove ${t}.`,
         path: t,
@@ -8607,21 +8607,21 @@ class GitFileSystem {
       );
     const a = await this.lookupFolder(t);
     if (a) {
-      const t = a.path + "/",
+      const t = a.path + '/',
         e = t.length;
       let i = n
           ? []
           : o.folders
-              .where("path")
+              .where('path')
               .startsWith(t)
-              .filter((t) => !t.path.slice(e).includes("/"))
+              .filter((t) => !t.path.slice(e).includes('/'))
               .keys(),
         u = r
           ? []
           : o.files
-              .where("path")
+              .where('path')
               .startsWith(t)
-              .filter((t) => !t.path.slice(e).includes("/"))
+              .filter((t) => !t.path.slice(e).includes('/'))
               .keys();
       return (
         (s = (await i).concat(await u).map((t) => t.slice(e))),
@@ -8634,14 +8634,14 @@ class GitFileSystem {
   async readdirDeep(t, e) {
     const { files: r = !0, folders: n = !1, relative: i = !1 } = e || {},
       { _store: o, _fs: s } = this,
-      a = (t = normalizePath(t)) + "/",
+      a = (t = normalizePath(t)) + '/',
       u = a.length;
     let c;
     if (s.supported && !isIDB(t)) c = await s.readdirDeep(t, r, n);
     else {
       const [t, e] = await Promise.all([
-        r ? o.files.where("path").startsWith(a).keys() : [],
-        n ? o.folders.where("path").startsWith(a).keys() : [],
+        r ? o.files.where('path').startsWith(a).keys() : [],
+        n ? o.folders.where('path').startsWith(a).keys() : [],
       ]);
       c = e.concat(t);
     }
@@ -8707,10 +8707,10 @@ class GitFileSystem {
   async writelink(t, e) {
     t = normalizePath(t);
     const { _fs: r } = this,
-      n = e.toString("utf8");
+      n = e.toString('utf8');
     return r.supported && !isIDB(t)
       ? (await this.mkdir(dirname(t)), r.writelink(t, n))
-      : this.write(t, "", {
+      : this.write(t, '', {
           target: n,
           mode: FileTypeModes.SYMLINK,
         });
@@ -8727,9 +8727,9 @@ class GitFileSystem {
     );
   }
   static uuid4() {
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (t) => {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (t) => {
       const e = (16 * Math.random()) | 0;
-      return ("x" === t ? e : (3 & e) | 8).toString(16);
+      return ('x' === t ? e : (3 & e) | 8).toString(16);
     });
   }
   static compareStrings(t, e) {
@@ -8746,38 +8746,38 @@ var GitFileSystemClass = GitFileSystem,
   GFS = new GitFileSystem(DFS);
 class Environ {
   constructor(t, e) {
-    (this._fs = t), (this._ds = e), (this.locale = "en");
+    (this._fs = t), (this._ds = e), (this.locale = 'en');
   }
   resource(t) {
     return t
       ? isIDB(t)
-        ? join("/run", t)
-        : this._ds.resourceUrl(t) || join("/run", t)
+        ? join('/run', t)
+        : this._ds.resourceUrl(t) || join('/run', t)
       : t;
   }
   async projectConfigPathAsync() {
-    return this.filesDirAsync(".projects");
+    return this.filesDirAsync('.projects');
   }
   async gitConfigPathAsync() {
-    return this.filesDirAsync(".gitconfig");
+    return this.filesDirAsync('.gitconfig');
   }
   async settingsConfigPathAsync() {
-    return this.filesDirAsync(".settings");
+    return this.filesDirAsync('.settings');
   }
   async metadataDirAsync(t) {
     const e = await this.filesDirAsync();
-    return `${e}.metadata/${(t || "").replace(e, "")}`;
+    return `${e}.metadata/${(t || '').replace(e, '')}`;
   }
   async trashDirAsync(t) {
     const e = await this.filesDirAsync();
-    return `${e}.trash/${(t || "").replace(e, "")}`;
+    return `${e}.trash/${(t || '').replace(e, '')}`;
   }
   async tmpDirAsync(t) {
     const e = await this.filesDirAsync();
-    return `${e}.tmp/${(t || "").replace(e, "")}`;
+    return `${e}.tmp/${(t || '').replace(e, '')}`;
   }
   async filesDirAsync(t) {
-    return `${(await this.systemDirAsync()) || "idb/"}${t || ""}`;
+    return `${(await this.systemDirAsync()) || 'idb/'}${t || ''}`;
   }
   async systemDirAsync() {
     return this._fs.supported ? await this.resolveDir() : null;
@@ -8833,5 +8833,5 @@ function castAsReadableArrayBuffer(t) {
       ? t.buffer
       : t.buffer.slice(t.byteOffset, t.byteOffset + t.byteLength);
   if (Buffer.isBuffer(t)) return t.buffer;
-  throw new Error("Argument type not recognized: " + typeof t);
+  throw new Error('Argument type not recognized: ' + typeof t);
 }

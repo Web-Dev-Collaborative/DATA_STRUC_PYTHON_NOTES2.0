@@ -40,7 +40,7 @@ var __awaiter =
 
       function rejected(value) {
         try {
-          step(generator["throw"](value));
+          step(generator['throw'](value));
         } catch (e) {
           reject(e);
         }
@@ -76,7 +76,7 @@ var __generator =
         throw: verb(1),
         return: verb(2),
       }),
-      typeof Symbol === "function" &&
+      typeof Symbol === 'function' &&
         (g[Symbol.iterator] = function () {
           return this;
         }),
@@ -90,7 +90,7 @@ var __generator =
     }
 
     function step(op) {
-      if (f) throw new TypeError("Generator is already executing.");
+      if (f) throw new TypeError('Generator is already executing.');
       while (_)
         try {
           if (
@@ -98,9 +98,9 @@ var __generator =
             y &&
               (t =
                 op[0] & 2
-                  ? y["return"]
+                  ? y['return']
                   : op[0]
-                  ? y["throw"] || ((t = y["return"]) && t.call(y), 0)
+                  ? y['throw'] || ((t = y['return']) && t.call(y), 0)
                   : y.next) &&
               !(t = t.call(y, op[1])).done)
           )
@@ -174,7 +174,7 @@ var getConstructorName = function (x) {
   try {
     return x.constructor.name;
   } catch (e) {
-    return "";
+    return '';
   }
 };
 var Protocol = /** @class */ (function () {
@@ -209,7 +209,7 @@ var Protocol = /** @class */ (function () {
               };
               if (e.source) {
                 // @ts-ignore
-                e.source.postMessage(returnMessage, "*");
+                e.source.postMessage(returnMessage, '*');
               } else {
                 this._postMessage(returnMessage);
               }
@@ -220,16 +220,16 @@ var Protocol = /** @class */ (function () {
     };
     this.createConnection();
     this.internalId = generateId();
-    this.isWorker = getConstructorName(target) === "Worker";
+    this.isWorker = getConstructorName(target) === 'Worker';
   }
   Protocol.prototype.getTypeId = function () {
-    return "p-" + this.type;
+    return 'p-' + this.type;
   };
   Protocol.prototype.createConnection = function () {
-    self.addEventListener("message", this._messageListener);
+    self.addEventListener('message', this._messageListener);
   };
   Protocol.prototype.dispose = function () {
-    self.removeEventListener("message", this._messageListener);
+    self.removeEventListener('message', this._messageListener);
   };
   Protocol.prototype.sendMessage = function (data) {
     var _this = this;
@@ -250,10 +250,10 @@ var Protocol = /** @class */ (function () {
           data.$originId !== _this.internalId
         ) {
           resolve(data.$data);
-          self.removeEventListener("message", listenFunction);
+          self.removeEventListener('message', listenFunction);
         }
       };
-      self.addEventListener("message", listenFunction);
+      self.addEventListener('message', listenFunction);
       _this._postMessage(message);
     });
   };
@@ -261,14 +261,14 @@ var Protocol = /** @class */ (function () {
     if (
       this.isWorker ||
       // @ts-ignore Unknown to TS
-      (typeof DedicatedWorkerGlobalScope !== "undefined" &&
+      (typeof DedicatedWorkerGlobalScope !== 'undefined' &&
         // @ts-ignore Unknown to TS
         this.target instanceof DedicatedWorkerGlobalScope)
     ) {
       // @ts-ignore
       this.target.postMessage(m);
     } else {
-      this.target.postMessage(m, "*");
+      this.target.postMessage(m, '*');
     }
   };
   return Protocol;
@@ -285,15 +285,15 @@ var Protocol = /** @class */ (function () {
  */
 function show(title, notificationType, timeAlive) {
   if (notificationType === void 0) {
-    notificationType = "notice";
+    notificationType = 'notice';
   }
   if (timeAlive === void 0) {
     timeAlive = 2;
   }
   // TODO automatically add type: 'action', maybe do this after conversion to TS
   return {
-    type: "action",
-    action: "notification",
+    type: 'action',
+    action: 'notification',
     title: title,
     notificationType: notificationType,
     timeAlive: timeAlive,
@@ -307,8 +307,8 @@ var notifications = Object.freeze({
 function openModule(id, lineNumber, column) {
   // TODO automatically add type: 'action', maybe do this after conversion to TS
   return {
-    type: "action",
-    action: "editor.open-module",
+    type: 'action',
+    action: 'editor.open-module',
     path: id,
     lineNumber: lineNumber,
     column: column,
@@ -321,8 +321,8 @@ var editor = Object.freeze({
 
 function add(dependencyName) {
   return {
-    type: "action",
-    action: "source.dependencies.add",
+    type: 'action',
+    action: 'source.dependencies.add',
     dependency: dependencyName,
   };
 }
@@ -333,8 +333,8 @@ var d = Object.freeze({
 
 function rename(path, title) {
   return {
-    type: "action",
-    action: "source.module.rename",
+    type: 'action',
+    action: 'source.module.rename',
     path: path,
     title: title,
   };
@@ -379,17 +379,17 @@ function show$1(title, message, _a) {
     payload: payload,
     lineEnd: lineEnd,
     columnEnd: columnEnd,
-    severity: "error",
-    type: "action",
-    action: "show-error",
-    source: source || "browser",
+    severity: 'error',
+    type: 'action',
+    action: 'show-error',
+    source: source || 'browser',
   };
 }
 
 function clear(path, source) {
   return {
-    type: "action",
-    action: "clear-errors",
+    type: 'action',
+    action: 'clear-errors',
     path: path,
     source: source,
   };
@@ -414,9 +414,9 @@ function show$2(message, _a) {
   var _b =
       _a === void 0
         ? {
-            path: "",
-            severity: "warning",
-            source: "",
+            path: '',
+            severity: 'warning',
+            source: '',
           }
         : _a,
     line = _b.line,
@@ -426,9 +426,9 @@ function show$2(message, _a) {
     path = _b.path,
     payload = _b.payload,
     _c = _b.severity,
-    severity = _c === void 0 ? "warning" : _c,
+    severity = _c === void 0 ? 'warning' : _c,
     _d = _b.source,
-    source = _d === void 0 ? "" : _d;
+    source = _d === void 0 ? '' : _d;
   return {
     message: message,
     line: line,
@@ -439,15 +439,15 @@ function show$2(message, _a) {
     payload: payload,
     severity: severity,
     source: source,
-    type: "action",
-    action: "show-correction",
+    type: 'action',
+    action: 'show-correction',
   };
 }
 
 function clear$1(path, source) {
   return {
-    type: "action",
-    action: "clear-corrections",
+    type: 'action',
+    action: 'clear-corrections',
     path: path,
     source: source,
   };
@@ -476,8 +476,8 @@ function show$3(_a) {
     line: line,
     path: path,
     className: className,
-    type: "action",
-    action: "show-glyph",
+    type: 'action',
+    action: 'show-glyph',
   };
 }
 
@@ -497,8 +497,8 @@ var actions = {
   glyph: glyph,
 };
 
-var host = typeof process !== "undefined" && process.env.CODESANDBOX_HOST;
-var host$1 = host || "https://codesandbox.io";
+var host = typeof process !== 'undefined' && process.env.CODESANDBOX_HOST;
+var host$1 = host || 'https://codesandbox.io';
 
 var __assign =
   (undefined && undefined.__assign) ||
@@ -519,10 +519,10 @@ var __assign =
 var bundlers = new Map();
 
 function checkIsStandalone() {
-  if (typeof window === "undefined") {
+  if (typeof window === 'undefined') {
     return true;
   }
-  if (window.location && window.location.href.indexOf("?standalone") > -1) {
+  if (window.location && window.location.href.indexOf('?standalone') > -1) {
     return true;
   }
   if (window.opener || window.parent !== window) {
@@ -551,18 +551,18 @@ var parentOrigin = null;
 var parentId = null;
 var parentOriginListener = function (e) {
   var _a;
-  if (e.data.type === "register-frame" && !parentId) {
+  if (e.data.type === 'register-frame' && !parentId) {
     parentOrigin = e.data.origin;
     parentId = (_a = e.data.id) !== null && _a !== void 0 ? _a : null;
     if (!iframeHandshakeDone) {
       resolveIframeHandshake();
       iframeHandshakeDone = true;
     }
-    self.removeEventListener("message", parentOriginListener);
+    self.removeEventListener('message', parentOriginListener);
   }
 };
-if (typeof window !== "undefined") {
-  self.addEventListener("message", parentOriginListener);
+if (typeof window !== 'undefined') {
+  self.addEventListener('message', parentOriginListener);
 }
 
 function resetState() {
@@ -587,16 +587,16 @@ function dispatch(message) {
   notifyListeners(newMessage);
   notifyFrames(newMessage);
   if (isStandalone) return;
-  if (parentOrigin === null && message.type !== "initialized") return;
+  if (parentOrigin === null && message.type !== 'initialized') return;
   if (window.opener) {
     window.opener.postMessage(
       newMessage,
-      parentOrigin === null ? "*" : parentOrigin
+      parentOrigin === null ? '*' : parentOrigin
     );
   } else {
     window.parent.postMessage(
       newMessage,
-      parentOrigin === null ? "*" : parentOrigin
+      parentOrigin === null ? '*' : parentOrigin
     );
   }
 }
@@ -642,7 +642,7 @@ function notifyFrames(message) {
 }
 
 function eventListener(e) {
-  if (e.data.type === "initialized" || isStandalone) {
+  if (e.data.type === 'initialized' || isStandalone) {
     // iframe handshake is auto-resolved in the parent, only the child needs to wait for it
     // we detect the parent either by the "initialized" message which only the parent receives
     // or by the "isStandalone" flag which works for codesandbox.io and when sandpack is not inside an iframe
@@ -670,19 +670,19 @@ function registerFrame(frame, origin, bundlerId) {
   bundlers.set(frame, origin);
   frame.postMessage(
     {
-      type: "register-frame",
+      type: 'register-frame',
       origin: document.location.origin,
       id: bundlerId,
     },
     origin
   );
 }
-if (typeof window !== "undefined") {
-  window.addEventListener("message", eventListener);
+if (typeof window !== 'undefined') {
+  window.addEventListener('message', eventListener);
 }
 
 function reattach() {
-  window.addEventListener("message", eventListener);
+  window.addEventListener('message', eventListener);
 }
 
 // Errors

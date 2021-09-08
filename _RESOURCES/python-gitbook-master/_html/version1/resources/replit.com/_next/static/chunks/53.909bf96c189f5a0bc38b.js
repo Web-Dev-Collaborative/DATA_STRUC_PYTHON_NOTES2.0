@@ -2,57 +2,57 @@
   [53],
   {
     tpLM: function (e, t, n) {
-      "use strict";
+      'use strict';
       n.r(t),
-        n.d(t, "conf", function () {
+        n.d(t, 'conf', function () {
           return r;
         }),
-        n.d(t, "language", function () {
+        n.d(t, 'language', function () {
           return d;
         });
-      var i = "undefined" === typeof monaco ? self.monaco : monaco,
+      var i = 'undefined' === typeof monaco ? self.monaco : monaco,
         o = [
-          "area",
-          "base",
-          "br",
-          "col",
-          "embed",
-          "hr",
-          "img",
-          "input",
-          "keygen",
-          "link",
-          "menuitem",
-          "meta",
-          "param",
-          "source",
-          "track",
-          "wbr",
+          'area',
+          'base',
+          'br',
+          'col',
+          'embed',
+          'hr',
+          'img',
+          'input',
+          'keygen',
+          'link',
+          'menuitem',
+          'meta',
+          'param',
+          'source',
+          'track',
+          'wbr',
         ],
         r = {
           wordPattern:
             /(-?\d*\.\d\w*)|([^\`\~\!\@\$\^\&\*\(\)\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\s]+)/g,
           comments: {
-            blockComment: ["\x3c!--", "--\x3e"],
+            blockComment: ['\x3c!--', '--\x3e'],
           },
           brackets: [
-            ["\x3c!--", "--\x3e"],
-            ["<", ">"],
-            ["{", "}"],
-            ["(", ")"],
+            ['\x3c!--', '--\x3e'],
+            ['<', '>'],
+            ['{', '}'],
+            ['(', ')'],
           ],
           autoClosingPairs: [
             {
-              open: "{",
-              close: "}",
+              open: '{',
+              close: '}',
             },
             {
-              open: "[",
-              close: "]",
+              open: '[',
+              close: ']',
             },
             {
-              open: "(",
-              close: ")",
+              open: '(',
+              close: ')',
             },
             {
               open: '"',
@@ -73,29 +73,29 @@
               close: "'",
             },
             {
-              open: "{",
-              close: "}",
+              open: '{',
+              close: '}',
             },
             {
-              open: "[",
-              close: "]",
+              open: '[',
+              close: ']',
             },
             {
-              open: "(",
-              close: ")",
+              open: '(',
+              close: ')',
             },
             {
-              open: "<",
-              close: ">",
+              open: '<',
+              close: '>',
             },
           ],
           onEnterRules: [
             {
               beforeText: new RegExp(
-                "<(?!(?:" +
-                  o.join("|") +
-                  "))([_:\\w][_:\\w-.\\d]*)([^/>]*(?!/)>)[^<]*$",
-                "i"
+                '<(?!(?:' +
+                  o.join('|') +
+                  '))([_:\\w][_:\\w-.\\d]*)([^/>]*(?!/)>)[^<]*$',
+                'i'
               ),
               afterText: /^<\/([_:\w][_:\w-.\d]*)\s*>$/i,
               action: {
@@ -104,10 +104,10 @@
             },
             {
               beforeText: new RegExp(
-                "<(?!(?:" +
-                  o.join("|") +
-                  "))(\\w[\\w\\d]*)([^/>]*(?!/)>)[^<]*$",
-                "i"
+                '<(?!(?:' +
+                  o.join('|') +
+                  '))(\\w[\\w\\d]*)([^/>]*(?!/)>)[^<]*$',
+                'i'
               ),
               action: {
                 indentAction: i.languages.IndentAction.Indent,
@@ -116,126 +116,126 @@
           ],
           folding: {
             markers: {
-              start: new RegExp("^\\s*\x3c!--\\s*#region\\b.*--\x3e"),
-              end: new RegExp("^\\s*\x3c!--\\s*#endregion\\b.*--\x3e"),
+              start: new RegExp('^\\s*\x3c!--\\s*#region\\b.*--\x3e'),
+              end: new RegExp('^\\s*\x3c!--\\s*#endregion\\b.*--\x3e'),
             },
           },
         },
         d = {
-          defaultToken: "",
-          tokenPostfix: ".html",
+          defaultToken: '',
+          tokenPostfix: '.html',
           ignoreCase: !0,
           tokenizer: {
             root: [
-              [/<!DOCTYPE/, "metatag", "@doctype"],
-              [/<!--/, "comment", "@comment"],
+              [/<!DOCTYPE/, 'metatag', '@doctype'],
+              [/<!--/, 'comment', '@comment'],
               [
                 /(<)((?:[\w\-]+:)?[\w\-]+)(\s*)(\/>)/,
-                ["delimiter", "tag", "", "delimiter"],
+                ['delimiter', 'tag', '', 'delimiter'],
               ],
               [
                 /(<)(script)/,
                 [
-                  "delimiter",
+                  'delimiter',
                   {
-                    token: "tag",
-                    next: "@script",
+                    token: 'tag',
+                    next: '@script',
                   },
                 ],
               ],
               [
                 /(<)(style)/,
                 [
-                  "delimiter",
+                  'delimiter',
                   {
-                    token: "tag",
-                    next: "@style",
+                    token: 'tag',
+                    next: '@style',
                   },
                 ],
               ],
               [
                 /(<)((?:[\w\-]+:)?[\w\-]+)/,
                 [
-                  "delimiter",
+                  'delimiter',
                   {
-                    token: "tag",
-                    next: "@otherTag",
+                    token: 'tag',
+                    next: '@otherTag',
                   },
                 ],
               ],
               [
                 /(<\/)((?:[\w\-]+:)?[\w\-]+)/,
                 [
-                  "delimiter",
+                  'delimiter',
                   {
-                    token: "tag",
-                    next: "@otherTag",
+                    token: 'tag',
+                    next: '@otherTag',
                   },
                 ],
               ],
-              [/</, "delimiter"],
+              [/</, 'delimiter'],
               [/[^<]+/],
             ],
             doctype: [
-              [/[^>]+/, "metatag.content"],
-              [/>/, "metatag", "@pop"],
+              [/[^>]+/, 'metatag.content'],
+              [/>/, 'metatag', '@pop'],
             ],
             comment: [
-              [/-->/, "comment", "@pop"],
-              [/[^-]+/, "comment.content"],
-              [/./, "comment.content"],
+              [/-->/, 'comment', '@pop'],
+              [/[^-]+/, 'comment.content'],
+              [/./, 'comment.content'],
             ],
             otherTag: [
-              [/\/?>/, "delimiter", "@pop"],
-              [/"([^"]*)"/, "attribute.value"],
-              [/'([^']*)'/, "attribute.value"],
-              [/[\w\-]+/, "attribute.name"],
-              [/=/, "delimiter"],
+              [/\/?>/, 'delimiter', '@pop'],
+              [/"([^"]*)"/, 'attribute.value'],
+              [/'([^']*)'/, 'attribute.value'],
+              [/[\w\-]+/, 'attribute.name'],
+              [/=/, 'delimiter'],
               [/[ \t\r\n]+/],
             ],
             script: [
-              [/type/, "attribute.name", "@scriptAfterType"],
-              [/"([^"]*)"/, "attribute.value"],
-              [/'([^']*)'/, "attribute.value"],
-              [/[\w\-]+/, "attribute.name"],
-              [/=/, "delimiter"],
+              [/type/, 'attribute.name', '@scriptAfterType'],
+              [/"([^"]*)"/, 'attribute.value'],
+              [/'([^']*)'/, 'attribute.value'],
+              [/[\w\-]+/, 'attribute.name'],
+              [/=/, 'delimiter'],
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@scriptEmbedded",
-                  nextEmbedded: "text/javascript",
+                  token: 'delimiter',
+                  next: '@scriptEmbedded',
+                  nextEmbedded: 'text/javascript',
                 },
               ],
               [/[ \t\r\n]+/],
               [
                 /(<\/)(script\s*)(>)/,
                 [
-                  "delimiter",
-                  "tag",
+                  'delimiter',
+                  'tag',
                   {
-                    token: "delimiter",
-                    next: "@pop",
+                    token: 'delimiter',
+                    next: '@pop',
                   },
                 ],
               ],
             ],
             scriptAfterType: [
-              [/=/, "delimiter", "@scriptAfterTypeEquals"],
+              [/=/, 'delimiter', '@scriptAfterTypeEquals'],
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@scriptEmbedded",
-                  nextEmbedded: "text/javascript",
+                  token: 'delimiter',
+                  next: '@scriptEmbedded',
+                  nextEmbedded: 'text/javascript',
                 },
               ],
               [/[ \t\r\n]+/],
               [
                 /<\/script\s*>/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
                 },
               ],
             ],
@@ -243,31 +243,31 @@
               [
                 /"([^"]*)"/,
                 {
-                  token: "attribute.value",
-                  switchTo: "@scriptWithCustomType.$1",
+                  token: 'attribute.value',
+                  switchTo: '@scriptWithCustomType.$1',
                 },
               ],
               [
                 /'([^']*)'/,
                 {
-                  token: "attribute.value",
-                  switchTo: "@scriptWithCustomType.$1",
+                  token: 'attribute.value',
+                  switchTo: '@scriptWithCustomType.$1',
                 },
               ],
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@scriptEmbedded",
-                  nextEmbedded: "text/javascript",
+                  token: 'delimiter',
+                  next: '@scriptEmbedded',
+                  nextEmbedded: 'text/javascript',
                 },
               ],
               [/[ \t\r\n]+/],
               [
                 /<\/script\s*>/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
                 },
               ],
             ],
@@ -275,21 +275,21 @@
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@scriptEmbedded.$S2",
-                  nextEmbedded: "$S2",
+                  token: 'delimiter',
+                  next: '@scriptEmbedded.$S2',
+                  nextEmbedded: '$S2',
                 },
               ],
-              [/"([^"]*)"/, "attribute.value"],
-              [/'([^']*)'/, "attribute.value"],
-              [/[\w\-]+/, "attribute.name"],
-              [/=/, "delimiter"],
+              [/"([^"]*)"/, 'attribute.value'],
+              [/'([^']*)'/, 'attribute.value'],
+              [/[\w\-]+/, 'attribute.name'],
+              [/=/, 'delimiter'],
               [/[ \t\r\n]+/],
               [
                 /<\/script\s*>/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
                 },
               ],
             ],
@@ -297,56 +297,56 @@
               [
                 /<\/script/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
-                  nextEmbedded: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
+                  nextEmbedded: '@pop',
                 },
               ],
-              [/[^<]+/, ""],
+              [/[^<]+/, ''],
             ],
             style: [
-              [/type/, "attribute.name", "@styleAfterType"],
-              [/"([^"]*)"/, "attribute.value"],
-              [/'([^']*)'/, "attribute.value"],
-              [/[\w\-]+/, "attribute.name"],
-              [/=/, "delimiter"],
+              [/type/, 'attribute.name', '@styleAfterType'],
+              [/"([^"]*)"/, 'attribute.value'],
+              [/'([^']*)'/, 'attribute.value'],
+              [/[\w\-]+/, 'attribute.name'],
+              [/=/, 'delimiter'],
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@styleEmbedded",
-                  nextEmbedded: "text/css",
+                  token: 'delimiter',
+                  next: '@styleEmbedded',
+                  nextEmbedded: 'text/css',
                 },
               ],
               [/[ \t\r\n]+/],
               [
                 /(<\/)(style\s*)(>)/,
                 [
-                  "delimiter",
-                  "tag",
+                  'delimiter',
+                  'tag',
                   {
-                    token: "delimiter",
-                    next: "@pop",
+                    token: 'delimiter',
+                    next: '@pop',
                   },
                 ],
               ],
             ],
             styleAfterType: [
-              [/=/, "delimiter", "@styleAfterTypeEquals"],
+              [/=/, 'delimiter', '@styleAfterTypeEquals'],
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@styleEmbedded",
-                  nextEmbedded: "text/css",
+                  token: 'delimiter',
+                  next: '@styleEmbedded',
+                  nextEmbedded: 'text/css',
                 },
               ],
               [/[ \t\r\n]+/],
               [
                 /<\/style\s*>/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
                 },
               ],
             ],
@@ -354,31 +354,31 @@
               [
                 /"([^"]*)"/,
                 {
-                  token: "attribute.value",
-                  switchTo: "@styleWithCustomType.$1",
+                  token: 'attribute.value',
+                  switchTo: '@styleWithCustomType.$1',
                 },
               ],
               [
                 /'([^']*)'/,
                 {
-                  token: "attribute.value",
-                  switchTo: "@styleWithCustomType.$1",
+                  token: 'attribute.value',
+                  switchTo: '@styleWithCustomType.$1',
                 },
               ],
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@styleEmbedded",
-                  nextEmbedded: "text/css",
+                  token: 'delimiter',
+                  next: '@styleEmbedded',
+                  nextEmbedded: 'text/css',
                 },
               ],
               [/[ \t\r\n]+/],
               [
                 /<\/style\s*>/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
                 },
               ],
             ],
@@ -386,21 +386,21 @@
               [
                 />/,
                 {
-                  token: "delimiter",
-                  next: "@styleEmbedded.$S2",
-                  nextEmbedded: "$S2",
+                  token: 'delimiter',
+                  next: '@styleEmbedded.$S2',
+                  nextEmbedded: '$S2',
                 },
               ],
-              [/"([^"]*)"/, "attribute.value"],
-              [/'([^']*)'/, "attribute.value"],
-              [/[\w\-]+/, "attribute.name"],
-              [/=/, "delimiter"],
+              [/"([^"]*)"/, 'attribute.value'],
+              [/'([^']*)'/, 'attribute.value'],
+              [/[\w\-]+/, 'attribute.name'],
+              [/=/, 'delimiter'],
               [/[ \t\r\n]+/],
               [
                 /<\/style\s*>/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
                 },
               ],
             ],
@@ -408,12 +408,12 @@
               [
                 /<\/style/,
                 {
-                  token: "@rematch",
-                  next: "@pop",
-                  nextEmbedded: "@pop",
+                  token: '@rematch',
+                  next: '@pop',
+                  nextEmbedded: '@pop',
                 },
               ],
-              [/[^<]+/, ""],
+              [/[^<]+/, ''],
             ],
           },
         };

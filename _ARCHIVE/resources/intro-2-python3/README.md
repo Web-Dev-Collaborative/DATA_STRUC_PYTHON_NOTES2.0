@@ -21,7 +21,7 @@ Let's try some simple Python commands. Start the interpreter and wait for the pr
 
 The interpreter acts as a simple calculator: you can type an expression at it and it will write the value. Expression syntax is straightforward: the operators `+`, `-`, `*` and `/` work just like in most other languages \(for example, Pascal or C\); parentheses \(`()`\) can be used for grouping. For example:
 
-> > > 2 + 2 4 50 - 5\_6 20 \(50 - 5\_6\) / 4 5.0 8 / 5 \# division always returns a floating point number 1.6
+> > > 2 + 2 4 50 - 5_6 20 \(50 - 5_6\) / 4 5.0 8 / 5 \# division always returns a floating point number 1.6
 
 The integer numbers \(e.g. `2`, `4`, `20`\) have type int, the ones with a fractional part \(e.g. `5.0`, `1.6`\) have type float. We will see more about numeric types later in the tutorial.
 
@@ -229,7 +229,7 @@ Of course, we can use Python for more complicated tasks than adding two and two 
 
 This example introduces several new features.
 
-* The first line contains a _multiple assignment_: the variables `a`
+- The first line contains a _multiple assignment_: the variables `a`
 
   and `b` simultaneously get the new values 0 and 1. On the last line
 
@@ -241,7 +241,7 @@ This example introduces several new features.
 
   evaluated from the left to the right.
 
-* The while loop executes as long as the condition \(here: `a < 10`\)
+- The while loop executes as long as the condition \(here: `a < 10`\)
 
   remains true. In Python, like in C, any non-zero integer value is
 
@@ -259,7 +259,7 @@ This example introduces several new features.
 
   `!=` \(not equal to\).
 
-* The _body_ of the loop is _indented_: indentation is Python's way of
+- The _body_ of the loop is _indented_: indentation is Python's way of
 
   grouping statements. At the interactive prompt, you have to type a
 
@@ -277,7 +277,7 @@ This example introduces several new features.
 
   be indented by the same amount.
 
-* The print function writes the value of the argument\(s\) it is given. It differs from just writing the expression you want to write \(as we did earlier in the calculator examples\) in the way it handles multiple arguments, floating point quantities, and strings. Strings are printed without quotes, and a space is inserted between items, so you can format things nicely, like this:
+- The print function writes the value of the argument\(s\) it is given. It differs from just writing the expression you want to write \(as we did earlier in the calculator examples\) in the way it handles multiple arguments, floating point quantities, and strings. Strings are printed without quotes, and a space is inserted between items, so you can format things nicely, like this:
 
   > > > i = 256\*256 print\('The value of i is', i\) The value of i is 65536
 
@@ -298,4 +298,3 @@ The only difference between the two is that within single quotes you
 don't need to escape `"` (but you have to escape `\'`) and vice
 versa.
 ```
-

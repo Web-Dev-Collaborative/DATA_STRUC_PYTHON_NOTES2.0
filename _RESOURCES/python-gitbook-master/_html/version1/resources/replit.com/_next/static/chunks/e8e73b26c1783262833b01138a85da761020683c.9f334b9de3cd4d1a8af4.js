@@ -1,41 +1,41 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [24],
   {
-    "/3cH": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '/3cH': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return a;
       });
-      var r = n("8LbN"),
-        o = n("9Pyj"),
-        i = n("31uO"),
+      var r = n('8LbN'),
+        o = n('9Pyj'),
+        i = n('31uO'),
         a = (function () {
           function t(t) {
             (this._options = t),
               this._options.dsn ||
-                r.a.warn("No DSN provided, backend will not do anything."),
+                r.a.warn('No DSN provided, backend will not do anything.'),
               (this._transport = this._setupTransport());
           }
           return (
             (t.prototype.eventFromException = function (t, e) {
               throw new o.a(
-                "Backend has to implement `eventFromException` method"
+                'Backend has to implement `eventFromException` method'
               );
             }),
             (t.prototype.eventFromMessage = function (t, e, n) {
               throw new o.a(
-                "Backend has to implement `eventFromMessage` method"
+                'Backend has to implement `eventFromMessage` method'
               );
             }),
             (t.prototype.sendEvent = function (t) {
               this._transport.sendEvent(t).then(null, function (t) {
-                r.a.error("Error while sending event: " + t);
+                r.a.error('Error while sending event: ' + t);
               });
             }),
             (t.prototype.sendSession = function (t) {
               this._transport.sendSession
                 ? this._transport.sendSession(t).then(null, function (t) {
-                    r.a.error("Error while sending session: " + t);
+                    r.a.error('Error while sending session: ' + t);
                   })
                 : r.a.warn(
                     "Dropping session because custom transport doesn't implement sendSession"
@@ -51,18 +51,18 @@
           );
         })();
     },
-    "/ZhC": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '/ZhC': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return p;
       });
-      var r = n("SDrh"),
-        o = n("lW6c"),
-        i = n("1Wj6"),
-        a = n("9/Zf"),
-        s = n("6hSO"),
-        c = n("+924"),
-        u = n("vFt6"),
+      var r = n('SDrh'),
+        o = n('lW6c'),
+        i = n('1Wj6'),
+        a = n('9/Zf'),
+        s = n('6hSO'),
+        c = n('+924'),
+        u = n('vFt6'),
         p = (function () {
           function t(e) {
             (this.name = t.id),
@@ -84,8 +84,8 @@
                 Object(o.b)().addBreadcrumb(
                   {
                     category:
-                      "sentry." +
-                      ("transaction" === t.type ? "transaction" : "event"),
+                      'sentry.' +
+                      ('transaction' === t.type ? 'transaction' : 'event'),
                     event_id: t.event_id,
                     level: t.level,
                     message: Object(a.d)(t),
@@ -104,7 +104,7 @@
                       e[n] = arguments[n];
                     t._consoleBreadcrumb.apply(t, Object(r.c)(e));
                   },
-                  type: "console",
+                  type: 'console',
                 }),
                 this._options.dom &&
                   Object(s.a)({
@@ -113,7 +113,7 @@
                         e[n] = arguments[n];
                       t._domBreadcrumb.apply(t, Object(r.c)(e));
                     },
-                    type: "dom",
+                    type: 'dom',
                   }),
                 this._options.xhr &&
                   Object(s.a)({
@@ -122,7 +122,7 @@
                         e[n] = arguments[n];
                       t._xhrBreadcrumb.apply(t, Object(r.c)(e));
                     },
-                    type: "xhr",
+                    type: 'xhr',
                   }),
                 this._options.fetch &&
                   Object(s.a)({
@@ -131,7 +131,7 @@
                         e[n] = arguments[n];
                       t._fetchBreadcrumb.apply(t, Object(r.c)(e));
                     },
-                    type: "fetch",
+                    type: 'fetch',
                   }),
                 this._options.history &&
                   Object(s.a)({
@@ -140,24 +140,24 @@
                         e[n] = arguments[n];
                       t._historyBreadcrumb.apply(t, Object(r.c)(e));
                     },
-                    type: "history",
+                    type: 'history',
                   });
             }),
             (t.prototype._consoleBreadcrumb = function (t) {
               var e = {
-                category: "console",
+                category: 'console',
                 data: {
                   arguments: t.args,
-                  logger: "console",
+                  logger: 'console',
                 },
                 level: i.a.fromString(t.level),
-                message: Object(c.b)(t.args, " "),
+                message: Object(c.b)(t.args, ' '),
               };
-              if ("assert" === t.level) {
+              if ('assert' === t.level) {
                 if (!1 !== t.args[0]) return;
                 (e.message =
-                  "Assertion failed: " +
-                  (Object(c.b)(t.args.slice(1), " ") || "console.assert")),
+                  'Assertion failed: ' +
+                  (Object(c.b)(t.args.slice(1), ' ') || 'console.assert')),
                   (e.data.arguments = t.args.slice(1));
               }
               Object(o.b)().addBreadcrumb(e, {
@@ -172,12 +172,12 @@
                   ? Object(u.a)(t.event.target)
                   : Object(u.a)(t.event);
               } catch (n) {
-                e = "<unknown>";
+                e = '<unknown>';
               }
               0 !== e.length &&
                 Object(o.b)().addBreadcrumb(
                   {
-                    category: "ui." + t.name,
+                    category: 'ui.' + t.name,
                     message: e,
                   },
                   {
@@ -196,13 +196,13 @@
                   a = e.body;
                 Object(o.b)().addBreadcrumb(
                   {
-                    category: "xhr",
+                    category: 'xhr',
                     data: {
                       method: n,
                       url: r,
                       status_code: i,
                     },
-                    type: "http",
+                    type: 'http',
                   },
                   {
                     xhr: t.xhr,
@@ -214,14 +214,14 @@
             (t.prototype._fetchBreadcrumb = function (t) {
               t.endTimestamp &&
                 ((t.fetchData.url.match(/sentry_key/) &&
-                  "POST" === t.fetchData.method) ||
+                  'POST' === t.fetchData.method) ||
                   (t.error
                     ? Object(o.b)().addBreadcrumb(
                         {
-                          category: "fetch",
+                          category: 'fetch',
                           data: t.fetchData,
                           level: i.a.Error,
-                          type: "http",
+                          type: 'http',
                         },
                         {
                           data: t.error,
@@ -230,11 +230,11 @@
                       )
                     : Object(o.b)().addBreadcrumb(
                         {
-                          category: "fetch",
+                          category: 'fetch',
                           data: Object(r.a)(Object(r.a)({}, t.fetchData), {
                             status_code: t.response.status,
                           }),
-                          type: "http",
+                          type: 'http',
                         },
                         {
                           input: t.args,
@@ -257,67 +257,67 @@
                   i.host === s.host &&
                   (n = s.relative),
                 Object(o.b)().addBreadcrumb({
-                  category: "navigation",
+                  category: 'navigation',
                   data: {
                     from: n,
                     to: r,
                   },
                 });
             }),
-            (t.id = "Breadcrumbs"),
+            (t.id = 'Breadcrumbs'),
             t
           );
         })();
     },
-    "1Wj6": function (t, e, n) {
-      "use strict";
+    '1Wj6': function (t, e, n) {
+      'use strict';
       var r;
-      n.d(e, "a", function () {
+      n.d(e, 'a', function () {
         return r;
       }),
         (function (t) {
-          (t.Fatal = "fatal"),
-            (t.Error = "error"),
-            (t.Warning = "warning"),
-            (t.Log = "log"),
-            (t.Info = "info"),
-            (t.Debug = "debug"),
-            (t.Critical = "critical");
+          (t.Fatal = 'fatal'),
+            (t.Error = 'error'),
+            (t.Warning = 'warning'),
+            (t.Log = 'log'),
+            (t.Info = 'info'),
+            (t.Debug = 'debug'),
+            (t.Critical = 'critical');
         })(r || (r = {})),
         (function (t) {
           t.fromString = function (e) {
             switch (e) {
-              case "debug":
+              case 'debug':
                 return t.Debug;
-              case "info":
+              case 'info':
                 return t.Info;
-              case "warn":
-              case "warning":
+              case 'warn':
+              case 'warning':
                 return t.Warning;
-              case "error":
+              case 'error':
                 return t.Error;
-              case "fatal":
+              case 'fatal':
                 return t.Fatal;
-              case "critical":
+              case 'critical':
                 return t.Critical;
-              case "log":
+              case 'log':
               default:
                 return t.Log;
             }
           };
         })(r || (r = {}));
     },
-    "2O0U": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '2O0U': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return p;
       });
-      var r = n("SDrh"),
-        o = n("KRiW"),
-        i = n("9/Zf"),
-        a = n("4Ssk"),
-        s = n("HR75"),
-        c = n("DTjN"),
+      var r = n('SDrh'),
+        o = n('KRiW'),
+        i = n('9/Zf'),
+        a = n('4Ssk'),
+        s = n('HR75'),
+        c = n('DTjN'),
         u = Object(i.e)(),
         p = (function (t) {
           function e() {
@@ -338,15 +338,15 @@
                   event: e,
                   type: t.type,
                   reason:
-                    "Transport locked till " +
+                    'Transport locked till ' +
                     this._disabledUntil(t.type) +
-                    " due to too many requests.",
+                    ' due to too many requests.',
                   status: 429,
                 });
               var r = {
                 body: t.body,
-                method: "POST",
-                referrerPolicy: Object(a.d)() ? "origin" : "",
+                method: 'POST',
+                referrerPolicy: Object(a.d)() ? 'origin' : '',
               };
               return (
                 void 0 !== this.options.fetchParameters &&
@@ -358,10 +358,10 @@
                     u.fetch(t.url, r)
                       .then(function (r) {
                         var i = {
-                          "x-sentry-rate-limits": r.headers.get(
-                            "X-Sentry-Rate-Limits"
+                          'x-sentry-rate-limits': r.headers.get(
+                            'X-Sentry-Rate-Limits'
                           ),
-                          "retry-after": r.headers.get("Retry-After"),
+                          'retry-after': r.headers.get('Retry-After'),
                         };
                         n._handleResponse({
                           requestType: t.type,
@@ -380,20 +380,20 @@
           );
         })(c.a);
     },
-    "31uO": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '31uO': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return i;
       });
-      var r = n("dMW8"),
-        o = n("HR75"),
+      var r = n('dMW8'),
+        o = n('HR75'),
         i = (function () {
           function t() {}
           return (
             (t.prototype.sendEvent = function (t) {
               return o.a.resolve({
                 reason:
-                  "NoopTransport: Event has been skipped because no Dsn is configured.",
+                  'NoopTransport: Event has been skipped because no Dsn is configured.',
                 status: r.a.Skipped,
               });
             }),
@@ -404,13 +404,13 @@
           );
         })();
     },
-    "3MsT": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '3MsT': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return i;
       });
-      var r = n("UJ/E"),
-        o = n("6PXS"),
+      var r = n('UJ/E'),
+        o = n('6PXS'),
         i = (function () {
           function t(t) {
             (this.dsn = t), (this._dsnObject = new r.a(t));
@@ -421,76 +421,76 @@
             }),
             (t.prototype.getBaseApiEndpoint = function () {
               var t = this._dsnObject,
-                e = t.protocol ? t.protocol + ":" : "",
-                n = t.port ? ":" + t.port : "";
+                e = t.protocol ? t.protocol + ':' : '',
+                n = t.port ? ':' + t.port : '';
               return (
-                e + "//" + t.host + n + (t.path ? "/" + t.path : "") + "/api/"
+                e + '//' + t.host + n + (t.path ? '/' + t.path : '') + '/api/'
               );
             }),
             (t.prototype.getStoreEndpoint = function () {
-              return this._getIngestEndpoint("store");
+              return this._getIngestEndpoint('store');
             }),
             (t.prototype.getStoreEndpointWithUrlEncodedAuth = function () {
-              return this.getStoreEndpoint() + "?" + this._encodedAuth();
+              return this.getStoreEndpoint() + '?' + this._encodedAuth();
             }),
             (t.prototype.getEnvelopeEndpointWithUrlEncodedAuth = function () {
-              return this._getEnvelopeEndpoint() + "?" + this._encodedAuth();
+              return this._getEnvelopeEndpoint() + '?' + this._encodedAuth();
             }),
             (t.prototype.getStoreEndpointPath = function () {
               var t = this._dsnObject;
               return (
-                (t.path ? "/" + t.path : "") + "/api/" + t.projectId + "/store/"
+                (t.path ? '/' + t.path : '') + '/api/' + t.projectId + '/store/'
               );
             }),
             (t.prototype.getRequestHeaders = function (t, e) {
               var n = this._dsnObject,
-                r = ["Sentry sentry_version=7"];
+                r = ['Sentry sentry_version=7'];
               return (
-                r.push("sentry_client=" + t + "/" + e),
-                r.push("sentry_key=" + n.user),
-                n.pass && r.push("sentry_secret=" + n.pass),
+                r.push('sentry_client=' + t + '/' + e),
+                r.push('sentry_key=' + n.user),
+                n.pass && r.push('sentry_secret=' + n.pass),
                 {
-                  "Content-Type": "application/json",
-                  "X-Sentry-Auth": r.join(", "),
+                  'Content-Type': 'application/json',
+                  'X-Sentry-Auth': r.join(', '),
                 }
               );
             }),
             (t.prototype.getReportDialogEndpoint = function (t) {
               void 0 === t && (t = {});
               var e = this._dsnObject,
-                n = this.getBaseApiEndpoint() + "embed/error-page/",
+                n = this.getBaseApiEndpoint() + 'embed/error-page/',
                 r = [];
-              for (var o in (r.push("dsn=" + e.toString()), t))
-                if ("dsn" !== o)
-                  if ("user" === o) {
+              for (var o in (r.push('dsn=' + e.toString()), t))
+                if ('dsn' !== o)
+                  if ('user' === o) {
                     if (!t.user) continue;
                     t.user.name &&
-                      r.push("name=" + encodeURIComponent(t.user.name)),
+                      r.push('name=' + encodeURIComponent(t.user.name)),
                       t.user.email &&
-                        r.push("email=" + encodeURIComponent(t.user.email));
+                        r.push('email=' + encodeURIComponent(t.user.email));
                   } else
                     r.push(
-                      encodeURIComponent(o) + "=" + encodeURIComponent(t[o])
+                      encodeURIComponent(o) + '=' + encodeURIComponent(t[o])
                     );
-              return r.length ? n + "?" + r.join("&") : n;
+              return r.length ? n + '?' + r.join('&') : n;
             }),
             (t.prototype._getEnvelopeEndpoint = function () {
-              return this._getIngestEndpoint("envelope");
+              return this._getIngestEndpoint('envelope');
             }),
             (t.prototype._getIngestEndpoint = function (t) {
               return (
-                "" +
+                '' +
                 this.getBaseApiEndpoint() +
                 this._dsnObject.projectId +
-                "/" +
+                '/' +
                 t +
-                "/"
+                '/'
               );
             }),
             (t.prototype._encodedAuth = function () {
               var t = {
                 sentry_key: this._dsnObject.user,
-                sentry_version: "7",
+                sentry_version: '7',
               };
               return Object(o.f)(t);
             }),
@@ -498,27 +498,27 @@
           );
         })();
     },
-    "4Ssk": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '4Ssk': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return i;
       }),
-        n.d(e, "c", function () {
+        n.d(e, 'c', function () {
           return s;
         }),
-        n.d(e, "d", function () {
+        n.d(e, 'd', function () {
           return c;
         }),
-        n.d(e, "b", function () {
+        n.d(e, 'b', function () {
           return u;
         });
-      var r = n("8LbN"),
-        o = n("9/Zf");
+      var r = n('8LbN'),
+        o = n('9/Zf');
 
       function i() {
-        if (!("fetch" in Object(o.e)())) return !1;
+        if (!('fetch' in Object(o.e)())) return !1;
         try {
-          return new Headers(), new Request(""), new Response(), !0;
+          return new Headers(), new Request(''), new Response(), !0;
         } catch (t) {
           return !1;
         }
@@ -537,9 +537,9 @@
         if (a(t.fetch)) return !0;
         var e = !1,
           n = t.document;
-        if (n && "function" === typeof n.createElement)
+        if (n && 'function' === typeof n.createElement)
           try {
-            var s = n.createElement("iframe");
+            var s = n.createElement('iframe');
             (s.hidden = !0),
               n.head.appendChild(s),
               s.contentWindow &&
@@ -548,7 +548,7 @@
               n.head.removeChild(s);
           } catch (c) {
             r.a.warn(
-              "Could not create sandbox iframe for pure fetch check, bailing to window.fetch: ",
+              'Could not create sandbox iframe for pure fetch check, bailing to window.fetch: ',
               c
             );
           }
@@ -559,8 +559,8 @@
         if (!i()) return !1;
         try {
           return (
-            new Request("_", {
-              referrerPolicy: "origin",
+            new Request('_', {
+              referrerPolicy: 'origin',
             }),
             !0
           );
@@ -574,23 +574,23 @@
           e = t.chrome,
           n = e && e.app && e.app.runtime,
           r =
-            "history" in t && !!t.history.pushState && !!t.history.replaceState;
+            'history' in t && !!t.history.pushState && !!t.history.replaceState;
         return !n && r;
       }
     },
-    "6hSO": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '6hSO': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return v;
       });
       var r,
-        o = n("ajKJ"),
-        i = n("9AQC"),
-        a = n("8LbN"),
-        s = n("9/Zf"),
-        c = n("6PXS"),
-        u = n("pRiV"),
-        p = n("4Ssk"),
+        o = n('ajKJ'),
+        i = n('9AQC'),
+        a = n('8LbN'),
+        s = n('9/Zf'),
+        c = n('6PXS'),
+        u = n('pRiV'),
+        p = n('4Ssk'),
         f = Object(s.e)(),
         l = {},
         d = {};
@@ -598,17 +598,17 @@
       function h(t) {
         if (!d[t])
           switch (((d[t] = !0), t)) {
-            case "console":
+            case 'console':
               !(function () {
-                if (!("console" in f)) return;
-                ["debug", "info", "warn", "error", "log", "assert"].forEach(
+                if (!('console' in f)) return;
+                ['debug', 'info', 'warn', 'error', 'log', 'assert'].forEach(
                   function (t) {
                     t in f.console &&
                       Object(c.c)(f.console, t, function (e) {
                         return function () {
                           for (var n = [], r = 0; r < arguments.length; r++)
                             n[r] = arguments[r];
-                          y("console", {
+                          y('console', {
                             args: n,
                             level: t,
                           }),
@@ -619,55 +619,55 @@
                 );
               })();
               break;
-            case "dom":
+            case 'dom':
               !(function () {
-                if (!("document" in f)) return;
+                if (!('document' in f)) return;
                 f.document.addEventListener(
-                  "click",
-                  j("click", y.bind(null, "dom")),
+                  'click',
+                  j('click', y.bind(null, 'dom')),
                   !1
                 ),
                   f.document.addEventListener(
-                    "keypress",
-                    w(y.bind(null, "dom")),
+                    'keypress',
+                    w(y.bind(null, 'dom')),
                     !1
                   ),
-                  ["EventTarget", "Node"].forEach(function (t) {
+                  ['EventTarget', 'Node'].forEach(function (t) {
                     var e = f[t] && f[t].prototype;
                     e &&
                       e.hasOwnProperty &&
-                      e.hasOwnProperty("addEventListener") &&
-                      (Object(c.c)(e, "addEventListener", function (t) {
+                      e.hasOwnProperty('addEventListener') &&
+                      (Object(c.c)(e, 'addEventListener', function (t) {
                         return function (e, n, r) {
                           return (
                             n && n.handleEvent
-                              ? ("click" === e &&
-                                  Object(c.c)(n, "handleEvent", function (t) {
+                              ? ('click' === e &&
+                                  Object(c.c)(n, 'handleEvent', function (t) {
                                     return function (e) {
                                       return (
-                                        j("click", y.bind(null, "dom"))(e),
+                                        j('click', y.bind(null, 'dom'))(e),
                                         t.call(this, e)
                                       );
                                     };
                                   }),
-                                "keypress" === e &&
-                                  Object(c.c)(n, "handleEvent", function (t) {
+                                'keypress' === e &&
+                                  Object(c.c)(n, 'handleEvent', function (t) {
                                     return function (e) {
                                       return (
-                                        w(y.bind(null, "dom"))(e),
+                                        w(y.bind(null, 'dom'))(e),
                                         t.call(this, e)
                                       );
                                     };
                                   }))
-                              : ("click" === e &&
-                                  j("click", y.bind(null, "dom"), !0)(this),
-                                "keypress" === e &&
-                                  w(y.bind(null, "dom"))(this)),
+                              : ('click' === e &&
+                                  j('click', y.bind(null, 'dom'), !0)(this),
+                                'keypress' === e &&
+                                  w(y.bind(null, 'dom'))(this)),
                             t.call(this, e, n, r)
                           );
                         };
                       }),
-                      Object(c.c)(e, "removeEventListener", function (t) {
+                      Object(c.c)(e, 'removeEventListener', function (t) {
                         return function (e, n, r) {
                           try {
                             t.call(this, e, n.__sentry_wrapped__, r);
@@ -678,13 +678,13 @@
                   });
               })();
               break;
-            case "xhr":
+            case 'xhr':
               !(function () {
-                if (!("XMLHttpRequest" in f)) return;
+                if (!('XMLHttpRequest' in f)) return;
                 var t = [],
                   e = [],
                   n = XMLHttpRequest.prototype;
-                Object(c.c)(n, "open", function (n) {
+                Object(c.c)(n, 'open', function (n) {
                   return function () {
                     for (var r = [], o = 0; o < arguments.length; o++)
                       r[o] = arguments[o];
@@ -695,7 +695,7 @@
                       url: r[1],
                     }),
                       Object(i.k)(s) &&
-                        "POST" === a.__sentry_xhr__.method &&
+                        'POST' === a.__sentry_xhr__.method &&
                         s.match(/sentry_key/) &&
                         (a.__sentry_own_request__ = !0);
                     var u = function () {
@@ -714,7 +714,7 @@
                               (a.__sentry_xhr__.body = o[0]);
                           }
                         } catch (i) {}
-                        y("xhr", {
+                        y('xhr', {
                           args: r,
                           endTimestamp: Date.now(),
                           startTimestamp: Date.now(),
@@ -723,28 +723,28 @@
                       }
                     };
                     return (
-                      "onreadystatechange" in a &&
-                      "function" === typeof a.onreadystatechange
-                        ? Object(c.c)(a, "onreadystatechange", function (t) {
+                      'onreadystatechange' in a &&
+                      'function' === typeof a.onreadystatechange
+                        ? Object(c.c)(a, 'onreadystatechange', function (t) {
                             return function () {
                               for (var e = [], n = 0; n < arguments.length; n++)
                                 e[n] = arguments[n];
                               return u(), t.apply(a, e);
                             };
                           })
-                        : a.addEventListener("readystatechange", u),
+                        : a.addEventListener('readystatechange', u),
                       n.apply(a, r)
                     );
                   };
                 }),
-                  Object(c.c)(n, "send", function (n) {
+                  Object(c.c)(n, 'send', function (n) {
                     return function () {
                       for (var r = [], o = 0; o < arguments.length; o++)
                         r[o] = arguments[o];
                       return (
                         t.push(this),
                         e.push(r),
-                        y("xhr", {
+                        y('xhr', {
                           args: r,
                           startTimestamp: Date.now(),
                           xhr: this,
@@ -755,10 +755,10 @@
                   });
               })();
               break;
-            case "fetch":
+            case 'fetch':
               !(function () {
                 if (!Object(p.c)()) return;
-                Object(c.c)(f, "fetch", function (t) {
+                Object(c.c)(f, 'fetch', function (t) {
                   return function () {
                     for (var e = [], n = 0; n < arguments.length; n++)
                       e[n] = arguments[n];
@@ -771,12 +771,12 @@
                       startTimestamp: Date.now(),
                     };
                     return (
-                      y("fetch", Object(o.a)({}, r)),
+                      y('fetch', Object(o.a)({}, r)),
                       t.apply(f, e).then(
                         function (t) {
                           return (
                             y(
-                              "fetch",
+                              'fetch',
                               Object(o.a)(Object(o.a)({}, r), {
                                 endTimestamp: Date.now(),
                                 response: t,
@@ -788,7 +788,7 @@
                         function (t) {
                           throw (
                             (y(
-                              "fetch",
+                              'fetch',
                               Object(o.a)(Object(o.a)({}, r), {
                                 endTimestamp: Date.now(),
                                 error: t,
@@ -803,7 +803,7 @@
                 });
               })();
               break;
-            case "history":
+            case 'history':
               !(function () {
                 if (!Object(p.b)()) return;
                 var t = f.onpopstate;
@@ -817,7 +817,7 @@
                       var i = r,
                         a = String(o);
                       (r = a),
-                        y("history", {
+                        y('history', {
                           from: i,
                           to: a,
                         });
@@ -832,7 +832,7 @@
                     i = r;
                   if (
                     ((r = o),
-                    y("history", {
+                    y('history', {
                       from: i,
                       to: o,
                     }),
@@ -840,15 +840,15 @@
                   )
                     return t.apply(this, e);
                 }),
-                  Object(c.c)(f.history, "pushState", e),
-                  Object(c.c)(f.history, "replaceState", e);
+                  Object(c.c)(f.history, 'pushState', e),
+                  Object(c.c)(f.history, 'replaceState', e);
               })();
               break;
-            case "error":
+            case 'error':
               (E = f.onerror),
                 (f.onerror = function (t, e, n, r, o) {
                   return (
-                    y("error", {
+                    y('error', {
                       column: r,
                       error: o,
                       line: n,
@@ -859,23 +859,23 @@
                   );
                 });
               break;
-            case "unhandledrejection":
+            case 'unhandledrejection':
               (S = f.onunhandledrejection),
                 (f.onunhandledrejection = function (t) {
                   return (
-                    y("unhandledrejection", t), !S || S.apply(this, arguments)
+                    y('unhandledrejection', t), !S || S.apply(this, arguments)
                   );
                 });
               break;
             default:
-              a.a.warn("unknown instrumentation type:", t);
+              a.a.warn('unknown instrumentation type:', t);
           }
       }
 
       function v(t) {
         t &&
-          "string" === typeof t.type &&
-          "function" === typeof t.callback &&
+          'string' === typeof t.type &&
+          'function' === typeof t.callback &&
           ((l[t.type] = l[t.type] || []),
           l[t.type].push(t.callback),
           h(t.type));
@@ -895,11 +895,11 @@
                 c(e);
               } catch (p) {
                 a.a.error(
-                  "Error while triggering instrumentation handler.\nType: " +
+                  'Error while triggering instrumentation handler.\nType: ' +
                     t +
-                    "\nName: " +
+                    '\nName: ' +
                     Object(u.a)(c) +
-                    "\nError: " +
+                    '\nError: ' +
                     p
                 );
               }
@@ -920,20 +920,20 @@
       function b(t) {
         return (
           void 0 === t && (t = []),
-          "Request" in f && Object(i.g)(t[0], Request) && t[0].method
+          'Request' in f && Object(i.g)(t[0], Request) && t[0].method
             ? String(t[0].method).toUpperCase()
             : t[1] && t[1].method
             ? String(t[1].method).toUpperCase()
-            : "GET"
+            : 'GET'
         );
       }
 
       function m(t) {
         return (
           void 0 === t && (t = []),
-          "string" === typeof t[0]
+          'string' === typeof t[0]
             ? t[0]
-            : "Request" in f && Object(i.g)(t[0], Request)
+            : 'Request' in f && Object(i.g)(t[0], Request)
             ? t[0].url
             : String(t[0])
         );
@@ -976,8 +976,8 @@
           }
           var r = n && n.tagName;
           r &&
-            ("INPUT" === r || "TEXTAREA" === r || n.isContentEditable) &&
-            (_ || j("input", t)(e),
+            ('INPUT' === r || 'TEXTAREA' === r || n.isContentEditable) &&
+            (_ || j('input', t)(e),
             clearTimeout(_),
             (_ = setTimeout(function () {
               _ = void 0;
@@ -987,12 +987,12 @@
       var E = null;
       var S = null;
     },
-    "9Pyj": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    '9Pyj': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return i;
       });
-      var r = n("ajKJ"),
+      var r = n('ajKJ'),
         o =
           Object.setPrototypeOf ||
           ({
@@ -1020,15 +1020,15 @@
       })(Error);
     },
     DTjN: function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+      'use strict';
+      n.d(e, 'a', function () {
         return f;
       });
-      var r = n("SDrh"),
-        o = n("3MsT"),
-        i = n("dMW8"),
-        a = n("9Pyj"),
-        s = n("HR75"),
+      var r = n('SDrh'),
+        o = n('3MsT'),
+        i = n('dMW8'),
+        a = n('9Pyj'),
+        s = n('HR75'),
         c = (function () {
           function t(t) {
             (this._limit = t), (this._buffer = []);
@@ -1050,7 +1050,7 @@
                     }),
                   t)
                 : s.a.reject(
-                    new a.a("Not adding Promise due to buffer limit reached.")
+                    new a.a('Not adding Promise due to buffer limit reached.')
                   );
             }),
             (t.prototype.remove = function (t) {
@@ -1078,8 +1078,8 @@
             t
           );
         })(),
-        u = n("8LbN"),
-        p = n("9/Zf"),
+        u = n('8LbN'),
+        p = n('9/Zf'),
         f = (function () {
           function t(t) {
             (this.options = t),
@@ -1091,7 +1091,7 @@
           return (
             (t.prototype.sendEvent = function (t) {
               throw new a.a(
-                "Transport Class has to implement `sendEvent` method"
+                'Transport Class has to implement `sendEvent` method'
               );
             }),
             (t.prototype.close = function (t) {
@@ -1106,7 +1106,7 @@
                 s = i.a.fromHttpCode(n.status);
               this._handleRateLimit(r) &&
                 u.a.warn(
-                  "Too many requests, backing off until: " +
+                  'Too many requests, backing off until: ' +
                     this._disabledUntil(e)
                 ),
                 s !== i.a.Success
@@ -1127,27 +1127,27 @@
                 o,
                 i,
                 a = Date.now(),
-                s = t["x-sentry-rate-limits"],
-                c = t["retry-after"];
+                s = t['x-sentry-rate-limits'],
+                c = t['retry-after'];
               if (s) {
                 try {
                   for (
-                    var u = Object(r.d)(s.trim().split(",")), f = u.next();
+                    var u = Object(r.d)(s.trim().split(',')), f = u.next();
                     !f.done;
                     f = u.next()
                   ) {
-                    var l = f.value.split(":", 2),
+                    var l = f.value.split(':', 2),
                       d = parseInt(l[0], 10),
                       h = 1e3 * (isNaN(d) ? 60 : d);
                     try {
                       for (
-                        var v = ((o = void 0), Object(r.d)(l[1].split(";"))),
+                        var v = ((o = void 0), Object(r.d)(l[1].split(';'))),
                           y = v.next();
                         !y.done;
                         y = v.next()
                       ) {
                         var b = y.value;
-                        this._rateLimits[b || "all"] = new Date(a + h);
+                        this._rateLimits[b || 'all'] = new Date(a + h);
                       }
                     } catch (m) {
                       o = {
@@ -1183,24 +1183,24 @@
           );
         })();
     },
-    "IS+8": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    'IS+8': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return p;
       }),
-        n.d(e, "b", function () {
+        n.d(e, 'b', function () {
           return f;
         }),
-        n.d(e, "c", function () {
+        n.d(e, 'c', function () {
           return l;
         });
-      var r = n("SDrh"),
-        o = n("1Wj6"),
-        i = n("9/Zf"),
-        a = n("HR75"),
-        s = n("9AQC"),
-        c = n("hj4m"),
-        u = n("yCKT");
+      var r = n('SDrh'),
+        o = n('1Wj6'),
+        i = n('9/Zf'),
+        a = n('HR75'),
+        s = n('9AQC'),
+        c = n('hj4m'),
+        u = n('yCKT');
 
       function p(t, e, n) {
         var r = l(e, (n && n.syntheticException) || void 0, {
@@ -1209,7 +1209,7 @@
         return (
           Object(i.a)(r, {
             handled: !0,
-            type: "generic",
+            type: 'generic',
           }),
           (r.level = o.a.Error),
           n && n.event_id && (r.event_id = n.event_id),
@@ -1235,14 +1235,14 @@
           return (t = t.error), (o = Object(c.b)(Object(u.a)(t)));
         if (Object(s.a)(t) || Object(s.b)(t)) {
           var a = t,
-            p = a.name || (Object(s.a)(a) ? "DOMError" : "DOMException"),
-            f = a.message ? p + ": " + a.message : p;
+            p = a.name || (Object(s.a)(a) ? 'DOMError' : 'DOMException'),
+            f = a.message ? p + ': ' + a.message : p;
           return (
             (o = d(f, e, n)),
             Object(i.b)(o, f),
-            "code" in a &&
+            'code' in a &&
               (o.tags = Object(r.a)(Object(r.a)({}, o.tags), {
-                "DOMException.code": "" + a.code,
+                'DOMException.code': '' + a.code,
               })),
             o
           );
@@ -1260,7 +1260,7 @@
         }
         return (
           (o = d(t, e, n)),
-          Object(i.b)(o, "" + t, void 0),
+          Object(i.b)(o, '' + t, void 0),
           Object(i.a)(o, {
             synthetic: !0,
           }),
@@ -1284,14 +1284,14 @@
       }
     },
     KRiW: function (t, e, n) {
-      "use strict";
-      n.d(e, "b", function () {
+      'use strict';
+      n.d(e, 'b', function () {
         return o;
       }),
-        n.d(e, "a", function () {
+        n.d(e, 'a', function () {
           return i;
         });
-      var r = n("WPdR");
+      var r = n('WPdR');
 
       function o(t, e) {
         return {
@@ -1299,13 +1299,13 @@
             JSON.stringify({
               sent_at: new Date().toISOString(),
             }) +
-            "\n" +
+            '\n' +
             JSON.stringify({
-              type: "session",
+              type: 'session',
             }) +
-            "\n" +
+            '\n' +
             JSON.stringify(t),
-          type: "session",
+          type: 'session',
           url: e.getEnvelopeEndpointWithUrlEncodedAuth(),
         };
       }
@@ -1315,14 +1315,14 @@
           o = n.__sentry_samplingMethod,
           i = n.__sentry_sampleRate,
           a = Object(r.b)(n, [
-            "__sentry_samplingMethod",
-            "__sentry_sampleRate",
+            '__sentry_samplingMethod',
+            '__sentry_sampleRate',
           ]);
         t.tags = a;
-        var s = "transaction" === t.type,
+        var s = 'transaction' === t.type,
           c = {
             body: JSON.stringify(t),
-            type: t.type || "event",
+            type: t.type || 'event',
             url: s
               ? e.getEnvelopeEndpointWithUrlEncodedAuth()
               : e.getStoreEndpointWithUrlEncodedAuth(),
@@ -1333,7 +1333,7 @@
               event_id: t.event_id,
               sent_at: new Date().toISOString(),
             }) +
-            "\n" +
+            '\n' +
             JSON.stringify({
               type: t.type,
               sample_rates: [
@@ -1343,21 +1343,21 @@
                 },
               ],
             }) +
-            "\n" +
+            '\n' +
             c.body;
           c.body = u;
         }
         return c;
       }
     },
-    "MT+3": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    'MT+3': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return a;
       });
-      var r = n("SDrh"),
-        o = n("KRiW"),
-        i = n("HR75"),
+      var r = n('SDrh'),
+        o = n('KRiW'),
+        i = n('HR75'),
         a = (function (t) {
           function e() {
             return (null !== t && t.apply(this, arguments)) || this;
@@ -1377,9 +1377,9 @@
                     event: e,
                     type: t.type,
                     reason:
-                      "Transport locked till " +
+                      'Transport locked till ' +
                       this._disabledUntil(t.type) +
-                      " due to too many requests.",
+                      ' due to too many requests.',
                     status: 429,
                   })
                 : this._buffer.add(
@@ -1388,10 +1388,10 @@
                       for (var i in ((o.onreadystatechange = function () {
                         if (4 === o.readyState) {
                           var i = {
-                            "x-sentry-rate-limits": o.getResponseHeader(
-                              "X-Sentry-Rate-Limits"
+                            'x-sentry-rate-limits': o.getResponseHeader(
+                              'X-Sentry-Rate-Limits'
                             ),
-                            "retry-after": o.getResponseHeader("Retry-After"),
+                            'retry-after': o.getResponseHeader('Retry-After'),
                           };
                           n._handleResponse({
                             requestType: t.type,
@@ -1402,7 +1402,7 @@
                           });
                         }
                       }),
-                      o.open("POST", t.url),
+                      o.open('POST', t.url),
                       n.options.headers))
                         n.options.headers.hasOwnProperty(i) &&
                           o.setRequestHeader(i, n.options.headers[i]);
@@ -1412,20 +1412,20 @@
             }),
             e
           );
-        })(n("DTjN").a);
+        })(n('DTjN').a);
     },
     SDrh: function (t, e, n) {
-      "use strict";
-      n.d(e, "b", function () {
+      'use strict';
+      n.d(e, 'b', function () {
         return o;
       }),
-        n.d(e, "a", function () {
+        n.d(e, 'a', function () {
           return i;
         }),
-        n.d(e, "d", function () {
+        n.d(e, 'd', function () {
           return a;
         }),
-        n.d(e, "c", function () {
+        n.d(e, 'c', function () {
           return c;
         });
       var r = function (t, e) {
@@ -1464,7 +1464,7 @@
       };
 
       function a(t) {
-        var e = "function" === typeof Symbol && t[Symbol.iterator],
+        var e = 'function' === typeof Symbol && t[Symbol.iterator],
           n = 0;
         return e
           ? e.call(t)
@@ -1482,7 +1482,7 @@
       }
 
       function s(t, e) {
-        var n = "function" === typeof Symbol && t[Symbol.iterator];
+        var n = 'function' === typeof Symbol && t[Symbol.iterator];
         if (!n) return t;
         var r,
           o,
@@ -1511,18 +1511,18 @@
         return t;
       }
     },
-    "UJ/E": function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+    'UJ/E': function (t, e, n) {
+      'use strict';
+      n.d(e, 'a', function () {
         return s;
       });
-      var r = n("ajKJ"),
-        o = n("9Pyj"),
+      var r = n('ajKJ'),
+        o = n('9Pyj'),
         i = /^(?:(\w+):)\/\/(?:(\w+)(?::(\w+))?@)([\w.-]+)(?::(\d+))?\/(.+)/,
-        a = "Invalid Dsn",
+        a = 'Invalid Dsn',
         s = (function () {
           function t(t) {
-            "string" === typeof t
+            'string' === typeof t
               ? this._fromString(t)
               : this._fromComponents(t),
               this._validate();
@@ -1538,14 +1538,14 @@
                 a = e.projectId;
               return (
                 e.protocol +
-                "://" +
+                '://' +
                 e.user +
-                (t && o ? ":" + o : "") +
-                "@" +
+                (t && o ? ':' + o : '') +
+                '@' +
                 n +
-                (i ? ":" + i : "") +
-                "/" +
-                (r ? r + "/" : r) +
+                (i ? ':' + i : '') +
+                '/' +
+                (r ? r + '/' : r) +
                 a
               );
             }),
@@ -1556,16 +1556,16 @@
                 s = n[0],
                 c = n[1],
                 u = n[2],
-                p = void 0 === u ? "" : u,
+                p = void 0 === u ? '' : u,
                 f = n[3],
                 l = n[4],
-                d = void 0 === l ? "" : l,
-                h = "",
+                d = void 0 === l ? '' : l,
+                h = '',
                 v = n[5],
-                y = v.split("/");
+                y = v.split('/');
               if (
                 (y.length > 1 &&
-                  ((h = y.slice(0, -1).join("/")), (v = y.pop())),
+                  ((h = y.slice(0, -1).join('/')), (v = y.pop())),
                 v)
               ) {
                 var b = v.match(/^\d+/);
@@ -1584,46 +1584,46 @@
             (t.prototype._fromComponents = function (t) {
               (this.protocol = t.protocol),
                 (this.user = t.user),
-                (this.pass = t.pass || ""),
+                (this.pass = t.pass || ''),
                 (this.host = t.host),
-                (this.port = t.port || ""),
-                (this.path = t.path || ""),
+                (this.port = t.port || ''),
+                (this.path = t.path || ''),
                 (this.projectId = t.projectId);
             }),
             (t.prototype._validate = function () {
               var t = this;
               if (
-                (["protocol", "user", "host", "projectId"].forEach(function (
+                (['protocol', 'user', 'host', 'projectId'].forEach(function (
                   e
                 ) {
-                  if (!t[e]) throw new o.a("Invalid Dsn: " + e + " missing");
+                  if (!t[e]) throw new o.a('Invalid Dsn: ' + e + ' missing');
                 }),
                 !this.projectId.match(/^\d+$/))
               )
                 throw new o.a(
-                  "Invalid Dsn: Invalid projectId " + this.projectId
+                  'Invalid Dsn: Invalid projectId ' + this.projectId
                 );
-              if ("http" !== this.protocol && "https" !== this.protocol)
-                throw new o.a("Invalid Dsn: Invalid protocol " + this.protocol);
+              if ('http' !== this.protocol && 'https' !== this.protocol)
+                throw new o.a('Invalid Dsn: Invalid protocol ' + this.protocol);
               if (this.port && isNaN(parseInt(this.port, 10)))
-                throw new o.a("Invalid Dsn: Invalid port " + this.port);
+                throw new o.a('Invalid Dsn: Invalid port ' + this.port);
             }),
             t
           );
         })();
     },
     WPdR: function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+      'use strict';
+      n.d(e, 'a', function () {
         return r;
       }),
-        n.d(e, "b", function () {
+        n.d(e, 'b', function () {
           return o;
         }),
-        n.d(e, "d", function () {
+        n.d(e, 'd', function () {
           return i;
         }),
-        n.d(e, "c", function () {
+        n.d(e, 'c', function () {
           return s;
         });
       var r = function () {
@@ -1643,7 +1643,7 @@
           Object.prototype.hasOwnProperty.call(t, r) &&
             e.indexOf(r) < 0 &&
             (n[r] = t[r]);
-        if (null != t && "function" === typeof Object.getOwnPropertySymbols) {
+        if (null != t && 'function' === typeof Object.getOwnPropertySymbols) {
           var o = 0;
           for (r = Object.getOwnPropertySymbols(t); o < r.length; o++)
             e.indexOf(r[o]) < 0 &&
@@ -1654,7 +1654,7 @@
       }
 
       function i(t) {
-        var e = "function" === typeof Symbol && t[Symbol.iterator],
+        var e = 'function' === typeof Symbol && t[Symbol.iterator],
           n = 0;
         return e
           ? e.call(t)
@@ -1672,7 +1672,7 @@
       }
 
       function a(t, e) {
-        var n = "function" === typeof Symbol && t[Symbol.iterator];
+        var n = 'function' === typeof Symbol && t[Symbol.iterator];
         if (!n) return t;
         var r,
           o,
@@ -1702,18 +1702,18 @@
       }
     },
     dMW8: function (t, e, n) {
-      "use strict";
+      'use strict';
       var r;
-      n.d(e, "a", function () {
+      n.d(e, 'a', function () {
         return r;
       }),
         (function (t) {
-          (t.Unknown = "unknown"),
-            (t.Skipped = "skipped"),
-            (t.Success = "success"),
-            (t.RateLimit = "rate_limit"),
-            (t.Invalid = "invalid"),
-            (t.Failed = "failed");
+          (t.Unknown = 'unknown'),
+            (t.Skipped = 'skipped'),
+            (t.Success = 'success'),
+            (t.RateLimit = 'rate_limit'),
+            (t.Invalid = 'invalid'),
+            (t.Failed = 'failed');
         })(r || (r = {})),
         (function (t) {
           t.fromHttpCode = function (e) {
@@ -1730,22 +1730,22 @@
         })(r || (r = {}));
     },
     hj4m: function (t, e, n) {
-      "use strict";
-      n.d(e, "c", function () {
+      'use strict';
+      n.d(e, 'c', function () {
         return a;
       }),
-        n.d(e, "a", function () {
+        n.d(e, 'a', function () {
           return s;
         }),
-        n.d(e, "b", function () {
+        n.d(e, 'b', function () {
           return c;
         }),
-        n.d(e, "d", function () {
+        n.d(e, 'd', function () {
           return u;
         });
-      var r = n("9AQC"),
-        o = n("6PXS"),
-        i = n("yCKT");
+      var r = n('9AQC'),
+        o = n('6PXS'),
+        i = n('yCKT');
 
       function a(t) {
         var e = u(t.stack),
@@ -1760,8 +1760,8 @@
               frames: e,
             }),
           void 0 === n.type &&
-            "" === n.value &&
-            (n.value = "Unrecoverable error caught"),
+            '' === n.value &&
+            (n.value = 'Unrecoverable error caught'),
           n
         );
       }
@@ -1774,12 +1774,12 @@
                 type: Object(r.f)(t)
                   ? t.constructor.name
                   : n
-                  ? "UnhandledRejection"
-                  : "Error",
+                  ? 'UnhandledRejection'
+                  : 'Error',
                 value:
-                  "Non-Error " +
-                  (n ? "promise rejection" : "exception") +
-                  " captured with keys: " +
+                  'Non-Error ' +
+                  (n ? 'promise rejection' : 'exception') +
+                  ' captured with keys: ' +
                   Object(o.b)(t),
               },
             ],
@@ -1808,20 +1808,20 @@
       function u(t) {
         if (!t || !t.length) return [];
         var e = t,
-          n = e[0].func || "",
-          r = e[e.length - 1].func || "";
+          n = e[0].func || '',
+          r = e[e.length - 1].func || '';
         return (
-          (-1 === n.indexOf("captureMessage") &&
-            -1 === n.indexOf("captureException")) ||
+          (-1 === n.indexOf('captureMessage') &&
+            -1 === n.indexOf('captureException')) ||
             (e = e.slice(1)),
-          -1 !== r.indexOf("sentryWrapped") && (e = e.slice(0, -1)),
+          -1 !== r.indexOf('sentryWrapped') && (e = e.slice(0, -1)),
           e
             .slice(0, 50)
             .map(function (t) {
               return {
                 colno: null === t.column ? void 0 : t.column,
                 filename: t.url || e[0].url,
-                function: t.func || "?",
+                function: t.func || '?',
                 in_app: !0,
                 lineno: null === t.line ? void 0 : t.line,
               };
@@ -1831,20 +1831,20 @@
       }
     },
     kWuB: function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+      'use strict';
+      n.d(e, 'a', function () {
         return b;
       });
-      var r = n("SDrh"),
-        o = n("oMcV"),
-        i = n("9/Zf"),
-        a = n("8LbN"),
-        s = n("/3cH"),
-        c = n("1Wj6"),
-        u = n("4Ssk"),
-        p = n("IS+8"),
-        f = n("2O0U"),
-        l = n("MT+3"),
+      var r = n('SDrh'),
+        o = n('oMcV'),
+        i = n('9/Zf'),
+        a = n('8LbN'),
+        s = n('/3cH'),
+        c = n('1Wj6'),
+        u = n('4Ssk'),
+        p = n('IS+8'),
+        f = n('2O0U'),
+        l = n('MT+3'),
         d = (function (t) {
           function e() {
             return (null !== t && t.apply(this, arguments)) || this;
@@ -1878,9 +1878,9 @@
             e
           );
         })(s.a),
-        h = n("vzc1"),
-        v = n("/ZhC"),
-        y = n("omaz"),
+        h = n('vzc1'),
+        v = n('/ZhC'),
+        y = n('omaz'),
         b = (function (t) {
           function e(e) {
             return void 0 === e && (e = {}), t.call(this, d, e) || this;
@@ -1897,17 +1897,17 @@
                         })
                       )
                     : a.a.error(
-                        "Trying to call showReportDialog with Sentry Client disabled"
+                        'Trying to call showReportDialog with Sentry Client disabled'
                       ));
             }),
             (e.prototype._prepareEvent = function (e, n, o) {
               return (
-                (e.platform = e.platform || "javascript"),
+                (e.platform = e.platform || 'javascript'),
                 (e.sdk = Object(r.a)(Object(r.a)({}, e.sdk), {
                   name: y.a,
                   packages: Object(r.c)((e.sdk && e.sdk.packages) || [], [
                     {
-                      name: "npm:@sentry/browser",
+                      name: 'npm:@sentry/browser',
                       version: y.b,
                     },
                   ]),
@@ -1926,23 +1926,23 @@
         })(o.a);
     },
     oMcV: function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+      'use strict';
+      n.d(e, 'a', function () {
         return m;
       });
-      var r = n("WPdR"),
-        o = n("KjyA"),
-        i = n("yksw"),
-        a = n("UJ/E"),
-        s = n("9AQC"),
-        c = n("8LbN"),
-        u = n("HR75"),
-        p = n("9/Zf"),
-        f = n("kdvv"),
-        l = n("6PXS"),
-        d = n("+924"),
-        h = n("9Pyj"),
-        v = n("lW6c"),
+      var r = n('WPdR'),
+        o = n('KjyA'),
+        i = n('yksw'),
+        a = n('UJ/E'),
+        s = n('9AQC'),
+        c = n('8LbN'),
+        u = n('HR75'),
+        p = n('9/Zf'),
+        f = n('kdvv'),
+        l = n('6PXS'),
+        d = n('+924'),
+        h = n('9Pyj'),
+        v = n('lW6c'),
         y = [];
 
       function b(t) {
@@ -1968,13 +1968,13 @@
                   -1 === a.indexOf(t.name) && (o.push(t), a.push(t.name));
                 });
             } else
-              "function" === typeof n
+              'function' === typeof n
                 ? ((o = n(e)), (o = Array.isArray(o) ? o : [o]))
                 : (o = Object(r.c)(e));
             var s = o.map(function (t) {
                 return t.name;
               }),
-              c = "Debug";
+              c = 'Debug';
             return (
               -1 !== s.indexOf(c) &&
                 o.push.apply(o, Object(r.c)(o.splice(s.indexOf(c), 1))),
@@ -1986,7 +1986,7 @@
                 -1 === y.indexOf(t.name) &&
                   (t.setupOnce(o.b, v.b),
                   y.push(t.name),
-                  c.a.log("Integration installed: " + t.name));
+                  c.a.log('Integration installed: ' + t.name));
               })(t);
           }),
           e
@@ -2051,7 +2051,7 @@
           (t.prototype.captureSession = function (t) {
             t.release
               ? this._sendSession(t)
-              : c.a.warn("Discarded session because of missing release");
+              : c.a.warn('Discarded session because of missing release');
           }),
           (t.prototype.getDsn = function () {
             return this._dsn;
@@ -2086,9 +2086,9 @@
             } catch (e) {
               return (
                 c.a.warn(
-                  "Cannot retrieve integration " +
+                  'Cannot retrieve integration ' +
                     t.id +
-                    " from the current Client"
+                    ' from the current Client'
                 ),
                 null
               );
@@ -2131,7 +2131,7 @@
             if (!t.userAgent) {
               var h = e.request ? e.request.headers : {};
               for (var v in h)
-                if ("user-agent" === v.toLowerCase()) {
+                if ('user-agent' === v.toLowerCase()) {
                   a = h[v];
                   break;
                 }
@@ -2190,7 +2190,7 @@
             return (
               l && (d = l.applyToEvent(c, n)),
               d.then(function (t) {
-                return "number" === typeof s && s > 0
+                return 'number' === typeof s && s > 0
                   ? i._normalizeEvent(t, s)
                   : t;
               })
@@ -2240,8 +2240,8 @@
               o = e.dist,
               i = e.maxValueLength,
               a = void 0 === i ? 250 : i;
-            "environment" in t ||
-              (t.environment = "environment" in e ? n : "production"),
+            'environment' in t ||
+              (t.environment = 'environment' in e ? n : 'production'),
               void 0 === t.release && void 0 !== r && (t.release = r),
               void 0 === t.dist && void 0 !== o && (t.dist = o),
               t.message && (t.message = Object(d.d)(t.message, a));
@@ -2275,29 +2275,29 @@
               a = o.sampleRate;
             if (!this._isEnabled())
               return u.a.reject(
-                new h.a("SDK not enabled, will not send event.")
+                new h.a('SDK not enabled, will not send event.')
               );
-            var c = "transaction" === t.type;
-            return !c && "number" === typeof a && Math.random() > a
+            var c = 'transaction' === t.type;
+            return !c && 'number' === typeof a && Math.random() > a
               ? u.a.reject(
                   new h.a(
                     "Discarding event because it's not included in the random sample (sampling rate = " +
                       a +
-                      ")"
+                      ')'
                   )
                 )
               : this._prepareEvent(t, n, e)
                   .then(function (t) {
                     if (null === t)
                       throw new h.a(
-                        "An event processor returned null, will not send event."
+                        'An event processor returned null, will not send event.'
                       );
                     if ((e && e.data && !0 === e.data.__sentry__) || c || !i)
                       return t;
                     var n = i(t, e);
-                    if ("undefined" === typeof n)
+                    if ('undefined' === typeof n)
                       throw new h.a(
-                        "`beforeSend` method has to return `null` or a valid event."
+                        '`beforeSend` method has to return `null` or a valid event.'
                       );
                     return Object(s.m)(n)
                       ? n.then(
@@ -2305,7 +2305,7 @@
                             return t;
                           },
                           function (t) {
-                            throw new h.a("beforeSend rejected with " + t);
+                            throw new h.a('beforeSend rejected with ' + t);
                           }
                         )
                       : n;
@@ -2313,7 +2313,7 @@
                   .then(function (t) {
                     if (null === t)
                       throw new h.a(
-                        "`beforeSend` returned `null`, will not send event."
+                        '`beforeSend` returned `null`, will not send event.'
                       );
                     var e = n && n.getSession && n.getSession();
                     return (
@@ -2332,7 +2332,7 @@
                         originalException: t,
                       }),
                       new h.a(
-                        "Event processing pipeline threw an error, original event will not be sent. Details have been sent as a new event.\nReason: " +
+                        'Event processing pipeline threw an error, original event will not be sent. Details have been sent as a new event.\nReason: ' +
                           t
                       ))
                     );
@@ -2355,32 +2355,32 @@
       })();
     },
     omaz: function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+      'use strict';
+      n.d(e, 'a', function () {
         return r;
       }),
-        n.d(e, "b", function () {
+        n.d(e, 'b', function () {
           return o;
         });
-      var r = "sentry.javascript.browser",
-        o = "5.30.0";
+      var r = 'sentry.javascript.browser',
+        o = '5.30.0';
     },
     vzc1: function (t, e, n) {
-      "use strict";
-      n.d(e, "b", function () {
+      'use strict';
+      n.d(e, 'b', function () {
         return u;
       }),
-        n.d(e, "c", function () {
+        n.d(e, 'c', function () {
           return f;
         }),
-        n.d(e, "a", function () {
+        n.d(e, 'a', function () {
           return l;
         });
-      var r = n("SDrh"),
-        o = n("gtzJ"),
-        i = n("3MsT"),
-        a = n("9/Zf"),
-        s = n("8LbN"),
+      var r = n('SDrh'),
+        o = n('gtzJ'),
+        i = n('3MsT'),
+        a = n('9/Zf'),
+        s = n('8LbN'),
         c = 0;
 
       function u() {
@@ -2395,7 +2395,7 @@
       }
 
       function f(t, e, n) {
-        if ((void 0 === e && (e = {}), "function" !== typeof t)) return t;
+        if ((void 0 === e && (e = {}), 'function' !== typeof t)) return t;
         try {
           if (t.__sentry__) return t;
           if (t.__sentry_wrapped__) return t.__sentry_wrapped__;
@@ -2405,7 +2405,7 @@
         var i = function () {
           var i = Array.prototype.slice.call(arguments);
           try {
-            n && "function" === typeof n && n.apply(this, arguments);
+            n && 'function' === typeof n && n.apply(this, arguments);
             var s = i.map(function (t) {
               return f(t, e);
             });
@@ -2440,7 +2440,7 @@
         } catch (u) {}
         (t.prototype = t.prototype || {}),
           (i.prototype = t.prototype),
-          Object.defineProperty(t, "__sentry_wrapped__", {
+          Object.defineProperty(t, '__sentry_wrapped__', {
             enumerable: !1,
             value: i,
           }),
@@ -2455,8 +2455,8 @@
             },
           });
         try {
-          Object.getOwnPropertyDescriptor(i, "name").configurable &&
-            Object.defineProperty(i, "name", {
+          Object.getOwnPropertyDescriptor(i, 'name').configurable &&
+            Object.defineProperty(i, 'name', {
               get: function () {
                 return t.name;
               },
@@ -2468,22 +2468,22 @@
       function l(t) {
         if ((void 0 === t && (t = {}), t.eventId))
           if (t.dsn) {
-            var e = document.createElement("script");
+            var e = document.createElement('script');
             (e.async = !0),
               (e.src = new i.a(t.dsn).getReportDialogEndpoint(t)),
               t.onLoad && (e.onload = t.onLoad),
               (document.head || document.body).appendChild(e);
-          } else s.a.error("Missing dsn option in showReportDialog call");
-        else s.a.error("Missing eventId option in showReportDialog call");
+          } else s.a.error('Missing dsn option in showReportDialog call');
+        else s.a.error('Missing eventId option in showReportDialog call');
       }
     },
     yCKT: function (t, e, n) {
-      "use strict";
-      n.d(e, "a", function () {
+      'use strict';
+      n.d(e, 'a', function () {
         return f;
       });
-      var r = n("SDrh"),
-        o = "?",
+      var r = n('SDrh'),
+        o = '?',
         i =
           /^\s*at (?:(.*?) ?\()?((?:file|https?|blob|chrome-extension|address|native|eval|webpack|<anonymous>|[-a-z]+:|.*bundle|\/).*?)(?::(\d+))?(?::(\d+))?\)?\s*$/i,
         a =
@@ -2498,7 +2498,7 @@
         var e = null,
           n = 0;
         t &&
-          ("number" === typeof t.framesToPop
+          ('number' === typeof t.framesToPop
             ? (n = t.framesToPop)
             : p.test(t.message) && (n = 1));
         try {
@@ -2512,7 +2512,7 @@
                     / line (\d+).*script (?:in )?(\S+)(?:: in function (\S+))?$/i,
                   i =
                     / line (\d+), column (\d+)\s*(?:in (?:<anonymous function: ([^>]+)>|([^)]+))\((.*)\))? in (.*):\s*$/i,
-                  a = n.split("\n"),
+                  a = n.split('\n'),
                   s = [],
                   c = 0;
                 c < a.length;
@@ -2531,7 +2531,7 @@
                     (u = {
                       url: e[6],
                       func: e[3] || e[4],
-                      args: e[5] ? e[5].split(",") : [],
+                      args: e[5] ? e[5].split(',') : [],
                       line: +e[1],
                       column: +e[2],
                     }),
@@ -2552,20 +2552,20 @@
             (e = (function (t) {
               if (!t || !t.stack) return null;
               for (
-                var e, n, r, p = [], f = t.stack.split("\n"), l = 0;
+                var e, n, r, p = [], f = t.stack.split('\n'), l = 0;
                 l < f.length;
                 ++l
               ) {
                 if ((n = i.exec(f[l]))) {
-                  var h = n[2] && 0 === n[2].indexOf("native");
+                  var h = n[2] && 0 === n[2].indexOf('native');
                   n[2] &&
-                    0 === n[2].indexOf("eval") &&
+                    0 === n[2].indexOf('eval') &&
                     (e = u.exec(n[2])) &&
                     ((n[2] = e[1]), (n[3] = e[2]), (n[4] = e[3])),
                     (r = {
                       url:
-                        n[2] && 0 === n[2].indexOf("address at ")
-                          ? n[2].substr("address at ".length)
+                        n[2] && 0 === n[2].indexOf('address at ')
+                          ? n[2].substr('address at '.length)
                           : n[2],
                       func: n[1] || o,
                       args: h ? [n[2]] : [],
@@ -2582,11 +2582,11 @@
                   };
                 else {
                   if (!(n = a.exec(f[l]))) continue;
-                  n[3] && n[3].indexOf(" > eval") > -1 && (e = c.exec(n[3]))
-                    ? ((n[1] = n[1] || "eval"),
+                  n[3] && n[3].indexOf(' > eval') > -1 && (e = c.exec(n[3]))
+                    ? ((n[1] = n[1] || 'eval'),
                       (n[3] = e[1]),
                       (n[4] = e[2]),
-                      (n[5] = ""))
+                      (n[5] = ''))
                     : 0 !== l ||
                       n[5] ||
                       void 0 === t.columnNumber ||
@@ -2594,7 +2594,7 @@
                     (r = {
                       url: n[3],
                       func: n[1] || o,
-                      args: n[2] ? n[2].split(",") : [],
+                      args: n[2] ? n[2].split(',') : [],
                       line: n[4] ? +n[4] : null,
                       column: n[5] ? +n[5] : null,
                     });
@@ -2632,10 +2632,10 @@
       function d(t) {
         var e = t && t.message;
         return e
-          ? e.error && "string" === typeof e.error.message
+          ? e.error && 'string' === typeof e.error.message
             ? e.error.message
             : e
-          : "No error message";
+          : 'No error message';
       }
     },
   },

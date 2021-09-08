@@ -1,17 +1,17 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [44],
   {
-    "1Y8E": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    '1Y8E': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var o = n("kjvz"),
-        i = n("U+XB"),
-        r = n("LkUo"),
-        a = n("zxs+"),
-        s = n("in9m"),
-        c = n("Gz0x");
+      var o = n('kjvz'),
+        i = n('U+XB'),
+        r = n('LkUo'),
+        a = n('zxs+'),
+        s = n('in9m'),
+        c = n('Gz0x');
       !(function (e) {
         function t(e, t) {
           void 0 === t && (t = {});
@@ -35,83 +35,83 @@
           });
       })(t.MonacoServices || (t.MonacoServices = {}));
     },
-    "2vv7": function (e, t) {
+    '2vv7': function (e, t) {
       e.exports = function (e, t) {
-        if ("string" !== typeof e) throw new TypeError("Expected a string");
+        if ('string' !== typeof e) throw new TypeError('Expected a string');
         for (
           var n,
             o = String(e),
-            i = "",
+            i = '',
             r = !!t && !!t.extended,
             a = !!t && !!t.globstar,
             s = !1,
-            c = t && "string" === typeof t.flags ? t.flags : "",
+            c = t && 'string' === typeof t.flags ? t.flags : '',
             u = 0,
             l = o.length;
           u < l;
           u++
         )
           switch ((n = o[u])) {
-            case "\\":
-            case "/":
-            case "$":
-            case "^":
-            case "+":
-            case ".":
-            case "(":
-            case ")":
-            case "=":
-            case "!":
-            case "|":
-              i += "\\" + n;
+            case '\\':
+            case '/':
+            case '$':
+            case '^':
+            case '+':
+            case '.':
+            case '(':
+            case ')':
+            case '=':
+            case '!':
+            case '|':
+              i += '\\' + n;
               break;
-            case "?":
+            case '?':
               if (r) {
-                i += ".";
+                i += '.';
                 break;
               }
-            case "[":
-            case "]":
+            case '[':
+            case ']':
               if (r) {
                 i += n;
                 break;
               }
-            case "{":
+            case '{':
               if (r) {
-                (s = !0), (i += "(");
+                (s = !0), (i += '(');
                 break;
               }
-            case "}":
+            case '}':
               if (r) {
-                (s = !1), (i += ")");
+                (s = !1), (i += ')');
                 break;
               }
-            case ",":
+            case ',':
               if (s) {
-                i += "|";
+                i += '|';
                 break;
               }
-              i += "\\" + n;
+              i += '\\' + n;
               break;
-            case "*":
-              for (var d = o[u - 1], p = 1; "*" === o[u + 1]; ) p++, u++;
+            case '*':
+              for (var d = o[u - 1], p = 1; '*' === o[u + 1]; ) p++, u++;
               var m = o[u + 1];
               if (a)
                 p > 1 &&
-                ("/" === d || void 0 === d) &&
-                ("/" === m || void 0 === m)
-                  ? ((i += "(?:[^/]*(?:/|$))*"), u++)
-                  : (i += "[^/]*");
-              else i += ".*";
+                ('/' === d || void 0 === d) &&
+                ('/' === m || void 0 === m)
+                  ? ((i += '(?:[^/]*(?:/|$))*'), u++)
+                  : (i += '[^/]*');
+              else i += '.*';
               break;
             default:
               i += n;
           }
-        return (c && ~c.indexOf("g")) || (i = "^" + i + "$"), new RegExp(i, c);
+        return (c && ~c.indexOf('g')) || (i = '^' + i + '$'), new RegExp(i, c);
       };
     },
     AL8H: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -137,7 +137,7 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var i = (function () {
@@ -168,22 +168,22 @@
                   t._randomHex(),
                   t._randomHex(),
                   t._randomHex(),
-                  "-",
+                  '-',
                   t._randomHex(),
                   t._randomHex(),
                   t._randomHex(),
                   t._randomHex(),
-                  "-",
-                  "4",
+                  '-',
+                  '4',
                   t._randomHex(),
                   t._randomHex(),
                   t._randomHex(),
-                  "-",
+                  '-',
                   t._oneOf(t._timeHighBits),
                   t._randomHex(),
                   t._randomHex(),
                   t._randomHex(),
-                  "-",
+                  '-',
                   t._randomHex(),
                   t._randomHex(),
                   t._randomHex(),
@@ -196,7 +196,7 @@
                   t._randomHex(),
                   t._randomHex(),
                   t._randomHex(),
-                ].join("")
+                ].join('')
               ) || this
             );
           }
@@ -209,25 +209,25 @@
               return t._oneOf(t._chars);
             }),
             (t._chars = [
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "6",
-              "7",
-              "8",
-              "9",
-              "a",
-              "b",
-              "c",
-              "d",
-              "e",
-              "f",
+              '0',
+              '1',
+              '2',
+              '3',
+              '4',
+              '5',
+              '6',
+              '6',
+              '7',
+              '8',
+              '9',
+              'a',
+              'b',
+              'c',
+              'd',
+              'e',
+              'f',
             ]),
-            (t._timeHighBits = ["8", "9", "a", "b"]),
+            (t._timeHighBits = ['8', '9', 'a', 'b']),
             t
           );
         })(i);
@@ -235,7 +235,7 @@
       function a() {
         return new r();
       }
-      (t.empty = new i("00000000-0000-0000-0000-000000000000")), (t.v4 = a);
+      (t.empty = new i('00000000-0000-0000-0000-000000000000')), (t.v4 = a);
       var s = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
       function c(e) {
@@ -243,7 +243,7 @@
       }
       (t.isUUID = c),
         (t.parse = function (e) {
-          if (!c(e)) throw new Error("invalid uuid");
+          if (!c(e)) throw new Error('invalid uuid');
           return new i(e);
         }),
         (t.generateUuid = function () {
@@ -251,7 +251,7 @@
         });
     },
     Chfy: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -277,13 +277,13 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var i = n("AL8H"),
-        r = n("hC2b"),
-        a = n("uoVZ"),
-        s = n("BOov");
+      var i = n('AL8H'),
+        r = n('hC2b'),
+        a = n('uoVZ'),
+        s = n('BOov');
 
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
@@ -295,7 +295,7 @@
         return (
           o(t, e),
           (t.prototype.fillClientCapabilities = function (e) {
-            c(c(e, "textDocument"), "implementation").dynamicRegistration = !0;
+            c(c(e, 'textDocument'), 'implementation').dynamicRegistration = !0;
           }),
           (t.prototype.initialize = function (e, t) {
             if (e.implementationProvider)
@@ -360,15 +360,15 @@
           }),
           t
         );
-      })(n("qRuN").TextDocumentFeature);
+      })(n('qRuN').TextDocumentFeature);
       t.ImplementationFeature = u;
     },
     LB4s: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
           (this && this.__values) ||
           function (e) {
-            var t = "function" === typeof Symbol && e[Symbol.iterator],
+            var t = 'function' === typeof Symbol && e[Symbol.iterator],
               n = 0;
             return t
               ? t.call(e)
@@ -387,7 +387,7 @@
         i =
           (this && this.__read) ||
           function (e, t) {
-            var n = "function" === typeof Symbol && e[Symbol.iterator];
+            var n = 'function' === typeof Symbol && e[Symbol.iterator];
             if (!n) return e;
             var o,
               i,
@@ -409,16 +409,16 @@
             }
             return a;
           };
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var r,
-        a = n("uoVZ"),
-        s = n("BOov"),
-        c = n("hC2b"),
-        u = n("QGVK"),
-        l = n("h0WC"),
-        d = n("ojtU");
+        a = n('uoVZ'),
+        s = n('BOov'),
+        c = n('hC2b'),
+        u = n('QGVK'),
+        l = n('h0WC'),
+        d = n('ojtU');
       !(function (e) {
         e.is = function (e) {
           var t = e;
@@ -487,7 +487,7 @@
                 return e.value;
               default:
                 return (
-                  "Unsupported Markup content received. Kind is: " + e.kind
+                  'Unsupported Markup content received. Kind is: ' + e.kind
                 );
             }
           }
@@ -498,7 +498,7 @@
               e.documentation &&
                 ((t.documentation = y(e.documentation)),
                 (t.documentationFormat = c.string(e.documentation)
-                  ? "$string"
+                  ? '$string'
                   : e.documentation.kind)),
               e.filterText && (t.filterText = e.filterText);
             var n,
@@ -743,7 +743,7 @@
             return new a.FoldingRange(e.startLine, e.endLine, j(e.kind));
           }
           return (
-            M.set("", a.CodeActionKind.Empty),
+            M.set('', a.CodeActionKind.Empty),
             M.set(s.CodeActionKind.QuickFix, a.CodeActionKind.QuickFix),
             M.set(s.CodeActionKind.Refactor, a.CodeActionKind.Refactor),
             M.set(
@@ -819,7 +819,7 @@
                         default:
                           return (
                             (i = new a.MarkdownString()).appendText(
-                              "Unsupported Markup content received. Kind is: " +
+                              'Unsupported Markup content received. Kind is: ' +
                                 e.kind
                             ),
                             i
@@ -903,7 +903,7 @@
                         if (void 0 !== e && null !== e) {
                           var i = M.get(e);
                           if (i) return i;
-                          var r = e.split(".");
+                          var r = e.split('.');
                           i = a.CodeActionKind.Empty;
                           try {
                             for (
@@ -966,15 +966,15 @@
         });
     },
     LkUo: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var o,
-        i = n("2vv7"),
-        r = n("Gz0x"),
-        a = n("bwr2"),
-        s = n("oL6p");
+        i = n('2vv7'),
+        r = n('Gz0x'),
+        a = n('bwr2'),
+        s = n('oL6p');
 
       function c(e, t) {
         return i(e, {
@@ -1023,7 +1023,7 @@
             return this.matchModel(e, o.fromDocument(t));
           }),
           (e.prototype.createDiagnosticCollection = function (e) {
-            return new a.MonacoDiagnosticCollection(e || "default", this.p2m);
+            return new a.MonacoDiagnosticCollection(e || 'default', this.p2m);
           }),
           (e.prototype.registerCompletionItemProvider = function (e, t) {
             for (var n = [], o = 2; o < arguments.length; o++)
@@ -1661,7 +1661,7 @@
       t.MonacoLanguages = l;
     },
     QGVK: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -1687,7 +1687,7 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var i = (function (e) {
@@ -1695,12 +1695,12 @@
           return e.call(this, t) || this;
         }
         return o(t, e), t;
-      })(n("uoVZ").CompletionItem);
+      })(n('uoVZ').CompletionItem);
       t.default = i;
     },
-    "U+XB": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    'U+XB': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var o = (function () {
@@ -1724,7 +1724,7 @@
       t.MonacoCommands = o;
     },
     U5rG: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -1752,18 +1752,18 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var i = n("qRuN"),
-        r = n("uSJ4"),
-        a = n("Chfy"),
-        s = n("orFP"),
-        c = n("Wo+m"),
-        u = n("WULY");
+      var i = n('qRuN'),
+        r = n('uSJ4'),
+        a = n('Chfy'),
+        s = n('orFP'),
+        c = n('Wo+m'),
+        u = n('WULY');
       !(function (e) {
         for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
-      })(n("qRuN"));
+      })(n('qRuN'));
       var l = (function (e) {
         function t(n) {
           var o = n.id,
@@ -1777,14 +1777,14 @@
           return (
             (c._p2c = new Proxy(c._p2c, {
               get: function (e, n) {
-                return "asUri" === n ? e[n] : t.bypassConversion;
+                return 'asUri' === n ? e[n] : t.bypassConversion;
               },
             })),
             (c._c2p = new Proxy(c._c2p, {
               get: function (e, n) {
-                return "asUri" === n
+                return 'asUri' === n
                   ? e[n]
-                  : "asCompletionParams" === n
+                  : 'asCompletionParams' === n
                   ? function (t, n, o) {
                       return {
                         textDocument: e.asTextDocumentIdentifier(t),
@@ -1792,14 +1792,14 @@
                         context: o,
                       };
                     }
-                  : "asWillSaveTextDocumentParams" === n
+                  : 'asWillSaveTextDocumentParams' === n
                   ? function (t) {
                       return {
                         textDocument: e.asTextDocumentIdentifier(t.document),
                         reason: t.reason,
                       };
                     }
-                  : n.endsWith("Params")
+                  : n.endsWith('Params')
                   ? e[n]
                   : t.bypassConversion;
               },
@@ -1815,7 +1815,7 @@
             return this.connectionProvider.get(e, t, this.outputChannel);
           }),
           (t.prototype.createMessageTransports = function (e) {
-            throw new Error("Unsupported");
+            throw new Error('Unsupported');
           }),
           (t.prototype.registerBuiltinFeatures = function () {
             e.prototype.registerBuiltinFeatures.call(this),
@@ -1835,7 +1835,7 @@
       t.MonacoLanguageClient = l;
     },
     WULY: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -1861,13 +1861,13 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var i = n("AL8H"),
-        r = n("hC2b"),
-        a = n("uoVZ"),
-        s = n("BOov");
+      var i = n('AL8H'),
+        r = n('hC2b'),
+        a = n('uoVZ'),
+        s = n('BOov');
 
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
@@ -1879,7 +1879,7 @@
         return (
           o(t, e),
           (t.prototype.fillClientCapabilities = function (e) {
-            var t = c(c(e, "textDocument"), "foldingRange");
+            var t = c(c(e, 'textDocument'), 'foldingRange');
             (t.dynamicRegistration = !0),
               (t.rangeLimit = 5e3),
               (t.lineFoldingOnly = !0);
@@ -1955,15 +1955,15 @@
           }),
           t
         );
-      })(n("qRuN").TextDocumentFeature);
+      })(n('qRuN').TextDocumentFeature);
       t.FoldingRangeFeature = u;
     },
-    "Wo+m": function (e, t, n) {
-      "use strict";
+    'Wo+m': function (e, t, n) {
+      'use strict';
       var o =
         (this && this.__values) ||
         function (e) {
-          var t = "function" === typeof Symbol && e[Symbol.iterator],
+          var t = 'function' === typeof Symbol && e[Symbol.iterator],
             n = 0;
           return t
             ? t.call(e)
@@ -1979,12 +1979,12 @@
                 },
               };
         };
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var i = n("AL8H"),
-        r = n("uoVZ"),
-        a = n("BOov");
+      var i = n('AL8H'),
+        r = n('uoVZ'),
+        a = n('BOov');
 
       function s(e, t) {
         if (void 0 !== e) return e[t];
@@ -1994,7 +1994,7 @@
           (this._client = e), (this._listeners = new Map());
         }
         return (
-          Object.defineProperty(e.prototype, "messages", {
+          Object.defineProperty(e.prototype, 'messages', {
             get: function () {
               return a.DidChangeWorkspaceFoldersNotification.type;
             },
@@ -2032,10 +2032,10 @@
             });
             var o,
               c = s(
-                s(s(e, "workspace"), "workspaceFolders"),
-                "changeNotifications"
+                s(s(e, 'workspace'), 'workspaceFolders'),
+                'changeNotifications'
               );
-            "string" === typeof c
+            'string' === typeof c
               ? (o = c)
               : !0 === c && (o = i.generateUuid()),
               o &&
@@ -2113,12 +2113,12 @@
       t.WorkspaceFoldersFeature = c;
     },
     aSIW: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var o = n("BOov"),
-        i = n("owkM");
+      var o = n('BOov'),
+        i = n('owkM');
       t.createConnection = function (e, t, n) {
         return (
           e.onError(function (e) {
@@ -2214,11 +2214,11 @@
       };
     },
     bwr2: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var o = n("oL6p"),
+      var o = n('oL6p'),
         i = (function () {
           function e(e, t) {
             (this.name = e),
@@ -2266,7 +2266,7 @@
             });
         }
         return (
-          Object.defineProperty(e.prototype, "diagnostics", {
+          Object.defineProperty(e.prototype, 'diagnostics', {
             get: function () {
               return this._diagnostics;
             },
@@ -2278,7 +2278,7 @@
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "markers", {
+          Object.defineProperty(e.prototype, 'markers', {
             get: function () {
               return this._markers;
             },
@@ -2303,7 +2303,7 @@
       t.MonacoModelDiagnostics = r;
     },
     h0WC: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -2329,7 +2329,7 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var i = (function (e) {
@@ -2337,22 +2337,22 @@
           return e.call(this, t) || this;
         }
         return o(t, e), t;
-      })(n("uoVZ").CodeLens);
+      })(n('uoVZ').CodeLens);
       t.default = i;
     },
     hC2b: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var o = Object.prototype.toString;
 
       function i(e) {
-        return "[object String]" === o.call(e);
+        return '[object String]' === o.call(e);
       }
 
       function r(e) {
-        return "[object Function]" === o.call(e);
+        return '[object Function]' === o.call(e);
       }
 
       function a(e) {
@@ -2363,10 +2363,10 @@
       }),
         (t.string = i),
         (t.number = function (e) {
-          return "[object Number]" === o.call(e);
+          return '[object Number]' === o.call(e);
         }),
         (t.error = function (e) {
-          return "[object Error]" === o.call(e);
+          return '[object Error]' === o.call(e);
         }),
         (t.func = r),
         (t.array = a),
@@ -2386,11 +2386,11 @@
         });
     },
     in9m: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var o = n("Gz0x"),
+      var o = n('Gz0x'),
         i = (function () {
           function e() {
             this.channels = new Map();
@@ -2412,10 +2412,10 @@
               if (t) return t;
               var n = {
                 append: function (t) {
-                  console.log(e + ": " + t);
+                  console.log(e + ': ' + t);
                 },
                 appendLine: function (t) {
-                  console.log(e + ": " + t);
+                  console.log(e + ': ' + t);
                 },
                 show: function () {},
                 dispose: function () {},
@@ -2428,8 +2428,8 @@
       t.ConsoleWindow = i;
     },
     ixam: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var o = (function () {
@@ -2493,7 +2493,7 @@
       t.Delayer = o;
     },
     kjvz: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__assign) ||
         function () {
@@ -2506,27 +2506,27 @@
               return e;
             }).apply(this, arguments);
         };
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var i,
         r,
         a,
-        s = n("owkM"),
-        c = n("Gz0x");
+        s = n('owkM'),
+        c = n('Gz0x');
       !(function (e) {
         e.is = function (e) {
-          return !!e && "data" in e;
+          return !!e && 'data' in e;
         };
       })((i = t.ProtocolDocumentLink || (t.ProtocolDocumentLink = {}))),
         (function (e) {
           e.is = function (e) {
-            return !!e && "data" in e;
+            return !!e && 'data' in e;
           };
         })((r = t.ProtocolCodeLens || (t.ProtocolCodeLens = {}))),
         (function (e) {
           e.is = function (e) {
-            return !!e && "data" in e;
+            return !!e && 'data' in e;
           };
         })((a = t.ProtocolCompletionItem || (t.ProtocolCompletionItem = {})));
       var u = (function () {
@@ -2633,7 +2633,7 @@
                   value: t.value,
                 };
               default:
-                return "Unsupported Markup content received. Kind is: " + e;
+                return 'Unsupported Markup content received. Kind is: ' + e;
             }
           }),
           (e.prototype.fillPrimaryInsertText = function (e, t) {
@@ -2642,7 +2642,7 @@
               i = c.InsertTextFormat.PlainText;
             t.textEdit
               ? ((n = t.textEdit.text), (o = this.asRange(t.textEdit.range)))
-              : "string" === typeof t.insertText
+              : 'string' === typeof t.insertText
               ? (n = t.insertText)
               : t.insertText &&
                 ((i = c.InsertTextFormat.Snippet), (n = t.insertText.value)),
@@ -2825,7 +2825,7 @@
                   var i = o[n],
                     r = monaco.Uri.parse(i.textDocument.uri),
                     a =
-                      "number" === typeof i.textDocument.version
+                      'number' === typeof i.textDocument.version
                         ? i.textDocument.version
                         : void 0;
                   t.push(this.asResourceEdits(r, i.edits, a));
@@ -2915,7 +2915,7 @@
                 });
             return {
               name: e.name,
-              detail: e.detail || "",
+              detail: e.detail || '',
               kind: this.asSymbolKind(e.kind),
               range: this.asRange(e.range),
               selectionRange: this.asRange(e.selectionRange),
@@ -2947,7 +2947,7 @@
             );
             return {
               name: e.name,
-              detail: "",
+              detail: '',
               containerName: e.containerName,
               kind: this.asSymbolKind(e.kind),
               range: n.range,
@@ -3092,7 +3092,7 @@
                   value: e,
                 }
               : {
-                  value: "```" + e.language + "\n" + e.value + "\n```",
+                  value: '```' + e.language + '\n' + e.value + '\n```',
                 };
           }),
           (e.prototype.asSeverity = function (e) {
@@ -3113,7 +3113,7 @@
           }),
           (e.prototype.asDiagnostic = function (e) {
             return {
-              code: "number" === typeof e.code ? e.code.toString() : e.code,
+              code: 'number' === typeof e.code ? e.code.toString() : e.code,
               severity: this.asSeverity(e.severity),
               message: e.message,
               source: e.source,
@@ -3343,27 +3343,27 @@
       t.ProtocolToMonacoConverter = l;
     },
     nwKM: function (e, t, n) {
-      "use strict";
+      'use strict';
 
       function o(e) {
         for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
       }
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
-        o(n("oL6p")),
-        o(n("Gz0x")),
-        o(n("aSIW")),
-        o(n("U5rG")),
-        o(n("U+XB")),
-        o(n("in9m")),
-        o(n("LkUo")),
-        o(n("zxs+")),
-        o(n("1Y8E")),
-        o(n("kjvz"));
+        o(n('oL6p')),
+        o(n('Gz0x')),
+        o(n('aSIW')),
+        o(n('U5rG')),
+        o(n('U+XB')),
+        o(n('in9m')),
+        o(n('LkUo')),
+        o(n('zxs+')),
+        o(n('1Y8E')),
+        o(n('kjvz'));
     },
     ojtU: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -3389,7 +3389,7 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var i = (function (e) {
@@ -3397,11 +3397,11 @@
           return e.call(this, t, n) || this;
         }
         return o(t, e), t;
-      })(n("uoVZ").DocumentLink);
+      })(n('uoVZ').DocumentLink);
       t.default = i;
     },
     orFP: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -3427,13 +3427,13 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var i = n("AL8H"),
-        r = n("hC2b"),
-        a = n("uoVZ"),
-        s = n("BOov");
+      var i = n('AL8H'),
+        r = n('hC2b'),
+        a = n('uoVZ'),
+        s = n('BOov');
 
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
@@ -3445,7 +3445,7 @@
         return (
           o(t, e),
           (t.prototype.fillClientCapabilities = function (e) {
-            c(c(e, "textDocument"), "colorProvider").dynamicRegistration = !0;
+            c(c(e, 'textDocument'), 'colorProvider').dynamicRegistration = !0;
           }),
           (t.prototype.initialize = function (e, t) {
             if (e.colorProvider) {
@@ -3547,11 +3547,11 @@
           }),
           t
         );
-      })(n("qRuN").TextDocumentFeature);
+      })(n('qRuN').TextDocumentFeature);
       t.ColorProviderFeature = u;
     },
     qRuN: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e) {
         var o =
             (this && this.__extends) ||
@@ -3581,7 +3581,7 @@
           i =
             (this && this.__read) ||
             function (e, t) {
-              var n = "function" === typeof Symbol && e[Symbol.iterator];
+              var n = 'function' === typeof Symbol && e[Symbol.iterator];
               if (!n) return e;
               var o,
                 i,
@@ -3613,7 +3613,7 @@
           a =
             (this && this.__values) ||
             function (e) {
-              var t = "function" === typeof Symbol && e[Symbol.iterator],
+              var t = 'function' === typeof Symbol && e[Symbol.iterator],
                 n = 0;
               return t
                 ? t.call(e)
@@ -3629,19 +3629,19 @@
                     },
                   };
             };
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
-        var s = n("uoVZ"),
-          c = n("BOov"),
-          u = n("xagI"),
-          l = n("LB4s"),
-          d = n("hC2b"),
-          p = n("ixam"),
-          m = n("AL8H");
+        var s = n('uoVZ'),
+          c = n('BOov'),
+          u = n('xagI'),
+          l = n('LB4s'),
+          d = n('hC2b'),
+          p = n('ixam'),
+          m = n('AL8H');
         !(function (e) {
           for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
-        })(n("BOov"));
+        })(n('BOov'));
         var f,
           g,
           h = (function () {
@@ -3663,12 +3663,12 @@
             );
           })();
         !(function (e) {
-          (e[(e.Continue = 1)] = "Continue"),
-            (e[(e.Shutdown = 2)] = "Shutdown");
+          (e[(e.Continue = 1)] = 'Continue'),
+            (e[(e.Shutdown = 2)] = 'Shutdown');
         })((f = t.ErrorAction || (t.ErrorAction = {}))),
           (function (e) {
-            (e[(e.DoNotRestart = 1)] = "DoNotRestart"),
-              (e[(e.Restart = 2)] = "Restart");
+            (e[(e.DoNotRestart = 1)] = 'DoNotRestart'),
+              (e[(e.Restart = 2)] = 'Restart');
           })((g = t.CloseAction || (t.CloseAction = {})));
         var v,
           y,
@@ -3690,9 +3690,9 @@
                         this.restarts[0] <=
                       18e4
                     ? (s.window.showErrorMessage(
-                        "The " +
+                        'The ' +
                           this.name +
-                          " server crashed 5 times in the last 3 minutes. The server will not be restarted."
+                          ' server crashed 5 times in the last 3 minutes. The server will not be restarted.'
                       ),
                       g.DoNotRestart)
                     : (this.restarts.shift(), g.Restart)
@@ -3702,21 +3702,21 @@
             );
           })();
         !(function (e) {
-          (e[(e.Info = 1)] = "Info"),
-            (e[(e.Warn = 2)] = "Warn"),
-            (e[(e.Error = 3)] = "Error"),
-            (e[(e.Never = 4)] = "Never");
+          (e[(e.Info = 1)] = 'Info'),
+            (e[(e.Warn = 2)] = 'Warn'),
+            (e[(e.Error = 3)] = 'Error'),
+            (e[(e.Never = 4)] = 'Never');
         })((v = t.RevealOutputChannelOn || (t.RevealOutputChannelOn = {}))),
           (function (e) {
-            (e[(e.Stopped = 1)] = "Stopped"), (e[(e.Running = 2)] = "Running");
+            (e[(e.Stopped = 1)] = 'Stopped'), (e[(e.Running = 2)] = 'Running');
           })((y = t.State || (t.State = {}))),
           (function (e) {
-            (e[(e.Initial = 0)] = "Initial"),
-              (e[(e.Starting = 1)] = "Starting"),
-              (e[(e.StartFailed = 2)] = "StartFailed"),
-              (e[(e.Running = 3)] = "Running"),
-              (e[(e.Stopping = 4)] = "Stopping"),
-              (e[(e.Stopped = 5)] = "Stopped");
+            (e[(e.Initial = 0)] = 'Initial'),
+              (e[(e.Starting = 1)] = 'Starting'),
+              (e[(e.StartFailed = 2)] = 'StartFailed'),
+              (e[(e.Running = 3)] = 'Running'),
+              (e[(e.Stopping = 4)] = 'Stopping'),
+              (e[(e.Stopped = 5)] = 'Stopped');
           })(C || (C = {}));
         var _,
           x = [
@@ -3879,7 +3879,7 @@
             }
             return (
               o(t, e),
-              Object.defineProperty(t.prototype, "messages", {
+              Object.defineProperty(t.prototype, 'messages', {
                 get: function () {
                   return c.DidOpenTextDocumentNotification.type;
                 },
@@ -3887,7 +3887,7 @@
                 configurable: !0,
               }),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "synchronization").dynamicRegistration =
+                b(b(e, 'textDocument'), 'synchronization').dynamicRegistration =
                   !0;
               }),
               (t.prototype.initialize = function (e, t) {
@@ -3952,7 +3952,7 @@
             }
             return (
               o(t, e),
-              Object.defineProperty(t.prototype, "messages", {
+              Object.defineProperty(t.prototype, 'messages', {
                 get: function () {
                   return c.DidCloseTextDocumentNotification.type;
                 },
@@ -3960,7 +3960,7 @@
                 configurable: !0,
               }),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "synchronization").dynamicRegistration =
+                b(b(e, 'textDocument'), 'synchronization').dynamicRegistration =
                   !0;
               }),
               (t.prototype.initialize = function (e, t) {
@@ -4005,7 +4005,7 @@
                 (this._forcingDelivery = !1);
             }
             return (
-              Object.defineProperty(e.prototype, "messages", {
+              Object.defineProperty(e.prototype, 'messages', {
                 get: function () {
                   return c.DidChangeTextDocumentNotification.type;
                 },
@@ -4013,7 +4013,7 @@
                 configurable: !0,
               }),
               (e.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "synchronization").dynamicRegistration =
+                b(b(e, 'textDocument'), 'synchronization').dynamicRegistration =
                   !0;
               }),
               (e.prototype.initialize = function (e, t) {
@@ -4173,7 +4173,7 @@
             }
             return (
               o(t, e),
-              Object.defineProperty(t.prototype, "messages", {
+              Object.defineProperty(t.prototype, 'messages', {
                 get: function () {
                   return c.WillSaveTextDocumentNotification.type;
                 },
@@ -4181,7 +4181,7 @@
                 configurable: !0,
               }),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "synchronization").willSave = !0;
+                b(b(e, 'textDocument'), 'synchronization').willSave = !0;
               }),
               (t.prototype.initialize = function (e, t) {
                 var n = e.resolvedTextDocumentSync;
@@ -4203,7 +4203,7 @@
               (this._client = e), (this._selectors = new Map());
             }
             return (
-              Object.defineProperty(e.prototype, "messages", {
+              Object.defineProperty(e.prototype, 'messages', {
                 get: function () {
                   return c.WillSaveTextDocumentWaitUntilRequest.type;
                 },
@@ -4211,7 +4211,7 @@
                 configurable: !0,
               }),
               (e.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "synchronization").willSaveWaitUntil =
+                b(b(e, 'textDocument'), 'synchronization').willSaveWaitUntil =
                   !0;
               }),
               (e.prototype.initialize = function (e, t) {
@@ -4298,7 +4298,7 @@
             }
             return (
               o(t, e),
-              Object.defineProperty(t.prototype, "messages", {
+              Object.defineProperty(t.prototype, 'messages', {
                 get: function () {
                   return c.DidSaveTextDocumentNotification.type;
                 },
@@ -4306,7 +4306,7 @@
                 configurable: !0,
               }),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "synchronization").didSave = !0;
+                b(b(e, 'textDocument'), 'synchronization').didSave = !0;
               }),
               (t.prototype.initialize = function (e, t) {
                 var n = e.resolvedTextDocumentSync;
@@ -4340,7 +4340,7 @@
                 (this._watchers = new Map());
             }
             return (
-              Object.defineProperty(e.prototype, "messages", {
+              Object.defineProperty(e.prototype, 'messages', {
                 get: function () {
                   return c.DidChangeWatchedFilesNotification.type;
                 },
@@ -4349,8 +4349,8 @@
               }),
               (e.prototype.fillClientCapabilities = function (e) {
                 b(
-                  b(e, "workspace"),
-                  "didChangeWatchedFiles"
+                  b(e, 'workspace'),
+                  'didChangeWatchedFiles'
                 ).dynamicRegistration = !0;
               }),
               (e.prototype.initialize = function (e, t) {}),
@@ -4507,7 +4507,7 @@
                 (this._providers = new Map());
             }
             return (
-              Object.defineProperty(e.prototype, "messages", {
+              Object.defineProperty(e.prototype, 'messages', {
                 get: function () {
                   return this._message;
                 },
@@ -4517,9 +4517,9 @@
               (e.prototype.register = function (e, t) {
                 if (e.method !== this.messages.method)
                   throw new Error(
-                    "Register called on wrong feature. Requested " +
+                    'Register called on wrong feature. Requested ' +
                       e.method +
-                      " but reached feature " +
+                      ' but reached feature ' +
                       this.messages.method
                   );
                 if (t.registerOptions.documentSelector) {
@@ -4548,7 +4548,7 @@
                 (this._providers = new Map());
             }
             return (
-              Object.defineProperty(e.prototype, "messages", {
+              Object.defineProperty(e.prototype, 'messages', {
                 get: function () {
                   return this._message;
                 },
@@ -4558,9 +4558,9 @@
               (e.prototype.register = function (e, t) {
                 if (e.method !== this.messages.method)
                   throw new Error(
-                    "Register called on wron feature. Requested " +
+                    'Register called on wron feature. Requested ' +
                       e.method +
-                      " but reached feature " +
+                      ' but reached feature ' +
                       this.messages.method
                   );
                 var n = this.registerLanguageProvider(t.registerOptions);
@@ -4586,7 +4586,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                var t = b(b(e, "textDocument"), "completion");
+                var t = b(b(e, 'textDocument'), 'completion');
                 (t.dynamicRegistration = !0),
                   (t.contextSupport = !0),
                   (t.completionItem = {
@@ -4692,7 +4692,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                var t = b(b(e, "textDocument"), "hover");
+                var t = b(b(e, 'textDocument'), 'hover');
                 (t.dynamicRegistration = !0),
                   (t.contentFormat = [
                     c.MarkupKind.Markdown,
@@ -4750,7 +4750,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                var t = b(b(e, "textDocument"), "signatureHelp");
+                var t = b(b(e, 'textDocument'), 'signatureHelp');
                 (t.dynamicRegistration = !0),
                   (t.signatureInformation = {
                     documentationFormat: [
@@ -4824,7 +4824,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "definition").dynamicRegistration = !0;
+                b(b(e, 'textDocument'), 'definition').dynamicRegistration = !0;
               }),
               (t.prototype.initialize = function (e, t) {
                 e.definitionProvider &&
@@ -4883,7 +4883,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "references").dynamicRegistration = !0;
+                b(b(e, 'textDocument'), 'references').dynamicRegistration = !0;
               }),
               (t.prototype.initialize = function (e, t) {
                 e.referencesProvider &&
@@ -4940,8 +4940,8 @@
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
                 b(
-                  b(e, "textDocument"),
-                  "documentHighlight"
+                  b(e, 'textDocument'),
+                  'documentHighlight'
                 ).dynamicRegistration = !0;
               }),
               (t.prototype.initialize = function (e, t) {
@@ -5004,7 +5004,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                var t = b(b(e, "textDocument"), "documentSymbol");
+                var t = b(b(e, 'textDocument'), 'documentSymbol');
                 (t.dynamicRegistration = !0),
                   (t.symbolKind = {
                     valueSet: x,
@@ -5075,7 +5075,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                var t = b(b(e, "workspace"), "symbol");
+                var t = b(b(e, 'workspace'), 'symbol');
                 (t.dynamicRegistration = !0),
                   (t.symbolKind = {
                     valueSet: x,
@@ -5131,12 +5131,12 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                var t = b(b(e, "textDocument"), "codeAction");
+                var t = b(b(e, 'textDocument'), 'codeAction');
                 (t.dynamicRegistration = !0),
                   (t.codeActionLiteralSupport = {
                     codeActionKind: {
                       valueSet: [
-                        "",
+                        '',
                         c.CodeActionKind.QuickFix,
                         c.CodeActionKind.Refactor,
                         c.CodeActionKind.RefactorExtract,
@@ -5232,7 +5232,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "codeLens").dynamicRegistration = !0;
+                b(b(e, 'textDocument'), 'codeLens').dynamicRegistration = !0;
               }),
               (t.prototype.initialize = function (e, t) {
                 e.codeLensProvider &&
@@ -5310,7 +5310,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "formatting").dynamicRegistration = !0;
+                b(b(e, 'textDocument'), 'formatting').dynamicRegistration = !0;
               }),
               (t.prototype.initialize = function (e, t) {
                 e.documentFormattingProvider &&
@@ -5369,7 +5369,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "rangeFormatting").dynamicRegistration =
+                b(b(e, 'textDocument'), 'rangeFormatting').dynamicRegistration =
                   !0;
               }),
               (t.prototype.initialize = function (e, t) {
@@ -5431,8 +5431,8 @@
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
                 b(
-                  b(e, "textDocument"),
-                  "onTypeFormatting"
+                  b(e, 'textDocument'),
+                  'onTypeFormatting'
                 ).dynamicRegistration = !0;
               }),
               (t.prototype.initialize = function (e, t) {
@@ -5501,7 +5501,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "rename").dynamicRegistration = !0;
+                b(b(e, 'textDocument'), 'rename').dynamicRegistration = !0;
               }),
               (t.prototype.initialize = function (e, t) {
                 e.renameProvider &&
@@ -5556,7 +5556,7 @@
             return (
               o(t, e),
               (t.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "textDocument"), "documentLink").dynamicRegistration =
+                b(b(e, 'textDocument'), 'documentLink').dynamicRegistration =
                   !0;
               }),
               (t.prototype.initialize = function (e, t) {
@@ -5635,7 +5635,7 @@
               (this._client = e), (this._listeners = new Map());
             }
             return (
-              Object.defineProperty(e.prototype, "messages", {
+              Object.defineProperty(e.prototype, 'messages', {
                 get: function () {
                   return c.DidChangeConfigurationNotification.type;
                 },
@@ -5644,8 +5644,8 @@
               }),
               (e.prototype.fillClientCapabilities = function (e) {
                 b(
-                  b(e, "workspace"),
-                  "didChangeConfiguration"
+                  b(e, 'workspace'),
+                  'didChangeConfiguration'
                 ).dynamicRegistration = !0;
               }),
               (e.prototype.initialize = function () {
@@ -5745,7 +5745,7 @@
                   i++
                 ) {
                   var r = e[i],
-                    a = r.indexOf("."),
+                    a = r.indexOf('.'),
                     c = null;
                   if (
                     (c =
@@ -5755,7 +5755,7 @@
                             .get(r.substr(a + 1))
                         : s.workspace.getConfiguration(r, n))
                   ) {
-                    var u = e[i].split(".");
+                    var u = e[i].split('.');
                     t(o, u)[u[u.length - 1]] = c;
                   }
                 }
@@ -5775,7 +5775,7 @@
               (this._client = e), (this._commands = new Map());
             }
             return (
-              Object.defineProperty(e.prototype, "messages", {
+              Object.defineProperty(e.prototype, 'messages', {
                 get: function () {
                   return c.ExecuteCommandRequest.type;
                 },
@@ -5783,7 +5783,7 @@
                 configurable: !0,
               }),
               (e.prototype.fillClientCapabilities = function (e) {
-                b(b(e, "workspace"), "executeCommand").dynamicRegistration = !0;
+                b(b(e, 'workspace'), 'executeCommand').dynamicRegistration = !0;
               }),
               (e.prototype.initialize = function (e) {
                 e.executeCommandProvider &&
@@ -5883,7 +5883,7 @@
                 diagnosticCollectionName: n.diagnosticCollectionName,
                 outputChannelName: n.outputChannelName || this._name,
                 revealOutputChannelOn: n.revealOutputChannelOn || v.Error,
-                stdioEncoding: n.stdioEncoding || "utf8",
+                stdioEncoding: n.stdioEncoding || 'utf8',
                 initializationOptions: n.initializationOptions,
                 initializationFailedHandler: n.initializationFailedHandler,
                 errorHandler: n.errorHandler || new D(this._name),
@@ -5931,7 +5931,7 @@
               this.registerBuiltinFeatures();
           }
           return (
-            Object.defineProperty(t.prototype, "state", {
+            Object.defineProperty(t.prototype, 'state', {
               get: function () {
                 return this._state;
               },
@@ -5951,7 +5951,7 @@
             (t.prototype.getPublicState = function () {
               return this.state === C.Running ? y.Running : y.Stopped;
             }),
-            Object.defineProperty(t.prototype, "initializeResult", {
+            Object.defineProperty(t.prototype, 'initializeResult', {
               get: function () {
                 return this._initializeResult;
               },
@@ -5962,7 +5962,7 @@
               for (var t, n = [], o = 1; o < arguments.length; o++)
                 n[o - 1] = arguments[o];
               if (!this.isConnectionActive())
-                throw new Error("Language client is not ready yet");
+                throw new Error('Language client is not ready yet');
               this.forceDocumentSync();
               try {
                 return (t = this._resolvedConnection).sendRequest.apply(
@@ -5972,9 +5972,9 @@
               } catch (i) {
                 throw (
                   (this.error(
-                    "Sending request " +
+                    'Sending request ' +
                       (d.string(e) ? e : e.method) +
-                      " failed.",
+                      ' failed.',
                     i
                   ),
                   i)
@@ -5983,15 +5983,15 @@
             }),
             (t.prototype.onRequest = function (e, t) {
               if (!this.isConnectionActive())
-                throw new Error("Language client is not ready yet");
+                throw new Error('Language client is not ready yet');
               try {
                 this._resolvedConnection.onRequest(e, t);
               } catch (n) {
                 throw (
                   (this.error(
-                    "Registering request handler " +
+                    'Registering request handler ' +
                       (d.string(e) ? e : e.method) +
-                      " failed.",
+                      ' failed.',
                     n
                   ),
                   n)
@@ -6000,16 +6000,16 @@
             }),
             (t.prototype.sendNotification = function (e, t) {
               if (!this.isConnectionActive())
-                throw new Error("Language client is not ready yet");
+                throw new Error('Language client is not ready yet');
               this.forceDocumentSync();
               try {
                 this._resolvedConnection.sendNotification(e, t);
               } catch (n) {
                 throw (
                   (this.error(
-                    "Sending notification " +
+                    'Sending notification ' +
                       (d.string(e) ? e : e.method) +
-                      " failed.",
+                      ' failed.',
                     n
                   ),
                   n)
@@ -6018,57 +6018,57 @@
             }),
             (t.prototype.onNotification = function (e, t) {
               if (!this.isConnectionActive())
-                throw new Error("Language client is not ready yet");
+                throw new Error('Language client is not ready yet');
               try {
                 this._resolvedConnection.onNotification(e, t);
               } catch (n) {
                 throw (
                   (this.error(
-                    "Registering notification handler " +
+                    'Registering notification handler ' +
                       (d.string(e) ? e : e.method) +
-                      " failed.",
+                      ' failed.',
                     n
                   ),
                   n)
                 );
               }
             }),
-            Object.defineProperty(t.prototype, "clientOptions", {
+            Object.defineProperty(t.prototype, 'clientOptions', {
               get: function () {
                 return this._clientOptions;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "protocol2CodeConverter", {
+            Object.defineProperty(t.prototype, 'protocol2CodeConverter', {
               get: function () {
                 return this._p2c;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "code2ProtocolConverter", {
+            Object.defineProperty(t.prototype, 'code2ProtocolConverter', {
               get: function () {
                 return this._c2p;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "onTelemetry", {
+            Object.defineProperty(t.prototype, 'onTelemetry', {
               get: function () {
                 return this._telemetryEmitter.event;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "onDidChangeState", {
+            Object.defineProperty(t.prototype, 'onDidChangeState', {
               get: function () {
                 return this._stateChangeEmitter.event;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "outputChannel", {
+            Object.defineProperty(t.prototype, 'outputChannel', {
               get: function () {
                 return (
                   this._outputChannel ||
@@ -6083,7 +6083,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "diagnostics", {
+            Object.defineProperty(t.prototype, 'diagnostics', {
               get: function () {
                 return this._diagnostics;
               },
@@ -6093,7 +6093,7 @@
             (t.prototype.createDefaultErrorHandler = function () {
               return new D(this._name);
             }),
-            Object.defineProperty(t.prototype, "trace", {
+            Object.defineProperty(t.prototype, 'trace', {
               set: function (e) {
                 var t = this;
                 (this._trace = e),
@@ -6113,12 +6113,12 @@
               if (e instanceof c.ResponseError) {
                 var t = e;
                 return (
-                  "  Message: " +
+                  '  Message: ' +
                   t.message +
-                  "\n  Code: " +
+                  '\n  Code: ' +
                   t.code +
-                  " " +
-                  (t.data ? "\n" + t.data.toString() : "")
+                  ' ' +
+                  (t.data ? '\n' + t.data.toString() : '')
                 );
               }
               return e instanceof Error
@@ -6131,7 +6131,7 @@
             }),
             (t.prototype.info = function (e, t) {
               this.outputChannel.appendLine(
-                "[Info  - " + new Date().toLocaleTimeString() + "] " + e
+                '[Info  - ' + new Date().toLocaleTimeString() + '] ' + e
               ),
                 t && this.outputChannel.appendLine(this.data2String(t)),
                 this._clientOptions.revealOutputChannelOn <= v.Info &&
@@ -6139,7 +6139,7 @@
             }),
             (t.prototype.warn = function (e, t) {
               this.outputChannel.appendLine(
-                "[Warn  - " + new Date().toLocaleTimeString() + "] " + e
+                '[Warn  - ' + new Date().toLocaleTimeString() + '] ' + e
               ),
                 t && this.outputChannel.appendLine(this.data2String(t)),
                 this._clientOptions.revealOutputChannelOn <= v.Warn &&
@@ -6147,7 +6147,7 @@
             }),
             (t.prototype.error = function (e, t) {
               this.outputChannel.appendLine(
-                "[Error - " + new Date().toLocaleTimeString() + "] " + e
+                '[Error - ' + new Date().toLocaleTimeString() + '] ' + e
               ),
                 t && this.outputChannel.appendLine(this.data2String(t)),
                 this._clientOptions.revealOutputChannelOn <= v.Error &&
@@ -6155,7 +6155,7 @@
             }),
             (t.prototype.logTrace = function (e, t) {
               this.outputChannel.appendLine(
-                "[Trace - " + new Date().toLocaleTimeString() + "] " + e
+                '[Trace - ' + new Date().toLocaleTimeString() + '] ' + e
               ),
                 t && this.outputChannel.appendLine(this.data2String(t));
             }),
@@ -6249,7 +6249,7 @@
                   .then(void 0, function (t) {
                     (e.state = C.StartFailed),
                       e._onReadyCallbacks.reject(t),
-                      e.error("Starting client failed", t),
+                      e.error('Starting client failed', t),
                       s.window.showErrorMessage(
                         "Couldn't start client " + e._name
                       );
@@ -6314,13 +6314,13 @@
                       t.onRequest(c.RegistrationRequest.type, function (e) {
                         return n.handleRegistrationRequest(e);
                       }),
-                      t.onRequest("client/registerFeature", function (e) {
+                      t.onRequest('client/registerFeature', function (e) {
                         return n.handleRegistrationRequest(e);
                       }),
                       t.onRequest(c.UnregistrationRequest.type, function (e) {
                         return n.handleUnregistrationRequest(e);
                       }),
-                      t.onRequest("client/unregisterFeature", function (e) {
+                      t.onRequest('client/unregisterFeature', function (e) {
                         return n.handleUnregistrationRequest(e);
                       }),
                       t.onRequest(
@@ -6345,16 +6345,16 @@
                       : e instanceof c.ResponseError && e.data && e.data.retry
                       ? s.window
                           .showErrorMessage(e.message, {
-                            title: "Retry",
-                            id: "retry",
+                            title: 'Retry',
+                            id: 'retry',
                           })
                           .then(function (o) {
-                            o && "retry" === o.id
+                            o && 'retry' === o.id
                               ? n.initialize(t)
                               : (n.stop(), n._onReadyCallbacks.reject(e));
                           })
                       : (e && e.message && s.window.showErrorMessage(e.message),
-                        n.error("Server initialization failed.", e),
+                        n.error('Server initialization failed.', e),
                         n.stop(),
                         n._onReadyCallbacks.reject(e));
                   })
@@ -6364,7 +6364,7 @@
               var e = s.workspace.workspaceFolders;
               if (e && 0 !== e.length) {
                 var t = e[0];
-                return "file" === t.uri.scheme ? t.uri.fsPath : void 0;
+                return 'file' === t.uri.scheme ? t.uri.fsPath : void 0;
               }
             }),
             (t.prototype.stop = function () {
@@ -6448,7 +6448,7 @@
                       });
                     },
                     function (e) {
-                      t.error("Notify file events failed.", e);
+                      t.error('Notify file events failed.', e);
                     }
                   );
                 });
@@ -6483,7 +6483,7 @@
                   e.handleConnectionClosed();
                 };
               return this.createMessageTransports(
-                this._clientOptions.stdioEncoding || "utf8"
+                this._clientOptions.stdioEncoding || 'utf8'
               ).then(function (e) {
                 return (function (e, t, n, o) {
                   var i = new h(),
@@ -6611,13 +6611,13 @@
                   (this._resolvedConnection = void 0),
                   e === g.DoNotRestart
                     ? (this.error(
-                        "Connection to server got closed. Server will not be restarted."
+                        'Connection to server got closed. Server will not be restarted.'
                       ),
                       (this.state = C.Stopped),
                       this.cleanUp(!1, !0))
                     : e === g.Restart &&
                       (this.info(
-                        "Connection to server got closed. Server will restart."
+                        'Connection to server got closed. Server will restart.'
                       ),
                       this.cleanUp(!1, !1),
                       (this.state = C.Initial),
@@ -6627,7 +6627,7 @@
             (t.prototype.handleConnectionError = function (e, t, n) {
               this._clientOptions.errorHandler.error(e, t, n) === f.Shutdown &&
                 (this.error(
-                  "Connection to server is erroring. Shutting down server."
+                  'Connection to server is erroring. Shutting down server.'
                 ),
                 this.stop());
             }),
@@ -6641,7 +6641,7 @@
               void 0 === t && (t = !1);
               var n = s.workspace.getConfiguration(this._id),
                 o = c.Trace.Off;
-              n && (o = c.Trace.fromString(n.get("trace.server", "off"))),
+              n && (o = c.Trace.fromString(n.get('trace.server', 'off'))),
                 (this._trace = o),
                 e.trace(this._trace, this._tracer, t);
             }),
@@ -6758,11 +6758,11 @@
               var e,
                 t,
                 n = {};
-              (b(n, "workspace").applyEdit = !0),
-                (b(b(n, "workspace"), "workspaceEdit").documentChanges = !0),
+              (b(n, 'workspace').applyEdit = !0),
+                (b(b(n, 'workspace'), 'workspaceEdit').documentChanges = !0),
                 (b(
-                  b(n, "textDocument"),
-                  "publishDiagnostics"
+                  b(n, 'textDocument'),
+                  'publishDiagnostics'
                 ).relatedInformation = !0);
               try {
                 for (
@@ -6824,9 +6824,9 @@
                     if (!l)
                       return void o(
                         new Error(
-                          "No feature implementation for " +
+                          'No feature implementation for ' +
                             u.method +
-                            " found. Registration failed."
+                            ' found. Registration failed.'
                         )
                       );
                     var d = u.registerOptions || {};
@@ -6867,9 +6867,9 @@
                     if (!l)
                       return void o(
                         new Error(
-                          "No feature implementation for " +
+                          'No feature implementation for ' +
                             u.method +
-                            " found. Unregistration failed."
+                            ' found. Unregistration failed.'
                         )
                       );
                     l.unregister(u.id);
@@ -6939,16 +6939,16 @@
             (t.prototype.logFailedRequest = function (e, t) {
               (t instanceof c.ResponseError &&
                 t.code === c.ErrorCodes.RequestCancelled) ||
-                this.error("Request " + e.method + " failed.", t);
+                this.error('Request ' + e.method + ' failed.', t);
             }),
             t
           );
         })();
         t.BaseLanguageClient = Y;
-      }.call(this, n("8oxB")));
+      }.call(this, n('8oxB')));
     },
     uSJ4: function (e, t, n) {
-      "use strict";
+      'use strict';
       var o =
         (this && this.__extends) ||
         (function () {
@@ -6974,13 +6974,13 @@
                   : ((o.prototype = n.prototype), new o()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var i = n("AL8H"),
-        r = n("hC2b"),
-        a = n("uoVZ"),
-        s = n("BOov");
+      var i = n('AL8H'),
+        r = n('hC2b'),
+        a = n('uoVZ'),
+        s = n('BOov');
 
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
@@ -6992,7 +6992,7 @@
         return (
           o(t, e),
           (t.prototype.fillClientCapabilities = function (e) {
-            c(c(e, "textDocument"), "typeDefinition").dynamicRegistration = !0;
+            c(c(e, 'textDocument'), 'typeDefinition').dynamicRegistration = !0;
           }),
           (t.prototype.initialize = function (e, t) {
             if (e.typeDefinitionProvider)
@@ -7057,20 +7057,20 @@
           }),
           t
         );
-      })(n("qRuN").TextDocumentFeature);
+      })(n('qRuN').TextDocumentFeature);
       t.TypeDefinitionFeature = u;
     },
     xagI: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var o = n("uoVZ"),
-        i = n("BOov"),
-        r = n("hC2b"),
-        a = n("QGVK"),
-        s = n("h0WC"),
-        c = n("ojtU");
+      var o = n('uoVZ'),
+        i = n('BOov'),
+        r = n('hC2b'),
+        a = n('QGVK'),
+        s = n('h0WC'),
+        c = n('ojtU');
       t.createConverter = function (e) {
         var t =
           e ||
@@ -7244,7 +7244,7 @@
                 }),
               };
             }
-            throw Error("Unsupported text document change parameter");
+            throw Error('Unsupported text document change parameter');
           },
           asCloseTextDocumentParams: function (e) {
             return {
@@ -7296,10 +7296,10 @@
             return (
               e.detail && (s.detail = e.detail),
               e.documentation &&
-                (c && "$string" !== c.documentationFormat
+                (c && '$string' !== c.documentationFormat
                   ? (s.documentation = (function (e, t) {
                       switch (e) {
-                        case "$string":
+                        case '$string':
                           return t;
                         case i.MarkupKind.PlainText:
                           return {
@@ -7313,7 +7313,7 @@
                           };
                         default:
                           return (
-                            "Unsupported Markup content received. Kind is: " + e
+                            'Unsupported Markup content received. Kind is: ' + e
                           );
                       }
                     })(c.documentationFormat, e.documentation))
@@ -7416,12 +7416,12 @@
         };
       };
     },
-    "zxs+": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    'zxs+': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var o = n("Gz0x"),
+      var o = n('Gz0x'),
         i = (function () {
           function e(e, t, n) {
             void 0 === n && (n = null);
@@ -7445,7 +7445,7 @@
               });
           }
           return (
-            Object.defineProperty(e.prototype, "rootUri", {
+            Object.defineProperty(e.prototype, 'rootUri', {
               get: function () {
                 return this._rootUri;
               },
@@ -7498,28 +7498,28 @@
               );
               return this.documents.set(e, n), n;
             }),
-            Object.defineProperty(e.prototype, "textDocuments", {
+            Object.defineProperty(e.prototype, 'textDocuments', {
               get: function () {
                 return Array.from(this.documents.values());
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(e.prototype, "onDidOpenTextDocument", {
+            Object.defineProperty(e.prototype, 'onDidOpenTextDocument', {
               get: function () {
                 return this.onDidOpenTextDocumentEmitter.event;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(e.prototype, "onDidCloseTextDocument", {
+            Object.defineProperty(e.prototype, 'onDidCloseTextDocument', {
               get: function () {
                 return this.onDidCloseTextDocumentEmitter.event;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(e.prototype, "onDidChangeTextDocument", {
+            Object.defineProperty(e.prototype, 'onDidChangeTextDocument', {
               get: function () {
                 return this.onDidChangeTextDocumentEmitter.event;
               },

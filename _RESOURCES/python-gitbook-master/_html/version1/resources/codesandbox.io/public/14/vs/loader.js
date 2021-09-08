@@ -4,7 +4,7 @@
  * Released under the MIT license
  * https://github.com/Microsoft/vscode/blob/master/LICENSE.txt
  *-----------------------------------------------------------*/
-"use strict";
+'use strict';
 var _amdLoaderGlobal = this;
 !(function (e) {
   e.global = _amdLoaderGlobal;
@@ -17,28 +17,28 @@ var _amdLoaderGlobal = this;
         (this._isWebWorker = !1);
     }
     return (
-      Object.defineProperty(t.prototype, "isWindows", {
+      Object.defineProperty(t.prototype, 'isWindows', {
         get: function () {
           return this._detect(), this._isWindows;
         },
         enumerable: !0,
         configurable: !0,
       }),
-      Object.defineProperty(t.prototype, "isNode", {
+      Object.defineProperty(t.prototype, 'isNode', {
         get: function () {
           return this._detect(), this._isNode;
         },
         enumerable: !0,
         configurable: !0,
       }),
-      Object.defineProperty(t.prototype, "isElectronRenderer", {
+      Object.defineProperty(t.prototype, 'isElectronRenderer', {
         get: function () {
           return this._detect(), this._isElectronRenderer;
         },
         enumerable: !0,
         configurable: !0,
       }),
-      Object.defineProperty(t.prototype, "isWebWorker", {
+      Object.defineProperty(t.prototype, 'isWebWorker', {
         get: function () {
           return this._detect(), this._isWebWorker;
         },
@@ -49,22 +49,22 @@ var _amdLoaderGlobal = this;
         this._detected ||
           ((this._detected = !0),
           (this._isWindows = t._isWindows()),
-          (this._isNode = "undefined" != typeof module && !!module.exports),
+          (this._isNode = 'undefined' != typeof module && !!module.exports),
           (this._isElectronRenderer =
-            "undefined" != typeof process &&
+            'undefined' != typeof process &&
             void 0 !== process.versions &&
             void 0 !== process.versions.electron &&
-            "renderer" === process.type),
-          (this._isWebWorker = "function" == typeof e.global.importScripts));
+            'renderer' === process.type),
+          (this._isWebWorker = 'function' == typeof e.global.importScripts));
       }),
       (t._isWindows = function () {
         return (
           !!(
-            "undefined" != typeof navigator &&
+            'undefined' != typeof navigator &&
             navigator.userAgent &&
-            navigator.userAgent.indexOf("Windows") >= 0
+            navigator.userAgent.indexOf('Windows') >= 0
           ) ||
-          ("undefined" != typeof process && "win32" === process.platform)
+          ('undefined' != typeof process && 'win32' === process.platform)
         );
       }),
       t
@@ -81,7 +81,7 @@ var _amdLoaderGlobal = this;
   e.LoaderEvent = t;
   var r = (function () {
     function r(e) {
-      this._events = [new t(1, "", e)];
+      this._events = [new t(1, '', e)];
     }
     return (
       (r.prototype.record = function (r, n) {
@@ -114,7 +114,7 @@ var _amdLoaderGlobal = this;
     function t() {}
     return (
       (t.fileUriToFilePath = function (e, t) {
-        if (((t = decodeURI(t).replace(/%23/g, "#")), e)) {
+        if (((t = decodeURI(t).replace(/%23/g, '#')), e)) {
           if (/^file:\/\/\//.test(t)) return t.substr(8);
           if (/^file:\/\//.test(t)) return t.substr(5);
         } else if (/^file:\/\//.test(t)) return t.substr(7);
@@ -148,20 +148,20 @@ var _amdLoaderGlobal = this;
         );
       }),
       (t.recursiveClone = function (e) {
-        if (!e || "object" != typeof e) return e;
+        if (!e || 'object' != typeof e) return e;
         var r = Array.isArray(e) ? [] : {};
         return (
           t.forEachProperty(e, function (e, n) {
-            r[e] = n && "object" == typeof n ? t.recursiveClone(n) : n;
+            r[e] = n && 'object' == typeof n ? t.recursiveClone(n) : n;
           }),
           r
         );
       }),
       (t.generateAnonymousModule = function () {
-        return "===anonymous" + t.NEXT_ANONYMOUS_ID++ + "===";
+        return '===anonymous' + t.NEXT_ANONYMOUS_ID++ + '===';
       }),
       (t.isAnonymousModule = function (e) {
-        return t.startsWith(e, "===anonymous");
+        return t.startsWith(e, '===anonymous');
       }),
       (t.getHighPerformanceTimestamp = function () {
         return (
@@ -169,7 +169,7 @@ var _amdLoaderGlobal = this;
             ((this.PERFORMANCE_NOW_PROBED = !0),
             (this.HAS_PERFORMANCE_NOW =
               e.global.performance &&
-              "function" == typeof e.global.performance.now)),
+              'function' == typeof e.global.performance.now)),
           this.HAS_PERFORMANCE_NOW ? e.global.performance.now() : Date.now()
         );
       }),
@@ -187,13 +187,13 @@ var _amdLoaderGlobal = this;
     return (
       (t.validateConfigurationOptions = function (t) {
         function r(e) {
-          return "load" === e.errorCode
+          return 'load' === e.errorCode
             ? (console.error('Loading "' + e.moduleId + '" failed'),
-              console.error("Detail: ", e.detail),
+              console.error('Detail: ', e.detail),
               e.detail && e.detail.stack && console.error(e.detail.stack),
-              console.error("Here are the modules that depend on it:"),
+              console.error('Here are the modules that depend on it:'),
               void console.error(e.neededBy))
-            : "factory" === e.errorCode
+            : 'factory' === e.errorCode
             ? (console.error(
                 'The factory method of "' +
                   e.moduleId +
@@ -208,31 +208,31 @@ var _amdLoaderGlobal = this;
             : void 0;
         }
         return (
-          "string" != typeof (t = t || {}).baseUrl && (t.baseUrl = ""),
-          "boolean" != typeof t.isBuild && (t.isBuild = !1),
-          "object" != typeof t.paths && (t.paths = {}),
-          "object" != typeof t.config && (t.config = {}),
+          'string' != typeof (t = t || {}).baseUrl && (t.baseUrl = ''),
+          'boolean' != typeof t.isBuild && (t.isBuild = !1),
+          'object' != typeof t.paths && (t.paths = {}),
+          'object' != typeof t.config && (t.config = {}),
           void 0 === t.catchError && (t.catchError = !1),
-          "string" != typeof t.urlArgs && (t.urlArgs = ""),
-          "function" != typeof t.onError && (t.onError = r),
-          ("object" == typeof t.ignoreDuplicateModules &&
+          'string' != typeof t.urlArgs && (t.urlArgs = ''),
+          'function' != typeof t.onError && (t.onError = r),
+          ('object' == typeof t.ignoreDuplicateModules &&
             Array.isArray(t.ignoreDuplicateModules)) ||
             (t.ignoreDuplicateModules = []),
           t.baseUrl.length > 0 &&
-            (e.Utilities.endsWith(t.baseUrl, "/") || (t.baseUrl += "/")),
-          "string" != typeof t.cspNonce && (t.cspNonce = ""),
+            (e.Utilities.endsWith(t.baseUrl, '/') || (t.baseUrl += '/')),
+          'string' != typeof t.cspNonce && (t.cspNonce = ''),
           Array.isArray(t.nodeModules) || (t.nodeModules = []),
-          ("number" != typeof t.nodeCachedDataWriteDelay ||
+          ('number' != typeof t.nodeCachedDataWriteDelay ||
             t.nodeCachedDataWriteDelay < 0) &&
             (t.nodeCachedDataWriteDelay = 7e3),
-          "function" != typeof t.onNodeCachedData &&
+          'function' != typeof t.onNodeCachedData &&
             (t.onNodeCachedData = function (e, t) {
               e &&
-                ("cachedDataRejected" === e.errorCode
-                  ? console.warn("Rejected cached data from file: " + e.path)
-                  : "unlink" === e.errorCode || "writeFile" === e.errorCode
+                ('cachedDataRejected' === e.errorCode
+                  ? console.warn('Rejected cached data from file: ' + e.path)
+                  : 'unlink' === e.errorCode || 'writeFile' === e.errorCode
                   ? (console.error(
-                      "Problems writing cached data file: " + e.path
+                      'Problems writing cached data file: ' + e.path
                     ),
                     console.error(e.detail))
                   : console.error(e));
@@ -245,14 +245,14 @@ var _amdLoaderGlobal = this;
         var o = e.Utilities.recursiveClone(n || {});
         return (
           e.Utilities.forEachProperty(r, function (t, r) {
-            "ignoreDuplicateModules" === t &&
+            'ignoreDuplicateModules' === t &&
             void 0 !== o.ignoreDuplicateModules
               ? (o.ignoreDuplicateModules = o.ignoreDuplicateModules.concat(r))
-              : "paths" === t && void 0 !== o.paths
+              : 'paths' === t && void 0 !== o.paths
               ? e.Utilities.forEachProperty(r, function (e, t) {
                   return (o.paths[e] = t);
                 })
-              : "config" === t && void 0 !== o.config
+              : 'config' === t && void 0 !== o.config
               ? e.Utilities.forEachProperty(r, function (e, t) {
                   return (o.config[e] = t);
                 })
@@ -273,7 +273,7 @@ var _amdLoaderGlobal = this;
         this._createIgnoreDuplicateModulesMap(),
         this._createNodeModulesMap(),
         this._createSortedPathsRules(),
-        "" === this.options.baseUrl)
+        '' === this.options.baseUrl)
       ) {
         if (
           this.options.nodeRequire &&
@@ -282,12 +282,12 @@ var _amdLoaderGlobal = this;
           this._env.isNode
         ) {
           var n = this.options.nodeRequire.main.filename,
-            o = Math.max(n.lastIndexOf("/"), n.lastIndexOf("\\"));
+            o = Math.max(n.lastIndexOf('/'), n.lastIndexOf('\\'));
           this.options.baseUrl = n.substring(0, o + 1);
         }
         if (this.options.nodeMain && this._env.isNode) {
           var n = this.options.nodeMain,
-            o = Math.max(n.lastIndexOf("/"), n.lastIndexOf("\\"));
+            o = Math.max(n.lastIndexOf('/'), n.lastIndexOf('\\'));
           this.options.baseUrl = n.substring(0, o + 1);
         }
       }
@@ -344,8 +344,8 @@ var _amdLoaderGlobal = this;
       }),
       (r.prototype._addUrlArgsToUrl = function (t) {
         return e.Utilities.containsQueryString(t)
-          ? t + "&" + this.options.urlArgs
-          : t + "?" + this.options.urlArgs;
+          ? t + '&' + this.options.urlArgs
+          : t + '?' + this.options.urlArgs;
       }),
       (r.prototype._addUrlArgsIfNecessaryToUrl = function (e) {
         return this.options.urlArgs ? this._addUrlArgsToUrl(e) : e;
@@ -358,22 +358,22 @@ var _amdLoaderGlobal = this;
       }),
       (r.prototype.moduleIdToPaths = function (t) {
         if (!0 === this.nodeModulesMap[t])
-          return this.isBuild() ? ["empty:"] : ["node|" + t];
+          return this.isBuild() ? ['empty:'] : ['node|' + t];
         var r,
           n = t;
-        if (e.Utilities.endsWith(n, ".js") || e.Utilities.isAbsolutePath(n))
-          e.Utilities.endsWith(n, ".js") ||
+        if (e.Utilities.endsWith(n, '.js') || e.Utilities.isAbsolutePath(n))
+          e.Utilities.endsWith(n, '.js') ||
             e.Utilities.containsQueryString(n) ||
-            (n += ".js"),
+            (n += '.js'),
             (r = [n]);
         else
           for (var o = 0, i = (r = this._applyPaths(n)).length; o < i; o++)
-            (this.isBuild() && "empty:" === r[o]) ||
+            (this.isBuild() && 'empty:' === r[o]) ||
               (e.Utilities.isAbsolutePath(r[o]) ||
                 (r[o] = this.options.baseUrl + r[o]),
-              e.Utilities.endsWith(r[o], ".js") ||
+              e.Utilities.endsWith(r[o], '.js') ||
                 e.Utilities.containsQueryString(r[o]) ||
-                (r[o] = r[o] + ".js"));
+                (r[o] = r[o] + '.js'));
         return this._addUrlArgsIfNecessaryToUrls(r);
       }),
       (r.prototype.requireToUrl = function (t) {
@@ -458,8 +458,8 @@ var _amdLoaderGlobal = this;
       return (
         (e.prototype.attachListeners = function (e, t, r) {
           var n = function () {
-              e.removeEventListener("load", o),
-                e.removeEventListener("error", i);
+              e.removeEventListener('load', o),
+                e.removeEventListener('error', i);
             },
             o = function (e) {
               n(), t();
@@ -467,17 +467,17 @@ var _amdLoaderGlobal = this;
             i = function (e) {
               n(), r(e);
             };
-          e.addEventListener("load", o), e.addEventListener("error", i);
+          e.addEventListener('load', o), e.addEventListener('error', i);
         }),
         (e.prototype.load = function (e, t, r, n) {
-          var o = document.createElement("script");
-          o.setAttribute("async", "async"),
-            o.setAttribute("type", "text/javascript"),
+          var o = document.createElement('script');
+          o.setAttribute('async', 'async'),
+            o.setAttribute('type', 'text/javascript'),
             this.attachListeners(o, r, n),
-            o.setAttribute("src", t);
+            o.setAttribute('src', t);
           var i = e.getConfig().getOptionsLiteral().cspNonce;
-          i && o.setAttribute("nonce", i),
-            document.getElementsByTagName("head")[0].appendChild(o);
+          i && o.setAttribute('nonce', i),
+            document.getElementsByTagName('head')[0].appendChild(o);
         }),
         e
       );
@@ -505,14 +505,14 @@ var _amdLoaderGlobal = this;
         (t.prototype._init = function (e) {
           if (!this._didInitialize) {
             (this._didInitialize = !0),
-              (this._fs = e("fs")),
-              (this._vm = e("vm")),
-              (this._path = e("path")),
-              (this._crypto = e("crypto")),
-              (this._jsflags = "");
+              (this._fs = e('fs')),
+              (this._vm = e('vm')),
+              (this._path = e('path')),
+              (this._crypto = e('crypto')),
+              (this._jsflags = '');
             for (var t = 0, r = process.argv; t < r.length; t++) {
               var n = r[t];
-              if (0 === n.indexOf("--js-flags=")) {
+              if (0 === n.indexOf('--js-flags=')) {
                 this._jsflags = n;
                 break;
               }
@@ -524,9 +524,9 @@ var _amdLoaderGlobal = this;
           if (n && !this._didPatchNodeRequire) {
             this._didPatchNodeRequire = !0;
             var o = this,
-              i = t("module");
+              i = t('module');
             i.prototype._compile = function (t, s) {
-              t = t.replace(/^#!.*/, "");
+              t = t.replace(/^#!.*/, '');
               var d = i.wrap(t),
                 a = o._getCachedDataPath(n, s),
                 u = {
@@ -576,7 +576,7 @@ var _amdLoaderGlobal = this;
           this._init(a), this._initNodeRequire(a, r);
           var l = r.getRecorder();
           if (/^node\|/.test(n)) {
-            var c = n.split("|"),
+            var c = n.split('|'),
               h = null;
             try {
               h = a(c[1]);
@@ -592,7 +592,7 @@ var _amdLoaderGlobal = this;
               this._fs.readFile(
                 n,
                 {
-                  encoding: "utf8",
+                  encoding: 'utf8',
                 },
                 function (e, a) {
                   if (e) i(e);
@@ -602,18 +602,18 @@ var _amdLoaderGlobal = this;
                     if (s._env.isElectronRenderer) {
                       var f = h.match(/^([a-z])\:(.*)/i);
                       h = f
-                        ? "file:///" +
-                          (f[1].toUpperCase() + ":" + f[2]).replace(/\\/g, "/")
-                        : "file://" + h;
+                        ? 'file:///' +
+                          (f[1].toUpperCase() + ':' + f[2]).replace(/\\/g, '/')
+                        : 'file://' + h;
                     }
                     var p,
                       _ =
-                        "(function (require, define, __filename, __dirname) { ";
+                        '(function (require, define, __filename, __dirname) { ';
                     if (
                       ((p =
                         a.charCodeAt(0) === t._BOM
-                          ? _ + a.substring(1) + "\n});"
-                          : _ + a + "\n});"),
+                          ? _ + a.substring(1) + '\n});'
+                          : _ + a + '\n});'),
                       (p = u(p, c)),
                       d.nodeCachedDataDir)
                     ) {
@@ -663,31 +663,31 @@ var _amdLoaderGlobal = this;
               this._path.dirname(r)
             ),
             s.record(32, r),
-            h ? d() : a(new Error("Didn't receive define call in " + r + "!")),
+            h ? d() : a(new Error("Didn't receive define call in " + r + '!')),
             u
           );
         }),
         (t.prototype._getCachedDataPath = function (e, t) {
           var r = this._crypto
-              .createHash("md5")
-              .update(t, "utf8")
-              .update(this._jsflags, "utf8")
-              .digest("hex"),
-            n = this._path.basename(t).replace(/\.js$/, "");
-          return this._path.join(e, n + "-" + r + ".code");
+              .createHash('md5')
+              .update(t, 'utf8')
+              .update(this._jsflags, 'utf8')
+              .digest('hex'),
+            n = this._path.basename(t).replace(/\.js$/, '');
+          return this._path.join(e, n + '-' + r + '.code');
         }),
         (t.prototype._processCachedData = function (e, r, n) {
           var o = this;
           r.cachedDataRejected
             ? (e.getConfig().getOptionsLiteral().onNodeCachedData({
-                errorCode: "cachedDataRejected",
+                errorCode: 'cachedDataRejected',
                 path: n,
               }),
               t._runSoon(function () {
                 return o._fs.unlink(n, function (t) {
                   t &&
                     e.getConfig().getOptionsLiteral().onNodeCachedData({
-                      errorCode: "unlink",
+                      errorCode: 'unlink',
                       path: n,
                       detail: t,
                     });
@@ -705,7 +705,7 @@ var _amdLoaderGlobal = this;
                 return o._fs.writeFile(n, r.cachedData, function (t) {
                   t &&
                     e.getConfig().getOptionsLiteral().onNodeCachedData({
-                      errorCode: "writeFile",
+                      errorCode: 'writeFile',
                       path: n,
                       detail: t,
                     });
@@ -727,38 +727,38 @@ var _amdLoaderGlobal = this;
 !(function (e) {
   var t = (function () {
     function t(e) {
-      var t = e.lastIndexOf("/");
-      this.fromModulePath = -1 !== t ? e.substr(0, t + 1) : "";
+      var t = e.lastIndexOf('/');
+      this.fromModulePath = -1 !== t ? e.substr(0, t + 1) : '';
     }
     return (
       (t._normalizeModuleId = function (e) {
         var t,
           r = e;
-        for (t = /\/\.\//; t.test(r); ) r = r.replace(t, "/");
+        for (t = /\/\.\//; t.test(r); ) r = r.replace(t, '/');
         for (
-          r = r.replace(/^\.\//g, ""),
+          r = r.replace(/^\.\//g, ''),
             t =
               /\/(([^\/])|([^\/][^\/\.])|([^\/\.][^\/])|([^\/][^\/][^\/]+))\/\.\.\//;
           t.test(r);
 
         )
-          r = r.replace(t, "/");
+          r = r.replace(t, '/');
         return (r = r.replace(
           /^(([^\/])|([^\/][^\/\.])|([^\/\.][^\/])|([^\/][^\/][^\/]+))\/\.\.\//,
-          ""
+          ''
         ));
       }),
       (t.prototype.resolveModule = function (r) {
         var n = r;
         return (
           e.Utilities.isAbsolutePath(n) ||
-            ((e.Utilities.startsWith(n, "./") ||
-              e.Utilities.startsWith(n, "../")) &&
+            ((e.Utilities.startsWith(n, './') ||
+              e.Utilities.startsWith(n, '../')) &&
               (n = t._normalizeModuleId(this.fromModulePath + n))),
           n
         );
       }),
-      (t.ROOT = new t("")),
+      (t.ROOT = new t('')),
       t
     );
   })();
@@ -807,7 +807,7 @@ var _amdLoaderGlobal = this;
         this._isComplete = !0;
         var i = null;
         if (this._callback)
-          if ("function" == typeof this._callback) {
+          if ('function' == typeof this._callback) {
             r.record(21, this.strId);
             var s = t._invokeFactory(n, this.strId, this._callback, o);
             (i = s.producedError),
@@ -819,7 +819,7 @@ var _amdLoaderGlobal = this;
           } else this.exports = this._callback;
         i &&
           n.onError({
-            errorCode: "factory",
+            errorCode: 'factory',
             moduleId: this.strId,
             detail: i,
           }),
@@ -843,9 +843,9 @@ var _amdLoaderGlobal = this;
         (this._nextId = 0),
           (this._strModuleIdToIntModuleId = new Map()),
           (this._intModuleIdToStrModuleId = []),
-          this.getModuleId("exports"),
-          this.getModuleId("module"),
-          this.getModuleId("require");
+          this.getModuleId('exports'),
+          this.getModuleId('module'),
+          this.getModuleId('require');
       }
       return (
         (e.prototype.getMaxModuleId = function () {
@@ -921,7 +921,7 @@ var _amdLoaderGlobal = this;
       (s._findRelevantLocationInStack = function (e, t) {
         for (
           var r = function (e) {
-              return e.replace(/\\/g, "/");
+              return e.replace(/\\/g, '/');
             },
             n = r(e),
             o = t.split(/\n/),
@@ -934,7 +934,7 @@ var _amdLoaderGlobal = this;
             var d = s[1],
               a = s[2],
               u = s[3],
-              l = Math.max(d.lastIndexOf(" ") + 1, d.lastIndexOf("(") + 1);
+              l = Math.max(d.lastIndexOf(' ') + 1, d.lastIndexOf('(') + 1);
             if (((d = d.substr(l)), (d = r(d)) === n)) {
               var c = {
                 line: parseInt(a, 10),
@@ -943,13 +943,13 @@ var _amdLoaderGlobal = this;
               return (
                 1 === c.line &&
                   (c.col -=
-                    "(function (require, define, __filename, __dirname) { ".length),
+                    '(function (require, define, __filename, __dirname) { '.length),
                 c
               );
             }
           }
         }
-        throw new Error("Could not correlate define call site for needle " + e);
+        throw new Error('Could not correlate define call site for needle ' + e);
       }),
       (s.prototype.getBuildInfo = function () {
         if (!this._config.isBuild()) return null;
@@ -989,10 +989,10 @@ var _amdLoaderGlobal = this;
       (s.prototype.enqueueDefineAnonymousModule = function (e, t) {
         if (null !== this._currentAnnonymousDefineCall)
           throw new Error(
-            "Can only have one anonymous define call per script file"
+            'Can only have one anonymous define call per script file'
           );
         var r = null;
-        this._config.isBuild() && (r = new Error("StackLocation").stack),
+        this._config.isBuild() && (r = new Error('StackLocation').stack),
           (this._currentAnnonymousDefineCall = {
             stack: r,
             dependencies: e,
@@ -1020,14 +1020,14 @@ var _amdLoaderGlobal = this;
         }
       }),
       (s.prototype._normalizeDependency = function (e, t) {
-        if ("exports" === e) return o.EXPORTS;
-        if ("module" === e) return o.MODULE;
-        if ("require" === e) return o.REQUIRE;
-        var r = e.indexOf("!");
+        if ('exports' === e) return o.EXPORTS;
+        if ('module' === e) return o.MODULE;
+        if ('require' === e) return o.REQUIRE;
+        var r = e.indexOf('!');
         if (r >= 0) {
           var n = t.resolveModule(e.substr(0, r)),
             s = t.resolveModule(e.substr(r + 1)),
-            d = this._moduleIdProvider.getModuleId(n + "!" + s),
+            d = this._moduleIdProvider.getModuleId(n + '!' + s),
             a = this._moduleIdProvider.getModuleId(n);
           return new i(d, a, s);
         }
@@ -1039,7 +1039,7 @@ var _amdLoaderGlobal = this;
         return r;
       }),
       (s.prototype._relativeRequire = function (t, r, n, o) {
-        if ("string" == typeof r) return this.synchronousRequire(r, t);
+        if ('string' == typeof r) return this.synchronousRequire(r, t);
         this.defineModule(
           e.Utilities.generateAnonymousModule(),
           r,
@@ -1093,7 +1093,7 @@ var _amdLoaderGlobal = this;
       (s.prototype._createLoadError = function (e, t) {
         var r = this;
         return {
-          errorCode: "load",
+          errorCode: 'load',
           moduleId: this._moduleIdProvider.getStrModuleId(e),
           neededBy: (this._inverseDependencies2[e] || []).map(function (e) {
             return r._moduleIdProvider.getStrModuleId(e);
@@ -1181,15 +1181,15 @@ var _amdLoaderGlobal = this;
           var r = this._moduleIdProvider.getStrModuleId(e),
             n = this._config.moduleIdToPaths(r);
           this._env.isNode &&
-            (-1 === r.indexOf("/") || /^@[^\/]+\/[^\/]+$/.test(r)) &&
-            n.push("node|" + r);
+            (-1 === r.indexOf('/') || /^@[^\/]+\/[^\/]+$/.test(r)) &&
+            n.push('node|' + r);
           var o = -1,
             i = function (r) {
               if (++o >= n.length) t._onLoadError(e, r);
               else {
                 var s = n[o],
                   d = t.getRecorder();
-                if (t._config.isBuild() && "empty:" === s)
+                if (t._config.isBuild() && 'empty:' === s)
                   return (
                     (t._buildInfoPath[e] = s),
                     t.defineModule(
@@ -1271,7 +1271,7 @@ var _amdLoaderGlobal = this;
                         .map(function (e) {
                           return t._moduleIdProvider.getStrModuleId(e);
                         })
-                        .join(" => \n")
+                        .join(' => \n')
                     ),
                     e.unresolvedDependenciesCount--;
                 } else if (
@@ -1349,9 +1349,9 @@ var _amdLoaderGlobal = this;
 var define, AMDLoader;
 !(function (e) {
   function t() {
-    if (void 0 !== e.global.require || "undefined" != typeof require) {
+    if (void 0 !== e.global.require || 'undefined' != typeof require) {
       var t = e.global.require || require;
-      if ("function" == typeof t && "function" == typeof t.resolve) {
+      if ('function' == typeof t && 'function' == typeof t.resolve) {
         var i = function (e) {
           n.getRecorder().record(33, e);
           try {
@@ -1372,9 +1372,9 @@ var define, AMDLoader;
   var r = new e.Environment(),
     n = null,
     o = function (e, t, r) {
-      "string" != typeof e && ((r = t), (t = e), (e = null)),
-        ("object" == typeof t && Array.isArray(t)) || ((r = t), (t = null)),
-        t || (t = ["require", "exports", "module"]),
+      'string' != typeof e && ((r = t), (t = e), (e = null)),
+        ('object' == typeof t && Array.isArray(t)) || ((r = t), (t = null)),
+        t || (t = ['require', 'exports', 'module']),
         e
           ? n.defineModule(e, t, r, null, null)
           : n.enqueueDefineAnonymousModule(t, r);
@@ -1389,14 +1389,14 @@ var define, AMDLoader;
       if (1 === arguments.length) {
         if (arguments[0] instanceof Object && !Array.isArray(arguments[0]))
           return void i(arguments[0]);
-        if ("string" == typeof arguments[0])
+        if ('string' == typeof arguments[0])
           return n.synchronousRequire(arguments[0]);
       }
       if (
         (2 !== arguments.length && 3 !== arguments.length) ||
         !Array.isArray(arguments[0])
       )
-        throw new Error("Unrecognized require call");
+        throw new Error('Unrecognized require call');
       n.defineModule(
         e.Utilities.generateAnonymousModule(),
         arguments[0],
@@ -1422,7 +1422,7 @@ var define, AMDLoader;
       return o.apply(null, arguments);
     }),
     (e.init = t),
-    ("function" == typeof e.global.define && e.global.define.amd) ||
+    ('function' == typeof e.global.define && e.global.define.amd) ||
       ((n = new e.ModuleManager(
         r,
         e.createScriptLoader(r),
@@ -1431,11 +1431,11 @@ var define, AMDLoader;
         e.Utilities.getHighPerformanceTimestamp()
       )),
       void 0 !== e.global.require &&
-        "function" != typeof e.global.require &&
+        'function' != typeof e.global.require &&
         s.config(e.global.require),
       ((define = function () {
         return o.apply(null, arguments);
       }).amd = o.amd),
-      "undefined" == typeof doNotInitLoader && t());
+      'undefined' == typeof doNotInitLoader && t());
 })(AMDLoader || (AMDLoader = {}));
 //# sourceMappingURL=../../min-maps/vs/loader.js.map

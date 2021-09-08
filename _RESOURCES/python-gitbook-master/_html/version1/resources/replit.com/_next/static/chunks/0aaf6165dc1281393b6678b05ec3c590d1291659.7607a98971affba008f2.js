@@ -1,22 +1,22 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [21],
   {
-    "0CU0": function (e, t) {
+    '0CU0': function (e, t) {
       e.exports =
-        "data:application/x-font-ttf;base64,AAEAAAAOAIAAAwBgRkZUTYQd29oAAAWIAAAAHEdERUYAKQAqAAAFYAAAACZPUy8yQ0FcUwAAAWgAAABgY21hcAAP8lIAAAHYAAABQmN2dCAAIgKIAAADHAAAAARnYXNwAAAAAQAABVgAAAAIZ2x5ZqQ1ewkAAAMsAAAAiGhlYWQPsR5/AAAA7AAAADZoaGVhBgEEBQAAASQAAAAkaG10eAwAAKIAAAHIAAAAEGxvY2EAbgBUAAADIAAAAAptYXhwAAgAPAAAAUgAAAAgbmFtZSBsbRoAAAO0AAABbnBvc3SwqUy9AAAFJAAAADIAAQAAAAAAAI7W8KxfDzz1AAsEAAAAAADXNj/0AAAAANc7muQAIgAAAgACqgAAAAgAAgAAAAAAAAABAAAEAAAAAAAEAAAAAAACAAABAAAAAAAAAAAAAAAAAAAABAABAAAABAAMAAMAAAAAAAIAAAAAAAAAAAAAAC4AAAAAAAMEAAGQAAUAAAKAAwAAAACAAoADAAAAAgAAAAEAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAFBmRWQAQO6n7qcEAAAAAAAEAAAAAAAAAQAAAAAAAAAAAAAAIAABBAAAIgAAAAAEAAAABAAAgAAAAAMAAAADAAAAHAABAAAAAAA8AAMAAQAAABwABAAgAAAABAAEAAEAAO6n//8AAO6n//8RXAABAAAAAAAAAQYAAAEAAAAAAAAAAQIAAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiAogAAAAqACoAKgBEAAAAAgAiAAABMgKqAAMABwAusQEALzyyBwQA7TKxBgXcPLIDAgDtMgCxAwAvPLIFBADtMrIHBgH8PLIBAgDtMjMRIREnMxEjIgEQ7szMAqr9ViICZgAAAwCAAAACAAJAAAMABwALAAABFTM1BRUzNQMVMzUBQMD+gMDAwAGAwMDAwMABgMDAAAAAAAAADgCuAAEAAAAAAAAAAAACAAEAAAAAAAEACwAbAAEAAAAAAAIAAQArAAEAAAAAAAMADABHAAEAAAAAAAQACwBsAAEAAAAAAAUACwCQAAEAAAAAAAYACwC0AAMAAQQJAAAAAAAAAAMAAQQJAAEAFgADAAMAAQQJAAIAAgAnAAMAAQQJAAMAGAAtAAMAAQQJAAQAFgBUAAMAAQQJAAUAFgB4AAMAAQQJAAYAFgCcAAAAAHIAZQBwAGwAaQB0AGkAYwBvAG4AcwAAcmVwbGl0aWNvbnMAAAoAAAoAAHIAZQBwAGwAaQB0ACAAaQBjAG8AbgBzAAByZXBsaXQgaWNvbnMAAHIAZQBwAGwAaQB0AGkAYwBvAG4AcwAAcmVwbGl0aWNvbnMAAFYAZQByAHMAaQBvAG4AIAAxAC4AMAAAVmVyc2lvbiAxLjAAAHIAZQBwAGwAaQB0AGkAYwBvAG4AcwAAcmVwbGl0aWNvbnMAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQACAQIHdW5pRUVBNwAAAAEAAf//AAAAAQAAAAwAAAAWAB4AAgABAAMAAwABAAQAAAACAAAAAQAAAAEAAAAAAAAAAQAAAADVrAEBAAAAANc2P/QAAAAA1zua5A==";
+        'data:application/x-font-ttf;base64,AAEAAAAOAIAAAwBgRkZUTYQd29oAAAWIAAAAHEdERUYAKQAqAAAFYAAAACZPUy8yQ0FcUwAAAWgAAABgY21hcAAP8lIAAAHYAAABQmN2dCAAIgKIAAADHAAAAARnYXNwAAAAAQAABVgAAAAIZ2x5ZqQ1ewkAAAMsAAAAiGhlYWQPsR5/AAAA7AAAADZoaGVhBgEEBQAAASQAAAAkaG10eAwAAKIAAAHIAAAAEGxvY2EAbgBUAAADIAAAAAptYXhwAAgAPAAAAUgAAAAgbmFtZSBsbRoAAAO0AAABbnBvc3SwqUy9AAAFJAAAADIAAQAAAAAAAI7W8KxfDzz1AAsEAAAAAADXNj/0AAAAANc7muQAIgAAAgACqgAAAAgAAgAAAAAAAAABAAAEAAAAAAAEAAAAAAACAAABAAAAAAAAAAAAAAAAAAAABAABAAAABAAMAAMAAAAAAAIAAAAAAAAAAAAAAC4AAAAAAAMEAAGQAAUAAAKAAwAAAACAAoADAAAAAgAAAAEAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAFBmRWQAQO6n7qcEAAAAAAAEAAAAAAAAAQAAAAAAAAAAAAAAIAABBAAAIgAAAAAEAAAABAAAgAAAAAMAAAADAAAAHAABAAAAAAA8AAMAAQAAABwABAAgAAAABAAEAAEAAO6n//8AAO6n//8RXAABAAAAAAAAAQYAAAEAAAAAAAAAAQIAAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiAogAAAAqACoAKgBEAAAAAgAiAAABMgKqAAMABwAusQEALzyyBwQA7TKxBgXcPLIDAgDtMgCxAwAvPLIFBADtMrIHBgH8PLIBAgDtMjMRIREnMxEjIgEQ7szMAqr9ViICZgAAAwCAAAACAAJAAAMABwALAAABFTM1BRUzNQMVMzUBQMD+gMDAwAGAwMDAwMABgMDAAAAAAAAADgCuAAEAAAAAAAAAAAACAAEAAAAAAAEACwAbAAEAAAAAAAIAAQArAAEAAAAAAAMADABHAAEAAAAAAAQACwBsAAEAAAAAAAUACwCQAAEAAAAAAAYACwC0AAMAAQQJAAAAAAAAAAMAAQQJAAEAFgADAAMAAQQJAAIAAgAnAAMAAQQJAAMAGAAtAAMAAQQJAAQAFgBUAAMAAQQJAAUAFgB4AAMAAQQJAAYAFgCcAAAAAHIAZQBwAGwAaQB0AGkAYwBvAG4AcwAAcmVwbGl0aWNvbnMAAAoAAAoAAHIAZQBwAGwAaQB0ACAAaQBjAG8AbgBzAAByZXBsaXQgaWNvbnMAAHIAZQBwAGwAaQB0AGkAYwBvAG4AcwAAcmVwbGl0aWNvbnMAAFYAZQByAHMAaQBvAG4AIAAxAC4AMAAAVmVyc2lvbiAxLjAAAHIAZQBwAGwAaQB0AGkAYwBvAG4AcwAAcmVwbGl0aWNvbnMAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQACAQIHdW5pRUVBNwAAAAEAAf//AAAAAQAAAAwAAAAWAB4AAgABAAMAAwABAAQAAAACAAAAAQAAAAEAAAAAAAAAAQAAAADVrAEBAAAAANc2P/QAAAAA1zua5A==';
     },
     11: function (e, t) {},
-    "1INF": function (e, t, n) {
-      var r = n("1swB"),
-        o = n("ZAXB"),
-        i = n("NlaV"),
-        a = n("Yvos"),
-        s = n("Aplp"),
-        c = n("q2OE")("engine.io-client:polling");
+    '1INF': function (e, t, n) {
+      var r = n('1swB'),
+        o = n('ZAXB'),
+        i = n('NlaV'),
+        a = n('Yvos'),
+        s = n('Aplp'),
+        c = n('q2OE')('engine.io-client:polling');
       e.exports = l;
       var u =
         null !=
-        new (n("T6uw"))({
+        new (n('T6uw'))({
           xdomain: !1,
         }).responseType;
 
@@ -25,7 +25,7 @@
         (u && !t) || (this.supportsBinary = !1), r.call(this, e);
       }
       a(l, r),
-        (l.prototype.name = "polling"),
+        (l.prototype.name = 'polling'),
         (l.prototype.doOpen = function () {
           this.poll();
         }),
@@ -33,42 +33,42 @@
           var t = this;
 
           function n() {
-            c("paused"), (t.readyState = "paused"), e();
+            c('paused'), (t.readyState = 'paused'), e();
           }
-          if (((this.readyState = "pausing"), this.polling || !this.writable)) {
+          if (((this.readyState = 'pausing'), this.polling || !this.writable)) {
             var r = 0;
             this.polling &&
-              (c("we are currently polling - waiting to pause"),
+              (c('we are currently polling - waiting to pause'),
               r++,
-              this.once("pollComplete", function () {
-                c("pre-pause polling complete"), --r || n();
+              this.once('pollComplete', function () {
+                c('pre-pause polling complete'), --r || n();
               })),
               this.writable ||
-                (c("we are currently writing - waiting to pause"),
+                (c('we are currently writing - waiting to pause'),
                 r++,
-                this.once("drain", function () {
-                  c("pre-pause writing complete"), --r || n();
+                this.once('drain', function () {
+                  c('pre-pause writing complete'), --r || n();
                 }));
           } else n();
         }),
         (l.prototype.poll = function () {
-          c("polling"), (this.polling = !0), this.doPoll(), this.emit("poll");
+          c('polling'), (this.polling = !0), this.doPoll(), this.emit('poll');
         }),
         (l.prototype.onData = function (e) {
           var t = this;
-          c("polling got data %s", e);
+          c('polling got data %s', e);
           i.decodePayload(e, this.socket.binaryType, function (e, n, r) {
             if (
-              ("opening" === t.readyState && "open" === e.type && t.onOpen(),
-              "close" === e.type)
+              ('opening' === t.readyState && 'open' === e.type && t.onOpen(),
+              'close' === e.type)
             )
               return t.onClose(), !1;
             t.onPacket(e);
           }),
-            "closed" !== this.readyState &&
+            'closed' !== this.readyState &&
               ((this.polling = !1),
-              this.emit("pollComplete"),
-              "open" === this.readyState
+              this.emit('pollComplete'),
+              'open' === this.readyState
                 ? this.poll()
                 : c('ignoring poll - transport state "%s"', this.readyState));
         }),
@@ -76,22 +76,22 @@
           var e = this;
 
           function t() {
-            c("writing close packet"),
+            c('writing close packet'),
               e.write([
                 {
-                  type: "close",
+                  type: 'close',
                 },
               ]);
           }
-          "open" === this.readyState
-            ? (c("transport open - closing"), t())
-            : (c("transport not open - deferring close"), this.once("open", t));
+          'open' === this.readyState
+            ? (c('transport open - closing'), t())
+            : (c('transport not open - deferring close'), this.once('open', t));
         }),
         (l.prototype.write = function (e) {
           var t = this;
           this.writable = !1;
           var n = function () {
-            (t.writable = !0), t.emit("drain");
+            (t.writable = !0), t.emit('drain');
           };
           i.encodePayload(e, this.supportsBinary, function (e) {
             t.doWrite(e, n);
@@ -99,21 +99,21 @@
         }),
         (l.prototype.uri = function () {
           var e = this.query || {},
-            t = this.secure ? "https" : "http",
-            n = "";
+            t = this.secure ? 'https' : 'http',
+            n = '';
           return (
             !1 !== this.timestampRequests && (e[this.timestampParam] = s()),
             this.supportsBinary || e.sid || (e.b64 = 1),
             (e = o.encode(e)),
             this.port &&
-              (("https" === t && 443 !== Number(this.port)) ||
-                ("http" === t && 80 !== Number(this.port))) &&
-              (n = ":" + this.port),
-            e.length && (e = "?" + e),
+              (('https' === t && 443 !== Number(this.port)) ||
+                ('http' === t && 80 !== Number(this.port))) &&
+              (n = ':' + this.port),
+            e.length && (e = '?' + e),
             t +
-              "://" +
-              (-1 !== this.hostname.indexOf(":")
-                ? "[" + this.hostname + "]"
+              '://' +
+              (-1 !== this.hostname.indexOf(':')
+                ? '[' + this.hostname + ']'
                 : this.hostname) +
               n +
               this.path +
@@ -121,9 +121,9 @@
           );
         });
     },
-    "1swB": function (e, t, n) {
-      var r = n("NlaV"),
-        o = n("Hc0W");
+    '1swB': function (e, t, n) {
+      var r = n('NlaV'),
+        o = n('Hc0W');
 
       function i(e) {
         (this.path = e.path),
@@ -133,7 +133,7 @@
           (this.query = e.query),
           (this.timestampParam = e.timestampParam),
           (this.timestampRequests = e.timestampRequests),
-          (this.readyState = ""),
+          (this.readyState = ''),
           (this.agent = e.agent || !1),
           (this.socket = e.socket),
           (this.enablesXDR = e.enablesXDR),
@@ -155,46 +155,46 @@
         (i.prototype.onError = function (e, t) {
           var n = new Error(e);
           return (
-            (n.type = "TransportError"),
+            (n.type = 'TransportError'),
             (n.description = t),
-            this.emit("error", n),
+            this.emit('error', n),
             this
           );
         }),
         (i.prototype.open = function () {
           return (
-            ("closed" !== this.readyState && "" !== this.readyState) ||
-              ((this.readyState = "opening"), this.doOpen()),
+            ('closed' !== this.readyState && '' !== this.readyState) ||
+              ((this.readyState = 'opening'), this.doOpen()),
             this
           );
         }),
         (i.prototype.close = function () {
           return (
-            ("opening" !== this.readyState && "open" !== this.readyState) ||
+            ('opening' !== this.readyState && 'open' !== this.readyState) ||
               (this.doClose(), this.onClose()),
             this
           );
         }),
         (i.prototype.send = function (e) {
-          if ("open" !== this.readyState) throw new Error("Transport not open");
+          if ('open' !== this.readyState) throw new Error('Transport not open');
           this.write(e);
         }),
         (i.prototype.onOpen = function () {
-          (this.readyState = "open"), (this.writable = !0), this.emit("open");
+          (this.readyState = 'open'), (this.writable = !0), this.emit('open');
         }),
         (i.prototype.onData = function (e) {
           var t = r.decodePacket(e, this.socket.binaryType);
           this.onPacket(t);
         }),
         (i.prototype.onPacket = function (e) {
-          this.emit("packet", e);
+          this.emit('packet', e);
         }),
         (i.prototype.onClose = function () {
-          (this.readyState = "closed"), this.emit("close");
+          (this.readyState = 'closed'), this.emit('close');
         });
     },
-    "34Ai": function (e, t, n) {
-      "use strict";
+    '34Ai': function (e, t, n) {
+      'use strict';
       var r =
           (this && this.__assign) ||
           function () {
@@ -263,7 +263,7 @@
                 throw: s(1),
                 return: s(2),
               }),
-              "function" === typeof Symbol &&
+              'function' === typeof Symbol &&
                 (i[Symbol.iterator] = function () {
                   return this;
                 }),
@@ -273,7 +273,7 @@
             function s(i) {
               return function (s) {
                 return (function (i) {
-                  if (n) throw new TypeError("Generator is already executing.");
+                  if (n) throw new TypeError('Generator is already executing.');
                   for (; a; )
                     try {
                       if (
@@ -348,34 +348,34 @@
               };
             }
           };
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.Client = void 0);
       var a,
-        s = n("5+mB"),
-        c = n("PCMj"),
-        u = n("O9If"),
-        l = n("C/he"),
-        A = n("WP+z");
+        s = n('5+mB'),
+        c = n('PCMj'),
+        u = n('O9If'),
+        l = n('C/he'),
+        A = n('WP+z');
       !(function (e) {
-        (e.Intentional = "Intentional"),
-          (e.Disconnected = "Disconnected"),
-          (e.Error = "Error");
+        (e.Intentional = 'Intentional'),
+          (e.Disconnected = 'Disconnected'),
+          (e.Error = 'Error');
       })(a || (a = {}));
       var h = function () {
         var e = this;
         (this.open = function (t, n) {
           if (e.chan0Cb) {
             var o = new Error(
-              "You must call `close` before opening the client again"
+              'You must call `close` before opening the client again'
             );
             throw (e.onUnrecoverableError(o), o);
           }
           if (e.destroyed)
             throw (
               ((o = new Error(
-                "Client has been destroyed and cannot be re-used"
+                'Client has been destroyed and cannot be re-used'
               )),
               e.onUnrecoverableError(o),
               o)
@@ -388,8 +388,8 @@
             t
           )),
             e.debug({
-              type: "breadcrumb",
-              message: "open",
+              type: 'breadcrumb',
+              message: 'open',
               data: {
                 polling: !1,
               },
@@ -412,13 +412,13 @@
               })
             ) {
               var o = new Error(
-                "Channel with name " + t.name + " already opened"
+                'Channel with name ' + t.name + ' already opened'
               );
               throw (e.onUnrecoverableError(o), o);
             }
             if (e.destroyed)
               throw (
-                ((o = new Error("Client has been destroyed and is unusable")),
+                ((o = new Error('Client has been destroyed and is unusable')),
                 e.onUnrecoverableError(o),
                 o)
               );
@@ -447,7 +447,7 @@
                         return e !== i;
                       })),
                       i.openChannelCb({
-                        error: new Error("Channel closed before opening"),
+                        error: new Error('Channel closed before opening'),
                         channel: null,
                         context: e.connectOptions
                           ? e.connectOptions.context
@@ -471,15 +471,15 @@
                         : s.api.OpenChannel.Action.ATTACH_OR_CREATE),
                   t.channelId)
                 )
-                  e.onUnrecoverableError(new Error("Unexpected channelId"));
+                  e.onUnrecoverableError(new Error('Unexpected channelId'));
                 else {
                   var a =
-                    "string" === typeof n.service
+                    'string' === typeof n.service
                       ? n.service
                       : n.service(e.connectOptions.context);
                   e.debug({
-                    type: "breadcrumb",
-                    message: "requestOpenChannel",
+                    type: 'breadcrumb',
+                    message: 'requestOpenChannel',
                     data: {
                       name: n.name,
                       service: a,
@@ -487,7 +487,7 @@
                     },
                   });
                   var u = e.getChannel(0),
-                    l = Number(Math.random().toString().split(".")[1]).toString(
+                    l = Number(Math.random().toString().split('.')[1]).toString(
                       36
                     );
                   u.send({
@@ -507,15 +507,15 @@
                           u = o.error;
                         if (
                           (e.debug({
-                            type: "breadcrumb",
-                            message: "openChanres",
+                            type: 'breadcrumb',
+                            message: 'openChanres',
                           }),
                           e.connectOptions)
                         )
                           if (a !== s.api.OpenChannelRes.State.ERROR)
                             if (
-                              "number" === typeof i &&
-                              "number" === typeof a
+                              'number' === typeof i &&
+                              'number' === typeof a
                             ) {
                               var h = new c.Channel({
                                 id: i,
@@ -533,28 +533,28 @@
                                 }));
                             } else
                               e.onUnrecoverableError(
-                                new Error("Expected state and channel id")
+                                new Error('Expected state and channel id')
                               );
                           else
                             e.onUnrecoverableError(
                               new Error(
-                                "Channel open resulted with an error: " +
-                                  (u || "with no message")
+                                'Channel open resulted with an error: ' +
+                                  (u || 'with no message')
                               )
                             );
                         else
                           e.onUnrecoverableError(
-                            new Error("Expected connectionOptions")
+                            new Error('Expected connectionOptions')
                           );
                       } else
                         e.onUnrecoverableError(
-                          new Error("Expected openChanRes on command")
+                          new Error('Expected openChanRes on command')
                         );
                   });
                 }
               }
             } else
-              e.onUnrecoverableError(new Error("Expected connectionOptions"));
+              e.onUnrecoverableError(new Error('Expected connectionOptions'));
           }),
           (this.requestCloseChannel = function (t) {
             return o(e, void 0, void 0, function () {
@@ -564,11 +564,11 @@
                   case 0:
                     return t.isOpen
                       ? ((e = t.channelId),
-                        ((n = this.getChannel(t.channelId)).status = "closing"),
+                        ((n = this.getChannel(t.channelId)).status = 'closing'),
                         (r = this.getChannel(0))
                           ? (this.debug({
-                              type: "breadcrumb",
-                              message: "requestChannelClose",
+                              type: 'breadcrumb',
+                              message: 'requestChannelClose',
                               data: {
                                 id: e,
                                 name: t.options.name,
@@ -586,21 +586,21 @@
                             ])
                           : (this.onUnrecoverableError(
                               new Error(
-                                "Tried to request a channel close but there was no chan0"
+                                'Tried to request a channel close but there was no chan0'
                               )
                             ),
                             [2]))
                       : (this.onUnrecoverableError(
                           new Error(
-                            "Tried to request a channel close before opening"
+                            'Tried to request a channel close before opening'
                           )
                         ),
                         [2]);
                   case 1:
                     if ((o = i.sent()).channelClosed)
                       this.debug({
-                        type: "breadcrumb",
-                        message: "requestChannelClose:chan0Closed",
+                        type: 'breadcrumb',
+                        message: 'requestChannelClose:chan0Closed',
                         data: {
                           id: e,
                           name: t.options.name,
@@ -611,14 +611,14 @@
                       if (null == o.closeChanRes)
                         return (
                           this.onUnrecoverableError(
-                            new Error("Expected closeChanRes")
+                            new Error('Expected closeChanRes')
                           ),
                           [2]
                         );
                       if (null == (a = o.closeChanRes.id))
                         return (
                           this.onUnrecoverableError(
-                            new Error("Expected id, got " + a)
+                            new Error('Expected id, got ' + a)
                           ),
                           [2]
                         );
@@ -626,17 +626,17 @@
                         return (
                           this.onUnrecoverableError(
                             new Error(
-                              "Expected id from closeChanRes to be " +
+                              'Expected id from closeChanRes to be ' +
                                 e +
-                                " got " +
+                                ' got ' +
                                 a
                             )
                           ),
                           [2]
                         );
                       this.debug({
-                        type: "breadcrumb",
-                        message: "requestChannelClose:closeChanRes",
+                        type: 'breadcrumb',
+                        message: 'requestChannelClose:closeChanRes',
                         data: {
                           id: e,
                           name: t.options.name,
@@ -653,12 +653,12 @@
                       )),
                       delete this.channels[e],
                       n.handleClose({
-                        initiator: "channel",
+                        initiator: 'channel',
                         willReconnect: !1,
                       }),
                       t.cleanupCb &&
                         t.cleanupCb({
-                          initiator: "channel",
+                          initiator: 'channel',
                           willReconnect: !1,
                         }),
                       t.options.name &&
@@ -676,12 +676,12 @@
           (this.close = function () {
             if (
               (e.debug({
-                type: "breadcrumb",
-                message: "user close",
+                type: 'breadcrumb',
+                message: 'user close',
               }),
               !e.chan0Cb || !e.connectOptions)
             ) {
-              var t = new Error("Must call client.open before closing");
+              var t = new Error('Must call client.open before closing');
               throw (e.onUnrecoverableError(t), t);
             }
             e.fetchTokenAbortController &&
@@ -695,8 +695,8 @@
           (this.destroy = function () {
             (e.destroyed = !0),
               e.debug({
-                type: "breadcrumb",
-                message: "destroy",
+                type: 'breadcrumb',
+                message: 'destroy',
               }),
               e.connectionState !== A.ConnectionState.DISCONNECTED && e.close(),
               (e.debug = function () {}),
@@ -707,7 +707,7 @@
           (this.getChannel = function (t) {
             var n = e.channels[t];
             if (!n) {
-              var r = new Error("No channel with number " + t);
+              var r = new Error('No channel with number ' + t);
               throw (e.onUnrecoverableError(r), r);
             }
             return n;
@@ -765,8 +765,8 @@
                   case 0:
                     if (
                       (this.debug({
-                        type: "breadcrumb",
-                        message: "connecting",
+                        type: 'breadcrumb',
+                        message: 'connecting',
                         data: {
                           connectionState: this.connectionState,
                           connectTries: n,
@@ -779,7 +779,7 @@
                     )
                       throw (
                         ((e = new Error(
-                          "Client must be disconnected to connect"
+                          'Client must be disconnected to connect'
                         )),
                         this.onUnrecoverableError(e),
                         e)
@@ -787,21 +787,21 @@
                     if (this.ws)
                       throw (
                         ((e = new Error(
-                          "Unexpected existing websocket instance"
+                          'Unexpected existing websocket instance'
                         )),
                         this.onUnrecoverableError(e),
                         e)
                       );
                     if (!this.connectOptions)
                       throw (
-                        ((e = new Error("Expected connectionOptions")),
+                        ((e = new Error('Expected connectionOptions')),
                         this.onUnrecoverableError(e),
                         e)
                       );
                     if (!this.chan0Cb)
                       return (
                         this.onUnrecoverableError(
-                          new Error("Expected chan0Cb")
+                          new Error('Expected chan0Cb')
                         ),
                         [2]
                       );
@@ -809,7 +809,7 @@
                       return (
                         this.onUnrecoverableError(
                           new Error(
-                            "Unexpected chan0CleanupCb, are you sure you closed"
+                            'Unexpected chan0CleanupCb, are you sure you closed'
                           )
                         ),
                         [2]
@@ -822,7 +822,7 @@
                       return (
                         this.onUnrecoverableError(
                           new Error(
-                            "All channels should be closed when we connect"
+                            'All channels should be closed when we connect'
                           )
                         ),
                         [2]
@@ -830,7 +830,7 @@
                     if (Object.keys(this.channels).length)
                       return (
                         this.onUnrecoverableError(
-                          new Error("Found an an unexpected existing channels")
+                          new Error('Found an an unexpected existing channels')
                         ),
                         [2]
                       );
@@ -850,7 +850,7 @@
                       return (
                         this.onUnrecoverableError(
                           new Error(
-                            "Expected fetchTokenAbortController to be null"
+                            'Expected fetchTokenAbortController to be null'
                           )
                         ),
                         [2]
@@ -879,13 +879,13 @@
                       return o.signal.aborted
                         ? (this.onUnrecoverableError(
                             new Error(
-                              "Expected abort returned from fetchConnectionMetadata to be truthy when the controller aborts"
+                              'Expected abort returned from fetchConnectionMetadata to be truthy when the controller aborts'
                             )
                           ),
                           [2])
                         : (this.onUnrecoverableError(
                             new Error(
-                              "Abort should only be truthy returned when the abort signal is triggered"
+                              'Abort should only be truthy returned when the abort signal is triggered'
                             )
                           ),
                           [2]);
@@ -897,14 +897,14 @@
                           tryCount: n + 1,
                           websocketFailureCount: r,
                           chan0: t,
-                          error: new Error("Retriable error"),
+                          error: new Error('Retriable error'),
                         }),
                         [2]
                       );
                     if (this.connectionState !== A.ConnectionState.CONNECTING)
                       return (
                         this.onUnrecoverableError(
-                          new Error("Client was closed before connecting")
+                          new Error('Client was closed before connecting')
                         ),
                         [2]
                       );
@@ -914,8 +914,8 @@
                     return (
                       3 === r &&
                         this.debug({
-                          type: "breadcrumb",
-                          message: "polling fallback",
+                          type: 'breadcrumb',
+                          message: 'polling fallback',
                         }),
                       (b = (d = r >= 3)
                         ? l.EIOCompat
@@ -923,7 +923,7 @@
                             this.connectOptions.WebSocketClass
                           )),
                       (y = u.getConnectionStr(this.connectionMetadata, d)),
-                      ((g = new b(y)).binaryType = "arraybuffer"),
+                      ((g = new b(y)).binaryType = 'arraybuffer'),
                       (g.onmessage = this.onSocketMessage),
                       (this.ws = g),
                       (v = !1),
@@ -931,10 +931,10 @@
                       (C = null),
                       (g.onerror = function () {
                         C
-                          ? C(new Error("WebSocket errored"))
+                          ? C(new Error('WebSocket errored'))
                           : x.onUnrecoverableError(
                               new Error(
-                                "Got websocket error but no `onFailed` cb"
+                                'Got websocket error but no `onFailed` cb'
                               )
                             );
                       }),
@@ -942,15 +942,15 @@
                         C
                           ? (b === l.EIOCompat
                               ? m || (x.connectionMetadata = null)
-                              : "code" in e &&
+                              : 'code' in e &&
                                 1008 === e.code &&
                                 (x.connectionMetadata = null),
                             C(
-                              new Error("WebSocket closed before we got READY")
+                              new Error('WebSocket closed before we got READY')
                             ))
                           : x.onUnrecoverableError(
                               new Error(
-                                "Got websocket closure but no `onFailed` cb"
+                                'Got websocket closure but no `onFailed` cb'
                               )
                             );
                       }),
@@ -962,27 +962,27 @@
                       null !== (O = this.connectOptions.timeout) &&
                         ((E = function () {
                           x.debug({
-                            type: "breadcrumb",
-                            message: "cancel timeout",
+                            type: 'breadcrumb',
+                            message: 'cancel timeout',
                           }),
                             clearTimeout(S);
                         }),
                         (w = function () {
                           x.debug({
-                            type: "breadcrumb",
-                            message: "reset timeout",
+                            type: 'breadcrumb',
+                            message: 'reset timeout',
                           }),
                             clearTimeout(S),
                             (S = setTimeout(function () {
                               x.debug({
-                                type: "breadcrumb",
-                                message: "connect timeout",
+                                type: 'breadcrumb',
+                                message: 'connect timeout',
                               }),
                                 C
-                                  ? C(new Error("timeout"))
+                                  ? C(new Error('timeout'))
                                   : x.onUnrecoverableError(
                                       new Error(
-                                        "Connecting timed out but there was no `onFailed` cb"
+                                        'Connecting timed out but there was no `onFailed` cb'
                                       )
                                     );
                             }, O));
@@ -992,8 +992,8 @@
                           if (null != e.containerState.state) {
                             var n = e.containerState.state;
                             x.debug({
-                              type: "breadcrumb",
-                              message: "containerState",
+                              type: 'breadcrumb',
+                              message: 'containerState',
                               data: n,
                             });
                             var r = s.api.ContainerState.State;
@@ -1001,15 +1001,15 @@
                               case r.READY:
                                 if ((k(), E(), !x.connectOptions))
                                   return void x.onUnrecoverableError(
-                                    new Error("Expected connectionOptions")
+                                    new Error('Expected connectionOptions')
                                   );
                                 if (!t)
                                   return void x.onUnrecoverableError(
-                                    new Error("Expected chan0 to be truthy")
+                                    new Error('Expected chan0 to be truthy')
                                   );
                                 if (!x.chan0Cb)
                                   return void x.onUnrecoverableError(
-                                    new Error("Expected chan0Cb to be truthy")
+                                    new Error('Expected chan0Cb to be truthy')
                                   );
                                 x.handleConnect();
                                 var o = x.close;
@@ -1029,15 +1029,15 @@
                                 if (!C)
                                   return void x.onUnrecoverableError(
                                     new Error(
-                                      "Got SLEEP but there was no `onFailed` cb"
+                                      'Got SLEEP but there was no `onFailed` cb'
                                     )
                                   );
-                                C(new Error("Got SLEEP as container state"));
+                                C(new Error('Got SLEEP as container state'));
                             }
                           } else
                             x.onUnrecoverableError(
                               new Error(
-                                "Got containterState but state was not defined"
+                                'Got containterState but state was not defined'
                               )
                             );
                       })),
@@ -1066,15 +1066,15 @@
               i = t.error;
             e.retryTimeoutId
               ? e.onUnrecoverableError(
-                  new Error("unexpected existing retryTimeoutId")
+                  new Error('unexpected existing retryTimeoutId')
                 )
               : e.chan0Cb &&
                 (e.retryTimeoutId = setTimeout(function () {
                   e.chan0Cb
                     ? ((e.retryTimeoutId = null),
                       e.debug({
-                        type: "breadcrumb",
-                        message: "retrying",
+                        type: 'breadcrumb',
+                        message: 'retrying',
                         data: {
                           connectionState: e.connectionState,
                           connectTries: n,
@@ -1084,7 +1084,7 @@
                         },
                       }),
                       o.handleClose({
-                        initiator: "client",
+                        initiator: 'client',
                         willReconnect: !0,
                       }),
                       delete e.channels[0],
@@ -1094,15 +1094,15 @@
                         websocketFailureCount: r,
                       }))
                     : e.onUnrecoverableError(
-                        new Error("Scheduled retry is called after we closed?")
+                        new Error('Scheduled retry is called after we closed?')
                       );
                 }, u.getNextRetryDelay(n)));
           }),
           (this.send = function (t) {
             e.debug({
-              type: "log",
+              type: 'log',
               log: {
-                direction: "out",
+                direction: 'out',
                 cmd: t,
               },
             });
@@ -1111,7 +1111,7 @@
             null != e.ws
               ? e.ws.send(r)
               : e.onUnrecoverableError(
-                  new Error("Calling send on a closed client")
+                  new Error('Calling send on a closed client')
                 );
           }),
           (this.onSocketMessage = function (t) {
@@ -1119,9 +1119,9 @@
               r = new Uint8Array(n),
               o = s.api.Command.decode(r);
             e.debug({
-              type: "log",
+              type: 'log',
               log: {
-                direction: "in",
+                direction: 'in',
                 cmd: o,
               },
             }),
@@ -1131,16 +1131,16 @@
             if (
               ((e.connectionState = A.ConnectionState.CONNECTED),
               e.debug({
-                type: "breadcrumb",
-                message: "connected!",
+                type: 'breadcrumb',
+                message: 'connected!',
               }),
               e.ws)
             ) {
               var t = function (t) {
                 e.connectionState !== A.ConnectionState.DISCONNECTED
                   ? (e.debug({
-                      type: "breadcrumb",
-                      message: "wsclose",
+                      type: 'breadcrumb',
+                      message: 'wsclose',
                       data: {
                         event: t,
                       },
@@ -1151,7 +1151,7 @@
                     }))
                   : e.onUnrecoverableError(
                       new Error(
-                        "Got a close event on socket but client is in disconnected state"
+                        'Got a close event on socket but client is in disconnected state'
                       )
                     );
               };
@@ -1161,20 +1161,20 @@
                   e.requestOpenChannel(t);
                 });
             } else
-              e.onUnrecoverableError(new Error("Expected Websocket instance"));
+              e.onUnrecoverableError(new Error('Expected Websocket instance'));
           }),
           (this.handleClose = function (t) {
             if (t.closeReason !== a.Error) {
               if (e.connectionState === A.ConnectionState.DISCONNECTED)
                 return void e.onUnrecoverableError(
                   new Error(
-                    "handleClose is called but client already disconnected"
+                    'handleClose is called but client already disconnected'
                   )
                 );
               if (e.ws && e.fetchTokenAbortController)
                 return void e.onUnrecoverableError(
                   new Error(
-                    "fetchTokenAbortController and websocket exist simultaneously"
+                    'fetchTokenAbortController and websocket exist simultaneously'
                   )
                 );
             }
@@ -1186,14 +1186,14 @@
                 var r = n && !t.closeRequested;
                 t.isOpen
                   ? (e.getChannel(t.channelId).handleClose({
-                      initiator: "client",
+                      initiator: 'client',
                       willReconnect: r,
                     }),
                     delete e.channels[t.channelId])
                   : r ||
                     t.openChannelCb({
                       channel: null,
-                      error: new Error("Failed to open"),
+                      error: new Error('Failed to open'),
                       context: e.connectOptions
                         ? e.connectOptions.context
                         : null,
@@ -1206,7 +1206,7 @@
                   (t.closeRequested = !1),
                   o &&
                     o({
-                      initiator: "client",
+                      initiator: 'client',
                       willReconnect: r,
                     }),
                   (i || t.closeRequested) &&
@@ -1216,7 +1216,7 @@
               }),
               e.channels[0] &&
                 (e.channels[0].handleClose({
-                  initiator: "client",
+                  initiator: 'client',
                   willReconnect: n,
                 }),
                 delete e.channels[0]),
@@ -1225,7 +1225,7 @@
             ) {
               if (e.chan0CleanupCb)
                 e.chan0CleanupCb({
-                  initiator: "client",
+                  initiator: 'client',
                   willReconnect: n,
                 }),
                   (e.chan0CleanupCb = null);
@@ -1233,20 +1233,20 @@
                 if (e.chan0Cb)
                   e.chan0Cb({
                     channel: null,
-                    error: new Error("Failed to open"),
+                    error: new Error('Failed to open'),
                     context: e.connectOptions ? e.connectOptions.context : null,
                   });
                 else if (t.closeReason !== a.Error)
                   return void e.onUnrecoverableError(
                     new Error(
-                      "open should have been called before `handleClose`"
+                      'open should have been called before `handleClose`'
                     )
                   );
               if (((e.connectionState = A.ConnectionState.DISCONNECTED), !n))
                 return (e.chan0Cb = null), void (e.connectOptions = null);
               e.debug({
-                type: "breadcrumb",
-                message: "reconnecting",
+                type: 'breadcrumb',
+                message: 'reconnecting',
               }),
                 e.connect({
                   tryCount: 0,
@@ -1255,15 +1255,15 @@
             } else
               e.onUnrecoverableError(
                 new Error(
-                  "channels object should be empty after channelRequests and chan0 cleanup"
+                  'channels object should be empty after channelRequests and chan0 cleanup'
                 )
               );
           }),
           (this.cleanupSocket = function () {
             var t = e.ws;
             e.debug({
-              type: "breadcrumb",
-              message: "cleanupSocket",
+              type: 'breadcrumb',
+              message: 'cleanupSocket',
               data: {
                 hasWs: Boolean(t),
                 readyState: t ? t.readyState : null,
@@ -1278,16 +1278,16 @@
                 (t.onerror = function () {}),
                 (0 !== t.readyState && 1 !== t.readyState) ||
                   (e.debug({
-                    type: "breadcrumb",
-                    message: "wsclose",
+                    type: 'breadcrumb',
+                    message: 'wsclose',
                   }),
                   t.close()));
           }),
           (this.onUnrecoverableError = function (t) {
             if (
               (e.debug({
-                type: "breadcrumb",
-                message: "unrecoverable error",
+                type: 'breadcrumb',
+                message: 'unrecoverable error',
                 data: {
                   message: t.message,
                 },
@@ -1300,13 +1300,13 @@
                   error: t,
                 });
               } catch (n) {
-                console.error("handleClose errored during unrecoverable error"),
+                console.error('handleClose errored during unrecoverable error'),
                   console.error(n);
               }
             if (!e.userUnrecoverableErrorHandler)
               throw (
                 (console.error(
-                  "Please supply your own unrecoverable error handling function"
+                  'Please supply your own unrecoverable error handling function'
                 ),
                 t)
               );
@@ -1326,61 +1326,61 @@
           (this.destroyed = !1),
           (this.connectionMetadata = null),
           this.debug({
-            type: "breadcrumb",
-            message: "constructor",
+            type: 'breadcrumb',
+            message: 'constructor',
           });
       };
       t.Client = h;
     },
-    "34QA": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    '34QA': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
-        n("dy/U");
-      var r = n("34Ai");
-      Object.defineProperty(t, "Client", {
+        n('dy/U');
+      var r = n('34Ai');
+      Object.defineProperty(t, 'Client', {
         enumerable: !0,
         get: function () {
           return r.Client;
         },
       });
-      var o = n("PCMj");
-      Object.defineProperty(t, "Channel", {
+      var o = n('PCMj');
+      Object.defineProperty(t, 'Channel', {
         enumerable: !0,
         get: function () {
           return o.Channel;
         },
       });
-      var i = n("WP+z");
-      Object.defineProperty(t, "FetchConnectionMetadataError", {
+      var i = n('WP+z');
+      Object.defineProperty(t, 'FetchConnectionMetadataError', {
         enumerable: !0,
         get: function () {
           return i.FetchConnectionMetadataError;
         },
       }),
-        Object.defineProperty(t, "ConnectionState", {
+        Object.defineProperty(t, 'ConnectionState', {
           enumerable: !0,
           get: function () {
             return i.ConnectionState;
           },
         });
     },
-    "3WoK": function (e, t) {
+    '3WoK': function (e, t) {
       e.exports =
-        "undefined" !== typeof self
+        'undefined' !== typeof self
           ? self
-          : "undefined" !== typeof window
+          : 'undefined' !== typeof window
           ? window
-          : Function("return this")();
+          : Function('return this')();
     },
-    "49PC": function (e, t, n) {
-      var r = n("T6uw"),
-        o = n("1INF"),
-        i = n("Hc0W"),
-        a = n("Yvos"),
-        s = n("q2OE")("engine.io-client:polling-xhr"),
-        c = n("3WoK");
+    '49PC': function (e, t, n) {
+      var r = n('T6uw'),
+        o = n('1INF'),
+        i = n('Hc0W'),
+        a = n('Yvos'),
+        s = n('q2OE')('engine.io-client:polling-xhr'),
+        c = n('3WoK');
 
       function u() {}
 
@@ -1389,13 +1389,13 @@
           (o.call(this, e),
           (this.requestTimeout = e.requestTimeout),
           (this.extraHeaders = e.extraHeaders),
-          "undefined" !== typeof location)
+          'undefined' !== typeof location)
         ) {
-          var t = "https:" === location.protocol,
+          var t = 'https:' === location.protocol,
             n = location.port;
           n || (n = t ? 443 : 80),
             (this.xd =
-              ("undefined" !== typeof location &&
+              ('undefined' !== typeof location &&
                 e.hostname !== location.hostname) ||
               n !== e.port),
             (this.xs = e.secure !== t);
@@ -1403,7 +1403,7 @@
       }
 
       function A(e) {
-        (this.method = e.method || "GET"),
+        (this.method = e.method || 'GET'),
           (this.uri = e.uri),
           (this.xd = !!e.xd),
           (this.xs = !!e.xs),
@@ -1452,28 +1452,28 @@
           );
         }),
         (l.prototype.doWrite = function (e, t) {
-          var n = "string" !== typeof e && void 0 !== e,
+          var n = 'string' !== typeof e && void 0 !== e,
             r = this.request({
-              method: "POST",
+              method: 'POST',
               data: e,
               isBinary: n,
             }),
             o = this;
-          r.on("success", t),
-            r.on("error", function (e) {
-              o.onError("xhr post error", e);
+          r.on('success', t),
+            r.on('error', function (e) {
+              o.onError('xhr post error', e);
             }),
             (this.sendXhr = r);
         }),
         (l.prototype.doPoll = function () {
-          s("xhr poll");
+          s('xhr poll');
           var e = this.request(),
             t = this;
-          e.on("data", function (e) {
+          e.on('data', function (e) {
             t.onData(e);
           }),
-            e.on("error", function (e) {
-              t.onError("xhr poll error", e);
+            e.on('error', function (e) {
+              t.onError('xhr poll error', e);
             }),
             (this.pollXhr = e);
         }),
@@ -1495,7 +1495,7 @@
           var t = (this.xhr = new r(e)),
             n = this;
           try {
-            s("xhr open %s: %s", this.method, this.uri),
+            s('xhr open %s: %s', this.method, this.uri),
               t.open(this.method, this.uri, this.async);
             try {
               if (this.extraHeaders)
@@ -1505,22 +1505,22 @@
                   this.extraHeaders.hasOwnProperty(o) &&
                     t.setRequestHeader(o, this.extraHeaders[o]);
             } catch (i) {}
-            if ("POST" === this.method)
+            if ('POST' === this.method)
               try {
                 this.isBinary
                   ? t.setRequestHeader(
-                      "Content-type",
-                      "application/octet-stream"
+                      'Content-type',
+                      'application/octet-stream'
                     )
                   : t.setRequestHeader(
-                      "Content-type",
-                      "text/plain;charset=UTF-8"
+                      'Content-type',
+                      'text/plain;charset=UTF-8'
                     );
               } catch (i) {}
             try {
-              t.setRequestHeader("Accept", "*/*");
+              t.setRequestHeader('Accept', '*/*');
             } catch (i) {}
-            "withCredentials" in t &&
+            'withCredentials' in t &&
               (t.withCredentials = this.withCredentials),
               this.requestTimeout && (t.timeout = this.requestTimeout),
               this.hasXDR()
@@ -1533,42 +1533,42 @@
                 : (t.onreadystatechange = function () {
                     if (2 === t.readyState)
                       try {
-                        var e = t.getResponseHeader("Content-Type");
+                        var e = t.getResponseHeader('Content-Type');
                         ((n.supportsBinary &&
-                          "application/octet-stream" === e) ||
-                          "application/octet-stream; charset=UTF-8" === e) &&
-                          (t.responseType = "arraybuffer");
+                          'application/octet-stream' === e) ||
+                          'application/octet-stream; charset=UTF-8' === e) &&
+                          (t.responseType = 'arraybuffer');
                       } catch (i) {}
                     4 === t.readyState &&
                       (200 === t.status || 1223 === t.status
                         ? n.onLoad()
                         : setTimeout(function () {
                             n.onError(
-                              "number" === typeof t.status ? t.status : 0
+                              'number' === typeof t.status ? t.status : 0
                             );
                           }, 0));
                   }),
-              s("xhr data %s", this.data),
+              s('xhr data %s', this.data),
               t.send(this.data);
           } catch (i) {
             return void setTimeout(function () {
               n.onError(i);
             }, 0);
           }
-          "undefined" !== typeof document &&
+          'undefined' !== typeof document &&
             ((this.index = A.requestsCount++), (A.requests[this.index] = this));
         }),
         (A.prototype.onSuccess = function () {
-          this.emit("success"), this.cleanup();
+          this.emit('success'), this.cleanup();
         }),
         (A.prototype.onData = function (e) {
-          this.emit("data", e), this.onSuccess();
+          this.emit('data', e), this.onSuccess();
         }),
         (A.prototype.onError = function (e) {
-          this.emit("error", e), this.cleanup(!0);
+          this.emit('error', e), this.cleanup(!0);
         }),
         (A.prototype.cleanup = function (e) {
-          if ("undefined" !== typeof this.xhr && null !== this.xhr) {
+          if ('undefined' !== typeof this.xhr && null !== this.xhr) {
             if (
               (this.hasXDR()
                 ? (this.xhr.onload = this.xhr.onerror = u)
@@ -1578,7 +1578,7 @@
               try {
                 this.xhr.abort();
               } catch (t) {}
-            "undefined" !== typeof document && delete A.requests[this.index],
+            'undefined' !== typeof document && delete A.requests[this.index],
               (this.xhr = null);
           }
         }),
@@ -1587,11 +1587,11 @@
           try {
             var t;
             try {
-              t = this.xhr.getResponseHeader("Content-Type");
+              t = this.xhr.getResponseHeader('Content-Type');
             } catch (n) {}
             e =
-              (("application/octet-stream" === t ||
-                "application/octet-stream; charset=UTF-8" === t) &&
+              (('application/octet-stream' === t ||
+                'application/octet-stream; charset=UTF-8' === t) &&
                 this.xhr.response) ||
               this.xhr.responseText;
           } catch (n) {
@@ -1601,7 +1601,7 @@
         }),
         (A.prototype.hasXDR = function () {
           return (
-            "undefined" !== typeof XDomainRequest && !this.xs && this.enablesXDR
+            'undefined' !== typeof XDomainRequest && !this.xs && this.enablesXDR
           );
         }),
         (A.prototype.abort = function () {
@@ -1609,11 +1609,11 @@
         }),
         (A.requestsCount = 0),
         (A.requests = {}),
-        "undefined" !== typeof document)
+        'undefined' !== typeof document)
       )
-        if ("function" === typeof attachEvent) attachEvent("onunload", h);
-        else if ("function" === typeof addEventListener) {
-          addEventListener("onpagehide" in c ? "pagehide" : "unload", h, !1);
+        if ('function' === typeof attachEvent) attachEvent('onunload', h);
+        else if ('function' === typeof addEventListener) {
+          addEventListener('onpagehide' in c ? 'pagehide' : 'unload', h, !1);
         }
 
       function h() {
@@ -1621,21 +1621,21 @@
           A.requests.hasOwnProperty(e) && A.requests[e].abort();
       }
     },
-    "4A0d": function (e, t, n) {
-      "use strict";
-      n.d(t, "b", function () {
+    '4A0d': function (e, t, n) {
+      'use strict';
+      n.d(t, 'b', function () {
         return A;
       }),
-        n.d(t, "a", function () {
+        n.d(t, 'a', function () {
           return h;
         });
-      var r = n("cpVT"),
-        o = n("xvhg"),
-        i = n("q1tI"),
-        a = n("gtzJ"),
-        s = n("IUvJ"),
-        c = n("koLh"),
-        u = n("TyLv");
+      var r = n('cpVT'),
+        o = n('xvhg'),
+        i = n('q1tI'),
+        a = n('gtzJ'),
+        s = n('IUvJ'),
+        c = n('koLh'),
+        u = n('TyLv');
 
       function l(e, t) {
         var n = Object.keys(e);
@@ -1654,17 +1654,17 @@
         return (
           !window.navigator.clipboard ||
           (Object(u.a)(t),
-          "c" !== t.key.toLowerCase() ||
+          'c' !== t.key.toLowerCase() ||
             !t.ctrlKey ||
             !t.shiftKey ||
-            ("keyup" === t.type &&
+            ('keyup' === t.type &&
               e.hasSelection() &&
               window.navigator.clipboard
                 .writeText(e.getSelection())
                 .catch(function (e) {
                   a.m(function (t) {
-                    t.setTag("xterm-clipboard", !0),
-                      t.setExtra("type", "copy"),
+                    t.setTag('xterm-clipboard', !0),
+                      t.setExtra('type', 'copy'),
                       a.c(e);
                   });
                 }),
@@ -1737,7 +1737,7 @@
               );
             },
             {
-              type: "throttle",
+              type: 'throttle',
               wait: 100,
             }
           );
@@ -1817,18 +1817,18 @@
         );
       }
     },
-    "7/Wg": function (e, t) {
+    '7/Wg': function (e, t) {
       var n =
-          "undefined" !== typeof n
+          'undefined' !== typeof n
             ? n
-            : "undefined" !== typeof WebKitBlobBuilder
+            : 'undefined' !== typeof WebKitBlobBuilder
             ? WebKitBlobBuilder
-            : "undefined" !== typeof MSBlobBuilder
+            : 'undefined' !== typeof MSBlobBuilder
             ? MSBlobBuilder
-            : "undefined" !== typeof MozBlobBuilder && MozBlobBuilder,
+            : 'undefined' !== typeof MozBlobBuilder && MozBlobBuilder,
         r = (function () {
           try {
-            return 2 === new Blob(["hi"]).size;
+            return 2 === new Blob(['hi']).size;
           } catch (e) {
             return !1;
           }
@@ -1873,7 +1873,7 @@
       function c(e, t) {
         return new Blob(a(e), t || {});
       }
-      "undefined" !== typeof Blob &&
+      'undefined' !== typeof Blob &&
         ((s.prototype = Blob.prototype), (c.prototype = Blob.prototype)),
         (e.exports = r ? (o ? Blob : c) : i ? s : void 0);
     },
@@ -1881,18 +1881,18 @@
       (function (t) {
         var r,
           o,
-          i = n("1swB"),
-          a = n("NlaV"),
-          s = n("ZAXB"),
-          c = n("Yvos"),
-          u = n("Aplp"),
-          l = n("q2OE")("engine.io-client:websocket");
+          i = n('1swB'),
+          a = n('NlaV'),
+          s = n('ZAXB'),
+          c = n('Yvos'),
+          u = n('Aplp'),
+          l = n('q2OE')('engine.io-client:websocket');
         if (
-          ("undefined" !== typeof WebSocket
+          ('undefined' !== typeof WebSocket
             ? (r = WebSocket)
-            : "undefined" !== typeof self &&
+            : 'undefined' !== typeof self &&
               (r = self.WebSocket || self.MozWebSocket),
-          "undefined" === typeof window)
+          'undefined' === typeof window)
         )
           try {
             o = n(11);
@@ -1909,7 +1909,7 @@
         }
         (e.exports = h),
           c(h, i),
-          (h.prototype.name = "websocket"),
+          (h.prototype.name = 'websocket'),
           (h.prototype.supportsBinary = !0),
           (h.prototype.doOpen = function () {
             if (this.check()) {
@@ -1936,13 +1936,13 @@
                       : new A(e)
                     : new A(e, t, n);
               } catch (r) {
-                return this.emit("error", r);
+                return this.emit('error', r);
               }
               void 0 === this.ws.binaryType && (this.supportsBinary = !1),
                 this.ws.supports && this.ws.supports.binary
                   ? ((this.supportsBinary = !0),
-                    (this.ws.binaryType = "nodebuffer"))
-                  : (this.ws.binaryType = "arraybuffer"),
+                    (this.ws.binaryType = 'nodebuffer'))
+                  : (this.ws.binaryType = 'arraybuffer'),
                 this.addEventListeners();
             }
           }),
@@ -1958,7 +1958,7 @@
                 e.onData(t.data);
               }),
               (this.ws.onerror = function (t) {
-                e.onError("websocket error", t);
+                e.onError('websocket error', t);
               });
           }),
           (h.prototype.write = function (e) {
@@ -1973,22 +1973,22 @@
                       (e.options && (i.compress = e.options.compress),
                       n.perMessageDeflate)
                     )
-                      ("string" === typeof o ? t.byteLength(o) : o.length) <
+                      ('string' === typeof o ? t.byteLength(o) : o.length) <
                         n.perMessageDeflate.threshold && (i.compress = !1);
                   }
                   try {
                     n.usingBrowserWebSocket ? n.ws.send(o) : n.ws.send(o, i);
                   } catch (p) {
-                    l("websocket closed before onclose event");
+                    l('websocket closed before onclose event');
                   }
                   --r || s();
                 });
               })(e[o]);
 
             function s() {
-              n.emit("flush"),
+              n.emit('flush'),
                 setTimeout(function () {
-                  (n.writable = !0), n.emit("drain");
+                  (n.writable = !0), n.emit('drain');
                 }, 0);
             }
           }),
@@ -1996,24 +1996,24 @@
             i.prototype.onClose.call(this);
           }),
           (h.prototype.doClose = function () {
-            "undefined" !== typeof this.ws && this.ws.close();
+            'undefined' !== typeof this.ws && this.ws.close();
           }),
           (h.prototype.uri = function () {
             var e = this.query || {},
-              t = this.secure ? "wss" : "ws",
-              n = "";
+              t = this.secure ? 'wss' : 'ws',
+              n = '';
             return (
               this.port &&
-                (("wss" === t && 443 !== Number(this.port)) ||
-                  ("ws" === t && 80 !== Number(this.port))) &&
-                (n = ":" + this.port),
+                (('wss' === t && 443 !== Number(this.port)) ||
+                  ('ws' === t && 80 !== Number(this.port))) &&
+                (n = ':' + this.port),
               this.timestampRequests && (e[this.timestampParam] = u()),
               this.supportsBinary || (e.b64 = 1),
-              (e = s.encode(e)).length && (e = "?" + e),
+              (e = s.encode(e)).length && (e = '?' + e),
               t +
-                "://" +
-                (-1 !== this.hostname.indexOf(":")
-                  ? "[" + this.hostname + "]"
+                '://' +
+                (-1 !== this.hostname.indexOf(':')
+                  ? '[' + this.hostname + ']'
                   : this.hostname) +
                 n +
                 this.path +
@@ -2022,13 +2022,13 @@
           }),
           (h.prototype.check = function () {
             return (
-              !!A && !("__initialize" in A && this.name === h.prototype.name)
+              !!A && !('__initialize' in A && this.name === h.prototype.name)
             );
           });
-      }.call(this, n("HDXh").Buffer));
+      }.call(this, n('HDXh').Buffer));
     },
-    "C/he": function (e, t, n) {
-      "use strict";
+    'C/he': function (e, t, n) {
+      'use strict';
       var r =
         (this && this.__assign) ||
         function () {
@@ -2041,12 +2041,12 @@
               return e;
             }).apply(this, arguments);
         };
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.EIOCompat = t.splitHref = void 0);
-      var o = n("KnXX"),
-        i = n("QmWs");
+      var o = n('KnXX'),
+        i = n('QmWs');
 
       function a(e) {
         var t = i.parse(e),
@@ -2062,33 +2062,33 @@
             auth: o,
             host: a,
             query: {
-              ordered: "1",
+              ordered: '1',
             },
           }),
-          path: null != s ? s : "/",
+          path: null != s ? s : '/',
         };
       }
       t.splitHref = a;
       var s = new Map([
-        ["opening", 0],
-        ["open", 1],
-        ["closing", 2],
-        ["closed", 3],
+        ['opening', 0],
+        ['open', 1],
+        ['closing', 2],
+        ['closed', 3],
       ]);
 
       function c(e) {
-        return "undefined" !== typeof window
-          ? new MessageEvent("message", {
+        return 'undefined' !== typeof window
+          ? new MessageEvent('message', {
               data: e,
             })
           : {
-              type: "message",
+              type: 'message',
               data: e,
             };
       }
 
       function u(e, t) {
-        return "undefined" !== typeof window
+        return 'undefined' !== typeof window
           ? new Event(e, t)
           : r(
               {
@@ -2107,7 +2107,7 @@
             (this.CONNECTING = 0),
             t)
           )
-            throw new Error("Passing protocols is not implemented");
+            throw new Error('Passing protocols is not implemented');
           var i = a(e),
             s = i.uri,
             l = i.path;
@@ -2117,24 +2117,24 @@
             (this.onerror = null),
             (this.eioSocket = o(s, {
               path: l,
-              transports: ["polling"],
+              transports: ['polling'],
             })),
             (this.url = e),
-            (this.extensions = ""),
-            (this.protocol = ""),
+            (this.extensions = ''),
+            (this.protocol = ''),
             (this.bufferedAmount = 0),
             (this.readyState = 0),
             (this.incomingSequence = 0),
             (this.outOfOrderQueue = {}),
             (this.outgoingSequence = 0),
             this.setReadyState(),
-            this.eioSocket.on("open", function () {
+            this.eioSocket.on('open', function () {
               if ((n.setReadyState(), null != n.onopen)) {
-                var e = u("open");
+                var e = u('open');
                 n.onopen.call(n, e);
               }
             }),
-            this.eioSocket.on("close", function (e) {
+            this.eioSocket.on('close', function (e) {
               if ((n.setReadyState(), null != n.onclose)) {
                 var t =
                   ((o = {
@@ -2142,11 +2142,11 @@
                     code: 1001,
                     wasClean: !1,
                   }),
-                  "undefined" !== typeof window
-                    ? new CloseEvent("close", o)
+                  'undefined' !== typeof window
+                    ? new CloseEvent('close', o)
                     : r(
                         {
-                          type: "close",
+                          type: 'close',
                         },
                         o
                       ));
@@ -2154,10 +2154,10 @@
               }
               var o;
             }),
-            this.eioSocket.on("message", function (e) {
+            this.eioSocket.on('message', function (e) {
               if ((n.setReadyState(), null != n.onmessage)) {
-                if ("string" === typeof e)
-                  throw new Error("expected data to be ArrayBuffer not string");
+                if ('string' === typeof e)
+                  throw new Error('expected data to be ArrayBuffer not string');
                 var t = new DataView(e).getUint32(0),
                   r = e.slice(4);
                 if (n.incomingSequence === t) {
@@ -2175,9 +2175,9 @@
                 } else n.outOfOrderQueue[t] = r;
               }
             }),
-            this.eioSocket.on("error", function () {
+            this.eioSocket.on('error', function () {
               if ((n.setReadyState(), null != n.onerror)) {
-                var e = u("error");
+                var e = u('error');
                 n.onerror.call(n, e);
               }
             });
@@ -2201,18 +2201,18 @@
           }),
           (e.prototype.addEventListener = function () {
             throw new Error(
-              "Not Implemented, please use onmessage, onopen, onerror, or onclose"
+              'Not Implemented, please use onmessage, onopen, onerror, or onclose'
             );
           }),
           (e.prototype.removeEventListener = function () {
-            throw new Error("Not Implemented");
+            throw new Error('Not Implemented');
           }),
           (e.prototype.dispatchEvent = function () {
-            throw new Error("Not Implemented");
+            throw new Error('Not Implemented');
           }),
-          Object.defineProperty(e.prototype, "binaryType", {
+          Object.defineProperty(e.prototype, 'binaryType', {
             get: function () {
-              return this.eioSocket.binaryType || "blob";
+              return this.eioSocket.binaryType || 'blob';
             },
             set: function (e) {
               this.eioSocket.binaryType = e;
@@ -2249,9 +2249,9 @@
         if (e >= 55296 && e <= 57343) {
           if (t)
             throw Error(
-              "Lone surrogate U+" +
+              'Lone surrogate U+' +
                 e.toString(16).toUpperCase() +
-                " is not a scalar value"
+                ' is not a scalar value'
             );
           return !1;
         }
@@ -2264,7 +2264,7 @@
 
       function u(e, t) {
         if (0 == (4294967168 & e)) return i(e);
-        var n = "";
+        var n = '';
         return (
           0 == (4294965248 & e)
             ? (n = i(((e >> 6) & 31) | 192))
@@ -2279,25 +2279,25 @@
       }
 
       function l() {
-        if (o >= r) throw Error("Invalid byte index");
+        if (o >= r) throw Error('Invalid byte index');
         var e = 255 & n[o];
         if ((o++, 128 == (192 & e))) return 63 & e;
-        throw Error("Invalid continuation byte");
+        throw Error('Invalid continuation byte');
       }
 
       function A(e) {
         var t, i;
-        if (o > r) throw Error("Invalid byte index");
+        if (o > r) throw Error('Invalid byte index');
         if (o == r) return !1;
         if (((t = 255 & n[o]), o++, 0 == (128 & t))) return t;
         if (192 == (224 & t)) {
           if ((i = ((31 & t) << 6) | l()) >= 128) return i;
-          throw Error("Invalid continuation byte");
+          throw Error('Invalid continuation byte');
         }
         if (224 == (240 & t)) {
           if ((i = ((15 & t) << 12) | (l() << 6) | l()) >= 2048)
             return s(i, e) ? i : 65533;
-          throw Error("Invalid continuation byte");
+          throw Error('Invalid continuation byte');
         }
         if (
           240 == (248 & t) &&
@@ -2305,17 +2305,17 @@
           i <= 1114111
         )
           return i;
-        throw Error("Invalid UTF-8 detected");
+        throw Error('Invalid UTF-8 detected');
       }
       e.exports = {
-        version: "2.1.2",
+        version: '2.1.2',
         encode: function (e, t) {
           for (
             var n = !1 !== (t = t || {}).strict,
               r = a(e),
               o = r.length,
               i = -1,
-              s = "";
+              s = '';
             ++i < o;
 
           )
@@ -2327,7 +2327,7 @@
           (n = a(e)), (r = n.length), (o = 0);
           for (var c, u = []; !1 !== (c = A(s)); ) u.push(c);
           return (function (e) {
-            for (var t, n = e.length, r = -1, o = ""; ++r < n; )
+            for (var t, n = e.length, r = -1, o = ''; ++r < n; )
               (t = e[r]) > 65535 &&
                 ((o += i((((t -= 65536) >>> 10) & 1023) | 55296)),
                 (t = 56320 | (1023 & t))),
@@ -2338,16 +2338,16 @@
       };
     },
     FmCS: function (e, t, n) {
-      var r = n("T6uw"),
-        o = n("49PC"),
-        i = n("vvmD"),
-        a = n("Axi0");
+      var r = n('T6uw'),
+        o = n('49PC'),
+        i = n('vvmD'),
+        a = n('Axi0');
       (t.polling = function (e) {
         var t = !1,
           n = !1,
           a = !1 !== e.jsonp;
-        if ("undefined" !== typeof location) {
-          var s = "https:" === location.protocol,
+        if ('undefined' !== typeof location) {
+          var s = 'https:' === location.protocol,
             c = location.port;
           c || (c = s ? 443 : 80),
             (t = e.hostname !== location.hostname || c !== e.port),
@@ -2356,42 +2356,42 @@
         if (
           ((e.xdomain = t),
           (e.xscheme = n),
-          "open" in new r(e) && !e.forceJSONP)
+          'open' in new r(e) && !e.forceJSONP)
         )
           return new o(e);
-        if (!a) throw new Error("JSONP disabled");
+        if (!a) throw new Error('JSONP disabled');
         return new i(e);
       }),
         (t.websocket = a);
     },
-    "Fz/E": function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+    'Fz/E': function (e, t, n) {
+      'use strict';
+      n.d(t, 'a', function () {
         return o;
       });
-      var r = n("+qE3");
+      var r = n('+qE3');
 
       function o() {
         return new r.EventEmitter();
       }
     },
     HADy: function (e, t, n) {
-      "use strict";
+      'use strict';
       var r, o;
-      n.d(t, "a", function () {
+      n.d(t, 'a', function () {
         return r;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return o;
         }),
         (function (e) {
-          (e.STATE_CHANGE = "STATE_CHANGE"), (e.OUTPUT = "OUTPUT");
+          (e.STATE_CHANGE = 'STATE_CHANGE'), (e.OUTPUT = 'OUTPUT');
         })(r || (r = {})),
         (function (e) {
-          (e.OFFLINE = "OFFLINE"),
-            (e.IDLE = "IDLE"),
-            (e.RUNNING = "RUNNING"),
-            (e.STOPPING = "STOPPING");
+          (e.OFFLINE = 'OFFLINE'),
+            (e.IDLE = 'IDLE'),
+            (e.RUNNING = 'RUNNING'),
+            (e.STOPPING = 'STOPPING');
         })(o || (o = {}));
     },
     Hc0W: function (e, t, n) {
@@ -2407,7 +2407,7 @@
           function (e, t) {
             return (
               (this._callbacks = this._callbacks || {}),
-              (this._callbacks["$" + e] = this._callbacks["$" + e] || []).push(
+              (this._callbacks['$' + e] = this._callbacks['$' + e] || []).push(
                 t
               ),
               this
@@ -2430,22 +2430,22 @@
               )
                 return (this._callbacks = {}), this;
               var n,
-                r = this._callbacks["$" + e];
+                r = this._callbacks['$' + e];
               if (!r) return this;
               if (1 == arguments.length)
-                return delete this._callbacks["$" + e], this;
+                return delete this._callbacks['$' + e], this;
               for (var o = 0; o < r.length; o++)
                 if ((n = r[o]) === t || n.fn === t) {
                   r.splice(o, 1);
                   break;
                 }
-              return 0 === r.length && delete this._callbacks["$" + e], this;
+              return 0 === r.length && delete this._callbacks['$' + e], this;
             }),
         (r.prototype.emit = function (e) {
           this._callbacks = this._callbacks || {};
           for (
             var t = new Array(arguments.length - 1),
-              n = this._callbacks["$" + e],
+              n = this._callbacks['$' + e],
               r = 1;
             r < arguments.length;
             r++
@@ -2461,7 +2461,7 @@
         (r.prototype.listeners = function (e) {
           return (
             (this._callbacks = this._callbacks || {}),
-            this._callbacks["$" + e] || []
+            this._callbacks['$' + e] || []
           );
         }),
         (r.prototype.hasListeners = function (e) {
@@ -2469,16 +2469,16 @@
         });
     },
     IUvJ: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return w;
       });
-      var r = n("vJKn"),
+      var r = n('vJKn'),
         o = n.n(r),
-        i = n("xvhg"),
-        a = n("rg98"),
-        s = n("gtzJ"),
-        c = "BESbswy",
+        i = n('xvhg'),
+        a = n('rg98'),
+        s = n('gtzJ'),
+        c = 'BESbswy',
         u = 3e3;
 
       function l(e) {
@@ -2498,18 +2498,18 @@
                     }
                     return (e.next = 3), p(document.fonts, t);
                   case 3:
-                    return e.abrupt("return");
+                    return e.abrupt('return');
                   case 4:
                     return (
                       (e.next = 6),
                       Promise.all([
-                        d("serif", t),
-                        d("sans-serif", t),
-                        d("monospace", t),
+                        d('serif', t),
+                        d('sans-serif', t),
+                        d('monospace', t),
                       ])
                     );
                   case 6:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -2520,10 +2520,10 @@
       function h(e) {
         var t = e.family,
           n = e.style,
-          r = void 0 === n ? "normal" : n,
+          r = void 0 === n ? 'normal' : n,
           o = e.weight,
-          i = void 0 === o ? "normal" : o;
-        return "".concat(r, " ").concat(i, " 100px ").concat(t);
+          i = void 0 === o ? 'normal' : o;
+        return ''.concat(r, ' ').concat(i, ' 100px ').concat(t);
       }
 
       function p(e, t) {
@@ -2546,11 +2546,11 @@
                       (l = void 0 === s ? u : s),
                       (A = h(r)),
                       e.abrupt(
-                        "return",
+                        'return',
                         new Promise(function (e, n) {
                           var r = !1,
                             o = setTimeout(function () {
-                              (r = !0), n(new Error("Font loading timed out"));
+                              (r = !0), n(new Error('Font loading timed out'));
                             }, l);
                           t.load(A, a)
                             .then(function () {
@@ -2563,7 +2563,7 @@
                       )
                     );
                   case 3:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -2590,11 +2590,11 @@
                       (s = n.timeout),
                       (l = void 0 === s ? u : s),
                       (A = h(r)),
-                      ((p = document.createElement("span")).innerText = a),
-                      (p.style.font = "normal normal 100px ".concat(t)),
-                      (p.style.position = "absolute"),
-                      (p.style.left = "-9999px"),
-                      (p.style.top = "-9999px"),
+                      ((p = document.createElement('span')).innerText = a),
+                      (p.style.font = 'normal normal 100px '.concat(t)),
+                      (p.style.position = 'absolute'),
+                      (p.style.left = '-9999px'),
+                      (p.style.top = '-9999px'),
                       document.body.appendChild(p),
                       (f = p.offsetWidth),
                       (p.style.font = A),
@@ -2605,10 +2605,10 @@
                       e.next = 14;
                       break;
                     }
-                    return e.abrupt("return");
+                    return e.abrupt('return');
                   case 14:
                     return e.abrupt(
-                      "return",
+                      'return',
                       new Promise(function (e, t) {
                         var n = setInterval(function () {
                             d() &&
@@ -2624,21 +2624,21 @@
                                 ? e()
                                 : t(
                                     new Error(
-                                      "Font loading timed out " + r.family
+                                      'Font loading timed out ' + r.family
                                     )
                                   );
                           }, l);
                       })
                     );
                   case 15:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
           })
         )).apply(this, arguments);
       }
-      var y = n("0bU4"),
+      var y = n('0bU4'),
         g = 500,
         v = 600;
 
@@ -2669,7 +2669,7 @@
                       (A = Promise.all([
                         l({
                           fontInfo: {
-                            family: "replit-icons",
+                            family: 'replit-icons',
                           },
                           characters: C,
                         }).catch(m),
@@ -2683,7 +2683,7 @@
                           fontInfo: {
                             family: '"IBM Plex Mono"',
                             weight: g.toString(),
-                            style: "italic",
+                            style: 'italic',
                           },
                         }).catch(m),
                         l({
@@ -2696,7 +2696,7 @@
                           fontInfo: {
                             family: '"IBM Plex Mono"',
                             weight: v.toString(),
-                            style: "italic",
+                            style: 'italic',
                           },
                         }).catch(m),
                       ])),
@@ -2704,37 +2704,37 @@
                       Promise.all([
                         n
                           .e(349)
-                          .then(n.t.bind(null, "/POA", 7))
+                          .then(n.t.bind(null, '/POA', 7))
                           .then(function (e) {
                             return e;
                           }),
                         n
                           .e(345)
-                          .then(n.t.bind(null, "R9As", 7))
+                          .then(n.t.bind(null, 'R9As', 7))
                           .then(function (e) {
                             return e;
                           }),
                         n
                           .e(346)
-                          .then(n.t.bind(null, "0fl0", 7))
+                          .then(n.t.bind(null, '0fl0', 7))
                           .then(function (e) {
                             return e;
                           }),
                         n
                           .e(348)
-                          .then(n.t.bind(null, "QIth", 7))
+                          .then(n.t.bind(null, 'QIth', 7))
                           .then(function (e) {
                             return e;
                           }),
                         n
                           .e(347)
-                          .then(n.t.bind(null, "wpcW", 7))
+                          .then(n.t.bind(null, 'wpcW', 7))
                           .then(function (e) {
                             return e;
                           }),
                         n
                           .e(343)
-                          .then(n.bind(null, "Po+R"))
+                          .then(n.bind(null, 'Po+R'))
                           .then(function (e) {
                             return e;
                           }),
@@ -2761,11 +2761,11 @@
                         lineHeight: 1,
                         fontWeight: g,
                         fontWeightBold: v,
-                        bellStyle: "sound",
+                        bellStyle: 'sound',
                         drawBoldTextInBrightColors: !1,
                         theme: {
                           foreground: y.e.foregroundDefault[1],
-                          background: u ? y.e.backgroundDefault[1] : "#171d2d",
+                          background: u ? y.e.backgroundDefault[1] : '#171d2d',
                           cursor: y.e.foregroundDefault[1],
                           cursorAccent: y.e.backgroundHigher[1],
                           selection: y.e.backgroundHighest[1],
@@ -2801,30 +2801,30 @@
                       x.loadAddon(P),
                       (R = new E()),
                       x.loadAddon(R),
-                      (x.unicode.activeVersion = "11"),
-                      e.abrupt("return", {
+                      (x.unicode.activeVersion = '11'),
+                      e.abrupt('return', {
                         xterm: x,
                         fitAddon: N,
                         searchAddon: P,
                       })
                     );
                   case 26:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
           })
         )).apply(this, arguments);
       }
-      var O = "replit-icons-font";
+      var O = 'replit-icons-font';
 
       function S() {
         if (!document.getElementById(O)) {
-          var e = n("Rb61"),
-            t = n("0CU0"),
-            r = document.createElement("style");
+          var e = n('Rb61'),
+            t = n('0CU0'),
+            r = document.createElement('style');
           (r.id = O),
-            (r.type = "text/css"),
+            (r.type = 'text/css'),
             r.appendChild(
               document.createTextNode(
                 "\n@font-face {\n  font-family: 'replit-icons';\n  font-style: normal;\n  font-weight: normal;\n  font-stretch: normal;\n  src: url("
@@ -2837,21 +2837,21 @@
       }
     },
     KnXX: function (e, t, n) {
-      (e.exports = n("lIbH")), (e.exports.parser = n("NlaV"));
+      (e.exports = n('lIbH')), (e.exports.parser = n('NlaV'));
     },
     NlaV: function (e, t, n) {
       var r,
-        o = n("WCTK"),
-        i = n("WLGk"),
-        a = n("ypnn"),
-        s = n("zMFY"),
-        c = n("F40I");
-      "undefined" !== typeof ArrayBuffer && (r = n("tGih"));
+        o = n('WCTK'),
+        i = n('WLGk'),
+        a = n('ypnn'),
+        s = n('zMFY'),
+        c = n('F40I');
+      'undefined' !== typeof ArrayBuffer && (r = n('tGih'));
       var u =
-          "undefined" !== typeof navigator &&
+          'undefined' !== typeof navigator &&
           /Android/i.test(navigator.userAgent),
         l =
-          "undefined" !== typeof navigator &&
+          'undefined' !== typeof navigator &&
           /PhantomJS/i.test(navigator.userAgent),
         A = u || l;
       t.protocol = 3;
@@ -2866,10 +2866,10 @@
         }),
         p = o(h),
         f = {
-          type: "error",
-          data: "parser error",
+          type: 'error',
+          data: 'parser error',
         },
-        d = n("7/Wg");
+        d = n('7/Wg');
 
       function b(e, t, n) {
         for (
@@ -2887,10 +2887,10 @@
           i(a, e[a], o);
       }
       (t.encodePacket = function (e, n, r, o) {
-        "function" === typeof n && ((o = n), (n = !1)),
-          "function" === typeof r && ((o = r), (r = null));
+        'function' === typeof n && ((o = n), (n = !1)),
+          'function' === typeof r && ((o = r), (r = null));
         var i = void 0 === e.data ? void 0 : e.data.buffer || e.data;
-        if ("undefined" !== typeof ArrayBuffer && i instanceof ArrayBuffer)
+        if ('undefined' !== typeof ArrayBuffer && i instanceof ArrayBuffer)
           return (function (e, n, r) {
             if (!n) return t.encodeBase64Packet(e, r);
             var o = e.data,
@@ -2900,7 +2900,7 @@
             for (var s = 0; s < i.length; s++) a[s + 1] = i[s];
             return r(a.buffer);
           })(e, n, o);
-        if ("undefined" !== typeof d && i instanceof d)
+        if ('undefined' !== typeof d && i instanceof d)
           return (function (e, n, r) {
             if (!n) return t.encodeBase64Packet(e, r);
             if (A)
@@ -2929,7 +2929,7 @@
           })(e, n, o);
         if (i && i.base64)
           return (function (e, n) {
-            var r = "b" + t.packets[e.type] + e.data.data;
+            var r = 'b' + t.packets[e.type] + e.data.data;
             return n(r);
           })(e, o);
         var a = h[e.type];
@@ -2940,17 +2940,17 @@
                   strict: !1,
                 })
               : String(e.data)),
-          o("" + a)
+          o('' + a)
         );
       }),
         (t.encodeBase64Packet = function (e, n) {
           var r,
-            o = "b" + t.packets[e.type];
-          if ("undefined" !== typeof d && e.data instanceof d) {
+            o = 'b' + t.packets[e.type];
+          if ('undefined' !== typeof d && e.data instanceof d) {
             var i = new FileReader();
             return (
               (i.onload = function () {
-                var e = i.result.split(",")[1];
+                var e = i.result.split(',')[1];
                 n(o + e);
               }),
               i.readAsDataURL(e.data)
@@ -2971,8 +2971,8 @@
         }),
         (t.decodePacket = function (e, n, r) {
           if (void 0 === e) return f;
-          if ("string" === typeof e) {
-            if ("b" === e.charAt(0))
+          if ('string' === typeof e) {
+            if ('b' === e.charAt(0))
               return t.decodeBase64Packet(e.substr(1), n);
             if (
               r &&
@@ -3004,7 +3004,7 @@
           o = new Uint8Array(e)[0];
           var i = a(e, 1);
           return (
-            d && "blob" === n && (i = new d([i])),
+            d && 'blob' === n && (i = new d([i])),
             {
               type: p[o],
               data: i,
@@ -3023,7 +3023,7 @@
             };
           var o = r.decode(e.substr(1));
           return (
-            "blob" === t && d && (o = new d([o])),
+            'blob' === t && d && (o = new d([o])),
             {
               type: n,
               data: o,
@@ -3031,13 +3031,13 @@
           );
         }),
         (t.encodePayload = function (e, n, r) {
-          "function" === typeof n && ((r = n), (n = null));
+          'function' === typeof n && ((r = n), (n = null));
           var o = i(e);
           if (n && o)
             return d && !A
               ? t.encodePayloadAsBlob(e, r)
               : t.encodePayloadAsArrayBuffer(e, r);
-          if (!e.length) return r("0:");
+          if (!e.length) return r('0:');
           b(
             e,
             function (e, r) {
@@ -3045,25 +3045,25 @@
                 r(
                   null,
                   (function (e) {
-                    return e.length + ":" + e;
+                    return e.length + ':' + e;
                   })(e)
                 );
               });
             },
             function (e, t) {
-              return r(t.join(""));
+              return r(t.join(''));
             }
           );
         }),
         (t.decodePayload = function (e, n, r) {
-          if ("string" !== typeof e) return t.decodePayloadAsBinary(e, n, r);
+          if ('string' !== typeof e) return t.decodePayloadAsBinary(e, n, r);
           var o;
-          if (("function" === typeof n && ((r = n), (n = null)), "" === e))
+          if (('function' === typeof n && ((r = n), (n = null)), '' === e))
             return r(f, 0, 1);
-          for (var i, a, s = "", c = 0, u = e.length; c < u; c++) {
+          for (var i, a, s = '', c = 0, u = e.length; c < u; c++) {
             var l = e.charAt(c);
-            if (":" === l) {
-              if ("" === s || s != (i = Number(s))) return r(f, 0, 1);
+            if (':' === l) {
+              if ('' === s || s != (i = Number(s))) return r(f, 0, 1);
               if (s != (a = e.substr(c + 1, i)).length) return r(f, 0, 1);
               if (a.length) {
                 if (
@@ -3073,10 +3073,10 @@
                   return r(f, 0, 1);
                 if (!1 === r(o, c + i, u)) return;
               }
-              (c += i), (s = "");
+              (c += i), (s = '');
             } else s += l;
           }
-          return "" !== s ? r(f, 0, 1) : void 0;
+          return '' !== s ? r(f, 0, 1) : void 0;
         }),
         (t.encodePayloadAsArrayBuffer = function (e, n) {
           if (!e.length) return n(new ArrayBuffer(0));
@@ -3093,7 +3093,7 @@
                   return (
                     e +
                     (n =
-                      "string" === typeof t
+                      'string' === typeof t
                         ? t.length
                         : t.byteLength).toString().length +
                     n +
@@ -3104,7 +3104,7 @@
                 i = 0;
               return (
                 t.forEach(function (e) {
-                  var t = "string" === typeof e,
+                  var t = 'string' === typeof e,
                     n = e;
                   if (t) {
                     for (
@@ -3133,7 +3133,7 @@
             function (e, n) {
               t.encodePacket(e, !0, !0, function (e) {
                 var t = new Uint8Array(1);
-                if (((t[0] = 1), "string" === typeof e)) {
+                if (((t[0] = 1), 'string' === typeof e)) {
                   for (
                     var r = new Uint8Array(e.length), o = 0;
                     o < e.length;
@@ -3159,10 +3159,10 @@
           );
         }),
         (t.decodePayloadAsBinary = function (e, n, r) {
-          "function" === typeof n && ((r = n), (n = null));
+          'function' === typeof n && ((r = n), (n = null));
           for (var o = e, i = []; o.byteLength > 0; ) {
             for (
-              var s = new Uint8Array(o), c = 0 === s[0], u = "", l = 1;
+              var s = new Uint8Array(o), c = 0 === s[0], u = '', l = 1;
               255 !== s[l];
               l++
             ) {
@@ -3176,7 +3176,7 @@
                 A = String.fromCharCode.apply(null, new Uint8Array(A));
               } catch (d) {
                 var h = new Uint8Array(A);
-                A = "";
+                A = '';
                 for (l = 0; l < h.length; l++) A += String.fromCharCode(h[l]);
               }
             i.push(A), (o = a(o, u));
@@ -3188,21 +3188,21 @@
         });
     },
     O9If: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.getConnectionStr =
           t.getWebSocketClass =
           t.getNextRetryDelay =
             void 0);
-      var r = n("QmWs");
+      var r = n('QmWs');
 
       function o(e) {
         return (
-          ("object" === typeof e || "function" === typeof e) &&
+          ('object' === typeof e || 'function' === typeof e) &&
           !!e &&
-          "OPEN" in e &&
+          'OPEN' in e &&
           1 === e.OPEN
         );
       }
@@ -3215,30 +3215,30 @@
           if (e) {
             if (!o(e))
               throw new Error(
-                "Passed in WebSocket does not look like a standard WebSocket"
+                'Passed in WebSocket does not look like a standard WebSocket'
               );
             return e;
           }
-          if ("undefined" !== typeof WebSocket) {
+          if ('undefined' !== typeof WebSocket) {
             if (!o(WebSocket))
               throw new Error(
-                "Global WebSocket does not look like a standard WebSocket"
+                'Global WebSocket does not look like a standard WebSocket'
               );
             return WebSocket;
           }
           throw new Error(
-            "Please pass in a WebSocket class or add it to global"
+            'Please pass in a WebSocket class or add it to global'
           );
         }),
         (t.getConnectionStr = function (e, t) {
           var n = r.parse(e.gurl);
           return (
             t
-              ? ((n.hostname = "gp-v2.herokuapp.com"),
-                (n.host = "gp-v2.herokuapp.com"),
+              ? ((n.hostname = 'gp-v2.herokuapp.com'),
+                (n.host = 'gp-v2.herokuapp.com'),
                 (n.pathname =
-                  "/wsv2/" + e.token + "/" + encodeURIComponent(e.gurl)))
-              : (n.pathname = "/wsv2/" + e.token),
+                  '/wsv2/' + e.token + '/' + encodeURIComponent(e.gurl)))
+              : (n.pathname = '/wsv2/' + e.token),
             r.format(n)
           );
         });
@@ -3256,13 +3256,13 @@
             for (var a = new Array(arguments.length), s = 0; s < a.length; s++)
               a[s] = arguments[s];
             (a[0] = t.coerce(a[0])),
-              "string" !== typeof a[0] && a.unshift("%O");
+              'string' !== typeof a[0] && a.unshift('%O');
             var c = 0;
             (a[0] = a[0].replace(/%([a-zA-Z%])/g, function (n, r) {
-              if ("%%" === n) return n;
+              if ('%%' === n) return n;
               c++;
               var o = t.formatters[r];
-              if ("function" === typeof o) {
+              if ('function' === typeof o) {
                 var i = a[c];
                 (n = o.call(e, i)), a.splice(c, 1), c--;
               }
@@ -3284,7 +3284,7 @@
             return t.colors[Math.abs(r) % t.colors.length];
           })(e)),
           (r.destroy = o),
-          "function" === typeof t.init && t.init(r),
+          'function' === typeof t.init && t.init(r),
           t.instances.push(r),
           r
         );
@@ -3298,25 +3298,25 @@
         return e instanceof Error ? e.stack || e.message : e;
       }),
         (t.disable = function () {
-          t.enable("");
+          t.enable('');
         }),
         (t.enable = function (e) {
           var n;
           t.save(e), (t.names = []), (t.skips = []);
-          var r = ("string" === typeof e ? e : "").split(/[\s,]+/),
+          var r = ('string' === typeof e ? e : '').split(/[\s,]+/),
             o = r.length;
           for (n = 0; n < o; n++)
             r[n] &&
-              ("-" === (e = r[n].replace(/\*/g, ".*?"))[0]
-                ? t.skips.push(new RegExp("^" + e.substr(1) + "$"))
-                : t.names.push(new RegExp("^" + e + "$")));
+              ('-' === (e = r[n].replace(/\*/g, '.*?'))[0]
+                ? t.skips.push(new RegExp('^' + e.substr(1) + '$'))
+                : t.names.push(new RegExp('^' + e + '$')));
           for (n = 0; n < t.instances.length; n++) {
             var i = t.instances[n];
             i.enabled = t.enabled(i.namespace);
           }
         }),
         (t.enabled = function (e) {
-          if ("*" === e[e.length - 1]) return !0;
+          if ('*' === e[e.length - 1]) return !0;
           var n, r;
           for (n = 0, r = t.skips.length; n < r; n++)
             if (t.skips[n].test(e)) return !1;
@@ -3324,60 +3324,60 @@
             if (t.names[n].test(e)) return !0;
           return !1;
         }),
-        (t.humanize = n("FGiv")),
+        (t.humanize = n('FGiv')),
         (t.instances = []),
         (t.names = []),
         (t.skips = []),
         (t.formatters = {});
     },
-    "Omg+": function (e, t) {
+    'Omg+': function (e, t) {
       var n =
           /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/,
         r = [
-          "source",
-          "protocol",
-          "authority",
-          "userInfo",
-          "user",
-          "password",
-          "host",
-          "port",
-          "relative",
-          "path",
-          "directory",
-          "file",
-          "query",
-          "anchor",
+          'source',
+          'protocol',
+          'authority',
+          'userInfo',
+          'user',
+          'password',
+          'host',
+          'port',
+          'relative',
+          'path',
+          'directory',
+          'file',
+          'query',
+          'anchor',
         ];
       e.exports = function (e) {
         var t = e,
-          o = e.indexOf("["),
-          i = e.indexOf("]");
+          o = e.indexOf('['),
+          i = e.indexOf(']');
         -1 != o &&
           -1 != i &&
           (e =
             e.substring(0, o) +
-            e.substring(o, i).replace(/:/g, ";") +
+            e.substring(o, i).replace(/:/g, ';') +
             e.substring(i, e.length));
-        for (var a = n.exec(e || ""), s = {}, c = 14; c--; )
-          s[r[c]] = a[c] || "";
+        for (var a = n.exec(e || ''), s = {}, c = 14; c--; )
+          s[r[c]] = a[c] || '';
         return (
           -1 != o &&
             -1 != i &&
             ((s.source = t),
             (s.host = s.host
               .substring(1, s.host.length - 1)
-              .replace(/;/g, ":")),
+              .replace(/;/g, ':')),
             (s.authority = s.authority
-              .replace("[", "")
-              .replace("]", "")
-              .replace(/;/g, ":")),
+              .replace('[', '')
+              .replace(']', '')
+              .replace(/;/g, ':')),
             (s.ipv6uri = !0)),
           (s.pathNames = (function (e, t) {
             var n = /\/{2,9}/g,
-              r = t.replace(n, "/").split("/");
-            ("/" != t.substr(0, 1) && 0 !== t.length) || r.splice(0, 1);
-            "/" == t.substr(t.length - 1, 1) && r.splice(r.length - 1, 1);
+              r = t.replace(n, '/').split('/');
+            ('/' != t.substr(0, 1) && 0 !== t.length) || r.splice(0, 1);
+            '/' == t.substr(t.length - 1, 1) && r.splice(r.length - 1, 1);
             return r;
           })(0, s.path)),
           (s.queryKey = (function (e, t) {
@@ -3394,49 +3394,49 @@
       };
     },
     P2Oe: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e, r) {
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return A;
         }),
-          n.d(t, "c", function () {
+          n.d(t, 'c', function () {
             return h;
           }),
-          n.d(t, "a", function () {
+          n.d(t, 'a', function () {
             return p;
           }),
-          n.d(t, "b", function () {
+          n.d(t, 'b', function () {
             return f;
           }),
-          n.d(t, "e", function () {
+          n.d(t, 'e', function () {
             return d;
           });
-        var o = n("vJKn"),
+        var o = n('vJKn'),
           i = n.n(o),
-          a = n("rg98"),
-          s = n("0gYX"),
+          a = n('rg98'),
+          s = n('0gYX'),
           c = n.n(s),
-          u = n("5+mB"),
-          l = e.env.VNC_PROXY_SUFFIX || "repl.co";
+          u = n('5+mB'),
+          l = e.env.VNC_PROXY_SUFFIX || 'repl.co';
 
         function A(e) {
-          var t = e.split(".");
+          var t = e.split('.');
           if (4 !== t.length)
-            throw new Error("Invalid token: should have exactly 4 parts: " + e);
+            throw new Error('Invalid token: should have exactly 4 parts: ' + e);
           for (
-            var n = t[2].replace(/-/g, "+").replace(/_/g, "/");
+            var n = t[2].replace(/-/g, '+').replace(/_/g, '/');
             n.length % 4;
 
           )
-            n += "=";
+            n += '=';
           var o = window.atob(n);
           if (o.length < 64)
             throw new Error(
-              "Invalid token: signed part is too short: " + o.length
+              'Invalid token: signed part is too short: ' + o.length
             );
           var i = o.substring(0, o.length - 64);
           try {
-            return u.api.ReplToken.decode(new r(i, "base64"));
+            return u.api.ReplToken.decode(new r(i, 'base64'));
           } catch (a) {
             return JSON.parse(window.atob(i));
           }
@@ -3447,12 +3447,12 @@
             n = t.user,
             r = t.slug,
             o = t.id,
-            i = "".concat(r, "--").concat(n);
+            i = ''.concat(r, '--').concat(n);
           return (
-            i.length > 63 && (i = "".concat(o, ".id")),
-            -1 !== l.indexOf("repl.localhost:8080")
-              ? "ws://".concat(i, ".").concat(l)
-              : "wss://".concat(i, ".").concat(l)
+            i.length > 63 && (i = ''.concat(o, '.id')),
+            -1 !== l.indexOf('repl.localhost:8080')
+              ? 'ws://'.concat(i, '.').concat(l)
+              : 'wss://'.concat(i, '.').concat(l)
           );
         }
 
@@ -3462,24 +3462,24 @@
             c.a.usesRunProject(t) ||
             !c.a.usesEval(t)
             ? {
-                name: "shellrunner",
-                service: "shellrun2",
+                name: 'shellrunner',
+                service: 'shellrun2',
               }
             : {
-                name: "evaler",
-                service: "eval",
+                name: 'evaler',
+                service: 'eval',
               };
         }
 
         function f(e) {
-          return "shellrunner" === e
+          return 'shellrunner' === e
             ? {
-                name: "shellrunner",
-                service: "shellrun2",
+                name: 'shellrunner',
+                service: 'shellrun2',
               }
             : {
-                name: "evaler",
-                service: "eval",
+                name: 'evaler',
+                service: 'eval',
               };
         }
 
@@ -3495,25 +3495,25 @@
                   switch ((e.prev = e.next)) {
                     case 0:
                       return e.abrupt(
-                        "return",
+                        'return',
                         new Promise(function (e) {
-                          t.on("command", function r(o) {
-                            n(o) && (t.off("command", r), e(o));
+                          t.on('command', function r(o) {
+                            n(o) && (t.off('command', r), e(o));
                           });
                         })
                       );
                     case 1:
-                    case "end":
+                    case 'end':
                       return e.stop();
                   }
               }, e);
             })
           )).apply(this, arguments);
         }
-      }.call(this, n("8oxB"), n("HDXh").Buffer));
+      }.call(this, n('8oxB'), n('HDXh').Buffer));
     },
     PCMj: function (e, t, n) {
-      "use strict";
+      'use strict';
       var r =
           (this && this.__awaiter) ||
           function (e, t, n, r) {
@@ -3570,7 +3570,7 @@
                 throw: s(1),
                 return: s(2),
               }),
-              "function" === typeof Symbol &&
+              'function' === typeof Symbol &&
                 (i[Symbol.iterator] = function () {
                   return this;
                 }),
@@ -3580,7 +3580,7 @@
             function s(i) {
               return function (s) {
                 return (function (i) {
-                  if (n) throw new TypeError("Generator is already executing.");
+                  if (n) throw new TypeError('Generator is already executing.');
                   for (; a; )
                     try {
                       if (
@@ -3655,20 +3655,20 @@
               };
             }
           };
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.Channel = void 0);
-      var i = n("5+mB"),
+      var i = n('5+mB'),
         a = function (e) {
           var t = this,
             n = e.id,
             a = e.send,
             s = e.onUnrecoverableError;
           (this.onCommand = function (e) {
-            if ("closed" === t.status) {
+            if ('closed' === t.status) {
               var n = new Error(
-                "Trying to listen to commands on a closed channel"
+                'Trying to listen to commands on a closed channel'
               );
               throw (t.onUnrecoverableError(n), n);
             }
@@ -3684,14 +3684,14 @@
             );
           }),
             (this.send = function (e) {
-              if ("closed" === t.status) {
-                var n = new Error("Calling send on closed channel");
+              if ('closed' === t.status) {
+                var n = new Error('Calling send on closed channel');
                 throw (t.onUnrecoverableError(n), n);
               }
-              if ("closing" === t.status)
+              if ('closing' === t.status)
                 throw (
                   ((n = new Error(
-                    "Cannot send any more commands after a close request"
+                    'Cannot send any more commands after a close request'
                   )),
                   t.onUnrecoverableError(n),
                   n)
@@ -3705,7 +3705,7 @@
                 return o(this, function (r) {
                   return (
                     (t = Number(
-                      Math.random().toString().split(".")[1]
+                      Math.random().toString().split('.')[1]
                     ).toString(36)),
                     (e.ref = t),
                     [
@@ -3738,13 +3738,13 @@
                   t.requestMap[n](r),
                   delete t.requestMap[n];
               }),
-                (t.status = "closed"),
+                (t.status = 'closed'),
                 (t.onCommandListeners = []);
             }),
             (this.id = n),
             (this.sendToContainer = a),
             (this.onUnrecoverableError = s),
-            (this.status = "open"),
+            (this.status = 'open'),
             (this.requestMap = {}),
             (this.onCommandListeners = []);
         };
@@ -3752,27 +3752,27 @@
     },
     Rb61: function (e, t) {
       e.exports =
-        "data:application/font-woff;base64,d09GRgABAAAAAAPUAA4AAAAABaQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAADuAAAABwAAAAchB3b2kdERUYAAAOUAAAAJAAAACYAKQAqT1MvMgAAAawAAAA5AAAAYENBXFNjbWFwAAAB+AAAAD4AAAFCAA/yUmN2dCAAAAI4AAAABAAAAAQAIgKIZ2FzcAAAA4wAAAAIAAAACAAAAAFnbHlmAAACSAAAAHwAAACIpDV7CWhlYWQAAAFEAAAAMQAAADYPsR5/aGhlYQAAAXgAAAAYAAAAJAYBBAVobXR4AAAB6AAAABAAAAAQDAAAomxvY2EAAAI8AAAACgAAAAoAbgBUbWF4cAAAAZAAAAAaAAAAIAAIADxuYW1lAAACxAAAAKgAAAFuIGxtGnBvc3QAAANsAAAAHgAAADKwqUy9eJxjYGQAg75rH9bE89t8ZeBmAfOvm9l/AdPWs54wKDEwMDEwrQJyOYAMIAAARtIKWgAAAHicY2BkYGBhAAEIycTAwMiAClgAAWwAEXicY2BkYGBgYeBhYGYAASYGBNADEQADJABFAAB4nGNgZmFgnMDAysDA1MDMAAQNEJoJiBkZ0ACjABInIM01hcHh3fJ3y1nAfBaoGiQlCgyMAFRaBy8AAAAEAAAiAAAAAAQAAAAEAACAeJxjYGBgZoBgGQZGBhCwAfIYwXwWBgUgzQKEQP675f//Q0jBGKhKBkY2BhiTgZEJSDAxoAJGhmEPAP2eCE8AAAAiAogAAAAqACoAKgBEAAB4nGNgYlBiYGA0YlrFwMzAzqC3kZFB32YTOwvDW6ONbKx3bDYxMwGZDBuZQcKsIOFN7GyMf2w2MYLEjQUVBdWNBZWVGAXenTnDtOpvmBJTGgPQpAYGBiYGJgewmdxA80WNTVmBmBmIGR0O/Gs4cOAAI4iAUAwMDAARHSJHeJyNzU0KgzAUBOCJRqE/dFkK3WTnolT0FL1A6QUki4AkEl30GD1Az9BVD9hRX6HQjcbAl5dhAmCHFxS+XyJW2OAoHmcncYotLmLNTCvO6Ic4p99MKr2S1tkKe2p2wlWIUxxwFmtmruKMvotz+jlWRVh0fNZh4G4Q4NFzbLvWDa4Jnof19P8mzX/WSHhJ4Y2ZyKmbbg1qlKg4trF3wZu6rBb1fACKDTLseJxjYGJABowM6IAFLMrEyMRempfp6upoDgAL4gJjAAAAAQAB//8AAHicY2BkYGDgAWIxBjkGJgZGBmYgZGRgAYowATEjBAMACK0AVAAAAAEAAAAA1awBAQAAAADXNj/0AAAAANc7muQ=";
+        'data:application/font-woff;base64,d09GRgABAAAAAAPUAA4AAAAABaQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAADuAAAABwAAAAchB3b2kdERUYAAAOUAAAAJAAAACYAKQAqT1MvMgAAAawAAAA5AAAAYENBXFNjbWFwAAAB+AAAAD4AAAFCAA/yUmN2dCAAAAI4AAAABAAAAAQAIgKIZ2FzcAAAA4wAAAAIAAAACAAAAAFnbHlmAAACSAAAAHwAAACIpDV7CWhlYWQAAAFEAAAAMQAAADYPsR5/aGhlYQAAAXgAAAAYAAAAJAYBBAVobXR4AAAB6AAAABAAAAAQDAAAomxvY2EAAAI8AAAACgAAAAoAbgBUbWF4cAAAAZAAAAAaAAAAIAAIADxuYW1lAAACxAAAAKgAAAFuIGxtGnBvc3QAAANsAAAAHgAAADKwqUy9eJxjYGQAg75rH9bE89t8ZeBmAfOvm9l/AdPWs54wKDEwMDEwrQJyOYAMIAAARtIKWgAAAHicY2BkYGBhAAEIycTAwMiAClgAAWwAEXicY2BkYGBgYeBhYGYAASYGBNADEQADJABFAAB4nGNgZmFgnMDAysDA1MDMAAQNEJoJiBkZ0ACjABInIM01hcHh3fJ3y1nAfBaoGiQlCgyMAFRaBy8AAAAEAAAiAAAAAAQAAAAEAACAeJxjYGBgZoBgGQZGBhCwAfIYwXwWBgUgzQKEQP675f//Q0jBGKhKBkY2BhiTgZEJSDAxoAJGhmEPAP2eCE8AAAAiAogAAAAqACoAKgBEAAB4nGNgYlBiYGA0YlrFwMzAzqC3kZFB32YTOwvDW6ONbKx3bDYxMwGZDBuZQcKsIOFN7GyMf2w2MYLEjQUVBdWNBZWVGAXenTnDtOpvmBJTGgPQpAYGBiYGJgewmdxA80WNTVmBmBmIGR0O/Gs4cOAAI4iAUAwMDAARHSJHeJyNzU0KgzAUBOCJRqE/dFkK3WTnolT0FL1A6QUki4AkEl30GD1Az9BVD9hRX6HQjcbAl5dhAmCHFxS+XyJW2OAoHmcncYotLmLNTCvO6Ic4p99MKr2S1tkKe2p2wlWIUxxwFmtmruKMvotz+jlWRVh0fNZh4G4Q4NFzbLvWDa4Jnof19P8mzX/WSHhJ4Y2ZyKmbbg1qlKg4trF3wZu6rBb1fACKDTLseJxjYGJABowM6IAFLMrEyMRempfp6upoDgAL4gJjAAAAAQAB//8AAHicY2BkYGDgAWIxBjkGJgZGBmYgZGRgAYowATEjBAMACK0AVAAAAAEAAAAA1awBAQAAAADXNj/0AAAAANc7muQ=';
     },
     T6uw: function (e, t, n) {
-      var r = n("yeub"),
-        o = n("3WoK");
+      var r = n('yeub'),
+        o = n('3WoK');
       e.exports = function (e) {
         var t = e.xdomain,
           n = e.xscheme,
           i = e.enablesXDR;
         try {
-          if ("undefined" !== typeof XMLHttpRequest && (!t || r))
+          if ('undefined' !== typeof XMLHttpRequest && (!t || r))
             return new XMLHttpRequest();
         } catch (a) {}
         try {
-          if ("undefined" !== typeof XDomainRequest && !n && i)
+          if ('undefined' !== typeof XDomainRequest && !n && i)
             return new XDomainRequest();
         } catch (a) {}
         if (!t)
           try {
-            return new o[["Active"].concat("Object").join("X")](
-              "Microsoft.XMLHTTP"
+            return new o[['Active'].concat('Object').join('X')](
+              'Microsoft.XMLHTTP'
             );
           } catch (a) {}
       };
@@ -3787,19 +3787,19 @@
           return t;
         };
     },
-    "WP+z": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    'WP+z': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.FetchConnectionMetadataError = t.ConnectionState = void 0),
         (function (e) {
-          (e[(e.CONNECTING = 0)] = "CONNECTING"),
-            (e[(e.CONNECTED = 1)] = "CONNECTED"),
-            (e[(e.DISCONNECTED = 2)] = "DISCONNECTED");
+          (e[(e.CONNECTING = 0)] = 'CONNECTING'),
+            (e[(e.CONNECTED = 1)] = 'CONNECTED'),
+            (e[(e.DISCONNECTED = 2)] = 'DISCONNECTED');
         })(t.ConnectionState || (t.ConnectionState = {})),
         (function (e) {
-          (e.Aborted = "Aborted"), (e.Retriable = "Retriable");
+          (e.Aborted = 'Aborted'), (e.Retriable = 'Retriable');
         })(
           t.FetchConnectionMetadataError ||
             (t.FetchConnectionMetadataError = {})
@@ -3807,33 +3807,33 @@
     },
     ZAXB: function (e, t) {
       (t.encode = function (e) {
-        var t = "";
+        var t = '';
         for (var n in e)
           e.hasOwnProperty(n) &&
-            (t.length && (t += "&"),
-            (t += encodeURIComponent(n) + "=" + encodeURIComponent(e[n])));
+            (t.length && (t += '&'),
+            (t += encodeURIComponent(n) + '=' + encodeURIComponent(e[n])));
         return t;
       }),
         (t.decode = function (e) {
-          for (var t = {}, n = e.split("&"), r = 0, o = n.length; r < o; r++) {
-            var i = n[r].split("=");
+          for (var t = {}, n = e.split('&'), r = 0, o = n.length; r < o; r++) {
+            var i = n[r].split('=');
             t[decodeURIComponent(i[0])] = decodeURIComponent(i[1]);
           }
           return t;
         });
     },
-    "dy/U": function (e, t, n) {
+    'dy/U': function (e, t, n) {
       (function (r) {
         var o, i;
         void 0 ===
           (i =
-            "function" ===
+            'function' ===
             typeof (o = function () {
-              "use strict";
+              'use strict';
 
               function e(e, t) {
                 if (!(e instanceof t))
-                  throw new TypeError("Cannot call a class as a function");
+                  throw new TypeError('Cannot call a class as a function');
               }
 
               function t(e, t) {
@@ -3841,7 +3841,7 @@
                   var r = t[n];
                   (r.enumerable = r.enumerable || !1),
                     (r.configurable = !0),
-                    "value" in r && (r.writable = !0),
+                    'value' in r && (r.writable = !0),
                     Object.defineProperty(e, r.key, r);
                 }
               }
@@ -3851,9 +3851,9 @@
               }
 
               function o(e, t) {
-                if ("function" !== typeof t && null !== t)
+                if ('function' !== typeof t && null !== t)
                   throw new TypeError(
-                    "Super expression must either be null or a function"
+                    'Super expression must either be null or a function'
                   );
                 (e.prototype = Object.create(t && t.prototype, {
                   constructor: {
@@ -3882,10 +3882,10 @@
               }
 
               function s() {
-                if ("undefined" === typeof Reflect || !Reflect.construct)
+                if ('undefined' === typeof Reflect || !Reflect.construct)
                   return !1;
                 if (Reflect.construct.sham) return !1;
-                if ("function" === typeof Proxy) return !0;
+                if ('function' === typeof Proxy) return !0;
                 try {
                   return (
                     Date.prototype.toString.call(
@@ -3907,7 +3907,7 @@
               }
 
               function u(e, t) {
-                return !t || ("object" !== typeof t && "function" !== typeof t)
+                return !t || ('object' !== typeof t && 'function' !== typeof t)
                   ? c(e)
                   : t;
               }
@@ -3937,7 +3937,7 @@
 
               function h(e, t, n) {
                 return (h =
-                  "undefined" !== typeof Reflect && Reflect.get
+                  'undefined' !== typeof Reflect && Reflect.get
                     ? Reflect.get
                     : function (e, t, n) {
                         var r = A(e, t);
@@ -3950,7 +3950,7 @@
               var p = (function () {
                   function t() {
                     e(this, t),
-                      Object.defineProperty(this, "listeners", {
+                      Object.defineProperty(this, 'listeners', {
                         value: {},
                         writable: !0,
                         configurable: !0,
@@ -3959,7 +3959,7 @@
                   return (
                     n(t, [
                       {
-                        key: "addEventListener",
+                        key: 'addEventListener',
                         value: function (e, t, n) {
                           e in this.listeners || (this.listeners[e] = []),
                             this.listeners[e].push({
@@ -3969,7 +3969,7 @@
                         },
                       },
                       {
-                        key: "removeEventListener",
+                        key: 'removeEventListener',
                         value: function (e, t) {
                           if (e in this.listeners)
                             for (
@@ -3982,7 +3982,7 @@
                         },
                       },
                       {
-                        key: "dispatchEvent",
+                        key: 'dispatchEvent',
                         value: function (e) {
                           if (e.type in this.listeners) {
                             for (
@@ -4021,12 +4021,12 @@
                     return (
                       e(this, a),
                       (t = r.call(this)).listeners || p.call(c(t)),
-                      Object.defineProperty(c(t), "aborted", {
+                      Object.defineProperty(c(t), 'aborted', {
                         value: !1,
                         writable: !0,
                         configurable: !0,
                       }),
-                      Object.defineProperty(c(t), "onabort", {
+                      Object.defineProperty(c(t), 'onabort', {
                         value: null,
                         writable: !0,
                         configurable: !0,
@@ -4037,19 +4037,19 @@
                   return (
                     n(a, [
                       {
-                        key: "toString",
+                        key: 'toString',
                         value: function () {
-                          return "[object AbortSignal]";
+                          return '[object AbortSignal]';
                         },
                       },
                       {
-                        key: "dispatchEvent",
+                        key: 'dispatchEvent',
                         value: function (e) {
-                          "abort" === e.type &&
+                          'abort' === e.type &&
                             ((this.aborted = !0),
-                            "function" === typeof this.onabort &&
+                            'function' === typeof this.onabort &&
                               this.onabort.call(this, e)),
-                            h(i(a.prototype), "dispatchEvent", this).call(
+                            h(i(a.prototype), 'dispatchEvent', this).call(
                               this,
                               e
                             );
@@ -4062,7 +4062,7 @@
                 d = (function () {
                   function t() {
                     e(this, t),
-                      Object.defineProperty(this, "signal", {
+                      Object.defineProperty(this, 'signal', {
                         value: new f(),
                         writable: !0,
                         configurable: !0,
@@ -4071,23 +4071,23 @@
                   return (
                     n(t, [
                       {
-                        key: "abort",
+                        key: 'abort',
                         value: function () {
                           var e;
                           try {
-                            e = new Event("abort");
+                            e = new Event('abort');
                           } catch (t) {
-                            "undefined" !== typeof document
+                            'undefined' !== typeof document
                               ? document.createEvent
-                                ? (e = document.createEvent("Event")).initEvent(
-                                    "abort",
+                                ? (e = document.createEvent('Event')).initEvent(
+                                    'abort',
                                     !1,
                                     !1
                                   )
                                 : ((e = document.createEventObject()).type =
-                                    "abort")
+                                    'abort')
                               : (e = {
-                                  type: "abort",
+                                  type: 'abort',
                                   bubbles: !1,
                                   cancelable: !1,
                                 });
@@ -4096,9 +4096,9 @@
                         },
                       },
                       {
-                        key: "toString",
+                        key: 'toString',
                         value: function () {
-                          return "[object AbortController]";
+                          return '[object AbortController]';
                         },
                       },
                     ]),
@@ -4109,41 +4109,41 @@
               function b(e) {
                 return e.__FORCE_INSTALL_ABORTCONTROLLER_POLYFILL
                   ? (console.log(
-                      "__FORCE_INSTALL_ABORTCONTROLLER_POLYFILL=true is set, will force install polyfill"
+                      '__FORCE_INSTALL_ABORTCONTROLLER_POLYFILL=true is set, will force install polyfill'
                     ),
                     !0)
-                  : ("function" === typeof e.Request &&
-                      !e.Request.prototype.hasOwnProperty("signal")) ||
+                  : ('function' === typeof e.Request &&
+                      !e.Request.prototype.hasOwnProperty('signal')) ||
                       !e.AbortController;
               }
-              "undefined" !== typeof Symbol &&
+              'undefined' !== typeof Symbol &&
                 Symbol.toStringTag &&
-                ((d.prototype[Symbol.toStringTag] = "AbortController"),
-                (f.prototype[Symbol.toStringTag] = "AbortSignal")),
+                ((d.prototype[Symbol.toStringTag] = 'AbortController'),
+                (f.prototype[Symbol.toStringTag] = 'AbortSignal')),
                 (function (e) {
                   b(e) && ((e.AbortController = d), (e.AbortSignal = f));
-                })("undefined" !== typeof self ? self : r);
+                })('undefined' !== typeof self ? self : r);
             })
               ? o.call(t, n, t, e)
               : o) || (e.exports = i);
-      }.call(this, n("ntbh")));
+      }.call(this, n('ntbh')));
     },
     f3xt: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e) {
-        n.d(t, "a", function () {
+        n.d(t, 'a', function () {
           return y;
         });
-        var r = n("vJKn"),
+        var r = n('vJKn'),
           o = n.n(r),
-          i = n("cpVT"),
-          a = n("rg98"),
-          s = n("zgDP"),
-          c = n("nmgF"),
-          u = n("JxgA"),
-          l = n("TjQ3"),
-          A = n("tZOq"),
-          h = n("20a2"),
+          i = n('cpVT'),
+          a = n('rg98'),
+          s = n('zgDP'),
+          c = n('nmgF'),
+          u = n('JxgA'),
+          l = n('TjQ3'),
+          A = n('tZOq'),
+          h = n('20a2'),
           p = n.n(h);
 
         function f(e, t) {
@@ -4204,26 +4204,26 @@
                           e.next = 3;
                           break;
                         }
-                        throw new Error("Expected apollo client");
+                        throw new Error('Expected apollo client');
                       case 3:
                         return (
                           (f = function (e) {
                             Object(s.track)(s.events.GOVAL_CONNECTION_FAILED, {
-                              error: (e && e.message) || "unidentified failure",
+                              error: (e && e.message) || 'unidentified failure',
                               host: window.location.hostname,
                               replId: n,
-                              reason: "captcha",
-                              context: "services",
+                              reason: 'captcha',
+                              context: 'services',
                             });
                           }),
                           (g = Boolean(p.a.query.lite || p.a.query.embed)),
                           (v = {
-                            url: "/data/repls/".concat(
+                            url: '/data/repls/'.concat(
                               n,
-                              "/get_connection_metadata"
+                              '/get_connection_metadata'
                             ),
                             overrideClusterMetadata: i,
-                            clientVersion: "a1a798a",
+                            clientVersion: 'a1a798a',
                             hCaptchaSiteKey: u.a,
                             isEmbed: g,
                             flags: {},
@@ -4245,14 +4245,14 @@
                           e.next = 13;
                           break;
                         }
-                        return e.abrupt("return", Object(l.a)(v));
+                        return e.abrupt('return', Object(l.a)(v));
                       case 13:
                         return (e.prev = 13), (e.next = 16), Object(u.b)();
                       case 16:
                         return (
                           (E = e.sent),
                           e.abrupt(
-                            "return",
+                            'return',
                             Object(l.a)(
                               d(
                                 d({}, v),
@@ -4270,7 +4270,7 @@
                           (e.t0 = e.catch(13)),
                           f(e.t0),
                           e.abrupt(
-                            "return",
+                            'return',
                             y({
                               replId: n,
                               overrideClusterMetadata: i,
@@ -4280,7 +4280,7 @@
                           )
                         );
                       case 24:
-                      case "end":
+                      case 'end':
                         return e.stop();
                     }
                 },
@@ -4291,23 +4291,23 @@
             })
           )).apply(this, arguments);
         }
-      }.call(this, n("8oxB")));
+      }.call(this, n('8oxB')));
     },
     fA4Q: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return h;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return E;
         });
-      var r = n("vJKn"),
+      var r = n('vJKn'),
         o = n.n(r),
-        i = n("cpVT"),
-        a = n("rg98"),
-        s = n("dhJC"),
-        c = n("34QA"),
-        u = n("zgDP");
+        i = n('cpVT'),
+        a = n('rg98'),
+        s = n('dhJC'),
+        c = n('34QA'),
+        u = n('zgDP');
 
       function l(e) {
         return A.apply(this, arguments);
@@ -4326,11 +4326,11 @@
                       (r = t.args),
                       (i = t.env),
                       e.abrupt(
-                        "return",
+                        'return',
                         new Promise(function (e) {
                           var t = n.openChannel(
                             {
-                              service: "exec",
+                              service: 'exec',
                             },
                             function (n) {
                               var o = n.error,
@@ -4341,8 +4341,8 @@
                                   output: null,
                                 });
                               else {
-                                if (!a) throw new Error("Expected channel");
-                                var s = "";
+                                if (!a) throw new Error('Expected channel');
+                                var s = '';
                                 a.onCommand(function (e) {
                                   e.output && (s += e.output);
                                 }),
@@ -4356,10 +4356,10 @@
                                     .then(function (n) {
                                       n.channelClosed
                                         ? e({
-                                            error: "Channel closed",
+                                            error: 'Channel closed',
                                             output: s || null,
                                           })
-                                        : ("open" === a.status && t(),
+                                        : ('open' === a.status && t(),
                                           n.error
                                             ? e({
                                                 error: n.error,
@@ -4377,7 +4377,7 @@
                       )
                     );
                   case 2:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -4385,16 +4385,16 @@
         )).apply(this, arguments);
       }
       var h,
-        p = n("f3xt");
+        p = n('f3xt');
       !(function (e) {
-        (e.CONNECTING = "CONNECTING"),
-          (e.CONNECTED = "CONNECTED"),
-          (e.DISCONNECTED = "DISCONNECTED");
+        (e.CONNECTING = 'CONNECTING'),
+          (e.CONNECTED = 'CONNECTED'),
+          (e.DISCONNECTED = 'DISCONNECTED');
       })(h || (h = {}));
-      var f = n("Fz/E"),
-        d = n("P2Oe"),
-        b = n("zV7b"),
-        y = n("XE6U");
+      var f = n('Fz/E'),
+        d = n('P2Oe'),
+        b = n('zV7b'),
+        y = n('XE6U');
 
       function g(e) {
         return v.apply(this, arguments);
@@ -4411,11 +4411,11 @@
                     return (
                       (n = t.client),
                       e.abrupt(
-                        "return",
+                        'return',
                         new Promise(function (e) {
                           var t = n.openChannel(
                             {
-                              service: "dotreplit",
+                              service: 'dotreplit',
                             },
                             function (n) {
                               var r = n.error,
@@ -4426,18 +4426,18 @@
                                   dotReplit: null,
                                 });
                               else {
-                                if (!o) throw new Error("Expected channel");
+                                if (!o) throw new Error('Expected channel');
                                 o.request({
                                   dotReplitGetRequest: {},
                                 }).then(function (n) {
                                   var r;
                                   if (n.channelClosed)
                                     e({
-                                      error: "Channel closed",
+                                      error: 'Channel closed',
                                       dotReplit: null,
                                     });
                                   else if (
-                                    ("open" === o.status && t(), n.error)
+                                    ('open' === o.status && t(), n.error)
                                   )
                                     e({
                                       error: n.error,
@@ -4456,7 +4456,7 @@
                                             error: null,
                                           }
                                         : {
-                                            error: "dotReplit not available",
+                                            error: 'dotReplit not available',
                                             dotReplit: null,
                                           }
                                     );
@@ -4469,7 +4469,7 @@
                       )
                     );
                   case 2:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -4521,13 +4521,13 @@
           },
           v = new c.Client();
         v.setUnrecoverableErrorHandler(t);
-        var m = window.location.search.includes("debug=1");
+        var m = window.location.search.includes('debug=1');
         return (
           m &&
             v.addDebugFunc(function (e) {
-              "log" === e.type &&
+              'log' === e.type &&
                 console.log(
-                  "in" === e.log.direction ? "--\x3e" : "<--",
+                  'in' === e.log.direction ? '--\x3e' : '<--',
                   e.log.cmd
                 );
             }),
@@ -4554,10 +4554,10 @@
                 d = e.customConnectionMetadata,
                 g = e.fetchConnectionMetadataExtras,
                 E = Object(s.a)(e, [
-                  "context",
-                  "overrideClusterMetadata",
-                  "customConnectionMetadata",
-                  "fetchConnectionMetadataExtras",
+                  'context',
+                  'overrideClusterMetadata',
+                  'customConnectionMetadata',
+                  'fetchConnectionMetadataExtras',
                 ]);
               (r = l), i !== h.DISCONNECTED && v.close();
               var O = null,
@@ -4579,7 +4579,7 @@
                                     e.next = 4;
                                     break;
                                   }
-                                  return e.abrupt("return", {
+                                  return e.abrupt('return', {
                                     error:
                                       c.FetchConnectionMetadataError.Aborted,
                                   });
@@ -4591,7 +4591,7 @@
                                   return (
                                     (O = d.token),
                                     e.abrupt(
-                                      "return",
+                                      'return',
                                       C(
                                         C({}, d),
                                         {},
@@ -4651,7 +4651,7 @@
                                         : 25);
                                   break;
                                 case 24:
-                                  return e.abrupt("return", {
+                                  return e.abrupt('return', {
                                     error:
                                       c.FetchConnectionMetadataError.Retriable,
                                   });
@@ -4662,15 +4662,15 @@
                                     e.next = 28;
                                     break;
                                   }
-                                  return e.abrupt("return", {
+                                  return e.abrupt('return', {
                                     error:
                                       c.FetchConnectionMetadataError.Aborted,
                                   });
                                 case 28:
                                   return (
-                                    m && console.log("connecting", n),
+                                    m && console.log('connecting', n),
                                     e.abrupt(
-                                      "return",
+                                      'return',
                                       C(
                                         C({}, n),
                                         {},
@@ -4681,7 +4681,7 @@
                                     )
                                   );
                                 case 30:
-                                case "end":
+                                case 'end':
                                   return e.stop();
                               }
                           },
@@ -4701,17 +4701,17 @@
               v.open(S, function (e) {
                 var o = e.channel;
                 if (e.error) return A(h.DISCONNECTED), function () {};
-                if (!o) throw new Error("Expected channel");
+                if (!o) throw new Error('Expected channel');
                 m &&
-                  console.log("connected", {
+                  console.log('connected', {
                     replId: l.repl.id,
                   });
                 var i = o.onCommand(function (e) {
                   switch (e.body) {
-                    case "portOpen":
+                    case 'portOpen':
                       if (!e.portOpen)
                         throw new Error(
-                          "portOpen only handles portOpen commands"
+                          'portOpen only handles portOpen commands'
                         );
                       var r = e.portOpen.port || 0;
                       if (5901 === r) return;
@@ -4721,18 +4721,18 @@
                         forwarded: Boolean(e.portOpen.forwarded),
                       });
                       break;
-                    case "protocolError":
+                    case 'protocolError':
                       var o, i;
                       t(
-                        new y.a("goval panic").setExtra(
-                          "message",
+                        new y.a('goval panic').setExtra(
+                          'message',
                           null !==
                             (o =
                               null === (i = e.protocolError) || void 0 === i
                                 ? void 0
                                 : i.text) && void 0 !== o
                             ? o
-                            : "protocol error"
+                            : 'protocol error'
                         )
                       );
                   }
@@ -4784,10 +4784,10 @@
                       ? void 0
                       : h.onCommand(function (e) {
                           var n, r;
-                          "protocolError" === e.body &&
+                          'protocolError' === e.body &&
                             t(
-                              new y.a("goval panic").setExtra(
-                                "message",
+                              new y.a('goval panic').setExtra(
+                                'message',
                                 null !==
                                   (n =
                                     null === (r = e.protocolError) ||
@@ -4795,7 +4795,7 @@
                                       ? void 0
                                       : r.text) && void 0 !== n
                                   ? n
-                                  : "protocol error"
+                                  : 'protocol error'
                               )
                             );
                         }),
@@ -4826,14 +4826,14 @@
                           )
                             n[r] = i[r];
                           return e.abrupt(
-                            "return",
+                            'return',
                             l({
                               client: v,
                               args: n,
                             })
                           );
                         case 2:
-                        case "end":
+                        case 'end':
                           return e.stop();
                       }
                   }, e);
@@ -4863,7 +4863,7 @@
                           )
                             r[i - 1] = a[i];
                           return e.abrupt(
-                            "return",
+                            'return',
                             l({
                               client: v,
                               args: r,
@@ -4871,7 +4871,7 @@
                             })
                           );
                         case 2:
-                        case "end":
+                        case 'end':
                           return e.stop();
                       }
                   }, e);
@@ -4889,13 +4889,13 @@
                       switch ((e.prev = e.next)) {
                         case 0:
                           return e.abrupt(
-                            "return",
+                            'return',
                             g({
                               client: v,
                             })
                           );
                         case 1:
-                        case "end":
+                        case 'end':
                           return e.stop();
                       }
                   }, e);
@@ -4924,7 +4924,7 @@
               var e = v.getConnectionMetadata();
               if (!e || i !== h.CONNECTED)
                 throw new Error(
-                  "Cannot get vnc url when container is not connected"
+                  'Cannot get vnc url when container is not connected'
                 );
               return Object(d.c)(e.token);
             },
@@ -4937,63 +4937,63 @@
         );
       }
       !(function (e) {
-        (e.CONNECTION_STATE_CHANGE = "CONNECTION_STATE_CHANGE"),
-          (e.PORT_OPEN = "PORT_OPEN");
+        (e.CONNECTION_STATE_CHANGE = 'CONNECTION_STATE_CHANGE'),
+          (e.PORT_OPEN = 'PORT_OPEN');
       })(w || (w = {}));
     },
     lIbH: function (e, t, n) {
-      var r = n("FmCS"),
-        o = n("Hc0W"),
-        i = n("q2OE")("engine.io-client:socket"),
-        a = n("7jRU"),
-        s = n("NlaV"),
-        c = n("Omg+"),
-        u = n("ZAXB");
+      var r = n('FmCS'),
+        o = n('Hc0W'),
+        i = n('q2OE')('engine.io-client:socket'),
+        a = n('7jRU'),
+        s = n('NlaV'),
+        c = n('Omg+'),
+        u = n('ZAXB');
 
       function l(e, t) {
         if (!(this instanceof l)) return new l(e, t);
         (t = t || {}),
-          e && "object" === typeof e && ((t = e), (e = null)),
+          e && 'object' === typeof e && ((t = e), (e = null)),
           e
             ? ((e = c(e)),
               (t.hostname = e.host),
-              (t.secure = "https" === e.protocol || "wss" === e.protocol),
+              (t.secure = 'https' === e.protocol || 'wss' === e.protocol),
               (t.port = e.port),
               e.query && (t.query = e.query))
             : t.host && (t.hostname = c(t.host).host),
           (this.secure =
             null != t.secure
               ? t.secure
-              : "undefined" !== typeof location &&
-                "https:" === location.protocol),
-          t.hostname && !t.port && (t.port = this.secure ? "443" : "80"),
+              : 'undefined' !== typeof location &&
+                'https:' === location.protocol),
+          t.hostname && !t.port && (t.port = this.secure ? '443' : '80'),
           (this.agent = t.agent || !1),
           (this.hostname =
             t.hostname ||
-            ("undefined" !== typeof location
+            ('undefined' !== typeof location
               ? location.hostname
-              : "localhost")),
+              : 'localhost')),
           (this.port =
             t.port ||
-            ("undefined" !== typeof location && location.port
+            ('undefined' !== typeof location && location.port
               ? location.port
               : this.secure
               ? 443
               : 80)),
           (this.query = t.query || {}),
-          "string" === typeof this.query && (this.query = u.decode(this.query)),
+          'string' === typeof this.query && (this.query = u.decode(this.query)),
           (this.upgrade = !1 !== t.upgrade),
-          (this.path = (t.path || "/engine.io").replace(/\/$/, "") + "/"),
+          (this.path = (t.path || '/engine.io').replace(/\/$/, '') + '/'),
           (this.forceJSONP = !!t.forceJSONP),
           (this.jsonp = !1 !== t.jsonp),
           (this.forceBase64 = !!t.forceBase64),
           (this.enablesXDR = !!t.enablesXDR),
           (this.withCredentials = !1 !== t.withCredentials),
-          (this.timestampParam = t.timestampParam || "t"),
+          (this.timestampParam = t.timestampParam || 't'),
           (this.timestampRequests = t.timestampRequests),
-          (this.transports = t.transports || ["polling", "websocket"]),
+          (this.transports = t.transports || ['polling', 'websocket']),
           (this.transportOptions = t.transportOptions || {}),
-          (this.readyState = ""),
+          (this.readyState = ''),
           (this.writeBuffer = []),
           (this.prevBufferLen = 0),
           (this.policyPort = t.policyPort || 843),
@@ -5016,10 +5016,10 @@
             void 0 === t.rejectUnauthorized || t.rejectUnauthorized),
           (this.forceNode = !!t.forceNode),
           (this.isReactNative =
-            "undefined" !== typeof navigator &&
-            "string" === typeof navigator.product &&
-            "reactnative" === navigator.product.toLowerCase()),
-          ("undefined" === typeof self || this.isReactNative) &&
+            'undefined' !== typeof navigator &&
+            'string' === typeof navigator.product &&
+            'reactnative' === navigator.product.toLowerCase()),
+          ('undefined' === typeof self || this.isReactNative) &&
             (t.extraHeaders &&
               Object.keys(t.extraHeaders).length > 0 &&
               (this.extraHeaders = t.extraHeaders),
@@ -5037,9 +5037,9 @@
         o(l.prototype),
         (l.protocol = s.protocol),
         (l.Socket = l),
-        (l.Transport = n("1swB")),
-        (l.transports = n("FmCS")),
-        (l.parser = n("NlaV")),
+        (l.Transport = n('1swB')),
+        (l.transports = n('FmCS')),
+        (l.parser = n('NlaV')),
         (l.prototype.createTransport = function (e) {
           i('creating transport "%s"', e);
           var t = (function (e) {
@@ -5090,19 +5090,19 @@
           if (
             this.rememberUpgrade &&
             l.priorWebsocketSuccess &&
-            -1 !== this.transports.indexOf("websocket")
+            -1 !== this.transports.indexOf('websocket')
           )
-            e = "websocket";
+            e = 'websocket';
           else {
             if (0 === this.transports.length) {
               var t = this;
               return void setTimeout(function () {
-                t.emit("error", "No transports available");
+                t.emit('error', 'No transports available');
               }, 0);
             }
             e = this.transports[0];
           }
-          this.readyState = "opening";
+          this.readyState = 'opening';
           try {
             e = this.createTransport(e);
           } catch (n) {
@@ -5111,24 +5111,24 @@
           e.open(), this.setTransport(e);
         }),
         (l.prototype.setTransport = function (e) {
-          i("setting transport %s", e.name);
+          i('setting transport %s', e.name);
           var t = this;
           this.transport &&
-            (i("clearing existing transport %s", this.transport.name),
+            (i('clearing existing transport %s', this.transport.name),
             this.transport.removeAllListeners()),
             (this.transport = e),
             e
-              .on("drain", function () {
+              .on('drain', function () {
                 t.onDrain();
               })
-              .on("packet", function (e) {
+              .on('packet', function (e) {
                 t.onPacket(e);
               })
-              .on("error", function (e) {
+              .on('error', function (e) {
                 t.onError(e);
               })
-              .on("close", function () {
-                t.onClose("transport close");
+              .on('close', function () {
+                t.onClose('transport close');
               });
         }),
         (l.prototype.probe = function (e) {
@@ -5148,42 +5148,42 @@
               (i('probe transport "%s" opened', e),
               t.send([
                 {
-                  type: "ping",
-                  data: "probe",
+                  type: 'ping',
+                  data: 'probe',
                 },
               ]),
-              t.once("packet", function (o) {
+              t.once('packet', function (o) {
                 if (!n)
-                  if ("pong" === o.type && "probe" === o.data) {
+                  if ('pong' === o.type && 'probe' === o.data) {
                     if (
                       (i('probe transport "%s" pong', e),
                       (r.upgrading = !0),
-                      r.emit("upgrading", t),
+                      r.emit('upgrading', t),
                       !t)
                     )
                       return;
-                    (l.priorWebsocketSuccess = "websocket" === t.name),
+                    (l.priorWebsocketSuccess = 'websocket' === t.name),
                       i('pausing current transport "%s"', r.transport.name),
                       r.transport.pause(function () {
                         n ||
-                          ("closed" !== r.readyState &&
-                            (i("changing transport and sending upgrade packet"),
+                          ('closed' !== r.readyState &&
+                            (i('changing transport and sending upgrade packet'),
                             h(),
                             r.setTransport(t),
                             t.send([
                               {
-                                type: "upgrade",
+                                type: 'upgrade',
                               },
                             ]),
-                            r.emit("upgrade", t),
+                            r.emit('upgrade', t),
                             (t = null),
                             (r.upgrading = !1),
                             r.flush()));
                       });
                   } else {
                     i('probe transport "%s" failed', e);
-                    var a = new Error("probe error");
-                    (a.transport = t.name), r.emit("upgradeError", a);
+                    var a = new Error('probe error');
+                    (a.transport = t.name), r.emit('upgradeError', a);
                   }
               }));
           }
@@ -5193,19 +5193,19 @@
           }
 
           function s(n) {
-            var o = new Error("probe error: " + n);
+            var o = new Error('probe error: ' + n);
             (o.transport = t.name),
               a(),
               i('probe transport "%s" failed because of error: %s', e, n),
-              r.emit("upgradeError", o);
+              r.emit('upgradeError', o);
           }
 
           function c() {
-            s("transport closed");
+            s('transport closed');
           }
 
           function u() {
-            s("socket closed");
+            s('socket closed');
           }
 
           function A(e) {
@@ -5215,80 +5215,80 @@
           }
 
           function h() {
-            t.removeListener("open", o),
-              t.removeListener("error", s),
-              t.removeListener("close", c),
-              r.removeListener("close", u),
-              r.removeListener("upgrading", A);
+            t.removeListener('open', o),
+              t.removeListener('error', s),
+              t.removeListener('close', c),
+              r.removeListener('close', u),
+              r.removeListener('upgrading', A);
           }
           (l.priorWebsocketSuccess = !1),
-            t.once("open", o),
-            t.once("error", s),
-            t.once("close", c),
-            this.once("close", u),
-            this.once("upgrading", A),
+            t.once('open', o),
+            t.once('error', s),
+            t.once('close', c),
+            this.once('close', u),
+            this.once('upgrading', A),
             t.open();
         }),
         (l.prototype.onOpen = function () {
           if (
-            (i("socket open"),
-            (this.readyState = "open"),
-            (l.priorWebsocketSuccess = "websocket" === this.transport.name),
-            this.emit("open"),
+            (i('socket open'),
+            (this.readyState = 'open'),
+            (l.priorWebsocketSuccess = 'websocket' === this.transport.name),
+            this.emit('open'),
             this.flush(),
-            "open" === this.readyState && this.upgrade && this.transport.pause)
+            'open' === this.readyState && this.upgrade && this.transport.pause)
           ) {
-            i("starting upgrade probes");
+            i('starting upgrade probes');
             for (var e = 0, t = this.upgrades.length; e < t; e++)
               this.probe(this.upgrades[e]);
           }
         }),
         (l.prototype.onPacket = function (e) {
           if (
-            "opening" === this.readyState ||
-            "open" === this.readyState ||
-            "closing" === this.readyState
+            'opening' === this.readyState ||
+            'open' === this.readyState ||
+            'closing' === this.readyState
           )
             switch (
               (i('socket receive: type "%s", data "%s"', e.type, e.data),
-              this.emit("packet", e),
-              this.emit("heartbeat"),
+              this.emit('packet', e),
+              this.emit('heartbeat'),
               e.type)
             ) {
-              case "open":
+              case 'open':
                 this.onHandshake(JSON.parse(e.data));
                 break;
-              case "pong":
-                this.setPing(), this.emit("pong");
+              case 'pong':
+                this.setPing(), this.emit('pong');
                 break;
-              case "error":
-                var t = new Error("server error");
+              case 'error':
+                var t = new Error('server error');
                 (t.code = e.data), this.onError(t);
                 break;
-              case "message":
-                this.emit("data", e.data), this.emit("message", e.data);
+              case 'message':
+                this.emit('data', e.data), this.emit('message', e.data);
             }
           else
             i('packet received with socket readyState "%s"', this.readyState);
         }),
         (l.prototype.onHandshake = function (e) {
-          this.emit("handshake", e),
+          this.emit('handshake', e),
             (this.id = e.sid),
             (this.transport.query.sid = e.sid),
             (this.upgrades = this.filterUpgrades(e.upgrades)),
             (this.pingInterval = e.pingInterval),
             (this.pingTimeout = e.pingTimeout),
             this.onOpen(),
-            "closed" !== this.readyState &&
+            'closed' !== this.readyState &&
               (this.setPing(),
-              this.removeListener("heartbeat", this.onHeartbeat),
-              this.on("heartbeat", this.onHeartbeat));
+              this.removeListener('heartbeat', this.onHeartbeat),
+              this.on('heartbeat', this.onHeartbeat));
         }),
         (l.prototype.onHeartbeat = function (e) {
           clearTimeout(this.pingTimeoutTimer);
           var t = this;
           t.pingTimeoutTimer = setTimeout(function () {
-            "closed" !== t.readyState && t.onClose("ping timeout");
+            'closed' !== t.readyState && t.onClose('ping timeout');
           }, e || t.pingInterval + t.pingTimeout);
         }),
         (l.prototype.setPing = function () {
@@ -5296,7 +5296,7 @@
           clearTimeout(e.pingIntervalTimer),
             (e.pingIntervalTimer = setTimeout(function () {
               i(
-                "writing ping packet - expecting pong within %sms",
+                'writing ping packet - expecting pong within %sms',
                 e.pingTimeout
               ),
                 e.ping(),
@@ -5305,34 +5305,34 @@
         }),
         (l.prototype.ping = function () {
           var e = this;
-          this.sendPacket("ping", function () {
-            e.emit("ping");
+          this.sendPacket('ping', function () {
+            e.emit('ping');
           });
         }),
         (l.prototype.onDrain = function () {
           this.writeBuffer.splice(0, this.prevBufferLen),
             (this.prevBufferLen = 0),
-            0 === this.writeBuffer.length ? this.emit("drain") : this.flush();
+            0 === this.writeBuffer.length ? this.emit('drain') : this.flush();
         }),
         (l.prototype.flush = function () {
-          "closed" !== this.readyState &&
+          'closed' !== this.readyState &&
             this.transport.writable &&
             !this.upgrading &&
             this.writeBuffer.length &&
-            (i("flushing %d packets in socket", this.writeBuffer.length),
+            (i('flushing %d packets in socket', this.writeBuffer.length),
             this.transport.send(this.writeBuffer),
             (this.prevBufferLen = this.writeBuffer.length),
-            this.emit("flush"));
+            this.emit('flush'));
         }),
         (l.prototype.write = l.prototype.send =
           function (e, t, n) {
-            return this.sendPacket("message", e, t, n), this;
+            return this.sendPacket('message', e, t, n), this;
           }),
         (l.prototype.sendPacket = function (e, t, n, r) {
           if (
-            ("function" === typeof t && ((r = t), (t = void 0)),
-            "function" === typeof n && ((r = n), (n = null)),
-            "closing" !== this.readyState && "closed" !== this.readyState)
+            ('function' === typeof t && ((r = t), (t = void 0)),
+            'function' === typeof n && ((r = n), (n = null)),
+            'closing' !== this.readyState && 'closed' !== this.readyState)
           ) {
             (n = n || {}).compress = !1 !== n.compress;
             var o = {
@@ -5340,18 +5340,18 @@
               data: t,
               options: n,
             };
-            this.emit("packetCreate", o),
+            this.emit('packetCreate', o),
               this.writeBuffer.push(o),
-              r && this.once("flush", r),
+              r && this.once('flush', r),
               this.flush();
           }
         }),
         (l.prototype.close = function () {
-          if ("opening" === this.readyState || "open" === this.readyState) {
-            this.readyState = "closing";
+          if ('opening' === this.readyState || 'open' === this.readyState) {
+            this.readyState = 'closing';
             var e = this;
             this.writeBuffer.length
-              ? this.once("drain", function () {
+              ? this.once('drain', function () {
                   this.upgrading ? r() : t();
                 })
               : this.upgrading
@@ -5360,43 +5360,43 @@
           }
 
           function t() {
-            e.onClose("forced close"),
-              i("socket closing - telling transport to close"),
+            e.onClose('forced close'),
+              i('socket closing - telling transport to close'),
               e.transport.close();
           }
 
           function n() {
-            e.removeListener("upgrade", n),
-              e.removeListener("upgradeError", n),
+            e.removeListener('upgrade', n),
+              e.removeListener('upgradeError', n),
               t();
           }
 
           function r() {
-            e.once("upgrade", n), e.once("upgradeError", n);
+            e.once('upgrade', n), e.once('upgradeError', n);
           }
           return this;
         }),
         (l.prototype.onError = function (e) {
-          i("socket error %j", e),
+          i('socket error %j', e),
             (l.priorWebsocketSuccess = !1),
-            this.emit("error", e),
-            this.onClose("transport error", e);
+            this.emit('error', e),
+            this.onClose('transport error', e);
         }),
         (l.prototype.onClose = function (e, t) {
           if (
-            "opening" === this.readyState ||
-            "open" === this.readyState ||
-            "closing" === this.readyState
+            'opening' === this.readyState ||
+            'open' === this.readyState ||
+            'closing' === this.readyState
           ) {
             i('socket close with reason: "%s"', e);
             clearTimeout(this.pingIntervalTimer),
               clearTimeout(this.pingTimeoutTimer),
-              this.transport.removeAllListeners("close"),
+              this.transport.removeAllListeners('close'),
               this.transport.close(),
               this.transport.removeAllListeners(),
-              (this.readyState = "closed"),
+              (this.readyState = 'closed'),
               (this.id = null),
-              this.emit("close", e, t),
+              this.emit('close', e, t),
               (this.writeBuffer = []),
               (this.prevBufferLen = 0);
           }
@@ -5415,12 +5415,12 @@
             e = t.storage.debug;
           } catch (n) {}
           return (
-            !e && "undefined" !== typeof r && "env" in r && (e = r.env.DEBUG), e
+            !e && 'undefined' !== typeof r && 'env' in r && (e = r.env.DEBUG), e
           );
         }
-        ((t = e.exports = n("ONZI")).log = function () {
+        ((t = e.exports = n('ONZI')).log = function () {
           return (
-            "object" === typeof console &&
+            'object' === typeof console &&
             console.log &&
             Function.prototype.apply.call(console.log, console, arguments)
           );
@@ -5429,64 +5429,64 @@
             var n = this.useColors;
             if (
               ((e[0] =
-                (n ? "%c" : "") +
+                (n ? '%c' : '') +
                 this.namespace +
-                (n ? " %c" : " ") +
+                (n ? ' %c' : ' ') +
                 e[0] +
-                (n ? "%c " : " ") +
-                "+" +
+                (n ? '%c ' : ' ') +
+                '+' +
                 t.humanize(this.diff)),
               !n)
             )
               return;
-            var r = "color: " + this.color;
-            e.splice(1, 0, r, "color: inherit");
+            var r = 'color: ' + this.color;
+            e.splice(1, 0, r, 'color: inherit');
             var o = 0,
               i = 0;
             e[0].replace(/%[a-zA-Z%]/g, function (e) {
-              "%%" !== e && (o++, "%c" === e && (i = o));
+              '%%' !== e && (o++, '%c' === e && (i = o));
             }),
               e.splice(i, 0, r);
           }),
           (t.save = function (e) {
             try {
-              null == e ? t.storage.removeItem("debug") : (t.storage.debug = e);
+              null == e ? t.storage.removeItem('debug') : (t.storage.debug = e);
             } catch (n) {}
           }),
           (t.load = o),
           (t.useColors = function () {
             if (
-              "undefined" !== typeof window &&
+              'undefined' !== typeof window &&
               window.process &&
-              "renderer" === window.process.type
+              'renderer' === window.process.type
             )
               return !0;
             if (
-              "undefined" !== typeof navigator &&
+              'undefined' !== typeof navigator &&
               navigator.userAgent &&
               navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)
             )
               return !1;
             return (
-              ("undefined" !== typeof document &&
+              ('undefined' !== typeof document &&
                 document.documentElement &&
                 document.documentElement.style &&
                 document.documentElement.style.WebkitAppearance) ||
-              ("undefined" !== typeof window &&
+              ('undefined' !== typeof window &&
                 window.console &&
                 (window.console.firebug ||
                   (window.console.exception && window.console.table))) ||
-              ("undefined" !== typeof navigator &&
+              ('undefined' !== typeof navigator &&
                 navigator.userAgent &&
                 navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &&
                 parseInt(RegExp.$1, 10) >= 31) ||
-              ("undefined" !== typeof navigator &&
+              ('undefined' !== typeof navigator &&
                 navigator.userAgent &&
                 navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/))
             );
           }),
           (t.storage =
-            "undefined" != typeof chrome && "undefined" != typeof chrome.storage
+            'undefined' != typeof chrome && 'undefined' != typeof chrome.storage
               ? chrome.storage.local
               : (function () {
                   try {
@@ -5494,101 +5494,101 @@
                   } catch (e) {}
                 })()),
           (t.colors = [
-            "#0000CC",
-            "#0000FF",
-            "#0033CC",
-            "#0033FF",
-            "#0066CC",
-            "#0066FF",
-            "#0099CC",
-            "#0099FF",
-            "#00CC00",
-            "#00CC33",
-            "#00CC66",
-            "#00CC99",
-            "#00CCCC",
-            "#00CCFF",
-            "#3300CC",
-            "#3300FF",
-            "#3333CC",
-            "#3333FF",
-            "#3366CC",
-            "#3366FF",
-            "#3399CC",
-            "#3399FF",
-            "#33CC00",
-            "#33CC33",
-            "#33CC66",
-            "#33CC99",
-            "#33CCCC",
-            "#33CCFF",
-            "#6600CC",
-            "#6600FF",
-            "#6633CC",
-            "#6633FF",
-            "#66CC00",
-            "#66CC33",
-            "#9900CC",
-            "#9900FF",
-            "#9933CC",
-            "#9933FF",
-            "#99CC00",
-            "#99CC33",
-            "#CC0000",
-            "#CC0033",
-            "#CC0066",
-            "#CC0099",
-            "#CC00CC",
-            "#CC00FF",
-            "#CC3300",
-            "#CC3333",
-            "#CC3366",
-            "#CC3399",
-            "#CC33CC",
-            "#CC33FF",
-            "#CC6600",
-            "#CC6633",
-            "#CC9900",
-            "#CC9933",
-            "#CCCC00",
-            "#CCCC33",
-            "#FF0000",
-            "#FF0033",
-            "#FF0066",
-            "#FF0099",
-            "#FF00CC",
-            "#FF00FF",
-            "#FF3300",
-            "#FF3333",
-            "#FF3366",
-            "#FF3399",
-            "#FF33CC",
-            "#FF33FF",
-            "#FF6600",
-            "#FF6633",
-            "#FF9900",
-            "#FF9933",
-            "#FFCC00",
-            "#FFCC33",
+            '#0000CC',
+            '#0000FF',
+            '#0033CC',
+            '#0033FF',
+            '#0066CC',
+            '#0066FF',
+            '#0099CC',
+            '#0099FF',
+            '#00CC00',
+            '#00CC33',
+            '#00CC66',
+            '#00CC99',
+            '#00CCCC',
+            '#00CCFF',
+            '#3300CC',
+            '#3300FF',
+            '#3333CC',
+            '#3333FF',
+            '#3366CC',
+            '#3366FF',
+            '#3399CC',
+            '#3399FF',
+            '#33CC00',
+            '#33CC33',
+            '#33CC66',
+            '#33CC99',
+            '#33CCCC',
+            '#33CCFF',
+            '#6600CC',
+            '#6600FF',
+            '#6633CC',
+            '#6633FF',
+            '#66CC00',
+            '#66CC33',
+            '#9900CC',
+            '#9900FF',
+            '#9933CC',
+            '#9933FF',
+            '#99CC00',
+            '#99CC33',
+            '#CC0000',
+            '#CC0033',
+            '#CC0066',
+            '#CC0099',
+            '#CC00CC',
+            '#CC00FF',
+            '#CC3300',
+            '#CC3333',
+            '#CC3366',
+            '#CC3399',
+            '#CC33CC',
+            '#CC33FF',
+            '#CC6600',
+            '#CC6633',
+            '#CC9900',
+            '#CC9933',
+            '#CCCC00',
+            '#CCCC33',
+            '#FF0000',
+            '#FF0033',
+            '#FF0066',
+            '#FF0099',
+            '#FF00CC',
+            '#FF00FF',
+            '#FF3300',
+            '#FF3333',
+            '#FF3366',
+            '#FF3399',
+            '#FF33CC',
+            '#FF33FF',
+            '#FF6600',
+            '#FF6633',
+            '#FF9900',
+            '#FF9933',
+            '#FFCC00',
+            '#FFCC33',
           ]),
           (t.formatters.j = function (e) {
             try {
               return JSON.stringify(e);
             } catch (t) {
-              return "[UnexpectedJSONParseError]: " + t.message;
+              return '[UnexpectedJSONParseError]: ' + t.message;
             }
           }),
           t.enable(o());
-      }.call(this, n("8oxB")));
+      }.call(this, n('8oxB')));
     },
     tGih: function (e, t) {
       !(function (e) {
-        "use strict";
+        'use strict';
         (t.encode = function (t) {
           var n,
             r = new Uint8Array(t),
             o = r.length,
-            i = "";
+            i = '';
           for (n = 0; n < o; n += 3)
             (i += e[r[n] >> 2]),
               (i += e[((3 & r[n]) << 4) | (r[n + 1] >> 4)]),
@@ -5596,8 +5596,8 @@
               (i += e[63 & r[n + 2]]);
           return (
             o % 3 === 2
-              ? (i = i.substring(0, i.length - 1) + "=")
-              : o % 3 === 1 && (i = i.substring(0, i.length - 2) + "=="),
+              ? (i = i.substring(0, i.length - 1) + '=')
+              : o % 3 === 1 && (i = i.substring(0, i.length - 2) + '=='),
             i
           );
         }),
@@ -5610,7 +5610,7 @@
               s = 0.75 * t.length,
               c = t.length,
               u = 0;
-            "=" === t[t.length - 1] && (s--, "=" === t[t.length - 2] && s--);
+            '=' === t[t.length - 1] && (s--, '=' === t[t.length - 2] && s--);
             var l = new ArrayBuffer(s),
               A = new Uint8Array(l);
             for (n = 0; n < c; n += 4)
@@ -5623,12 +5623,12 @@
                 (A[u++] = ((3 & i) << 6) | (63 & a));
             return l;
           });
-      })("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
+      })('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/');
     },
     vvmD: function (e, t, n) {
-      var r = n("1INF"),
-        o = n("Yvos"),
-        i = n("3WoK");
+      var r = n('1INF'),
+        o = n('Yvos'),
+        i = n('3WoK');
       e.exports = l;
       var a,
         s = /\n/g,
@@ -5646,9 +5646,9 @@
           t.onData(e);
         }),
           (this.query.j = this.index),
-          "function" === typeof addEventListener &&
+          'function' === typeof addEventListener &&
             addEventListener(
-              "beforeunload",
+              'beforeunload',
               function () {
                 t.script && (t.script.onerror = u);
               },
@@ -5669,24 +5669,24 @@
         }),
         (l.prototype.doPoll = function () {
           var e = this,
-            t = document.createElement("script");
+            t = document.createElement('script');
           this.script &&
             (this.script.parentNode.removeChild(this.script),
             (this.script = null)),
             (t.async = !0),
             (t.src = this.uri()),
             (t.onerror = function (t) {
-              e.onError("jsonp poll error", t);
+              e.onError('jsonp poll error', t);
             });
-          var n = document.getElementsByTagName("script")[0];
+          var n = document.getElementsByTagName('script')[0];
           n
             ? n.parentNode.insertBefore(t, n)
             : (document.head || document.body).appendChild(t),
             (this.script = t),
-            "undefined" !== typeof navigator &&
+            'undefined' !== typeof navigator &&
               /gecko/i.test(navigator.userAgent) &&
               setTimeout(function () {
-                var e = document.createElement("iframe");
+                var e = document.createElement('iframe');
                 document.body.appendChild(e), document.body.removeChild(e);
               }, 100);
         }),
@@ -5694,17 +5694,17 @@
           var n = this;
           if (!this.form) {
             var r,
-              o = document.createElement("form"),
-              i = document.createElement("textarea"),
-              a = (this.iframeId = "eio_iframe_" + this.index);
-            (o.className = "socketio"),
-              (o.style.position = "absolute"),
-              (o.style.top = "-1000px"),
-              (o.style.left = "-1000px"),
+              o = document.createElement('form'),
+              i = document.createElement('textarea'),
+              a = (this.iframeId = 'eio_iframe_' + this.index);
+            (o.className = 'socketio'),
+              (o.style.position = 'absolute'),
+              (o.style.top = '-1000px'),
+              (o.style.left = '-1000px'),
               (o.target = a),
-              (o.method = "POST"),
-              o.setAttribute("accept-charset", "utf-8"),
-              (i.name = "d"),
+              (o.method = 'POST'),
+              o.setAttribute('accept-charset', 'utf-8'),
+              (i.name = 'd'),
               o.appendChild(i),
               document.body.appendChild(o),
               (this.form = o),
@@ -5720,39 +5720,39 @@
               try {
                 n.form.removeChild(n.iframe);
               } catch (t) {
-                n.onError("jsonp polling iframe removal error", t);
+                n.onError('jsonp polling iframe removal error', t);
               }
             try {
               var e = '<iframe src="javascript:0" name="' + n.iframeId + '">';
               r = document.createElement(e);
             } catch (t) {
-              ((r = document.createElement("iframe")).name = n.iframeId),
-                (r.src = "javascript:0");
+              ((r = document.createElement('iframe')).name = n.iframeId),
+                (r.src = 'javascript:0');
             }
             (r.id = n.iframeId), n.form.appendChild(r), (n.iframe = r);
           }
           (this.form.action = this.uri()),
             l(),
-            (e = e.replace(c, "\\\n")),
-            (this.area.value = e.replace(s, "\\n"));
+            (e = e.replace(c, '\\\n')),
+            (this.area.value = e.replace(s, '\\n'));
           try {
             this.form.submit();
           } catch (A) {}
           this.iframe.attachEvent
             ? (this.iframe.onreadystatechange = function () {
-                "complete" === n.iframe.readyState && u();
+                'complete' === n.iframe.readyState && u();
               })
             : (this.iframe.onload = u);
         });
     },
     zV7b: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return a;
       });
-      var r = n("vJKn"),
+      var r = n('vJKn'),
         o = n.n(r),
-        i = n("rg98");
+        i = n('rg98');
 
       function a() {
         return s.apply(this, arguments);
@@ -5765,27 +5765,27 @@
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
-                    if ("undefined" !== typeof document) {
+                    if ('undefined' !== typeof document) {
                       e.next = 2;
                       break;
                     }
-                    return e.abrupt("return");
+                    return e.abrupt('return');
                   case 2:
                     if (document.hidden) {
                       e.next = 4;
                       break;
                     }
-                    return e.abrupt("return");
+                    return e.abrupt('return');
                   case 4:
                     return e.abrupt(
-                      "return",
+                      'return',
                       new Promise(function (e) {
                         document.addEventListener(
-                          "visibilitychange",
+                          'visibilitychange',
                           function t() {
                             document.hidden ||
                               (document.removeEventListener(
-                                "visibilitychange",
+                                'visibilitychange',
                                 t
                               ),
                               e());
@@ -5794,7 +5794,7 @@
                       })
                     );
                   case 5:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,37 +8,37 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const path_1 = require("../utils/path");
-const configuration_1 = __importDefault(require("./configuration"));
-const is_server_1 = require("./helpers/is-server");
+const path_1 = require('../utils/path');
+const configuration_1 = __importDefault(require('./configuration'));
+const is_server_1 = require('./helpers/is-server');
 const defaultConfigurations = {
-  "/package.json": configuration_1.default.packageJSON,
-  "/.prettierrc": configuration_1.default.prettierRC,
-  "/sandbox.config.json": configuration_1.default.sandboxConfig,
-  "/vercel.json": configuration_1.default.nowConfig,
-  "/netlify.toml": configuration_1.default.netlifyConfig,
+  '/package.json': configuration_1.default.packageJSON,
+  '/.prettierrc': configuration_1.default.prettierRC,
+  '/sandbox.config.json': configuration_1.default.sandboxConfig,
+  '/vercel.json': configuration_1.default.nowConfig,
+  '/netlify.toml': configuration_1.default.netlifyConfig,
 };
 const CLIENT_VIEWS = [
   {
     views: [
       {
-        id: "codesandbox.browser",
+        id: 'codesandbox.browser',
       },
       {
-        id: "codesandbox.tests",
+        id: 'codesandbox.tests',
       },
     ],
   },
   {
     views: [
       {
-        id: "codesandbox.console",
+        id: 'codesandbox.console',
       },
       {
-        id: "codesandbox.problems",
+        id: 'codesandbox.problems',
       },
     ],
   },
@@ -47,7 +47,7 @@ const SERVER_VIEWS = [
   {
     views: [
       {
-        id: "codesandbox.browser",
+        id: 'codesandbox.browser',
       },
     ],
   },
@@ -55,13 +55,13 @@ const SERVER_VIEWS = [
     open: true,
     views: [
       {
-        id: "codesandbox.terminal",
+        id: 'codesandbox.terminal',
       },
       {
-        id: "codesandbox.console",
+        id: 'codesandbox.console',
       },
       {
-        id: "codesandbox.problems",
+        id: 'codesandbox.problems',
       },
     ],
   },
@@ -73,28 +73,28 @@ class Template {
      */
     this.alterDeploymentData = (apiData) => {
       const packageJSONFile = apiData.files.find(
-        (x) => x.file === "package.json"
+        (x) => x.file === 'package.json'
       );
       const parsedFile = JSON.parse(packageJSONFile.data);
       const newParsedFile = Object.assign(Object.assign({}, parsedFile), {
         devDependencies: Object.assign(
           Object.assign({}, parsedFile.devDependencies),
           {
-            serve: "^10.1.1",
+            serve: '^10.1.1',
           }
         ),
         scripts: Object.assign(
           {
-            "now-start": `cd ${this.distDir} && serve -s ./`,
+            'now-start': `cd ${this.distDir} && serve -s ./`,
           },
           parsedFile.scripts
         ),
       });
       return Object.assign(Object.assign({}, apiData), {
         files: [
-          ...apiData.files.filter((x) => x.file !== "package.json"),
+          ...apiData.files.filter((x) => x.file !== 'package.json'),
           {
-            file: "package.json",
+            file: 'package.json',
             data: JSON.stringify(newParsedFile, null, 2),
           },
         ],
@@ -109,7 +109,7 @@ class Template {
     this.isServer = is_server_1.isServer(this.name);
     this.main = options.main || false;
     this.showOnHomePage = options.showOnHomePage || false;
-    this.distDir = options.distDir || "build";
+    this.distDir = options.distDir || 'build';
     this.configurationFiles = Object.assign(
       Object.assign({}, defaultConfigurations),
       options.extraConfigurations || {}
@@ -135,7 +135,7 @@ class Template {
       if (Array.isArray(pkg.main)) {
         return path_1.absolute(pkg.main[0]);
       }
-      if (typeof pkg.main === "string") {
+      if (typeof pkg.main === 'string') {
         return path_1.absolute(pkg.main);
       }
     } catch (e) {
@@ -154,18 +154,18 @@ class Template {
         : _a.parsed) &&
         this.getMainFromPackage(configurationFiles.package.parsed),
       ...(this.mainFile || []),
-      "/index." + (this.isTypescript ? "ts" : "js"),
-      "/src/index." + (this.isTypescript ? "ts" : "js"),
-      "/src/index.ts",
-      "/src/index.tsx",
-      "/src/index.js",
-      "/src/pages/index.js",
-      "/src/pages/index.vue",
-      "/index.js",
-      "/index.ts",
-      "/index.tsx",
-      "/README.md",
-      "/package.json",
+      '/index.' + (this.isTypescript ? 'ts' : 'js'),
+      '/src/index.' + (this.isTypescript ? 'ts' : 'js'),
+      '/src/index.ts',
+      '/src/index.tsx',
+      '/src/index.js',
+      '/src/pages/index.js',
+      '/src/pages/index.vue',
+      '/index.js',
+      '/index.ts',
+      '/index.tsx',
+      '/README.md',
+      '/package.json',
     ].filter((x) => x);
   }
   /**
@@ -185,7 +185,7 @@ class Template {
   }
   // eslint-disable-next-line no-unused-vars
   getHTMLEntries(configurationFiles) {
-    return ["/public/index.html", "/index.html"];
+    return ['/public/index.html', '/index.html'];
   }
 }
 exports.default = Template;

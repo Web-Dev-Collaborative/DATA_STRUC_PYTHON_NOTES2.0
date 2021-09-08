@@ -21,26 +21,26 @@ var StripeM = (function (e) {
         });
     }),
     (n.r = function (e) {
-      "undefined" != typeof Symbol &&
+      'undefined' != typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, {
-          value: "Module",
+          value: 'Module',
         }),
-        Object.defineProperty(e, "__esModule", {
+        Object.defineProperty(e, '__esModule', {
           value: !0,
         });
     }),
     (n.t = function (e, t) {
       if ((1 & t && (e = n(e)), 8 & t)) return e;
-      if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+      if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
       var r = Object.create(null);
       if (
         (n.r(r),
-        Object.defineProperty(r, "default", {
+        Object.defineProperty(r, 'default', {
           enumerable: !0,
           value: e,
         }),
-        2 & t && "string" != typeof e)
+        2 & t && 'string' != typeof e)
       )
         for (var _ in e)
           n.d(
@@ -61,34 +61,34 @@ var StripeM = (function (e) {
           : function () {
               return e;
             };
-      return n.d(t, "a", t), t;
+      return n.d(t, 'a', t), t;
     }),
     (n.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (n.p = ""),
+    (n.p = ''),
     n((n.s = 28))
   );
 })([
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
-      n.d(t, "a", function () {
+      n.d(t, 'a', function () {
         return c;
       }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return u;
         }),
-        n.d(t, "f", function () {
+        n.d(t, 'f', function () {
           return a;
         }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return f;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return s;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return E;
         });
       var r = n(1),
@@ -97,31 +97,31 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = O("win").Promise || O("PPromise");
+      var c = O('win').Promise || O('PPromise');
 
       function u() {
-        var e = O("win").performance;
+        var e = O('win').performance;
         return e && e.now ? e.now() : Date.now();
       }
 
       function a(e) {
-        var t = O("now")();
+        var t = O('now')();
         return {
           result: e(),
-          duration: O("now")() - t,
+          duration: O('now')() - t,
         };
       }
 
@@ -129,12 +129,12 @@ var StripeM = (function (e) {
         var e =
           arguments.length > 0 && void 0 !== arguments[0]
             ? arguments[0]
-            : "sessionStorage";
+            : 'sessionStorage';
         this.storage = null;
         try {
           window[e] &&
-            (window[e].setItem("1", "1"),
-            window[e].getItem("1"),
+            (window[e].setItem('1', '1'),
+            window[e].getItem('1'),
             (this.storage = window[e]));
         } catch (e) {}
       }
@@ -143,23 +143,23 @@ var StripeM = (function (e) {
         if (e) {
           var n = e
             .slice(1)
-            .split("&")
+            .split('&')
             .filter(function (e) {
-              return -1 !== e.indexOf(t + "=");
+              return -1 !== e.indexOf(t + '=');
             })[0];
-          if (n) return decodeURIComponent(n.split("=")[1]) || "";
+          if (n) return decodeURIComponent(n.split('=')[1]) || '';
         }
-        return "";
+        return '';
       }
-      (O("MStorage").prototype.get = function (e) {
+      (O('MStorage').prototype.get = function (e) {
         return this.storage && this.storage.getItem(e);
       }),
-        (O("MStorage").prototype.set = function (e, t) {
+        (O('MStorage').prototype.set = function (e, t) {
           return this.storage && this.storage.setItem(e, t);
         });
       var l = /^{"muid":"[\w-]+","guid":"[\w-]+","sid":"[\w-]+"}$/m,
         E = function (e) {
-          return "string" == typeof e && O("MSG_REGEX").test(e);
+          return 'string' == typeof e && O('MSG_REGEX').test(e);
         };
 
       function y() {
@@ -205,7 +205,7 @@ var StripeM = (function (e) {
         (h.__rewire_reset_all__ = function () {
           h.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var p = "__INTENTIONAL_UNDEFINED__",
+      var p = '__INTENTIONAL_UNDEFINED__',
         m = {};
 
       function O(e) {
@@ -213,15 +213,15 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "win":
+              case 'win':
                 return r.f;
-              case "PPromise":
+              case 'PPromise':
                 return o.a;
-              case "now":
+              case 'now':
                 return u;
-              case "MStorage":
+              case 'MStorage':
                 return f;
-              case "MSG_REGEX":
+              case 'MSG_REGEX':
                 return l;
             }
             return;
@@ -232,7 +232,7 @@ var StripeM = (function (e) {
 
       function I(e, t) {
         var n = R();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -267,7 +267,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -278,50 +278,50 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", O),
-          e("__GetDependency__", O),
-          e("__Rewire__", I),
-          e("__set__", I),
-          e("__reset__", L),
-          e("__ResetDependency__", L),
-          e("__with__", w);
+        e('__get__', O),
+          e('__GetDependency__', O),
+          e('__Rewire__', I),
+          e('__set__', I),
+          e('__reset__', L),
+          e('__ResetDependency__', L),
+          e('__with__', w);
       })();
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       function r(e) {
         return (r =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      n.d(t, "f", function () {
+      n.d(t, 'f', function () {
         return _;
       }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return o;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return i;
         }),
-        n.d(t, "a", function () {
+        n.d(t, 'a', function () {
           return c;
         }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return u;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return f;
         });
       var _ = window,
@@ -331,9 +331,9 @@ var StripeM = (function (e) {
         u = document,
         a = null;
       try {
-        p("ctx2d", R("doc").createElement("canvas").getContext("2d"));
+        p('ctx2d', R('doc').createElement('canvas').getContext('2d'));
       } catch (e) {}
-      var f = R("ctx2d");
+      var f = R('ctx2d');
 
       function s() {
         try {
@@ -378,7 +378,7 @@ var StripeM = (function (e) {
         (l.__rewire_reset_all__ = function () {
           l.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var d = "__INTENTIONAL_UNDEFINED__",
+      var d = '__INTENTIONAL_UNDEFINED__',
         b = {};
 
       function R(e) {
@@ -386,9 +386,9 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "ctx2d":
+              case 'ctx2d':
                 return a;
-              case "doc":
+              case 'doc':
                 return u;
             }
             return;
@@ -402,7 +402,7 @@ var StripeM = (function (e) {
         return void 0 === n[e]
           ? (function (e, t) {
               switch (e) {
-                case "ctx2d":
+                case 'ctx2d':
                   return (a = t);
               }
               return;
@@ -412,7 +412,7 @@ var StripeM = (function (e) {
 
       function m(e, t) {
         var n = v();
-        return "object" === r(e)
+        return 'object' === r(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -447,7 +447,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -458,33 +458,33 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", R),
-          e("__GetDependency__", R),
-          e("__Rewire__", m),
-          e("__set__", m),
-          e("__reset__", O),
-          e("__ResetDependency__", O),
-          e("__with__", I);
+        e('__get__', R),
+          e('__GetDependency__', R),
+          e('__Rewire__', m),
+          e('__set__', m),
+          e('__reset__', O),
+          e('__ResetDependency__', O),
+          e('__with__', I);
       })();
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(0);
 
       function _(e) {
         return (_ =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
@@ -494,7 +494,7 @@ var StripeM = (function (e) {
           var r = t[n];
           (r.enumerable = r.enumerable || !1),
             (r.configurable = !0),
-            "value" in r && (r.writable = !0),
+            'value' in r && (r.writable = !0),
             Object.defineProperty(e, r.key, r);
         }
       }
@@ -502,7 +502,7 @@ var StripeM = (function (e) {
         function e(t, n) {
           !(function (e, t) {
             if (!(e instanceof t))
-              throw new TypeError("Cannot call a class as a function");
+              throw new TypeError('Cannot call a class as a function');
           })(this, e),
             (this.description = t),
             (this.extractor = n);
@@ -512,18 +512,18 @@ var StripeM = (function (e) {
           (t = e),
           (n = [
             {
-              key: "extract",
+              key: 'extract',
               value: function (e) {
                 if (e) {
-                  var t = h("timer")(this.extractor),
+                  var t = h('timer')(this.extractor),
                     n = t.result,
                     r = t.duration,
-                    o = h("now")();
+                    o = h('now')();
                   return n.then(function (e) {
-                    var t = h("now")(),
+                    var t = h('now')(),
                       n = e.async ? t - o : 0,
                       i = +(r + n).toPrecision(5);
-                    return "object" !== _(e)
+                    return 'object' !== _(e)
                       ? {
                           value: e,
                           internalValue: e,
@@ -563,7 +563,7 @@ var StripeM = (function (e) {
           }
         }
       }
-      t.a = h("Extractor");
+      t.a = h('Extractor');
       var u,
         a = null;
 
@@ -596,7 +596,7 @@ var StripeM = (function (e) {
         (u.__rewire_reset_all__ = function () {
           u.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var E = "__INTENTIONAL_UNDEFINED__",
+      var E = '__INTENTIONAL_UNDEFINED__',
         y = {};
 
       function h(e) {
@@ -604,11 +604,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "timer":
+              case 'timer':
                 return r.f;
-              case "now":
+              case 'now':
                 return r.d;
-              case "Extractor":
+              case 'Extractor':
                 return i;
             }
             return;
@@ -619,7 +619,7 @@ var StripeM = (function (e) {
 
       function v(e, t) {
         var n = l();
-        return "object" === _(e)
+        return 'object' === _(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -654,7 +654,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -665,13 +665,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", h),
-          e("__GetDependency__", h),
-          e("__Rewire__", v),
-          e("__set__", v),
-          e("__reset__", d),
-          e("__ResetDependency__", d),
-          e("__with__", b);
+        e('__get__', h),
+          e('__GetDependency__', h),
+          e('__Rewire__', v),
+          e('__set__', v),
+          e('__reset__', d),
+          e('__ResetDependency__', d),
+          e('__with__', b);
       })();
       var R = _(i);
 
@@ -682,16 +682,16 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== R && "function" !== R) ||
+      ('object' !== R && 'function' !== R) ||
         !Object.isExtensible(i) ||
-        (p("__get__", h),
-        p("__GetDependency__", h),
-        p("__Rewire__", v),
-        p("__set__", v),
-        p("__reset__", d),
-        p("__ResetDependency__", d),
-        p("__with__", b),
-        p("__RewireAPI__", y));
+        (p('__get__', h),
+        p('__GetDependency__', h),
+        p('__Rewire__', v),
+        p('__set__', v),
+        p('__reset__', d),
+        p('__ResetDependency__', d),
+        p('__with__', b),
+        p('__RewireAPI__', y));
     }.call(this, n(3)));
   },
   function (e, t) {
@@ -700,48 +700,48 @@ var StripeM = (function (e) {
       return this;
     })();
     try {
-      n = n || new Function("return this")();
+      n = n || new Function('return this')();
     } catch (e) {
-      "object" == typeof window && (n = window);
+      'object' == typeof window && (n = window);
     }
     e.exports = n;
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
-      n.d(t, "a", function () {
+      n.d(t, 'a', function () {
         return s;
       }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return E;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return p;
         }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return m;
         });
       var r = n(26);
 
       function _(e) {
         return (_ =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
 
       function o(e, t) {
         if (!(e instanceof t))
-          throw new TypeError("Cannot call a class as a function");
+          throw new TypeError('Cannot call a class as a function');
       }
 
       function i(e, t) {
@@ -749,7 +749,7 @@ var StripeM = (function (e) {
           var r = t[n];
           (r.enumerable = r.enumerable || !1),
             (r.configurable = !0),
-            "value" in r && (r.writable = !0),
+            'value' in r && (r.writable = !0),
             Object.defineProperty(e, r.key, r);
         }
       }
@@ -761,10 +761,10 @@ var StripeM = (function (e) {
         a = /:([0-9]+)/,
         f = function (e) {
           if (e) {
-            var t = e.lastIndexOf("@");
+            var t = e.lastIndexOf('@');
             return -1 === t
               ? e
-              : e.substr(0, j("authorityPrefix").length) +
+              : e.substr(0, j('authorityPrefix').length) +
                   e.substr(t + 1, e.length - t);
           }
           return e;
@@ -772,9 +772,9 @@ var StripeM = (function (e) {
         s = (function () {
           function e(t) {
             if ((o(this, e), t)) {
-              var n = t.split(j("urlRegex"));
+              var n = t.split(j('urlRegex'));
               (this.scheme = n[1]),
-                (this.authority = n[3] && j("removeUserInfo")(n[3])),
+                (this.authority = n[3] && j('removeUserInfo')(n[3])),
                 (this.path = n[5]),
                 (this.query = n[6]),
                 (this.fragment = n[8]);
@@ -783,7 +783,7 @@ var StripeM = (function (e) {
           return (
             c(e, [
               {
-                key: "toString",
+                key: 'toString',
                 value: function () {
                   return [
                     this.scheme,
@@ -793,17 +793,17 @@ var StripeM = (function (e) {
                     this.fragment,
                   ]
                     .filter(Boolean)
-                    .join("");
+                    .join('');
                 },
               },
             ]),
             e
           );
         })(),
-        l = "7766e861-8279-424d-87a1-07a6022fd8cd",
+        l = '7766e861-8279-424d-87a1-07a6022fd8cd',
         E = function (e) {
           return e
-            ? j("sha256")(unescape(encodeURIComponent(e)) + j("URL_SALT"))
+            ? j('sha256')(unescape(encodeURIComponent(e)) + j('URL_SALT'))
             : e;
         },
         y = (function () {
@@ -818,19 +818,19 @@ var StripeM = (function (e) {
           return (
             c(e, [
               {
-                key: "shouldHash",
+                key: 'shouldHash',
                 value: function () {
                   return this.hashedCount < this.totalHashLimit;
                 },
               },
               {
-                key: "isLastHash",
+                key: 'isLastHash',
                 value: function () {
                   return this.hashedCount === this.totalHashLimit - 1;
                 },
               },
               {
-                key: "shouldPartialHash",
+                key: 'shouldPartialHash',
                 value: function () {
                   return (
                     !this.isLastHash() && this.hashedCount >= this.fullHashLimit
@@ -838,15 +838,15 @@ var StripeM = (function (e) {
                 },
               },
               {
-                key: "replace",
+                key: 'replace',
                 value: function (e) {
                   var t = e,
                     n = this.s.indexOf(e, this.cur);
                   this.isLastHash() &&
                     (t = this.s.substr(n, this.s.length - n));
-                  var r = j("sha256WithSalt")(t);
+                  var r = j('sha256WithSalt')(t);
                   this.shouldPartialHash() &&
-                    (r = r.substr(0, j("PARTIAL_HASH_LEN"))),
+                    (r = r.substr(0, j('PARTIAL_HASH_LEN'))),
                     (this.s =
                       this.s.substr(0, n) + r + this.s.substr(n + t.length)),
                     (this.cur = n + r.length),
@@ -859,56 +859,56 @@ var StripeM = (function (e) {
         })(),
         h = function (e) {
           return (
-            "//stripe.com" === e ||
-            "//stripe.com." === e ||
-            e.endsWith(".stripe.com") ||
-            e.endsWith(".stripe.com.")
+            '//stripe.com' === e ||
+            '//stripe.com.' === e ||
+            e.endsWith('.stripe.com') ||
+            e.endsWith('.stripe.com.')
           );
         },
         v = [
-          "//checkout.stripe.com",
-          "//qa-checkout.stripe.com",
-          "//edge-checkout.stripe.com",
+          '//checkout.stripe.com',
+          '//qa-checkout.stripe.com',
+          '//edge-checkout.stripe.com',
         ],
         d = function (e) {
-          return -1 !== j("CHECKOUT_HOSTS").indexOf(e);
+          return -1 !== j('CHECKOUT_HOSTS').indexOf(e);
         },
         b = (function () {
           function e() {
             var t =
               arguments.length > 0 && void 0 !== arguments[0]
                 ? arguments[0]
-                : j("DEFAULT_FULL_HASH_LIMIT");
+                : j('DEFAULT_FULL_HASH_LIMIT');
             o(this, e),
-              (this.remainingHashes = j("TOTAL_PARTS_LIMIT")),
+              (this.remainingHashes = j('TOTAL_PARTS_LIMIT')),
               (this.fullHashLimit = t);
           }
           return (
             c(e, [
               {
-                key: "getFullHashLimit",
+                key: 'getFullHashLimit',
                 value: function (e) {
                   switch (e) {
-                    case "authority":
-                      return j("TOTAL_PARTS_LIMIT");
+                    case 'authority':
+                      return j('TOTAL_PARTS_LIMIT');
                     default:
                       return this.fullHashLimit;
                   }
                 },
               },
               {
-                key: "totalHashLimit",
+                key: 'totalHashLimit',
                 value: function (e) {
                   switch (e) {
-                    case "authority":
-                      return j("TOTAL_PARTS_LIMIT");
-                    case "path":
+                    case 'authority':
+                      return j('TOTAL_PARTS_LIMIT');
+                    case 'path':
                       return Math.max(
                         1,
-                        Math.min(j("PATH_PARTS_LIMIT"), this.remainingHashes)
+                        Math.min(j('PATH_PARTS_LIMIT'), this.remainingHashes)
                       );
-                    case "query":
-                    case "fragment":
+                    case 'query':
+                    case 'fragment':
                       return Math.max(1, this.remainingHashes);
                     default:
                       return 0;
@@ -916,16 +916,16 @@ var StripeM = (function (e) {
                 },
               },
               {
-                key: "splitAndHash",
+                key: 'splitAndHash',
                 value: function (e, t, n) {
                   if (
-                    "authority" === t &&
+                    'authority' === t &&
                     e &&
-                    j("isStripeCheckoutAuthority")(e)
+                    j('isStripeCheckoutAuthority')(e)
                   )
                     return e;
                   if (!e) return e;
-                  var r = new (j("SequentialHashWithLimit"))(
+                  var r = new (j('SequentialHashWithLimit'))(
                     e,
                     this.getFullHashLimit(t),
                     this.totalHashLimit(t)
@@ -950,25 +950,25 @@ var StripeM = (function (e) {
           var t =
               arguments.length > 1 && void 0 !== arguments[1]
                 ? arguments[1]
-                : j("DEFAULT_FULL_HASH_LIMIT"),
-            n = new (j("PartitionedUrl"))(e.toString()),
-            r = new (j("SequentialSplitterAndHasher"))(t);
+                : j('DEFAULT_FULL_HASH_LIMIT'),
+            n = new (j('PartitionedUrl'))(e.toString()),
+            r = new (j('SequentialSplitterAndHasher'))(t);
           return (
             (n.authority = r.splitAndHash(
               n.authority,
-              "authority",
-              new RegExp("[/.:]")
+              'authority',
+              new RegExp('[/.:]')
             )),
-            (n.path = r.splitAndHash(n.path, "path", new RegExp("[/#?!&+,=]"))),
+            (n.path = r.splitAndHash(n.path, 'path', new RegExp('[/#?!&+,=]'))),
             (n.query = r.splitAndHash(
               n.query,
-              "query",
-              new RegExp("[/#?!&+,=]")
+              'query',
+              new RegExp('[/#?!&+,=]')
             )),
             (n.fragment = r.splitAndHash(
               n.fragment,
-              "fragment",
-              new RegExp("[/#?!&+,=]")
+              'fragment',
+              new RegExp('[/#?!&+,=]')
             )),
             n
           );
@@ -977,19 +977,19 @@ var StripeM = (function (e) {
           var t =
               arguments.length > 1 && void 0 !== arguments[1]
                 ? arguments[1]
-                : j("DEFAULT_FULL_HASH_LIMIT"),
+                : j('DEFAULT_FULL_HASH_LIMIT'),
             n = e.authority;
-          return n && j("isStripeCheckoutAuthority")(n)
-            ? j("hashUrl")(e)
-            : n && j("isStripeAuthority")(n)
+          return n && j('isStripeCheckoutAuthority')(n)
+            ? j('hashUrl')(e)
+            : n && j('isStripeAuthority')(n)
             ? e
-            : j("hashUrl")(e, t);
+            : j('hashUrl')(e, t);
         },
         m = function (e) {
-          var t = new (j("PartitionedUrl"))(e).authority,
+          var t = new (j('PartitionedUrl'))(e).authority,
             n =
-              (t = t && t.substr(j("authorityPrefix").length)) &&
-              t.match(j("urlPortRegex")),
+              (t = t && t.substr(j('authorityPrefix').length)) &&
+              t.match(j('urlPortRegex')),
             r = n && n.index;
           return r && (t = t.substr(0, r)), t;
         };
@@ -1037,7 +1037,7 @@ var StripeM = (function (e) {
         (I.__rewire_reset_all__ = function () {
           I.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var T = "__INTENTIONAL_UNDEFINED__",
+      var T = '__INTENTIONAL_UNDEFINED__',
         $ = {};
 
       function j(e) {
@@ -1045,41 +1045,41 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "authorityPrefix":
-                return "//";
-              case "urlRegex":
+              case 'authorityPrefix':
+                return '//';
+              case 'urlRegex':
                 return u;
-              case "removeUserInfo":
+              case 'removeUserInfo':
                 return f;
-              case "sha256":
+              case 'sha256':
                 return r.a;
-              case "URL_SALT":
+              case 'URL_SALT':
                 return l;
-              case "sha256WithSalt":
+              case 'sha256WithSalt':
                 return E;
-              case "PARTIAL_HASH_LEN":
+              case 'PARTIAL_HASH_LEN':
                 return 6;
-              case "CHECKOUT_HOSTS":
+              case 'CHECKOUT_HOSTS':
                 return v;
-              case "DEFAULT_FULL_HASH_LIMIT":
+              case 'DEFAULT_FULL_HASH_LIMIT':
                 return 10;
-              case "TOTAL_PARTS_LIMIT":
+              case 'TOTAL_PARTS_LIMIT':
                 return 40;
-              case "PATH_PARTS_LIMIT":
+              case 'PATH_PARTS_LIMIT':
                 return 30;
-              case "isStripeCheckoutAuthority":
+              case 'isStripeCheckoutAuthority':
                 return d;
-              case "SequentialHashWithLimit":
+              case 'SequentialHashWithLimit':
                 return y;
-              case "PartitionedUrl":
+              case 'PartitionedUrl':
                 return s;
-              case "SequentialSplitterAndHasher":
+              case 'SequentialSplitterAndHasher':
                 return b;
-              case "hashUrl":
+              case 'hashUrl':
                 return R;
-              case "isStripeAuthority":
+              case 'isStripeAuthority':
                 return h;
-              case "urlPortRegex":
+              case 'urlPortRegex':
                 return a;
             }
             return;
@@ -1090,7 +1090,7 @@ var StripeM = (function (e) {
 
       function G(e, t) {
         var n = S();
-        return "object" === _(e)
+        return 'object' === _(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -1125,7 +1125,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -1136,13 +1136,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", j),
-          e("__GetDependency__", j),
-          e("__Rewire__", G),
-          e("__set__", G),
-          e("__reset__", A),
-          e("__ResetDependency__", A),
-          e("__with__", D);
+        e('__get__', j),
+          e('__GetDependency__', j),
+          e('__Rewire__', G),
+          e('__set__', G),
+          e('__reset__', A),
+          e('__ResetDependency__', A),
+          e('__with__', D);
       })();
     }.call(this, n(3)));
   },
@@ -1154,12 +1154,12 @@ var StripeM = (function (e) {
     };
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
-      n.d(t, "b", function () {
+      n.d(t, 'b', function () {
         return O;
       }),
-        n.d(t, "a", function () {
+        n.d(t, 'a', function () {
           return w;
         });
       var r = n(5),
@@ -1174,16 +1174,16 @@ var StripeM = (function (e) {
 
       function l(e) {
         return (l =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
@@ -1194,24 +1194,24 @@ var StripeM = (function (e) {
             if (Array.isArray(e)) return y(e);
           })(e) ||
           (function (e) {
-            if ("undefined" != typeof Symbol && Symbol.iterator in Object(e))
+            if ('undefined' != typeof Symbol && Symbol.iterator in Object(e))
               return Array.from(e);
           })(e) ||
           (function (e, t) {
             if (!e) return;
-            if ("string" == typeof e) return y(e, t);
+            if ('string' == typeof e) return y(e, t);
             var n = Object.prototype.toString.call(e).slice(8, -1);
-            "Object" === n && e.constructor && (n = e.constructor.name);
-            if ("Map" === n || "Set" === n) return Array.from(e);
+            'Object' === n && e.constructor && (n = e.constructor.name);
+            if ('Map' === n || 'Set' === n) return Array.from(e);
             if (
-              "Arguments" === n ||
+              'Arguments' === n ||
               /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
             )
               return y(e, t);
           })(e) ||
           (function () {
             throw new TypeError(
-              "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+              'Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
             );
           })()
         );
@@ -1222,10 +1222,10 @@ var StripeM = (function (e) {
         for (var n = 0, r = new Array(t); n < t; n++) r[n] = e[n];
         return r;
       }
-      var h = N("now")();
+      var h = N('now')();
 
       function v(e, t) {
-        return _()(N("extractors"), function (n) {
+        return _()(N('extractors'), function (n) {
           return n.extract(e).then(function (e) {
             return t(e, n);
           });
@@ -1251,7 +1251,7 @@ var StripeM = (function (e) {
 
       function R() {
         try {
-          return Array.from("hello"), !0;
+          return Array.from('hello'), !0;
         } catch (e) {
           return !1;
         }
@@ -1259,21 +1259,21 @@ var StripeM = (function (e) {
 
       function p() {
         var e =
-          "" !== N("win").location.hash
-            ? N("win").location.hash
-            : N("win").location.search;
+          '' !== N('win').location.hash
+            ? N('win').location.hash
+            : N('win').location.search;
         return {
-          a: N("queryStringValueForKey")(e, "referrer"),
-          b: N("queryStringValueForKey")(e, "url"),
-          c: N("queryStringValueForKey")(e, "title"),
-          d: N("queryStringValueForKey")(e, "muid"),
-          e: N("queryStringValueForKey")(e, "sid"),
-          f: N("audioMozSrcObjectCheck")(),
-          g: N("arrayBufferRequiresNew")(),
-          h: N("arrayDotFromSupport")(),
+          a: N('queryStringValueForKey')(e, 'referrer'),
+          b: N('queryStringValueForKey')(e, 'url'),
+          c: N('queryStringValueForKey')(e, 'title'),
+          d: N('queryStringValueForKey')(e, 'muid'),
+          e: N('queryStringValueForKey')(e, 'sid'),
+          f: N('audioMozSrcObjectCheck')(),
+          g: N('arrayBufferRequiresNew')(),
+          h: N('arrayDotFromSupport')(),
           i: Object.keys(document),
           j: Object.keys(navigator),
-          n: N("loadedTime"),
+          n: N('loadedTime'),
         };
       }
 
@@ -1281,7 +1281,7 @@ var StripeM = (function (e) {
         var t = {};
         return (
           e.forEach(function (e, n) {
-            var r = String.fromCharCode("a".charCodeAt(0) + n),
+            var r = String.fromCharCode('a'.charCodeAt(0) + n),
               _ = {
                 v: e[0],
                 t: e[1],
@@ -1297,12 +1297,12 @@ var StripeM = (function (e) {
       function I() {
         try {
           return E(
-            crypto.getRandomValues(new Uint8Array(N("entropyBitsInNonce") / 8))
+            crypto.getRandomValues(new Uint8Array(N('entropyBitsInNonce') / 8))
           )
             .map(function (e) {
-              return "0".concat(e.toString(16)).slice(-2);
+              return '0'.concat(e.toString(16)).slice(-2);
             })
-            .join("");
+            .join('');
         } catch (e) {
           return Math.random().toString(16);
         }
@@ -1316,44 +1316,44 @@ var StripeM = (function (e) {
           i = e.sourceData,
           c = _()(n, function (e) {
             return e[0];
-          }).join(" "),
-          u = N("md5")(c),
+          }).join(' '),
+          u = N('md5')(c),
           a = i.sid,
           f = i.muid,
           s = i.url,
           l = i.title,
           E = i.referrer,
           y = i.v2,
-          h = N("browserFeatures")();
+          h = N('browserFeatures')();
         E && ((h.a = E), delete i.referrer),
           s && ((h.b = s), delete i.url),
           l && ((h.c = l), delete i.title),
           f && ((h.d = f), delete i.muid),
           a && ((h.e = a), delete i.sid);
-        var v = N("getUrlDomain")(h.b);
+        var v = N('getUrlDomain')(h.b);
         v && (h.u = v);
-        var d = N("getUrlDomain")(h.a);
+        var d = N('getUrlDomain')(h.a);
         d && (h.v = d),
-          (h.a = N("hashUrlWithAuthorityCheck")(
-            new (N("PartitionedUrl"))(h.a)
+          (h.a = N('hashUrlWithAuthorityCheck')(
+            new (N('PartitionedUrl'))(h.a)
           ).toString()),
-          (h.b = N("hashUrlWithAuthorityCheck")(
-            new (N("PartitionedUrl"))(h.b)
+          (h.b = N('hashUrlWithAuthorityCheck')(
+            new (N('PartitionedUrl'))(h.b)
           ).toString()),
-          (h.c = N("sha256WithSalt")(h.c));
-        var b = N("transformFeatureValues")(n),
-          R = new (N("MStorage"))(),
-          p = 2 === y || R.get("id") !== u,
-          m = N("getRandomValue")();
+          (h.c = N('sha256WithSalt')(h.c));
+        var b = N('transformFeatureValues')(n),
+          R = new (N('MStorage'))(),
+          p = 2 === y || R.get('id') !== u,
+          m = N('getRandomValue')();
         return (
-          R.set("id", u),
+          R.set('id', u),
           r
             ? {
                 v2: y || 1,
                 id: u,
                 t: t,
-                tag: "4.5.40",
-                src: "js",
+                tag: '4.5.40',
+                src: 'js',
                 i: o,
                 a: p ? b : null,
                 b: h,
@@ -1370,20 +1370,20 @@ var StripeM = (function (e) {
         var n,
           r =
             arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
-          _ = N("now")(),
-          o = N("promiseWrappedExtractors")(t, function (e, t) {
+          _ = N('now')(),
+          o = N('promiseWrappedExtractors')(t, function (e, t) {
             var n = e.value,
               r = e.calculationTimeMs,
               _ = (e.internalValue, e.activeTimeMs);
-            N("CanvasExtractor");
+            N('CanvasExtractor');
             var o = [n, r];
             return _ && o.push(_), o;
           });
-        return N("MPromise")
+        return N('MPromise')
           .all(o)
           .then(function (o) {
-            var i = +(N("now")() - _).toPrecision(5),
-              c = N("buildPayload")({
+            var i = +(N('now')() - _).toPrecision(5),
+              c = N('buildPayload')({
                 totalDuration: i,
                 extractedFeatures: o,
                 withTelemetry: t,
@@ -1438,7 +1438,7 @@ var StripeM = (function (e) {
         (S.__rewire_reset_all__ = function () {
           S.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var A = "__INTENTIONAL_UNDEFINED__",
+      var A = '__INTENTIONAL_UNDEFINED__',
         D = {};
 
       function N(e) {
@@ -1446,49 +1446,49 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "now":
+              case 'now':
                 return a.d;
-              case "extractors":
+              case 'extractors':
                 return c.a;
-              case "win":
+              case 'win':
                 return f.f;
-              case "queryStringValueForKey":
+              case 'queryStringValueForKey':
                 return a.e;
-              case "audioMozSrcObjectCheck":
+              case 'audioMozSrcObjectCheck':
                 return d;
-              case "arrayBufferRequiresNew":
+              case 'arrayBufferRequiresNew':
                 return b;
-              case "arrayDotFromSupport":
+              case 'arrayDotFromSupport':
                 return R;
-              case "loadedTime":
+              case 'loadedTime':
                 return h;
-              case "promiseWrappedExtractors":
+              case 'promiseWrappedExtractors':
                 return v;
-              case "MPromise":
+              case 'MPromise':
                 return a.a;
-              case "entropyBitsInNonce":
+              case 'entropyBitsInNonce':
                 return 80;
-              case "md5":
+              case 'md5':
                 return i.a;
-              case "browserFeatures":
+              case 'browserFeatures':
                 return p;
-              case "getUrlDomain":
+              case 'getUrlDomain':
                 return s.b;
-              case "hashUrlWithAuthorityCheck":
+              case 'hashUrlWithAuthorityCheck':
                 return s.c;
-              case "PartitionedUrl":
+              case 'PartitionedUrl':
                 return s.a;
-              case "sha256WithSalt":
+              case 'sha256WithSalt':
                 return s.d;
-              case "transformFeatureValues":
+              case 'transformFeatureValues':
                 return m;
-              case "MStorage":
+              case 'MStorage':
                 return a.b;
-              case "getRandomValue":
+              case 'getRandomValue':
                 return I;
-              case "CanvasExtractor":
+              case 'CanvasExtractor':
                 return u.a;
-              case "buildPayload":
+              case 'buildPayload':
                 return L;
             }
             return;
@@ -1499,7 +1499,7 @@ var StripeM = (function (e) {
 
       function M(e, t) {
         var n = G();
-        return "object" === l(e)
+        return 'object' === l(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -1534,7 +1534,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -1545,13 +1545,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", N),
-          e("__GetDependency__", N),
-          e("__Rewire__", M),
-          e("__set__", M),
-          e("__reset__", B),
-          e("__ResetDependency__", B),
-          e("__with__", W);
+        e('__get__', N),
+          e('__GetDependency__', N),
+          e('__Rewire__', M),
+          e('__set__', M),
+          e('__reset__', B),
+          e('__ResetDependency__', B),
+          e('__with__', W);
       })();
       var P = l(w);
 
@@ -1562,22 +1562,22 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== P && "function" !== P) ||
+      ('object' !== P && 'function' !== P) ||
         !Object.isExtensible(w) ||
-        (x("__get__", N),
-        x("__GetDependency__", N),
-        x("__Rewire__", M),
-        x("__set__", M),
-        x("__reset__", B),
-        x("__ResetDependency__", B),
-        x("__with__", W),
-        x("__RewireAPI__", D));
+        (x('__get__', N),
+        x('__GetDependency__', N),
+        x('__Rewire__', M),
+        x('__set__', M),
+        x('__reset__', B),
+        x('__ResetDependency__', B),
+        x('__with__', W),
+        x('__RewireAPI__', D));
     }.call(this, n(3)));
   },
   function (e, t, n) {
     var r;
     !(function (_) {
-      "use strict";
+      'use strict';
 
       function o(e, t) {
         var n = (65535 & e) + (65535 & t);
@@ -1711,7 +1711,7 @@ var StripeM = (function (e) {
 
       function l(e) {
         var t,
-          n = "",
+          n = '',
           r = 32 * e.length;
         for (t = 0; t < r; t += 8)
           n += String.fromCharCode((e[t >> 5] >>> t % 32) & 255);
@@ -1732,8 +1732,8 @@ var StripeM = (function (e) {
       function y(e) {
         var t,
           n,
-          r = "0123456789abcdef",
-          _ = "";
+          r = '0123456789abcdef',
+          _ = '';
         for (n = 0; n < e.length; n += 1)
           (t = e.charCodeAt(n)),
             (_ += r.charAt((t >>> 4) & 15) + r.charAt(15 & t));
@@ -1781,7 +1781,7 @@ var StripeM = (function (e) {
     })();
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(7),
         _ = n.n(r),
@@ -1791,40 +1791,40 @@ var StripeM = (function (e) {
 
       function u(e) {
         return (u =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var a = new (b("Extractor"))("", function () {
-        var e = b("doc").createElement("canvas");
+      var a = new (b('Extractor'))('', function () {
+        var e = b('doc').createElement('canvas');
         try {
-          (e.height = 60), (e.width = 400), (e.style.display = "inline");
-          var t = e.getContext("2d");
-          (t.textBaseline = "alphabetic"),
-            (t.fillStyle = "#f60"),
+          (e.height = 60), (e.width = 400), (e.style.display = 'inline');
+          var t = e.getContext('2d');
+          (t.textBaseline = 'alphabetic'),
+            (t.fillStyle = '#f60'),
             t.fillRect(125, 1, 62, 20),
-            (t.fillStyle = "#069"),
-            (t.font = "11pt Arial"),
-            t.fillText("Cwm fjordbank glyphs vext quiz, 😃", 2, 15),
-            (t.fillStyle = "rgba(102, 204, 0, 0.7)"),
-            (t.font = "18pt Arial"),
-            t.fillText("Cwm fjordbank glyphs vext quiz, 😃", 4, 45);
+            (t.fillStyle = '#069'),
+            (t.font = '11pt Arial'),
+            t.fillText('Cwm fjordbank glyphs vext quiz, 😃', 2, 15),
+            (t.fillStyle = 'rgba(102, 204, 0, 0.7)'),
+            (t.font = '18pt Arial'),
+            t.fillText('Cwm fjordbank glyphs vext quiz, 😃', 4, 45);
           var n = e.toDataURL();
-          return b("MPromise").resolve({
-            value: b("md5")(n),
+          return b('MPromise').resolve({
+            value: b('md5')(n),
             internalValue: n,
           });
         } catch (e) {
-          return b("MPromise").resolve("unavailable");
+          return b('MPromise').resolve('unavailable');
         } finally {
           e && e.parentNode && e.parentNode.removeChild(e);
         }
@@ -1874,7 +1874,7 @@ var StripeM = (function (e) {
         (s.__rewire_reset_all__ = function () {
           s.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var v = "__INTENTIONAL_UNDEFINED__",
+      var v = '__INTENTIONAL_UNDEFINED__',
         d = {};
 
       function b(e) {
@@ -1882,13 +1882,13 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return o.a;
-              case "doc":
+              case 'doc':
                 return i.b;
-              case "MPromise":
+              case 'MPromise':
                 return c.a;
-              case "md5":
+              case 'md5':
                 return _.a;
             }
             return;
@@ -1899,7 +1899,7 @@ var StripeM = (function (e) {
 
       function R(e, t) {
         var n = h();
-        return "object" === u(e)
+        return 'object' === u(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -1934,7 +1934,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -1945,13 +1945,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", b),
-          e("__GetDependency__", b),
-          e("__Rewire__", R),
-          e("__set__", R),
-          e("__reset__", p),
-          e("__ResetDependency__", p),
-          e("__with__", m);
+        e('__get__', b),
+          e('__GetDependency__', b),
+          e('__Rewire__', R),
+          e('__set__', R),
+          e('__reset__', p),
+          e('__ResetDependency__', p),
+          e('__with__', m);
       })();
       var O = u(a);
 
@@ -1962,25 +1962,25 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== O && "function" !== O) ||
+      ('object' !== O && 'function' !== O) ||
         !Object.isExtensible(a) ||
-        (I("__get__", b),
-        I("__GetDependency__", b),
-        I("__Rewire__", R),
-        I("__set__", R),
-        I("__reset__", p),
-        I("__ResetDependency__", p),
-        I("__with__", m),
-        I("__RewireAPI__", d));
+        (I('__get__', b),
+        I('__GetDependency__', b),
+        I('__Rewire__', R),
+        I('__set__', R),
+        I('__reset__', p),
+        I('__ResetDependency__', p),
+        I('__with__', m),
+        I('__RewireAPI__', d));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
-      n.d(t, "b", function () {
+      n.d(t, 'b', function () {
         return y;
       }),
-        n.d(t, "a", function () {
+        n.d(t, 'a', function () {
           return h;
         });
       var r = n(27),
@@ -1991,22 +1991,22 @@ var StripeM = (function (e) {
 
       function u(e) {
         return (u =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
       var a = function (e) {
-          var t = L("win").opener || L("win").parent || L("win");
-          if (t && L("isValidIframePostMessage")(e))
+          var t = L('win').opener || L('win').parent || L('win');
+          if (t && L('isValidIframePostMessage')(e))
             try {
               0;
               try {
@@ -2016,22 +2016,22 @@ var StripeM = (function (e) {
                   o = n.sid;
                 t.postMessage(
                   JSON.stringify({
-                    originatingScript: "m2",
+                    originatingScript: 'm2',
                     payload: {
                       guid: r,
                       muid: _,
                       sid: o,
                     },
                   }),
-                  "*"
+                  '*'
                 );
               } catch (n) {
                 t.postMessage(
                   JSON.stringify({
-                    originatingScript: "m",
+                    originatingScript: 'm',
                     payload: e,
                   }),
-                  "*"
+                  '*'
                 );
               }
             } catch (e) {}
@@ -2052,19 +2052,19 @@ var StripeM = (function (e) {
             n =
               arguments.length > 2 && void 0 !== arguments[2]
                 ? arguments[2]
-                : "6";
-          return L("beacon")(
-            L("safeBtoa")()(encodeURIComponent(JSON.stringify(e))),
+                : '6';
+          return L('beacon')(
+            L('safeBtoa')()(encodeURIComponent(JSON.stringify(e))),
             n
           ).then(t);
         },
         l = function (e) {
           return (
-            JSON && "function" == typeof JSON.stringify
+            JSON && 'function' == typeof JSON.stringify
               ? e
-                ? L("safeBeacon")(
+                ? L('safeBeacon')(
                     JSON.stringify({
-                      id: "unavailable",
+                      id: 'unavailable',
                       e: e,
                       message: e.message,
                       error: e.toString(),
@@ -2072,25 +2072,25 @@ var StripeM = (function (e) {
                       lineNumber: e.lineNumber,
                       columnNumber: e.columnNumber,
                       stack: e.stack,
-                      tag: "4.5.40",
-                      src: "js",
+                      tag: '4.5.40',
+                      src: 'js',
                     })
                   )
-                : L("safeBeacon")(
+                : L('safeBeacon')(
                     JSON.stringify({
-                      id: "unavailable",
-                      tag: "4.5.40",
-                      src: "js",
+                      id: 'unavailable',
+                      tag: '4.5.40',
+                      src: 'js',
                     })
                   )
-              : L("safeBeacon")(e.toString()),
+              : L('safeBeacon')(e.toString()),
             e
           );
         },
         E = function (e, t, n) {
-          return L("deviceId")(
+          return L('deviceId')(
             function (e) {
-              return L("safeBeacon")(e, L("mPostMessage"), n);
+              return L('safeBeacon')(e, L('mPostMessage'), n);
             },
             e,
             t
@@ -2102,12 +2102,12 @@ var StripeM = (function (e) {
             r = e.o,
             _ = void 0 === r ? {} : r,
             o = e.v,
-            i = void 0 === o ? (null !== "6" ? "6" : null) : o;
+            i = void 0 === o ? (null !== '6' ? '6' : null) : o;
           try {
             try {
-              return L("getDevice")(n, _, i).catch(L("beaconErrorHandler"));
+              return L('getDevice')(n, _, i).catch(L('beaconErrorHandler'));
             } catch (e) {
-              return L("MPromise").resolve(L("beaconErrorHandler")(e));
+              return L('MPromise').resolve(L('beaconErrorHandler')(e));
             }
           } catch (e) {}
         },
@@ -2115,18 +2115,18 @@ var StripeM = (function (e) {
           var t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
-              : "6";
+              : '6';
           try {
             try {
               return (
                 e.url &&
-                  (e.url = L("hashUrlWithAuthorityCheck")(
-                    new (L("PartitionedUrl"))(e.url)
+                  (e.url = L('hashUrlWithAuthorityCheck')(
+                    new (L('PartitionedUrl'))(e.url)
                   ).toString()),
-                L("safeBeacon")(e, null, t)
+                L('safeBeacon')(e, null, t)
               );
             } catch (e) {
-              return L("MPromise").resolve(L("beaconErrorHandler")(e));
+              return L('MPromise').resolve(L('beaconErrorHandler')(e));
             }
           } catch (e) {}
         };
@@ -2174,7 +2174,7 @@ var StripeM = (function (e) {
         (d.__rewire_reset_all__ = function () {
           d.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var O = "__INTENTIONAL_UNDEFINED__",
+      var O = '__INTENTIONAL_UNDEFINED__',
         I = {};
 
       function L(e) {
@@ -2182,29 +2182,29 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "win":
+              case 'win':
                 return o.f;
-              case "isValidIframePostMessage":
+              case 'isValidIframePostMessage':
                 return i.c;
-              case "beacon":
+              case 'beacon':
                 return r.a;
-              case "safeBtoa":
+              case 'safeBtoa':
                 return f;
-              case "safeBeacon":
+              case 'safeBeacon':
                 return s;
-              case "deviceId":
+              case 'deviceId':
                 return _.a;
-              case "mPostMessage":
+              case 'mPostMessage':
                 return a;
-              case "getDevice":
+              case 'getDevice':
                 return E;
-              case "beaconErrorHandler":
+              case 'beaconErrorHandler':
                 return l;
-              case "MPromise":
+              case 'MPromise':
                 return i.a;
-              case "hashUrlWithAuthorityCheck":
+              case 'hashUrlWithAuthorityCheck':
                 return c.c;
-              case "PartitionedUrl":
+              case 'PartitionedUrl':
                 return c.a;
             }
             return;
@@ -2215,7 +2215,7 @@ var StripeM = (function (e) {
 
       function w(e, t) {
         var n = m();
-        return "object" === u(e)
+        return 'object' === u(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -2250,7 +2250,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -2261,18 +2261,18 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", L),
-          e("__GetDependency__", L),
-          e("__Rewire__", w),
-          e("__set__", w),
-          e("__reset__", g),
-          e("__ResetDependency__", g),
-          e("__with__", S);
+        e('__get__', L),
+          e('__GetDependency__', L),
+          e('__Rewire__', w),
+          e('__set__', w),
+          e('__reset__', g),
+          e('__ResetDependency__', g),
+          e('__with__', S);
       })();
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(11),
         _ = n(13),
@@ -2292,35 +2292,35 @@ var StripeM = (function (e) {
 
       function b(e) {
         return (b =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
       var R = [
-        T("CookieSupportExtractor"),
-        T("DoNotTrackExtractor"),
-        T("LanguageExtractor"),
-        T("PlatformExtractor"),
-        T("PluginsExtractor"),
-        T("ScreenSizeExtractor"),
-        T("TimeZoneOffsetExtractor"),
-        T("TouchSupportExtractor"),
-        T("AvailableStorageExtractor"),
-        T("FontsExtractor"),
-        T("GraphicsConfigurationExtractor"),
-        T("UserAgentExtractor"),
-        T("FlashVersionExtractor"),
-        T("HasAdBlocker"),
-        T("CanvasIdExtractor"),
+        T('CookieSupportExtractor'),
+        T('DoNotTrackExtractor'),
+        T('LanguageExtractor'),
+        T('PlatformExtractor'),
+        T('PluginsExtractor'),
+        T('ScreenSizeExtractor'),
+        T('TimeZoneOffsetExtractor'),
+        T('TouchSupportExtractor'),
+        T('AvailableStorageExtractor'),
+        T('FontsExtractor'),
+        T('GraphicsConfigurationExtractor'),
+        T('UserAgentExtractor'),
+        T('FlashVersionExtractor'),
+        T('HasAdBlocker'),
+        T('CanvasIdExtractor'),
       ];
 
       function p() {
@@ -2367,7 +2367,7 @@ var StripeM = (function (e) {
         (m.__rewire_reset_all__ = function () {
           m.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var g = "__INTENTIONAL_UNDEFINED__",
+      var g = '__INTENTIONAL_UNDEFINED__',
         S = {};
 
       function T(e) {
@@ -2375,35 +2375,35 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "CookieSupportExtractor":
+              case 'CookieSupportExtractor':
                 return _.a;
-              case "DoNotTrackExtractor":
+              case 'DoNotTrackExtractor':
                 return o.a;
-              case "LanguageExtractor":
+              case 'LanguageExtractor':
                 return u.a;
-              case "PlatformExtractor":
+              case 'PlatformExtractor':
                 return a.a;
-              case "PluginsExtractor":
+              case 'PluginsExtractor':
                 return f.a;
-              case "ScreenSizeExtractor":
+              case 'ScreenSizeExtractor':
                 return s.a;
-              case "TimeZoneOffsetExtractor":
+              case 'TimeZoneOffsetExtractor':
                 return l.a;
-              case "TouchSupportExtractor":
+              case 'TouchSupportExtractor':
                 return E.a;
-              case "AvailableStorageExtractor":
+              case 'AvailableStorageExtractor':
                 return r.a;
-              case "FontsExtractor":
+              case 'FontsExtractor':
                 return i.a;
-              case "GraphicsConfigurationExtractor":
+              case 'GraphicsConfigurationExtractor':
                 return c.a;
-              case "UserAgentExtractor":
+              case 'UserAgentExtractor':
                 return y.a;
-              case "FlashVersionExtractor":
+              case 'FlashVersionExtractor':
                 return h.a;
-              case "HasAdBlocker":
+              case 'HasAdBlocker':
                 return v.a;
-              case "CanvasIdExtractor":
+              case 'CanvasIdExtractor':
                 return d.a;
             }
             return;
@@ -2414,7 +2414,7 @@ var StripeM = (function (e) {
 
       function $(e, t) {
         var n = w();
-        return "object" === b(e)
+        return 'object' === b(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -2449,7 +2449,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -2460,13 +2460,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", T),
-          e("__GetDependency__", T),
-          e("__Rewire__", $),
-          e("__set__", $),
-          e("__reset__", j),
-          e("__ResetDependency__", j),
-          e("__with__", G);
+        e('__get__', T),
+          e('__GetDependency__', T),
+          e('__Rewire__', $),
+          e('__set__', $),
+          e('__reset__', j),
+          e('__ResetDependency__', j),
+          e('__with__', G);
       })();
       var A = b(R);
 
@@ -2477,20 +2477,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== A && "function" !== A) ||
+      ('object' !== A && 'function' !== A) ||
         !Object.isExtensible(R) ||
-        (D("__get__", T),
-        D("__GetDependency__", T),
-        D("__Rewire__", $),
-        D("__set__", $),
-        D("__reset__", j),
-        D("__ResetDependency__", j),
-        D("__with__", G),
-        D("__RewireAPI__", S));
+        (D('__get__', T),
+        D('__GetDependency__', T),
+        D('__Rewire__', $),
+        D('__set__', $),
+        D('__reset__', j),
+        D('__ResetDependency__', j),
+        D('__with__', G),
+        D('__RewireAPI__', S));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -2498,34 +2498,34 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
+      var c = new (v('Extractor'))('', function () {
         var e = [];
         return (
-          ["sessionStorage", "localStorage"].forEach(function (t) {
+          ['sessionStorage', 'localStorage'].forEach(function (t) {
             try {
-              var n = v("win")[t];
+              var n = v('win')[t];
               if (n) {
-                var r = "muffins";
-                n.setItem(r, r), n.removeItem(r), e.push(t + "-enabled");
-              } else e.push(t + "-unavailable");
+                var r = 'muffins';
+                n.setItem(r, r), n.removeItem(r), e.push(t + '-enabled');
+              } else e.push(t + '-unavailable');
             } catch (n) {
-              e.push(t + "-disabled");
+              e.push(t + '-disabled');
             }
           }),
-          v("MPromise").resolve(e.join(", "))
+          v('MPromise').resolve(e.join(', '))
         );
       });
 
@@ -2573,7 +2573,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -2581,11 +2581,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "win":
+              case 'win':
                 return _.f;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -2596,7 +2596,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -2631,7 +2631,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -2642,13 +2642,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -2659,16 +2659,16 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
@@ -2679,9 +2679,9 @@ var StripeM = (function (e) {
         function _() {}
 
         function o(e) {
-          if ("object" != typeof this)
-            throw new TypeError("Promises must be constructed via new");
-          if ("function" != typeof e) throw new TypeError("not a function");
+          if ('object' != typeof this)
+            throw new TypeError('Promises must be constructed via new');
+          if ('function' != typeof e) throw new TypeError('not a function');
           (this._state = 0),
             (this._handled = !1),
             (this._value = void 0),
@@ -2711,12 +2711,12 @@ var StripeM = (function (e) {
         function c(e, t) {
           try {
             if (t === e)
-              throw new TypeError("A promise cannot be resolved with itself.");
-            if (t && ("object" == typeof t || "function" == typeof t)) {
+              throw new TypeError('A promise cannot be resolved with itself.');
+            if (t && ('object' == typeof t || 'function' == typeof t)) {
               var n = t.then;
               if (t instanceof o)
                 return (e._state = 3), (e._value = t), void a(e);
-              if ("function" == typeof n)
+              if ('function' == typeof n)
                 return void s(
                   ((r = n),
                   (_ = t),
@@ -2749,8 +2749,8 @@ var StripeM = (function (e) {
         }
 
         function f(e, t, n) {
-          (this.onFulfilled = "function" == typeof e ? e : null),
-            (this.onRejected = "function" == typeof t ? t : null),
+          (this.onFulfilled = 'function' == typeof e ? e : null),
+            (this.onRejected = 'function' == typeof t ? t : null),
             (this.promise = n);
         }
 
@@ -2785,9 +2785,9 @@ var StripeM = (function (e) {
 
               function _(o, i) {
                 try {
-                  if (i && ("object" == typeof i || "function" == typeof i)) {
+                  if (i && ('object' == typeof i || 'function' == typeof i)) {
                     var c = i.then;
-                    if ("function" == typeof c)
+                    if ('function' == typeof c)
                       return void c.call(
                         i,
                         function (e) {
@@ -2805,7 +2805,7 @@ var StripeM = (function (e) {
             });
           }),
           (o.resolve = function (e) {
-            return e && "object" == typeof e && e.constructor === o
+            return e && 'object' == typeof e && e.constructor === o
               ? e
               : new o(function (t) {
                   t(e);
@@ -2822,7 +2822,7 @@ var StripeM = (function (e) {
             });
           }),
           (o._immediateFn =
-            ("function" == typeof t &&
+            ('function' == typeof t &&
               function (e) {
                 t(e);
               }) ||
@@ -2830,7 +2830,7 @@ var StripeM = (function (e) {
               r(e, 0);
             }),
           (o._unhandledRejectionFn = function (e) {
-            "undefined" != typeof console && console;
+            'undefined' != typeof console && console;
           }),
           (o._setImmediateFn = function (e) {
             o._immediateFn = e;
@@ -2843,7 +2843,7 @@ var StripeM = (function (e) {
     }.call(this, n(29).setImmediate));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -2851,23 +2851,23 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
-        return v("navigator")
-          ? v("MPromise").resolve(v("navigator").cookieEnabled.toString())
-          : v("MPromise").resolve("");
+      var c = new (v('Extractor'))('', function () {
+        return v('navigator')
+          ? v('MPromise').resolve(v('navigator').cookieEnabled.toString())
+          : v('MPromise').resolve('');
       });
 
       function u() {
@@ -2914,7 +2914,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -2922,11 +2922,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "navigator":
+              case 'navigator':
                 return _.c;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -2937,7 +2937,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -2972,7 +2972,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -2983,13 +2983,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -3000,20 +3000,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -3021,38 +3021,38 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
+      var c = new (v('Extractor'))('', function () {
         var e;
-        if (v("navigator"))
+        if (v('navigator'))
           switch (
-            ("doNotTrack" in v("navigator")
-              ? (e = v("navigator").doNotTrack)
-              : "msDoNotTrack" in v("navigator") &&
-                (e = v("navigator").msDoNotTrack),
+            ('doNotTrack' in v('navigator')
+              ? (e = v('navigator').doNotTrack)
+              : 'msDoNotTrack' in v('navigator') &&
+                (e = v('navigator').msDoNotTrack),
             e)
           ) {
-            case "true":
+            case 'true':
             case !0:
-            case "1":
-            case "yes":
-              return v("MPromise").resolve("true");
+            case '1':
+            case 'yes':
+              return v('MPromise').resolve('true');
             default:
-              return v("MPromise").resolve("false");
+              return v('MPromise').resolve('false');
           }
-        return v("MPromise").resolve("");
+        return v('MPromise').resolve('');
       });
 
       function u() {
@@ -3099,7 +3099,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -3107,11 +3107,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "navigator":
+              case 'navigator':
                 return _.c;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -3122,7 +3122,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -3157,7 +3157,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -3168,13 +3168,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -3185,20 +3185,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -3206,16 +3206,16 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
@@ -3226,7 +3226,7 @@ var StripeM = (function (e) {
             if (Array.isArray(e)) return e;
           })(e) ||
           (function (e, t) {
-            if ("undefined" == typeof Symbol || !(Symbol.iterator in Object(e)))
+            if ('undefined' == typeof Symbol || !(Symbol.iterator in Object(e)))
               return;
             var n = [],
               r = !0,
@@ -3252,19 +3252,19 @@ var StripeM = (function (e) {
           })(e, t) ||
           (function (e, t) {
             if (!e) return;
-            if ("string" == typeof e) return u(e, t);
+            if ('string' == typeof e) return u(e, t);
             var n = Object.prototype.toString.call(e).slice(8, -1);
-            "Object" === n && e.constructor && (n = e.constructor.name);
-            if ("Map" === n || "Set" === n) return Array.from(e);
+            'Object' === n && e.constructor && (n = e.constructor.name);
+            if ('Map' === n || 'Set' === n) return Array.from(e);
             if (
-              "Arguments" === n ||
+              'Arguments' === n ||
               /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
             )
               return u(e, t);
           })(e, t) ||
           (function () {
             throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+              'Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
             );
           })()
         );
@@ -3276,123 +3276,123 @@ var StripeM = (function (e) {
         return r;
       }
       var a = [
-          ["Andale Mono", "mono"],
-          ["Arial Black", "sans"],
-          ["Arial Hebrew", "sans"],
-          ["Arial MT", "sans"],
-          ["Arial Narrow", "sans"],
-          ["Arial Rounded MT Bold", "sans"],
-          ["Arial Unicode MS", "sans"],
-          ["Arial", "sans"],
-          ["Bitstream Vera Sans Mono", "mono"],
-          ["Book Antiqua", "serif"],
-          ["Bookman Old Style", "serif"],
-          ["Calibri", "sans"],
-          ["Cambria", "serif"],
-          ["Century Gothic", "serif"],
-          ["Century Schoolbook", "serif"],
-          ["Century", "serif"],
-          ["Comic Sans MS", "sans"],
-          ["Comic Sans", "sans"],
-          ["Consolas", "mono"],
-          ["Courier New", "mono"],
-          ["Courier", "mono"],
-          ["Garamond", "serif"],
-          ["Georgia", "serif"],
-          ["Helvetica Neue", "sans"],
-          ["Helvetica", "sans"],
-          ["Impact", "sans"],
-          ["Lucida Fax", "serif"],
-          ["Lucida Handwriting", "script"],
-          ["Lucida Sans Typewriter", "mono"],
-          ["Lucida Sans Unicode", "sans"],
-          ["Lucida Sans", "sans"],
-          ["MS Gothic", "sans"],
-          ["MS Outlook", "symbol"],
-          ["MS PGothic", "sans"],
-          ["MS Reference Sans Serif", "sans"],
-          ["MS Serif", "serif"],
-          ["MYRIAD PRO", "sans"],
-          ["MYRIAD", "sans"],
-          ["Microsoft Sans Serif", "sans"],
-          ["Monaco", "sans"],
-          ["Monotype Corsiva", "script"],
-          ["Palatino Linotype", "serif"],
-          ["Palatino", "serif"],
-          ["Segoe Script", "script"],
-          ["Segoe UI Semibold", "sans"],
-          ["Segoe UI Symbol", "symbol"],
-          ["Segoe UI", "sans"],
-          ["Tahoma", "sans"],
-          ["Times New Roman PS", "serif"],
-          ["Times New Roman", "serif"],
-          ["Times", "serif"],
-          ["Trebuchet MS", "sans"],
-          ["Verdana", "sans"],
-          ["Wingdings 3", "symbol"],
-          ["Wingdings", "symbol"],
+          ['Andale Mono', 'mono'],
+          ['Arial Black', 'sans'],
+          ['Arial Hebrew', 'sans'],
+          ['Arial MT', 'sans'],
+          ['Arial Narrow', 'sans'],
+          ['Arial Rounded MT Bold', 'sans'],
+          ['Arial Unicode MS', 'sans'],
+          ['Arial', 'sans'],
+          ['Bitstream Vera Sans Mono', 'mono'],
+          ['Book Antiqua', 'serif'],
+          ['Bookman Old Style', 'serif'],
+          ['Calibri', 'sans'],
+          ['Cambria', 'serif'],
+          ['Century Gothic', 'serif'],
+          ['Century Schoolbook', 'serif'],
+          ['Century', 'serif'],
+          ['Comic Sans MS', 'sans'],
+          ['Comic Sans', 'sans'],
+          ['Consolas', 'mono'],
+          ['Courier New', 'mono'],
+          ['Courier', 'mono'],
+          ['Garamond', 'serif'],
+          ['Georgia', 'serif'],
+          ['Helvetica Neue', 'sans'],
+          ['Helvetica', 'sans'],
+          ['Impact', 'sans'],
+          ['Lucida Fax', 'serif'],
+          ['Lucida Handwriting', 'script'],
+          ['Lucida Sans Typewriter', 'mono'],
+          ['Lucida Sans Unicode', 'sans'],
+          ['Lucida Sans', 'sans'],
+          ['MS Gothic', 'sans'],
+          ['MS Outlook', 'symbol'],
+          ['MS PGothic', 'sans'],
+          ['MS Reference Sans Serif', 'sans'],
+          ['MS Serif', 'serif'],
+          ['MYRIAD PRO', 'sans'],
+          ['MYRIAD', 'sans'],
+          ['Microsoft Sans Serif', 'sans'],
+          ['Monaco', 'sans'],
+          ['Monotype Corsiva', 'script'],
+          ['Palatino Linotype', 'serif'],
+          ['Palatino', 'serif'],
+          ['Segoe Script', 'script'],
+          ['Segoe UI Semibold', 'sans'],
+          ['Segoe UI Symbol', 'symbol'],
+          ['Segoe UI', 'sans'],
+          ['Tahoma', 'sans'],
+          ['Times New Roman PS', 'serif'],
+          ['Times New Roman', 'serif'],
+          ['Times', 'serif'],
+          ['Trebuchet MS', 'sans'],
+          ['Verdana', 'sans'],
+          ['Wingdings 3', 'symbol'],
+          ['Wingdings', 'symbol'],
         ],
-        f = ["monospace", "sans-serif", "serif"],
-        s = new (O("Extractor"))("", function () {
-          return O("ctx")
-            ? new (O("MPromise"))(O("calculateFonts"))
-            : O("MPromise").resolve("unavailable");
+        f = ['monospace', 'sans-serif', 'serif'],
+        s = new (O('Extractor'))('', function () {
+          return O('ctx')
+            ? new (O('MPromise'))(O('calculateFonts'))
+            : O('MPromise').resolve('unavailable');
         });
       t.a = s;
 
       function l(e) {
-        var t = e.join(", ");
-        O("ctx").font = "72px " + t;
+        var t = e.join(', ');
+        O('ctx').font = '72px ' + t;
         try {
-          return O("ctx").measureText("mmmmmmmmmmlli").width;
+          return O('ctx').measureText('mmmmmmmmmmlli').width;
         } catch (e) {
-          return O("UNAVAILABLE_WIDTH");
+          return O('UNAVAILABLE_WIDTH');
         }
       }
 
       function E(e, t) {
-        var n = O("now")(),
-          r = new (O("MStorage"))(),
-          _ = r.get(O("storageKey"));
+        var n = O('now')(),
+          r = new (O('MStorage'))(),
+          _ = r.get(O('storageKey'));
         if (_)
           return e({
             async: !0,
             value: _,
-            calculationTimeMs: O("now")() - n,
+            calculationTimeMs: O('now')() - n,
           });
         var o = {};
-        O("baseFonts").forEach(function (t) {
-          var r = O("safeMeasureText")([t, "monospace"]);
-          if (r === O("UNAVAILABLE_WIDTH"))
+        O('baseFonts').forEach(function (t) {
+          var r = O('safeMeasureText')([t, 'monospace']);
+          if (r === O('UNAVAILABLE_WIDTH'))
             return e({
               async: !0,
-              value: "unavailable",
-              calculationTimeMs: O("now")() - n,
+              value: 'unavailable',
+              calculationTimeMs: O('now')() - n,
             });
           o[t] = r;
         });
         var i = [],
           u = [],
-          a = O("now")() - n,
+          a = O('now')() - n,
           f = 0;
         !(function t() {
-          for (var n = O("now")(); f < O("fontsToDetect").length; ) {
-            var _ = c(O("fontsToDetect")[f], 2),
+          for (var n = O('now')(); f < O('fontsToDetect').length; ) {
+            var _ = c(O('fontsToDetect')[f], 2),
               s = _[0],
-              l = "monospace" === _[1] ? "sans-serif" : "monospace",
-              E = O("safeMeasureText")([s, l]);
+              l = 'monospace' === _[1] ? 'sans-serif' : 'monospace',
+              E = O('safeMeasureText')([s, l]);
             if (
               (o[l] !== E ? (i.push(s), u.push(1)) : u.push(0),
               (f += 1),
-              O("now")() - n > 50)
+              O('now')() - n > 50)
             )
-              return (a += O("now")() - n), void setTimeout(t);
+              return (a += O('now')() - n), void setTimeout(t);
           }
-          r.set(O("storageKey"), u.join("")),
+          r.set(O('storageKey'), u.join('')),
             e({
               async: !0,
-              value: u.join(""),
-              internalValue: i.join(", "),
+              value: u.join(''),
+              internalValue: i.join(', '),
               calculationTimeMs: a,
             });
         })();
@@ -3441,7 +3441,7 @@ var StripeM = (function (e) {
         (h.__rewire_reset_all__ = function () {
           h.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var p = "__INTENTIONAL_UNDEFINED__",
+      var p = '__INTENTIONAL_UNDEFINED__',
         m = {};
 
       function O(e) {
@@ -3449,27 +3449,27 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "ctx":
+              case 'ctx':
                 return _.d;
-              case "UNAVAILABLE_WIDTH":
+              case 'UNAVAILABLE_WIDTH':
                 return -1;
-              case "now":
+              case 'now':
                 return o.d;
-              case "MStorage":
+              case 'MStorage':
                 return o.b;
-              case "storageKey":
-                return "_mf";
-              case "baseFonts":
+              case 'storageKey':
+                return '_mf';
+              case 'baseFonts':
                 return f;
-              case "safeMeasureText":
+              case 'safeMeasureText':
                 return l;
-              case "fontsToDetect":
+              case 'fontsToDetect':
                 return a;
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
-              case "calculateFonts":
+              case 'calculateFonts':
                 return E;
             }
             return;
@@ -3480,7 +3480,7 @@ var StripeM = (function (e) {
 
       function I(e, t) {
         var n = R();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -3515,7 +3515,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -3526,13 +3526,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", O),
-          e("__GetDependency__", O),
-          e("__Rewire__", I),
-          e("__set__", I),
-          e("__reset__", L),
-          e("__ResetDependency__", L),
-          e("__with__", w);
+        e('__get__', O),
+          e('__GetDependency__', O),
+          e('__Rewire__', I),
+          e('__set__', I),
+          e('__reset__', L),
+          e('__ResetDependency__', L),
+          e('__with__', w);
       })();
       var g = i(s);
 
@@ -3543,41 +3543,41 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== g && "function" !== g) ||
+      ('object' !== g && 'function' !== g) ||
         !Object.isExtensible(s) ||
-        (S("__get__", O),
-        S("__GetDependency__", O),
-        S("__Rewire__", I),
-        S("__set__", I),
-        S("__reset__", L),
-        S("__ResetDependency__", L),
-        S("__with__", w),
-        S("__RewireAPI__", m));
+        (S('__get__', O),
+        S('__GetDependency__', O),
+        S('__Rewire__', I),
+        S('__set__', I),
+        S('__reset__', L),
+        S('__ResetDependency__', L),
+        S('__with__', w),
+        S('__RewireAPI__', m));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(0);
 
       function o(e) {
         return (o =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var i = new (h("Extractor"))("", function () {
-        return h("MPromise").resolve("");
+      var i = new (h('Extractor'))('', function () {
+        return h('MPromise').resolve('');
       });
 
       function c() {
@@ -3624,7 +3624,7 @@ var StripeM = (function (e) {
         (u.__rewire_reset_all__ = function () {
           u.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var E = "__INTENTIONAL_UNDEFINED__",
+      var E = '__INTENTIONAL_UNDEFINED__',
         y = {};
 
       function h(e) {
@@ -3632,9 +3632,9 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "MPromise":
+              case 'MPromise':
                 return _.a;
             }
             return;
@@ -3645,7 +3645,7 @@ var StripeM = (function (e) {
 
       function v(e, t) {
         var n = l();
-        return "object" === o(e)
+        return 'object' === o(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -3680,7 +3680,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -3691,13 +3691,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", h),
-          e("__GetDependency__", h),
-          e("__Rewire__", v),
-          e("__set__", v),
-          e("__reset__", d),
-          e("__ResetDependency__", d),
-          e("__with__", b);
+        e('__get__', h),
+          e('__GetDependency__', h),
+          e('__Rewire__', v),
+          e('__set__', v),
+          e('__reset__', d),
+          e('__ResetDependency__', d),
+          e('__with__', b);
       })();
       var R = o(i);
 
@@ -3708,20 +3708,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== R && "function" !== R) ||
+      ('object' !== R && 'function' !== R) ||
         !Object.isExtensible(i) ||
-        (p("__get__", h),
-        p("__GetDependency__", h),
-        p("__Rewire__", v),
-        p("__set__", v),
-        p("__reset__", d),
-        p("__ResetDependency__", d),
-        p("__with__", b),
-        p("__RewireAPI__", y));
+        (p('__get__', h),
+        p('__GetDependency__', h),
+        p('__Rewire__', v),
+        p('__set__', v),
+        p('__reset__', d),
+        p('__ResetDependency__', d),
+        p('__with__', b),
+        p('__RewireAPI__', y));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -3729,29 +3729,29 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
-        if (v("navigator")) {
-          if (v("navigator").languages && v("navigator").languages.join)
-            return v("MPromise").resolve(v("navigator").languages.join(","));
-          if (v("navigator").language)
-            return v("MPromise").resolve(v("navigator").language);
-          if (v("navigator").userLanguage)
-            return v("MPromise").resolve(v("navigator").userLanguage);
+      var c = new (v('Extractor'))('', function () {
+        if (v('navigator')) {
+          if (v('navigator').languages && v('navigator').languages.join)
+            return v('MPromise').resolve(v('navigator').languages.join(','));
+          if (v('navigator').language)
+            return v('MPromise').resolve(v('navigator').language);
+          if (v('navigator').userLanguage)
+            return v('MPromise').resolve(v('navigator').userLanguage);
         }
-        return v("MPromise").resolve("");
+        return v('MPromise').resolve('');
       });
 
       function u() {
@@ -3798,7 +3798,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -3806,11 +3806,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "navigator":
+              case 'navigator':
                 return _.c;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -3821,7 +3821,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -3856,7 +3856,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -3867,13 +3867,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -3884,20 +3884,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -3905,23 +3905,23 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
-        return v("navigator")
-          ? v("MPromise").resolve(v("navigator").platform)
-          : v("MPromise").resolve("");
+      var c = new (v('Extractor'))('', function () {
+        return v('navigator')
+          ? v('MPromise').resolve(v('navigator').platform)
+          : v('MPromise').resolve('');
       });
 
       function u() {
@@ -3968,7 +3968,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -3976,11 +3976,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "navigator":
+              case 'navigator':
                 return _.c;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -3991,7 +3991,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -4026,7 +4026,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -4037,13 +4037,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -4054,20 +4054,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(5),
         _ = n.n(r),
@@ -4077,30 +4077,30 @@ var StripeM = (function (e) {
 
       function u(e) {
         return (u =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var a = new (b("Extractor"))("", function () {
-        if (b("navigator")) {
-          var e = _()(b("navigator").plugins || [], function (e) {
+      var a = new (b('Extractor'))('', function () {
+        if (b('navigator')) {
+          var e = _()(b('navigator').plugins || [], function (e) {
             var t = _()(e, function (e) {
               return [e.type, e.suffixes];
-            }).join("++");
+            }).join('++');
             return [e.name, e.filename, t];
-          }).join(", ");
-          return b("MPromise").resolve(e);
+          }).join(', ');
+          return b('MPromise').resolve(e);
         }
-        return b("MPromise").resolve("");
+        return b('MPromise').resolve('');
       });
 
       function f() {
@@ -4147,7 +4147,7 @@ var StripeM = (function (e) {
         (s.__rewire_reset_all__ = function () {
           s.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var v = "__INTENTIONAL_UNDEFINED__",
+      var v = '__INTENTIONAL_UNDEFINED__',
         d = {};
 
       function b(e) {
@@ -4155,11 +4155,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return o.a;
-              case "navigator":
+              case 'navigator':
                 return i.c;
-              case "MPromise":
+              case 'MPromise':
                 return c.a;
             }
             return;
@@ -4170,7 +4170,7 @@ var StripeM = (function (e) {
 
       function R(e, t) {
         var n = h();
-        return "object" === u(e)
+        return 'object' === u(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -4205,7 +4205,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -4216,13 +4216,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", b),
-          e("__GetDependency__", b),
-          e("__Rewire__", R),
-          e("__set__", R),
-          e("__reset__", p),
-          e("__ResetDependency__", p),
-          e("__with__", m);
+        e('__get__', b),
+          e('__GetDependency__', b),
+          e('__Rewire__', R),
+          e('__set__', R),
+          e('__reset__', p),
+          e('__ResetDependency__', p),
+          e('__with__', m);
       })();
       var O = u(a);
 
@@ -4233,20 +4233,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== O && "function" !== O) ||
+      ('object' !== O && 'function' !== O) ||
         !Object.isExtensible(a) ||
-        (I("__get__", b),
-        I("__GetDependency__", b),
-        I("__Rewire__", R),
-        I("__set__", R),
-        I("__reset__", p),
-        I("__ResetDependency__", p),
-        I("__with__", m),
-        I("__RewireAPI__", d));
+        (I('__get__', b),
+        I('__GetDependency__', b),
+        I('__Rewire__', R),
+        I('__set__', R),
+        I('__reset__', p),
+        I('__ResetDependency__', p),
+        I('__with__', m),
+        I('__RewireAPI__', d));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -4254,35 +4254,35 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
-        if (v("screen")) {
-          var e = v("screen"),
-            t = v("win"),
+      var c = new (v('Extractor'))('', function () {
+        if (v('screen')) {
+          var e = v('screen'),
+            t = v('win'),
             n =
               e.availWidth +
-              "w_" +
+              'w_' +
               e.availHeight +
-              "h_" +
+              'h_' +
               e.colorDepth +
-              "d_" +
+              'd_' +
               t.devicePixelRatio +
-              "r";
-          return v("MPromise").resolve(n);
+              'r';
+          return v('MPromise').resolve(n);
         }
-        return v("MPromise").resolve("");
+        return v('MPromise').resolve('');
       });
 
       function u() {
@@ -4329,7 +4329,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -4337,13 +4337,13 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "screen":
+              case 'screen':
                 return _.e;
-              case "win":
+              case 'win':
                 return _.f;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -4354,7 +4354,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -4389,7 +4389,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -4400,13 +4400,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -4417,20 +4417,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -4438,25 +4438,25 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
-        if (v("date")) {
-          var e = -v("date").getTimezoneOffset() / 60;
-          return v("MPromise").resolve(e.toString());
+      var c = new (v('Extractor'))('', function () {
+        if (v('date')) {
+          var e = -v('date').getTimezoneOffset() / 60;
+          return v('MPromise').resolve(e.toString());
         }
-        return v("MPromise").resolve("");
+        return v('MPromise').resolve('');
       });
 
       function u() {
@@ -4503,7 +4503,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -4511,11 +4511,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "date":
+              case 'date':
                 return _.a;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -4526,7 +4526,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -4561,7 +4561,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -4572,13 +4572,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -4589,20 +4589,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -4610,29 +4610,29 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
-        if (v("win") && v("doc")) {
+      var c = new (v('Extractor'))('', function () {
+        if (v('win') && v('doc')) {
           var e =
-            "ontouchstart" in window ||
+            'ontouchstart' in window ||
             (window.DocumentTouch &&
-              v("doc") instanceof window.DocumentTouch) ||
+              v('doc') instanceof window.DocumentTouch) ||
             !1;
-          return v("MPromise").resolve(e.toString());
+          return v('MPromise').resolve(e.toString());
         }
-        return v("MPromise").resolve("");
+        return v('MPromise').resolve('');
       });
 
       function u() {
@@ -4679,7 +4679,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -4687,13 +4687,13 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "win":
+              case 'win':
                 return _.f;
-              case "doc":
+              case 'doc':
                 return _.b;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -4704,7 +4704,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -4739,7 +4739,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -4750,13 +4750,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -4767,20 +4767,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -4788,23 +4788,23 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
-        return v("navigator")
-          ? v("MPromise").resolve(v("navigator").userAgent)
-          : v("MPromise").resolve("");
+      var c = new (v('Extractor'))('', function () {
+        return v('navigator')
+          ? v('MPromise').resolve(v('navigator').userAgent)
+          : v('MPromise').resolve('');
       });
 
       function u() {
@@ -4851,7 +4851,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -4859,11 +4859,11 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "navigator":
+              case 'navigator':
                 return _.c;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -4874,7 +4874,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -4909,7 +4909,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -4920,13 +4920,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -4937,20 +4937,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -4958,38 +4958,38 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
+      var c = new (v('Extractor'))('', function () {
         try {
-          if (v("win").ActiveXObject) {
-            var e = new (v("win").ActiveXObject)(
-              "ShockwaveFlash.ShockwaveFlash"
-            ).GetVariable("$version");
-            return v("MPromise").resolve(e);
+          if (v('win').ActiveXObject) {
+            var e = new (v('win').ActiveXObject)(
+              'ShockwaveFlash.ShockwaveFlash'
+            ).GetVariable('$version');
+            return v('MPromise').resolve(e);
           }
         } catch (e) {}
-        var t = v("navigator"),
+        var t = v('navigator'),
           n = t.plugins,
           r = t.mimeTypes;
-        if (!r) return v("MPromise").resolve("mime-types-unavailable");
-        var _ = r["application/x-shockwave-flash"];
+        if (!r) return v('MPromise').resolve('mime-types-unavailable');
+        var _ = r['application/x-shockwave-flash'];
         if (n && _ && _.enabledPlugin) {
-          var o = n["Shockwave Flash 2.0"] || n["Shockwave Flash"];
-          return v("MPromise").resolve(o ? o.description : "no-flash-plugin");
+          var o = n['Shockwave Flash 2.0'] || n['Shockwave Flash'];
+          return v('MPromise').resolve(o ? o.description : 'no-flash-plugin');
         }
-        return v("MPromise").resolve("");
+        return v('MPromise').resolve('');
       });
 
       function u() {
@@ -5036,7 +5036,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -5044,13 +5044,13 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "win":
+              case 'win':
                 return _.f;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
-              case "navigator":
+              case 'navigator':
                 return _.c;
             }
             return;
@@ -5061,7 +5061,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -5096,7 +5096,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -5107,13 +5107,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -5124,20 +5124,20 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       var r = n(2),
         _ = n(1),
@@ -5145,44 +5145,44 @@ var StripeM = (function (e) {
 
       function i(e) {
         return (i =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
-      var c = new (v("Extractor"))("", function () {
+      var c = new (v('Extractor'))('', function () {
         var e = function (e) {
-          var t = new (v("MStorage"))(),
-            n = t.get(v("adblockerStorageKey")),
-            r = v("now")();
+          var t = new (v('MStorage'))(),
+            n = t.get(v('adblockerStorageKey')),
+            r = v('now')();
           if (n)
             return e({
               value: n,
               async: !0,
-              calculationTimeMs: v("now")() - r,
+              calculationTimeMs: v('now')() - r,
             });
-          var _ = v("doc").createElement("div");
-          (_.innerHTML = "&nbsp;"),
+          var _ = v('doc').createElement('div');
+          (_.innerHTML = '&nbsp;'),
             (_.className =
-              "pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links"),
+              'pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links'),
             (_.style.cssText =
-              "\n      width: 1px !important; height: 1px !important;\n      position: absolute !important; left: -10000px !important;\n      top: -1000px !important;"),
-            v("doc").body.appendChild(_);
-          var o = v("now")() - r;
+              '\n      width: 1px !important; height: 1px !important;\n      position: absolute !important; left: -10000px !important;\n      top: -1000px !important;'),
+            v('doc').body.appendChild(_);
+          var o = v('now')() - r;
           setTimeout(function () {
-            var n = v("now")(),
+            var n = v('now')(),
               r = 0 === _.clientHeight || 0 === _.clientWidth;
-            v("doc").body.removeChild(_);
-            var i = o + (v("now")() - n);
-            t.set(v("adblockerStorageKey"), r),
+            v('doc').body.removeChild(_);
+            var i = o + (v('now')() - n);
+            t.set(v('adblockerStorageKey'), r),
               e({
                 value: r.toString(),
                 async: !0,
@@ -5190,12 +5190,12 @@ var StripeM = (function (e) {
               });
           }, 20);
         };
-        return new (v("MPromise"))(function (t, n) {
-          "complete" === v("doc").readyState ||
-          "loaded" === v("doc").readyState ||
-          v("doc").body
+        return new (v('MPromise'))(function (t, n) {
+          'complete' === v('doc').readyState ||
+          'loaded' === v('doc').readyState ||
+          v('doc').body
             ? e(t)
-            : v("doc").addEventListener("DOMContentLoaded", e.bind(null, t));
+            : v('doc').addEventListener('DOMContentLoaded', e.bind(null, t));
         });
       });
 
@@ -5243,7 +5243,7 @@ var StripeM = (function (e) {
         (a.__rewire_reset_all__ = function () {
           a.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var y = "__INTENTIONAL_UNDEFINED__",
+      var y = '__INTENTIONAL_UNDEFINED__',
         h = {};
 
       function v(e) {
@@ -5251,17 +5251,17 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "Extractor":
+              case 'Extractor':
                 return r.a;
-              case "MStorage":
+              case 'MStorage':
                 return o.b;
-              case "adblockerStorageKey":
-                return "_ab";
-              case "now":
+              case 'adblockerStorageKey':
+                return '_ab';
+              case 'now':
                 return o.d;
-              case "doc":
+              case 'doc':
                 return _.b;
-              case "MPromise":
+              case 'MPromise':
                 return o.a;
             }
             return;
@@ -5272,7 +5272,7 @@ var StripeM = (function (e) {
 
       function d(e, t) {
         var n = E();
-        return "object" === i(e)
+        return 'object' === i(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -5307,7 +5307,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -5318,13 +5318,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", v),
-          e("__GetDependency__", v),
-          e("__Rewire__", d),
-          e("__set__", d),
-          e("__reset__", b),
-          e("__ResetDependency__", b),
-          e("__with__", R);
+        e('__get__', v),
+          e('__GetDependency__', v),
+          e('__Rewire__', d),
+          e('__set__', d),
+          e('__reset__', b),
+          e('__ResetDependency__', b),
+          e('__with__', R);
       })();
       var p = i(c);
 
@@ -5335,33 +5335,33 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== p && "function" !== p) ||
+      ('object' !== p && 'function' !== p) ||
         !Object.isExtensible(c) ||
-        (m("__get__", v),
-        m("__GetDependency__", v),
-        m("__Rewire__", d),
-        m("__set__", d),
-        m("__reset__", b),
-        m("__ResetDependency__", b),
-        m("__with__", R),
-        m("__RewireAPI__", h));
+        (m('__get__', v),
+        m('__GetDependency__', v),
+        m('__Rewire__', d),
+        m('__set__', d),
+        m('__reset__', b),
+        m('__ResetDependency__', b),
+        m('__with__', R),
+        m('__RewireAPI__', h));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
       function r(e) {
         return (r =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
@@ -5375,22 +5375,22 @@ var StripeM = (function (e) {
           },
           o = Math.pow,
           i = o(2, 32),
-          c = "",
+          c = '',
           u = [],
           a = 8 * r.length;
-        E("sha256").h = E("sha256").h || [];
-        var f = E("sha256").h;
-        E("sha256").k = E("sha256").k || [];
-        for (var s = E("sha256").k, l = s.length, y = {}, h = 2; l < 64; h += 1)
+        E('sha256').h = E('sha256').h || [];
+        var f = E('sha256').h;
+        E('sha256').k = E('sha256').k || [];
+        for (var s = E('sha256').k, l = s.length, y = {}, h = 2; l < 64; h += 1)
           if (!y[h]) {
             for (t = 0; t < 313; t += h) y[t] = h;
             (f[l] = (o(h, 0.5) * i) | 0),
               (s[l] = (o(h, 1 / 3) * i) | 0),
               (l += 1);
           }
-        for (r += ""; (r.length % 64) - 56; ) r += "\0";
+        for (r += ''; (r.length % 64) - 56; ) r += '\0';
         for (t = 0; t < r.length; t += 1) {
-          if ((n = r.charCodeAt(t)) >> 8) return "";
+          if ((n = r.charCodeAt(t)) >> 8) return '';
           u[t >> 2] |= n << (((3 - t) % 4) * 8);
         }
         for (
@@ -5433,9 +5433,9 @@ var StripeM = (function (e) {
             c += String.fromCharCode(I);
           }
         return btoa(c)
-          .replace(/\+/g, "-")
-          .replace(/\//g, "_")
-          .replace(/=+$/, "");
+          .replace(/\+/g, '-')
+          .replace(/\//g, '_')
+          .replace(/=+$/, '');
       }
 
       function o() {
@@ -5449,7 +5449,7 @@ var StripeM = (function (e) {
           }
         }
       }
-      n.d(t, "a", function () {
+      n.d(t, 'a', function () {
         return _;
       });
       var i,
@@ -5484,7 +5484,7 @@ var StripeM = (function (e) {
         (i.__rewire_reset_all__ = function () {
           i.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var s = "__INTENTIONAL_UNDEFINED__",
+      var s = '__INTENTIONAL_UNDEFINED__',
         l = {};
 
       function E(e) {
@@ -5492,7 +5492,7 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "sha256":
+              case 'sha256':
                 return _;
             }
             return;
@@ -5503,7 +5503,7 @@ var StripeM = (function (e) {
 
       function y(e, t) {
         var n = f();
-        return "object" === r(e)
+        return 'object' === r(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -5538,7 +5538,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -5549,20 +5549,20 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", E),
-          e("__GetDependency__", E),
-          e("__Rewire__", y),
-          e("__set__", y),
-          e("__reset__", h),
-          e("__ResetDependency__", h),
-          e("__with__", v);
+        e('__get__', E),
+          e('__GetDependency__', E),
+          e('__Rewire__', y),
+          e('__set__', y),
+          e('__reset__', h),
+          e('__ResetDependency__', h),
+          e('__with__', v);
       })();
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     (function (e) {
-      n.d(t, "a", function () {
+      n.d(t, 'a', function () {
         return i;
       });
       var r = n(1),
@@ -5570,46 +5570,46 @@ var StripeM = (function (e) {
 
       function o(e) {
         return (o =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+          'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
               }
             : function (e) {
                 return e &&
-                  "function" == typeof Symbol &&
+                  'function' == typeof Symbol &&
                   e.constructor === Symbol &&
                   e !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof e;
               })(e);
       }
 
       function i(e) {
         var t =
-          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "6";
-        return new (h("MPromise"))(function (n, r) {
+          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : '6';
+        return new (h('MPromise'))(function (n, r) {
           if (null == t) return r();
           var _;
           _ =
-            void 0 !== h("win").XDomainRequest
-              ? new (h("win").XDomainRequest)()
-              : new (h("win").XMLHttpRequest)();
+            void 0 !== h('win').XDomainRequest
+              ? new (h('win').XDomainRequest)()
+              : new (h('win').XMLHttpRequest)();
           try {
             _.withCredentials = !0;
           } catch (e) {}
           var o;
-          o = "https://m.stripe.com/" + t;
+          o = 'https://m.stripe.com/' + t;
           var i = setTimeout(function () {
             r();
           }, 2e3);
           (_.onreadystatechange = function () {
-            if (_.readyState === XMLHttpRequest.DONE && h("win").StripeM) {
+            if (_.readyState === XMLHttpRequest.DONE && h('win').StripeM) {
               clearTimeout(i);
               var e = _.responseText;
-              200 === _.status ? ((h("win").StripeM.__sid = e), n(e)) : r();
+              200 === _.status ? ((h('win').StripeM.__sid = e), n(e)) : r();
             }
           }),
-            _.open("POST", o, !0),
+            _.open('POST', o, !0),
             _.send(e);
         });
       }
@@ -5657,7 +5657,7 @@ var StripeM = (function (e) {
         (u.__rewire_reset_all__ = function () {
           u.__$$GLOBAL_REWIRE_REGISTRY__ = Object.create(null);
         });
-      var E = "__INTENTIONAL_UNDEFINED__",
+      var E = '__INTENTIONAL_UNDEFINED__',
         y = {};
 
       function h(e) {
@@ -5665,9 +5665,9 @@ var StripeM = (function (e) {
         if (void 0 === t[e])
           return (function (e) {
             switch (e) {
-              case "MPromise":
+              case 'MPromise':
                 return _.a;
-              case "win":
+              case 'win':
                 return r.f;
             }
             return;
@@ -5678,7 +5678,7 @@ var StripeM = (function (e) {
 
       function v(e, t) {
         var n = l();
-        return "object" === o(e)
+        return 'object' === o(e)
           ? (Object.keys(e).forEach(function (t) {
               n[t] = e[t];
             }),
@@ -5713,7 +5713,7 @@ var StripeM = (function (e) {
             (r[n] = t[n]), (t[n] = e[n]);
           });
           var i = o();
-          return i && "function" == typeof i.then ? i.then(_).catch(_) : _(), i;
+          return i && 'function' == typeof i.then ? i.then(_).catch(_) : _(), i;
         };
       }
       !(function () {
@@ -5724,13 +5724,13 @@ var StripeM = (function (e) {
             configurable: !0,
           });
         }
-        e("__get__", h),
-          e("__GetDependency__", h),
-          e("__Rewire__", v),
-          e("__set__", v),
-          e("__reset__", d),
-          e("__ResetDependency__", d),
-          e("__with__", b);
+        e('__get__', h),
+          e('__GetDependency__', h),
+          e('__Rewire__', v),
+          e('__set__', v),
+          e('__reset__', d),
+          e('__ResetDependency__', d),
+          e('__with__', b);
       })();
       var R = o(i);
 
@@ -5741,40 +5741,40 @@ var StripeM = (function (e) {
           configurable: !0,
         });
       }
-      ("object" !== R && "function" !== R) ||
+      ('object' !== R && 'function' !== R) ||
         !Object.isExtensible(i) ||
-        (p("__get__", h),
-        p("__GetDependency__", h),
-        p("__Rewire__", v),
-        p("__set__", v),
-        p("__reset__", d),
-        p("__ResetDependency__", d),
-        p("__with__", b),
-        p("__RewireAPI__", y));
+        (p('__get__', h),
+        p('__GetDependency__', h),
+        p('__Rewire__', v),
+        p('__set__', v),
+        p('__reset__', d),
+        p('__ResetDependency__', d),
+        p('__with__', b),
+        p('__RewireAPI__', y));
     }.call(this, n(3)));
   },
   function (e, t, n) {
-    "use strict";
+    'use strict';
     n.r(t);
     var r = n(6);
-    n.d(t, "deviceId", function () {
+    n.d(t, 'deviceId', function () {
       return r.a;
     }),
-      n.d(t, "extract", function () {
+      n.d(t, 'extract', function () {
         return r.b;
       });
     var _ = n(9);
-    n.d(t, "p", function () {
+    n.d(t, 'p', function () {
       return _.b;
     }),
-      n.d(t, "b", function () {
+      n.d(t, 'b', function () {
         return _.a;
       });
   },
   function (e, t, n) {
     (function (e) {
       var r =
-          (void 0 !== e && e) || ("undefined" != typeof self && self) || window,
+          (void 0 !== e && e) || ('undefined' != typeof self && self) || window,
         _ = Function.prototype.apply;
 
       function o(e, t) {
@@ -5811,11 +5811,11 @@ var StripeM = (function (e) {
           }),
         n(30),
         (t.setImmediate =
-          ("undefined" != typeof self && self.setImmediate) ||
+          ('undefined' != typeof self && self.setImmediate) ||
           (void 0 !== e && e.setImmediate) ||
           (this && this.setImmediate)),
         (t.clearImmediate =
-          ("undefined" != typeof self && self.clearImmediate) ||
+          ('undefined' != typeof self && self.clearImmediate) ||
           (void 0 !== e && e.clearImmediate) ||
           (this && this.clearImmediate));
     }.call(this, n(3)));
@@ -5823,7 +5823,7 @@ var StripeM = (function (e) {
   function (e, t, n) {
     (function (e, t) {
       !(function (e, n) {
-        "use strict";
+        'use strict';
         if (!e.setImmediate) {
           var r,
             _,
@@ -5836,7 +5836,7 @@ var StripeM = (function (e) {
             s = e.document,
             l = Object.getPrototypeOf && Object.getPrototypeOf(e);
           (l = l && l.setTimeout ? l : e),
-            "[object process]" === {}.toString.call(e.process)
+            '[object process]' === {}.toString.call(e.process)
               ? (r = function (e) {
                   t.nextTick(function () {
                     y(e);
@@ -5850,7 +5850,7 @@ var StripeM = (function (e) {
                       (e.onmessage = function () {
                         t = !1;
                       }),
-                      e.postMessage("", "*"),
+                      e.postMessage('', '*'),
                       (e.onmessage = n),
                       t
                     );
@@ -5863,10 +5863,10 @@ var StripeM = (function (e) {
                   (r = function (e) {
                     o.port2.postMessage(e);
                   }))
-                : s && "onreadystatechange" in s.createElement("script")
+                : s && 'onreadystatechange' in s.createElement('script')
                 ? ((_ = s.documentElement),
                   (r = function (e) {
-                    var t = s.createElement("script");
+                    var t = s.createElement('script');
                     (t.onreadystatechange = function () {
                       y(e),
                         (t.onreadystatechange = null),
@@ -5878,21 +5878,21 @@ var StripeM = (function (e) {
                 : (r = function (e) {
                     setTimeout(y, 0, e);
                   })
-              : ((i = "setImmediate$" + Math.random() + "$"),
+              : ((i = 'setImmediate$' + Math.random() + '$'),
                 (c = function (t) {
                   t.source === e &&
-                    "string" == typeof t.data &&
+                    'string' == typeof t.data &&
                     0 === t.data.indexOf(i) &&
                     y(+t.data.slice(i.length));
                 }),
                 e.addEventListener
-                  ? e.addEventListener("message", c, !1)
-                  : e.attachEvent("onmessage", c),
+                  ? e.addEventListener('message', c, !1)
+                  : e.attachEvent('onmessage', c),
                 (r = function (t) {
-                  e.postMessage(i + t, "*");
+                  e.postMessage(i + t, '*');
                 })),
             (l.setImmediate = function (e) {
-              "function" != typeof e && (e = new Function("" + e));
+              'function' != typeof e && (e = new Function('' + e));
               for (
                 var t = new Array(arguments.length - 1), n = 0;
                 n < t.length;
@@ -5945,7 +5945,7 @@ var StripeM = (function (e) {
             }
           }
         }
-      })("undefined" == typeof self ? (void 0 === e ? this : e) : self);
+      })('undefined' == typeof self ? (void 0 === e ? this : e) : self);
     }.call(this, n(3), n(31)));
   },
   function (e, t) {
@@ -5954,11 +5954,11 @@ var StripeM = (function (e) {
       _ = (e.exports = {});
 
     function o() {
-      throw new Error("setTimeout has not been defined");
+      throw new Error('setTimeout has not been defined');
     }
 
     function i() {
-      throw new Error("clearTimeout has not been defined");
+      throw new Error('clearTimeout has not been defined');
     }
 
     function c(e) {
@@ -5977,12 +5977,12 @@ var StripeM = (function (e) {
     }
     !(function () {
       try {
-        n = "function" == typeof setTimeout ? setTimeout : o;
+        n = 'function' == typeof setTimeout ? setTimeout : o;
       } catch (e) {
         n = o;
       }
       try {
-        r = "function" == typeof clearTimeout ? clearTimeout : i;
+        r = 'function' == typeof clearTimeout ? clearTimeout : i;
       } catch (e) {
         r = i;
       }
@@ -6039,11 +6039,11 @@ var StripeM = (function (e) {
       (y.prototype.run = function () {
         this.fun.apply(null, this.array);
       }),
-      (_.title = "browser"),
+      (_.title = 'browser'),
       (_.browser = !0),
       (_.env = {}),
       (_.argv = []),
-      (_.version = ""),
+      (_.version = ''),
       (_.versions = {}),
       (_.on = h),
       (_.addListener = h),
@@ -6058,13 +6058,13 @@ var StripeM = (function (e) {
         return [];
       }),
       (_.binding = function (e) {
-        throw new Error("process.binding is not supported");
+        throw new Error('process.binding is not supported');
       }),
       (_.cwd = function () {
-        return "/";
+        return '/';
       }),
       (_.chdir = function (e) {
-        throw new Error("process.chdir is not supported");
+        throw new Error('process.chdir is not supported');
       }),
       (_.umask = function () {
         return 0;

@@ -1,11 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.getContrastYIQ = void 0;
 exports.getContrastYIQ = (hex) => {
-  const color = typeof hex === "function" ? hex() : hex;
-  const cleanColor = color.split("#")[1];
+  const color = typeof hex === 'function' ? hex() : hex;
+  const cleanColor = color.split('#')[1];
   const r = parseInt(cleanColor.substr(0, 2), 16);
   const g = parseInt(cleanColor.substr(2, 2), 16);
   const b = parseInt(cleanColor.substr(4, 2), 16);

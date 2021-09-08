@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,12 +8,12 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const react_1 = __importDefault(require("react"));
-const keycodes_1 = require("../../../utils/keycodes");
-const elements_1 = require("./elements");
+const react_1 = __importDefault(require('react'));
+const keycodes_1 = require('../../../utils/keycodes');
+const elements_1 = require('./elements');
 class default_1 extends react_1.default.PureComponent {
   constructor() {
     super(...arguments);
@@ -34,7 +34,7 @@ class default_1 extends react_1.default.PureComponent {
     };
   }
   render() {
-    const { url = "" } = this.props;
+    const { url = '' } = this.props;
     return react_1.default.createElement(
       elements_1.Container,
       {
@@ -43,14 +43,14 @@ class default_1 extends react_1.default.PureComponent {
       react_1.default.createElement(
         elements_1.InputContainer,
         null,
-        react_1.default.createElement("input", {
+        react_1.default.createElement('input', {
           ref: (e) => {
             this.input = e;
           },
           onChange: this.onChange,
           onKeyDown: this.handleKeyDown,
           value: url,
-          "aria-label": "Address Bar Input",
+          'aria-label': 'Address Bar Input',
         })
       )
     );

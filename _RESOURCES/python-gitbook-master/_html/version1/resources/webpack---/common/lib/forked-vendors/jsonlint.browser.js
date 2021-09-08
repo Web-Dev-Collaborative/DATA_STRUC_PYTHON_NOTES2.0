@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
   This is a modified version of jsonlint lib.
@@ -30,32 +30,32 @@ var jsonlint = (function () {
       EOF: 14,
       JSONObject: 15,
       JSONArray: 16,
-      "{": 17,
-      "}": 18,
+      '{': 17,
+      '}': 18,
       JSONMemberList: 19,
       JSONMember: 20,
-      ":": 21,
-      ",": 22,
-      "[": 23,
-      "]": 24,
+      ':': 21,
+      ',': 22,
+      '[': 23,
+      ']': 24,
       JSONElementList: 25,
       $accept: 0,
       $end: 1,
     },
     terminals_: {
-      2: "error",
-      4: "STRING",
-      6: "NUMBER",
-      8: "NULL",
-      10: "TRUE",
-      11: "FALSE",
-      14: "EOF",
-      17: "{",
-      18: "}",
-      21: ":",
-      22: ",",
-      23: "[",
-      24: "]",
+      2: 'error',
+      4: 'STRING',
+      6: 'NUMBER',
+      8: 'NULL',
+      10: 'TRUE',
+      11: 'FALSE',
+      14: 'EOF',
+      17: '{',
+      18: '}',
+      21: ':',
+      22: ',',
+      23: '[',
+      24: ']',
     },
     productions_: [
       0,
@@ -96,13 +96,13 @@ var jsonlint = (function () {
         case 1:
           // replace escaped characters with actual character
           this.$ = yytext
-            .replace(/\\(\\|")/g, "$" + "1")
-            .replace(/\\n/g, "\n")
-            .replace(/\\r/g, "\r")
-            .replace(/\\t/g, "\t")
-            .replace(/\\v/g, "\v")
-            .replace(/\\f/g, "\f")
-            .replace(/\\b/g, "\b");
+            .replace(/\\(\\|")/g, '$' + '1')
+            .replace(/\\n/g, '\n')
+            .replace(/\\r/g, '\r')
+            .replace(/\\t/g, '\t')
+            .replace(/\\v/g, '\v')
+            .replace(/\\f/g, '\f')
+            .replace(/\\b/g, '\b');
           break;
 
         case 2:
@@ -391,7 +391,7 @@ var jsonlint = (function () {
         lstack = [],
         // location stack
         table = this.table,
-        yytext = "",
+        yytext = '',
         yylineno = 0,
         yyleng = 0,
         recovering = 0,
@@ -401,10 +401,10 @@ var jsonlint = (function () {
       this.lexer.setInput(input);
       this.lexer.yy = this.yy;
       this.yy.lexer = this.lexer;
-      if (typeof this.lexer.yylloc == "undefined") this.lexer.yylloc = {};
+      if (typeof this.lexer.yylloc == 'undefined') this.lexer.yylloc = {};
       var yyloc = this.lexer.yylloc;
       lstack.push(yyloc);
-      if (typeof this.yy.parseError === "function")
+      if (typeof this.yy.parseError === 'function')
         this.parseError = this.yy.parseError;
 
       function popStack(n) {
@@ -418,7 +418,7 @@ var jsonlint = (function () {
         token = self.lexer.lex() || 1; // $end = 1
         // if token isn't its numeric value, convert
 
-        if (typeof token !== "number") {
+        if (typeof token !== 'number') {
           token = self.symbols_[token] || token;
         }
 
@@ -450,7 +450,7 @@ var jsonlint = (function () {
         } // handle parse error
 
         _handle_error: if (
-          typeof action === "undefined" ||
+          typeof action === 'undefined' ||
           !action.length ||
           !action[0]
         ) {
@@ -464,27 +464,27 @@ var jsonlint = (function () {
               }
             }
 
-            var errStr = "";
+            var errStr = '';
 
             if (this.lexer.showPosition) {
               errStr =
-                "Parse error on line " +
+                'Parse error on line ' +
                 (yylineno + 1) +
-                ":\n" +
+                ':\n' +
                 this.lexer.showPosition() +
-                "\nExpecting " +
-                expected.join(", ") +
+                '\nExpecting ' +
+                expected.join(', ') +
                 ", got '" +
                 this.terminals_[symbol] +
                 "'";
             } else {
               errStr =
-                "Parse error on line " +
+                'Parse error on line ' +
                 (yylineno + 1) +
-                ": Unexpected " +
+                ': Unexpected ' +
                 (symbol == 1
                   ? /*EOF*/
-                    "end of input"
+                    'end of input'
                   : "'" + (this.terminals_[symbol] || symbol) + "'");
             }
 
@@ -499,7 +499,7 @@ var jsonlint = (function () {
 
           if (recovering == 3) {
             if (symbol == EOF) {
-              throw new Error(errStr || "Parsing halted.");
+              throw new Error(errStr || 'Parsing halted.');
             } // discard current lookahead and grab another
 
             yyleng = this.lexer.yyleng;
@@ -516,7 +516,7 @@ var jsonlint = (function () {
             }
 
             if (state == 0) {
-              throw new Error(errStr || "Parsing halted.");
+              throw new Error(errStr || 'Parsing halted.');
             }
 
             popStack(1);
@@ -534,9 +534,9 @@ var jsonlint = (function () {
 
         if (action[0] instanceof Array && action.length > 1) {
           throw new Error(
-            "Parse Error: multiple actions possible at state: " +
+            'Parse Error: multiple actions possible at state: ' +
               state +
-              ", token: " +
+              ', token: ' +
               symbol
           );
         }
@@ -592,7 +592,7 @@ var jsonlint = (function () {
               lstack
             );
 
-            if (typeof r !== "undefined") {
+            if (typeof r !== 'undefined') {
               return r;
             } // pop off stack
 
@@ -636,8 +636,8 @@ var jsonlint = (function () {
         this._input = input;
         this._more = this._less = this.done = false;
         this.yylineno = this.yyleng = 0;
-        this.yytext = this.matched = this.match = "";
-        this.conditionStack = ["INITIAL"];
+        this.yytext = this.matched = this.match = '';
+        this.conditionStack = ['INITIAL'];
         this.yylloc = {
           first_line: 1,
           first_column: 0,
@@ -674,7 +674,7 @@ var jsonlint = (function () {
           this.matched.length - this.match.length
         );
         return (
-          (past.length > 20 ? "..." : "") + past.substr(-20).replace(/\n/g, "")
+          (past.length > 20 ? '...' : '') + past.substr(-20).replace(/\n/g, '')
         );
       },
       upcomingInput: function upcomingInput() {
@@ -684,15 +684,15 @@ var jsonlint = (function () {
           next += this._input.substr(0, 20 - next.length);
         }
 
-        return (next.substr(0, 20) + (next.length > 20 ? "..." : "")).replace(
+        return (next.substr(0, 20) + (next.length > 20 ? '...' : '')).replace(
           /\n/g,
-          ""
+          ''
         );
       },
       showPosition: function showPosition() {
         var pre = this.pastInput();
-        var c = new Array(pre.length + 1).join("-");
-        return pre + this.upcomingInput() + "\n" + c + "^";
+        var c = new Array(pre.length + 1).join('-');
+        return pre + this.upcomingInput() + '\n' + c + '^';
       },
       next: function next() {
         if (this.done) {
@@ -703,8 +703,8 @@ var jsonlint = (function () {
         var token, match, tempMatch, index, col, lines;
 
         if (!this._more) {
-          this.yytext = "";
-          this.match = "";
+          this.yytext = '';
+          this.match = '';
         }
 
         var rules = this._currentRules();
@@ -748,16 +748,16 @@ var jsonlint = (function () {
           else return;
         }
 
-        if (this._input === "") {
+        if (this._input === '') {
           return this.EOF;
         } else {
           this.parseError(
-            "Lexical error on line " +
+            'Lexical error on line ' +
               (this.yylineno + 1) +
-              ". Unrecognized text.\n" +
+              '. Unrecognized text.\n' +
               this.showPosition(),
             {
-              text: "",
+              text: '',
               token: null,
               line: this.yylineno,
             }
@@ -767,7 +767,7 @@ var jsonlint = (function () {
       lex: function lex() {
         var r = this.next();
 
-        if (typeof r !== "undefined") {
+        if (typeof r !== 'undefined') {
           return r;
         } else {
           return this.lex();
@@ -856,7 +856,7 @@ var jsonlint = (function () {
           break;
 
         case 13:
-          return "INVALID";
+          return 'INVALID';
           break;
       }
     };

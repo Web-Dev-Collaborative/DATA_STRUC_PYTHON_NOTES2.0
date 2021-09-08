@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __rest =
   (this && this.__rest) ||
   function (s, e) {
@@ -6,7 +6,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -25,37 +25,37 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.PreferenceKeybinding = void 0;
-const react_1 = __importDefault(require("react"));
-const KeybindingInput_1 = __importDefault(require("./KeybindingInput"));
+const react_1 = __importDefault(require('react'));
+const KeybindingInput_1 = __importDefault(require('./KeybindingInput'));
 exports.PreferenceKeybinding = (_a) => {
   var { setValue: setValueProp, value: valueProp } = _a,
-    props = __rest(_a, ["setValue", "value"]);
+    props = __rest(_a, ['setValue', 'value']);
   const setValue = (index) => (value) => {
     const result = [...valueProp];
     result[index] = value;
     setValueProp(result);
   };
   return react_1.default.createElement(
-    "div",
+    'div',
     null,
     react_1.default.createElement(
       KeybindingInput_1.default,
       Object.assign({}, props, {
-        placeholder: "First",
+        placeholder: 'First',
         setValue: setValue(0),
         value: valueProp[0],
       })
     ),
-    " - ",
+    ' - ',
     react_1.default.createElement(
       KeybindingInput_1.default,
       Object.assign({}, props, {
         disabled: !valueProp[0] || valueProp[0].length === 0,
-        placeholder: "Second",
+        placeholder: 'Second',
         setValue: setValue(1),
         value: valueProp.length === 2 && valueProp[1],
       })

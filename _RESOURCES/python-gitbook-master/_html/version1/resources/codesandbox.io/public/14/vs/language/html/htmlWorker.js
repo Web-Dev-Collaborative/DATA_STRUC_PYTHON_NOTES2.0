@@ -4,8 +4,8 @@
  * Released under the MIT license
  * https://github.com/Microsoft/monaco-html/blob/master/LICENSE.md
  *-----------------------------------------------------------------------------*/
-define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
-  "use strict";
+define('vscode-nls/vscode-nls', ['require', 'exports'], function (e, t) {
+  'use strict';
 
   function n(e, t) {
     for (var n, r, i = [], a = 2; a < arguments.length; a++)
@@ -24,7 +24,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
   function r(e) {
     return n;
   }
-  Object.defineProperty(t, "__esModule", {
+  Object.defineProperty(t, '__esModule', {
     value: !0,
   }),
     (t.loadMessageBundle = r),
@@ -32,82 +32,82 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       return r;
     });
 }),
-  define("vscode-nls", ["vscode-nls/vscode-nls"], function (e) {
+  define('vscode-nls', ['vscode-nls/vscode-nls'], function (e) {
     return e;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/htmlLanguageTypes",
-          ["require", "exports"],
+          'vscode-html-languageservice/htmlLanguageTypes',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
+    'use strict';
     var n, r;
-    Object.defineProperty(t, "__esModule", {
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       ((n = t.TokenType || (t.TokenType = {}))[(n.StartCommentTag = 0)] =
-        "StartCommentTag"),
-      (n[(n.Comment = 1)] = "Comment"),
-      (n[(n.EndCommentTag = 2)] = "EndCommentTag"),
-      (n[(n.StartTagOpen = 3)] = "StartTagOpen"),
-      (n[(n.StartTagClose = 4)] = "StartTagClose"),
-      (n[(n.StartTagSelfClose = 5)] = "StartTagSelfClose"),
-      (n[(n.StartTag = 6)] = "StartTag"),
-      (n[(n.EndTagOpen = 7)] = "EndTagOpen"),
-      (n[(n.EndTagClose = 8)] = "EndTagClose"),
-      (n[(n.EndTag = 9)] = "EndTag"),
-      (n[(n.DelimiterAssign = 10)] = "DelimiterAssign"),
-      (n[(n.AttributeName = 11)] = "AttributeName"),
-      (n[(n.AttributeValue = 12)] = "AttributeValue"),
-      (n[(n.StartDoctypeTag = 13)] = "StartDoctypeTag"),
-      (n[(n.Doctype = 14)] = "Doctype"),
-      (n[(n.EndDoctypeTag = 15)] = "EndDoctypeTag"),
-      (n[(n.Content = 16)] = "Content"),
-      (n[(n.Whitespace = 17)] = "Whitespace"),
-      (n[(n.Unknown = 18)] = "Unknown"),
-      (n[(n.Script = 19)] = "Script"),
-      (n[(n.Styles = 20)] = "Styles"),
-      (n[(n.EOS = 21)] = "EOS"),
+        'StartCommentTag'),
+      (n[(n.Comment = 1)] = 'Comment'),
+      (n[(n.EndCommentTag = 2)] = 'EndCommentTag'),
+      (n[(n.StartTagOpen = 3)] = 'StartTagOpen'),
+      (n[(n.StartTagClose = 4)] = 'StartTagClose'),
+      (n[(n.StartTagSelfClose = 5)] = 'StartTagSelfClose'),
+      (n[(n.StartTag = 6)] = 'StartTag'),
+      (n[(n.EndTagOpen = 7)] = 'EndTagOpen'),
+      (n[(n.EndTagClose = 8)] = 'EndTagClose'),
+      (n[(n.EndTag = 9)] = 'EndTag'),
+      (n[(n.DelimiterAssign = 10)] = 'DelimiterAssign'),
+      (n[(n.AttributeName = 11)] = 'AttributeName'),
+      (n[(n.AttributeValue = 12)] = 'AttributeValue'),
+      (n[(n.StartDoctypeTag = 13)] = 'StartDoctypeTag'),
+      (n[(n.Doctype = 14)] = 'Doctype'),
+      (n[(n.EndDoctypeTag = 15)] = 'EndDoctypeTag'),
+      (n[(n.Content = 16)] = 'Content'),
+      (n[(n.Whitespace = 17)] = 'Whitespace'),
+      (n[(n.Unknown = 18)] = 'Unknown'),
+      (n[(n.Script = 19)] = 'Script'),
+      (n[(n.Styles = 20)] = 'Styles'),
+      (n[(n.EOS = 21)] = 'EOS'),
       ((r = t.ScannerState || (t.ScannerState = {}))[(r.WithinContent = 0)] =
-        "WithinContent"),
-      (r[(r.AfterOpeningStartTag = 1)] = "AfterOpeningStartTag"),
-      (r[(r.AfterOpeningEndTag = 2)] = "AfterOpeningEndTag"),
-      (r[(r.WithinDoctype = 3)] = "WithinDoctype"),
-      (r[(r.WithinTag = 4)] = "WithinTag"),
-      (r[(r.WithinEndTag = 5)] = "WithinEndTag"),
-      (r[(r.WithinComment = 6)] = "WithinComment"),
-      (r[(r.WithinScriptContent = 7)] = "WithinScriptContent"),
-      (r[(r.WithinStyleContent = 8)] = "WithinStyleContent"),
-      (r[(r.AfterAttributeName = 9)] = "AfterAttributeName"),
-      (r[(r.BeforeAttributeValue = 10)] = "BeforeAttributeValue");
+        'WithinContent'),
+      (r[(r.AfterOpeningStartTag = 1)] = 'AfterOpeningStartTag'),
+      (r[(r.AfterOpeningEndTag = 2)] = 'AfterOpeningEndTag'),
+      (r[(r.WithinDoctype = 3)] = 'WithinDoctype'),
+      (r[(r.WithinTag = 4)] = 'WithinTag'),
+      (r[(r.WithinEndTag = 5)] = 'WithinEndTag'),
+      (r[(r.WithinComment = 6)] = 'WithinComment'),
+      (r[(r.WithinScriptContent = 7)] = 'WithinScriptContent'),
+      (r[(r.WithinStyleContent = 8)] = 'WithinStyleContent'),
+      (r[(r.AfterAttributeName = 9)] = 'AfterAttributeName'),
+      (r[(r.BeforeAttributeValue = 10)] = 'BeforeAttributeValue');
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/parser/htmlScanner",
-          ["require", "exports", "vscode-nls", "../htmlLanguageTypes"],
+          'vscode-html-languageservice/parser/htmlScanner',
+          ['require', 'exports', 'vscode-nls', '../htmlLanguageTypes'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var n = e("vscode-nls"),
-      m = e("../htmlLanguageTypes"),
+    var n = e('vscode-nls'),
+      m = e('../htmlLanguageTypes'),
       b = n.loadMessageBundle(),
       o = (function () {
         function e(e, t) {
@@ -161,13 +161,13 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             var t = this.source.substr(this.position).match(e);
             return t
               ? ((this.position = this.position + t.index + t[0].length), t[0])
-              : "";
+              : '';
           }),
           (e.prototype.advanceUntilRegExp = function (e) {
             var t = this.source.substr(this.position).match(e);
             return t
               ? ((this.position = this.position + t.index), t[0])
-              : (this.goToEnd(), "");
+              : (this.goToEnd(), '');
           }),
           (e.prototype.advanceUntilChar = function (e) {
             for (; this.position < this.source.length; ) {
@@ -210,21 +210,21 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           e
         );
       })(),
-      v = "!".charCodeAt(0),
-      y = "-".charCodeAt(0),
-      T = "<".charCodeAt(0),
-      w = ">".charCodeAt(0),
-      _ = "/".charCodeAt(0),
-      x = "=".charCodeAt(0),
+      v = '!'.charCodeAt(0),
+      y = '-'.charCodeAt(0),
+      T = '<'.charCodeAt(0),
+      w = '>'.charCodeAt(0),
+      _ = '/'.charCodeAt(0),
+      x = '='.charCodeAt(0),
       k = '"'.charCodeAt(0),
       S = "'".charCodeAt(0),
-      r = "\n".charCodeAt(0),
-      i = "\r".charCodeAt(0),
-      a = "\f".charCodeAt(0),
-      s = " ".charCodeAt(0),
-      l = "\t".charCodeAt(0),
+      r = '\n'.charCodeAt(0),
+      i = '\r'.charCodeAt(0),
+      a = '\f'.charCodeAt(0),
+      s = ' '.charCodeAt(0),
+      l = '\t'.charCodeAt(0),
       E = {
-        "text/x-handlebars-template": !0,
+        'text/x-handlebars-template': !0,
       };
     t.createScanner = function (e, t, n) {
       void 0 === t && (t = 0),
@@ -297,8 +297,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                         n,
                         m.TokenType.Whitespace,
                         b(
-                          "error.unexpectedWhitespace",
-                          "Tag name must directly follow the open bracket."
+                          'error.unexpectedWhitespace',
+                          'Tag name must directly follow the open bracket.'
                         )
                       )
                     : ((h = m.ScannerState.WithinEndTag),
@@ -308,8 +308,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                             n,
                             m.TokenType.Unknown,
                             b(
-                              "error.endTagNameExpected",
-                              "End tag name expected."
+                              'error.endTagNameExpected',
+                              'End tag name expected.'
                             )
                           )
                         : e());
@@ -320,7 +320,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       (h = m.ScannerState.WithinContent),
                       g(n, m.TokenType.EndTagClose)
                     );
-                  t = b("error.tagNameExpected", "Closing bracket expected.");
+                  t = b('error.tagNameExpected', 'Closing bracket expected.');
                   break;
                 case m.ScannerState.AfterOpeningStartTag:
                   return (
@@ -335,8 +335,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                           n,
                           m.TokenType.Whitespace,
                           b(
-                            "error.unexpectedWhitespace",
-                            "Tag name must directly follow the open bracket."
+                            'error.unexpectedWhitespace',
+                            'Tag name must directly follow the open bracket.'
                           )
                         )
                       : ((h = m.ScannerState.WithinTag),
@@ -346,8 +346,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                               n,
                               m.TokenType.Unknown,
                               b(
-                                "error.startTagNameExpected",
-                                "Start tag name expected."
+                                'error.startTagNameExpected',
+                                'Start tag name expected.'
                               )
                             )
                           : e())
@@ -368,11 +368,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       g(n, m.TokenType.StartTagSelfClose))
                     : p.advanceIfChar(w)
                     ? ((h =
-                        "script" === c
+                        'script' === c
                           ? d && E[d]
                             ? m.ScannerState.WithinContent
                             : m.ScannerState.WithinScriptContent
-                          : "style" === c
+                          : 'style' === c
                           ? m.ScannerState.WithinStyleContent
                           : m.ScannerState.WithinContent),
                       g(n, m.TokenType.StartTagClose))
@@ -381,8 +381,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                         n,
                         m.TokenType.Unknown,
                         b(
-                          "error.unexpectedCharacterInTag",
-                          "Unexpected character in tag."
+                          'error.unexpectedCharacterInTag',
+                          'Unexpected character in tag.'
                         )
                       ));
                 case m.ScannerState.AfterAttributeName:
@@ -397,7 +397,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   var i = p.advanceIfRegExp(/^[^\s"'`=<>\/]+/);
                   if (0 < i.length)
                     return (
-                      "type" === u && (d = i),
+                      'type' === u && (d = i),
                       (h = m.ScannerState.WithinTag),
                       (l = !1),
                       g(n, m.TokenType.AttributeValue)
@@ -406,7 +406,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   return a === S || a === k
                     ? (p.advance(1),
                       p.advanceUntilChar(a) && p.advance(1),
-                      "type" === u &&
+                      'type' === u &&
                         (d = p.getSource().substring(n + 1, p.pos() - 1)),
                       (h = m.ScannerState.WithinTag),
                       (l = !1),
@@ -417,9 +417,9 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                     var s = p.advanceIfRegExp(/<!--|-->|<\/?script\s*\/?>?/i);
                     if (0 === s.length)
                       return p.goToEnd(), g(n, m.TokenType.Script);
-                    if ("\x3c!--" === s) 1 === o && (o = 2);
-                    else if ("--\x3e" === s) o = 1;
-                    else if ("/" !== s[1]) 2 === o && (o = 3);
+                    if ('\x3c!--' === s) 1 === o && (o = 2);
+                    else if ('--\x3e' === s) o = 1;
+                    else if ('/' !== s[1]) 2 === o && (o = 3);
                     else {
                       if (3 !== o) {
                         p.goBack(s.length);
@@ -447,11 +447,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             })();
           return n !== m.TokenType.EOS && e === p.pos()
             ? (console.log(
-                "Scanner.scan has not advanced at offset " +
+                'Scanner.scan has not advanced at offset ' +
                   e +
-                  ", state before: " +
+                  ', state before: ' +
                   t +
-                  " after: " +
+                  ' after: ' +
                   h
               ),
               p.advance(1),
@@ -483,20 +483,20 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/utils/arrays",
-          ["require", "exports"],
+          'vscode-html-languageservice/utils/arrays',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.findFirst = function (e, t) {
@@ -523,20 +523,20 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/utils/strings",
-          ["require", "exports"],
+          'vscode-html-languageservice/utils/strings',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.startsWith = function (e, t) {
@@ -556,64 +556,64 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         return r;
       }),
       (t.repeat = function (e, t) {
-        for (var n = ""; 0 < t; )
+        for (var n = ''; 0 < t; )
           1 == (1 & t) && (n += e), (e += e), (t >>>= 1);
         return n;
       });
-    var r = "a".charCodeAt(0),
-      i = "z".charCodeAt(0),
-      a = "A".charCodeAt(0),
-      o = "Z".charCodeAt(0),
-      s = "0".charCodeAt(0),
-      l = "9".charCodeAt(0);
+    var r = 'a'.charCodeAt(0),
+      i = 'z'.charCodeAt(0),
+      a = 'A'.charCodeAt(0),
+      o = 'Z'.charCodeAt(0),
+      s = '0'.charCodeAt(0),
+      l = '9'.charCodeAt(0);
     t.isLetterOrDigit = function (e, t) {
       var n = e.charCodeAt(t);
       return (r <= n && n <= i) || (a <= n && n <= o) || (s <= n && n <= l);
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/parser/htmlTags",
+          'vscode-html-languageservice/parser/htmlTags',
           [
-            "require",
-            "exports",
-            "../utils/strings",
-            "../utils/arrays",
-            "vscode-nls",
+            'require',
+            'exports',
+            '../utils/strings',
+            '../utils/arrays',
+            'vscode-nls',
           ],
           e
         );
   })(function (e, o) {
-    "use strict";
-    Object.defineProperty(o, "__esModule", {
+    'use strict';
+    Object.defineProperty(o, '__esModule', {
       value: !0,
     });
-    var p = e("../utils/strings"),
-      t = e("../utils/arrays"),
-      n = e("vscode-nls").loadMessageBundle();
+    var p = e('../utils/strings'),
+      t = e('../utils/arrays'),
+      n = e('vscode-nls').loadMessageBundle();
     (o.EMPTY_ELEMENTS = [
-      "area",
-      "base",
-      "br",
-      "col",
-      "embed",
-      "hr",
-      "img",
-      "input",
-      "keygen",
-      "link",
-      "menuitem",
-      "meta",
-      "param",
-      "source",
-      "track",
-      "wbr",
+      'area',
+      'base',
+      'br',
+      'col',
+      'embed',
+      'hr',
+      'img',
+      'input',
+      'keygen',
+      'link',
+      'menuitem',
+      'meta',
+      'param',
+      'source',
+      'track',
+      'wbr',
     ]),
       (o.isEmptyElement = function (e) {
         return (
@@ -635,7 +635,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
     function l(e, n, t, r) {
       if (
         (r.forEach(function (e) {
-          var t = e.split(":");
+          var t = e.split(':');
           n(t[0], t[1]);
         }),
         e)
@@ -645,7 +645,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           var a = i.attributes;
           a &&
             a.forEach(function (e) {
-              var t = e.split(":");
+              var t = e.split(':');
               n(t[0], t[1]);
             });
         }
@@ -653,12 +653,12 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
     }
 
     function c(e, r, i, t, n, a, o) {
-      var s = r + ":",
+      var s = r + ':',
         l = function (e) {
           e.forEach(function (e) {
             if (e.length > s.length && p.startsWith(e, s)) {
               var t = e.substr(s.length);
-              if ("v" === t) i(r);
+              if ('v' === t) i(r);
               else {
                 var n = a[t];
                 n && n.forEach(i);
@@ -682,1516 +682,1516 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       (o.HTML_TAGS = {
         html: new r(
           n(
-            "tags.html",
-            "The html element represents the root of an HTML document."
+            'tags.html',
+            'The html element represents the root of an HTML document.'
           ),
-          ["manifest"]
+          ['manifest']
         ),
         head: new r(
           n(
-            "tags.head",
-            "The head element represents a collection of metadata for the Document."
+            'tags.head',
+            'The head element represents a collection of metadata for the Document.'
           )
         ),
         title: new r(
           n(
-            "tags.title",
+            'tags.title',
             "The title element represents the document's title or name. Authors should use titles that identify their documents even when they are used out of context, for example in a user's history or bookmarks, or in search results. The document's title is often different from its first heading, since the first heading does not have to stand alone when taken out of context."
           )
         ),
         base: new r(
           n(
-            "tags.base",
-            "The base element allows authors to specify the document base URL for the purposes of resolving relative URLs, and the name of the default browsing context for the purposes of following hyperlinks. The element does not represent any content beyond this information."
+            'tags.base',
+            'The base element allows authors to specify the document base URL for the purposes of resolving relative URLs, and the name of the default browsing context for the purposes of following hyperlinks. The element does not represent any content beyond this information.'
           ),
-          ["href", "target"]
+          ['href', 'target']
         ),
         link: new r(
           n(
-            "tags.link",
-            "The link element allows authors to link their document to other resources."
+            'tags.link',
+            'The link element allows authors to link their document to other resources.'
           ),
           [
-            "href",
-            "crossorigin:xo",
-            "rel",
-            "media",
-            "hreflang",
-            "type",
-            "sizes",
+            'href',
+            'crossorigin:xo',
+            'rel',
+            'media',
+            'hreflang',
+            'type',
+            'sizes',
           ]
         ),
         meta: new r(
           n(
-            "tags.meta",
-            "The meta element represents various kinds of metadata that cannot be expressed using the title, base, link, style, and script elements."
+            'tags.meta',
+            'The meta element represents various kinds of metadata that cannot be expressed using the title, base, link, style, and script elements.'
           ),
-          ["name", "http-equiv", "content", "charset"]
+          ['name', 'http-equiv', 'content', 'charset']
         ),
         style: new r(
           n(
-            "tags.style",
-            "The style element allows authors to embed style information in their documents. The style element is one of several inputs to the styling processing model. The element does not represent content for the user."
+            'tags.style',
+            'The style element allows authors to embed style information in their documents. The style element is one of several inputs to the styling processing model. The element does not represent content for the user.'
           ),
-          ["media", "nonce", "type", "scoped:v"]
+          ['media', 'nonce', 'type', 'scoped:v']
         ),
         body: new r(
           n(
-            "tags.body",
-            "The body element represents the content of the document."
+            'tags.body',
+            'The body element represents the content of the document.'
           ),
           [
-            "onafterprint",
-            "onbeforeprint",
-            "onbeforeunload",
-            "onhashchange",
-            "onlanguagechange",
-            "onmessage",
-            "onoffline",
-            "ononline",
-            "onpagehide",
-            "onpageshow",
-            "onpopstate",
-            "onstorage",
-            "onunload",
+            'onafterprint',
+            'onbeforeprint',
+            'onbeforeunload',
+            'onhashchange',
+            'onlanguagechange',
+            'onmessage',
+            'onoffline',
+            'ononline',
+            'onpagehide',
+            'onpageshow',
+            'onpopstate',
+            'onstorage',
+            'onunload',
           ]
         ),
         article: new r(
           n(
-            "tags.article",
-            "The article element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content. Each article should be identified, typically by including a heading (h1–h6 element) as a child of the article element."
+            'tags.article',
+            'The article element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content. Each article should be identified, typically by including a heading (h1–h6 element) as a child of the article element.'
           )
         ),
         section: new r(
           n(
-            "tags.section",
-            "The section element represents a generic section of a document or application. A section, in this context, is a thematic grouping of content. Each section should be identified, typically by including a heading ( h1- h6 element) as a child of the section element."
+            'tags.section',
+            'The section element represents a generic section of a document or application. A section, in this context, is a thematic grouping of content. Each section should be identified, typically by including a heading ( h1- h6 element) as a child of the section element.'
           )
         ),
         nav: new r(
           n(
-            "tags.nav",
-            "The nav element represents a section of a page that links to other pages or to parts within the page: a section with navigation links."
+            'tags.nav',
+            'The nav element represents a section of a page that links to other pages or to parts within the page: a section with navigation links.'
           )
         ),
         aside: new r(
           n(
-            "tags.aside",
-            "The aside element represents a section of a page that consists of content that is tangentially related to the content around the aside element, and which could be considered separate from that content. Such sections are often represented as sidebars in printed typography."
+            'tags.aside',
+            'The aside element represents a section of a page that consists of content that is tangentially related to the content around the aside element, and which could be considered separate from that content. Such sections are often represented as sidebars in printed typography.'
           )
         ),
-        h1: new r(n("tags.h1", "The h1 element represents a section heading.")),
-        h2: new r(n("tags.h2", "The h2 element represents a section heading.")),
-        h3: new r(n("tags.h3", "The h3 element represents a section heading.")),
-        h4: new r(n("tags.h4", "The h4 element represents a section heading.")),
-        h5: new r(n("tags.h5", "The h5 element represents a section heading.")),
-        h6: new r(n("tags.h6", "The h6 element represents a section heading.")),
+        h1: new r(n('tags.h1', 'The h1 element represents a section heading.')),
+        h2: new r(n('tags.h2', 'The h2 element represents a section heading.')),
+        h3: new r(n('tags.h3', 'The h3 element represents a section heading.')),
+        h4: new r(n('tags.h4', 'The h4 element represents a section heading.')),
+        h5: new r(n('tags.h5', 'The h5 element represents a section heading.')),
+        h6: new r(n('tags.h6', 'The h6 element represents a section heading.')),
         header: new r(
           n(
-            "tags.header",
-            "The header element represents introductory content for its nearest ancestor sectioning content or sectioning root element. A header typically contains a group of introductory or navigational aids. When the nearest ancestor sectioning content or sectioning root element is the body element, then it applies to the whole page."
+            'tags.header',
+            'The header element represents introductory content for its nearest ancestor sectioning content or sectioning root element. A header typically contains a group of introductory or navigational aids. When the nearest ancestor sectioning content or sectioning root element is the body element, then it applies to the whole page.'
           )
         ),
         footer: new r(
           n(
-            "tags.footer",
-            "The footer element represents a footer for its nearest ancestor sectioning content or sectioning root element. A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like."
+            'tags.footer',
+            'The footer element represents a footer for its nearest ancestor sectioning content or sectioning root element. A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like.'
           )
         ),
         address: new r(
           n(
-            "tags.address",
-            "The address element represents the contact information for its nearest article or body element ancestor. If that is the body element, then the contact information applies to the document as a whole."
+            'tags.address',
+            'The address element represents the contact information for its nearest article or body element ancestor. If that is the body element, then the contact information applies to the document as a whole.'
           )
         ),
-        p: new r(n("tags.p", "The p element represents a paragraph.")),
+        p: new r(n('tags.p', 'The p element represents a paragraph.')),
         hr: new r(
           n(
-            "tags.hr",
-            "The hr element represents a paragraph-level thematic break, e.g. a scene change in a story, or a transition to another topic within a section of a reference book."
+            'tags.hr',
+            'The hr element represents a paragraph-level thematic break, e.g. a scene change in a story, or a transition to another topic within a section of a reference book.'
           )
         ),
         pre: new r(
           n(
-            "tags.pre",
-            "The pre element represents a block of preformatted text, in which structure is represented by typographic conventions rather than by elements."
+            'tags.pre',
+            'The pre element represents a block of preformatted text, in which structure is represented by typographic conventions rather than by elements.'
           )
         ),
         blockquote: new r(
           n(
-            "tags.blockquote",
-            "The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a footer or cite element, and optionally with in-line changes such as annotations and abbreviations."
+            'tags.blockquote',
+            'The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a footer or cite element, and optionally with in-line changes such as annotations and abbreviations.'
           ),
-          ["cite"]
+          ['cite']
         ),
         ol: new r(
           n(
-            "tags.ol",
-            "The ol element represents a list of items, where the items have been intentionally ordered, such that changing the order would change the meaning of the document."
+            'tags.ol',
+            'The ol element represents a list of items, where the items have been intentionally ordered, such that changing the order would change the meaning of the document.'
           ),
-          ["reversed:v", "start", "type:lt"]
+          ['reversed:v', 'start', 'type:lt']
         ),
         ul: new r(
           n(
-            "tags.ul",
-            "The ul element represents a list of items, where the order of the items is not important — that is, where changing the order would not materially change the meaning of the document."
+            'tags.ul',
+            'The ul element represents a list of items, where the order of the items is not important — that is, where changing the order would not materially change the meaning of the document.'
           )
         ),
         li: new r(
           n(
-            "tags.li",
+            'tags.li',
             "The li element represents a list item. If its parent element is an ol, ul, or menu element, then the element is an item of the parent element's list, as defined for those elements. Otherwise, the list item has no defined list-related relationship to any other li element."
           ),
-          ["value"]
+          ['value']
         ),
         dl: new r(
           n(
-            "tags.dl",
-            "The dl element represents an association list consisting of zero or more name-value groups (a description list). A name-value group consists of one or more names (dt elements) followed by one or more values (dd elements), ignoring any nodes other than dt and dd elements. Within a single dl element, there should not be more than one dt element for each name."
+            'tags.dl',
+            'The dl element represents an association list consisting of zero or more name-value groups (a description list). A name-value group consists of one or more names (dt elements) followed by one or more values (dd elements), ignoring any nodes other than dt and dd elements. Within a single dl element, there should not be more than one dt element for each name.'
           )
         ),
         dt: new r(
           n(
-            "tags.dt",
-            "The dt element represents the term, or name, part of a term-description group in a description list (dl element)."
+            'tags.dt',
+            'The dt element represents the term, or name, part of a term-description group in a description list (dl element).'
           )
         ),
         dd: new r(
           n(
-            "tags.dd",
-            "The dd element represents the description, definition, or value, part of a term-description group in a description list (dl element)."
+            'tags.dd',
+            'The dd element represents the description, definition, or value, part of a term-description group in a description list (dl element).'
           )
         ),
         figure: new r(
           n(
-            "tags.figure",
-            "The figure element represents some flow content, optionally with a caption, that is self-contained (like a complete sentence) and is typically referenced as a single unit from the main flow of the document."
+            'tags.figure',
+            'The figure element represents some flow content, optionally with a caption, that is self-contained (like a complete sentence) and is typically referenced as a single unit from the main flow of the document.'
           )
         ),
         figcaption: new r(
           n(
-            "tags.figcaption",
+            'tags.figcaption',
             "The figcaption element represents a caption or legend for the rest of the contents of the figcaption element's parent figure element, if any."
           )
         ),
         main: new r(
           n(
-            "tags.main",
-            "The main element represents the main content of the body of a document or application. The main content area consists of content that is directly related to or expands upon the central topic of a document or central functionality of an application."
+            'tags.main',
+            'The main element represents the main content of the body of a document or application. The main content area consists of content that is directly related to or expands upon the central topic of a document or central functionality of an application.'
           )
         ),
         div: new r(
           n(
-            "tags.div",
-            "The div element has no special meaning at all. It represents its children. It can be used with the class, lang, and title attributes to mark up semantics common to a group of consecutive elements."
+            'tags.div',
+            'The div element has no special meaning at all. It represents its children. It can be used with the class, lang, and title attributes to mark up semantics common to a group of consecutive elements.'
           )
         ),
         a: new r(
           n(
-            "tags.a",
-            "If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor) labeled by its contents."
+            'tags.a',
+            'If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor) labeled by its contents.'
           ),
-          ["href", "target", "download", "ping", "rel", "hreflang", "type"]
+          ['href', 'target', 'download', 'ping', 'rel', 'hreflang', 'type']
         ),
         em: new r(
           n(
-            "tags.em",
-            "The em element represents stress emphasis of its contents."
+            'tags.em',
+            'The em element represents stress emphasis of its contents.'
           )
         ),
         strong: new r(
           n(
-            "tags.strong",
-            "The strong element represents strong importance, seriousness, or urgency for its contents."
+            'tags.strong',
+            'The strong element represents strong importance, seriousness, or urgency for its contents.'
           )
         ),
         small: new r(
           n(
-            "tags.small",
-            "The small element represents side comments such as small print."
+            'tags.small',
+            'The small element represents side comments such as small print.'
           )
         ),
         s: new r(
           n(
-            "tags.s",
-            "The s element represents contents that are no longer accurate or no longer relevant."
+            'tags.s',
+            'The s element represents contents that are no longer accurate or no longer relevant.'
           )
         ),
         cite: new r(
           n(
-            "tags.cite",
-            "The cite element represents a reference to a creative work. It must include the title of the work or the name of the author(person, people or organization) or an URL reference, or a reference in abbreviated form as per the conventions used for the addition of citation metadata."
+            'tags.cite',
+            'The cite element represents a reference to a creative work. It must include the title of the work or the name of the author(person, people or organization) or an URL reference, or a reference in abbreviated form as per the conventions used for the addition of citation metadata.'
           )
         ),
         q: new r(
           n(
-            "tags.q",
-            "The q element represents some phrasing content quoted from another source."
+            'tags.q',
+            'The q element represents some phrasing content quoted from another source.'
           ),
-          ["cite"]
+          ['cite']
         ),
         dfn: new r(
           n(
-            "tags.dfn",
-            "The dfn element represents the defining instance of a term. The paragraph, description list group, or section that is the nearest ancestor of the dfn element must also contain the definition(s) for the term given by the dfn element."
+            'tags.dfn',
+            'The dfn element represents the defining instance of a term. The paragraph, description list group, or section that is the nearest ancestor of the dfn element must also contain the definition(s) for the term given by the dfn element.'
           )
         ),
         abbr: new r(
           n(
-            "tags.abbr",
-            "The abbr element represents an abbreviation or acronym, optionally with its expansion. The title attribute may be used to provide an expansion of the abbreviation. The attribute, if specified, must contain an expansion of the abbreviation, and nothing else."
+            'tags.abbr',
+            'The abbr element represents an abbreviation or acronym, optionally with its expansion. The title attribute may be used to provide an expansion of the abbreviation. The attribute, if specified, must contain an expansion of the abbreviation, and nothing else.'
           )
         ),
         ruby: new r(
           n(
-            "tags.ruby",
-            "The ruby element allows one or more spans of phrasing content to be marked with ruby annotations. Ruby annotations are short runs of text presented alongside base text, primarily used in East Asian typography as a guide for pronunciation or to include other annotations. In Japanese, this form of typography is also known as furigana. Ruby text can appear on either side, and sometimes both sides, of the base text, and it is possible to control its position using CSS. A more complete introduction to ruby can be found in the Use Cases & Exploratory Approaches for Ruby Markup document as well as in CSS Ruby Module Level 1. [RUBY-UC] [CSSRUBY]"
+            'tags.ruby',
+            'The ruby element allows one or more spans of phrasing content to be marked with ruby annotations. Ruby annotations are short runs of text presented alongside base text, primarily used in East Asian typography as a guide for pronunciation or to include other annotations. In Japanese, this form of typography is also known as furigana. Ruby text can appear on either side, and sometimes both sides, of the base text, and it is possible to control its position using CSS. A more complete introduction to ruby can be found in the Use Cases & Exploratory Approaches for Ruby Markup document as well as in CSS Ruby Module Level 1. [RUBY-UC] [CSSRUBY]'
           )
         ),
         rb: new r(
           n(
-            "tags.rb",
+            'tags.rb',
             "The rb element marks the base text component of a ruby annotation. When it is the child of a ruby element, it doesn't represent anything itself, but its parent ruby element uses it as part of determining what it represents."
           )
         ),
         rt: new r(
           n(
-            "tags.rt",
+            'tags.rt',
             "The rt element marks the ruby text component of a ruby annotation. When it is the child of a ruby element or of an rtc element that is itself the child of a ruby element, it doesn't represent anything itself, but its ancestor ruby element uses it as part of determining what it represents."
           )
         ),
         rp: new r(
           n(
-            "tags.rp",
+            'tags.rp',
             "The rp element is used to provide fallback text to be shown by user agents that don't support ruby annotations. One widespread convention is to provide parentheses around the ruby text component of a ruby annotation."
           )
         ),
         time: new r(
           n(
-            "tags.time",
-            "The time element represents its contents, along with a machine-readable form of those contents in the datetime attribute. The kind of content is limited to various kinds of dates, times, time-zone offsets, and durations, as described below."
+            'tags.time',
+            'The time element represents its contents, along with a machine-readable form of those contents in the datetime attribute. The kind of content is limited to various kinds of dates, times, time-zone offsets, and durations, as described below.'
           ),
-          ["datetime"]
+          ['datetime']
         ),
         code: new r(
           n(
-            "tags.code",
-            "The code element represents a fragment of computer code. This could be an XML element name, a file name, a computer program, or any other string that a computer would recognize."
+            'tags.code',
+            'The code element represents a fragment of computer code. This could be an XML element name, a file name, a computer program, or any other string that a computer would recognize.'
           )
         ),
         var: new r(
           n(
-            "tags.var",
-            "The var element represents a variable. This could be an actual variable in a mathematical expression or programming context, an identifier representing a constant, a symbol identifying a physical quantity, a function parameter, or just be a term used as a placeholder in prose."
+            'tags.var',
+            'The var element represents a variable. This could be an actual variable in a mathematical expression or programming context, an identifier representing a constant, a symbol identifying a physical quantity, a function parameter, or just be a term used as a placeholder in prose.'
           )
         ),
         samp: new r(
           n(
-            "tags.samp",
-            "The samp element represents sample or quoted output from another program or computing system."
+            'tags.samp',
+            'The samp element represents sample or quoted output from another program or computing system.'
           )
         ),
         kbd: new r(
           n(
-            "tags.kbd",
-            "The kbd element represents user input (typically keyboard input, although it may also be used to represent other input, such as voice commands)."
+            'tags.kbd',
+            'The kbd element represents user input (typically keyboard input, although it may also be used to represent other input, such as voice commands).'
           )
         ),
-        sub: new r(n("tags.sub", "The sub element represents a subscript.")),
-        sup: new r(n("tags.sup", "The sup element represents a superscript.")),
+        sub: new r(n('tags.sub', 'The sub element represents a subscript.')),
+        sup: new r(n('tags.sup', 'The sup element represents a superscript.')),
         i: new r(
           n(
-            "tags.i",
-            "The i element represents a span of text in an alternate voice or mood, or otherwise offset from the normal prose in a manner indicating a different quality of text, such as a taxonomic designation, a technical term, an idiomatic phrase from another language, transliteration, a thought, or a ship name in Western texts."
+            'tags.i',
+            'The i element represents a span of text in an alternate voice or mood, or otherwise offset from the normal prose in a manner indicating a different quality of text, such as a taxonomic designation, a technical term, an idiomatic phrase from another language, transliteration, a thought, or a ship name in Western texts.'
           )
         ),
         b: new r(
           n(
-            "tags.b",
-            "The b element represents a span of text to which attention is being drawn for utilitarian purposes without conveying any extra importance and with no implication of an alternate voice or mood, such as key words in a document abstract, product names in a review, actionable words in interactive text-driven software, or an article lede."
+            'tags.b',
+            'The b element represents a span of text to which attention is being drawn for utilitarian purposes without conveying any extra importance and with no implication of an alternate voice or mood, such as key words in a document abstract, product names in a review, actionable words in interactive text-driven software, or an article lede.'
           )
         ),
         u: new r(
           n(
-            "tags.u",
-            "The u element represents a span of text with an unarticulated, though explicitly rendered, non-textual annotation, such as labeling the text as being a proper name in Chinese text (a Chinese proper name mark), or labeling the text as being misspelt."
+            'tags.u',
+            'The u element represents a span of text with an unarticulated, though explicitly rendered, non-textual annotation, such as labeling the text as being a proper name in Chinese text (a Chinese proper name mark), or labeling the text as being misspelt.'
           )
         ),
         mark: new r(
           n(
-            "tags.mark",
+            'tags.mark',
             "The mark element represents a run of text in one document marked or highlighted for reference purposes, due to its relevance in another context. When used in a quotation or other block of text referred to from the prose, it indicates a highlight that was not originally present but which has been added to bring the reader's attention to a part of the text that might not have been considered important by the original author when the block was originally written, but which is now under previously unexpected scrutiny. When used in the main prose of a document, it indicates a part of the document that has been highlighted due to its likely relevance to the user's current activity."
           )
         ),
         bdi: new r(
           n(
-            "tags.bdi",
-            "The bdi element represents a span of text that is to be isolated from its surroundings for the purposes of bidirectional text formatting. [BIDI]"
+            'tags.bdi',
+            'The bdi element represents a span of text that is to be isolated from its surroundings for the purposes of bidirectional text formatting. [BIDI]'
           )
         ),
         bdo: new r(
           n(
-            "tags.dbo",
-            "The bdo element represents explicit text directionality formatting control for its children. It allows authors to override the Unicode bidirectional algorithm by explicitly specifying a direction override. [BIDI]"
+            'tags.dbo',
+            'The bdo element represents explicit text directionality formatting control for its children. It allows authors to override the Unicode bidirectional algorithm by explicitly specifying a direction override. [BIDI]'
           )
         ),
         span: new r(
           n(
-            "tags.span",
+            'tags.span',
             "The span element doesn't mean anything on its own, but can be useful when used together with the global attributes, e.g. class, lang, or dir. It represents its children."
           )
         ),
-        br: new r(n("tags.br", "The br element represents a line break.")),
+        br: new r(n('tags.br', 'The br element represents a line break.')),
         wbr: new r(
-          n("tags.wbr", "The wbr element represents a line break opportunity.")
+          n('tags.wbr', 'The wbr element represents a line break opportunity.')
         ),
         ins: new r(
           n(
-            "tags.ins",
-            "The ins element represents an addition to the document."
+            'tags.ins',
+            'The ins element represents an addition to the document.'
           )
         ),
         del: new r(
           n(
-            "tags.del",
-            "The del element represents a removal from the document."
+            'tags.del',
+            'The del element represents a removal from the document.'
           ),
-          ["cite", "datetime"]
+          ['cite', 'datetime']
         ),
         picture: new r(
           n(
-            "tags.picture",
-            "The picture element is a container which provides multiple sources to its contained img element to allow authors to declaratively control or give hints to the user agent about which image resource to use, based on the screen pixel density, viewport size, image format, and other factors. It represents its children."
+            'tags.picture',
+            'The picture element is a container which provides multiple sources to its contained img element to allow authors to declaratively control or give hints to the user agent about which image resource to use, based on the screen pixel density, viewport size, image format, and other factors. It represents its children.'
           )
         ),
-        img: new r(n("tags.img", "An img element represents an image."), [
-          "alt",
-          "src",
-          "srcset",
-          "crossorigin:xo",
-          "usemap",
-          "ismap:v",
-          "width",
-          "height",
+        img: new r(n('tags.img', 'An img element represents an image.'), [
+          'alt',
+          'src',
+          'srcset',
+          'crossorigin:xo',
+          'usemap',
+          'ismap:v',
+          'width',
+          'height',
         ]),
         iframe: new r(
           n(
-            "tags.iframe",
-            "The iframe element represents a nested browsing context."
+            'tags.iframe',
+            'The iframe element represents a nested browsing context.'
           ),
           [
-            "src",
-            "srcdoc",
-            "name",
-            "sandbox:sb",
-            "seamless:v",
-            "allowfullscreen:v",
-            "width",
-            "height",
+            'src',
+            'srcdoc',
+            'name',
+            'sandbox:sb',
+            'seamless:v',
+            'allowfullscreen:v',
+            'width',
+            'height',
           ]
         ),
         embed: new r(
           n(
-            "tags.embed",
-            "The embed element provides an integration point for an external (typically non-HTML) application or interactive content."
+            'tags.embed',
+            'The embed element provides an integration point for an external (typically non-HTML) application or interactive content.'
           ),
-          ["src", "type", "width", "height"]
+          ['src', 'type', 'width', 'height']
         ),
         object: new r(
           n(
-            "tags.object",
-            "The object element can represent an external resource, which, depending on the type of the resource, will either be treated as an image, as a nested browsing context, or as an external resource to be processed by a plugin."
+            'tags.object',
+            'The object element can represent an external resource, which, depending on the type of the resource, will either be treated as an image, as a nested browsing context, or as an external resource to be processed by a plugin.'
           ),
           [
-            "data",
-            "type",
-            "typemustmatch:v",
-            "name",
-            "usemap",
-            "form",
-            "width",
-            "height",
+            'data',
+            'type',
+            'typemustmatch:v',
+            'name',
+            'usemap',
+            'form',
+            'width',
+            'height',
           ]
         ),
         param: new r(
           n(
-            "tags.param",
-            "The param element defines parameters for plugins invoked by object elements. It does not represent anything on its own."
+            'tags.param',
+            'The param element defines parameters for plugins invoked by object elements. It does not represent anything on its own.'
           ),
-          ["name", "value"]
+          ['name', 'value']
         ),
         video: new r(
           n(
-            "tags.video",
-            "A video element is used for playing videos or movies, and audio files with captions."
+            'tags.video',
+            'A video element is used for playing videos or movies, and audio files with captions.'
           ),
           [
-            "src",
-            "crossorigin:xo",
-            "poster",
-            "preload:pl",
-            "autoplay:v",
-            "mediagroup",
-            "loop:v",
-            "muted:v",
-            "controls:v",
-            "width",
-            "height",
+            'src',
+            'crossorigin:xo',
+            'poster',
+            'preload:pl',
+            'autoplay:v',
+            'mediagroup',
+            'loop:v',
+            'muted:v',
+            'controls:v',
+            'width',
+            'height',
           ]
         ),
         audio: new r(
           n(
-            "tags.audio",
-            "An audio element represents a sound or audio stream."
+            'tags.audio',
+            'An audio element represents a sound or audio stream.'
           ),
           [
-            "src",
-            "crossorigin:xo",
-            "preload:pl",
-            "autoplay:v",
-            "mediagroup",
-            "loop:v",
-            "muted:v",
-            "controls:v",
+            'src',
+            'crossorigin:xo',
+            'preload:pl',
+            'autoplay:v',
+            'mediagroup',
+            'loop:v',
+            'muted:v',
+            'controls:v',
           ]
         ),
         source: new r(
           n(
-            "tags.source",
-            "The source element allows authors to specify multiple alternative media resources for media elements. It does not represent anything on its own."
+            'tags.source',
+            'The source element allows authors to specify multiple alternative media resources for media elements. It does not represent anything on its own.'
           ),
-          ["src", "type"]
+          ['src', 'type']
         ),
         track: new r(
           n(
-            "tags.track",
-            "The track element allows authors to specify explicit external timed text tracks for media elements. It does not represent anything on its own."
+            'tags.track',
+            'The track element allows authors to specify explicit external timed text tracks for media elements. It does not represent anything on its own.'
           ),
-          ["default:v", "kind:tk", "label", "src", "srclang"]
+          ['default:v', 'kind:tk', 'label', 'src', 'srclang']
         ),
         map: new r(
           n(
-            "tags.map",
-            "The map element, in conjunction with an img element and any area element descendants, defines an image map. The element represents its children."
+            'tags.map',
+            'The map element, in conjunction with an img element and any area element descendants, defines an image map. The element represents its children.'
           ),
-          ["name"]
+          ['name']
         ),
         area: new r(
           n(
-            "tags.area",
-            "The area element represents either a hyperlink with some text and a corresponding area on an image map, or a dead area on an image map."
+            'tags.area',
+            'The area element represents either a hyperlink with some text and a corresponding area on an image map, or a dead area on an image map.'
           ),
           [
-            "alt",
-            "coords",
-            "shape:sh",
-            "href",
-            "target",
-            "download",
-            "ping",
-            "rel",
-            "hreflang",
-            "type",
+            'alt',
+            'coords',
+            'shape:sh',
+            'href',
+            'target',
+            'download',
+            'ping',
+            'rel',
+            'hreflang',
+            'type',
           ]
         ),
         table: new r(
           n(
-            "tags.table",
-            "The table element represents data with more than one dimension, in the form of a table."
+            'tags.table',
+            'The table element represents data with more than one dimension, in the form of a table.'
           ),
-          ["sortable:v", "border"]
+          ['sortable:v', 'border']
         ),
         caption: new r(
           n(
-            "tags.caption",
-            "The caption element represents the title of the table that is its parent, if it has a parent and that is a table element."
+            'tags.caption',
+            'The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.'
           )
         ),
         colgroup: new r(
           n(
-            "tags.colgroup",
-            "The colgroup element represents a group of one or more columns in the table that is its parent, if it has a parent and that is a table element."
+            'tags.colgroup',
+            'The colgroup element represents a group of one or more columns in the table that is its parent, if it has a parent and that is a table element.'
           ),
-          ["span"]
+          ['span']
         ),
         col: new r(
           n(
-            "tags.col",
-            "If a col element has a parent and that is a colgroup element that itself has a parent that is a table element, then the col element represents one or more columns in the column group represented by that colgroup."
+            'tags.col',
+            'If a col element has a parent and that is a colgroup element that itself has a parent that is a table element, then the col element represents one or more columns in the column group represented by that colgroup.'
           ),
-          ["span"]
+          ['span']
         ),
         tbody: new r(
           n(
-            "tags.tbody",
-            "The tbody element represents a block of rows that consist of a body of data for the parent table element, if the tbody element has a parent and it is a table."
+            'tags.tbody',
+            'The tbody element represents a block of rows that consist of a body of data for the parent table element, if the tbody element has a parent and it is a table.'
           )
         ),
         thead: new r(
           n(
-            "tags.thead",
-            "The thead element represents the block of rows that consist of the column labels (headers) for the parent table element, if the thead element has a parent and it is a table."
+            'tags.thead',
+            'The thead element represents the block of rows that consist of the column labels (headers) for the parent table element, if the thead element has a parent and it is a table.'
           )
         ),
         tfoot: new r(
           n(
-            "tags.tfoot",
-            "The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table."
+            'tags.tfoot',
+            'The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table.'
           )
         ),
         tr: new r(
-          n("tags.tr", "The tr element represents a row of cells in a table.")
+          n('tags.tr', 'The tr element represents a row of cells in a table.')
         ),
         td: new r(
-          n("tags.td", "The td element represents a data cell in a table."),
-          ["colspan", "rowspan", "headers"]
+          n('tags.td', 'The td element represents a data cell in a table.'),
+          ['colspan', 'rowspan', 'headers']
         ),
         th: new r(
-          n("tags.th", "The th element represents a header cell in a table."),
-          ["colspan", "rowspan", "headers", "scope:s", "sorted", "abbr"]
+          n('tags.th', 'The th element represents a header cell in a table.'),
+          ['colspan', 'rowspan', 'headers', 'scope:s', 'sorted', 'abbr']
         ),
         form: new r(
           n(
-            "tags.form",
-            "The form element represents a collection of form-associated elements, some of which can represent editable values that can be submitted to a server for processing."
+            'tags.form',
+            'The form element represents a collection of form-associated elements, some of which can represent editable values that can be submitted to a server for processing.'
           ),
           [
-            "accept-charset",
-            "action",
-            "autocomplete:o",
-            "enctype:et",
-            "method:m",
-            "name",
-            "novalidate:v",
-            "target",
+            'accept-charset',
+            'action',
+            'autocomplete:o',
+            'enctype:et',
+            'method:m',
+            'name',
+            'novalidate:v',
+            'target',
           ]
         ),
         label: new r(
           n(
-            "tags.label",
+            'tags.label',
             "The label element represents a caption in a user interface. The caption can be associated with a specific form control, known as the label element's labeled control, either using the for attribute, or by putting the form control inside the label element itself."
           ),
-          ["form", "for"]
+          ['form', 'for']
         ),
         input: new r(
           n(
-            "tags.input",
-            "The input element represents a typed data field, usually with a form control to allow the user to edit the data."
+            'tags.input',
+            'The input element represents a typed data field, usually with a form control to allow the user to edit the data.'
           ),
           [
-            "accept",
-            "alt",
-            "autocomplete:inputautocomplete",
-            "autofocus:v",
-            "checked:v",
-            "dirname",
-            "disabled:v",
-            "form",
-            "formaction",
-            "formenctype:et",
-            "formmethod:fm",
-            "formnovalidate:v",
-            "formtarget",
-            "height",
-            "inputmode:im",
-            "list",
-            "max",
-            "maxlength",
-            "min",
-            "minlength",
-            "multiple:v",
-            "name",
-            "pattern",
-            "placeholder",
-            "readonly:v",
-            "required:v",
-            "size",
-            "src",
-            "step",
-            "type:t",
-            "value",
-            "width",
+            'accept',
+            'alt',
+            'autocomplete:inputautocomplete',
+            'autofocus:v',
+            'checked:v',
+            'dirname',
+            'disabled:v',
+            'form',
+            'formaction',
+            'formenctype:et',
+            'formmethod:fm',
+            'formnovalidate:v',
+            'formtarget',
+            'height',
+            'inputmode:im',
+            'list',
+            'max',
+            'maxlength',
+            'min',
+            'minlength',
+            'multiple:v',
+            'name',
+            'pattern',
+            'placeholder',
+            'readonly:v',
+            'required:v',
+            'size',
+            'src',
+            'step',
+            'type:t',
+            'value',
+            'width',
           ]
         ),
         button: new r(
           n(
-            "tags.button",
-            "The button element represents a button labeled by its contents."
+            'tags.button',
+            'The button element represents a button labeled by its contents.'
           ),
           [
-            "autofocus:v",
-            "disabled:v",
-            "form",
-            "formaction",
-            "formenctype:et",
-            "formmethod:fm",
-            "formnovalidate:v",
-            "formtarget",
-            "name",
-            "type:bt",
-            "value",
+            'autofocus:v',
+            'disabled:v',
+            'form',
+            'formaction',
+            'formenctype:et',
+            'formmethod:fm',
+            'formnovalidate:v',
+            'formtarget',
+            'name',
+            'type:bt',
+            'value',
           ]
         ),
         select: new r(
           n(
-            "tags.select",
-            "The select element represents a control for selecting amongst a set of options."
+            'tags.select',
+            'The select element represents a control for selecting amongst a set of options.'
           ),
           [
-            "autocomplete:inputautocomplete",
-            "autofocus:v",
-            "disabled:v",
-            "form",
-            "multiple:v",
-            "name",
-            "required:v",
-            "size",
+            'autocomplete:inputautocomplete',
+            'autofocus:v',
+            'disabled:v',
+            'form',
+            'multiple:v',
+            'name',
+            'required:v',
+            'size',
           ]
         ),
         datalist: new r(
           n(
-            "tags.datalist",
-            "The datalist element represents a set of option elements that represent predefined options for other controls. In the rendering, the datalist element represents nothing and it, along with its children, should be hidden."
+            'tags.datalist',
+            'The datalist element represents a set of option elements that represent predefined options for other controls. In the rendering, the datalist element represents nothing and it, along with its children, should be hidden.'
           )
         ),
         optgroup: new r(
           n(
-            "tags.optgroup",
-            "The optgroup element represents a group of option elements with a common label."
+            'tags.optgroup',
+            'The optgroup element represents a group of option elements with a common label.'
           ),
-          ["disabled:v", "label"]
+          ['disabled:v', 'label']
         ),
         option: new r(
           n(
-            "tags.option",
-            "The option element represents an option in a select element or as part of a list of suggestions in a datalist element."
+            'tags.option',
+            'The option element represents an option in a select element or as part of a list of suggestions in a datalist element.'
           ),
-          ["disabled:v", "label", "selected:v", "value"]
+          ['disabled:v', 'label', 'selected:v', 'value']
         ),
         textarea: new r(
           n(
-            "tags.textarea",
+            'tags.textarea',
             "The textarea element represents a multiline plain text edit control for the element's raw value. The contents of the control represent the control's default value."
           ),
           [
-            "autocomplete:inputautocomplete",
-            "autofocus:v",
-            "cols",
-            "dirname",
-            "disabled:v",
-            "form",
-            "inputmode:im",
-            "maxlength",
-            "minlength",
-            "name",
-            "placeholder",
-            "readonly:v",
-            "required:v",
-            "rows",
-            "wrap:w",
+            'autocomplete:inputautocomplete',
+            'autofocus:v',
+            'cols',
+            'dirname',
+            'disabled:v',
+            'form',
+            'inputmode:im',
+            'maxlength',
+            'minlength',
+            'name',
+            'placeholder',
+            'readonly:v',
+            'required:v',
+            'rows',
+            'wrap:w',
           ]
         ),
         output: new r(
           n(
-            "tags.output",
-            "The output element represents the result of a calculation performed by the application, or the result of a user action."
+            'tags.output',
+            'The output element represents the result of a calculation performed by the application, or the result of a user action.'
           ),
-          ["for", "form", "name"]
+          ['for', 'form', 'name']
         ),
         progress: new r(
           n(
-            "tags.progress",
-            "The progress element represents the completion progress of a task. The progress is either indeterminate, indicating that progress is being made but that it is not clear how much more work remains to be done before the task is complete (e.g. because the task is waiting for a remote host to respond), or the progress is a number in the range zero to a maximum, giving the fraction of work that has so far been completed."
+            'tags.progress',
+            'The progress element represents the completion progress of a task. The progress is either indeterminate, indicating that progress is being made but that it is not clear how much more work remains to be done before the task is complete (e.g. because the task is waiting for a remote host to respond), or the progress is a number in the range zero to a maximum, giving the fraction of work that has so far been completed.'
           ),
-          ["value", "max"]
+          ['value', 'max']
         ),
         meter: new r(
           n(
-            "tags.meter",
-            "The meter element represents a scalar measurement within a known range, or a fractional value; for example disk usage, the relevance of a query result, or the fraction of a voting population to have selected a particular candidate."
+            'tags.meter',
+            'The meter element represents a scalar measurement within a known range, or a fractional value; for example disk usage, the relevance of a query result, or the fraction of a voting population to have selected a particular candidate.'
           ),
-          ["value", "min", "max", "low", "high", "optimum"]
+          ['value', 'min', 'max', 'low', 'high', 'optimum']
         ),
         fieldset: new r(
           n(
-            "tags.fieldset",
-            "The fieldset element represents a set of form controls optionally grouped under a common name."
+            'tags.fieldset',
+            'The fieldset element represents a set of form controls optionally grouped under a common name.'
           ),
-          ["disabled:v", "form", "name"]
+          ['disabled:v', 'form', 'name']
         ),
         legend: new r(
           n(
-            "tags.legend",
+            'tags.legend',
             "The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any."
           )
         ),
         details: new r(
           n(
-            "tags.details",
-            "The details element represents a disclosure widget from which the user can obtain additional information or controls."
+            'tags.details',
+            'The details element represents a disclosure widget from which the user can obtain additional information or controls.'
           ),
-          ["open:v"]
+          ['open:v']
         ),
         summary: new r(
           n(
-            "tags.summary",
+            'tags.summary',
             "The summary element represents a summary, caption, or legend for the rest of the contents of the summary element's parent details element, if any."
           )
         ),
         dialog: new r(
           n(
-            "tags.dialog",
-            "The dialog element represents a part of an application that a user interacts with to perform a task, for example a dialog box, inspector, or window."
+            'tags.dialog',
+            'The dialog element represents a part of an application that a user interacts with to perform a task, for example a dialog box, inspector, or window.'
           )
         ),
         script: new r(
           n(
-            "tags.script",
-            "The script element allows authors to include dynamic script and data blocks in their documents. The element does not represent content for the user."
+            'tags.script',
+            'The script element allows authors to include dynamic script and data blocks in their documents. The element does not represent content for the user.'
           ),
           [
-            "src",
-            "type",
-            "charset",
-            "async:v",
-            "defer:v",
-            "crossorigin:xo",
-            "nonce",
+            'src',
+            'type',
+            'charset',
+            'async:v',
+            'defer:v',
+            'crossorigin:xo',
+            'nonce',
           ]
         ),
         noscript: new r(
           n(
-            "tags.noscript",
+            'tags.noscript',
             "The noscript element represents nothing if scripting is enabled, and represents its children if scripting is disabled. It is used to present different markup to user agents that support scripting and those that don't support scripting, by affecting how the document is parsed."
           )
         ),
         template: new r(
           n(
-            "tags.template",
-            "The template element is used to declare fragments of HTML that can be cloned and inserted in the document by script."
+            'tags.template',
+            'The template element is used to declare fragments of HTML that can be cloned and inserted in the document by script.'
           )
         ),
         canvas: new r(
           n(
-            "tags.canvas",
-            "The canvas element provides scripts with a resolution-dependent bitmap canvas, which can be used for rendering graphs, game graphics, art, or other visual images on the fly."
+            'tags.canvas',
+            'The canvas element provides scripts with a resolution-dependent bitmap canvas, which can be used for rendering graphs, game graphics, art, or other visual images on the fly.'
           ),
-          ["width", "height"]
+          ['width', 'height']
         ),
       }),
       (o.IONIC_TAGS = {
-        "ion-checkbox": new r(
+        'ion-checkbox': new r(
           n(
-            "tags.ion.checkbox",
+            'tags.ion.checkbox',
             "The checkbox is no different than the HTML checkbox input, except it's styled differently. The checkbox behaves like any AngularJS checkbox."
           ),
-          ["name", "ng-false-value", "ng-model", "ng-true-value"]
+          ['name', 'ng-false-value', 'ng-model', 'ng-true-value']
         ),
-        "ion-content": new r(
+        'ion-content': new r(
           n(
-            "tags.ion.content",
+            'tags.ion.content',
             "The ionContent directive provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built-in overflow scrolling of the browser."
           ),
           [
-            "delegate-handle",
-            "direction:scrolldir",
-            "has-bouncing:b",
-            "locking:b",
-            "on-scroll",
-            "on-scroll-complete",
-            "overflow-scroll:b",
-            "padding:b",
-            "scroll:b",
-            "scrollbar-x:b",
-            "scrollbar-y:b",
-            "start-x",
-            "start-y",
+            'delegate-handle',
+            'direction:scrolldir',
+            'has-bouncing:b',
+            'locking:b',
+            'on-scroll',
+            'on-scroll-complete',
+            'overflow-scroll:b',
+            'padding:b',
+            'scroll:b',
+            'scrollbar-x:b',
+            'scrollbar-y:b',
+            'start-x',
+            'start-y',
           ]
         ),
-        "ion-delete-button": new r(
-          n("tags.ion.deletebutton", "Child of ionItem"),
+        'ion-delete-button': new r(
+          n('tags.ion.deletebutton', 'Child of ionItem'),
           []
         ),
-        "ion-footer-bar": new r(
+        'ion-footer-bar': new r(
           n(
-            "tags.ion.footerbar",
+            'tags.ion.footerbar',
             'Adds a fixed footer bar below some content. Can also be a subfooter (higher up) if the "bar-subfooter" class is applied.'
           ),
-          ["align-title:align", "keyboard-attach:v"]
+          ['align-title:align', 'keyboard-attach:v']
         ),
-        "ion-header-bar": new r(
+        'ion-header-bar': new r(
           n(
-            "tags.ion.headerbar",
+            'tags.ion.headerbar',
             'Adds a fixed header bar above some content. Can also be a subheader (lower down) if the "bar-subheader" class is applied.'
           ),
-          ["align-title:align", "no-tap-scroll:b"]
+          ['align-title:align', 'no-tap-scroll:b']
         ),
-        "ion-infinite-scroll": new r(
+        'ion-infinite-scroll': new r(
           n(
-            "tags.ion.infinitescroll",
-            "Child of ionContent or ionScroll. The ionInfiniteScroll directive allows you to call a function whenever the user gets to the bottom of the page or near the bottom of the page."
+            'tags.ion.infinitescroll',
+            'Child of ionContent or ionScroll. The ionInfiniteScroll directive allows you to call a function whenever the user gets to the bottom of the page or near the bottom of the page.'
           ),
-          ["distance", "icon", "immediate-check:b", "on-infinite", "spinner"]
+          ['distance', 'icon', 'immediate-check:b', 'on-infinite', 'spinner']
         ),
-        "ion-input": new r(
+        'ion-input': new r(
           n(
-            "tags.ion.input",
+            'tags.ion.input',
             'ionInput is meant for text type inputs only. Ionic uses an actual <input type="text"> HTML element within the component, with Ionic wrapping to better handle the user experience and interactivity.'
           ),
-          ["type:inputtype", "clearInput:v"]
+          ['type:inputtype', 'clearInput:v']
         ),
-        "ion-item": new r(n("tags.ion.item", "Child of ionList."), []),
-        "ion-list": new r(
+        'ion-item': new r(n('tags.ion.item', 'Child of ionList.'), []),
+        'ion-list': new r(
           n(
-            "tags.ion.list",
-            "The List is a widely used interface element in almost any mobile app, and can include content ranging from basic text all the way to buttons, toggles, icons, and thumbnails."
+            'tags.ion.list',
+            'The List is a widely used interface element in almost any mobile app, and can include content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.'
           ),
           [
-            "can-swipe:b",
-            "delegate-handle",
-            "show-delete:b",
-            "show-reorder:b",
-            "type:listtype",
+            'can-swipe:b',
+            'delegate-handle',
+            'show-delete:b',
+            'show-reorder:b',
+            'type:listtype',
           ]
         ),
-        "ion-modal-view": new r(
+        'ion-modal-view': new r(
           n(
-            "tags.ion.modalview",
+            'tags.ion.modalview',
             "The Modal is a content pane that can go over the user's main view temporarily. Usually used for making a choice or editing an item."
           ),
           []
         ),
-        "ion-nav-back-button": new r(
+        'ion-nav-back-button': new r(
           n(
-            "tags.ion.navbackbutton",
-            "Child of ionNavBar. Creates a back button inside an ionNavBar. The back button will appear when the user is able to go back in the current navigation stack."
+            'tags.ion.navbackbutton',
+            'Child of ionNavBar. Creates a back button inside an ionNavBar. The back button will appear when the user is able to go back in the current navigation stack.'
           ),
           []
         ),
-        "ion-nav-bar": new r(
+        'ion-nav-bar': new r(
           n(
-            "tags.ion.navbar",
-            "If you have an ionNavView directive, you can also create an <ion-nav-bar>, which will create a topbar that updates as the application state changes."
+            'tags.ion.navbar',
+            'If you have an ionNavView directive, you can also create an <ion-nav-bar>, which will create a topbar that updates as the application state changes.'
           ),
-          ["align-title:align", "delegate-handle", "no-tap-scroll:b"]
+          ['align-title:align', 'delegate-handle', 'no-tap-scroll:b']
         ),
-        "ion-nav-buttons": new r(
+        'ion-nav-buttons': new r(
           n(
-            "tags.ion.navbuttons",
-            "Child of ionNavView. Use ionNavButtons to set the buttons on your ionNavBar from within an ionView."
+            'tags.ion.navbuttons',
+            'Child of ionNavView. Use ionNavButtons to set the buttons on your ionNavBar from within an ionView.'
           ),
-          ["side:navsides"]
+          ['side:navsides']
         ),
-        "ion-nav-title": new r(
+        'ion-nav-title': new r(
           n(
-            "tags.ion.navtitle",
-            "Child of ionNavView. The ionNavTitle directive replaces an ionNavBar title text with custom HTML from within an ionView template."
-          ),
-          []
-        ),
-        "ion-nav-view": new r(
-          n(
-            "tags.ion.navview",
-            "The ionNavView directive is used to render templates in your application. Each template is part of a state. States are usually mapped to a url, and are defined programatically using angular-ui-router."
-          ),
-          ["name"]
-        ),
-        "ion-option-button": new r(
-          n(
-            "tags.ion.optionbutton",
-            "Child of ionItem. Creates an option button inside a list item, that is visible when the item is swiped to the left by the user."
+            'tags.ion.navtitle',
+            'Child of ionNavView. The ionNavTitle directive replaces an ionNavBar title text with custom HTML from within an ionView template.'
           ),
           []
         ),
-        "ion-pane": new r(
+        'ion-nav-view': new r(
           n(
-            "tags.ion.pane",
+            'tags.ion.navview',
+            'The ionNavView directive is used to render templates in your application. Each template is part of a state. States are usually mapped to a url, and are defined programatically using angular-ui-router.'
+          ),
+          ['name']
+        ),
+        'ion-option-button': new r(
+          n(
+            'tags.ion.optionbutton',
+            'Child of ionItem. Creates an option button inside a list item, that is visible when the item is swiped to the left by the user.'
+          ),
+          []
+        ),
+        'ion-pane': new r(
+          n(
+            'tags.ion.pane',
             'A simple container that fits content, with no side effects. Adds the "pane" class to the element.'
           ),
           []
         ),
-        "ion-popover-view": new r(
+        'ion-popover-view': new r(
           n(
-            "tags.ion.popoverview",
+            'tags.ion.popoverview',
             "The Popover is a view that floats above an app's content. Popovers provide an easy way to present or gather information from the user."
           ),
           []
         ),
-        "ion-radio": new r(
+        'ion-radio': new r(
           n(
-            "tags.ion.radio",
+            'tags.ion.radio',
             "The radio ionRirective is no different than the HTML radio input, except it's styled differently. The ionRadio behaves like AngularJS radio input."
           ),
           [
-            "disabled:b",
-            "icon",
-            "name",
-            "ng-disabled:b",
-            "ng-model",
-            "ng-value",
-            "value",
+            'disabled:b',
+            'icon',
+            'name',
+            'ng-disabled:b',
+            'ng-model',
+            'ng-value',
+            'value',
           ]
         ),
-        "ion-refresher": new r(
+        'ion-refresher': new r(
           n(
-            "tags.ion.refresher",
-            "Child of ionContent or ionScroll. Allows you to add pull-to-refresh to a scrollView. Place it as the first child of your ionContent or ionScroll element."
+            'tags.ion.refresher',
+            'Child of ionContent or ionScroll. Allows you to add pull-to-refresh to a scrollView. Place it as the first child of your ionContent or ionScroll element.'
           ),
           [
-            "disable-pulling-rotation:b",
-            "on-pulling",
-            "on-refresh",
-            "pulling-icon",
-            "pulling-text",
-            "refreshing-icon",
-            "spinner",
+            'disable-pulling-rotation:b',
+            'on-pulling',
+            'on-refresh',
+            'pulling-icon',
+            'pulling-text',
+            'refreshing-icon',
+            'spinner',
           ]
         ),
-        "ion-reorder-button": new r(
-          n("tags.ion.reorderbutton", "Child of ionItem."),
-          ["on-reorder"]
+        'ion-reorder-button': new r(
+          n('tags.ion.reorderbutton', 'Child of ionItem.'),
+          ['on-reorder']
         ),
-        "ion-scroll": new r(
+        'ion-scroll': new r(
           n(
-            "tags.ion.scroll",
-            "Creates a scrollable container for all content inside."
+            'tags.ion.scroll',
+            'Creates a scrollable container for all content inside.'
           ),
           [
-            "delegate-handle",
-            "direction:scrolldir",
-            "has-bouncing:b",
-            "locking:b",
-            "max-zoom",
-            "min-zoom",
-            "on-refresh",
-            "on-scroll",
-            "paging:b",
-            "scrollbar-x:b",
-            "scrollbar-y:b",
-            "zooming:b",
+            'delegate-handle',
+            'direction:scrolldir',
+            'has-bouncing:b',
+            'locking:b',
+            'max-zoom',
+            'min-zoom',
+            'on-refresh',
+            'on-scroll',
+            'paging:b',
+            'scrollbar-x:b',
+            'scrollbar-y:b',
+            'zooming:b',
           ]
         ),
-        "ion-side-menu": new r(
+        'ion-side-menu': new r(
           n(
-            "tags.ion.sidemenu",
-            "Child of ionSideMenus. A container for a side menu, sibling to an ionSideMenuContent directive."
+            'tags.ion.sidemenu',
+            'Child of ionSideMenus. A container for a side menu, sibling to an ionSideMenuContent directive.'
           ),
-          ["is-enabled:b", "expose-aside-when", "side:navsides", "width"]
+          ['is-enabled:b', 'expose-aside-when', 'side:navsides', 'width']
         ),
-        "ion-side-menu-content": new r(
+        'ion-side-menu-content': new r(
           n(
-            "tags.ion.sidemenucontent",
-            "Child of ionSideMenus. A container for the main visible content, sibling to one or more ionSideMenu directives."
+            'tags.ion.sidemenucontent',
+            'Child of ionSideMenus. A container for the main visible content, sibling to one or more ionSideMenu directives.'
           ),
-          ["drag-content:b", "edge-drag-threshold"]
+          ['drag-content:b', 'edge-drag-threshold']
         ),
-        "ion-side-menus": new r(
+        'ion-side-menus': new r(
           n(
-            "tags.ion.sidemenus",
-            "A container element for side menu(s) and the main content. Allows the left and/or right side menu to be toggled by dragging the main content area side to side."
+            'tags.ion.sidemenus',
+            'A container element for side menu(s) and the main content. Allows the left and/or right side menu to be toggled by dragging the main content area side to side.'
           ),
-          ["delegate-handle", "enable-menu-with-back-views:b"]
+          ['delegate-handle', 'enable-menu-with-back-views:b']
         ),
-        "ion-slide": new r(
+        'ion-slide': new r(
           n(
-            "tags.ion.slide",
-            "Child of ionSlideBox. Displays a slide inside of a slidebox."
+            'tags.ion.slide',
+            'Child of ionSlideBox. Displays a slide inside of a slidebox.'
           ),
           []
         ),
-        "ion-slide-box": new r(
+        'ion-slide-box': new r(
           n(
-            "tags.ion.slidebox",
-            "The Slide Box is a multi-page container where each page can be swiped or dragged between."
+            'tags.ion.slidebox',
+            'The Slide Box is a multi-page container where each page can be swiped or dragged between.'
           ),
           [
-            "active-slide",
-            "auto-play:b",
-            "delegate-handle",
-            "does-continue:b",
-            "on-slide-changed",
-            "pager-click",
-            "show-pager:b",
-            "slide-interval",
+            'active-slide',
+            'auto-play:b',
+            'delegate-handle',
+            'does-continue:b',
+            'on-slide-changed',
+            'pager-click',
+            'show-pager:b',
+            'slide-interval',
           ]
         ),
-        "ion-spinner": new r(
+        'ion-spinner': new r(
           n(
-            "tags.ion.spinner",
-            "The ionSpinner directive provides a variety of animated spinners."
+            'tags.ion.spinner',
+            'The ionSpinner directive provides a variety of animated spinners.'
           ),
-          ["icon"]
+          ['icon']
         ),
-        "ion-tab": new r(
+        'ion-tab': new r(
           n(
-            "tags.ion.tab",
+            'tags.ion.tab',
             "Child of ionTabs. Contains a tab's content. The content only exists while the given tab is selected."
           ),
           [
-            "badge",
-            "badge-style",
-            "disabled",
-            "hidden",
-            "href",
-            "icon",
-            "icon-off",
-            "icon-on",
-            "ng-click",
-            "on-deselect",
-            "on-select",
-            "title",
+            'badge',
+            'badge-style',
+            'disabled',
+            'hidden',
+            'href',
+            'icon',
+            'icon-off',
+            'icon-on',
+            'ng-click',
+            'on-deselect',
+            'on-select',
+            'title',
           ]
         ),
-        "ion-tabs": new r(
+        'ion-tabs': new r(
           n(
-            "tags.ion.tabs",
+            'tags.ion.tabs',
             'Powers a multi-tabbed interface with a tab bar and a set of "pages" that can be tabbed through.'
           ),
-          ["delegate-handle"]
+          ['delegate-handle']
         ),
-        "ion-title": new r(
+        'ion-title': new r(
           n(
-            "tags.ion.title",
-            "ion-title is a component that sets the title of the ionNavbar"
+            'tags.ion.title',
+            'ion-title is a component that sets the title of the ionNavbar'
           ),
           []
         ),
-        "ion-toggle": new r(
+        'ion-toggle': new r(
           n(
-            "tags.ion.toggle",
+            'tags.ion.toggle',
             "A toggle is an animated switch which binds a given model to a boolean. Allows dragging of the switch's nub. The toggle behaves like any AngularJS checkbox otherwise."
           ),
           [
-            "name",
-            "ng-false-value",
-            "ng-model",
-            "ng-true-value",
-            "toggle-class",
+            'name',
+            'ng-false-value',
+            'ng-model',
+            'ng-true-value',
+            'toggle-class',
           ]
         ),
-        "ion-view ": new r(
+        'ion-view ': new r(
           n(
-            "tags.ion.view",
-            "Child of ionNavView. A container for view content and any navigational and header bar information."
+            'tags.ion.view',
+            'Child of ionNavView. A container for view content and any navigational and header bar information.'
           ),
           [
-            "cache-view:b",
-            "can-swipe-back:b",
-            "hide-back-button:b",
-            "hide-nav-bar:b",
-            "view-title",
+            'cache-view:b',
+            'can-swipe-back:b',
+            'hide-back-button:b',
+            'hide-nav-bar:b',
+            'view-title',
           ]
         ),
       }),
       (o.getHTML5TagProvider = function () {
         var r = [
-            "aria-activedescendant",
-            "aria-atomic:b",
-            "aria-autocomplete:autocomplete",
-            "aria-busy:b",
-            "aria-checked:tristate",
-            "aria-colcount",
-            "aria-colindex",
-            "aria-colspan",
-            "aria-controls",
-            "aria-current:current",
-            "aria-describedat",
-            "aria-describedby",
-            "aria-disabled:b",
-            "aria-dropeffect:dropeffect",
-            "aria-errormessage",
-            "aria-expanded:u",
-            "aria-flowto",
-            "aria-grabbed:u",
-            "aria-haspopup:b",
-            "aria-hidden:b",
-            "aria-invalid:invalid",
-            "aria-kbdshortcuts",
-            "aria-label",
-            "aria-labelledby",
-            "aria-level",
-            "aria-live:live",
-            "aria-modal:b",
-            "aria-multiline:b",
-            "aria-multiselectable:b",
-            "aria-orientation:orientation",
-            "aria-owns",
-            "aria-placeholder",
-            "aria-posinset",
-            "aria-pressed:tristate",
-            "aria-readonly:b",
-            "aria-relevant:relevant",
-            "aria-required:b",
-            "aria-roledescription",
-            "aria-rowcount",
-            "aria-rowindex",
-            "aria-rowspan",
-            "aria-selected:u",
-            "aria-setsize",
-            "aria-sort:sort",
-            "aria-valuemax",
-            "aria-valuemin",
-            "aria-valuenow",
-            "aria-valuetext",
-            "accesskey",
-            "class",
-            "contenteditable:b",
-            "contextmenu",
-            "dir:d",
-            "draggable:b",
-            "dropzone",
-            "hidden:v",
-            "id",
-            "itemid",
-            "itemprop",
-            "itemref",
-            "itemscope:v",
-            "itemtype",
-            "lang",
-            "role:roles",
-            "spellcheck:b",
-            "style",
-            "tabindex",
-            "title",
-            "translate:y",
+            'aria-activedescendant',
+            'aria-atomic:b',
+            'aria-autocomplete:autocomplete',
+            'aria-busy:b',
+            'aria-checked:tristate',
+            'aria-colcount',
+            'aria-colindex',
+            'aria-colspan',
+            'aria-controls',
+            'aria-current:current',
+            'aria-describedat',
+            'aria-describedby',
+            'aria-disabled:b',
+            'aria-dropeffect:dropeffect',
+            'aria-errormessage',
+            'aria-expanded:u',
+            'aria-flowto',
+            'aria-grabbed:u',
+            'aria-haspopup:b',
+            'aria-hidden:b',
+            'aria-invalid:invalid',
+            'aria-kbdshortcuts',
+            'aria-label',
+            'aria-labelledby',
+            'aria-level',
+            'aria-live:live',
+            'aria-modal:b',
+            'aria-multiline:b',
+            'aria-multiselectable:b',
+            'aria-orientation:orientation',
+            'aria-owns',
+            'aria-placeholder',
+            'aria-posinset',
+            'aria-pressed:tristate',
+            'aria-readonly:b',
+            'aria-relevant:relevant',
+            'aria-required:b',
+            'aria-roledescription',
+            'aria-rowcount',
+            'aria-rowindex',
+            'aria-rowspan',
+            'aria-selected:u',
+            'aria-setsize',
+            'aria-sort:sort',
+            'aria-valuemax',
+            'aria-valuemin',
+            'aria-valuenow',
+            'aria-valuetext',
+            'accesskey',
+            'class',
+            'contenteditable:b',
+            'contextmenu',
+            'dir:d',
+            'draggable:b',
+            'dropzone',
+            'hidden:v',
+            'id',
+            'itemid',
+            'itemprop',
+            'itemref',
+            'itemscope:v',
+            'itemtype',
+            'lang',
+            'role:roles',
+            'spellcheck:b',
+            'style',
+            'tabindex',
+            'title',
+            'translate:y',
           ],
           n = [
-            "onabort",
-            "onblur",
-            "oncanplay",
-            "oncanplaythrough",
-            "onchange",
-            "onclick",
-            "oncontextmenu",
-            "ondblclick",
-            "ondrag",
-            "ondragend",
-            "ondragenter",
-            "ondragleave",
-            "ondragover",
-            "ondragstart",
-            "ondrop",
-            "ondurationchange",
-            "onemptied",
-            "onended",
-            "onerror",
-            "onfocus",
-            "onformchange",
-            "onforminput",
-            "oninput",
-            "oninvalid",
-            "onkeydown",
-            "onkeypress",
-            "onkeyup",
-            "onload",
-            "onloadeddata",
-            "onloadedmetadata",
-            "onloadstart",
-            "onmousedown",
-            "onmousemove",
-            "onmouseout",
-            "onmouseover",
-            "onmouseup",
-            "onmousewheel",
-            "onpause",
-            "onplay",
-            "onplaying",
-            "onprogress",
-            "onratechange",
-            "onreset",
-            "onresize",
-            "onreadystatechange",
-            "onscroll",
-            "onseeked",
-            "onseeking",
-            "onselect",
-            "onshow",
-            "onstalled",
-            "onsubmit",
-            "onsuspend",
-            "ontimeupdate",
-            "onvolumechange",
-            "onwaiting",
+            'onabort',
+            'onblur',
+            'oncanplay',
+            'oncanplaythrough',
+            'onchange',
+            'onclick',
+            'oncontextmenu',
+            'ondblclick',
+            'ondrag',
+            'ondragend',
+            'ondragenter',
+            'ondragleave',
+            'ondragover',
+            'ondragstart',
+            'ondrop',
+            'ondurationchange',
+            'onemptied',
+            'onended',
+            'onerror',
+            'onfocus',
+            'onformchange',
+            'onforminput',
+            'oninput',
+            'oninvalid',
+            'onkeydown',
+            'onkeypress',
+            'onkeyup',
+            'onload',
+            'onloadeddata',
+            'onloadedmetadata',
+            'onloadstart',
+            'onmousedown',
+            'onmousemove',
+            'onmouseout',
+            'onmouseover',
+            'onmouseup',
+            'onmousewheel',
+            'onpause',
+            'onplay',
+            'onplaying',
+            'onprogress',
+            'onratechange',
+            'onreset',
+            'onresize',
+            'onreadystatechange',
+            'onscroll',
+            'onseeked',
+            'onseeking',
+            'onselect',
+            'onshow',
+            'onstalled',
+            'onsubmit',
+            'onsuspend',
+            'ontimeupdate',
+            'onvolumechange',
+            'onwaiting',
           ],
           i = {
-            b: ["true", "false"],
-            u: ["true", "false", "undefined"],
-            o: ["on", "off"],
-            y: ["yes", "no"],
-            w: ["soft", "hard"],
-            d: ["ltr", "rtl", "auto"],
-            m: ["GET", "POST", "dialog"],
-            fm: ["GET", "POST"],
-            s: ["row", "col", "rowgroup", "colgroup"],
+            b: ['true', 'false'],
+            u: ['true', 'false', 'undefined'],
+            o: ['on', 'off'],
+            y: ['yes', 'no'],
+            w: ['soft', 'hard'],
+            d: ['ltr', 'rtl', 'auto'],
+            m: ['GET', 'POST', 'dialog'],
+            fm: ['GET', 'POST'],
+            s: ['row', 'col', 'rowgroup', 'colgroup'],
             t: [
-              "hidden",
-              "text",
-              "search",
-              "tel",
-              "url",
-              "email",
-              "password",
-              "datetime",
-              "date",
-              "month",
-              "week",
-              "time",
-              "datetime-local",
-              "number",
-              "range",
-              "color",
-              "checkbox",
-              "radio",
-              "file",
-              "submit",
-              "image",
-              "reset",
-              "button",
+              'hidden',
+              'text',
+              'search',
+              'tel',
+              'url',
+              'email',
+              'password',
+              'datetime',
+              'date',
+              'month',
+              'week',
+              'time',
+              'datetime-local',
+              'number',
+              'range',
+              'color',
+              'checkbox',
+              'radio',
+              'file',
+              'submit',
+              'image',
+              'reset',
+              'button',
             ],
             im: [
-              "verbatim",
-              "latin",
-              "latin-name",
-              "latin-prose",
-              "full-width-latin",
-              "kana",
-              "kana-name",
-              "katakana",
-              "numeric",
-              "tel",
-              "email",
-              "url",
+              'verbatim',
+              'latin',
+              'latin-name',
+              'latin-prose',
+              'full-width-latin',
+              'kana',
+              'kana-name',
+              'katakana',
+              'numeric',
+              'tel',
+              'email',
+              'url',
             ],
-            bt: ["button", "submit", "reset", "menu"],
-            lt: ["1", "a", "A", "i", "I"],
-            mt: ["context", "toolbar"],
-            mit: ["command", "checkbox", "radio"],
+            bt: ['button', 'submit', 'reset', 'menu'],
+            lt: ['1', 'a', 'A', 'i', 'I'],
+            mt: ['context', 'toolbar'],
+            mit: ['command', 'checkbox', 'radio'],
             et: [
-              "application/x-www-form-urlencoded",
-              "multipart/form-data",
-              "text/plain",
+              'application/x-www-form-urlencoded',
+              'multipart/form-data',
+              'text/plain',
             ],
             tk: [
-              "subtitles",
-              "captions",
-              "descriptions",
-              "chapters",
-              "metadata",
+              'subtitles',
+              'captions',
+              'descriptions',
+              'chapters',
+              'metadata',
             ],
-            pl: ["none", "metadata", "auto"],
-            sh: ["circle", "default", "poly", "rect"],
-            xo: ["anonymous", "use-credentials"],
+            pl: ['none', 'metadata', 'auto'],
+            sh: ['circle', 'default', 'poly', 'rect'],
+            xo: ['anonymous', 'use-credentials'],
             sb: [
-              "allow-forms",
-              "allow-modals",
-              "allow-pointer-lock",
-              "allow-popups",
-              "allow-popups-to-escape-sandbox",
-              "allow-same-origin",
-              "allow-scripts",
-              "allow-top-navigation",
+              'allow-forms',
+              'allow-modals',
+              'allow-pointer-lock',
+              'allow-popups',
+              'allow-popups-to-escape-sandbox',
+              'allow-same-origin',
+              'allow-scripts',
+              'allow-top-navigation',
             ],
-            tristate: ["true", "false", "mixed", "undefined"],
+            tristate: ['true', 'false', 'mixed', 'undefined'],
             inputautocomplete: [
-              "additional-name",
-              "address-level1",
-              "address-level2",
-              "address-level3",
-              "address-level4",
-              "address-line1",
-              "address-line2",
-              "address-line3",
-              "bday",
-              "bday-year",
-              "bday-day",
-              "bday-month",
-              "billing",
-              "cc-additional-name",
-              "cc-csc",
-              "cc-exp",
-              "cc-exp-month",
-              "cc-exp-year",
-              "cc-family-name",
-              "cc-given-name",
-              "cc-name",
-              "cc-number",
-              "cc-type",
-              "country",
-              "country-name",
-              "current-password",
-              "email",
-              "family-name",
-              "fax",
-              "given-name",
-              "home",
-              "honorific-prefix",
-              "honorific-suffix",
-              "impp",
-              "language",
-              "mobile",
-              "name",
-              "new-password",
-              "nickname",
-              "organization",
-              "organization-title",
-              "pager",
-              "photo",
-              "postal-code",
-              "sex",
-              "shipping",
-              "street-address",
-              "tel-area-code",
-              "tel",
-              "tel-country-code",
-              "tel-extension",
-              "tel-local",
-              "tel-local-prefix",
-              "tel-local-suffix",
-              "tel-national",
-              "transaction-amount",
-              "transaction-currency",
-              "url",
-              "username",
-              "work",
+              'additional-name',
+              'address-level1',
+              'address-level2',
+              'address-level3',
+              'address-level4',
+              'address-line1',
+              'address-line2',
+              'address-line3',
+              'bday',
+              'bday-year',
+              'bday-day',
+              'bday-month',
+              'billing',
+              'cc-additional-name',
+              'cc-csc',
+              'cc-exp',
+              'cc-exp-month',
+              'cc-exp-year',
+              'cc-family-name',
+              'cc-given-name',
+              'cc-name',
+              'cc-number',
+              'cc-type',
+              'country',
+              'country-name',
+              'current-password',
+              'email',
+              'family-name',
+              'fax',
+              'given-name',
+              'home',
+              'honorific-prefix',
+              'honorific-suffix',
+              'impp',
+              'language',
+              'mobile',
+              'name',
+              'new-password',
+              'nickname',
+              'organization',
+              'organization-title',
+              'pager',
+              'photo',
+              'postal-code',
+              'sex',
+              'shipping',
+              'street-address',
+              'tel-area-code',
+              'tel',
+              'tel-country-code',
+              'tel-extension',
+              'tel-local',
+              'tel-local-prefix',
+              'tel-local-suffix',
+              'tel-national',
+              'transaction-amount',
+              'transaction-currency',
+              'url',
+              'username',
+              'work',
             ],
-            autocomplete: ["inline", "list", "both", "none"],
+            autocomplete: ['inline', 'list', 'both', 'none'],
             current: [
-              "page",
-              "step",
-              "location",
-              "date",
-              "time",
-              "true",
-              "false",
+              'page',
+              'step',
+              'location',
+              'date',
+              'time',
+              'true',
+              'false',
             ],
-            dropeffect: ["copy", "move", "link", "execute", "popup", "none"],
-            invalid: ["grammar", "false", "spelling", "true"],
-            live: ["off", "polite", "assertive"],
-            orientation: ["vertical", "horizontal", "undefined"],
+            dropeffect: ['copy', 'move', 'link', 'execute', 'popup', 'none'],
+            invalid: ['grammar', 'false', 'spelling', 'true'],
+            live: ['off', 'polite', 'assertive'],
+            orientation: ['vertical', 'horizontal', 'undefined'],
             relevant: [
-              "additions",
-              "removals",
-              "text",
-              "all",
-              "additions text",
+              'additions',
+              'removals',
+              'text',
+              'all',
+              'additions text',
             ],
-            sort: ["ascending", "descending", "none", "other"],
+            sort: ['ascending', 'descending', 'none', 'other'],
             roles: [
-              "alert",
-              "alertdialog",
-              "button",
-              "checkbox",
-              "dialog",
-              "gridcell",
-              "link",
-              "log",
-              "marquee",
-              "menuitem",
-              "menuitemcheckbox",
-              "menuitemradio",
-              "option",
-              "progressbar",
-              "radio",
-              "scrollbar",
-              "searchbox",
-              "slider",
-              "spinbutton",
-              "status",
-              "switch",
-              "tab",
-              "tabpanel",
-              "textbox",
-              "timer",
-              "tooltip",
-              "treeitem",
-              "combobox",
-              "grid",
-              "listbox",
-              "menu",
-              "menubar",
-              "radiogroup",
-              "tablist",
-              "tree",
-              "treegrid",
-              "application",
-              "article",
-              "cell",
-              "columnheader",
-              "definition",
-              "directory",
-              "document",
-              "feed",
-              "figure",
-              "group",
-              "heading",
-              "img",
-              "list",
-              "listitem",
-              "math",
-              "none",
-              "note",
-              "presentation",
-              "region",
-              "row",
-              "rowgroup",
-              "rowheader",
-              "separator",
-              "table",
-              "term",
-              "text",
-              "toolbar",
-              "banner",
-              "complementary",
-              "contentinfo",
-              "form",
-              "main",
-              "navigation",
-              "region",
-              "search",
-              "doc-abstract",
-              "doc-acknowledgments",
-              "doc-afterword",
-              "doc-appendix",
-              "doc-backlink",
-              "doc-biblioentry",
-              "doc-bibliography",
-              "doc-biblioref",
-              "doc-chapter",
-              "doc-colophon",
-              "doc-conclusion",
-              "doc-cover",
-              "doc-credit",
-              "doc-credits",
-              "doc-dedication",
-              "doc-endnote",
-              "doc-endnotes",
-              "doc-epigraph",
-              "doc-epilogue",
-              "doc-errata",
-              "doc-example",
-              "doc-footnote",
-              "doc-foreword",
-              "doc-glossary",
-              "doc-glossref",
-              "doc-index",
-              "doc-introduction",
-              "doc-noteref",
-              "doc-notice",
-              "doc-pagebreak",
-              "doc-pagelist",
-              "doc-part",
-              "doc-preface",
-              "doc-prologue",
-              "doc-pullquote",
-              "doc-qna",
-              "doc-subtitle",
-              "doc-tip",
-              "doc-toc",
+              'alert',
+              'alertdialog',
+              'button',
+              'checkbox',
+              'dialog',
+              'gridcell',
+              'link',
+              'log',
+              'marquee',
+              'menuitem',
+              'menuitemcheckbox',
+              'menuitemradio',
+              'option',
+              'progressbar',
+              'radio',
+              'scrollbar',
+              'searchbox',
+              'slider',
+              'spinbutton',
+              'status',
+              'switch',
+              'tab',
+              'tabpanel',
+              'textbox',
+              'timer',
+              'tooltip',
+              'treeitem',
+              'combobox',
+              'grid',
+              'listbox',
+              'menu',
+              'menubar',
+              'radiogroup',
+              'tablist',
+              'tree',
+              'treegrid',
+              'application',
+              'article',
+              'cell',
+              'columnheader',
+              'definition',
+              'directory',
+              'document',
+              'feed',
+              'figure',
+              'group',
+              'heading',
+              'img',
+              'list',
+              'listitem',
+              'math',
+              'none',
+              'note',
+              'presentation',
+              'region',
+              'row',
+              'rowgroup',
+              'rowheader',
+              'separator',
+              'table',
+              'term',
+              'text',
+              'toolbar',
+              'banner',
+              'complementary',
+              'contentinfo',
+              'form',
+              'main',
+              'navigation',
+              'region',
+              'search',
+              'doc-abstract',
+              'doc-acknowledgments',
+              'doc-afterword',
+              'doc-appendix',
+              'doc-backlink',
+              'doc-biblioentry',
+              'doc-bibliography',
+              'doc-biblioref',
+              'doc-chapter',
+              'doc-colophon',
+              'doc-conclusion',
+              'doc-cover',
+              'doc-credit',
+              'doc-credits',
+              'doc-dedication',
+              'doc-endnote',
+              'doc-endnotes',
+              'doc-epigraph',
+              'doc-epilogue',
+              'doc-errata',
+              'doc-example',
+              'doc-footnote',
+              'doc-foreword',
+              'doc-glossary',
+              'doc-glossref',
+              'doc-index',
+              'doc-introduction',
+              'doc-noteref',
+              'doc-notice',
+              'doc-pagebreak',
+              'doc-pagelist',
+              'doc-part',
+              'doc-preface',
+              'doc-prologue',
+              'doc-pullquote',
+              'doc-qna',
+              'doc-subtitle',
+              'doc-tip',
+              'doc-toc',
             ],
           };
         return {
           getId: function () {
-            return "html5";
+            return 'html5';
           },
           isApplicable: function () {
             return !0;
@@ -2202,7 +2202,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           collectAttributes: function (e, t) {
             l(e, t, o.HTML_TAGS, r),
               n.forEach(function (e) {
-                t(e, "event");
+                t(e, 'event');
               });
           },
           collectValues: function (e, t, n) {
@@ -2213,85 +2213,85 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       (o.getAngularTagProvider = function () {
         var r = {
             input: [
-              "ng-model",
-              "ng-required",
-              "ng-minlength",
-              "ng-maxlength",
-              "ng-pattern",
-              "ng-trim",
+              'ng-model',
+              'ng-required',
+              'ng-minlength',
+              'ng-maxlength',
+              'ng-pattern',
+              'ng-trim',
             ],
-            select: ["ng-model"],
+            select: ['ng-model'],
             textarea: [
-              "ng-model",
-              "ng-required",
-              "ng-minlength",
-              "ng-maxlength",
-              "ng-pattern",
-              "ng-trim",
+              'ng-model',
+              'ng-required',
+              'ng-minlength',
+              'ng-maxlength',
+              'ng-pattern',
+              'ng-trim',
             ],
           },
           i = [
-            "ng-app",
-            "ng-strict-di",
-            "ng-bind",
-            "ng-bind-html",
-            "ng-bind-template",
-            "ng-blur",
-            "ng-change",
-            "ng-checked",
-            "ng-class",
-            "ng-class-even",
-            "ng-class-odd",
-            "ng-click",
-            "ng-cloak",
-            "ng-controller",
-            "ng-copy",
-            "ng-csp",
-            "ng-cut",
-            "ng-dblclick",
-            "ng-disabled",
-            "ng-focus",
-            "ng-form",
-            "ng-hide",
-            "ng-href",
-            "ng-if",
-            "ng-include",
-            "ng-init",
-            "ng-jq",
-            "ng-keydown",
-            "ng-keypress",
-            "ng-keyup",
-            "ng-list",
-            "ng-model-options",
-            "ng-mousedown",
-            "ng-mouseenter",
-            "ng-mouseleave",
-            "ng-mousemove",
-            "ng-mouseover",
-            "ng-mouseup",
-            "ng-non-bindable",
-            "ng-open",
-            "ng-options",
-            "ng-paste",
-            "ng-pluralize",
-            "ng-readonly",
-            "ng-repeat",
-            "ng-selected",
-            "ng-show",
-            "ng-src",
-            "ng-srcset",
-            "ng-style",
-            "ng-submit",
-            "ng-switch",
-            "ng-transclude",
-            "ng-value",
+            'ng-app',
+            'ng-strict-di',
+            'ng-bind',
+            'ng-bind-html',
+            'ng-bind-template',
+            'ng-blur',
+            'ng-change',
+            'ng-checked',
+            'ng-class',
+            'ng-class-even',
+            'ng-class-odd',
+            'ng-click',
+            'ng-cloak',
+            'ng-controller',
+            'ng-copy',
+            'ng-csp',
+            'ng-cut',
+            'ng-dblclick',
+            'ng-disabled',
+            'ng-focus',
+            'ng-form',
+            'ng-hide',
+            'ng-href',
+            'ng-if',
+            'ng-include',
+            'ng-init',
+            'ng-jq',
+            'ng-keydown',
+            'ng-keypress',
+            'ng-keyup',
+            'ng-list',
+            'ng-model-options',
+            'ng-mousedown',
+            'ng-mouseenter',
+            'ng-mouseleave',
+            'ng-mousemove',
+            'ng-mouseover',
+            'ng-mouseup',
+            'ng-non-bindable',
+            'ng-open',
+            'ng-options',
+            'ng-paste',
+            'ng-pluralize',
+            'ng-readonly',
+            'ng-repeat',
+            'ng-selected',
+            'ng-show',
+            'ng-src',
+            'ng-srcset',
+            'ng-style',
+            'ng-submit',
+            'ng-switch',
+            'ng-transclude',
+            'ng-value',
           ];
         return {
           getId: function () {
-            return "angular1";
+            return 'angular1';
           },
           isApplicable: function (e) {
-            return "html" === e;
+            return 'html' === e;
           },
           collectTags: function (e) {},
           collectAttributes: function (e, t) {
@@ -2299,11 +2299,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               var n = r[e];
               n &&
                 n.forEach(function (e) {
-                  t(e), t("data-" + e);
+                  t(e), t('data-' + e);
                 });
             }
             i.forEach(function (e) {
-              t(e), t("data-" + e);
+              t(e), t('data-' + e);
             });
           },
           collectValues: function (e, t, n) {},
@@ -2311,58 +2311,58 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       }),
       (o.getIonicTagProvider = function () {
         var r = {
-            a: ["nav-direction:navdir", "nav-transition:trans"],
-            button: ["menu-toggle:menusides"],
+            a: ['nav-direction:navdir', 'nav-transition:trans'],
+            button: ['menu-toggle:menusides'],
           },
           i = [
-            "collection-repeat",
-            "force-refresh-images:b",
-            "ion-stop-event",
-            "item-height",
-            "item-render-buffer",
-            "item-width",
-            "menu-close:v",
-            "on-double-tap",
-            "on-drag",
-            "on-drag-down",
-            "on-drag-left",
-            "on-drag-right",
-            "on-drag-up",
-            "on-hold",
-            "on-release",
-            "on-swipe",
-            "on-swipe-down",
-            "on-swipe-left",
-            "on-swipe-right",
-            "on-swipe-up",
-            "on-tap",
-            "on-touch",
+            'collection-repeat',
+            'force-refresh-images:b',
+            'ion-stop-event',
+            'item-height',
+            'item-render-buffer',
+            'item-width',
+            'menu-close:v',
+            'on-double-tap',
+            'on-drag',
+            'on-drag-down',
+            'on-drag-left',
+            'on-drag-right',
+            'on-drag-up',
+            'on-hold',
+            'on-release',
+            'on-swipe',
+            'on-swipe-down',
+            'on-swipe-left',
+            'on-swipe-right',
+            'on-swipe-up',
+            'on-tap',
+            'on-touch',
           ],
           a = {
-            align: ["center", "left", "right"],
-            b: ["true", "false"],
+            align: ['center', 'left', 'right'],
+            b: ['true', 'false'],
             inputtype: [
-              "email",
-              "number",
-              "password",
-              "search",
-              "tel",
-              "text",
-              "url",
+              'email',
+              'number',
+              'password',
+              'search',
+              'tel',
+              'text',
+              'url',
             ],
-            listtype: ["card", "list-inset"],
-            menusides: ["left", "right"],
-            navdir: ["back", "enter", "exit", "forward", "swap"],
-            navsides: ["left", "primary", "right", "secondary"],
-            scrolldir: ["x", "xy", "y"],
-            trans: ["android", "ios", "none"],
+            listtype: ['card', 'list-inset'],
+            menusides: ['left', 'right'],
+            navdir: ['back', 'enter', 'exit', 'forward', 'swap'],
+            navsides: ['left', 'primary', 'right', 'secondary'],
+            scrolldir: ['x', 'xy', 'y'],
+            trans: ['android', 'ios', 'none'],
           };
         return {
           getId: function () {
-            return "ionic";
+            return 'ionic';
           },
           isApplicable: function (e) {
-            return "html" === e;
+            return 'html' === e;
           },
           collectTags: function (e) {
             return s(e, o.IONIC_TAGS);
@@ -2372,7 +2372,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               var t = r[e];
               t &&
                 t.forEach(function (e) {
-                  var t = e.split(":");
+                  var t = e.split(':');
                   n(t[0], t[1]);
                 });
             }
@@ -2384,33 +2384,33 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/parser/htmlParser",
+          'vscode-html-languageservice/parser/htmlParser',
           [
-            "require",
-            "exports",
-            "./htmlScanner",
-            "../utils/arrays",
-            "./htmlTags",
-            "../htmlLanguageTypes",
+            'require',
+            'exports',
+            './htmlScanner',
+            '../utils/arrays',
+            './htmlTags',
+            '../htmlLanguageTypes',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var d = e("./htmlScanner"),
-      i = e("../utils/arrays"),
-      p = e("./htmlTags"),
-      h = e("../htmlLanguageTypes"),
+    var d = e('./htmlScanner'),
+      i = e('../utils/arrays'),
+      p = e('./htmlTags'),
+      h = e('../htmlLanguageTypes'),
       f = (function () {
         function e(e, t, n, r) {
           (this.start = e),
@@ -2420,7 +2420,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             (this.closed = !1);
         }
         return (
-          Object.defineProperty(e.prototype, "attributeNames", {
+          Object.defineProperty(e.prototype, 'attributeNames', {
             get: function () {
               return this.attributes ? Object.keys(this.attributes) : [];
             },
@@ -2435,14 +2435,14 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               this.tag.toLowerCase() === e
             );
           }),
-          Object.defineProperty(e.prototype, "firstChild", {
+          Object.defineProperty(e.prototype, 'firstChild', {
             get: function () {
               return this.children[0];
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "lastChild", {
+          Object.defineProperty(e.prototype, 'lastChild', {
             get: function () {
               return this.children.length
                 ? this.children[this.children.length - 1]
@@ -2547,17 +2547,17 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
-        define("vscode-languageserver-types/main", ["require", "exports"], e);
+        define('vscode-languageserver-types/main', ['require', 'exports'], e);
   })(function (e, t) {
-    "use strict";
+    'use strict';
     var o, n, r, i, a, s, l, c, u, d, p, h, f, g, m, b, v, y, T, w, _, x, k, S;
-    Object.defineProperty(t, "__esModule", {
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       ((n = o = t.Position || (t.Position = {})).create = function (e, t) {
@@ -2582,15 +2582,15 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             end: t,
           };
         throw new Error(
-          "Range#create called with invalid arguments[" +
+          'Range#create called with invalid arguments[' +
             e +
-            ", " +
+            ', ' +
             t +
-            ", " +
+            ', ' +
             n +
-            ", " +
+            ', ' +
             r +
-            "]"
+            ']'
         );
       }),
       (i.is = function (e) {
@@ -2659,9 +2659,9 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         );
       }),
       ((p = t.FoldingRangeKind || (t.FoldingRangeKind = {})).Comment =
-        "comment"),
-      (p.Imports = "imports"),
-      (p.Region = "region"),
+        'comment'),
+      (p.Imports = 'imports'),
+      (p.Region = 'region'),
       ((h = t.FoldingRange || (t.FoldingRange = {})).create = function (
         e,
         t,
@@ -2770,7 +2770,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       (_.del = function (e) {
         return {
           range: e,
-          newText: "",
+          newText: '',
         };
       }),
       (_.is = function (e) {
@@ -2854,7 +2854,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   }));
         }
         return (
-          Object.defineProperty(e.prototype, "edit", {
+          Object.defineProperty(e.prototype, 'edit', {
             get: function () {
               return this._workspaceEdit;
             },
@@ -2871,7 +2871,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                 !this._workspaceEdit.documentChanges)
               )
                 throw new Error(
-                  "Workspace edit is not configured for versioned document changes."
+                  'Workspace edit is not configured for versioned document changes.'
                 );
               var t = e;
               if (!(r = this._textEditChanges[t.uri])) {
@@ -2893,7 +2893,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               !this._workspaceEdit.changes)
             )
               throw new Error(
-                "Workspace edit is not configured for normal text edit changes."
+                'Workspace edit is not configured for normal text edit changes.'
               );
             var r;
             if (!(r = this._textEditChanges[e])) {
@@ -2954,8 +2954,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           X.string(t.text)
         );
       }),
-      ((O = L = t.MarkupKind || (t.MarkupKind = {})).PlainText = "plaintext"),
-      (O.Markdown = "markdown"),
+      ((O = L = t.MarkupKind || (t.MarkupKind = {})).PlainText = 'plaintext'),
+      (O.Markdown = 'markdown'),
       ((I = L = t.MarkupKind || (t.MarkupKind = {})).is = function (e) {
         var t = e;
         return t === I.PlainText || t === I.Markdown;
@@ -3004,7 +3004,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       }),
       ((P = j = t.MarkedString || (t.MarkedString = {})).fromPlainText =
         function (e) {
-          return e.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
+          return e.replace(/[\\`*_{}[\]()#+\-.!]/g, '\\$&');
         }),
       (P.is = function (e) {
         var t = e;
@@ -3142,13 +3142,13 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         );
       }),
       (t.DocumentSymbol = $),
-      ((H = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = "quickfix"),
-      (H.Refactor = "refactor"),
-      (H.RefactorExtract = "refactor.extract"),
-      (H.RefactorInline = "refactor.inline"),
-      (H.RefactorRewrite = "refactor.rewrite"),
-      (H.Source = "source"),
-      (H.SourceOrganizeImports = "source.organizeImports"),
+      ((H = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = 'quickfix'),
+      (H.Refactor = 'refactor'),
+      (H.RefactorExtract = 'refactor.extract'),
+      (H.RefactorInline = 'refactor.inline'),
+      (H.RefactorRewrite = 'refactor.rewrite'),
+      (H.Source = 'source'),
+      (H.SourceOrganizeImports = 'source.organizeImports'),
       ((G = t.CodeActionContext || (t.CodeActionContext = {})).create =
         function (e, t) {
           var n = {
@@ -3236,7 +3236,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         );
       }),
       (t.DocumentLink = Q),
-      (t.EOL = ["\n", "\r\n", "\r"]),
+      (t.EOL = ['\n', '\r\n', '\r']),
       ((J = t.TextDocument || (t.TextDocument = {})).create = function (
         e,
         t,
@@ -3287,7 +3287,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           var o = r[a],
             s = e.offsetAt(o.range.start),
             l = e.offsetAt(o.range.end);
-          if (!(l <= i)) throw new Error("Ovelapping edit");
+          if (!(l <= i)) throw new Error('Ovelapping edit');
           (n = n.substring(0, s) + o.newText + n.substring(l, n.length)),
             (i = s);
         }
@@ -3310,21 +3310,21 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             (this._lineOffsets = null);
         }
         return (
-          Object.defineProperty(e.prototype, "uri", {
+          Object.defineProperty(e.prototype, 'uri', {
             get: function () {
               return this._uri;
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "languageId", {
+          Object.defineProperty(e.prototype, 'languageId', {
             get: function () {
               return this._languageId;
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "version", {
+          Object.defineProperty(e.prototype, 'version', {
             get: function () {
               return this._version;
             },
@@ -3353,10 +3353,10 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               ) {
                 n && (e.push(r), (n = !1));
                 var i = t.charAt(r);
-                (n = "\r" === i || "\n" === i),
-                  "\r" === i &&
+                (n = '\r' === i || '\n' === i),
+                  '\r' === i &&
                     r + 1 < t.length &&
-                    "\n" === t.charAt(r + 1) &&
+                    '\n' === t.charAt(r + 1) &&
                     r++;
               }
               n && 0 < t.length && e.push(t.length), (this._lineOffsets = e);
@@ -3384,7 +3384,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               r = e.line + 1 < t.length ? t[e.line + 1] : this._content.length;
             return Math.max(Math.min(n + e.character, r), n);
           }),
-          Object.defineProperty(e.prototype, "lineCount", {
+          Object.defineProperty(e.prototype, 'lineCount', {
             get: function () {
               return this.getLineOffsets().length;
             },
@@ -3406,68 +3406,68 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         return !0 === e || !1 === e;
       }),
       (ee.string = function (e) {
-        return "[object String]" === te.call(e);
+        return '[object String]' === te.call(e);
       }),
       (ee.number = function (e) {
-        return "[object Number]" === te.call(e);
+        return '[object Number]' === te.call(e);
       }),
       (ee.func = function (e) {
-        return "[object Function]" === te.call(e);
+        return '[object Function]' === te.call(e);
       }),
       (ee.objectLiteral = function (e) {
-        return null !== e && "object" == typeof e;
+        return null !== e && 'object' == typeof e;
       }),
       (ee.typedArray = function (e, t) {
         return Array.isArray(e) && e.every(t);
       });
   }),
   define(
-    "vscode-languageserver-types",
-    ["vscode-languageserver-types/main"],
+    'vscode-languageserver-types',
+    ['vscode-languageserver-types/main'],
     function (e) {
       return e;
     }
   ),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/parser/razorTags",
-          ["require", "exports"],
+          'vscode-html-languageservice/parser/razorTags',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.getRazorTagProvider = function () {
         var r = {
           a: [
-            "asp-action",
-            "asp-controller",
-            "asp-fragment",
-            "asp-host",
-            "asp-protocol",
-            "asp-route",
+            'asp-action',
+            'asp-controller',
+            'asp-fragment',
+            'asp-host',
+            'asp-protocol',
+            'asp-route',
           ],
-          div: ["asp-validation-summary"],
-          form: ["asp-action", "asp-controller", "asp-anti-forgery"],
-          input: ["asp-for", "asp-format"],
-          label: ["asp-for"],
-          select: ["asp-for", "asp-items"],
-          span: ["asp-validation-for"],
+          div: ['asp-validation-summary'],
+          form: ['asp-action', 'asp-controller', 'asp-anti-forgery'],
+          input: ['asp-for', 'asp-format'],
+          label: ['asp-for'],
+          select: ['asp-for', 'asp-items'],
+          span: ['asp-validation-for'],
         };
         return {
           getId: function () {
-            return "razor";
+            return 'razor';
           },
           isApplicable: function (e) {
-            return "razor" === e;
+            return 'razor' === e;
           },
           collectTags: function (e) {},
           collectAttributes: function (e, t) {
@@ -3484,24 +3484,24 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/tagProviders",
-          ["require", "exports", "../parser/htmlTags", "../parser/razorTags"],
+          'vscode-html-languageservice/services/tagProviders',
+          ['require', 'exports', '../parser/htmlTags', '../parser/razorTags'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var n = e("../parser/htmlTags"),
-      r = e("../parser/razorTags");
+    var n = e('../parser/htmlTags'),
+      r = e('../parser/razorTags');
     t.allTagProviders = [
       n.getHTML5TagProvider(),
       n.getAngularTagProvider(),
@@ -3510,2292 +3510,2292 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
     ];
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/parser/htmlEntities",
-          ["require", "exports"],
+          'vscode-html-languageservice/parser/htmlEntities',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.entities = {
-        "Aacute;": "Á",
-        Aacute: "Á",
-        "aacute;": "á",
-        aacute: "á",
-        "Abreve;": "Ă",
-        "abreve;": "ă",
-        "ac;": "∾",
-        "acd;": "∿",
-        "acE;": "∾̳",
-        "Acirc;": "Â",
-        Acirc: "Â",
-        "acirc;": "â",
-        acirc: "â",
-        "acute;": "´",
-        acute: "´",
-        "Acy;": "А",
-        "acy;": "а",
-        "AElig;": "Æ",
-        AElig: "Æ",
-        "aelig;": "æ",
-        aelig: "æ",
-        "af;": "⁡",
-        "Afr;": "𝔄",
-        "afr;": "𝔞",
-        "Agrave;": "À",
-        Agrave: "À",
-        "agrave;": "à",
-        agrave: "à",
-        "alefsym;": "ℵ",
-        "aleph;": "ℵ",
-        "Alpha;": "Α",
-        "alpha;": "α",
-        "Amacr;": "Ā",
-        "amacr;": "ā",
-        "amalg;": "⨿",
-        "AMP;": "&",
-        AMP: "&",
-        "amp;": "&",
-        amp: "&",
-        "And;": "⩓",
-        "and;": "∧",
-        "andand;": "⩕",
-        "andd;": "⩜",
-        "andslope;": "⩘",
-        "andv;": "⩚",
-        "ang;": "∠",
-        "ange;": "⦤",
-        "angle;": "∠",
-        "angmsd;": "∡",
-        "angmsdaa;": "⦨",
-        "angmsdab;": "⦩",
-        "angmsdac;": "⦪",
-        "angmsdad;": "⦫",
-        "angmsdae;": "⦬",
-        "angmsdaf;": "⦭",
-        "angmsdag;": "⦮",
-        "angmsdah;": "⦯",
-        "angrt;": "∟",
-        "angrtvb;": "⊾",
-        "angrtvbd;": "⦝",
-        "angsph;": "∢",
-        "angst;": "Å",
-        "angzarr;": "⍼",
-        "Aogon;": "Ą",
-        "aogon;": "ą",
-        "Aopf;": "𝔸",
-        "aopf;": "𝕒",
-        "ap;": "≈",
-        "apacir;": "⩯",
-        "apE;": "⩰",
-        "ape;": "≊",
-        "apid;": "≋",
-        "apos;": "'",
-        "ApplyFunction;": "⁡",
-        "approx;": "≈",
-        "approxeq;": "≊",
-        "Aring;": "Å",
-        Aring: "Å",
-        "aring;": "å",
-        aring: "å",
-        "Ascr;": "𝒜",
-        "ascr;": "𝒶",
-        "Assign;": "≔",
-        "ast;": "*",
-        "asymp;": "≈",
-        "asympeq;": "≍",
-        "Atilde;": "Ã",
-        Atilde: "Ã",
-        "atilde;": "ã",
-        atilde: "ã",
-        "Auml;": "Ä",
-        Auml: "Ä",
-        "auml;": "ä",
-        auml: "ä",
-        "awconint;": "∳",
-        "awint;": "⨑",
-        "backcong;": "≌",
-        "backepsilon;": "϶",
-        "backprime;": "‵",
-        "backsim;": "∽",
-        "backsimeq;": "⋍",
-        "Backslash;": "∖",
-        "Barv;": "⫧",
-        "barvee;": "⊽",
-        "Barwed;": "⌆",
-        "barwed;": "⌅",
-        "barwedge;": "⌅",
-        "bbrk;": "⎵",
-        "bbrktbrk;": "⎶",
-        "bcong;": "≌",
-        "Bcy;": "Б",
-        "bcy;": "б",
-        "bdquo;": "„",
-        "becaus;": "∵",
-        "Because;": "∵",
-        "because;": "∵",
-        "bemptyv;": "⦰",
-        "bepsi;": "϶",
-        "bernou;": "ℬ",
-        "Bernoullis;": "ℬ",
-        "Beta;": "Β",
-        "beta;": "β",
-        "beth;": "ℶ",
-        "between;": "≬",
-        "Bfr;": "𝔅",
-        "bfr;": "𝔟",
-        "bigcap;": "⋂",
-        "bigcirc;": "◯",
-        "bigcup;": "⋃",
-        "bigodot;": "⨀",
-        "bigoplus;": "⨁",
-        "bigotimes;": "⨂",
-        "bigsqcup;": "⨆",
-        "bigstar;": "★",
-        "bigtriangledown;": "▽",
-        "bigtriangleup;": "△",
-        "biguplus;": "⨄",
-        "bigvee;": "⋁",
-        "bigwedge;": "⋀",
-        "bkarow;": "⤍",
-        "blacklozenge;": "⧫",
-        "blacksquare;": "▪",
-        "blacktriangle;": "▴",
-        "blacktriangledown;": "▾",
-        "blacktriangleleft;": "◂",
-        "blacktriangleright;": "▸",
-        "blank;": "␣",
-        "blk12;": "▒",
-        "blk14;": "░",
-        "blk34;": "▓",
-        "block;": "█",
-        "bne;": "=⃥",
-        "bnequiv;": "≡⃥",
-        "bNot;": "⫭",
-        "bnot;": "⌐",
-        "Bopf;": "𝔹",
-        "bopf;": "𝕓",
-        "bot;": "⊥",
-        "bottom;": "⊥",
-        "bowtie;": "⋈",
-        "boxbox;": "⧉",
-        "boxDL;": "╗",
-        "boxDl;": "╖",
-        "boxdL;": "╕",
-        "boxdl;": "┐",
-        "boxDR;": "╔",
-        "boxDr;": "╓",
-        "boxdR;": "╒",
-        "boxdr;": "┌",
-        "boxH;": "═",
-        "boxh;": "─",
-        "boxHD;": "╦",
-        "boxHd;": "╤",
-        "boxhD;": "╥",
-        "boxhd;": "┬",
-        "boxHU;": "╩",
-        "boxHu;": "╧",
-        "boxhU;": "╨",
-        "boxhu;": "┴",
-        "boxminus;": "⊟",
-        "boxplus;": "⊞",
-        "boxtimes;": "⊠",
-        "boxUL;": "╝",
-        "boxUl;": "╜",
-        "boxuL;": "╛",
-        "boxul;": "┘",
-        "boxUR;": "╚",
-        "boxUr;": "╙",
-        "boxuR;": "╘",
-        "boxur;": "└",
-        "boxV;": "║",
-        "boxv;": "│",
-        "boxVH;": "╬",
-        "boxVh;": "╫",
-        "boxvH;": "╪",
-        "boxvh;": "┼",
-        "boxVL;": "╣",
-        "boxVl;": "╢",
-        "boxvL;": "╡",
-        "boxvl;": "┤",
-        "boxVR;": "╠",
-        "boxVr;": "╟",
-        "boxvR;": "╞",
-        "boxvr;": "├",
-        "bprime;": "‵",
-        "Breve;": "˘",
-        "breve;": "˘",
-        "brvbar;": "¦",
-        brvbar: "¦",
-        "Bscr;": "ℬ",
-        "bscr;": "𝒷",
-        "bsemi;": "⁏",
-        "bsim;": "∽",
-        "bsime;": "⋍",
-        "bsol;": "\\",
-        "bsolb;": "⧅",
-        "bsolhsub;": "⟈",
-        "bull;": "•",
-        "bullet;": "•",
-        "bump;": "≎",
-        "bumpE;": "⪮",
-        "bumpe;": "≏",
-        "Bumpeq;": "≎",
-        "bumpeq;": "≏",
-        "Cacute;": "Ć",
-        "cacute;": "ć",
-        "Cap;": "⋒",
-        "cap;": "∩",
-        "capand;": "⩄",
-        "capbrcup;": "⩉",
-        "capcap;": "⩋",
-        "capcup;": "⩇",
-        "capdot;": "⩀",
-        "CapitalDifferentialD;": "ⅅ",
-        "caps;": "∩︀",
-        "caret;": "⁁",
-        "caron;": "ˇ",
-        "Cayleys;": "ℭ",
-        "ccaps;": "⩍",
-        "Ccaron;": "Č",
-        "ccaron;": "č",
-        "Ccedil;": "Ç",
-        Ccedil: "Ç",
-        "ccedil;": "ç",
-        ccedil: "ç",
-        "Ccirc;": "Ĉ",
-        "ccirc;": "ĉ",
-        "Cconint;": "∰",
-        "ccups;": "⩌",
-        "ccupssm;": "⩐",
-        "Cdot;": "Ċ",
-        "cdot;": "ċ",
-        "cedil;": "¸",
-        cedil: "¸",
-        "Cedilla;": "¸",
-        "cemptyv;": "⦲",
-        "cent;": "¢",
-        cent: "¢",
-        "CenterDot;": "·",
-        "centerdot;": "·",
-        "Cfr;": "ℭ",
-        "cfr;": "𝔠",
-        "CHcy;": "Ч",
-        "chcy;": "ч",
-        "check;": "✓",
-        "checkmark;": "✓",
-        "Chi;": "Χ",
-        "chi;": "χ",
-        "cir;": "○",
-        "circ;": "ˆ",
-        "circeq;": "≗",
-        "circlearrowleft;": "↺",
-        "circlearrowright;": "↻",
-        "circledast;": "⊛",
-        "circledcirc;": "⊚",
-        "circleddash;": "⊝",
-        "CircleDot;": "⊙",
-        "circledR;": "®",
-        "circledS;": "Ⓢ",
-        "CircleMinus;": "⊖",
-        "CirclePlus;": "⊕",
-        "CircleTimes;": "⊗",
-        "cirE;": "⧃",
-        "cire;": "≗",
-        "cirfnint;": "⨐",
-        "cirmid;": "⫯",
-        "cirscir;": "⧂",
-        "ClockwiseContourIntegral;": "∲",
-        "CloseCurlyDoubleQuote;": "”",
-        "CloseCurlyQuote;": "’",
-        "clubs;": "♣",
-        "clubsuit;": "♣",
-        "Colon;": "∷",
-        "colon;": ":",
-        "Colone;": "⩴",
-        "colone;": "≔",
-        "coloneq;": "≔",
-        "comma;": ",",
-        "commat;": "@",
-        "comp;": "∁",
-        "compfn;": "∘",
-        "complement;": "∁",
-        "complexes;": "ℂ",
-        "cong;": "≅",
-        "congdot;": "⩭",
-        "Congruent;": "≡",
-        "Conint;": "∯",
-        "conint;": "∮",
-        "ContourIntegral;": "∮",
-        "Copf;": "ℂ",
-        "copf;": "𝕔",
-        "coprod;": "∐",
-        "Coproduct;": "∐",
-        "COPY;": "©",
-        COPY: "©",
-        "copy;": "©",
-        copy: "©",
-        "copysr;": "℗",
-        "CounterClockwiseContourIntegral;": "∳",
-        "crarr;": "↵",
-        "Cross;": "⨯",
-        "cross;": "✗",
-        "Cscr;": "𝒞",
-        "cscr;": "𝒸",
-        "csub;": "⫏",
-        "csube;": "⫑",
-        "csup;": "⫐",
-        "csupe;": "⫒",
-        "ctdot;": "⋯",
-        "cudarrl;": "⤸",
-        "cudarrr;": "⤵",
-        "cuepr;": "⋞",
-        "cuesc;": "⋟",
-        "cularr;": "↶",
-        "cularrp;": "⤽",
-        "Cup;": "⋓",
-        "cup;": "∪",
-        "cupbrcap;": "⩈",
-        "CupCap;": "≍",
-        "cupcap;": "⩆",
-        "cupcup;": "⩊",
-        "cupdot;": "⊍",
-        "cupor;": "⩅",
-        "cups;": "∪︀",
-        "curarr;": "↷",
-        "curarrm;": "⤼",
-        "curlyeqprec;": "⋞",
-        "curlyeqsucc;": "⋟",
-        "curlyvee;": "⋎",
-        "curlywedge;": "⋏",
-        "curren;": "¤",
-        curren: "¤",
-        "curvearrowleft;": "↶",
-        "curvearrowright;": "↷",
-        "cuvee;": "⋎",
-        "cuwed;": "⋏",
-        "cwconint;": "∲",
-        "cwint;": "∱",
-        "cylcty;": "⌭",
-        "Dagger;": "‡",
-        "dagger;": "†",
-        "daleth;": "ℸ",
-        "Darr;": "↡",
-        "dArr;": "⇓",
-        "darr;": "↓",
-        "dash;": "‐",
-        "Dashv;": "⫤",
-        "dashv;": "⊣",
-        "dbkarow;": "⤏",
-        "dblac;": "˝",
-        "Dcaron;": "Ď",
-        "dcaron;": "ď",
-        "Dcy;": "Д",
-        "dcy;": "д",
-        "DD;": "ⅅ",
-        "dd;": "ⅆ",
-        "ddagger;": "‡",
-        "ddarr;": "⇊",
-        "DDotrahd;": "⤑",
-        "ddotseq;": "⩷",
-        "deg;": "°",
-        deg: "°",
-        "Del;": "∇",
-        "Delta;": "Δ",
-        "delta;": "δ",
-        "demptyv;": "⦱",
-        "dfisht;": "⥿",
-        "Dfr;": "𝔇",
-        "dfr;": "𝔡",
-        "dHar;": "⥥",
-        "dharl;": "⇃",
-        "dharr;": "⇂",
-        "DiacriticalAcute;": "´",
-        "DiacriticalDot;": "˙",
-        "DiacriticalDoubleAcute;": "˝",
-        "DiacriticalGrave;": "`",
-        "DiacriticalTilde;": "˜",
-        "diam;": "⋄",
-        "Diamond;": "⋄",
-        "diamond;": "⋄",
-        "diamondsuit;": "♦",
-        "diams;": "♦",
-        "die;": "¨",
-        "DifferentialD;": "ⅆ",
-        "digamma;": "ϝ",
-        "disin;": "⋲",
-        "div;": "÷",
-        "divide;": "÷",
-        divide: "÷",
-        "divideontimes;": "⋇",
-        "divonx;": "⋇",
-        "DJcy;": "Ђ",
-        "djcy;": "ђ",
-        "dlcorn;": "⌞",
-        "dlcrop;": "⌍",
-        "dollar;": "$",
-        "Dopf;": "𝔻",
-        "dopf;": "𝕕",
-        "Dot;": "¨",
-        "dot;": "˙",
-        "DotDot;": "⃜",
-        "doteq;": "≐",
-        "doteqdot;": "≑",
-        "DotEqual;": "≐",
-        "dotminus;": "∸",
-        "dotplus;": "∔",
-        "dotsquare;": "⊡",
-        "doublebarwedge;": "⌆",
-        "DoubleContourIntegral;": "∯",
-        "DoubleDot;": "¨",
-        "DoubleDownArrow;": "⇓",
-        "DoubleLeftArrow;": "⇐",
-        "DoubleLeftRightArrow;": "⇔",
-        "DoubleLeftTee;": "⫤",
-        "DoubleLongLeftArrow;": "⟸",
-        "DoubleLongLeftRightArrow;": "⟺",
-        "DoubleLongRightArrow;": "⟹",
-        "DoubleRightArrow;": "⇒",
-        "DoubleRightTee;": "⊨",
-        "DoubleUpArrow;": "⇑",
-        "DoubleUpDownArrow;": "⇕",
-        "DoubleVerticalBar;": "∥",
-        "DownArrow;": "↓",
-        "Downarrow;": "⇓",
-        "downarrow;": "↓",
-        "DownArrowBar;": "⤓",
-        "DownArrowUpArrow;": "⇵",
-        "DownBreve;": "̑",
-        "downdownarrows;": "⇊",
-        "downharpoonleft;": "⇃",
-        "downharpoonright;": "⇂",
-        "DownLeftRightVector;": "⥐",
-        "DownLeftTeeVector;": "⥞",
-        "DownLeftVector;": "↽",
-        "DownLeftVectorBar;": "⥖",
-        "DownRightTeeVector;": "⥟",
-        "DownRightVector;": "⇁",
-        "DownRightVectorBar;": "⥗",
-        "DownTee;": "⊤",
-        "DownTeeArrow;": "↧",
-        "drbkarow;": "⤐",
-        "drcorn;": "⌟",
-        "drcrop;": "⌌",
-        "Dscr;": "𝒟",
-        "dscr;": "𝒹",
-        "DScy;": "Ѕ",
-        "dscy;": "ѕ",
-        "dsol;": "⧶",
-        "Dstrok;": "Đ",
-        "dstrok;": "đ",
-        "dtdot;": "⋱",
-        "dtri;": "▿",
-        "dtrif;": "▾",
-        "duarr;": "⇵",
-        "duhar;": "⥯",
-        "dwangle;": "⦦",
-        "DZcy;": "Џ",
-        "dzcy;": "џ",
-        "dzigrarr;": "⟿",
-        "Eacute;": "É",
-        Eacute: "É",
-        "eacute;": "é",
-        eacute: "é",
-        "easter;": "⩮",
-        "Ecaron;": "Ě",
-        "ecaron;": "ě",
-        "ecir;": "≖",
-        "Ecirc;": "Ê",
-        Ecirc: "Ê",
-        "ecirc;": "ê",
-        ecirc: "ê",
-        "ecolon;": "≕",
-        "Ecy;": "Э",
-        "ecy;": "э",
-        "eDDot;": "⩷",
-        "Edot;": "Ė",
-        "eDot;": "≑",
-        "edot;": "ė",
-        "ee;": "ⅇ",
-        "efDot;": "≒",
-        "Efr;": "𝔈",
-        "efr;": "𝔢",
-        "eg;": "⪚",
-        "Egrave;": "È",
-        Egrave: "È",
-        "egrave;": "è",
-        egrave: "è",
-        "egs;": "⪖",
-        "egsdot;": "⪘",
-        "el;": "⪙",
-        "Element;": "∈",
-        "elinters;": "⏧",
-        "ell;": "ℓ",
-        "els;": "⪕",
-        "elsdot;": "⪗",
-        "Emacr;": "Ē",
-        "emacr;": "ē",
-        "empty;": "∅",
-        "emptyset;": "∅",
-        "EmptySmallSquare;": "◻",
-        "emptyv;": "∅",
-        "EmptyVerySmallSquare;": "▫",
-        "emsp;": " ",
-        "emsp13;": " ",
-        "emsp14;": " ",
-        "ENG;": "Ŋ",
-        "eng;": "ŋ",
-        "ensp;": " ",
-        "Eogon;": "Ę",
-        "eogon;": "ę",
-        "Eopf;": "𝔼",
-        "eopf;": "𝕖",
-        "epar;": "⋕",
-        "eparsl;": "⧣",
-        "eplus;": "⩱",
-        "epsi;": "ε",
-        "Epsilon;": "Ε",
-        "epsilon;": "ε",
-        "epsiv;": "ϵ",
-        "eqcirc;": "≖",
-        "eqcolon;": "≕",
-        "eqsim;": "≂",
-        "eqslantgtr;": "⪖",
-        "eqslantless;": "⪕",
-        "Equal;": "⩵",
-        "equals;": "=",
-        "EqualTilde;": "≂",
-        "equest;": "≟",
-        "Equilibrium;": "⇌",
-        "equiv;": "≡",
-        "equivDD;": "⩸",
-        "eqvparsl;": "⧥",
-        "erarr;": "⥱",
-        "erDot;": "≓",
-        "Escr;": "ℰ",
-        "escr;": "ℯ",
-        "esdot;": "≐",
-        "Esim;": "⩳",
-        "esim;": "≂",
-        "Eta;": "Η",
-        "eta;": "η",
-        "ETH;": "Ð",
-        ETH: "Ð",
-        "eth;": "ð",
-        eth: "ð",
-        "Euml;": "Ë",
-        Euml: "Ë",
-        "euml;": "ë",
-        euml: "ë",
-        "euro;": "€",
-        "excl;": "!",
-        "exist;": "∃",
-        "Exists;": "∃",
-        "expectation;": "ℰ",
-        "ExponentialE;": "ⅇ",
-        "exponentiale;": "ⅇ",
-        "fallingdotseq;": "≒",
-        "Fcy;": "Ф",
-        "fcy;": "ф",
-        "female;": "♀",
-        "ffilig;": "ﬃ",
-        "fflig;": "ﬀ",
-        "ffllig;": "ﬄ",
-        "Ffr;": "𝔉",
-        "ffr;": "𝔣",
-        "filig;": "ﬁ",
-        "FilledSmallSquare;": "◼",
-        "FilledVerySmallSquare;": "▪",
-        "fjlig;": "fj",
-        "flat;": "♭",
-        "fllig;": "ﬂ",
-        "fltns;": "▱",
-        "fnof;": "ƒ",
-        "Fopf;": "𝔽",
-        "fopf;": "𝕗",
-        "ForAll;": "∀",
-        "forall;": "∀",
-        "fork;": "⋔",
-        "forkv;": "⫙",
-        "Fouriertrf;": "ℱ",
-        "fpartint;": "⨍",
-        "frac12;": "½",
-        frac12: "½",
-        "frac13;": "⅓",
-        "frac14;": "¼",
-        frac14: "¼",
-        "frac15;": "⅕",
-        "frac16;": "⅙",
-        "frac18;": "⅛",
-        "frac23;": "⅔",
-        "frac25;": "⅖",
-        "frac34;": "¾",
-        frac34: "¾",
-        "frac35;": "⅗",
-        "frac38;": "⅜",
-        "frac45;": "⅘",
-        "frac56;": "⅚",
-        "frac58;": "⅝",
-        "frac78;": "⅞",
-        "frasl;": "⁄",
-        "frown;": "⌢",
-        "Fscr;": "ℱ",
-        "fscr;": "𝒻",
-        "gacute;": "ǵ",
-        "Gamma;": "Γ",
-        "gamma;": "γ",
-        "Gammad;": "Ϝ",
-        "gammad;": "ϝ",
-        "gap;": "⪆",
-        "Gbreve;": "Ğ",
-        "gbreve;": "ğ",
-        "Gcedil;": "Ģ",
-        "Gcirc;": "Ĝ",
-        "gcirc;": "ĝ",
-        "Gcy;": "Г",
-        "gcy;": "г",
-        "Gdot;": "Ġ",
-        "gdot;": "ġ",
-        "gE;": "≧",
-        "ge;": "≥",
-        "gEl;": "⪌",
-        "gel;": "⋛",
-        "geq;": "≥",
-        "geqq;": "≧",
-        "geqslant;": "⩾",
-        "ges;": "⩾",
-        "gescc;": "⪩",
-        "gesdot;": "⪀",
-        "gesdoto;": "⪂",
-        "gesdotol;": "⪄",
-        "gesl;": "⋛︀",
-        "gesles;": "⪔",
-        "Gfr;": "𝔊",
-        "gfr;": "𝔤",
-        "Gg;": "⋙",
-        "gg;": "≫",
-        "ggg;": "⋙",
-        "gimel;": "ℷ",
-        "GJcy;": "Ѓ",
-        "gjcy;": "ѓ",
-        "gl;": "≷",
-        "gla;": "⪥",
-        "glE;": "⪒",
-        "glj;": "⪤",
-        "gnap;": "⪊",
-        "gnapprox;": "⪊",
-        "gnE;": "≩",
-        "gne;": "⪈",
-        "gneq;": "⪈",
-        "gneqq;": "≩",
-        "gnsim;": "⋧",
-        "Gopf;": "𝔾",
-        "gopf;": "𝕘",
-        "grave;": "`",
-        "GreaterEqual;": "≥",
-        "GreaterEqualLess;": "⋛",
-        "GreaterFullEqual;": "≧",
-        "GreaterGreater;": "⪢",
-        "GreaterLess;": "≷",
-        "GreaterSlantEqual;": "⩾",
-        "GreaterTilde;": "≳",
-        "Gscr;": "𝒢",
-        "gscr;": "ℊ",
-        "gsim;": "≳",
-        "gsime;": "⪎",
-        "gsiml;": "⪐",
-        "GT;": ">",
-        GT: ">",
-        "Gt;": "≫",
-        "gt;": ">",
-        gt: ">",
-        "gtcc;": "⪧",
-        "gtcir;": "⩺",
-        "gtdot;": "⋗",
-        "gtlPar;": "⦕",
-        "gtquest;": "⩼",
-        "gtrapprox;": "⪆",
-        "gtrarr;": "⥸",
-        "gtrdot;": "⋗",
-        "gtreqless;": "⋛",
-        "gtreqqless;": "⪌",
-        "gtrless;": "≷",
-        "gtrsim;": "≳",
-        "gvertneqq;": "≩︀",
-        "gvnE;": "≩︀",
-        "Hacek;": "ˇ",
-        "hairsp;": " ",
-        "half;": "½",
-        "hamilt;": "ℋ",
-        "HARDcy;": "Ъ",
-        "hardcy;": "ъ",
-        "hArr;": "⇔",
-        "harr;": "↔",
-        "harrcir;": "⥈",
-        "harrw;": "↭",
-        "Hat;": "^",
-        "hbar;": "ℏ",
-        "Hcirc;": "Ĥ",
-        "hcirc;": "ĥ",
-        "hearts;": "♥",
-        "heartsuit;": "♥",
-        "hellip;": "…",
-        "hercon;": "⊹",
-        "Hfr;": "ℌ",
-        "hfr;": "𝔥",
-        "HilbertSpace;": "ℋ",
-        "hksearow;": "⤥",
-        "hkswarow;": "⤦",
-        "hoarr;": "⇿",
-        "homtht;": "∻",
-        "hookleftarrow;": "↩",
-        "hookrightarrow;": "↪",
-        "Hopf;": "ℍ",
-        "hopf;": "𝕙",
-        "horbar;": "―",
-        "HorizontalLine;": "─",
-        "Hscr;": "ℋ",
-        "hscr;": "𝒽",
-        "hslash;": "ℏ",
-        "Hstrok;": "Ħ",
-        "hstrok;": "ħ",
-        "HumpDownHump;": "≎",
-        "HumpEqual;": "≏",
-        "hybull;": "⁃",
-        "hyphen;": "‐",
-        "Iacute;": "Í",
-        Iacute: "Í",
-        "iacute;": "í",
-        iacute: "í",
-        "ic;": "⁣",
-        "Icirc;": "Î",
-        Icirc: "Î",
-        "icirc;": "î",
-        icirc: "î",
-        "Icy;": "И",
-        "icy;": "и",
-        "Idot;": "İ",
-        "IEcy;": "Е",
-        "iecy;": "е",
-        "iexcl;": "¡",
-        iexcl: "¡",
-        "iff;": "⇔",
-        "Ifr;": "ℑ",
-        "ifr;": "𝔦",
-        "Igrave;": "Ì",
-        Igrave: "Ì",
-        "igrave;": "ì",
-        igrave: "ì",
-        "ii;": "ⅈ",
-        "iiiint;": "⨌",
-        "iiint;": "∭",
-        "iinfin;": "⧜",
-        "iiota;": "℩",
-        "IJlig;": "Ĳ",
-        "ijlig;": "ĳ",
-        "Im;": "ℑ",
-        "Imacr;": "Ī",
-        "imacr;": "ī",
-        "image;": "ℑ",
-        "ImaginaryI;": "ⅈ",
-        "imagline;": "ℐ",
-        "imagpart;": "ℑ",
-        "imath;": "ı",
-        "imof;": "⊷",
-        "imped;": "Ƶ",
-        "Implies;": "⇒",
-        "in;": "∈",
-        "incare;": "℅",
-        "infin;": "∞",
-        "infintie;": "⧝",
-        "inodot;": "ı",
-        "Int;": "∬",
-        "int;": "∫",
-        "intcal;": "⊺",
-        "integers;": "ℤ",
-        "Integral;": "∫",
-        "intercal;": "⊺",
-        "Intersection;": "⋂",
-        "intlarhk;": "⨗",
-        "intprod;": "⨼",
-        "InvisibleComma;": "⁣",
-        "InvisibleTimes;": "⁢",
-        "IOcy;": "Ё",
-        "iocy;": "ё",
-        "Iogon;": "Į",
-        "iogon;": "į",
-        "Iopf;": "𝕀",
-        "iopf;": "𝕚",
-        "Iota;": "Ι",
-        "iota;": "ι",
-        "iprod;": "⨼",
-        "iquest;": "¿",
-        iquest: "¿",
-        "Iscr;": "ℐ",
-        "iscr;": "𝒾",
-        "isin;": "∈",
-        "isindot;": "⋵",
-        "isinE;": "⋹",
-        "isins;": "⋴",
-        "isinsv;": "⋳",
-        "isinv;": "∈",
-        "it;": "⁢",
-        "Itilde;": "Ĩ",
-        "itilde;": "ĩ",
-        "Iukcy;": "І",
-        "iukcy;": "і",
-        "Iuml;": "Ï",
-        Iuml: "Ï",
-        "iuml;": "ï",
-        iuml: "ï",
-        "Jcirc;": "Ĵ",
-        "jcirc;": "ĵ",
-        "Jcy;": "Й",
-        "jcy;": "й",
-        "Jfr;": "𝔍",
-        "jfr;": "𝔧",
-        "jmath;": "ȷ",
-        "Jopf;": "𝕁",
-        "jopf;": "𝕛",
-        "Jscr;": "𝒥",
-        "jscr;": "𝒿",
-        "Jsercy;": "Ј",
-        "jsercy;": "ј",
-        "Jukcy;": "Є",
-        "jukcy;": "є",
-        "Kappa;": "Κ",
-        "kappa;": "κ",
-        "kappav;": "ϰ",
-        "Kcedil;": "Ķ",
-        "kcedil;": "ķ",
-        "Kcy;": "К",
-        "kcy;": "к",
-        "Kfr;": "𝔎",
-        "kfr;": "𝔨",
-        "kgreen;": "ĸ",
-        "KHcy;": "Х",
-        "khcy;": "х",
-        "KJcy;": "Ќ",
-        "kjcy;": "ќ",
-        "Kopf;": "𝕂",
-        "kopf;": "𝕜",
-        "Kscr;": "𝒦",
-        "kscr;": "𝓀",
-        "lAarr;": "⇚",
-        "Lacute;": "Ĺ",
-        "lacute;": "ĺ",
-        "laemptyv;": "⦴",
-        "lagran;": "ℒ",
-        "Lambda;": "Λ",
-        "lambda;": "λ",
-        "Lang;": "⟪",
-        "lang;": "⟨",
-        "langd;": "⦑",
-        "langle;": "⟨",
-        "lap;": "⪅",
-        "Laplacetrf;": "ℒ",
-        "laquo;": "«",
-        laquo: "«",
-        "Larr;": "↞",
-        "lArr;": "⇐",
-        "larr;": "←",
-        "larrb;": "⇤",
-        "larrbfs;": "⤟",
-        "larrfs;": "⤝",
-        "larrhk;": "↩",
-        "larrlp;": "↫",
-        "larrpl;": "⤹",
-        "larrsim;": "⥳",
-        "larrtl;": "↢",
-        "lat;": "⪫",
-        "lAtail;": "⤛",
-        "latail;": "⤙",
-        "late;": "⪭",
-        "lates;": "⪭︀",
-        "lBarr;": "⤎",
-        "lbarr;": "⤌",
-        "lbbrk;": "❲",
-        "lbrace;": "{",
-        "lbrack;": "[",
-        "lbrke;": "⦋",
-        "lbrksld;": "⦏",
-        "lbrkslu;": "⦍",
-        "Lcaron;": "Ľ",
-        "lcaron;": "ľ",
-        "Lcedil;": "Ļ",
-        "lcedil;": "ļ",
-        "lceil;": "⌈",
-        "lcub;": "{",
-        "Lcy;": "Л",
-        "lcy;": "л",
-        "ldca;": "⤶",
-        "ldquo;": "“",
-        "ldquor;": "„",
-        "ldrdhar;": "⥧",
-        "ldrushar;": "⥋",
-        "ldsh;": "↲",
-        "lE;": "≦",
-        "le;": "≤",
-        "LeftAngleBracket;": "⟨",
-        "LeftArrow;": "←",
-        "Leftarrow;": "⇐",
-        "leftarrow;": "←",
-        "LeftArrowBar;": "⇤",
-        "LeftArrowRightArrow;": "⇆",
-        "leftarrowtail;": "↢",
-        "LeftCeiling;": "⌈",
-        "LeftDoubleBracket;": "⟦",
-        "LeftDownTeeVector;": "⥡",
-        "LeftDownVector;": "⇃",
-        "LeftDownVectorBar;": "⥙",
-        "LeftFloor;": "⌊",
-        "leftharpoondown;": "↽",
-        "leftharpoonup;": "↼",
-        "leftleftarrows;": "⇇",
-        "LeftRightArrow;": "↔",
-        "Leftrightarrow;": "⇔",
-        "leftrightarrow;": "↔",
-        "leftrightarrows;": "⇆",
-        "leftrightharpoons;": "⇋",
-        "leftrightsquigarrow;": "↭",
-        "LeftRightVector;": "⥎",
-        "LeftTee;": "⊣",
-        "LeftTeeArrow;": "↤",
-        "LeftTeeVector;": "⥚",
-        "leftthreetimes;": "⋋",
-        "LeftTriangle;": "⊲",
-        "LeftTriangleBar;": "⧏",
-        "LeftTriangleEqual;": "⊴",
-        "LeftUpDownVector;": "⥑",
-        "LeftUpTeeVector;": "⥠",
-        "LeftUpVector;": "↿",
-        "LeftUpVectorBar;": "⥘",
-        "LeftVector;": "↼",
-        "LeftVectorBar;": "⥒",
-        "lEg;": "⪋",
-        "leg;": "⋚",
-        "leq;": "≤",
-        "leqq;": "≦",
-        "leqslant;": "⩽",
-        "les;": "⩽",
-        "lescc;": "⪨",
-        "lesdot;": "⩿",
-        "lesdoto;": "⪁",
-        "lesdotor;": "⪃",
-        "lesg;": "⋚︀",
-        "lesges;": "⪓",
-        "lessapprox;": "⪅",
-        "lessdot;": "⋖",
-        "lesseqgtr;": "⋚",
-        "lesseqqgtr;": "⪋",
-        "LessEqualGreater;": "⋚",
-        "LessFullEqual;": "≦",
-        "LessGreater;": "≶",
-        "lessgtr;": "≶",
-        "LessLess;": "⪡",
-        "lesssim;": "≲",
-        "LessSlantEqual;": "⩽",
-        "LessTilde;": "≲",
-        "lfisht;": "⥼",
-        "lfloor;": "⌊",
-        "Lfr;": "𝔏",
-        "lfr;": "𝔩",
-        "lg;": "≶",
-        "lgE;": "⪑",
-        "lHar;": "⥢",
-        "lhard;": "↽",
-        "lharu;": "↼",
-        "lharul;": "⥪",
-        "lhblk;": "▄",
-        "LJcy;": "Љ",
-        "ljcy;": "љ",
-        "Ll;": "⋘",
-        "ll;": "≪",
-        "llarr;": "⇇",
-        "llcorner;": "⌞",
-        "Lleftarrow;": "⇚",
-        "llhard;": "⥫",
-        "lltri;": "◺",
-        "Lmidot;": "Ŀ",
-        "lmidot;": "ŀ",
-        "lmoust;": "⎰",
-        "lmoustache;": "⎰",
-        "lnap;": "⪉",
-        "lnapprox;": "⪉",
-        "lnE;": "≨",
-        "lne;": "⪇",
-        "lneq;": "⪇",
-        "lneqq;": "≨",
-        "lnsim;": "⋦",
-        "loang;": "⟬",
-        "loarr;": "⇽",
-        "lobrk;": "⟦",
-        "LongLeftArrow;": "⟵",
-        "Longleftarrow;": "⟸",
-        "longleftarrow;": "⟵",
-        "LongLeftRightArrow;": "⟷",
-        "Longleftrightarrow;": "⟺",
-        "longleftrightarrow;": "⟷",
-        "longmapsto;": "⟼",
-        "LongRightArrow;": "⟶",
-        "Longrightarrow;": "⟹",
-        "longrightarrow;": "⟶",
-        "looparrowleft;": "↫",
-        "looparrowright;": "↬",
-        "lopar;": "⦅",
-        "Lopf;": "𝕃",
-        "lopf;": "𝕝",
-        "loplus;": "⨭",
-        "lotimes;": "⨴",
-        "lowast;": "∗",
-        "lowbar;": "_",
-        "LowerLeftArrow;": "↙",
-        "LowerRightArrow;": "↘",
-        "loz;": "◊",
-        "lozenge;": "◊",
-        "lozf;": "⧫",
-        "lpar;": "(",
-        "lparlt;": "⦓",
-        "lrarr;": "⇆",
-        "lrcorner;": "⌟",
-        "lrhar;": "⇋",
-        "lrhard;": "⥭",
-        "lrm;": "‎",
-        "lrtri;": "⊿",
-        "lsaquo;": "‹",
-        "Lscr;": "ℒ",
-        "lscr;": "𝓁",
-        "Lsh;": "↰",
-        "lsh;": "↰",
-        "lsim;": "≲",
-        "lsime;": "⪍",
-        "lsimg;": "⪏",
-        "lsqb;": "[",
-        "lsquo;": "‘",
-        "lsquor;": "‚",
-        "Lstrok;": "Ł",
-        "lstrok;": "ł",
-        "LT;": "<",
-        LT: "<",
-        "Lt;": "≪",
-        "lt;": "<",
-        lt: "<",
-        "ltcc;": "⪦",
-        "ltcir;": "⩹",
-        "ltdot;": "⋖",
-        "lthree;": "⋋",
-        "ltimes;": "⋉",
-        "ltlarr;": "⥶",
-        "ltquest;": "⩻",
-        "ltri;": "◃",
-        "ltrie;": "⊴",
-        "ltrif;": "◂",
-        "ltrPar;": "⦖",
-        "lurdshar;": "⥊",
-        "luruhar;": "⥦",
-        "lvertneqq;": "≨︀",
-        "lvnE;": "≨︀",
-        "macr;": "¯",
-        macr: "¯",
-        "male;": "♂",
-        "malt;": "✠",
-        "maltese;": "✠",
-        "Map;": "⤅",
-        "map;": "↦",
-        "mapsto;": "↦",
-        "mapstodown;": "↧",
-        "mapstoleft;": "↤",
-        "mapstoup;": "↥",
-        "marker;": "▮",
-        "mcomma;": "⨩",
-        "Mcy;": "М",
-        "mcy;": "м",
-        "mdash;": "—",
-        "mDDot;": "∺",
-        "measuredangle;": "∡",
-        "MediumSpace;": " ",
-        "Mellintrf;": "ℳ",
-        "Mfr;": "𝔐",
-        "mfr;": "𝔪",
-        "mho;": "℧",
-        "micro;": "µ",
-        micro: "µ",
-        "mid;": "∣",
-        "midast;": "*",
-        "midcir;": "⫰",
-        "middot;": "·",
-        middot: "·",
-        "minus;": "−",
-        "minusb;": "⊟",
-        "minusd;": "∸",
-        "minusdu;": "⨪",
-        "MinusPlus;": "∓",
-        "mlcp;": "⫛",
-        "mldr;": "…",
-        "mnplus;": "∓",
-        "models;": "⊧",
-        "Mopf;": "𝕄",
-        "mopf;": "𝕞",
-        "mp;": "∓",
-        "Mscr;": "ℳ",
-        "mscr;": "𝓂",
-        "mstpos;": "∾",
-        "Mu;": "Μ",
-        "mu;": "μ",
-        "multimap;": "⊸",
-        "mumap;": "⊸",
-        "nabla;": "∇",
-        "Nacute;": "Ń",
-        "nacute;": "ń",
-        "nang;": "∠⃒",
-        "nap;": "≉",
-        "napE;": "⩰̸",
-        "napid;": "≋̸",
-        "napos;": "ŉ",
-        "napprox;": "≉",
-        "natur;": "♮",
-        "natural;": "♮",
-        "naturals;": "ℕ",
-        "nbsp;": " ",
-        nbsp: " ",
-        "nbump;": "≎̸",
-        "nbumpe;": "≏̸",
-        "ncap;": "⩃",
-        "Ncaron;": "Ň",
-        "ncaron;": "ň",
-        "Ncedil;": "Ņ",
-        "ncedil;": "ņ",
-        "ncong;": "≇",
-        "ncongdot;": "⩭̸",
-        "ncup;": "⩂",
-        "Ncy;": "Н",
-        "ncy;": "н",
-        "ndash;": "–",
-        "ne;": "≠",
-        "nearhk;": "⤤",
-        "neArr;": "⇗",
-        "nearr;": "↗",
-        "nearrow;": "↗",
-        "nedot;": "≐̸",
-        "NegativeMediumSpace;": "​",
-        "NegativeThickSpace;": "​",
-        "NegativeThinSpace;": "​",
-        "NegativeVeryThinSpace;": "​",
-        "nequiv;": "≢",
-        "nesear;": "⤨",
-        "nesim;": "≂̸",
-        "NestedGreaterGreater;": "≫",
-        "NestedLessLess;": "≪",
-        "NewLine;": "\n",
-        "nexist;": "∄",
-        "nexists;": "∄",
-        "Nfr;": "𝔑",
-        "nfr;": "𝔫",
-        "ngE;": "≧̸",
-        "nge;": "≱",
-        "ngeq;": "≱",
-        "ngeqq;": "≧̸",
-        "ngeqslant;": "⩾̸",
-        "nges;": "⩾̸",
-        "nGg;": "⋙̸",
-        "ngsim;": "≵",
-        "nGt;": "≫⃒",
-        "ngt;": "≯",
-        "ngtr;": "≯",
-        "nGtv;": "≫̸",
-        "nhArr;": "⇎",
-        "nharr;": "↮",
-        "nhpar;": "⫲",
-        "ni;": "∋",
-        "nis;": "⋼",
-        "nisd;": "⋺",
-        "niv;": "∋",
-        "NJcy;": "Њ",
-        "njcy;": "њ",
-        "nlArr;": "⇍",
-        "nlarr;": "↚",
-        "nldr;": "‥",
-        "nlE;": "≦̸",
-        "nle;": "≰",
-        "nLeftarrow;": "⇍",
-        "nleftarrow;": "↚",
-        "nLeftrightarrow;": "⇎",
-        "nleftrightarrow;": "↮",
-        "nleq;": "≰",
-        "nleqq;": "≦̸",
-        "nleqslant;": "⩽̸",
-        "nles;": "⩽̸",
-        "nless;": "≮",
-        "nLl;": "⋘̸",
-        "nlsim;": "≴",
-        "nLt;": "≪⃒",
-        "nlt;": "≮",
-        "nltri;": "⋪",
-        "nltrie;": "⋬",
-        "nLtv;": "≪̸",
-        "nmid;": "∤",
-        "NoBreak;": "⁠",
-        "NonBreakingSpace;": " ",
-        "Nopf;": "ℕ",
-        "nopf;": "𝕟",
-        "Not;": "⫬",
-        "not;": "¬",
-        not: "¬",
-        "NotCongruent;": "≢",
-        "NotCupCap;": "≭",
-        "NotDoubleVerticalBar;": "∦",
-        "NotElement;": "∉",
-        "NotEqual;": "≠",
-        "NotEqualTilde;": "≂̸",
-        "NotExists;": "∄",
-        "NotGreater;": "≯",
-        "NotGreaterEqual;": "≱",
-        "NotGreaterFullEqual;": "≧̸",
-        "NotGreaterGreater;": "≫̸",
-        "NotGreaterLess;": "≹",
-        "NotGreaterSlantEqual;": "⩾̸",
-        "NotGreaterTilde;": "≵",
-        "NotHumpDownHump;": "≎̸",
-        "NotHumpEqual;": "≏̸",
-        "notin;": "∉",
-        "notindot;": "⋵̸",
-        "notinE;": "⋹̸",
-        "notinva;": "∉",
-        "notinvb;": "⋷",
-        "notinvc;": "⋶",
-        "NotLeftTriangle;": "⋪",
-        "NotLeftTriangleBar;": "⧏̸",
-        "NotLeftTriangleEqual;": "⋬",
-        "NotLess;": "≮",
-        "NotLessEqual;": "≰",
-        "NotLessGreater;": "≸",
-        "NotLessLess;": "≪̸",
-        "NotLessSlantEqual;": "⩽̸",
-        "NotLessTilde;": "≴",
-        "NotNestedGreaterGreater;": "⪢̸",
-        "NotNestedLessLess;": "⪡̸",
-        "notni;": "∌",
-        "notniva;": "∌",
-        "notnivb;": "⋾",
-        "notnivc;": "⋽",
-        "NotPrecedes;": "⊀",
-        "NotPrecedesEqual;": "⪯̸",
-        "NotPrecedesSlantEqual;": "⋠",
-        "NotReverseElement;": "∌",
-        "NotRightTriangle;": "⋫",
-        "NotRightTriangleBar;": "⧐̸",
-        "NotRightTriangleEqual;": "⋭",
-        "NotSquareSubset;": "⊏̸",
-        "NotSquareSubsetEqual;": "⋢",
-        "NotSquareSuperset;": "⊐̸",
-        "NotSquareSupersetEqual;": "⋣",
-        "NotSubset;": "⊂⃒",
-        "NotSubsetEqual;": "⊈",
-        "NotSucceeds;": "⊁",
-        "NotSucceedsEqual;": "⪰̸",
-        "NotSucceedsSlantEqual;": "⋡",
-        "NotSucceedsTilde;": "≿̸",
-        "NotSuperset;": "⊃⃒",
-        "NotSupersetEqual;": "⊉",
-        "NotTilde;": "≁",
-        "NotTildeEqual;": "≄",
-        "NotTildeFullEqual;": "≇",
-        "NotTildeTilde;": "≉",
-        "NotVerticalBar;": "∤",
-        "npar;": "∦",
-        "nparallel;": "∦",
-        "nparsl;": "⫽⃥",
-        "npart;": "∂̸",
-        "npolint;": "⨔",
-        "npr;": "⊀",
-        "nprcue;": "⋠",
-        "npre;": "⪯̸",
-        "nprec;": "⊀",
-        "npreceq;": "⪯̸",
-        "nrArr;": "⇏",
-        "nrarr;": "↛",
-        "nrarrc;": "⤳̸",
-        "nrarrw;": "↝̸",
-        "nRightarrow;": "⇏",
-        "nrightarrow;": "↛",
-        "nrtri;": "⋫",
-        "nrtrie;": "⋭",
-        "nsc;": "⊁",
-        "nsccue;": "⋡",
-        "nsce;": "⪰̸",
-        "Nscr;": "𝒩",
-        "nscr;": "𝓃",
-        "nshortmid;": "∤",
-        "nshortparallel;": "∦",
-        "nsim;": "≁",
-        "nsime;": "≄",
-        "nsimeq;": "≄",
-        "nsmid;": "∤",
-        "nspar;": "∦",
-        "nsqsube;": "⋢",
-        "nsqsupe;": "⋣",
-        "nsub;": "⊄",
-        "nsubE;": "⫅̸",
-        "nsube;": "⊈",
-        "nsubset;": "⊂⃒",
-        "nsubseteq;": "⊈",
-        "nsubseteqq;": "⫅̸",
-        "nsucc;": "⊁",
-        "nsucceq;": "⪰̸",
-        "nsup;": "⊅",
-        "nsupE;": "⫆̸",
-        "nsupe;": "⊉",
-        "nsupset;": "⊃⃒",
-        "nsupseteq;": "⊉",
-        "nsupseteqq;": "⫆̸",
-        "ntgl;": "≹",
-        "Ntilde;": "Ñ",
-        Ntilde: "Ñ",
-        "ntilde;": "ñ",
-        ntilde: "ñ",
-        "ntlg;": "≸",
-        "ntriangleleft;": "⋪",
-        "ntrianglelefteq;": "⋬",
-        "ntriangleright;": "⋫",
-        "ntrianglerighteq;": "⋭",
-        "Nu;": "Ν",
-        "nu;": "ν",
-        "num;": "#",
-        "numero;": "№",
-        "numsp;": " ",
-        "nvap;": "≍⃒",
-        "nVDash;": "⊯",
-        "nVdash;": "⊮",
-        "nvDash;": "⊭",
-        "nvdash;": "⊬",
-        "nvge;": "≥⃒",
-        "nvgt;": ">⃒",
-        "nvHarr;": "⤄",
-        "nvinfin;": "⧞",
-        "nvlArr;": "⤂",
-        "nvle;": "≤⃒",
-        "nvlt;": "<⃒",
-        "nvltrie;": "⊴⃒",
-        "nvrArr;": "⤃",
-        "nvrtrie;": "⊵⃒",
-        "nvsim;": "∼⃒",
-        "nwarhk;": "⤣",
-        "nwArr;": "⇖",
-        "nwarr;": "↖",
-        "nwarrow;": "↖",
-        "nwnear;": "⤧",
-        "Oacute;": "Ó",
-        Oacute: "Ó",
-        "oacute;": "ó",
-        oacute: "ó",
-        "oast;": "⊛",
-        "ocir;": "⊚",
-        "Ocirc;": "Ô",
-        Ocirc: "Ô",
-        "ocirc;": "ô",
-        ocirc: "ô",
-        "Ocy;": "О",
-        "ocy;": "о",
-        "odash;": "⊝",
-        "Odblac;": "Ő",
-        "odblac;": "ő",
-        "odiv;": "⨸",
-        "odot;": "⊙",
-        "odsold;": "⦼",
-        "OElig;": "Œ",
-        "oelig;": "œ",
-        "ofcir;": "⦿",
-        "Ofr;": "𝔒",
-        "ofr;": "𝔬",
-        "ogon;": "˛",
-        "Ograve;": "Ò",
-        Ograve: "Ò",
-        "ograve;": "ò",
-        ograve: "ò",
-        "ogt;": "⧁",
-        "ohbar;": "⦵",
-        "ohm;": "Ω",
-        "oint;": "∮",
-        "olarr;": "↺",
-        "olcir;": "⦾",
-        "olcross;": "⦻",
-        "oline;": "‾",
-        "olt;": "⧀",
-        "Omacr;": "Ō",
-        "omacr;": "ō",
-        "Omega;": "Ω",
-        "omega;": "ω",
-        "Omicron;": "Ο",
-        "omicron;": "ο",
-        "omid;": "⦶",
-        "ominus;": "⊖",
-        "Oopf;": "𝕆",
-        "oopf;": "𝕠",
-        "opar;": "⦷",
-        "OpenCurlyDoubleQuote;": "“",
-        "OpenCurlyQuote;": "‘",
-        "operp;": "⦹",
-        "oplus;": "⊕",
-        "Or;": "⩔",
-        "or;": "∨",
-        "orarr;": "↻",
-        "ord;": "⩝",
-        "order;": "ℴ",
-        "orderof;": "ℴ",
-        "ordf;": "ª",
-        ordf: "ª",
-        "ordm;": "º",
-        ordm: "º",
-        "origof;": "⊶",
-        "oror;": "⩖",
-        "orslope;": "⩗",
-        "orv;": "⩛",
-        "oS;": "Ⓢ",
-        "Oscr;": "𝒪",
-        "oscr;": "ℴ",
-        "Oslash;": "Ø",
-        Oslash: "Ø",
-        "oslash;": "ø",
-        oslash: "ø",
-        "osol;": "⊘",
-        "Otilde;": "Õ",
-        Otilde: "Õ",
-        "otilde;": "õ",
-        otilde: "õ",
-        "Otimes;": "⨷",
-        "otimes;": "⊗",
-        "otimesas;": "⨶",
-        "Ouml;": "Ö",
-        Ouml: "Ö",
-        "ouml;": "ö",
-        ouml: "ö",
-        "ovbar;": "⌽",
-        "OverBar;": "‾",
-        "OverBrace;": "⏞",
-        "OverBracket;": "⎴",
-        "OverParenthesis;": "⏜",
-        "par;": "∥",
-        "para;": "¶",
-        para: "¶",
-        "parallel;": "∥",
-        "parsim;": "⫳",
-        "parsl;": "⫽",
-        "part;": "∂",
-        "PartialD;": "∂",
-        "Pcy;": "П",
-        "pcy;": "п",
-        "percnt;": "%",
-        "period;": ".",
-        "permil;": "‰",
-        "perp;": "⊥",
-        "pertenk;": "‱",
-        "Pfr;": "𝔓",
-        "pfr;": "𝔭",
-        "Phi;": "Φ",
-        "phi;": "φ",
-        "phiv;": "ϕ",
-        "phmmat;": "ℳ",
-        "phone;": "☎",
-        "Pi;": "Π",
-        "pi;": "π",
-        "pitchfork;": "⋔",
-        "piv;": "ϖ",
-        "planck;": "ℏ",
-        "planckh;": "ℎ",
-        "plankv;": "ℏ",
-        "plus;": "+",
-        "plusacir;": "⨣",
-        "plusb;": "⊞",
-        "pluscir;": "⨢",
-        "plusdo;": "∔",
-        "plusdu;": "⨥",
-        "pluse;": "⩲",
-        "PlusMinus;": "±",
-        "plusmn;": "±",
-        plusmn: "±",
-        "plussim;": "⨦",
-        "plustwo;": "⨧",
-        "pm;": "±",
-        "Poincareplane;": "ℌ",
-        "pointint;": "⨕",
-        "Popf;": "ℙ",
-        "popf;": "𝕡",
-        "pound;": "£",
-        pound: "£",
-        "Pr;": "⪻",
-        "pr;": "≺",
-        "prap;": "⪷",
-        "prcue;": "≼",
-        "prE;": "⪳",
-        "pre;": "⪯",
-        "prec;": "≺",
-        "precapprox;": "⪷",
-        "preccurlyeq;": "≼",
-        "Precedes;": "≺",
-        "PrecedesEqual;": "⪯",
-        "PrecedesSlantEqual;": "≼",
-        "PrecedesTilde;": "≾",
-        "preceq;": "⪯",
-        "precnapprox;": "⪹",
-        "precneqq;": "⪵",
-        "precnsim;": "⋨",
-        "precsim;": "≾",
-        "Prime;": "″",
-        "prime;": "′",
-        "primes;": "ℙ",
-        "prnap;": "⪹",
-        "prnE;": "⪵",
-        "prnsim;": "⋨",
-        "prod;": "∏",
-        "Product;": "∏",
-        "profalar;": "⌮",
-        "profline;": "⌒",
-        "profsurf;": "⌓",
-        "prop;": "∝",
-        "Proportion;": "∷",
-        "Proportional;": "∝",
-        "propto;": "∝",
-        "prsim;": "≾",
-        "prurel;": "⊰",
-        "Pscr;": "𝒫",
-        "pscr;": "𝓅",
-        "Psi;": "Ψ",
-        "psi;": "ψ",
-        "puncsp;": " ",
-        "Qfr;": "𝔔",
-        "qfr;": "𝔮",
-        "qint;": "⨌",
-        "Qopf;": "ℚ",
-        "qopf;": "𝕢",
-        "qprime;": "⁗",
-        "Qscr;": "𝒬",
-        "qscr;": "𝓆",
-        "quaternions;": "ℍ",
-        "quatint;": "⨖",
-        "quest;": "?",
-        "questeq;": "≟",
-        "QUOT;": '"',
+        'Aacute;': 'Á',
+        Aacute: 'Á',
+        'aacute;': 'á',
+        aacute: 'á',
+        'Abreve;': 'Ă',
+        'abreve;': 'ă',
+        'ac;': '∾',
+        'acd;': '∿',
+        'acE;': '∾̳',
+        'Acirc;': 'Â',
+        Acirc: 'Â',
+        'acirc;': 'â',
+        acirc: 'â',
+        'acute;': '´',
+        acute: '´',
+        'Acy;': 'А',
+        'acy;': 'а',
+        'AElig;': 'Æ',
+        AElig: 'Æ',
+        'aelig;': 'æ',
+        aelig: 'æ',
+        'af;': '⁡',
+        'Afr;': '𝔄',
+        'afr;': '𝔞',
+        'Agrave;': 'À',
+        Agrave: 'À',
+        'agrave;': 'à',
+        agrave: 'à',
+        'alefsym;': 'ℵ',
+        'aleph;': 'ℵ',
+        'Alpha;': 'Α',
+        'alpha;': 'α',
+        'Amacr;': 'Ā',
+        'amacr;': 'ā',
+        'amalg;': '⨿',
+        'AMP;': '&',
+        AMP: '&',
+        'amp;': '&',
+        amp: '&',
+        'And;': '⩓',
+        'and;': '∧',
+        'andand;': '⩕',
+        'andd;': '⩜',
+        'andslope;': '⩘',
+        'andv;': '⩚',
+        'ang;': '∠',
+        'ange;': '⦤',
+        'angle;': '∠',
+        'angmsd;': '∡',
+        'angmsdaa;': '⦨',
+        'angmsdab;': '⦩',
+        'angmsdac;': '⦪',
+        'angmsdad;': '⦫',
+        'angmsdae;': '⦬',
+        'angmsdaf;': '⦭',
+        'angmsdag;': '⦮',
+        'angmsdah;': '⦯',
+        'angrt;': '∟',
+        'angrtvb;': '⊾',
+        'angrtvbd;': '⦝',
+        'angsph;': '∢',
+        'angst;': 'Å',
+        'angzarr;': '⍼',
+        'Aogon;': 'Ą',
+        'aogon;': 'ą',
+        'Aopf;': '𝔸',
+        'aopf;': '𝕒',
+        'ap;': '≈',
+        'apacir;': '⩯',
+        'apE;': '⩰',
+        'ape;': '≊',
+        'apid;': '≋',
+        'apos;': "'",
+        'ApplyFunction;': '⁡',
+        'approx;': '≈',
+        'approxeq;': '≊',
+        'Aring;': 'Å',
+        Aring: 'Å',
+        'aring;': 'å',
+        aring: 'å',
+        'Ascr;': '𝒜',
+        'ascr;': '𝒶',
+        'Assign;': '≔',
+        'ast;': '*',
+        'asymp;': '≈',
+        'asympeq;': '≍',
+        'Atilde;': 'Ã',
+        Atilde: 'Ã',
+        'atilde;': 'ã',
+        atilde: 'ã',
+        'Auml;': 'Ä',
+        Auml: 'Ä',
+        'auml;': 'ä',
+        auml: 'ä',
+        'awconint;': '∳',
+        'awint;': '⨑',
+        'backcong;': '≌',
+        'backepsilon;': '϶',
+        'backprime;': '‵',
+        'backsim;': '∽',
+        'backsimeq;': '⋍',
+        'Backslash;': '∖',
+        'Barv;': '⫧',
+        'barvee;': '⊽',
+        'Barwed;': '⌆',
+        'barwed;': '⌅',
+        'barwedge;': '⌅',
+        'bbrk;': '⎵',
+        'bbrktbrk;': '⎶',
+        'bcong;': '≌',
+        'Bcy;': 'Б',
+        'bcy;': 'б',
+        'bdquo;': '„',
+        'becaus;': '∵',
+        'Because;': '∵',
+        'because;': '∵',
+        'bemptyv;': '⦰',
+        'bepsi;': '϶',
+        'bernou;': 'ℬ',
+        'Bernoullis;': 'ℬ',
+        'Beta;': 'Β',
+        'beta;': 'β',
+        'beth;': 'ℶ',
+        'between;': '≬',
+        'Bfr;': '𝔅',
+        'bfr;': '𝔟',
+        'bigcap;': '⋂',
+        'bigcirc;': '◯',
+        'bigcup;': '⋃',
+        'bigodot;': '⨀',
+        'bigoplus;': '⨁',
+        'bigotimes;': '⨂',
+        'bigsqcup;': '⨆',
+        'bigstar;': '★',
+        'bigtriangledown;': '▽',
+        'bigtriangleup;': '△',
+        'biguplus;': '⨄',
+        'bigvee;': '⋁',
+        'bigwedge;': '⋀',
+        'bkarow;': '⤍',
+        'blacklozenge;': '⧫',
+        'blacksquare;': '▪',
+        'blacktriangle;': '▴',
+        'blacktriangledown;': '▾',
+        'blacktriangleleft;': '◂',
+        'blacktriangleright;': '▸',
+        'blank;': '␣',
+        'blk12;': '▒',
+        'blk14;': '░',
+        'blk34;': '▓',
+        'block;': '█',
+        'bne;': '=⃥',
+        'bnequiv;': '≡⃥',
+        'bNot;': '⫭',
+        'bnot;': '⌐',
+        'Bopf;': '𝔹',
+        'bopf;': '𝕓',
+        'bot;': '⊥',
+        'bottom;': '⊥',
+        'bowtie;': '⋈',
+        'boxbox;': '⧉',
+        'boxDL;': '╗',
+        'boxDl;': '╖',
+        'boxdL;': '╕',
+        'boxdl;': '┐',
+        'boxDR;': '╔',
+        'boxDr;': '╓',
+        'boxdR;': '╒',
+        'boxdr;': '┌',
+        'boxH;': '═',
+        'boxh;': '─',
+        'boxHD;': '╦',
+        'boxHd;': '╤',
+        'boxhD;': '╥',
+        'boxhd;': '┬',
+        'boxHU;': '╩',
+        'boxHu;': '╧',
+        'boxhU;': '╨',
+        'boxhu;': '┴',
+        'boxminus;': '⊟',
+        'boxplus;': '⊞',
+        'boxtimes;': '⊠',
+        'boxUL;': '╝',
+        'boxUl;': '╜',
+        'boxuL;': '╛',
+        'boxul;': '┘',
+        'boxUR;': '╚',
+        'boxUr;': '╙',
+        'boxuR;': '╘',
+        'boxur;': '└',
+        'boxV;': '║',
+        'boxv;': '│',
+        'boxVH;': '╬',
+        'boxVh;': '╫',
+        'boxvH;': '╪',
+        'boxvh;': '┼',
+        'boxVL;': '╣',
+        'boxVl;': '╢',
+        'boxvL;': '╡',
+        'boxvl;': '┤',
+        'boxVR;': '╠',
+        'boxVr;': '╟',
+        'boxvR;': '╞',
+        'boxvr;': '├',
+        'bprime;': '‵',
+        'Breve;': '˘',
+        'breve;': '˘',
+        'brvbar;': '¦',
+        brvbar: '¦',
+        'Bscr;': 'ℬ',
+        'bscr;': '𝒷',
+        'bsemi;': '⁏',
+        'bsim;': '∽',
+        'bsime;': '⋍',
+        'bsol;': '\\',
+        'bsolb;': '⧅',
+        'bsolhsub;': '⟈',
+        'bull;': '•',
+        'bullet;': '•',
+        'bump;': '≎',
+        'bumpE;': '⪮',
+        'bumpe;': '≏',
+        'Bumpeq;': '≎',
+        'bumpeq;': '≏',
+        'Cacute;': 'Ć',
+        'cacute;': 'ć',
+        'Cap;': '⋒',
+        'cap;': '∩',
+        'capand;': '⩄',
+        'capbrcup;': '⩉',
+        'capcap;': '⩋',
+        'capcup;': '⩇',
+        'capdot;': '⩀',
+        'CapitalDifferentialD;': 'ⅅ',
+        'caps;': '∩︀',
+        'caret;': '⁁',
+        'caron;': 'ˇ',
+        'Cayleys;': 'ℭ',
+        'ccaps;': '⩍',
+        'Ccaron;': 'Č',
+        'ccaron;': 'č',
+        'Ccedil;': 'Ç',
+        Ccedil: 'Ç',
+        'ccedil;': 'ç',
+        ccedil: 'ç',
+        'Ccirc;': 'Ĉ',
+        'ccirc;': 'ĉ',
+        'Cconint;': '∰',
+        'ccups;': '⩌',
+        'ccupssm;': '⩐',
+        'Cdot;': 'Ċ',
+        'cdot;': 'ċ',
+        'cedil;': '¸',
+        cedil: '¸',
+        'Cedilla;': '¸',
+        'cemptyv;': '⦲',
+        'cent;': '¢',
+        cent: '¢',
+        'CenterDot;': '·',
+        'centerdot;': '·',
+        'Cfr;': 'ℭ',
+        'cfr;': '𝔠',
+        'CHcy;': 'Ч',
+        'chcy;': 'ч',
+        'check;': '✓',
+        'checkmark;': '✓',
+        'Chi;': 'Χ',
+        'chi;': 'χ',
+        'cir;': '○',
+        'circ;': 'ˆ',
+        'circeq;': '≗',
+        'circlearrowleft;': '↺',
+        'circlearrowright;': '↻',
+        'circledast;': '⊛',
+        'circledcirc;': '⊚',
+        'circleddash;': '⊝',
+        'CircleDot;': '⊙',
+        'circledR;': '®',
+        'circledS;': 'Ⓢ',
+        'CircleMinus;': '⊖',
+        'CirclePlus;': '⊕',
+        'CircleTimes;': '⊗',
+        'cirE;': '⧃',
+        'cire;': '≗',
+        'cirfnint;': '⨐',
+        'cirmid;': '⫯',
+        'cirscir;': '⧂',
+        'ClockwiseContourIntegral;': '∲',
+        'CloseCurlyDoubleQuote;': '”',
+        'CloseCurlyQuote;': '’',
+        'clubs;': '♣',
+        'clubsuit;': '♣',
+        'Colon;': '∷',
+        'colon;': ':',
+        'Colone;': '⩴',
+        'colone;': '≔',
+        'coloneq;': '≔',
+        'comma;': ',',
+        'commat;': '@',
+        'comp;': '∁',
+        'compfn;': '∘',
+        'complement;': '∁',
+        'complexes;': 'ℂ',
+        'cong;': '≅',
+        'congdot;': '⩭',
+        'Congruent;': '≡',
+        'Conint;': '∯',
+        'conint;': '∮',
+        'ContourIntegral;': '∮',
+        'Copf;': 'ℂ',
+        'copf;': '𝕔',
+        'coprod;': '∐',
+        'Coproduct;': '∐',
+        'COPY;': '©',
+        COPY: '©',
+        'copy;': '©',
+        copy: '©',
+        'copysr;': '℗',
+        'CounterClockwiseContourIntegral;': '∳',
+        'crarr;': '↵',
+        'Cross;': '⨯',
+        'cross;': '✗',
+        'Cscr;': '𝒞',
+        'cscr;': '𝒸',
+        'csub;': '⫏',
+        'csube;': '⫑',
+        'csup;': '⫐',
+        'csupe;': '⫒',
+        'ctdot;': '⋯',
+        'cudarrl;': '⤸',
+        'cudarrr;': '⤵',
+        'cuepr;': '⋞',
+        'cuesc;': '⋟',
+        'cularr;': '↶',
+        'cularrp;': '⤽',
+        'Cup;': '⋓',
+        'cup;': '∪',
+        'cupbrcap;': '⩈',
+        'CupCap;': '≍',
+        'cupcap;': '⩆',
+        'cupcup;': '⩊',
+        'cupdot;': '⊍',
+        'cupor;': '⩅',
+        'cups;': '∪︀',
+        'curarr;': '↷',
+        'curarrm;': '⤼',
+        'curlyeqprec;': '⋞',
+        'curlyeqsucc;': '⋟',
+        'curlyvee;': '⋎',
+        'curlywedge;': '⋏',
+        'curren;': '¤',
+        curren: '¤',
+        'curvearrowleft;': '↶',
+        'curvearrowright;': '↷',
+        'cuvee;': '⋎',
+        'cuwed;': '⋏',
+        'cwconint;': '∲',
+        'cwint;': '∱',
+        'cylcty;': '⌭',
+        'Dagger;': '‡',
+        'dagger;': '†',
+        'daleth;': 'ℸ',
+        'Darr;': '↡',
+        'dArr;': '⇓',
+        'darr;': '↓',
+        'dash;': '‐',
+        'Dashv;': '⫤',
+        'dashv;': '⊣',
+        'dbkarow;': '⤏',
+        'dblac;': '˝',
+        'Dcaron;': 'Ď',
+        'dcaron;': 'ď',
+        'Dcy;': 'Д',
+        'dcy;': 'д',
+        'DD;': 'ⅅ',
+        'dd;': 'ⅆ',
+        'ddagger;': '‡',
+        'ddarr;': '⇊',
+        'DDotrahd;': '⤑',
+        'ddotseq;': '⩷',
+        'deg;': '°',
+        deg: '°',
+        'Del;': '∇',
+        'Delta;': 'Δ',
+        'delta;': 'δ',
+        'demptyv;': '⦱',
+        'dfisht;': '⥿',
+        'Dfr;': '𝔇',
+        'dfr;': '𝔡',
+        'dHar;': '⥥',
+        'dharl;': '⇃',
+        'dharr;': '⇂',
+        'DiacriticalAcute;': '´',
+        'DiacriticalDot;': '˙',
+        'DiacriticalDoubleAcute;': '˝',
+        'DiacriticalGrave;': '`',
+        'DiacriticalTilde;': '˜',
+        'diam;': '⋄',
+        'Diamond;': '⋄',
+        'diamond;': '⋄',
+        'diamondsuit;': '♦',
+        'diams;': '♦',
+        'die;': '¨',
+        'DifferentialD;': 'ⅆ',
+        'digamma;': 'ϝ',
+        'disin;': '⋲',
+        'div;': '÷',
+        'divide;': '÷',
+        divide: '÷',
+        'divideontimes;': '⋇',
+        'divonx;': '⋇',
+        'DJcy;': 'Ђ',
+        'djcy;': 'ђ',
+        'dlcorn;': '⌞',
+        'dlcrop;': '⌍',
+        'dollar;': '$',
+        'Dopf;': '𝔻',
+        'dopf;': '𝕕',
+        'Dot;': '¨',
+        'dot;': '˙',
+        'DotDot;': '⃜',
+        'doteq;': '≐',
+        'doteqdot;': '≑',
+        'DotEqual;': '≐',
+        'dotminus;': '∸',
+        'dotplus;': '∔',
+        'dotsquare;': '⊡',
+        'doublebarwedge;': '⌆',
+        'DoubleContourIntegral;': '∯',
+        'DoubleDot;': '¨',
+        'DoubleDownArrow;': '⇓',
+        'DoubleLeftArrow;': '⇐',
+        'DoubleLeftRightArrow;': '⇔',
+        'DoubleLeftTee;': '⫤',
+        'DoubleLongLeftArrow;': '⟸',
+        'DoubleLongLeftRightArrow;': '⟺',
+        'DoubleLongRightArrow;': '⟹',
+        'DoubleRightArrow;': '⇒',
+        'DoubleRightTee;': '⊨',
+        'DoubleUpArrow;': '⇑',
+        'DoubleUpDownArrow;': '⇕',
+        'DoubleVerticalBar;': '∥',
+        'DownArrow;': '↓',
+        'Downarrow;': '⇓',
+        'downarrow;': '↓',
+        'DownArrowBar;': '⤓',
+        'DownArrowUpArrow;': '⇵',
+        'DownBreve;': '̑',
+        'downdownarrows;': '⇊',
+        'downharpoonleft;': '⇃',
+        'downharpoonright;': '⇂',
+        'DownLeftRightVector;': '⥐',
+        'DownLeftTeeVector;': '⥞',
+        'DownLeftVector;': '↽',
+        'DownLeftVectorBar;': '⥖',
+        'DownRightTeeVector;': '⥟',
+        'DownRightVector;': '⇁',
+        'DownRightVectorBar;': '⥗',
+        'DownTee;': '⊤',
+        'DownTeeArrow;': '↧',
+        'drbkarow;': '⤐',
+        'drcorn;': '⌟',
+        'drcrop;': '⌌',
+        'Dscr;': '𝒟',
+        'dscr;': '𝒹',
+        'DScy;': 'Ѕ',
+        'dscy;': 'ѕ',
+        'dsol;': '⧶',
+        'Dstrok;': 'Đ',
+        'dstrok;': 'đ',
+        'dtdot;': '⋱',
+        'dtri;': '▿',
+        'dtrif;': '▾',
+        'duarr;': '⇵',
+        'duhar;': '⥯',
+        'dwangle;': '⦦',
+        'DZcy;': 'Џ',
+        'dzcy;': 'џ',
+        'dzigrarr;': '⟿',
+        'Eacute;': 'É',
+        Eacute: 'É',
+        'eacute;': 'é',
+        eacute: 'é',
+        'easter;': '⩮',
+        'Ecaron;': 'Ě',
+        'ecaron;': 'ě',
+        'ecir;': '≖',
+        'Ecirc;': 'Ê',
+        Ecirc: 'Ê',
+        'ecirc;': 'ê',
+        ecirc: 'ê',
+        'ecolon;': '≕',
+        'Ecy;': 'Э',
+        'ecy;': 'э',
+        'eDDot;': '⩷',
+        'Edot;': 'Ė',
+        'eDot;': '≑',
+        'edot;': 'ė',
+        'ee;': 'ⅇ',
+        'efDot;': '≒',
+        'Efr;': '𝔈',
+        'efr;': '𝔢',
+        'eg;': '⪚',
+        'Egrave;': 'È',
+        Egrave: 'È',
+        'egrave;': 'è',
+        egrave: 'è',
+        'egs;': '⪖',
+        'egsdot;': '⪘',
+        'el;': '⪙',
+        'Element;': '∈',
+        'elinters;': '⏧',
+        'ell;': 'ℓ',
+        'els;': '⪕',
+        'elsdot;': '⪗',
+        'Emacr;': 'Ē',
+        'emacr;': 'ē',
+        'empty;': '∅',
+        'emptyset;': '∅',
+        'EmptySmallSquare;': '◻',
+        'emptyv;': '∅',
+        'EmptyVerySmallSquare;': '▫',
+        'emsp;': ' ',
+        'emsp13;': ' ',
+        'emsp14;': ' ',
+        'ENG;': 'Ŋ',
+        'eng;': 'ŋ',
+        'ensp;': ' ',
+        'Eogon;': 'Ę',
+        'eogon;': 'ę',
+        'Eopf;': '𝔼',
+        'eopf;': '𝕖',
+        'epar;': '⋕',
+        'eparsl;': '⧣',
+        'eplus;': '⩱',
+        'epsi;': 'ε',
+        'Epsilon;': 'Ε',
+        'epsilon;': 'ε',
+        'epsiv;': 'ϵ',
+        'eqcirc;': '≖',
+        'eqcolon;': '≕',
+        'eqsim;': '≂',
+        'eqslantgtr;': '⪖',
+        'eqslantless;': '⪕',
+        'Equal;': '⩵',
+        'equals;': '=',
+        'EqualTilde;': '≂',
+        'equest;': '≟',
+        'Equilibrium;': '⇌',
+        'equiv;': '≡',
+        'equivDD;': '⩸',
+        'eqvparsl;': '⧥',
+        'erarr;': '⥱',
+        'erDot;': '≓',
+        'Escr;': 'ℰ',
+        'escr;': 'ℯ',
+        'esdot;': '≐',
+        'Esim;': '⩳',
+        'esim;': '≂',
+        'Eta;': 'Η',
+        'eta;': 'η',
+        'ETH;': 'Ð',
+        ETH: 'Ð',
+        'eth;': 'ð',
+        eth: 'ð',
+        'Euml;': 'Ë',
+        Euml: 'Ë',
+        'euml;': 'ë',
+        euml: 'ë',
+        'euro;': '€',
+        'excl;': '!',
+        'exist;': '∃',
+        'Exists;': '∃',
+        'expectation;': 'ℰ',
+        'ExponentialE;': 'ⅇ',
+        'exponentiale;': 'ⅇ',
+        'fallingdotseq;': '≒',
+        'Fcy;': 'Ф',
+        'fcy;': 'ф',
+        'female;': '♀',
+        'ffilig;': 'ﬃ',
+        'fflig;': 'ﬀ',
+        'ffllig;': 'ﬄ',
+        'Ffr;': '𝔉',
+        'ffr;': '𝔣',
+        'filig;': 'ﬁ',
+        'FilledSmallSquare;': '◼',
+        'FilledVerySmallSquare;': '▪',
+        'fjlig;': 'fj',
+        'flat;': '♭',
+        'fllig;': 'ﬂ',
+        'fltns;': '▱',
+        'fnof;': 'ƒ',
+        'Fopf;': '𝔽',
+        'fopf;': '𝕗',
+        'ForAll;': '∀',
+        'forall;': '∀',
+        'fork;': '⋔',
+        'forkv;': '⫙',
+        'Fouriertrf;': 'ℱ',
+        'fpartint;': '⨍',
+        'frac12;': '½',
+        frac12: '½',
+        'frac13;': '⅓',
+        'frac14;': '¼',
+        frac14: '¼',
+        'frac15;': '⅕',
+        'frac16;': '⅙',
+        'frac18;': '⅛',
+        'frac23;': '⅔',
+        'frac25;': '⅖',
+        'frac34;': '¾',
+        frac34: '¾',
+        'frac35;': '⅗',
+        'frac38;': '⅜',
+        'frac45;': '⅘',
+        'frac56;': '⅚',
+        'frac58;': '⅝',
+        'frac78;': '⅞',
+        'frasl;': '⁄',
+        'frown;': '⌢',
+        'Fscr;': 'ℱ',
+        'fscr;': '𝒻',
+        'gacute;': 'ǵ',
+        'Gamma;': 'Γ',
+        'gamma;': 'γ',
+        'Gammad;': 'Ϝ',
+        'gammad;': 'ϝ',
+        'gap;': '⪆',
+        'Gbreve;': 'Ğ',
+        'gbreve;': 'ğ',
+        'Gcedil;': 'Ģ',
+        'Gcirc;': 'Ĝ',
+        'gcirc;': 'ĝ',
+        'Gcy;': 'Г',
+        'gcy;': 'г',
+        'Gdot;': 'Ġ',
+        'gdot;': 'ġ',
+        'gE;': '≧',
+        'ge;': '≥',
+        'gEl;': '⪌',
+        'gel;': '⋛',
+        'geq;': '≥',
+        'geqq;': '≧',
+        'geqslant;': '⩾',
+        'ges;': '⩾',
+        'gescc;': '⪩',
+        'gesdot;': '⪀',
+        'gesdoto;': '⪂',
+        'gesdotol;': '⪄',
+        'gesl;': '⋛︀',
+        'gesles;': '⪔',
+        'Gfr;': '𝔊',
+        'gfr;': '𝔤',
+        'Gg;': '⋙',
+        'gg;': '≫',
+        'ggg;': '⋙',
+        'gimel;': 'ℷ',
+        'GJcy;': 'Ѓ',
+        'gjcy;': 'ѓ',
+        'gl;': '≷',
+        'gla;': '⪥',
+        'glE;': '⪒',
+        'glj;': '⪤',
+        'gnap;': '⪊',
+        'gnapprox;': '⪊',
+        'gnE;': '≩',
+        'gne;': '⪈',
+        'gneq;': '⪈',
+        'gneqq;': '≩',
+        'gnsim;': '⋧',
+        'Gopf;': '𝔾',
+        'gopf;': '𝕘',
+        'grave;': '`',
+        'GreaterEqual;': '≥',
+        'GreaterEqualLess;': '⋛',
+        'GreaterFullEqual;': '≧',
+        'GreaterGreater;': '⪢',
+        'GreaterLess;': '≷',
+        'GreaterSlantEqual;': '⩾',
+        'GreaterTilde;': '≳',
+        'Gscr;': '𝒢',
+        'gscr;': 'ℊ',
+        'gsim;': '≳',
+        'gsime;': '⪎',
+        'gsiml;': '⪐',
+        'GT;': '>',
+        GT: '>',
+        'Gt;': '≫',
+        'gt;': '>',
+        gt: '>',
+        'gtcc;': '⪧',
+        'gtcir;': '⩺',
+        'gtdot;': '⋗',
+        'gtlPar;': '⦕',
+        'gtquest;': '⩼',
+        'gtrapprox;': '⪆',
+        'gtrarr;': '⥸',
+        'gtrdot;': '⋗',
+        'gtreqless;': '⋛',
+        'gtreqqless;': '⪌',
+        'gtrless;': '≷',
+        'gtrsim;': '≳',
+        'gvertneqq;': '≩︀',
+        'gvnE;': '≩︀',
+        'Hacek;': 'ˇ',
+        'hairsp;': ' ',
+        'half;': '½',
+        'hamilt;': 'ℋ',
+        'HARDcy;': 'Ъ',
+        'hardcy;': 'ъ',
+        'hArr;': '⇔',
+        'harr;': '↔',
+        'harrcir;': '⥈',
+        'harrw;': '↭',
+        'Hat;': '^',
+        'hbar;': 'ℏ',
+        'Hcirc;': 'Ĥ',
+        'hcirc;': 'ĥ',
+        'hearts;': '♥',
+        'heartsuit;': '♥',
+        'hellip;': '…',
+        'hercon;': '⊹',
+        'Hfr;': 'ℌ',
+        'hfr;': '𝔥',
+        'HilbertSpace;': 'ℋ',
+        'hksearow;': '⤥',
+        'hkswarow;': '⤦',
+        'hoarr;': '⇿',
+        'homtht;': '∻',
+        'hookleftarrow;': '↩',
+        'hookrightarrow;': '↪',
+        'Hopf;': 'ℍ',
+        'hopf;': '𝕙',
+        'horbar;': '―',
+        'HorizontalLine;': '─',
+        'Hscr;': 'ℋ',
+        'hscr;': '𝒽',
+        'hslash;': 'ℏ',
+        'Hstrok;': 'Ħ',
+        'hstrok;': 'ħ',
+        'HumpDownHump;': '≎',
+        'HumpEqual;': '≏',
+        'hybull;': '⁃',
+        'hyphen;': '‐',
+        'Iacute;': 'Í',
+        Iacute: 'Í',
+        'iacute;': 'í',
+        iacute: 'í',
+        'ic;': '⁣',
+        'Icirc;': 'Î',
+        Icirc: 'Î',
+        'icirc;': 'î',
+        icirc: 'î',
+        'Icy;': 'И',
+        'icy;': 'и',
+        'Idot;': 'İ',
+        'IEcy;': 'Е',
+        'iecy;': 'е',
+        'iexcl;': '¡',
+        iexcl: '¡',
+        'iff;': '⇔',
+        'Ifr;': 'ℑ',
+        'ifr;': '𝔦',
+        'Igrave;': 'Ì',
+        Igrave: 'Ì',
+        'igrave;': 'ì',
+        igrave: 'ì',
+        'ii;': 'ⅈ',
+        'iiiint;': '⨌',
+        'iiint;': '∭',
+        'iinfin;': '⧜',
+        'iiota;': '℩',
+        'IJlig;': 'Ĳ',
+        'ijlig;': 'ĳ',
+        'Im;': 'ℑ',
+        'Imacr;': 'Ī',
+        'imacr;': 'ī',
+        'image;': 'ℑ',
+        'ImaginaryI;': 'ⅈ',
+        'imagline;': 'ℐ',
+        'imagpart;': 'ℑ',
+        'imath;': 'ı',
+        'imof;': '⊷',
+        'imped;': 'Ƶ',
+        'Implies;': '⇒',
+        'in;': '∈',
+        'incare;': '℅',
+        'infin;': '∞',
+        'infintie;': '⧝',
+        'inodot;': 'ı',
+        'Int;': '∬',
+        'int;': '∫',
+        'intcal;': '⊺',
+        'integers;': 'ℤ',
+        'Integral;': '∫',
+        'intercal;': '⊺',
+        'Intersection;': '⋂',
+        'intlarhk;': '⨗',
+        'intprod;': '⨼',
+        'InvisibleComma;': '⁣',
+        'InvisibleTimes;': '⁢',
+        'IOcy;': 'Ё',
+        'iocy;': 'ё',
+        'Iogon;': 'Į',
+        'iogon;': 'į',
+        'Iopf;': '𝕀',
+        'iopf;': '𝕚',
+        'Iota;': 'Ι',
+        'iota;': 'ι',
+        'iprod;': '⨼',
+        'iquest;': '¿',
+        iquest: '¿',
+        'Iscr;': 'ℐ',
+        'iscr;': '𝒾',
+        'isin;': '∈',
+        'isindot;': '⋵',
+        'isinE;': '⋹',
+        'isins;': '⋴',
+        'isinsv;': '⋳',
+        'isinv;': '∈',
+        'it;': '⁢',
+        'Itilde;': 'Ĩ',
+        'itilde;': 'ĩ',
+        'Iukcy;': 'І',
+        'iukcy;': 'і',
+        'Iuml;': 'Ï',
+        Iuml: 'Ï',
+        'iuml;': 'ï',
+        iuml: 'ï',
+        'Jcirc;': 'Ĵ',
+        'jcirc;': 'ĵ',
+        'Jcy;': 'Й',
+        'jcy;': 'й',
+        'Jfr;': '𝔍',
+        'jfr;': '𝔧',
+        'jmath;': 'ȷ',
+        'Jopf;': '𝕁',
+        'jopf;': '𝕛',
+        'Jscr;': '𝒥',
+        'jscr;': '𝒿',
+        'Jsercy;': 'Ј',
+        'jsercy;': 'ј',
+        'Jukcy;': 'Є',
+        'jukcy;': 'є',
+        'Kappa;': 'Κ',
+        'kappa;': 'κ',
+        'kappav;': 'ϰ',
+        'Kcedil;': 'Ķ',
+        'kcedil;': 'ķ',
+        'Kcy;': 'К',
+        'kcy;': 'к',
+        'Kfr;': '𝔎',
+        'kfr;': '𝔨',
+        'kgreen;': 'ĸ',
+        'KHcy;': 'Х',
+        'khcy;': 'х',
+        'KJcy;': 'Ќ',
+        'kjcy;': 'ќ',
+        'Kopf;': '𝕂',
+        'kopf;': '𝕜',
+        'Kscr;': '𝒦',
+        'kscr;': '𝓀',
+        'lAarr;': '⇚',
+        'Lacute;': 'Ĺ',
+        'lacute;': 'ĺ',
+        'laemptyv;': '⦴',
+        'lagran;': 'ℒ',
+        'Lambda;': 'Λ',
+        'lambda;': 'λ',
+        'Lang;': '⟪',
+        'lang;': '⟨',
+        'langd;': '⦑',
+        'langle;': '⟨',
+        'lap;': '⪅',
+        'Laplacetrf;': 'ℒ',
+        'laquo;': '«',
+        laquo: '«',
+        'Larr;': '↞',
+        'lArr;': '⇐',
+        'larr;': '←',
+        'larrb;': '⇤',
+        'larrbfs;': '⤟',
+        'larrfs;': '⤝',
+        'larrhk;': '↩',
+        'larrlp;': '↫',
+        'larrpl;': '⤹',
+        'larrsim;': '⥳',
+        'larrtl;': '↢',
+        'lat;': '⪫',
+        'lAtail;': '⤛',
+        'latail;': '⤙',
+        'late;': '⪭',
+        'lates;': '⪭︀',
+        'lBarr;': '⤎',
+        'lbarr;': '⤌',
+        'lbbrk;': '❲',
+        'lbrace;': '{',
+        'lbrack;': '[',
+        'lbrke;': '⦋',
+        'lbrksld;': '⦏',
+        'lbrkslu;': '⦍',
+        'Lcaron;': 'Ľ',
+        'lcaron;': 'ľ',
+        'Lcedil;': 'Ļ',
+        'lcedil;': 'ļ',
+        'lceil;': '⌈',
+        'lcub;': '{',
+        'Lcy;': 'Л',
+        'lcy;': 'л',
+        'ldca;': '⤶',
+        'ldquo;': '“',
+        'ldquor;': '„',
+        'ldrdhar;': '⥧',
+        'ldrushar;': '⥋',
+        'ldsh;': '↲',
+        'lE;': '≦',
+        'le;': '≤',
+        'LeftAngleBracket;': '⟨',
+        'LeftArrow;': '←',
+        'Leftarrow;': '⇐',
+        'leftarrow;': '←',
+        'LeftArrowBar;': '⇤',
+        'LeftArrowRightArrow;': '⇆',
+        'leftarrowtail;': '↢',
+        'LeftCeiling;': '⌈',
+        'LeftDoubleBracket;': '⟦',
+        'LeftDownTeeVector;': '⥡',
+        'LeftDownVector;': '⇃',
+        'LeftDownVectorBar;': '⥙',
+        'LeftFloor;': '⌊',
+        'leftharpoondown;': '↽',
+        'leftharpoonup;': '↼',
+        'leftleftarrows;': '⇇',
+        'LeftRightArrow;': '↔',
+        'Leftrightarrow;': '⇔',
+        'leftrightarrow;': '↔',
+        'leftrightarrows;': '⇆',
+        'leftrightharpoons;': '⇋',
+        'leftrightsquigarrow;': '↭',
+        'LeftRightVector;': '⥎',
+        'LeftTee;': '⊣',
+        'LeftTeeArrow;': '↤',
+        'LeftTeeVector;': '⥚',
+        'leftthreetimes;': '⋋',
+        'LeftTriangle;': '⊲',
+        'LeftTriangleBar;': '⧏',
+        'LeftTriangleEqual;': '⊴',
+        'LeftUpDownVector;': '⥑',
+        'LeftUpTeeVector;': '⥠',
+        'LeftUpVector;': '↿',
+        'LeftUpVectorBar;': '⥘',
+        'LeftVector;': '↼',
+        'LeftVectorBar;': '⥒',
+        'lEg;': '⪋',
+        'leg;': '⋚',
+        'leq;': '≤',
+        'leqq;': '≦',
+        'leqslant;': '⩽',
+        'les;': '⩽',
+        'lescc;': '⪨',
+        'lesdot;': '⩿',
+        'lesdoto;': '⪁',
+        'lesdotor;': '⪃',
+        'lesg;': '⋚︀',
+        'lesges;': '⪓',
+        'lessapprox;': '⪅',
+        'lessdot;': '⋖',
+        'lesseqgtr;': '⋚',
+        'lesseqqgtr;': '⪋',
+        'LessEqualGreater;': '⋚',
+        'LessFullEqual;': '≦',
+        'LessGreater;': '≶',
+        'lessgtr;': '≶',
+        'LessLess;': '⪡',
+        'lesssim;': '≲',
+        'LessSlantEqual;': '⩽',
+        'LessTilde;': '≲',
+        'lfisht;': '⥼',
+        'lfloor;': '⌊',
+        'Lfr;': '𝔏',
+        'lfr;': '𝔩',
+        'lg;': '≶',
+        'lgE;': '⪑',
+        'lHar;': '⥢',
+        'lhard;': '↽',
+        'lharu;': '↼',
+        'lharul;': '⥪',
+        'lhblk;': '▄',
+        'LJcy;': 'Љ',
+        'ljcy;': 'љ',
+        'Ll;': '⋘',
+        'll;': '≪',
+        'llarr;': '⇇',
+        'llcorner;': '⌞',
+        'Lleftarrow;': '⇚',
+        'llhard;': '⥫',
+        'lltri;': '◺',
+        'Lmidot;': 'Ŀ',
+        'lmidot;': 'ŀ',
+        'lmoust;': '⎰',
+        'lmoustache;': '⎰',
+        'lnap;': '⪉',
+        'lnapprox;': '⪉',
+        'lnE;': '≨',
+        'lne;': '⪇',
+        'lneq;': '⪇',
+        'lneqq;': '≨',
+        'lnsim;': '⋦',
+        'loang;': '⟬',
+        'loarr;': '⇽',
+        'lobrk;': '⟦',
+        'LongLeftArrow;': '⟵',
+        'Longleftarrow;': '⟸',
+        'longleftarrow;': '⟵',
+        'LongLeftRightArrow;': '⟷',
+        'Longleftrightarrow;': '⟺',
+        'longleftrightarrow;': '⟷',
+        'longmapsto;': '⟼',
+        'LongRightArrow;': '⟶',
+        'Longrightarrow;': '⟹',
+        'longrightarrow;': '⟶',
+        'looparrowleft;': '↫',
+        'looparrowright;': '↬',
+        'lopar;': '⦅',
+        'Lopf;': '𝕃',
+        'lopf;': '𝕝',
+        'loplus;': '⨭',
+        'lotimes;': '⨴',
+        'lowast;': '∗',
+        'lowbar;': '_',
+        'LowerLeftArrow;': '↙',
+        'LowerRightArrow;': '↘',
+        'loz;': '◊',
+        'lozenge;': '◊',
+        'lozf;': '⧫',
+        'lpar;': '(',
+        'lparlt;': '⦓',
+        'lrarr;': '⇆',
+        'lrcorner;': '⌟',
+        'lrhar;': '⇋',
+        'lrhard;': '⥭',
+        'lrm;': '‎',
+        'lrtri;': '⊿',
+        'lsaquo;': '‹',
+        'Lscr;': 'ℒ',
+        'lscr;': '𝓁',
+        'Lsh;': '↰',
+        'lsh;': '↰',
+        'lsim;': '≲',
+        'lsime;': '⪍',
+        'lsimg;': '⪏',
+        'lsqb;': '[',
+        'lsquo;': '‘',
+        'lsquor;': '‚',
+        'Lstrok;': 'Ł',
+        'lstrok;': 'ł',
+        'LT;': '<',
+        LT: '<',
+        'Lt;': '≪',
+        'lt;': '<',
+        lt: '<',
+        'ltcc;': '⪦',
+        'ltcir;': '⩹',
+        'ltdot;': '⋖',
+        'lthree;': '⋋',
+        'ltimes;': '⋉',
+        'ltlarr;': '⥶',
+        'ltquest;': '⩻',
+        'ltri;': '◃',
+        'ltrie;': '⊴',
+        'ltrif;': '◂',
+        'ltrPar;': '⦖',
+        'lurdshar;': '⥊',
+        'luruhar;': '⥦',
+        'lvertneqq;': '≨︀',
+        'lvnE;': '≨︀',
+        'macr;': '¯',
+        macr: '¯',
+        'male;': '♂',
+        'malt;': '✠',
+        'maltese;': '✠',
+        'Map;': '⤅',
+        'map;': '↦',
+        'mapsto;': '↦',
+        'mapstodown;': '↧',
+        'mapstoleft;': '↤',
+        'mapstoup;': '↥',
+        'marker;': '▮',
+        'mcomma;': '⨩',
+        'Mcy;': 'М',
+        'mcy;': 'м',
+        'mdash;': '—',
+        'mDDot;': '∺',
+        'measuredangle;': '∡',
+        'MediumSpace;': ' ',
+        'Mellintrf;': 'ℳ',
+        'Mfr;': '𝔐',
+        'mfr;': '𝔪',
+        'mho;': '℧',
+        'micro;': 'µ',
+        micro: 'µ',
+        'mid;': '∣',
+        'midast;': '*',
+        'midcir;': '⫰',
+        'middot;': '·',
+        middot: '·',
+        'minus;': '−',
+        'minusb;': '⊟',
+        'minusd;': '∸',
+        'minusdu;': '⨪',
+        'MinusPlus;': '∓',
+        'mlcp;': '⫛',
+        'mldr;': '…',
+        'mnplus;': '∓',
+        'models;': '⊧',
+        'Mopf;': '𝕄',
+        'mopf;': '𝕞',
+        'mp;': '∓',
+        'Mscr;': 'ℳ',
+        'mscr;': '𝓂',
+        'mstpos;': '∾',
+        'Mu;': 'Μ',
+        'mu;': 'μ',
+        'multimap;': '⊸',
+        'mumap;': '⊸',
+        'nabla;': '∇',
+        'Nacute;': 'Ń',
+        'nacute;': 'ń',
+        'nang;': '∠⃒',
+        'nap;': '≉',
+        'napE;': '⩰̸',
+        'napid;': '≋̸',
+        'napos;': 'ŉ',
+        'napprox;': '≉',
+        'natur;': '♮',
+        'natural;': '♮',
+        'naturals;': 'ℕ',
+        'nbsp;': ' ',
+        nbsp: ' ',
+        'nbump;': '≎̸',
+        'nbumpe;': '≏̸',
+        'ncap;': '⩃',
+        'Ncaron;': 'Ň',
+        'ncaron;': 'ň',
+        'Ncedil;': 'Ņ',
+        'ncedil;': 'ņ',
+        'ncong;': '≇',
+        'ncongdot;': '⩭̸',
+        'ncup;': '⩂',
+        'Ncy;': 'Н',
+        'ncy;': 'н',
+        'ndash;': '–',
+        'ne;': '≠',
+        'nearhk;': '⤤',
+        'neArr;': '⇗',
+        'nearr;': '↗',
+        'nearrow;': '↗',
+        'nedot;': '≐̸',
+        'NegativeMediumSpace;': '​',
+        'NegativeThickSpace;': '​',
+        'NegativeThinSpace;': '​',
+        'NegativeVeryThinSpace;': '​',
+        'nequiv;': '≢',
+        'nesear;': '⤨',
+        'nesim;': '≂̸',
+        'NestedGreaterGreater;': '≫',
+        'NestedLessLess;': '≪',
+        'NewLine;': '\n',
+        'nexist;': '∄',
+        'nexists;': '∄',
+        'Nfr;': '𝔑',
+        'nfr;': '𝔫',
+        'ngE;': '≧̸',
+        'nge;': '≱',
+        'ngeq;': '≱',
+        'ngeqq;': '≧̸',
+        'ngeqslant;': '⩾̸',
+        'nges;': '⩾̸',
+        'nGg;': '⋙̸',
+        'ngsim;': '≵',
+        'nGt;': '≫⃒',
+        'ngt;': '≯',
+        'ngtr;': '≯',
+        'nGtv;': '≫̸',
+        'nhArr;': '⇎',
+        'nharr;': '↮',
+        'nhpar;': '⫲',
+        'ni;': '∋',
+        'nis;': '⋼',
+        'nisd;': '⋺',
+        'niv;': '∋',
+        'NJcy;': 'Њ',
+        'njcy;': 'њ',
+        'nlArr;': '⇍',
+        'nlarr;': '↚',
+        'nldr;': '‥',
+        'nlE;': '≦̸',
+        'nle;': '≰',
+        'nLeftarrow;': '⇍',
+        'nleftarrow;': '↚',
+        'nLeftrightarrow;': '⇎',
+        'nleftrightarrow;': '↮',
+        'nleq;': '≰',
+        'nleqq;': '≦̸',
+        'nleqslant;': '⩽̸',
+        'nles;': '⩽̸',
+        'nless;': '≮',
+        'nLl;': '⋘̸',
+        'nlsim;': '≴',
+        'nLt;': '≪⃒',
+        'nlt;': '≮',
+        'nltri;': '⋪',
+        'nltrie;': '⋬',
+        'nLtv;': '≪̸',
+        'nmid;': '∤',
+        'NoBreak;': '⁠',
+        'NonBreakingSpace;': ' ',
+        'Nopf;': 'ℕ',
+        'nopf;': '𝕟',
+        'Not;': '⫬',
+        'not;': '¬',
+        not: '¬',
+        'NotCongruent;': '≢',
+        'NotCupCap;': '≭',
+        'NotDoubleVerticalBar;': '∦',
+        'NotElement;': '∉',
+        'NotEqual;': '≠',
+        'NotEqualTilde;': '≂̸',
+        'NotExists;': '∄',
+        'NotGreater;': '≯',
+        'NotGreaterEqual;': '≱',
+        'NotGreaterFullEqual;': '≧̸',
+        'NotGreaterGreater;': '≫̸',
+        'NotGreaterLess;': '≹',
+        'NotGreaterSlantEqual;': '⩾̸',
+        'NotGreaterTilde;': '≵',
+        'NotHumpDownHump;': '≎̸',
+        'NotHumpEqual;': '≏̸',
+        'notin;': '∉',
+        'notindot;': '⋵̸',
+        'notinE;': '⋹̸',
+        'notinva;': '∉',
+        'notinvb;': '⋷',
+        'notinvc;': '⋶',
+        'NotLeftTriangle;': '⋪',
+        'NotLeftTriangleBar;': '⧏̸',
+        'NotLeftTriangleEqual;': '⋬',
+        'NotLess;': '≮',
+        'NotLessEqual;': '≰',
+        'NotLessGreater;': '≸',
+        'NotLessLess;': '≪̸',
+        'NotLessSlantEqual;': '⩽̸',
+        'NotLessTilde;': '≴',
+        'NotNestedGreaterGreater;': '⪢̸',
+        'NotNestedLessLess;': '⪡̸',
+        'notni;': '∌',
+        'notniva;': '∌',
+        'notnivb;': '⋾',
+        'notnivc;': '⋽',
+        'NotPrecedes;': '⊀',
+        'NotPrecedesEqual;': '⪯̸',
+        'NotPrecedesSlantEqual;': '⋠',
+        'NotReverseElement;': '∌',
+        'NotRightTriangle;': '⋫',
+        'NotRightTriangleBar;': '⧐̸',
+        'NotRightTriangleEqual;': '⋭',
+        'NotSquareSubset;': '⊏̸',
+        'NotSquareSubsetEqual;': '⋢',
+        'NotSquareSuperset;': '⊐̸',
+        'NotSquareSupersetEqual;': '⋣',
+        'NotSubset;': '⊂⃒',
+        'NotSubsetEqual;': '⊈',
+        'NotSucceeds;': '⊁',
+        'NotSucceedsEqual;': '⪰̸',
+        'NotSucceedsSlantEqual;': '⋡',
+        'NotSucceedsTilde;': '≿̸',
+        'NotSuperset;': '⊃⃒',
+        'NotSupersetEqual;': '⊉',
+        'NotTilde;': '≁',
+        'NotTildeEqual;': '≄',
+        'NotTildeFullEqual;': '≇',
+        'NotTildeTilde;': '≉',
+        'NotVerticalBar;': '∤',
+        'npar;': '∦',
+        'nparallel;': '∦',
+        'nparsl;': '⫽⃥',
+        'npart;': '∂̸',
+        'npolint;': '⨔',
+        'npr;': '⊀',
+        'nprcue;': '⋠',
+        'npre;': '⪯̸',
+        'nprec;': '⊀',
+        'npreceq;': '⪯̸',
+        'nrArr;': '⇏',
+        'nrarr;': '↛',
+        'nrarrc;': '⤳̸',
+        'nrarrw;': '↝̸',
+        'nRightarrow;': '⇏',
+        'nrightarrow;': '↛',
+        'nrtri;': '⋫',
+        'nrtrie;': '⋭',
+        'nsc;': '⊁',
+        'nsccue;': '⋡',
+        'nsce;': '⪰̸',
+        'Nscr;': '𝒩',
+        'nscr;': '𝓃',
+        'nshortmid;': '∤',
+        'nshortparallel;': '∦',
+        'nsim;': '≁',
+        'nsime;': '≄',
+        'nsimeq;': '≄',
+        'nsmid;': '∤',
+        'nspar;': '∦',
+        'nsqsube;': '⋢',
+        'nsqsupe;': '⋣',
+        'nsub;': '⊄',
+        'nsubE;': '⫅̸',
+        'nsube;': '⊈',
+        'nsubset;': '⊂⃒',
+        'nsubseteq;': '⊈',
+        'nsubseteqq;': '⫅̸',
+        'nsucc;': '⊁',
+        'nsucceq;': '⪰̸',
+        'nsup;': '⊅',
+        'nsupE;': '⫆̸',
+        'nsupe;': '⊉',
+        'nsupset;': '⊃⃒',
+        'nsupseteq;': '⊉',
+        'nsupseteqq;': '⫆̸',
+        'ntgl;': '≹',
+        'Ntilde;': 'Ñ',
+        Ntilde: 'Ñ',
+        'ntilde;': 'ñ',
+        ntilde: 'ñ',
+        'ntlg;': '≸',
+        'ntriangleleft;': '⋪',
+        'ntrianglelefteq;': '⋬',
+        'ntriangleright;': '⋫',
+        'ntrianglerighteq;': '⋭',
+        'Nu;': 'Ν',
+        'nu;': 'ν',
+        'num;': '#',
+        'numero;': '№',
+        'numsp;': ' ',
+        'nvap;': '≍⃒',
+        'nVDash;': '⊯',
+        'nVdash;': '⊮',
+        'nvDash;': '⊭',
+        'nvdash;': '⊬',
+        'nvge;': '≥⃒',
+        'nvgt;': '>⃒',
+        'nvHarr;': '⤄',
+        'nvinfin;': '⧞',
+        'nvlArr;': '⤂',
+        'nvle;': '≤⃒',
+        'nvlt;': '<⃒',
+        'nvltrie;': '⊴⃒',
+        'nvrArr;': '⤃',
+        'nvrtrie;': '⊵⃒',
+        'nvsim;': '∼⃒',
+        'nwarhk;': '⤣',
+        'nwArr;': '⇖',
+        'nwarr;': '↖',
+        'nwarrow;': '↖',
+        'nwnear;': '⤧',
+        'Oacute;': 'Ó',
+        Oacute: 'Ó',
+        'oacute;': 'ó',
+        oacute: 'ó',
+        'oast;': '⊛',
+        'ocir;': '⊚',
+        'Ocirc;': 'Ô',
+        Ocirc: 'Ô',
+        'ocirc;': 'ô',
+        ocirc: 'ô',
+        'Ocy;': 'О',
+        'ocy;': 'о',
+        'odash;': '⊝',
+        'Odblac;': 'Ő',
+        'odblac;': 'ő',
+        'odiv;': '⨸',
+        'odot;': '⊙',
+        'odsold;': '⦼',
+        'OElig;': 'Œ',
+        'oelig;': 'œ',
+        'ofcir;': '⦿',
+        'Ofr;': '𝔒',
+        'ofr;': '𝔬',
+        'ogon;': '˛',
+        'Ograve;': 'Ò',
+        Ograve: 'Ò',
+        'ograve;': 'ò',
+        ograve: 'ò',
+        'ogt;': '⧁',
+        'ohbar;': '⦵',
+        'ohm;': 'Ω',
+        'oint;': '∮',
+        'olarr;': '↺',
+        'olcir;': '⦾',
+        'olcross;': '⦻',
+        'oline;': '‾',
+        'olt;': '⧀',
+        'Omacr;': 'Ō',
+        'omacr;': 'ō',
+        'Omega;': 'Ω',
+        'omega;': 'ω',
+        'Omicron;': 'Ο',
+        'omicron;': 'ο',
+        'omid;': '⦶',
+        'ominus;': '⊖',
+        'Oopf;': '𝕆',
+        'oopf;': '𝕠',
+        'opar;': '⦷',
+        'OpenCurlyDoubleQuote;': '“',
+        'OpenCurlyQuote;': '‘',
+        'operp;': '⦹',
+        'oplus;': '⊕',
+        'Or;': '⩔',
+        'or;': '∨',
+        'orarr;': '↻',
+        'ord;': '⩝',
+        'order;': 'ℴ',
+        'orderof;': 'ℴ',
+        'ordf;': 'ª',
+        ordf: 'ª',
+        'ordm;': 'º',
+        ordm: 'º',
+        'origof;': '⊶',
+        'oror;': '⩖',
+        'orslope;': '⩗',
+        'orv;': '⩛',
+        'oS;': 'Ⓢ',
+        'Oscr;': '𝒪',
+        'oscr;': 'ℴ',
+        'Oslash;': 'Ø',
+        Oslash: 'Ø',
+        'oslash;': 'ø',
+        oslash: 'ø',
+        'osol;': '⊘',
+        'Otilde;': 'Õ',
+        Otilde: 'Õ',
+        'otilde;': 'õ',
+        otilde: 'õ',
+        'Otimes;': '⨷',
+        'otimes;': '⊗',
+        'otimesas;': '⨶',
+        'Ouml;': 'Ö',
+        Ouml: 'Ö',
+        'ouml;': 'ö',
+        ouml: 'ö',
+        'ovbar;': '⌽',
+        'OverBar;': '‾',
+        'OverBrace;': '⏞',
+        'OverBracket;': '⎴',
+        'OverParenthesis;': '⏜',
+        'par;': '∥',
+        'para;': '¶',
+        para: '¶',
+        'parallel;': '∥',
+        'parsim;': '⫳',
+        'parsl;': '⫽',
+        'part;': '∂',
+        'PartialD;': '∂',
+        'Pcy;': 'П',
+        'pcy;': 'п',
+        'percnt;': '%',
+        'period;': '.',
+        'permil;': '‰',
+        'perp;': '⊥',
+        'pertenk;': '‱',
+        'Pfr;': '𝔓',
+        'pfr;': '𝔭',
+        'Phi;': 'Φ',
+        'phi;': 'φ',
+        'phiv;': 'ϕ',
+        'phmmat;': 'ℳ',
+        'phone;': '☎',
+        'Pi;': 'Π',
+        'pi;': 'π',
+        'pitchfork;': '⋔',
+        'piv;': 'ϖ',
+        'planck;': 'ℏ',
+        'planckh;': 'ℎ',
+        'plankv;': 'ℏ',
+        'plus;': '+',
+        'plusacir;': '⨣',
+        'plusb;': '⊞',
+        'pluscir;': '⨢',
+        'plusdo;': '∔',
+        'plusdu;': '⨥',
+        'pluse;': '⩲',
+        'PlusMinus;': '±',
+        'plusmn;': '±',
+        plusmn: '±',
+        'plussim;': '⨦',
+        'plustwo;': '⨧',
+        'pm;': '±',
+        'Poincareplane;': 'ℌ',
+        'pointint;': '⨕',
+        'Popf;': 'ℙ',
+        'popf;': '𝕡',
+        'pound;': '£',
+        pound: '£',
+        'Pr;': '⪻',
+        'pr;': '≺',
+        'prap;': '⪷',
+        'prcue;': '≼',
+        'prE;': '⪳',
+        'pre;': '⪯',
+        'prec;': '≺',
+        'precapprox;': '⪷',
+        'preccurlyeq;': '≼',
+        'Precedes;': '≺',
+        'PrecedesEqual;': '⪯',
+        'PrecedesSlantEqual;': '≼',
+        'PrecedesTilde;': '≾',
+        'preceq;': '⪯',
+        'precnapprox;': '⪹',
+        'precneqq;': '⪵',
+        'precnsim;': '⋨',
+        'precsim;': '≾',
+        'Prime;': '″',
+        'prime;': '′',
+        'primes;': 'ℙ',
+        'prnap;': '⪹',
+        'prnE;': '⪵',
+        'prnsim;': '⋨',
+        'prod;': '∏',
+        'Product;': '∏',
+        'profalar;': '⌮',
+        'profline;': '⌒',
+        'profsurf;': '⌓',
+        'prop;': '∝',
+        'Proportion;': '∷',
+        'Proportional;': '∝',
+        'propto;': '∝',
+        'prsim;': '≾',
+        'prurel;': '⊰',
+        'Pscr;': '𝒫',
+        'pscr;': '𝓅',
+        'Psi;': 'Ψ',
+        'psi;': 'ψ',
+        'puncsp;': ' ',
+        'Qfr;': '𝔔',
+        'qfr;': '𝔮',
+        'qint;': '⨌',
+        'Qopf;': 'ℚ',
+        'qopf;': '𝕢',
+        'qprime;': '⁗',
+        'Qscr;': '𝒬',
+        'qscr;': '𝓆',
+        'quaternions;': 'ℍ',
+        'quatint;': '⨖',
+        'quest;': '?',
+        'questeq;': '≟',
+        'QUOT;': '"',
         QUOT: '"',
-        "quot;": '"',
+        'quot;': '"',
         quot: '"',
-        "rAarr;": "⇛",
-        "race;": "∽̱",
-        "Racute;": "Ŕ",
-        "racute;": "ŕ",
-        "radic;": "√",
-        "raemptyv;": "⦳",
-        "Rang;": "⟫",
-        "rang;": "⟩",
-        "rangd;": "⦒",
-        "range;": "⦥",
-        "rangle;": "⟩",
-        "raquo;": "»",
-        raquo: "»",
-        "Rarr;": "↠",
-        "rArr;": "⇒",
-        "rarr;": "→",
-        "rarrap;": "⥵",
-        "rarrb;": "⇥",
-        "rarrbfs;": "⤠",
-        "rarrc;": "⤳",
-        "rarrfs;": "⤞",
-        "rarrhk;": "↪",
-        "rarrlp;": "↬",
-        "rarrpl;": "⥅",
-        "rarrsim;": "⥴",
-        "Rarrtl;": "⤖",
-        "rarrtl;": "↣",
-        "rarrw;": "↝",
-        "rAtail;": "⤜",
-        "ratail;": "⤚",
-        "ratio;": "∶",
-        "rationals;": "ℚ",
-        "RBarr;": "⤐",
-        "rBarr;": "⤏",
-        "rbarr;": "⤍",
-        "rbbrk;": "❳",
-        "rbrace;": "}",
-        "rbrack;": "]",
-        "rbrke;": "⦌",
-        "rbrksld;": "⦎",
-        "rbrkslu;": "⦐",
-        "Rcaron;": "Ř",
-        "rcaron;": "ř",
-        "Rcedil;": "Ŗ",
-        "rcedil;": "ŗ",
-        "rceil;": "⌉",
-        "rcub;": "}",
-        "Rcy;": "Р",
-        "rcy;": "р",
-        "rdca;": "⤷",
-        "rdldhar;": "⥩",
-        "rdquo;": "”",
-        "rdquor;": "”",
-        "rdsh;": "↳",
-        "Re;": "ℜ",
-        "real;": "ℜ",
-        "realine;": "ℛ",
-        "realpart;": "ℜ",
-        "reals;": "ℝ",
-        "rect;": "▭",
-        "REG;": "®",
-        REG: "®",
-        "reg;": "®",
-        reg: "®",
-        "ReverseElement;": "∋",
-        "ReverseEquilibrium;": "⇋",
-        "ReverseUpEquilibrium;": "⥯",
-        "rfisht;": "⥽",
-        "rfloor;": "⌋",
-        "Rfr;": "ℜ",
-        "rfr;": "𝔯",
-        "rHar;": "⥤",
-        "rhard;": "⇁",
-        "rharu;": "⇀",
-        "rharul;": "⥬",
-        "Rho;": "Ρ",
-        "rho;": "ρ",
-        "rhov;": "ϱ",
-        "RightAngleBracket;": "⟩",
-        "RightArrow;": "→",
-        "Rightarrow;": "⇒",
-        "rightarrow;": "→",
-        "RightArrowBar;": "⇥",
-        "RightArrowLeftArrow;": "⇄",
-        "rightarrowtail;": "↣",
-        "RightCeiling;": "⌉",
-        "RightDoubleBracket;": "⟧",
-        "RightDownTeeVector;": "⥝",
-        "RightDownVector;": "⇂",
-        "RightDownVectorBar;": "⥕",
-        "RightFloor;": "⌋",
-        "rightharpoondown;": "⇁",
-        "rightharpoonup;": "⇀",
-        "rightleftarrows;": "⇄",
-        "rightleftharpoons;": "⇌",
-        "rightrightarrows;": "⇉",
-        "rightsquigarrow;": "↝",
-        "RightTee;": "⊢",
-        "RightTeeArrow;": "↦",
-        "RightTeeVector;": "⥛",
-        "rightthreetimes;": "⋌",
-        "RightTriangle;": "⊳",
-        "RightTriangleBar;": "⧐",
-        "RightTriangleEqual;": "⊵",
-        "RightUpDownVector;": "⥏",
-        "RightUpTeeVector;": "⥜",
-        "RightUpVector;": "↾",
-        "RightUpVectorBar;": "⥔",
-        "RightVector;": "⇀",
-        "RightVectorBar;": "⥓",
-        "ring;": "˚",
-        "risingdotseq;": "≓",
-        "rlarr;": "⇄",
-        "rlhar;": "⇌",
-        "rlm;": "‏",
-        "rmoust;": "⎱",
-        "rmoustache;": "⎱",
-        "rnmid;": "⫮",
-        "roang;": "⟭",
-        "roarr;": "⇾",
-        "robrk;": "⟧",
-        "ropar;": "⦆",
-        "Ropf;": "ℝ",
-        "ropf;": "𝕣",
-        "roplus;": "⨮",
-        "rotimes;": "⨵",
-        "RoundImplies;": "⥰",
-        "rpar;": ")",
-        "rpargt;": "⦔",
-        "rppolint;": "⨒",
-        "rrarr;": "⇉",
-        "Rrightarrow;": "⇛",
-        "rsaquo;": "›",
-        "Rscr;": "ℛ",
-        "rscr;": "𝓇",
-        "Rsh;": "↱",
-        "rsh;": "↱",
-        "rsqb;": "]",
-        "rsquo;": "’",
-        "rsquor;": "’",
-        "rthree;": "⋌",
-        "rtimes;": "⋊",
-        "rtri;": "▹",
-        "rtrie;": "⊵",
-        "rtrif;": "▸",
-        "rtriltri;": "⧎",
-        "RuleDelayed;": "⧴",
-        "ruluhar;": "⥨",
-        "rx;": "℞",
-        "Sacute;": "Ś",
-        "sacute;": "ś",
-        "sbquo;": "‚",
-        "Sc;": "⪼",
-        "sc;": "≻",
-        "scap;": "⪸",
-        "Scaron;": "Š",
-        "scaron;": "š",
-        "sccue;": "≽",
-        "scE;": "⪴",
-        "sce;": "⪰",
-        "Scedil;": "Ş",
-        "scedil;": "ş",
-        "Scirc;": "Ŝ",
-        "scirc;": "ŝ",
-        "scnap;": "⪺",
-        "scnE;": "⪶",
-        "scnsim;": "⋩",
-        "scpolint;": "⨓",
-        "scsim;": "≿",
-        "Scy;": "С",
-        "scy;": "с",
-        "sdot;": "⋅",
-        "sdotb;": "⊡",
-        "sdote;": "⩦",
-        "searhk;": "⤥",
-        "seArr;": "⇘",
-        "searr;": "↘",
-        "searrow;": "↘",
-        "sect;": "§",
-        sect: "§",
-        "semi;": ";",
-        "seswar;": "⤩",
-        "setminus;": "∖",
-        "setmn;": "∖",
-        "sext;": "✶",
-        "Sfr;": "𝔖",
-        "sfr;": "𝔰",
-        "sfrown;": "⌢",
-        "sharp;": "♯",
-        "SHCHcy;": "Щ",
-        "shchcy;": "щ",
-        "SHcy;": "Ш",
-        "shcy;": "ш",
-        "ShortDownArrow;": "↓",
-        "ShortLeftArrow;": "←",
-        "shortmid;": "∣",
-        "shortparallel;": "∥",
-        "ShortRightArrow;": "→",
-        "ShortUpArrow;": "↑",
-        "shy;": "­",
-        shy: "­",
-        "Sigma;": "Σ",
-        "sigma;": "σ",
-        "sigmaf;": "ς",
-        "sigmav;": "ς",
-        "sim;": "∼",
-        "simdot;": "⩪",
-        "sime;": "≃",
-        "simeq;": "≃",
-        "simg;": "⪞",
-        "simgE;": "⪠",
-        "siml;": "⪝",
-        "simlE;": "⪟",
-        "simne;": "≆",
-        "simplus;": "⨤",
-        "simrarr;": "⥲",
-        "slarr;": "←",
-        "SmallCircle;": "∘",
-        "smallsetminus;": "∖",
-        "smashp;": "⨳",
-        "smeparsl;": "⧤",
-        "smid;": "∣",
-        "smile;": "⌣",
-        "smt;": "⪪",
-        "smte;": "⪬",
-        "smtes;": "⪬︀",
-        "SOFTcy;": "Ь",
-        "softcy;": "ь",
-        "sol;": "/",
-        "solb;": "⧄",
-        "solbar;": "⌿",
-        "Sopf;": "𝕊",
-        "sopf;": "𝕤",
-        "spades;": "♠",
-        "spadesuit;": "♠",
-        "spar;": "∥",
-        "sqcap;": "⊓",
-        "sqcaps;": "⊓︀",
-        "sqcup;": "⊔",
-        "sqcups;": "⊔︀",
-        "Sqrt;": "√",
-        "sqsub;": "⊏",
-        "sqsube;": "⊑",
-        "sqsubset;": "⊏",
-        "sqsubseteq;": "⊑",
-        "sqsup;": "⊐",
-        "sqsupe;": "⊒",
-        "sqsupset;": "⊐",
-        "sqsupseteq;": "⊒",
-        "squ;": "□",
-        "Square;": "□",
-        "square;": "□",
-        "SquareIntersection;": "⊓",
-        "SquareSubset;": "⊏",
-        "SquareSubsetEqual;": "⊑",
-        "SquareSuperset;": "⊐",
-        "SquareSupersetEqual;": "⊒",
-        "SquareUnion;": "⊔",
-        "squarf;": "▪",
-        "squf;": "▪",
-        "srarr;": "→",
-        "Sscr;": "𝒮",
-        "sscr;": "𝓈",
-        "ssetmn;": "∖",
-        "ssmile;": "⌣",
-        "sstarf;": "⋆",
-        "Star;": "⋆",
-        "star;": "☆",
-        "starf;": "★",
-        "straightepsilon;": "ϵ",
-        "straightphi;": "ϕ",
-        "strns;": "¯",
-        "Sub;": "⋐",
-        "sub;": "⊂",
-        "subdot;": "⪽",
-        "subE;": "⫅",
-        "sube;": "⊆",
-        "subedot;": "⫃",
-        "submult;": "⫁",
-        "subnE;": "⫋",
-        "subne;": "⊊",
-        "subplus;": "⪿",
-        "subrarr;": "⥹",
-        "Subset;": "⋐",
-        "subset;": "⊂",
-        "subseteq;": "⊆",
-        "subseteqq;": "⫅",
-        "SubsetEqual;": "⊆",
-        "subsetneq;": "⊊",
-        "subsetneqq;": "⫋",
-        "subsim;": "⫇",
-        "subsub;": "⫕",
-        "subsup;": "⫓",
-        "succ;": "≻",
-        "succapprox;": "⪸",
-        "succcurlyeq;": "≽",
-        "Succeeds;": "≻",
-        "SucceedsEqual;": "⪰",
-        "SucceedsSlantEqual;": "≽",
-        "SucceedsTilde;": "≿",
-        "succeq;": "⪰",
-        "succnapprox;": "⪺",
-        "succneqq;": "⪶",
-        "succnsim;": "⋩",
-        "succsim;": "≿",
-        "SuchThat;": "∋",
-        "Sum;": "∑",
-        "sum;": "∑",
-        "sung;": "♪",
-        "Sup;": "⋑",
-        "sup;": "⊃",
-        "sup1;": "¹",
-        sup1: "¹",
-        "sup2;": "²",
-        sup2: "²",
-        "sup3;": "³",
-        sup3: "³",
-        "supdot;": "⪾",
-        "supdsub;": "⫘",
-        "supE;": "⫆",
-        "supe;": "⊇",
-        "supedot;": "⫄",
-        "Superset;": "⊃",
-        "SupersetEqual;": "⊇",
-        "suphsol;": "⟉",
-        "suphsub;": "⫗",
-        "suplarr;": "⥻",
-        "supmult;": "⫂",
-        "supnE;": "⫌",
-        "supne;": "⊋",
-        "supplus;": "⫀",
-        "Supset;": "⋑",
-        "supset;": "⊃",
-        "supseteq;": "⊇",
-        "supseteqq;": "⫆",
-        "supsetneq;": "⊋",
-        "supsetneqq;": "⫌",
-        "supsim;": "⫈",
-        "supsub;": "⫔",
-        "supsup;": "⫖",
-        "swarhk;": "⤦",
-        "swArr;": "⇙",
-        "swarr;": "↙",
-        "swarrow;": "↙",
-        "swnwar;": "⤪",
-        "szlig;": "ß",
-        szlig: "ß",
-        "Tab;": "\t",
-        "target;": "⌖",
-        "Tau;": "Τ",
-        "tau;": "τ",
-        "tbrk;": "⎴",
-        "Tcaron;": "Ť",
-        "tcaron;": "ť",
-        "Tcedil;": "Ţ",
-        "tcedil;": "ţ",
-        "Tcy;": "Т",
-        "tcy;": "т",
-        "tdot;": "⃛",
-        "telrec;": "⌕",
-        "Tfr;": "𝔗",
-        "tfr;": "𝔱",
-        "there4;": "∴",
-        "Therefore;": "∴",
-        "therefore;": "∴",
-        "Theta;": "Θ",
-        "theta;": "θ",
-        "thetasym;": "ϑ",
-        "thetav;": "ϑ",
-        "thickapprox;": "≈",
-        "thicksim;": "∼",
-        "ThickSpace;": "  ",
-        "thinsp;": " ",
-        "ThinSpace;": " ",
-        "thkap;": "≈",
-        "thksim;": "∼",
-        "THORN;": "Þ",
-        THORN: "Þ",
-        "thorn;": "þ",
-        thorn: "þ",
-        "Tilde;": "∼",
-        "tilde;": "˜",
-        "TildeEqual;": "≃",
-        "TildeFullEqual;": "≅",
-        "TildeTilde;": "≈",
-        "times;": "×",
-        times: "×",
-        "timesb;": "⊠",
-        "timesbar;": "⨱",
-        "timesd;": "⨰",
-        "tint;": "∭",
-        "toea;": "⤨",
-        "top;": "⊤",
-        "topbot;": "⌶",
-        "topcir;": "⫱",
-        "Topf;": "𝕋",
-        "topf;": "𝕥",
-        "topfork;": "⫚",
-        "tosa;": "⤩",
-        "tprime;": "‴",
-        "TRADE;": "™",
-        "trade;": "™",
-        "triangle;": "▵",
-        "triangledown;": "▿",
-        "triangleleft;": "◃",
-        "trianglelefteq;": "⊴",
-        "triangleq;": "≜",
-        "triangleright;": "▹",
-        "trianglerighteq;": "⊵",
-        "tridot;": "◬",
-        "trie;": "≜",
-        "triminus;": "⨺",
-        "TripleDot;": "⃛",
-        "triplus;": "⨹",
-        "trisb;": "⧍",
-        "tritime;": "⨻",
-        "trpezium;": "⏢",
-        "Tscr;": "𝒯",
-        "tscr;": "𝓉",
-        "TScy;": "Ц",
-        "tscy;": "ц",
-        "TSHcy;": "Ћ",
-        "tshcy;": "ћ",
-        "Tstrok;": "Ŧ",
-        "tstrok;": "ŧ",
-        "twixt;": "≬",
-        "twoheadleftarrow;": "↞",
-        "twoheadrightarrow;": "↠",
-        "Uacute;": "Ú",
-        Uacute: "Ú",
-        "uacute;": "ú",
-        uacute: "ú",
-        "Uarr;": "↟",
-        "uArr;": "⇑",
-        "uarr;": "↑",
-        "Uarrocir;": "⥉",
-        "Ubrcy;": "Ў",
-        "ubrcy;": "ў",
-        "Ubreve;": "Ŭ",
-        "ubreve;": "ŭ",
-        "Ucirc;": "Û",
-        Ucirc: "Û",
-        "ucirc;": "û",
-        ucirc: "û",
-        "Ucy;": "У",
-        "ucy;": "у",
-        "udarr;": "⇅",
-        "Udblac;": "Ű",
-        "udblac;": "ű",
-        "udhar;": "⥮",
-        "ufisht;": "⥾",
-        "Ufr;": "𝔘",
-        "ufr;": "𝔲",
-        "Ugrave;": "Ù",
-        Ugrave: "Ù",
-        "ugrave;": "ù",
-        ugrave: "ù",
-        "uHar;": "⥣",
-        "uharl;": "↿",
-        "uharr;": "↾",
-        "uhblk;": "▀",
-        "ulcorn;": "⌜",
-        "ulcorner;": "⌜",
-        "ulcrop;": "⌏",
-        "ultri;": "◸",
-        "Umacr;": "Ū",
-        "umacr;": "ū",
-        "uml;": "¨",
-        uml: "¨",
-        "UnderBar;": "_",
-        "UnderBrace;": "⏟",
-        "UnderBracket;": "⎵",
-        "UnderParenthesis;": "⏝",
-        "Union;": "⋃",
-        "UnionPlus;": "⊎",
-        "Uogon;": "Ų",
-        "uogon;": "ų",
-        "Uopf;": "𝕌",
-        "uopf;": "𝕦",
-        "UpArrow;": "↑",
-        "Uparrow;": "⇑",
-        "uparrow;": "↑",
-        "UpArrowBar;": "⤒",
-        "UpArrowDownArrow;": "⇅",
-        "UpDownArrow;": "↕",
-        "Updownarrow;": "⇕",
-        "updownarrow;": "↕",
-        "UpEquilibrium;": "⥮",
-        "upharpoonleft;": "↿",
-        "upharpoonright;": "↾",
-        "uplus;": "⊎",
-        "UpperLeftArrow;": "↖",
-        "UpperRightArrow;": "↗",
-        "Upsi;": "ϒ",
-        "upsi;": "υ",
-        "upsih;": "ϒ",
-        "Upsilon;": "Υ",
-        "upsilon;": "υ",
-        "UpTee;": "⊥",
-        "UpTeeArrow;": "↥",
-        "upuparrows;": "⇈",
-        "urcorn;": "⌝",
-        "urcorner;": "⌝",
-        "urcrop;": "⌎",
-        "Uring;": "Ů",
-        "uring;": "ů",
-        "urtri;": "◹",
-        "Uscr;": "𝒰",
-        "uscr;": "𝓊",
-        "utdot;": "⋰",
-        "Utilde;": "Ũ",
-        "utilde;": "ũ",
-        "utri;": "▵",
-        "utrif;": "▴",
-        "uuarr;": "⇈",
-        "Uuml;": "Ü",
-        Uuml: "Ü",
-        "uuml;": "ü",
-        uuml: "ü",
-        "uwangle;": "⦧",
-        "vangrt;": "⦜",
-        "varepsilon;": "ϵ",
-        "varkappa;": "ϰ",
-        "varnothing;": "∅",
-        "varphi;": "ϕ",
-        "varpi;": "ϖ",
-        "varpropto;": "∝",
-        "vArr;": "⇕",
-        "varr;": "↕",
-        "varrho;": "ϱ",
-        "varsigma;": "ς",
-        "varsubsetneq;": "⊊︀",
-        "varsubsetneqq;": "⫋︀",
-        "varsupsetneq;": "⊋︀",
-        "varsupsetneqq;": "⫌︀",
-        "vartheta;": "ϑ",
-        "vartriangleleft;": "⊲",
-        "vartriangleright;": "⊳",
-        "Vbar;": "⫫",
-        "vBar;": "⫨",
-        "vBarv;": "⫩",
-        "Vcy;": "В",
-        "vcy;": "в",
-        "VDash;": "⊫",
-        "Vdash;": "⊩",
-        "vDash;": "⊨",
-        "vdash;": "⊢",
-        "Vdashl;": "⫦",
-        "Vee;": "⋁",
-        "vee;": "∨",
-        "veebar;": "⊻",
-        "veeeq;": "≚",
-        "vellip;": "⋮",
-        "Verbar;": "‖",
-        "verbar;": "|",
-        "Vert;": "‖",
-        "vert;": "|",
-        "VerticalBar;": "∣",
-        "VerticalLine;": "|",
-        "VerticalSeparator;": "❘",
-        "VerticalTilde;": "≀",
-        "VeryThinSpace;": " ",
-        "Vfr;": "𝔙",
-        "vfr;": "𝔳",
-        "vltri;": "⊲",
-        "vnsub;": "⊂⃒",
-        "vnsup;": "⊃⃒",
-        "Vopf;": "𝕍",
-        "vopf;": "𝕧",
-        "vprop;": "∝",
-        "vrtri;": "⊳",
-        "Vscr;": "𝒱",
-        "vscr;": "𝓋",
-        "vsubnE;": "⫋︀",
-        "vsubne;": "⊊︀",
-        "vsupnE;": "⫌︀",
-        "vsupne;": "⊋︀",
-        "Vvdash;": "⊪",
-        "vzigzag;": "⦚",
-        "Wcirc;": "Ŵ",
-        "wcirc;": "ŵ",
-        "wedbar;": "⩟",
-        "Wedge;": "⋀",
-        "wedge;": "∧",
-        "wedgeq;": "≙",
-        "weierp;": "℘",
-        "Wfr;": "𝔚",
-        "wfr;": "𝔴",
-        "Wopf;": "𝕎",
-        "wopf;": "𝕨",
-        "wp;": "℘",
-        "wr;": "≀",
-        "wreath;": "≀",
-        "Wscr;": "𝒲",
-        "wscr;": "𝓌",
-        "xcap;": "⋂",
-        "xcirc;": "◯",
-        "xcup;": "⋃",
-        "xdtri;": "▽",
-        "Xfr;": "𝔛",
-        "xfr;": "𝔵",
-        "xhArr;": "⟺",
-        "xharr;": "⟷",
-        "Xi;": "Ξ",
-        "xi;": "ξ",
-        "xlArr;": "⟸",
-        "xlarr;": "⟵",
-        "xmap;": "⟼",
-        "xnis;": "⋻",
-        "xodot;": "⨀",
-        "Xopf;": "𝕏",
-        "xopf;": "𝕩",
-        "xoplus;": "⨁",
-        "xotime;": "⨂",
-        "xrArr;": "⟹",
-        "xrarr;": "⟶",
-        "Xscr;": "𝒳",
-        "xscr;": "𝓍",
-        "xsqcup;": "⨆",
-        "xuplus;": "⨄",
-        "xutri;": "△",
-        "xvee;": "⋁",
-        "xwedge;": "⋀",
-        "Yacute;": "Ý",
-        Yacute: "Ý",
-        "yacute;": "ý",
-        yacute: "ý",
-        "YAcy;": "Я",
-        "yacy;": "я",
-        "Ycirc;": "Ŷ",
-        "ycirc;": "ŷ",
-        "Ycy;": "Ы",
-        "ycy;": "ы",
-        "yen;": "¥",
-        yen: "¥",
-        "Yfr;": "𝔜",
-        "yfr;": "𝔶",
-        "YIcy;": "Ї",
-        "yicy;": "ї",
-        "Yopf;": "𝕐",
-        "yopf;": "𝕪",
-        "Yscr;": "𝒴",
-        "yscr;": "𝓎",
-        "YUcy;": "Ю",
-        "yucy;": "ю",
-        "Yuml;": "Ÿ",
-        "yuml;": "ÿ",
-        yuml: "ÿ",
-        "Zacute;": "Ź",
-        "zacute;": "ź",
-        "Zcaron;": "Ž",
-        "zcaron;": "ž",
-        "Zcy;": "З",
-        "zcy;": "з",
-        "Zdot;": "Ż",
-        "zdot;": "ż",
-        "zeetrf;": "ℨ",
-        "ZeroWidthSpace;": "​",
-        "Zeta;": "Ζ",
-        "zeta;": "ζ",
-        "Zfr;": "ℨ",
-        "zfr;": "𝔷",
-        "ZHcy;": "Ж",
-        "zhcy;": "ж",
-        "zigrarr;": "⇝",
-        "Zopf;": "ℤ",
-        "zopf;": "𝕫",
-        "Zscr;": "𝒵",
-        "zscr;": "𝓏",
-        "zwj;": "‍",
-        "zwnj;": "‌",
+        'rAarr;': '⇛',
+        'race;': '∽̱',
+        'Racute;': 'Ŕ',
+        'racute;': 'ŕ',
+        'radic;': '√',
+        'raemptyv;': '⦳',
+        'Rang;': '⟫',
+        'rang;': '⟩',
+        'rangd;': '⦒',
+        'range;': '⦥',
+        'rangle;': '⟩',
+        'raquo;': '»',
+        raquo: '»',
+        'Rarr;': '↠',
+        'rArr;': '⇒',
+        'rarr;': '→',
+        'rarrap;': '⥵',
+        'rarrb;': '⇥',
+        'rarrbfs;': '⤠',
+        'rarrc;': '⤳',
+        'rarrfs;': '⤞',
+        'rarrhk;': '↪',
+        'rarrlp;': '↬',
+        'rarrpl;': '⥅',
+        'rarrsim;': '⥴',
+        'Rarrtl;': '⤖',
+        'rarrtl;': '↣',
+        'rarrw;': '↝',
+        'rAtail;': '⤜',
+        'ratail;': '⤚',
+        'ratio;': '∶',
+        'rationals;': 'ℚ',
+        'RBarr;': '⤐',
+        'rBarr;': '⤏',
+        'rbarr;': '⤍',
+        'rbbrk;': '❳',
+        'rbrace;': '}',
+        'rbrack;': ']',
+        'rbrke;': '⦌',
+        'rbrksld;': '⦎',
+        'rbrkslu;': '⦐',
+        'Rcaron;': 'Ř',
+        'rcaron;': 'ř',
+        'Rcedil;': 'Ŗ',
+        'rcedil;': 'ŗ',
+        'rceil;': '⌉',
+        'rcub;': '}',
+        'Rcy;': 'Р',
+        'rcy;': 'р',
+        'rdca;': '⤷',
+        'rdldhar;': '⥩',
+        'rdquo;': '”',
+        'rdquor;': '”',
+        'rdsh;': '↳',
+        'Re;': 'ℜ',
+        'real;': 'ℜ',
+        'realine;': 'ℛ',
+        'realpart;': 'ℜ',
+        'reals;': 'ℝ',
+        'rect;': '▭',
+        'REG;': '®',
+        REG: '®',
+        'reg;': '®',
+        reg: '®',
+        'ReverseElement;': '∋',
+        'ReverseEquilibrium;': '⇋',
+        'ReverseUpEquilibrium;': '⥯',
+        'rfisht;': '⥽',
+        'rfloor;': '⌋',
+        'Rfr;': 'ℜ',
+        'rfr;': '𝔯',
+        'rHar;': '⥤',
+        'rhard;': '⇁',
+        'rharu;': '⇀',
+        'rharul;': '⥬',
+        'Rho;': 'Ρ',
+        'rho;': 'ρ',
+        'rhov;': 'ϱ',
+        'RightAngleBracket;': '⟩',
+        'RightArrow;': '→',
+        'Rightarrow;': '⇒',
+        'rightarrow;': '→',
+        'RightArrowBar;': '⇥',
+        'RightArrowLeftArrow;': '⇄',
+        'rightarrowtail;': '↣',
+        'RightCeiling;': '⌉',
+        'RightDoubleBracket;': '⟧',
+        'RightDownTeeVector;': '⥝',
+        'RightDownVector;': '⇂',
+        'RightDownVectorBar;': '⥕',
+        'RightFloor;': '⌋',
+        'rightharpoondown;': '⇁',
+        'rightharpoonup;': '⇀',
+        'rightleftarrows;': '⇄',
+        'rightleftharpoons;': '⇌',
+        'rightrightarrows;': '⇉',
+        'rightsquigarrow;': '↝',
+        'RightTee;': '⊢',
+        'RightTeeArrow;': '↦',
+        'RightTeeVector;': '⥛',
+        'rightthreetimes;': '⋌',
+        'RightTriangle;': '⊳',
+        'RightTriangleBar;': '⧐',
+        'RightTriangleEqual;': '⊵',
+        'RightUpDownVector;': '⥏',
+        'RightUpTeeVector;': '⥜',
+        'RightUpVector;': '↾',
+        'RightUpVectorBar;': '⥔',
+        'RightVector;': '⇀',
+        'RightVectorBar;': '⥓',
+        'ring;': '˚',
+        'risingdotseq;': '≓',
+        'rlarr;': '⇄',
+        'rlhar;': '⇌',
+        'rlm;': '‏',
+        'rmoust;': '⎱',
+        'rmoustache;': '⎱',
+        'rnmid;': '⫮',
+        'roang;': '⟭',
+        'roarr;': '⇾',
+        'robrk;': '⟧',
+        'ropar;': '⦆',
+        'Ropf;': 'ℝ',
+        'ropf;': '𝕣',
+        'roplus;': '⨮',
+        'rotimes;': '⨵',
+        'RoundImplies;': '⥰',
+        'rpar;': ')',
+        'rpargt;': '⦔',
+        'rppolint;': '⨒',
+        'rrarr;': '⇉',
+        'Rrightarrow;': '⇛',
+        'rsaquo;': '›',
+        'Rscr;': 'ℛ',
+        'rscr;': '𝓇',
+        'Rsh;': '↱',
+        'rsh;': '↱',
+        'rsqb;': ']',
+        'rsquo;': '’',
+        'rsquor;': '’',
+        'rthree;': '⋌',
+        'rtimes;': '⋊',
+        'rtri;': '▹',
+        'rtrie;': '⊵',
+        'rtrif;': '▸',
+        'rtriltri;': '⧎',
+        'RuleDelayed;': '⧴',
+        'ruluhar;': '⥨',
+        'rx;': '℞',
+        'Sacute;': 'Ś',
+        'sacute;': 'ś',
+        'sbquo;': '‚',
+        'Sc;': '⪼',
+        'sc;': '≻',
+        'scap;': '⪸',
+        'Scaron;': 'Š',
+        'scaron;': 'š',
+        'sccue;': '≽',
+        'scE;': '⪴',
+        'sce;': '⪰',
+        'Scedil;': 'Ş',
+        'scedil;': 'ş',
+        'Scirc;': 'Ŝ',
+        'scirc;': 'ŝ',
+        'scnap;': '⪺',
+        'scnE;': '⪶',
+        'scnsim;': '⋩',
+        'scpolint;': '⨓',
+        'scsim;': '≿',
+        'Scy;': 'С',
+        'scy;': 'с',
+        'sdot;': '⋅',
+        'sdotb;': '⊡',
+        'sdote;': '⩦',
+        'searhk;': '⤥',
+        'seArr;': '⇘',
+        'searr;': '↘',
+        'searrow;': '↘',
+        'sect;': '§',
+        sect: '§',
+        'semi;': ';',
+        'seswar;': '⤩',
+        'setminus;': '∖',
+        'setmn;': '∖',
+        'sext;': '✶',
+        'Sfr;': '𝔖',
+        'sfr;': '𝔰',
+        'sfrown;': '⌢',
+        'sharp;': '♯',
+        'SHCHcy;': 'Щ',
+        'shchcy;': 'щ',
+        'SHcy;': 'Ш',
+        'shcy;': 'ш',
+        'ShortDownArrow;': '↓',
+        'ShortLeftArrow;': '←',
+        'shortmid;': '∣',
+        'shortparallel;': '∥',
+        'ShortRightArrow;': '→',
+        'ShortUpArrow;': '↑',
+        'shy;': '­',
+        shy: '­',
+        'Sigma;': 'Σ',
+        'sigma;': 'σ',
+        'sigmaf;': 'ς',
+        'sigmav;': 'ς',
+        'sim;': '∼',
+        'simdot;': '⩪',
+        'sime;': '≃',
+        'simeq;': '≃',
+        'simg;': '⪞',
+        'simgE;': '⪠',
+        'siml;': '⪝',
+        'simlE;': '⪟',
+        'simne;': '≆',
+        'simplus;': '⨤',
+        'simrarr;': '⥲',
+        'slarr;': '←',
+        'SmallCircle;': '∘',
+        'smallsetminus;': '∖',
+        'smashp;': '⨳',
+        'smeparsl;': '⧤',
+        'smid;': '∣',
+        'smile;': '⌣',
+        'smt;': '⪪',
+        'smte;': '⪬',
+        'smtes;': '⪬︀',
+        'SOFTcy;': 'Ь',
+        'softcy;': 'ь',
+        'sol;': '/',
+        'solb;': '⧄',
+        'solbar;': '⌿',
+        'Sopf;': '𝕊',
+        'sopf;': '𝕤',
+        'spades;': '♠',
+        'spadesuit;': '♠',
+        'spar;': '∥',
+        'sqcap;': '⊓',
+        'sqcaps;': '⊓︀',
+        'sqcup;': '⊔',
+        'sqcups;': '⊔︀',
+        'Sqrt;': '√',
+        'sqsub;': '⊏',
+        'sqsube;': '⊑',
+        'sqsubset;': '⊏',
+        'sqsubseteq;': '⊑',
+        'sqsup;': '⊐',
+        'sqsupe;': '⊒',
+        'sqsupset;': '⊐',
+        'sqsupseteq;': '⊒',
+        'squ;': '□',
+        'Square;': '□',
+        'square;': '□',
+        'SquareIntersection;': '⊓',
+        'SquareSubset;': '⊏',
+        'SquareSubsetEqual;': '⊑',
+        'SquareSuperset;': '⊐',
+        'SquareSupersetEqual;': '⊒',
+        'SquareUnion;': '⊔',
+        'squarf;': '▪',
+        'squf;': '▪',
+        'srarr;': '→',
+        'Sscr;': '𝒮',
+        'sscr;': '𝓈',
+        'ssetmn;': '∖',
+        'ssmile;': '⌣',
+        'sstarf;': '⋆',
+        'Star;': '⋆',
+        'star;': '☆',
+        'starf;': '★',
+        'straightepsilon;': 'ϵ',
+        'straightphi;': 'ϕ',
+        'strns;': '¯',
+        'Sub;': '⋐',
+        'sub;': '⊂',
+        'subdot;': '⪽',
+        'subE;': '⫅',
+        'sube;': '⊆',
+        'subedot;': '⫃',
+        'submult;': '⫁',
+        'subnE;': '⫋',
+        'subne;': '⊊',
+        'subplus;': '⪿',
+        'subrarr;': '⥹',
+        'Subset;': '⋐',
+        'subset;': '⊂',
+        'subseteq;': '⊆',
+        'subseteqq;': '⫅',
+        'SubsetEqual;': '⊆',
+        'subsetneq;': '⊊',
+        'subsetneqq;': '⫋',
+        'subsim;': '⫇',
+        'subsub;': '⫕',
+        'subsup;': '⫓',
+        'succ;': '≻',
+        'succapprox;': '⪸',
+        'succcurlyeq;': '≽',
+        'Succeeds;': '≻',
+        'SucceedsEqual;': '⪰',
+        'SucceedsSlantEqual;': '≽',
+        'SucceedsTilde;': '≿',
+        'succeq;': '⪰',
+        'succnapprox;': '⪺',
+        'succneqq;': '⪶',
+        'succnsim;': '⋩',
+        'succsim;': '≿',
+        'SuchThat;': '∋',
+        'Sum;': '∑',
+        'sum;': '∑',
+        'sung;': '♪',
+        'Sup;': '⋑',
+        'sup;': '⊃',
+        'sup1;': '¹',
+        sup1: '¹',
+        'sup2;': '²',
+        sup2: '²',
+        'sup3;': '³',
+        sup3: '³',
+        'supdot;': '⪾',
+        'supdsub;': '⫘',
+        'supE;': '⫆',
+        'supe;': '⊇',
+        'supedot;': '⫄',
+        'Superset;': '⊃',
+        'SupersetEqual;': '⊇',
+        'suphsol;': '⟉',
+        'suphsub;': '⫗',
+        'suplarr;': '⥻',
+        'supmult;': '⫂',
+        'supnE;': '⫌',
+        'supne;': '⊋',
+        'supplus;': '⫀',
+        'Supset;': '⋑',
+        'supset;': '⊃',
+        'supseteq;': '⊇',
+        'supseteqq;': '⫆',
+        'supsetneq;': '⊋',
+        'supsetneqq;': '⫌',
+        'supsim;': '⫈',
+        'supsub;': '⫔',
+        'supsup;': '⫖',
+        'swarhk;': '⤦',
+        'swArr;': '⇙',
+        'swarr;': '↙',
+        'swarrow;': '↙',
+        'swnwar;': '⤪',
+        'szlig;': 'ß',
+        szlig: 'ß',
+        'Tab;': '\t',
+        'target;': '⌖',
+        'Tau;': 'Τ',
+        'tau;': 'τ',
+        'tbrk;': '⎴',
+        'Tcaron;': 'Ť',
+        'tcaron;': 'ť',
+        'Tcedil;': 'Ţ',
+        'tcedil;': 'ţ',
+        'Tcy;': 'Т',
+        'tcy;': 'т',
+        'tdot;': '⃛',
+        'telrec;': '⌕',
+        'Tfr;': '𝔗',
+        'tfr;': '𝔱',
+        'there4;': '∴',
+        'Therefore;': '∴',
+        'therefore;': '∴',
+        'Theta;': 'Θ',
+        'theta;': 'θ',
+        'thetasym;': 'ϑ',
+        'thetav;': 'ϑ',
+        'thickapprox;': '≈',
+        'thicksim;': '∼',
+        'ThickSpace;': '  ',
+        'thinsp;': ' ',
+        'ThinSpace;': ' ',
+        'thkap;': '≈',
+        'thksim;': '∼',
+        'THORN;': 'Þ',
+        THORN: 'Þ',
+        'thorn;': 'þ',
+        thorn: 'þ',
+        'Tilde;': '∼',
+        'tilde;': '˜',
+        'TildeEqual;': '≃',
+        'TildeFullEqual;': '≅',
+        'TildeTilde;': '≈',
+        'times;': '×',
+        times: '×',
+        'timesb;': '⊠',
+        'timesbar;': '⨱',
+        'timesd;': '⨰',
+        'tint;': '∭',
+        'toea;': '⤨',
+        'top;': '⊤',
+        'topbot;': '⌶',
+        'topcir;': '⫱',
+        'Topf;': '𝕋',
+        'topf;': '𝕥',
+        'topfork;': '⫚',
+        'tosa;': '⤩',
+        'tprime;': '‴',
+        'TRADE;': '™',
+        'trade;': '™',
+        'triangle;': '▵',
+        'triangledown;': '▿',
+        'triangleleft;': '◃',
+        'trianglelefteq;': '⊴',
+        'triangleq;': '≜',
+        'triangleright;': '▹',
+        'trianglerighteq;': '⊵',
+        'tridot;': '◬',
+        'trie;': '≜',
+        'triminus;': '⨺',
+        'TripleDot;': '⃛',
+        'triplus;': '⨹',
+        'trisb;': '⧍',
+        'tritime;': '⨻',
+        'trpezium;': '⏢',
+        'Tscr;': '𝒯',
+        'tscr;': '𝓉',
+        'TScy;': 'Ц',
+        'tscy;': 'ц',
+        'TSHcy;': 'Ћ',
+        'tshcy;': 'ћ',
+        'Tstrok;': 'Ŧ',
+        'tstrok;': 'ŧ',
+        'twixt;': '≬',
+        'twoheadleftarrow;': '↞',
+        'twoheadrightarrow;': '↠',
+        'Uacute;': 'Ú',
+        Uacute: 'Ú',
+        'uacute;': 'ú',
+        uacute: 'ú',
+        'Uarr;': '↟',
+        'uArr;': '⇑',
+        'uarr;': '↑',
+        'Uarrocir;': '⥉',
+        'Ubrcy;': 'Ў',
+        'ubrcy;': 'ў',
+        'Ubreve;': 'Ŭ',
+        'ubreve;': 'ŭ',
+        'Ucirc;': 'Û',
+        Ucirc: 'Û',
+        'ucirc;': 'û',
+        ucirc: 'û',
+        'Ucy;': 'У',
+        'ucy;': 'у',
+        'udarr;': '⇅',
+        'Udblac;': 'Ű',
+        'udblac;': 'ű',
+        'udhar;': '⥮',
+        'ufisht;': '⥾',
+        'Ufr;': '𝔘',
+        'ufr;': '𝔲',
+        'Ugrave;': 'Ù',
+        Ugrave: 'Ù',
+        'ugrave;': 'ù',
+        ugrave: 'ù',
+        'uHar;': '⥣',
+        'uharl;': '↿',
+        'uharr;': '↾',
+        'uhblk;': '▀',
+        'ulcorn;': '⌜',
+        'ulcorner;': '⌜',
+        'ulcrop;': '⌏',
+        'ultri;': '◸',
+        'Umacr;': 'Ū',
+        'umacr;': 'ū',
+        'uml;': '¨',
+        uml: '¨',
+        'UnderBar;': '_',
+        'UnderBrace;': '⏟',
+        'UnderBracket;': '⎵',
+        'UnderParenthesis;': '⏝',
+        'Union;': '⋃',
+        'UnionPlus;': '⊎',
+        'Uogon;': 'Ų',
+        'uogon;': 'ų',
+        'Uopf;': '𝕌',
+        'uopf;': '𝕦',
+        'UpArrow;': '↑',
+        'Uparrow;': '⇑',
+        'uparrow;': '↑',
+        'UpArrowBar;': '⤒',
+        'UpArrowDownArrow;': '⇅',
+        'UpDownArrow;': '↕',
+        'Updownarrow;': '⇕',
+        'updownarrow;': '↕',
+        'UpEquilibrium;': '⥮',
+        'upharpoonleft;': '↿',
+        'upharpoonright;': '↾',
+        'uplus;': '⊎',
+        'UpperLeftArrow;': '↖',
+        'UpperRightArrow;': '↗',
+        'Upsi;': 'ϒ',
+        'upsi;': 'υ',
+        'upsih;': 'ϒ',
+        'Upsilon;': 'Υ',
+        'upsilon;': 'υ',
+        'UpTee;': '⊥',
+        'UpTeeArrow;': '↥',
+        'upuparrows;': '⇈',
+        'urcorn;': '⌝',
+        'urcorner;': '⌝',
+        'urcrop;': '⌎',
+        'Uring;': 'Ů',
+        'uring;': 'ů',
+        'urtri;': '◹',
+        'Uscr;': '𝒰',
+        'uscr;': '𝓊',
+        'utdot;': '⋰',
+        'Utilde;': 'Ũ',
+        'utilde;': 'ũ',
+        'utri;': '▵',
+        'utrif;': '▴',
+        'uuarr;': '⇈',
+        'Uuml;': 'Ü',
+        Uuml: 'Ü',
+        'uuml;': 'ü',
+        uuml: 'ü',
+        'uwangle;': '⦧',
+        'vangrt;': '⦜',
+        'varepsilon;': 'ϵ',
+        'varkappa;': 'ϰ',
+        'varnothing;': '∅',
+        'varphi;': 'ϕ',
+        'varpi;': 'ϖ',
+        'varpropto;': '∝',
+        'vArr;': '⇕',
+        'varr;': '↕',
+        'varrho;': 'ϱ',
+        'varsigma;': 'ς',
+        'varsubsetneq;': '⊊︀',
+        'varsubsetneqq;': '⫋︀',
+        'varsupsetneq;': '⊋︀',
+        'varsupsetneqq;': '⫌︀',
+        'vartheta;': 'ϑ',
+        'vartriangleleft;': '⊲',
+        'vartriangleright;': '⊳',
+        'Vbar;': '⫫',
+        'vBar;': '⫨',
+        'vBarv;': '⫩',
+        'Vcy;': 'В',
+        'vcy;': 'в',
+        'VDash;': '⊫',
+        'Vdash;': '⊩',
+        'vDash;': '⊨',
+        'vdash;': '⊢',
+        'Vdashl;': '⫦',
+        'Vee;': '⋁',
+        'vee;': '∨',
+        'veebar;': '⊻',
+        'veeeq;': '≚',
+        'vellip;': '⋮',
+        'Verbar;': '‖',
+        'verbar;': '|',
+        'Vert;': '‖',
+        'vert;': '|',
+        'VerticalBar;': '∣',
+        'VerticalLine;': '|',
+        'VerticalSeparator;': '❘',
+        'VerticalTilde;': '≀',
+        'VeryThinSpace;': ' ',
+        'Vfr;': '𝔙',
+        'vfr;': '𝔳',
+        'vltri;': '⊲',
+        'vnsub;': '⊂⃒',
+        'vnsup;': '⊃⃒',
+        'Vopf;': '𝕍',
+        'vopf;': '𝕧',
+        'vprop;': '∝',
+        'vrtri;': '⊳',
+        'Vscr;': '𝒱',
+        'vscr;': '𝓋',
+        'vsubnE;': '⫋︀',
+        'vsubne;': '⊊︀',
+        'vsupnE;': '⫌︀',
+        'vsupne;': '⊋︀',
+        'Vvdash;': '⊪',
+        'vzigzag;': '⦚',
+        'Wcirc;': 'Ŵ',
+        'wcirc;': 'ŵ',
+        'wedbar;': '⩟',
+        'Wedge;': '⋀',
+        'wedge;': '∧',
+        'wedgeq;': '≙',
+        'weierp;': '℘',
+        'Wfr;': '𝔚',
+        'wfr;': '𝔴',
+        'Wopf;': '𝕎',
+        'wopf;': '𝕨',
+        'wp;': '℘',
+        'wr;': '≀',
+        'wreath;': '≀',
+        'Wscr;': '𝒲',
+        'wscr;': '𝓌',
+        'xcap;': '⋂',
+        'xcirc;': '◯',
+        'xcup;': '⋃',
+        'xdtri;': '▽',
+        'Xfr;': '𝔛',
+        'xfr;': '𝔵',
+        'xhArr;': '⟺',
+        'xharr;': '⟷',
+        'Xi;': 'Ξ',
+        'xi;': 'ξ',
+        'xlArr;': '⟸',
+        'xlarr;': '⟵',
+        'xmap;': '⟼',
+        'xnis;': '⋻',
+        'xodot;': '⨀',
+        'Xopf;': '𝕏',
+        'xopf;': '𝕩',
+        'xoplus;': '⨁',
+        'xotime;': '⨂',
+        'xrArr;': '⟹',
+        'xrarr;': '⟶',
+        'Xscr;': '𝒳',
+        'xscr;': '𝓍',
+        'xsqcup;': '⨆',
+        'xuplus;': '⨄',
+        'xutri;': '△',
+        'xvee;': '⋁',
+        'xwedge;': '⋀',
+        'Yacute;': 'Ý',
+        Yacute: 'Ý',
+        'yacute;': 'ý',
+        yacute: 'ý',
+        'YAcy;': 'Я',
+        'yacy;': 'я',
+        'Ycirc;': 'Ŷ',
+        'ycirc;': 'ŷ',
+        'Ycy;': 'Ы',
+        'ycy;': 'ы',
+        'yen;': '¥',
+        yen: '¥',
+        'Yfr;': '𝔜',
+        'yfr;': '𝔶',
+        'YIcy;': 'Ї',
+        'yicy;': 'ї',
+        'Yopf;': '𝕐',
+        'yopf;': '𝕪',
+        'Yscr;': '𝒴',
+        'yscr;': '𝓎',
+        'YUcy;': 'Ю',
+        'yucy;': 'ю',
+        'Yuml;': 'Ÿ',
+        'yuml;': 'ÿ',
+        yuml: 'ÿ',
+        'Zacute;': 'Ź',
+        'zacute;': 'ź',
+        'Zcaron;': 'Ž',
+        'zcaron;': 'ž',
+        'Zcy;': 'З',
+        'zcy;': 'з',
+        'Zdot;': 'Ż',
+        'zdot;': 'ż',
+        'zeetrf;': 'ℨ',
+        'ZeroWidthSpace;': '​',
+        'Zeta;': 'Ζ',
+        'zeta;': 'ζ',
+        'Zfr;': 'ℨ',
+        'zfr;': '𝔷',
+        'ZHcy;': 'Ж',
+        'zhcy;': 'ж',
+        'zigrarr;': '⇝',
+        'Zopf;': 'ℤ',
+        'zopf;': '𝕫',
+        'Zscr;': '𝒵',
+        'zscr;': '𝓏',
+        'zwj;': '‍',
+        'zwnj;': '‌',
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/htmlCompletion",
+          'vscode-html-languageservice/services/htmlCompletion',
           [
-            "require",
-            "exports",
-            "vscode-languageserver-types",
-            "../parser/htmlScanner",
-            "../parser/htmlTags",
-            "./tagProviders",
-            "../htmlLanguageTypes",
-            "../parser/htmlEntities",
-            "vscode-nls",
-            "../utils/strings",
+            'require',
+            'exports',
+            'vscode-languageserver-types',
+            '../parser/htmlScanner',
+            '../parser/htmlTags',
+            './tagProviders',
+            '../htmlLanguageTypes',
+            '../parser/htmlEntities',
+            'vscode-nls',
+            '../utils/strings',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var C = e("vscode-languageserver-types"),
-      q = e("../parser/htmlScanner"),
-      L = e("../parser/htmlTags"),
-      O = e("./tagProviders"),
-      I = e("../htmlLanguageTypes"),
-      D = e("../parser/htmlEntities"),
-      n = e("vscode-nls"),
-      N = e("../utils/strings"),
+    var C = e('vscode-languageserver-types'),
+      q = e('../parser/htmlScanner'),
+      L = e('../parser/htmlTags'),
+      O = e('./tagProviders'),
+      I = e('../htmlLanguageTypes'),
+      D = e('../parser/htmlEntities'),
+      n = e('vscode-nls'),
+      N = e('../utils/strings'),
       R = n.loadMessageBundle(),
       r = (function () {
         function e() {
@@ -5822,7 +5822,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             if (!d) return v;
             var x,
               k = q.createScanner(w, d.start),
-              S = "";
+              S = '';
 
             function E(e, t) {
               return (
@@ -5856,7 +5856,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             function p(e) {
               for (var t = e; 0 < t; ) {
                 var n = w.charAt(t - 1);
-                if (0 <= "\n\r".indexOf(n)) return w.substring(t, e);
+                if (0 <= '\n\r'.indexOf(n)) return w.substring(t, e);
                 if (!j(n)) return null;
                 t--;
               }
@@ -5872,25 +5872,25 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   I.ScannerState.WithinEndTag,
                   I.TokenType.EndTagClose
                 )
-                  ? ""
-                  : ">",
+                  ? ''
+                  : '>',
                 a = d;
               for (t && (a = a.parent); a; ) {
                 var o = a.tag;
                 if (o && (!a.closed || (a.endTagStart && a.endTagStart > _))) {
                   var s = {
-                      label: "/" + o,
+                      label: '/' + o,
                       kind: C.CompletionItemKind.Property,
-                      filterText: "/" + o + i,
-                      textEdit: C.TextEdit.replace(r, "/" + o + i),
+                      filterText: '/' + o + i,
+                      textEdit: C.TextEdit.replace(r, '/' + o + i),
                       insertTextFormat: C.InsertTextFormat.PlainText,
                     },
                     l = p(a.start),
                     c = p(e - 1);
                   if (null !== l && null !== c && l !== c) {
-                    var u = l + "</" + o + i;
+                    var u = l + '</' + o + i;
                     (s.textEdit = C.TextEdit.replace(E(e - 1 - c.length), u)),
-                      (s.filterText = c + "</" + o + i);
+                      (s.filterText = c + '</' + o + i);
                   }
                   return v.items.push(s), v;
                 }
@@ -5901,11 +5901,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   T.forEach(function (e) {
                     e.collectTags(function (e, t) {
                       v.items.push({
-                        label: "/" + e,
+                        label: '/' + e,
                         kind: C.CompletionItemKind.Property,
                         documentation: t,
-                        filterText: "/" + e + i,
-                        textEdit: C.TextEdit.replace(r, "/" + e + i),
+                        filterText: '/' + e + i,
+                        textEdit: C.TextEdit.replace(r, '/' + e + i),
                         insertTextFormat: C.InsertTextFormat.PlainText,
                       });
                     });
@@ -5919,10 +5919,10 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               if (!L.isEmptyElement(t)) {
                 var n = m.positionAt(e);
                 v.items.push({
-                  label: "</" + t + ">",
+                  label: '</' + t + '>',
                   kind: C.CompletionItemKind.Property,
-                  filterText: "</" + t + ">",
-                  textEdit: C.TextEdit.insert(n, "$0</" + t + ">"),
+                  filterText: '</' + t + '>',
+                  textEdit: C.TextEdit.insert(n, '$0</' + t + '>'),
                   insertTextFormat: C.InsertTextFormat.Snippet,
                 });
               }
@@ -5935,7 +5935,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
 
             function a(e, t) {
               void 0 === t && (t = _);
-              for (var n = _; n < t && "<" !== w[n]; ) n++;
+              for (var n = _; n < t && '<' !== w[n]; ) n++;
               var i = E(e, n),
                 a = P(
                   w,
@@ -5943,7 +5943,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   I.ScannerState.AfterAttributeName,
                   I.TokenType.DelimiterAssign
                 )
-                  ? ""
+                  ? ''
                   : '="$1"',
                 r = S.toLowerCase(),
                 o = Object.create(null);
@@ -5954,18 +5954,18 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       o[e] = !0;
                       var n,
                         r = e;
-                      "v" !== t &&
+                      'v' !== t &&
                         a.length &&
                         ((r += a),
                         t &&
                           (n = {
-                            title: "Suggest",
-                            command: "editor.action.triggerSuggest",
+                            title: 'Suggest',
+                            command: 'editor.action.triggerSuggest',
                           })),
                         v.items.push({
                           label: e,
                           kind:
-                            "handler" === t
+                            'handler' === t
                               ? C.CompletionItemKind.Function
                               : C.CompletionItemKind.Value,
                           textEdit: C.TextEdit.replace(i, r),
@@ -5976,7 +5976,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   });
                 }),
                 (function (t, n) {
-                  var r = "data-",
+                  var r = 'data-',
                     i = {};
                   (i[r] = r + '$1="$2"'),
                     s &&
@@ -6024,7 +6024,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                     return t;
                   })(w, _, s);
                 (n = E(l, c)),
-                  (i = o <= _ && _ <= s ? w.substring(o, _) : ""),
+                  (i = o <= _ && _ <= s ? w.substring(o, _) : ''),
                   (r = !1);
               } else (n = E(e, t)), (i = w.substring(e, _)), (r = !0);
               var u = S.toLowerCase(),
@@ -6088,16 +6088,16 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
 
               )
                 e--, t--;
-              if (0 <= e && "&" === w[e]) {
+              if (0 <= e && '&' === w[e]) {
                 var n = C.Range.create(C.Position.create(b.line, t - 1), b);
                 for (var r in D.entities)
-                  if (N.endsWith(r, ";")) {
-                    var i = "&" + r;
+                  if (N.endsWith(r, ';')) {
+                    var i = '&' + r;
                     v.items.push({
                       label: i,
                       kind: C.CompletionItemKind.Keyword,
                       documentation: R(
-                        "entity.propose",
+                        'entity.propose',
                         "Character entity representing '" + D.entities[r] + "'"
                       ),
                       textEdit: C.TextEdit.replace(n, i),
@@ -6163,7 +6163,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   if (_ <= k.getTokenEnd())
                     for (var f = k.getTokenOffset() - 1; 0 <= f; ) {
                       var g = w.charAt(f);
-                      if ("/" === g) return i(f, !1, k.getTokenEnd());
+                      if ('/' === g) return i(f, !1, k.getTokenEnd());
                       if (!j(g)) break;
                       f--;
                     }
@@ -6185,7 +6185,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             var r = e.offsetAt(t);
             if (r <= 0) return null;
             var i = e.getText().charAt(r - 1);
-            if (">" === i) {
+            if ('>' === i) {
               if (
                 (o = n.findNodeBefore(r)) &&
                 o.tag &&
@@ -6199,10 +6199,10 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
 
                 ) {
                   if (a === I.TokenType.StartTagClose && s.getTokenEnd() === r)
-                    return "$0</" + o.tag + ">";
+                    return '$0</' + o.tag + '>';
                   a = s.scan();
                 }
-            } else if ("/" === i) {
+            } else if ('/' === i) {
               for (var o = n.findNodeBefore(r); o && o.closed; ) o = o.parent;
               if (o && o.tag) {
                 var s;
@@ -6212,7 +6212,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
 
                 ) {
                   if (a === I.TokenType.EndTagOpen && s.getTokenEnd() === r)
-                    return o.tag + ">";
+                    return o.tag + '>';
                   a = s.scan();
                 }
               }
@@ -6239,33 +6239,33 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
     t.HTMLCompletion = r;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/htmlHover",
+          'vscode-html-languageservice/services/htmlHover',
           [
-            "require",
-            "exports",
-            "../parser/htmlScanner",
-            "vscode-languageserver-types",
-            "./tagProviders",
-            "../htmlLanguageTypes",
+            'require',
+            'exports',
+            '../parser/htmlScanner',
+            'vscode-languageserver-types',
+            './tagProviders',
+            '../htmlLanguageTypes',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var u = e("../parser/htmlScanner"),
-      d = e("vscode-languageserver-types"),
-      p = e("./tagProviders"),
-      h = e("../htmlLanguageTypes");
+    var u = e('../parser/htmlScanner'),
+      d = e('vscode-languageserver-types'),
+      p = e('./tagProviders'),
+      h = e('../htmlLanguageTypes');
     t.doHover = function (i, e, t) {
       var a = i.offsetAt(e),
         n = t.findNodeAt(a);
@@ -6285,8 +6285,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                     (n = {
                       contents: [
                         {
-                          language: "html",
-                          value: a ? "<" + r + ">" : "</" + r + ">",
+                          language: 'html',
+                          value: a ? '<' + r + '>' : '</' + r + '>',
                         },
                         d.MarkedString.fromPlainText(t),
                       ],
@@ -6305,7 +6305,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           t++
         ) {
           var o = e(n[t]);
-          if ("object" == typeof o) return o.value;
+          if ('object' == typeof o) return o.value;
         }
         return null;
       }
@@ -6334,20 +6334,20 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/beautify/beautify",
-          ["require", "exports"],
+          'vscode-html-languageservice/beautify/beautify',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.js_beautify = function (e, t) {
@@ -6378,26 +6378,26 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             });
         }),
         (i.r = function (e) {
-          "undefined" != typeof Symbol &&
+          'undefined' != typeof Symbol &&
             Symbol.toStringTag &&
             Object.defineProperty(e, Symbol.toStringTag, {
-              value: "Module",
+              value: 'Module',
             }),
-            Object.defineProperty(e, "__esModule", {
+            Object.defineProperty(e, '__esModule', {
               value: !0,
             });
         }),
         (i.t = function (t, e) {
           if ((1 & e && (t = i(t)), 8 & e)) return t;
-          if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+          if (4 & e && 'object' == typeof t && t && t.__esModule) return t;
           var n = Object.create(null);
           if (
             (i.r(n),
-            Object.defineProperty(n, "default", {
+            Object.defineProperty(n, 'default', {
               enumerable: !0,
               value: t,
             }),
-            2 & e && "string" != typeof t)
+            2 & e && 'string' != typeof t)
           )
             for (var r in t)
               i.d(
@@ -6418,12 +6418,12 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               : function () {
                   return e;
                 };
-          return i.d(t, "a", t), t;
+          return i.d(t, 'a', t), t;
         }),
         (i.o = function (e, t) {
           return Object.prototype.hasOwnProperty.call(e, t);
         }),
-        (i.p = ""),
+        (i.p = ''),
         i((i.s = 8))
       );
     })([
@@ -6439,18 +6439,18 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         };
       },
       function (e, t) {
-        var n = "$@A-Z_a-z",
+        var n = '$@A-Z_a-z',
           r =
-            "ªµºÀ-ÖØ-öø-ˁˆ-ˑˠ-ˤˬˮͰ-ʹͶͷͺ-ͽΆΈ-ΊΌΎ-ΡΣ-ϵϷ-ҁҊ-ԧԱ-Ֆՙա-ևא-תװ-ײؠ-يٮٯٱ-ۓەۥۦۮۯۺ-ۼۿܐܒ-ܯݍ-ޥޱߊ-ߪߴߵߺࠀ-ࠕࠚࠤࠨࡀ-ࡘࢠࢢ-ࢬऄ-हऽॐक़-ॡॱ-ॷॹ-ॿঅ-ঌএঐও-নপ-রলশ-হঽৎড়ঢ়য়-ৡৰৱਅ-ਊਏਐਓ-ਨਪ-ਰਲਲ਼ਵਸ਼ਸਹਖ਼-ੜਫ਼ੲ-ੴઅ-ઍએ-ઑઓ-નપ-રલળવ-હઽૐૠૡଅ-ଌଏଐଓ-ନପ-ରଲଳଵ-ହଽଡ଼ଢ଼ୟ-ୡୱஃஅ-ஊஎ-ஐஒ-கஙசஜஞடணதந-பம-ஹௐఅ-ఌఎ-ఐఒ-నప-ళవ-హఽౘౙౠౡಅ-ಌಎ-ಐಒ-ನಪ-ಳವ-ಹಽೞೠೡೱೲഅ-ഌഎ-ഐഒ-ഺഽൎൠൡൺ-ൿඅ-ඖක-නඳ-රලව-ෆก-ะาำเ-ๆກຂຄງຈຊຍດ-ທນ-ຟມ-ຣລວສຫອ-ະາຳຽເ-ໄໆໜ-ໟༀཀ-ཇཉ-ཬྈ-ྌက-ဪဿၐ-ၕၚ-ၝၡၥၦၮ-ၰၵ-ႁႎႠ-ჅჇჍა-ჺჼ-ቈቊ-ቍቐ-ቖቘቚ-ቝበ-ኈኊ-ኍነ-ኰኲ-ኵኸ-ኾዀዂ-ዅወ-ዖዘ-ጐጒ-ጕጘ-ፚᎀ-ᎏᎠ-Ᏼᐁ-ᙬᙯ-ᙿᚁ-ᚚᚠ-ᛪᛮ-ᛰᜀ-ᜌᜎ-ᜑᜠ-ᜱᝀ-ᝑᝠ-ᝬᝮ-ᝰក-ឳៗៜᠠ-ᡷᢀ-ᢨᢪᢰ-ᣵᤀ-ᤜᥐ-ᥭᥰ-ᥴᦀ-ᦫᧁ-ᧇᨀ-ᨖᨠ-ᩔᪧᬅ-ᬳᭅ-ᭋᮃ-ᮠᮮᮯᮺ-ᯥᰀ-ᰣᱍ-ᱏᱚ-ᱽᳩ-ᳬᳮ-ᳱᳵᳶᴀ-ᶿḀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼιῂ-ῄῆ-ῌῐ-ΐῖ-Ίῠ-Ῥῲ-ῴῶ-ῼⁱⁿₐ-ₜℂℇℊ-ℓℕℙ-ℝℤΩℨK-ℭℯ-ℹℼ-ℿⅅ-ⅉⅎⅠ-ↈⰀ-Ⱞⰰ-ⱞⱠ-ⳤⳫ-ⳮⳲⳳⴀ-ⴥⴧⴭⴰ-ⵧⵯⶀ-ⶖⶠ-ⶦⶨ-ⶮⶰ-ⶶⶸ-ⶾⷀ-ⷆⷈ-ⷎⷐ-ⷖⷘ-ⷞⸯ々-〇〡-〩〱-〵〸-〼ぁ-ゖゝ-ゟァ-ヺー-ヿㄅ-ㄭㄱ-ㆎㆠ-ㆺㇰ-ㇿ㐀-䶵一-鿌ꀀ-ꒌꓐ-ꓽꔀ-ꘌꘐ-ꘟꘪꘫꙀ-ꙮꙿ-ꚗꚠ-ꛯꜗ-ꜟꜢ-ꞈꞋ-ꞎꞐ-ꞓꞠ-Ɦꟸ-ꠁꠃ-ꠅꠇ-ꠊꠌ-ꠢꡀ-ꡳꢂ-ꢳꣲ-ꣷꣻꤊ-ꤥꤰ-ꥆꥠ-ꥼꦄ-ꦲꧏꨀ-ꨨꩀ-ꩂꩄ-ꩋꩠ-ꩶꩺꪀ-ꪯꪱꪵꪶꪹ-ꪽꫀꫂꫛ-ꫝꫠ-ꫪꫲ-ꫴꬁ-ꬆꬉ-ꬎꬑ-ꬖꬠ-ꬦꬨ-ꬮꯀ-ꯢ가-힣ힰ-ퟆퟋ-ퟻ豈-舘並-龎ﬀ-ﬆﬓ-ﬗיִײַ-ﬨשׁ-זּטּ-לּמּנּסּףּפּצּ-ﮱﯓ-ﴽﵐ-ﶏﶒ-ﷇﷰ-ﷻﹰ-ﹴﹶ-ﻼＡ-Ｚａ-ｚｦ-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ",
-          i = "$0-9A-Z_a-z",
+            'ªµºÀ-ÖØ-öø-ˁˆ-ˑˠ-ˤˬˮͰ-ʹͶͷͺ-ͽΆΈ-ΊΌΎ-ΡΣ-ϵϷ-ҁҊ-ԧԱ-Ֆՙա-ևא-תװ-ײؠ-يٮٯٱ-ۓەۥۦۮۯۺ-ۼۿܐܒ-ܯݍ-ޥޱߊ-ߪߴߵߺࠀ-ࠕࠚࠤࠨࡀ-ࡘࢠࢢ-ࢬऄ-हऽॐक़-ॡॱ-ॷॹ-ॿঅ-ঌএঐও-নপ-রলশ-হঽৎড়ঢ়য়-ৡৰৱਅ-ਊਏਐਓ-ਨਪ-ਰਲਲ਼ਵਸ਼ਸਹਖ਼-ੜਫ਼ੲ-ੴઅ-ઍએ-ઑઓ-નપ-રલળવ-હઽૐૠૡଅ-ଌଏଐଓ-ନପ-ରଲଳଵ-ହଽଡ଼ଢ଼ୟ-ୡୱஃஅ-ஊஎ-ஐஒ-கஙசஜஞடணதந-பம-ஹௐఅ-ఌఎ-ఐఒ-నప-ళవ-హఽౘౙౠౡಅ-ಌಎ-ಐಒ-ನಪ-ಳವ-ಹಽೞೠೡೱೲഅ-ഌഎ-ഐഒ-ഺഽൎൠൡൺ-ൿඅ-ඖක-නඳ-රලව-ෆก-ะาำเ-ๆກຂຄງຈຊຍດ-ທນ-ຟມ-ຣລວສຫອ-ະາຳຽເ-ໄໆໜ-ໟༀཀ-ཇཉ-ཬྈ-ྌက-ဪဿၐ-ၕၚ-ၝၡၥၦၮ-ၰၵ-ႁႎႠ-ჅჇჍა-ჺჼ-ቈቊ-ቍቐ-ቖቘቚ-ቝበ-ኈኊ-ኍነ-ኰኲ-ኵኸ-ኾዀዂ-ዅወ-ዖዘ-ጐጒ-ጕጘ-ፚᎀ-ᎏᎠ-Ᏼᐁ-ᙬᙯ-ᙿᚁ-ᚚᚠ-ᛪᛮ-ᛰᜀ-ᜌᜎ-ᜑᜠ-ᜱᝀ-ᝑᝠ-ᝬᝮ-ᝰក-ឳៗៜᠠ-ᡷᢀ-ᢨᢪᢰ-ᣵᤀ-ᤜᥐ-ᥭᥰ-ᥴᦀ-ᦫᧁ-ᧇᨀ-ᨖᨠ-ᩔᪧᬅ-ᬳᭅ-ᭋᮃ-ᮠᮮᮯᮺ-ᯥᰀ-ᰣᱍ-ᱏᱚ-ᱽᳩ-ᳬᳮ-ᳱᳵᳶᴀ-ᶿḀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼιῂ-ῄῆ-ῌῐ-ΐῖ-Ίῠ-Ῥῲ-ῴῶ-ῼⁱⁿₐ-ₜℂℇℊ-ℓℕℙ-ℝℤΩℨK-ℭℯ-ℹℼ-ℿⅅ-ⅉⅎⅠ-ↈⰀ-Ⱞⰰ-ⱞⱠ-ⳤⳫ-ⳮⳲⳳⴀ-ⴥⴧⴭⴰ-ⵧⵯⶀ-ⶖⶠ-ⶦⶨ-ⶮⶰ-ⶶⶸ-ⶾⷀ-ⷆⷈ-ⷎⷐ-ⷖⷘ-ⷞⸯ々-〇〡-〩〱-〵〸-〼ぁ-ゖゝ-ゟァ-ヺー-ヿㄅ-ㄭㄱ-ㆎㆠ-ㆺㇰ-ㇿ㐀-䶵一-鿌ꀀ-ꒌꓐ-ꓽꔀ-ꘌꘐ-ꘟꘪꘫꙀ-ꙮꙿ-ꚗꚠ-ꛯꜗ-ꜟꜢ-ꞈꞋ-ꞎꞐ-ꞓꞠ-Ɦꟸ-ꠁꠃ-ꠅꠇ-ꠊꠌ-ꠢꡀ-ꡳꢂ-ꢳꣲ-ꣷꣻꤊ-ꤥꤰ-ꥆꥠ-ꥼꦄ-ꦲꧏꨀ-ꨨꩀ-ꩂꩄ-ꩋꩠ-ꩶꩺꪀ-ꪯꪱꪵꪶꪹ-ꪽꫀꫂꫛ-ꫝꫠ-ꫪꫲ-ꫴꬁ-ꬆꬉ-ꬎꬑ-ꬖꬠ-ꬦꬨ-ꬮꯀ-ꯢ가-힣ힰ-ퟆퟋ-ퟻ豈-舘並-龎ﬀ-ﬆﬓ-ﬗיִײַ-ﬨשׁ-זּטּ-לּמּנּסּףּפּצּ-ﮱﯓ-ﴽﵐ-ﶏﶒ-ﷇﷰ-ﷻﹰ-ﹴﹶ-ﻼＡ-Ｚａ-ｚｦ-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ',
+          i = '$0-9A-Z_a-z',
           a =
-            "̀-ͯ҃-֑҇-ׇֽֿׁׂׅׄؐ-ؚؠ-ىٲ-ۓۧ-ۨۻ-ۼܰ-݊ࠀ-ࠔࠛ-ࠣࠥ-ࠧࠩ-࠭ࡀ-ࡗࣤ-ࣾऀ-ःऺ-़ा-ॏ॑-ॗॢ-ॣ०-९ঁ-ঃ়া-ৄেৈৗয়-ৠਁ-ਃ਼ਾ-ੂੇੈੋ-੍ੑ੦-ੱੵઁ-ઃ઼ા-ૅે-ૉો-્ૢ-ૣ૦-૯ଁ-ଃ଼ା-ୄେୈୋ-୍ୖୗୟ-ୠ୦-୯ஂா-ூெ-ைொ-்ௗ௦-௯ఁ-ఃె-ైొ-్ౕౖౢ-ౣ౦-౯ಂಃ಼ಾ-ೄೆ-ೈೊ-್ೕೖೢ-ೣ೦-೯ംഃെ-ൈൗൢ-ൣ൦-൯ංඃ්ා-ුූෘ-ෟෲෳิ-ฺเ-ๅ๐-๙ິ-ູ່-ໍ໐-໙༘༙༠-༩༹༵༷ཁ-ཇཱ-྄྆-྇ྍ-ྗྙ-ྼ࿆က-ဩ၀-၉ၧ-ၭၱ-ၴႂ-ႍႏ-ႝ፝-፟ᜎ-ᜐᜠ-ᜰᝀ-ᝐᝲᝳក-ឲ៝០-៩᠋-᠍᠐-᠙ᤠ-ᤫᤰ-᤻ᥑ-ᥭᦰ-ᧀᧈ-ᧉ᧐-᧙ᨀ-ᨕᨠ-ᩓ᩠-᩿᩼-᪉᪐-᪙ᭆ-ᭋ᭐-᭙᭫-᭳᮰-᮹᯦-᯳ᰀ-ᰢ᱀-᱉ᱛ-ᱽ᳐-᳒ᴀ-ᶾḁ-ἕ‌‍‿⁀⁔⃐-⃥⃜⃡-⃰ⶁ-ⶖⷠ-ⷿ〡-〨゙゚Ꙁ-ꙭꙴ-꙽ꚟ꛰-꛱ꟸ-ꠀ꠆ꠋꠣ-ꠧꢀ-ꢁꢴ-꣄꣐-꣙ꣳ-ꣷ꤀-꤉ꤦ-꤭ꤰ-ꥅꦀ-ꦃ꦳-꧀ꨀ-ꨧꩀ-ꩁꩌ-ꩍ꩐-꩙ꩻꫠ-ꫩꫲ-ꫳꯀ-ꯡ꯬꯭꯰-꯹ﬠ-ﬨ︀-️︠-︦︳︴﹍-﹏０-９＿",
-          o = new RegExp("[" + n + r + "]"),
-          s = new RegExp("[" + i + r + a + "]");
-        (t.identifier = new RegExp("[" + n + r + "][" + i + r + a + "]*", "g")),
+            '̀-ͯ҃-֑҇-ׇֽֿׁׂׅׄؐ-ؚؠ-ىٲ-ۓۧ-ۨۻ-ۼܰ-݊ࠀ-ࠔࠛ-ࠣࠥ-ࠧࠩ-࠭ࡀ-ࡗࣤ-ࣾऀ-ःऺ-़ा-ॏ॑-ॗॢ-ॣ०-९ঁ-ঃ়া-ৄেৈৗয়-ৠਁ-ਃ਼ਾ-ੂੇੈੋ-੍ੑ੦-ੱੵઁ-ઃ઼ા-ૅે-ૉો-્ૢ-ૣ૦-૯ଁ-ଃ଼ା-ୄେୈୋ-୍ୖୗୟ-ୠ୦-୯ஂா-ூெ-ைொ-்ௗ௦-௯ఁ-ఃె-ైొ-్ౕౖౢ-ౣ౦-౯ಂಃ಼ಾ-ೄೆ-ೈೊ-್ೕೖೢ-ೣ೦-೯ംഃെ-ൈൗൢ-ൣ൦-൯ංඃ්ා-ුූෘ-ෟෲෳิ-ฺเ-ๅ๐-๙ິ-ູ່-ໍ໐-໙༘༙༠-༩༹༵༷ཁ-ཇཱ-྄྆-྇ྍ-ྗྙ-ྼ࿆က-ဩ၀-၉ၧ-ၭၱ-ၴႂ-ႍႏ-ႝ፝-፟ᜎ-ᜐᜠ-ᜰᝀ-ᝐᝲᝳក-ឲ៝០-៩᠋-᠍᠐-᠙ᤠ-ᤫᤰ-᤻ᥑ-ᥭᦰ-ᧀᧈ-ᧉ᧐-᧙ᨀ-ᨕᨠ-ᩓ᩠-᩿᩼-᪉᪐-᪙ᭆ-ᭋ᭐-᭙᭫-᭳᮰-᮹᯦-᯳ᰀ-ᰢ᱀-᱉ᱛ-ᱽ᳐-᳒ᴀ-ᶾḁ-ἕ‌‍‿⁀⁔⃐-⃥⃜⃡-⃰ⶁ-ⶖⷠ-ⷿ〡-〨゙゚Ꙁ-ꙭꙴ-꙽ꚟ꛰-꛱ꟸ-ꠀ꠆ꠋꠣ-ꠧꢀ-ꢁꢴ-꣄꣐-꣙ꣳ-ꣷ꤀-꤉ꤦ-꤭ꤰ-ꥅꦀ-ꦃ꦳-꧀ꨀ-ꨧꩀ-ꩁꩌ-ꩍ꩐-꩙ꩻꫠ-ꫩꫲ-ꫳꯀ-ꯡ꯬꯭꯰-꯹ﬠ-ﬨ︀-️︠-︦︳︴﹍-﹏０-９＿',
+          o = new RegExp('[' + n + r + ']'),
+          s = new RegExp('[' + i + r + a + ']');
+        (t.identifier = new RegExp('[' + n + r + '][' + i + r + a + ']*', 'g')),
           (t.newline = /[\n\r\u2028\u2029]/),
-          (t.lineBreak = new RegExp("\r\n|" + t.newline.source)),
-          (t.allLineBreaks = new RegExp(t.lineBreak.source, "g")),
+          (t.lineBreak = new RegExp('\r\n|' + t.newline.source)),
+          (t.allLineBreaks = new RegExp(t.lineBreak.source, 'g')),
           (t.isIdentifierStart = function (e) {
             return o.test(String.fromCharCode(e));
           }),
@@ -6498,23 +6498,23 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                 (this._character_count -= t.indent_length));
             }),
             (this.trim = function () {
-              for (; " " === this.last(); )
+              for (; ' ' === this.last(); )
                 this._items.pop(), (this._character_count -= 1);
               n = 0 === this._items.length;
             }),
             (this.toString = function () {
-              var e = "";
+              var e = '';
               return (
                 this._empty ||
                   (0 <= this._indent_count &&
                     (e = t.indent_cache[this._indent_count]),
-                  (e += this._items.join(""))),
+                  (e += this._items.join(''))),
                 e
               );
             });
         }
         e.exports.Output = function (t, n) {
-          (n = n || ""),
+          (n = n || ''),
             (this.indent_cache = [n]),
             (this.baseIndentLength = n.length),
             (this.indent_length = t.length),
@@ -6542,9 +6542,9 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               );
             }),
             (this.get_code = function (e, t) {
-              var n = this._lines.join("\n").replace(/[\r\n\t ]+$/, "");
+              var n = this._lines.join('\n').replace(/[\r\n\t ]+$/, '');
               return (
-                e && (n += "\n"), "\n" !== t && (n = n.replace(/[\n]/g, t)), n
+                e && (n += '\n'), '\n' !== t && (n = n.replace(/[\n]/g, t)), n
               );
             }),
             (this.set_indent = function (e) {
@@ -6570,7 +6570,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             (this.add_space_before_token = function () {
               this.space_before_token &&
                 !this.just_added_newline() &&
-                this.current_line.push(" "),
+                this.current_line.push(' '),
                 (this.space_before_token = !1);
             }),
             (this.remove_indent = function (e) {
@@ -6606,7 +6606,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       ,
       function (e, t) {
         e.exports.InputScanner = function (e) {
-          var i = e || "",
+          var i = e || '',
             a = i.length,
             o = 0;
           (this.back = function () {
@@ -6642,7 +6642,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               return t && t.index === o ? (o += t[0].length) : (t = null), t;
             }),
             (this.readWhile = function (e) {
-              var t = "",
+              var t = '',
                 n = this.match(e);
               return n && (t = n[0]), t;
             }),
@@ -6694,11 +6694,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           O = r.lineBreak,
           I = r.allLineBreaks;
         e.exports.Beautifier = function (o, e) {
-          o = o || "";
-          var t = (e = a((e = e || {}), "css")).indent_size
+          o = o || '';
+          var t = (e = a((e = e || {}), 'css')).indent_size
               ? parseInt(e.indent_size, 10)
               : 4,
-            n = e.indent_char || " ",
+            n = e.indent_char || ' ',
             r = void 0 !== e.preserve_newlines && e.preserve_newlines,
             s =
               void 0 === e.selector_separator_newline ||
@@ -6711,12 +6711,12 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             u ||
             (void 0 !== e.space_around_selector_separator &&
               e.space_around_selector_separator);
-          var d = e.eol ? e.eol : "auto";
-          e.indent_with_tabs && ((n = "\t"), (t = 1)),
-            "auto" === d &&
-              ((d = "\n"), o && O.test(o || "") && (d = o.match(O)[0])),
-            (d = d.replace(/\\r/, "\r").replace(/\\n/, "\n")),
-            (o = o.replace(I, "\n"));
+          var d = e.eol ? e.eol : 'auto';
+          e.indent_with_tabs && ((n = '\t'), (t = 1)),
+            'auto' === d &&
+              ((d = '\n'), o && O.test(o || '') && (d = o.match(O)[0])),
+            (d = d.replace(/\\r/, '\r').replace(/\\n/, '\n')),
+            (o = o.replace(I, '\n'));
           var p,
             h,
             f = /\s/,
@@ -6726,10 +6726,10 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             v = 0;
 
           function y(e) {
-            var t = "";
+            var t = '';
             for (p = h.next(); p; ) {
-              if (((t += p), "\\" === p)) t += h.next();
-              else if (-1 !== e.indexOf(p) || "\n" === p) break;
+              if (((t += p), '\\' === p)) t += h.next();
+              else if (-1 !== e.indexOf(p) || '\n' === p) break;
               p = h.next();
             }
             return t;
@@ -6738,26 +6738,26 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           function T(e) {
             for (var t = f.test(h.peek()), n = !0; f.test(h.peek()); )
               (p = h.next()),
-                e && "\n" === p && (r || n) && ((n = !1), S.add_new_line(!0));
+                e && '\n' === p && (r || n) && ((n = !1), S.add_new_line(!0));
             return t;
           }
 
           function w() {
             for (var e = 0, t = 1, n = h.peek(t); n; ) {
-              if ("{" === n) return !0;
-              if ("(" === n) e += 1;
-              else if (")" === n) {
+              if ('{' === n) return !0;
+              if ('(' === n) e += 1;
+              else if (')' === n) {
                 if (0 === e) return !1;
                 e -= 1;
-              } else if (";" === n || "}" === n) return !1;
+              } else if (';' === n || '}' === n) return !1;
               t++, (n = h.peek(t));
             }
             return !1;
           }
-          var _ = "",
+          var _ = '',
             i = 0;
           if (o && o.length) {
-            for (; " " === o.charAt(i) || "\t" === o.charAt(i); ) i += 1;
+            for (; ' ' === o.charAt(i) || '\t' === o.charAt(i); ) i += 1;
             (_ = o.substring(0, i)), (o = o.substring(i));
           }
           var x,
@@ -6775,36 +6775,36 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           (this.beautify = function () {
             (S = new q(E, _)), (h = new L(o)), (p = null), (v = k = x = 0);
             for (var e = !1, t = !1, n = !1, r = !1; ; ) {
-              var i = "" !== h.readWhile(g);
+              var i = '' !== h.readWhile(g);
               if (!(p = h.next())) break;
-              if ("/" === p && "*" === h.peek())
+              if ('/' === p && '*' === h.peek())
                 S.add_new_line(),
                   h.back(),
                   A(h.readWhile(m)),
                   T(!0),
                   S.add_new_line();
-              else if ("/" === p && "/" === h.peek())
+              else if ('/' === p && '/' === h.peek())
                 (S.space_before_token = !0), h.back(), A(h.readWhile(b)), T(!0);
-              else if ("@" === p)
-                if ((C(i), "{" === h.peek())) A(p + y("}"));
+              else if ('@' === p)
+                if ((C(i), '{' === h.peek())) A(p + y('}'));
                 else {
                   A(p);
                   var a = h.peekUntilAfter(/[: ,;{}()[\]\/='"]/g);
                   a.match(/[ :]$/) &&
-                    (A((a = y(": ").replace(/\s$/, ""))),
+                    (A((a = y(': ').replace(/\s$/, ''))),
                     (S.space_before_token = !0)),
-                    "extend" === (a = a.replace(/\s$/, "")) && (r = !0),
+                    'extend' === (a = a.replace(/\s$/, '')) && (r = !0),
                     a in this.NESTED_AT_RULE
                       ? ((k += 1), a in this.CONDITIONAL_GROUP_RULE && (n = !0))
-                      : e || 0 !== v || -1 === a.indexOf(":") || (t = !0);
+                      : e || 0 !== v || -1 === a.indexOf(':') || (t = !0);
                 }
               else
-                "#" === p && "{" === h.peek()
-                  ? (C(i), A(p + y("}")))
-                  : "{" === p
+                '#' === p && '{' === h.peek()
+                  ? (C(i), A(p + y('}')))
+                  : '{' === p
                   ? h.match(/[\t\n ]*}/g)
                     ? ((S.space_before_token = !0),
-                      A("{}"),
+                      A('{}'),
                       T(!0),
                       S.add_new_line(),
                       c &&
@@ -6817,7 +6817,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       T(!0),
                       S.add_new_line(),
                       n ? ((n = !1), (e = k < x)) : (e = k <= x))
-                  : "}" === p
+                  : '}' === p
                   ? (0 < x && x--,
                     S.add_new_line(),
                     A(p),
@@ -6828,70 +6828,70 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       0 === x &&
                       !S.just_added_blankline() &&
                       S.add_new_line(!0))
-                  : ":" === p
-                  ? (!e && !n) || h.lookBack("&") || w() || h.lookBack("(") || r
-                    ? (h.lookBack(" ") && (S.space_before_token = !0),
-                      ":" === h.peek() ? ((p = h.next()), A("::")) : A(":"))
-                    : (A(":"), t || ((t = !0), (S.space_before_token = !0)))
+                  : ':' === p
+                  ? (!e && !n) || h.lookBack('&') || w() || h.lookBack('(') || r
+                    ? (h.lookBack(' ') && (S.space_before_token = !0),
+                      ':' === h.peek() ? ((p = h.next()), A('::')) : A(':'))
+                    : (A(':'), t || ((t = !0), (S.space_before_token = !0)))
                   : '"' === p || "'" === p
                   ? (C(i), A(p + y(p)))
-                  : ";" === p
+                  : ';' === p
                   ? ((r = t = !1),
                     A(p),
                     T(!0),
-                    "/" !== h.peek() && S.add_new_line())
-                  : "(" === p
-                  ? h.lookBack("url")
+                    '/' !== h.peek() && S.add_new_line())
+                  : '(' === p
+                  ? h.lookBack('url')
                     ? (A(p),
                       T(),
                       (p = h.next()) &&
-                        (")" !== p && '"' !== p && "'" !== p
-                          ? A(p + y(")"))
+                        (')' !== p && '"' !== p && "'" !== p
+                          ? A(p + y(')'))
                           : (h.back(), v++)))
                     : (v++, C(i), A(p), T())
-                  : ")" === p
+                  : ')' === p
                   ? (A(p), v--)
-                  : "," === p
+                  : ',' === p
                   ? (A(p),
                     T(!0),
                     s && !t && v < 1
                       ? S.add_new_line()
                       : (S.space_before_token = !0))
-                  : (">" === p || "+" === p || "~" === p) && !t && v < 1
+                  : ('>' === p || '+' === p || '~' === p) && !t && v < 1
                   ? u
                     ? ((S.space_before_token = !0),
                       A(p),
                       (S.space_before_token = !0))
-                    : (A(p), T(), p && f.test(p) && (p = ""))
-                  : "]" === p
+                    : (A(p), T(), p && f.test(p) && (p = ''))
+                  : ']' === p
                   ? A(p)
-                  : "[" === p
+                  : '[' === p
                   ? (C(i), A(p))
-                  : "=" === p
-                  ? (T(), A("="), f.test(p) && (p = ""))
-                  : ("!" === p ? A(" ") : C(i), A(p));
+                  : '=' === p
+                  ? (T(), A('='), f.test(p) && (p = ''))
+                  : ('!' === p ? A(' ') : C(i), A(p));
             }
             return S.get_code(l, d);
           }),
             (this.NESTED_AT_RULE = {
-              "@page": !0,
-              "@font-face": !0,
-              "@keyframes": !0,
-              "@media": !0,
-              "@supports": !0,
-              "@document": !0,
+              '@page': !0,
+              '@font-face': !0,
+              '@keyframes': !0,
+              '@media': !0,
+              '@supports': !0,
+              '@document': !0,
             }),
             (this.CONDITIONAL_GROUP_RULE = {
-              "@media": !0,
-              "@supports": !0,
-              "@document": !0,
+              '@media': !0,
+              '@supports': !0,
+              '@document': !0,
             });
         };
       },
     ]);
-    "function" == typeof define && define.amd
+    'function' == typeof define && define.amd
       ? define(
-          "vscode-html-languageservice/beautify/beautify-css",
+          'vscode-html-languageservice/beautify/beautify-css',
           [],
           function () {
             return {
@@ -6899,11 +6899,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             };
           }
         )
-      : "undefined" != typeof exports
+      : 'undefined' != typeof exports
       ? (exports.css_beautify = e)
-      : "undefined" != typeof window
+      : 'undefined' != typeof window
       ? (window.css_beautify = e)
-      : "undefined" != typeof global && (global.css_beautify = e);
+      : 'undefined' != typeof global && (global.css_beautify = e);
   })(),
   (function () {
     var i = (function (n) {
@@ -6929,26 +6929,26 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             });
         }),
         (i.r = function (e) {
-          "undefined" != typeof Symbol &&
+          'undefined' != typeof Symbol &&
             Symbol.toStringTag &&
             Object.defineProperty(e, Symbol.toStringTag, {
-              value: "Module",
+              value: 'Module',
             }),
-            Object.defineProperty(e, "__esModule", {
+            Object.defineProperty(e, '__esModule', {
               value: !0,
             });
         }),
         (i.t = function (t, e) {
           if ((1 & e && (t = i(t)), 8 & e)) return t;
-          if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+          if (4 & e && 'object' == typeof t && t && t.__esModule) return t;
           var n = Object.create(null);
           if (
             (i.r(n),
-            Object.defineProperty(n, "default", {
+            Object.defineProperty(n, 'default', {
               enumerable: !0,
               value: t,
             }),
-            2 & e && "string" != typeof t)
+            2 & e && 'string' != typeof t)
           )
             for (var r in t)
               i.d(
@@ -6969,12 +6969,12 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               : function () {
                   return e;
                 };
-          return i.d(t, "a", t), t;
+          return i.d(t, 'a', t), t;
         }),
         (i.o = function (e, t) {
           return Object.prototype.hasOwnProperty.call(e, t);
         }),
-        (i.p = ""),
+        (i.p = ''),
         i((i.s = 10))
       );
     })([
@@ -6990,18 +6990,18 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         };
       },
       function (e, t) {
-        var n = "$@A-Z_a-z",
+        var n = '$@A-Z_a-z',
           r =
-            "ªµºÀ-ÖØ-öø-ˁˆ-ˑˠ-ˤˬˮͰ-ʹͶͷͺ-ͽΆΈ-ΊΌΎ-ΡΣ-ϵϷ-ҁҊ-ԧԱ-Ֆՙա-ևא-תװ-ײؠ-يٮٯٱ-ۓەۥۦۮۯۺ-ۼۿܐܒ-ܯݍ-ޥޱߊ-ߪߴߵߺࠀ-ࠕࠚࠤࠨࡀ-ࡘࢠࢢ-ࢬऄ-हऽॐक़-ॡॱ-ॷॹ-ॿঅ-ঌএঐও-নপ-রলশ-হঽৎড়ঢ়য়-ৡৰৱਅ-ਊਏਐਓ-ਨਪ-ਰਲਲ਼ਵਸ਼ਸਹਖ਼-ੜਫ਼ੲ-ੴઅ-ઍએ-ઑઓ-નપ-રલળવ-હઽૐૠૡଅ-ଌଏଐଓ-ନପ-ରଲଳଵ-ହଽଡ଼ଢ଼ୟ-ୡୱஃஅ-ஊஎ-ஐஒ-கஙசஜஞடணதந-பம-ஹௐఅ-ఌఎ-ఐఒ-నప-ళవ-హఽౘౙౠౡಅ-ಌಎ-ಐಒ-ನಪ-ಳವ-ಹಽೞೠೡೱೲഅ-ഌഎ-ഐഒ-ഺഽൎൠൡൺ-ൿඅ-ඖක-නඳ-රලව-ෆก-ะาำเ-ๆກຂຄງຈຊຍດ-ທນ-ຟມ-ຣລວສຫອ-ະາຳຽເ-ໄໆໜ-ໟༀཀ-ཇཉ-ཬྈ-ྌက-ဪဿၐ-ၕၚ-ၝၡၥၦၮ-ၰၵ-ႁႎႠ-ჅჇჍა-ჺჼ-ቈቊ-ቍቐ-ቖቘቚ-ቝበ-ኈኊ-ኍነ-ኰኲ-ኵኸ-ኾዀዂ-ዅወ-ዖዘ-ጐጒ-ጕጘ-ፚᎀ-ᎏᎠ-Ᏼᐁ-ᙬᙯ-ᙿᚁ-ᚚᚠ-ᛪᛮ-ᛰᜀ-ᜌᜎ-ᜑᜠ-ᜱᝀ-ᝑᝠ-ᝬᝮ-ᝰក-ឳៗៜᠠ-ᡷᢀ-ᢨᢪᢰ-ᣵᤀ-ᤜᥐ-ᥭᥰ-ᥴᦀ-ᦫᧁ-ᧇᨀ-ᨖᨠ-ᩔᪧᬅ-ᬳᭅ-ᭋᮃ-ᮠᮮᮯᮺ-ᯥᰀ-ᰣᱍ-ᱏᱚ-ᱽᳩ-ᳬᳮ-ᳱᳵᳶᴀ-ᶿḀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼιῂ-ῄῆ-ῌῐ-ΐῖ-Ίῠ-Ῥῲ-ῴῶ-ῼⁱⁿₐ-ₜℂℇℊ-ℓℕℙ-ℝℤΩℨK-ℭℯ-ℹℼ-ℿⅅ-ⅉⅎⅠ-ↈⰀ-Ⱞⰰ-ⱞⱠ-ⳤⳫ-ⳮⳲⳳⴀ-ⴥⴧⴭⴰ-ⵧⵯⶀ-ⶖⶠ-ⶦⶨ-ⶮⶰ-ⶶⶸ-ⶾⷀ-ⷆⷈ-ⷎⷐ-ⷖⷘ-ⷞⸯ々-〇〡-〩〱-〵〸-〼ぁ-ゖゝ-ゟァ-ヺー-ヿㄅ-ㄭㄱ-ㆎㆠ-ㆺㇰ-ㇿ㐀-䶵一-鿌ꀀ-ꒌꓐ-ꓽꔀ-ꘌꘐ-ꘟꘪꘫꙀ-ꙮꙿ-ꚗꚠ-ꛯꜗ-ꜟꜢ-ꞈꞋ-ꞎꞐ-ꞓꞠ-Ɦꟸ-ꠁꠃ-ꠅꠇ-ꠊꠌ-ꠢꡀ-ꡳꢂ-ꢳꣲ-ꣷꣻꤊ-ꤥꤰ-ꥆꥠ-ꥼꦄ-ꦲꧏꨀ-ꨨꩀ-ꩂꩄ-ꩋꩠ-ꩶꩺꪀ-ꪯꪱꪵꪶꪹ-ꪽꫀꫂꫛ-ꫝꫠ-ꫪꫲ-ꫴꬁ-ꬆꬉ-ꬎꬑ-ꬖꬠ-ꬦꬨ-ꬮꯀ-ꯢ가-힣ힰ-ퟆퟋ-ퟻ豈-舘並-龎ﬀ-ﬆﬓ-ﬗיִײַ-ﬨשׁ-זּטּ-לּמּנּסּףּפּצּ-ﮱﯓ-ﴽﵐ-ﶏﶒ-ﷇﷰ-ﷻﹰ-ﹴﹶ-ﻼＡ-Ｚａ-ｚｦ-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ",
-          i = "$0-9A-Z_a-z",
+            'ªµºÀ-ÖØ-öø-ˁˆ-ˑˠ-ˤˬˮͰ-ʹͶͷͺ-ͽΆΈ-ΊΌΎ-ΡΣ-ϵϷ-ҁҊ-ԧԱ-Ֆՙա-ևא-תװ-ײؠ-يٮٯٱ-ۓەۥۦۮۯۺ-ۼۿܐܒ-ܯݍ-ޥޱߊ-ߪߴߵߺࠀ-ࠕࠚࠤࠨࡀ-ࡘࢠࢢ-ࢬऄ-हऽॐक़-ॡॱ-ॷॹ-ॿঅ-ঌএঐও-নপ-রলশ-হঽৎড়ঢ়য়-ৡৰৱਅ-ਊਏਐਓ-ਨਪ-ਰਲਲ਼ਵਸ਼ਸਹਖ਼-ੜਫ਼ੲ-ੴઅ-ઍએ-ઑઓ-નપ-રલળવ-હઽૐૠૡଅ-ଌଏଐଓ-ନପ-ରଲଳଵ-ହଽଡ଼ଢ଼ୟ-ୡୱஃஅ-ஊஎ-ஐஒ-கஙசஜஞடணதந-பம-ஹௐఅ-ఌఎ-ఐఒ-నప-ళవ-హఽౘౙౠౡಅ-ಌಎ-ಐಒ-ನಪ-ಳವ-ಹಽೞೠೡೱೲഅ-ഌഎ-ഐഒ-ഺഽൎൠൡൺ-ൿඅ-ඖක-නඳ-රලව-ෆก-ะาำเ-ๆກຂຄງຈຊຍດ-ທນ-ຟມ-ຣລວສຫອ-ະາຳຽເ-ໄໆໜ-ໟༀཀ-ཇཉ-ཬྈ-ྌက-ဪဿၐ-ၕၚ-ၝၡၥၦၮ-ၰၵ-ႁႎႠ-ჅჇჍა-ჺჼ-ቈቊ-ቍቐ-ቖቘቚ-ቝበ-ኈኊ-ኍነ-ኰኲ-ኵኸ-ኾዀዂ-ዅወ-ዖዘ-ጐጒ-ጕጘ-ፚᎀ-ᎏᎠ-Ᏼᐁ-ᙬᙯ-ᙿᚁ-ᚚᚠ-ᛪᛮ-ᛰᜀ-ᜌᜎ-ᜑᜠ-ᜱᝀ-ᝑᝠ-ᝬᝮ-ᝰក-ឳៗៜᠠ-ᡷᢀ-ᢨᢪᢰ-ᣵᤀ-ᤜᥐ-ᥭᥰ-ᥴᦀ-ᦫᧁ-ᧇᨀ-ᨖᨠ-ᩔᪧᬅ-ᬳᭅ-ᭋᮃ-ᮠᮮᮯᮺ-ᯥᰀ-ᰣᱍ-ᱏᱚ-ᱽᳩ-ᳬᳮ-ᳱᳵᳶᴀ-ᶿḀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼιῂ-ῄῆ-ῌῐ-ΐῖ-Ίῠ-Ῥῲ-ῴῶ-ῼⁱⁿₐ-ₜℂℇℊ-ℓℕℙ-ℝℤΩℨK-ℭℯ-ℹℼ-ℿⅅ-ⅉⅎⅠ-ↈⰀ-Ⱞⰰ-ⱞⱠ-ⳤⳫ-ⳮⳲⳳⴀ-ⴥⴧⴭⴰ-ⵧⵯⶀ-ⶖⶠ-ⶦⶨ-ⶮⶰ-ⶶⶸ-ⶾⷀ-ⷆⷈ-ⷎⷐ-ⷖⷘ-ⷞⸯ々-〇〡-〩〱-〵〸-〼ぁ-ゖゝ-ゟァ-ヺー-ヿㄅ-ㄭㄱ-ㆎㆠ-ㆺㇰ-ㇿ㐀-䶵一-鿌ꀀ-ꒌꓐ-ꓽꔀ-ꘌꘐ-ꘟꘪꘫꙀ-ꙮꙿ-ꚗꚠ-ꛯꜗ-ꜟꜢ-ꞈꞋ-ꞎꞐ-ꞓꞠ-Ɦꟸ-ꠁꠃ-ꠅꠇ-ꠊꠌ-ꠢꡀ-ꡳꢂ-ꢳꣲ-ꣷꣻꤊ-ꤥꤰ-ꥆꥠ-ꥼꦄ-ꦲꧏꨀ-ꨨꩀ-ꩂꩄ-ꩋꩠ-ꩶꩺꪀ-ꪯꪱꪵꪶꪹ-ꪽꫀꫂꫛ-ꫝꫠ-ꫪꫲ-ꫴꬁ-ꬆꬉ-ꬎꬑ-ꬖꬠ-ꬦꬨ-ꬮꯀ-ꯢ가-힣ힰ-ퟆퟋ-ퟻ豈-舘並-龎ﬀ-ﬆﬓ-ﬗיִײַ-ﬨשׁ-זּטּ-לּמּנּסּףּפּצּ-ﮱﯓ-ﴽﵐ-ﶏﶒ-ﷇﷰ-ﷻﹰ-ﹴﹶ-ﻼＡ-Ｚａ-ｚｦ-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ',
+          i = '$0-9A-Z_a-z',
           a =
-            "̀-ͯ҃-֑҇-ׇֽֿׁׂׅׄؐ-ؚؠ-ىٲ-ۓۧ-ۨۻ-ۼܰ-݊ࠀ-ࠔࠛ-ࠣࠥ-ࠧࠩ-࠭ࡀ-ࡗࣤ-ࣾऀ-ःऺ-़ा-ॏ॑-ॗॢ-ॣ०-९ঁ-ঃ়া-ৄেৈৗয়-ৠਁ-ਃ਼ਾ-ੂੇੈੋ-੍ੑ੦-ੱੵઁ-ઃ઼ા-ૅે-ૉો-્ૢ-ૣ૦-૯ଁ-ଃ଼ା-ୄେୈୋ-୍ୖୗୟ-ୠ୦-୯ஂா-ூெ-ைொ-்ௗ௦-௯ఁ-ఃె-ైొ-్ౕౖౢ-ౣ౦-౯ಂಃ಼ಾ-ೄೆ-ೈೊ-್ೕೖೢ-ೣ೦-೯ംഃെ-ൈൗൢ-ൣ൦-൯ංඃ්ා-ුූෘ-ෟෲෳิ-ฺเ-ๅ๐-๙ິ-ູ່-ໍ໐-໙༘༙༠-༩༹༵༷ཁ-ཇཱ-྄྆-྇ྍ-ྗྙ-ྼ࿆က-ဩ၀-၉ၧ-ၭၱ-ၴႂ-ႍႏ-ႝ፝-፟ᜎ-ᜐᜠ-ᜰᝀ-ᝐᝲᝳក-ឲ៝០-៩᠋-᠍᠐-᠙ᤠ-ᤫᤰ-᤻ᥑ-ᥭᦰ-ᧀᧈ-ᧉ᧐-᧙ᨀ-ᨕᨠ-ᩓ᩠-᩿᩼-᪉᪐-᪙ᭆ-ᭋ᭐-᭙᭫-᭳᮰-᮹᯦-᯳ᰀ-ᰢ᱀-᱉ᱛ-ᱽ᳐-᳒ᴀ-ᶾḁ-ἕ‌‍‿⁀⁔⃐-⃥⃜⃡-⃰ⶁ-ⶖⷠ-ⷿ〡-〨゙゚Ꙁ-ꙭꙴ-꙽ꚟ꛰-꛱ꟸ-ꠀ꠆ꠋꠣ-ꠧꢀ-ꢁꢴ-꣄꣐-꣙ꣳ-ꣷ꤀-꤉ꤦ-꤭ꤰ-ꥅꦀ-ꦃ꦳-꧀ꨀ-ꨧꩀ-ꩁꩌ-ꩍ꩐-꩙ꩻꫠ-ꫩꫲ-ꫳꯀ-ꯡ꯬꯭꯰-꯹ﬠ-ﬨ︀-️︠-︦︳︴﹍-﹏０-９＿",
-          o = new RegExp("[" + n + r + "]"),
-          s = new RegExp("[" + i + r + a + "]");
-        (t.identifier = new RegExp("[" + n + r + "][" + i + r + a + "]*", "g")),
+            '̀-ͯ҃-֑҇-ׇֽֿׁׂׅׄؐ-ؚؠ-ىٲ-ۓۧ-ۨۻ-ۼܰ-݊ࠀ-ࠔࠛ-ࠣࠥ-ࠧࠩ-࠭ࡀ-ࡗࣤ-ࣾऀ-ःऺ-़ा-ॏ॑-ॗॢ-ॣ०-९ঁ-ঃ়া-ৄেৈৗয়-ৠਁ-ਃ਼ਾ-ੂੇੈੋ-੍ੑ੦-ੱੵઁ-ઃ઼ા-ૅે-ૉો-્ૢ-ૣ૦-૯ଁ-ଃ଼ା-ୄେୈୋ-୍ୖୗୟ-ୠ୦-୯ஂா-ூெ-ைொ-்ௗ௦-௯ఁ-ఃె-ైొ-్ౕౖౢ-ౣ౦-౯ಂಃ಼ಾ-ೄೆ-ೈೊ-್ೕೖೢ-ೣ೦-೯ംഃെ-ൈൗൢ-ൣ൦-൯ංඃ්ා-ුූෘ-ෟෲෳิ-ฺเ-ๅ๐-๙ິ-ູ່-ໍ໐-໙༘༙༠-༩༹༵༷ཁ-ཇཱ-྄྆-྇ྍ-ྗྙ-ྼ࿆က-ဩ၀-၉ၧ-ၭၱ-ၴႂ-ႍႏ-ႝ፝-፟ᜎ-ᜐᜠ-ᜰᝀ-ᝐᝲᝳក-ឲ៝០-៩᠋-᠍᠐-᠙ᤠ-ᤫᤰ-᤻ᥑ-ᥭᦰ-ᧀᧈ-ᧉ᧐-᧙ᨀ-ᨕᨠ-ᩓ᩠-᩿᩼-᪉᪐-᪙ᭆ-ᭋ᭐-᭙᭫-᭳᮰-᮹᯦-᯳ᰀ-ᰢ᱀-᱉ᱛ-ᱽ᳐-᳒ᴀ-ᶾḁ-ἕ‌‍‿⁀⁔⃐-⃥⃜⃡-⃰ⶁ-ⶖⷠ-ⷿ〡-〨゙゚Ꙁ-ꙭꙴ-꙽ꚟ꛰-꛱ꟸ-ꠀ꠆ꠋꠣ-ꠧꢀ-ꢁꢴ-꣄꣐-꣙ꣳ-ꣷ꤀-꤉ꤦ-꤭ꤰ-ꥅꦀ-ꦃ꦳-꧀ꨀ-ꨧꩀ-ꩁꩌ-ꩍ꩐-꩙ꩻꫠ-ꫩꫲ-ꫳꯀ-ꯡ꯬꯭꯰-꯹ﬠ-ﬨ︀-️︠-︦︳︴﹍-﹏０-９＿',
+          o = new RegExp('[' + n + r + ']'),
+          s = new RegExp('[' + i + r + a + ']');
+        (t.identifier = new RegExp('[' + n + r + '][' + i + r + a + ']*', 'g')),
           (t.newline = /[\n\r\u2028\u2029]/),
-          (t.lineBreak = new RegExp("\r\n|" + t.newline.source)),
-          (t.allLineBreaks = new RegExp(t.lineBreak.source, "g")),
+          (t.lineBreak = new RegExp('\r\n|' + t.newline.source)),
+          (t.allLineBreaks = new RegExp(t.lineBreak.source, 'g')),
           (t.isIdentifierStart = function (e) {
             return o.test(String.fromCharCode(e));
           }),
@@ -7013,7 +7013,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
       ,
       function (e, t) {
         e.exports.InputScanner = function (e) {
-          var i = e || "",
+          var i = e || '',
             a = i.length,
             o = 0;
           (this.back = function () {
@@ -7049,7 +7049,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               return t && t.index === o ? (o += t[0].length) : (t = null), t;
             }),
             (this.readWhile = function (e) {
-              var t = "",
+              var t = '',
                 n = this.match(e);
               return n && (t = n[0]), t;
             }),
@@ -7103,7 +7103,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           u = r.allLineBreaks;
 
         function d(e) {
-          return e.replace(/\s+$/g, "");
+          return e.replace(/\s+$/g, '');
         }
         e.exports.Beautifier = function (h, f, g, m) {
           var b,
@@ -7132,48 +7132,48 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
 
           function D() {
             return (
-              (this.token = ""),
-              (this.current_mode = "CONTENT"),
+              (this.token = ''),
+              (this.current_mode = 'CONTENT'),
               (this.tags = {
                 parent: null,
-                tag: "",
+                tag: '',
                 indent_level: 0,
                 token: null,
               }),
               (this.last_token = {
-                text: "",
-                type: "",
+                text: '',
+                type: '',
               }),
-              (this.token_text = ""),
+              (this.token_text = ''),
               (this.newlines = 0),
               (this.indent_content = e),
               (this.indent_body_inner_html = t),
               (this.indent_head_inner_html = n),
               (this.Utils = {
-                whitespace: "\n\r\t ".split(""),
+                whitespace: '\n\r\t '.split(''),
                 single_token: f.void_elements || [
-                  "area",
-                  "base",
-                  "br",
-                  "col",
-                  "embed",
-                  "hr",
-                  "img",
-                  "input",
-                  "keygen",
-                  "link",
-                  "menuitem",
-                  "meta",
-                  "param",
-                  "source",
-                  "track",
-                  "wbr",
-                  "!doctype",
-                  "?xml",
-                  "?php",
-                  "?=",
-                  "basefont",
-                  "isindex",
+                  'area',
+                  'base',
+                  'br',
+                  'col',
+                  'embed',
+                  'hr',
+                  'img',
+                  'input',
+                  'keygen',
+                  'link',
+                  'menuitem',
+                  'meta',
+                  'param',
+                  'source',
+                  'track',
+                  'wbr',
+                  '!doctype',
+                  '?xml',
+                  '?php',
+                  '?=',
+                  'basefont',
+                  'isindex',
                 ],
                 extra_liners: o,
                 in_array: function (e, t) {
@@ -7188,7 +7188,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                 return !0;
               }),
               (this.traverse_whitespace = function () {
-                var e = "";
+                var e = '';
                 if (
                   this.Utils.in_array(this.input.peek(), this.Utils.whitespace)
                 ) {
@@ -7196,7 +7196,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                     this.newlines = 0;
                     (e = this.input.next()),
                       r &&
-                        "\n" === e &&
+                        '\n' === e &&
                         this.newlines <= i &&
                         (this.newlines += 1),
                       this.Utils.in_array(
@@ -7212,25 +7212,25 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               (this.space_or_wrap = function (e) {
                 return this.line_char_count >= this.wrap_line_length
                   ? (this.print_newline(!1, e), this.print_indentation(e), !0)
-                  : (this.line_char_count++, e.push(" "), !1);
+                  : (this.line_char_count++, e.push(' '), !1);
               }),
               (this.get_content = function () {
                 for (
-                  var e = "",
+                  var e = '',
                     t = {
                       parent: this.tags.token,
-                      text: "",
-                      type: "TK_CONTENT",
+                      text: '',
+                      type: 'TK_CONTENT',
                     },
                     n = [];
                   !(
-                    "<" === this.input.peek() ||
+                    '<' === this.input.peek() ||
                     (S && this.input.test(/\{\{/g))
                   );
 
                 ) {
                   if (!this.input.hasNext()) {
-                    n.length || (t.type = "TK_EOF");
+                    n.length || (t.type = 'TK_EOF');
                     break;
                   }
                   this.traverse_whitespace()
@@ -7239,18 +7239,18 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       this.line_char_count++,
                       n.push(e));
                 }
-                return (t.text = n.join("")), t;
+                return (t.text = n.join('')), t;
               }),
               (this.get_contents_to = function (e) {
                 if (!this.input.hasNext())
                   return {
-                    text: "",
-                    type: "TK_EOF",
+                    text: '',
+                    type: 'TK_EOF',
                   };
-                var t = new RegExp("</" + e + "\\s*>", "igm");
+                var t = new RegExp('</' + e + '\\s*>', 'igm');
                 return {
                   text: this.input.readUntil(t),
-                  type: "TK_" + e,
+                  type: 'TK_' + e,
                 };
               }),
               (this.record_tag = function (e, t) {
@@ -7279,12 +7279,12 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               }),
               (this.get_tag = function () {
                 var e,
-                  t = "",
+                  t = '',
                   n = {
                     parent: this.tags.token,
-                    text: "",
-                    type: "",
-                    tag_name: "",
+                    text: '',
+                    type: '',
+                    tag_name: '',
                     is_inline_tag: !1,
                     is_unformatted: !1,
                     is_content_unformatted: !1,
@@ -7294,72 +7294,72 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                     start_tag_token: null,
                   },
                   r = [],
-                  i = "",
+                  i = '',
                   a = !1,
                   o = !0,
                   s = !1,
                   l = !1,
-                  c = "",
+                  c = '',
                   u = !1,
                   d = this.input.peek(),
                   p = this.input.peek(1),
                   h = this.input.peek(2);
-                "<" !== d || ("!" !== p && "?" !== p && "%" !== p)
-                  ? S && "{" === d && "{" === p && "!" === h
-                    ? ((e = "{"),
+                '<' !== d || ('!' !== p && '?' !== p && '%' !== p)
+                  ? S && '{' === d && '{' === p && '!' === h
+                    ? ((e = '{'),
                       (c = (t = this.get_comment()).match(/^{{([^\s}]+)/)[1]),
                       (r = [t]),
                       (l = !0))
-                    : "<" === d
+                    : '<' === d
                     ? (r.push(this.input.next()),
-                      (e = "<"),
+                      (e = '<'),
                       (c = this.input.readUntil(/[\s>{]/g)),
                       r.push(c),
                       (c = c.toLowerCase()),
                       (a = !0))
                     : S &&
-                      "{" === d &&
-                      "{" === p &&
+                      '{' === d &&
+                      '{' === p &&
                       (r.push(this.input.next()),
                       r.push(this.input.next()),
-                      "#" === h && r.push(this.input.next()),
-                      (e = "{"),
+                      '#' === h && r.push(this.input.next()),
+                      (e = '{'),
                       (c = this.input.readUntil(/[\s}]/g)),
                       r.push(c),
                       (c = c.toLowerCase()),
                       (a = !1))
-                  : ((e = "<"),
+                  : ((e = '<'),
                     (c = (t = this.get_comment()).match(/^<([^\s>]+)/)[1]),
                     (r = [t]),
                     (l = !0)),
-                  (n.is_closing_tag = "/" === c.charAt(0)),
+                  (n.is_closing_tag = '/' === c.charAt(0)),
                   (n.tag_name = n.is_closing_tag ? c.substr(1) : c),
                   (n.is_inline_tag =
-                    this.Utils.in_array(n.tag_name, _) || "{" === e),
+                    this.Utils.in_array(n.tag_name, _) || '{' === e),
                   (n.is_unformatted = this.Utils.in_array(c, x)),
                   (n.is_content_unformatted = this.Utils.in_array(c, k));
                 var f,
                   g = E;
                 if (
-                  ((q || L) && (g = r.join("").length + 1),
-                  (this.line_char_count += r.join("").length),
+                  ((q || L) && (g = r.join('').length + 1),
+                  (this.line_char_count += r.join('').length),
                   !l)
                 ) {
                   for (; this.input.hasNext(); ) {
                     if (
                       ((t = this.input.next()),
                       S &&
-                        "{" === e &&
+                        '{' === e &&
                         2 < r.length &&
-                        "}" === t &&
-                        "}" === r[r.length - 1])
+                        '}' === t &&
+                        '}' === r[r.length - 1])
                     ) {
                       this.line_char_count++, r.push(t);
                       break;
                     }
                     if (
                       (("'" !== t && '"' !== t) ||
-                        ((t += this.get_unformatted(t)), "{" !== e && (a = !0)),
+                        ((t += this.get_unformatted(t)), '{' !== e && (a = !0)),
                       n.is_unformatted)
                     )
                       r.push(t), this.line_char_count++;
@@ -7367,28 +7367,28 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       a = !0;
                     else {
                       if (
-                        ("<" === e &&
-                          ("=" === t && (a = !1),
+                        ('<' === e &&
+                          ('=' === t && (a = !1),
                           !C ||
                             !s ||
                             u ||
-                            (">" !== t && "/" !== t) ||
+                            ('>' !== t && '/' !== t) ||
                             (this.input.test(/\/?\s*>/g, -1) &&
                               ((u = !(a = !1)),
                               this.print_newline(!1, r),
                               this.print_indentation(r)))),
                         a)
                       )
-                        if ("{" === e)
-                          this.line_char_count++, r.push(" "), (a = !1);
+                        if ('{' === e)
+                          this.line_char_count++, r.push(' '), (a = !1);
                         else if (
                           r.length &&
-                          "=" !== r[r.length - 1] &&
-                          ">" !== t &&
+                          '=' !== r[r.length - 1] &&
+                          '>' !== t &&
                           a
                         ) {
-                          var m = this.space_or_wrap(r) && "/" !== t && !A;
-                          if (((a = !1), A && "/" !== t)) {
+                          var m = this.space_or_wrap(r) && '/' !== t && !A;
+                          if (((a = !1), A && '/' !== t)) {
                             var b = !1;
                             C &&
                               o &&
@@ -7404,95 +7404,95 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                           if (m) {
                             s = !0;
                             for (var v = 0; v < g; v++)
-                              this.line_char_count++, r.push(" ");
+                              this.line_char_count++, r.push(' ');
                           }
                           if (o)
                             for (var y = 0; y < r.length; y++)
-                              if (" " === r[y]) {
+                              if (' ' === r[y]) {
                                 o = !1;
                                 break;
                               }
                         }
                       if (
                         (S &&
-                          "<" === e &&
-                          "{" === t &&
-                          "{" === this.input.peek() &&
+                          '<' === e &&
+                          '{' === t &&
+                          '{' === this.input.peek() &&
                           ((t += this.get_unformatted(/}}/g)),
                           r.length &&
-                            " " !== r[r.length - 1] &&
-                            "<" !== r[r.length - 1] &&
-                            (t = " " + t),
+                            ' ' !== r[r.length - 1] &&
+                            '<' !== r[r.length - 1] &&
+                            (t = ' ' + t),
                           (a = !0)),
                         this.line_char_count++,
                         r.push(t),
-                        ">" === t)
+                        '>' === t)
                       )
                         break;
                     }
                   }
                   if (!t)
                     return (
-                      r.length ? (n.text = r.join("")) : (n.type = "TK_EOF"), n
+                      r.length ? (n.text = r.join('')) : (n.type = 'TK_EOF'), n
                     );
                 }
                 return (
-                  ("script" !== c && "style" !== c) || (f = r.join("")),
-                  (2 < r.length && "/" === r[r.length - 2]) ||
+                  ('script' !== c && 'style' !== c) || (f = r.join('')),
+                  (2 < r.length && '/' === r[r.length - 2]) ||
                   this.Utils.in_array(c, this.Utils.single_token)
-                    ? ((n.type = "TK_TAG_SINGLE"), (n.is_closing_tag = !0))
-                    : S && "{" === e && "else" === c
-                    ? (this.indent_to_tag("if"),
-                      (n.type = "TK_TAG_HANDLEBARS_ELSE"),
+                    ? ((n.type = 'TK_TAG_SINGLE'), (n.is_closing_tag = !0))
+                    : S && '{' === e && 'else' === c
+                    ? (this.indent_to_tag('if'),
+                      (n.type = 'TK_TAG_HANDLEBARS_ELSE'),
                       (this.indent_content = !0),
                       this.traverse_whitespace())
                     : S &&
-                      "{" === e &&
+                      '{' === e &&
                       (r.length < 2 || /[^#\^\/]/.test(r[2].charAt(0)))
-                    ? ((n.type = "TK_TAG_SINGLE"), (n.is_closing_tag = !0))
+                    ? ((n.type = 'TK_TAG_SINGLE'), (n.is_closing_tag = !0))
                     : n.is_unformatted || n.is_content_unformatted
                     ? ((i = this.get_unformatted(
-                        new RegExp("</" + c + ">", "ig")
+                        new RegExp('</' + c + '>', 'ig')
                       )),
                       r.push(i),
-                      (n.type = "TK_TAG_SINGLE"),
+                      (n.type = 'TK_TAG_SINGLE'),
                       (n.is_closing_tag = !0))
-                    : "script" === c &&
-                      (-1 === f.search("type") ||
-                        (-1 < f.search("type") &&
+                    : 'script' === c &&
+                      (-1 === f.search('type') ||
+                        (-1 < f.search('type') &&
                           -1 <
                             f.search(
                               /\b(text|application|dojo)\/(x-)?(javascript|ecmascript|jscript|livescript|(ld\+)?json|method|aspect)/
                             )))
-                    ? (this.record_tag(c), (n.type = "TK_TAG_SCRIPT"))
-                    : "style" === c &&
-                      (-1 === f.search("type") ||
-                        (-1 < f.search("type") && -1 < f.search("text/css")))
-                    ? (this.record_tag(c), (n.type = "TK_TAG_STYLE"))
-                    : "!" === c.charAt(0)
-                    ? ((n.type = "TK_TAG_SINGLE"), this.traverse_whitespace())
+                    ? (this.record_tag(c), (n.type = 'TK_TAG_SCRIPT'))
+                    : 'style' === c &&
+                      (-1 === f.search('type') ||
+                        (-1 < f.search('type') && -1 < f.search('text/css')))
+                    ? (this.record_tag(c), (n.type = 'TK_TAG_STYLE'))
+                    : '!' === c.charAt(0)
+                    ? ((n.type = 'TK_TAG_SINGLE'), this.traverse_whitespace())
                     : (n.is_closing_tag
                         ? ((n.start_tag_token = this.retrieve_tag(
                             c.substring(1)
                           )),
-                          (n.type = "TK_TAG_END"))
+                          (n.type = 'TK_TAG_END'))
                         : (this.record_tag(c, n),
-                          "html" !== c && (this.indent_content = !0),
-                          (n.type = "TK_TAG_START"),
+                          'html' !== c && (this.indent_content = !0),
+                          (n.type = 'TK_TAG_START'),
                           (n.is_opening_tag = !0)),
                       this.traverse_whitespace() && this.space_or_wrap(r),
                       this.Utils.in_array(c, this.Utils.extra_liners) &&
                         (this.print_newline(!1, this.output),
                         this.output.length &&
-                          "\n" !== this.output[this.output.length - 2] &&
+                          '\n' !== this.output[this.output.length - 2] &&
                           this.print_newline(!0, this.output))),
-                  (n.text = r.join("")),
+                  (n.text = r.join('')),
                   n
                 );
               }),
               (this.get_comment = function () {
                 for (
-                  var e = "", t = ">", n = !1, r = this.input.next();
+                  var e = '', t = '>', n = !1, r = this.input.next();
                   r &&
                   ((e += r).charAt(e.length - 1) !== t.charAt(t.length - 1) ||
                     -1 === e.indexOf(t));
@@ -7500,30 +7500,30 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                 )
                   n ||
                     ((n = 10 < e.length),
-                    0 === e.indexOf("<![if")
-                      ? ((t = "<![endif]>"), (n = !0))
-                      : 0 === e.indexOf("<![cdata[")
-                      ? ((t = "]]>"), (n = !0))
-                      : 0 === e.indexOf("<![")
-                      ? ((t = "]>"), (n = !0))
-                      : 0 === e.indexOf("\x3c!--")
-                      ? ((t = "--\x3e"), (n = !0))
-                      : 0 === e.indexOf("{{!--")
-                      ? ((t = "--}}"), (n = !0))
-                      : 0 === e.indexOf("{{!")
+                    0 === e.indexOf('<![if')
+                      ? ((t = '<![endif]>'), (n = !0))
+                      : 0 === e.indexOf('<![cdata[')
+                      ? ((t = ']]>'), (n = !0))
+                      : 0 === e.indexOf('<![')
+                      ? ((t = ']>'), (n = !0))
+                      : 0 === e.indexOf('\x3c!--')
+                      ? ((t = '--\x3e'), (n = !0))
+                      : 0 === e.indexOf('{{!--')
+                      ? ((t = '--}}'), (n = !0))
+                      : 0 === e.indexOf('{{!')
                       ? 5 === e.length &&
-                        -1 === e.indexOf("{{!--") &&
-                        ((t = "}}"), (n = !0))
-                      : 0 === e.indexOf("<?")
-                      ? ((t = "?>"), (n = !0))
-                      : 0 === e.indexOf("<%") && ((t = "%>"), (n = !0))),
+                        -1 === e.indexOf('{{!--') &&
+                        ((t = '}}'), (n = !0))
+                      : 0 === e.indexOf('<?')
+                      ? ((t = '?>'), (n = !0))
+                      : 0 === e.indexOf('<%') && ((t = '%>'), (n = !0))),
                     (r = this.input.next());
                 return e;
               }),
               (this.get_unformatted = function (e) {
                 var t,
-                  n = "",
-                  r = "";
+                  n = '',
+                  r = '';
                 if ('"' === e || "'" === e)
                   for (
                     var i = '"' === e ? /"|{{/g : /'|{{/g;
@@ -7536,7 +7536,7 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       (n += this.input.readUntilAfter(/}}/g));
                 else n = this.input.readUntilAfter(e);
                 return (
-                  -1 !== (t = n.lastIndexOf("\n"))
+                  -1 !== (t = n.lastIndexOf('\n'))
                     ? (this.line_char_count = n.length - t)
                     : (this.line_char_count += n.length),
                   n
@@ -7545,29 +7545,29 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               (this.get_token = function () {
                 var e;
                 if (
-                  "TK_TAG_SCRIPT" === this.last_token.type ||
-                  "TK_TAG_STYLE" === this.last_token.type
+                  'TK_TAG_SCRIPT' === this.last_token.type ||
+                  'TK_TAG_STYLE' === this.last_token.type
                 ) {
                   var t = this.last_token.type.substr(7);
                   e = this.get_contents_to(t);
                 } else
-                  "CONTENT" === this.current_mode
-                    ? "" === (e = this.get_content()).text &&
+                  'CONTENT' === this.current_mode
+                    ? '' === (e = this.get_content()).text &&
                       (e = this.get_tag())
-                    : "TAG" === this.current_mode && (e = this.get_tag());
+                    : 'TAG' === this.current_mode && (e = this.get_tag());
                 return e;
               }),
               (this.get_full_indent = function (e) {
                 return (e = this.indent_level + e || 0) < 1
-                  ? ""
+                  ? ''
                   : Array(e + 1).join(this.indent_string);
               }),
               (this.printer = function (e, t, n, r, i) {
-                (e = (e = e || "").replace(/\r\n|[\r\u2028\u2029]/g, "\n")),
+                (e = (e = e || '').replace(/\r\n|[\r\u2028\u2029]/g, '\n')),
                   (this.input = new l(e)),
                   (this.output = []),
                   (this.indent_character = t),
-                  (this.indent_string = ""),
+                  (this.indent_string = ''),
                   (this.indent_size = n),
                   (this.brace_style = i),
                   (this.indent_level = 0),
@@ -7581,11 +7581,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                 (this.print_newline = function (e, t) {
                   t &&
                     t.length &&
-                    (e || "\n" !== t[t.length - 1]) &&
+                    (e || '\n' !== t[t.length - 1]) &&
                     ((this.line_char_count = 0),
-                    "\n" !== t[t.length - 1] &&
+                    '\n' !== t[t.length - 1] &&
                       (t[t.length - 1] = d(t[t.length - 1])),
-                    t.push("\n"));
+                    t.push('\n'));
                 }),
                   (this.print_indentation = function (e) {
                     for (var t = 0; t < this.indent_level; t++)
@@ -7594,18 +7594,18 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                   }),
                   (this.print_token = function (e) {
                     (this.is_whitespace(e) && !this.output.length) ||
-                      ((e || "" !== e) &&
+                      ((e || '' !== e) &&
                         this.output.length &&
-                        "\n" === this.output[this.output.length - 1] &&
+                        '\n' === this.output[this.output.length - 1] &&
                         (this.print_indentation(this.output),
-                        (e = e.replace(/^\s+/g, ""))),
+                        (e = e.replace(/^\s+/g, ''))),
                       this.print_token_raw(e));
                   }),
                   (this.print_token_raw = function (e) {
                     0 < this.newlines && (e = d(e)),
                       e &&
-                        "" !== e &&
-                        (1 < e.length && "\n" === e.charAt(e.length - 1)
+                        '' !== e &&
+                        (1 < e.length && '\n' === e.charAt(e.length - 1)
                           ? (this.output.push(e.slice(0, -1)),
                             this.print_newline(!1, this.output))
                           : this.output.push(e));
@@ -7623,8 +7623,8 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
               this
             );
           }
-          (h = h || ""),
-            (void 0 !== (f = s((f = f || {}), "html")).wrap_line_length &&
+          (h = h || ''),
+            (void 0 !== (f = s((f = f || {}), 'html')).wrap_line_length &&
               0 !== parseInt(f.wrap_line_length, 10)) ||
               void 0 === f.max_char ||
               0 === parseInt(f.max_char, 10) ||
@@ -7635,76 +7635,76 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
             (n =
               void 0 === f.indent_head_inner_html || f.indent_head_inner_html),
             (v = void 0 === f.indent_size ? 4 : parseInt(f.indent_size, 10)),
-            (y = void 0 === f.indent_char ? " " : f.indent_char),
-            (w = void 0 === f.brace_style ? "collapse" : f.brace_style),
+            (y = void 0 === f.indent_char ? ' ' : f.indent_char),
+            (w = void 0 === f.brace_style ? 'collapse' : f.brace_style),
             (T =
               0 === parseInt(f.wrap_line_length, 10)
                 ? 32786
                 : parseInt(f.wrap_line_length || 250, 10)),
             (_ = f.inline || [
-              "a",
-              "abbr",
-              "area",
-              "audio",
-              "b",
-              "bdi",
-              "bdo",
-              "br",
-              "button",
-              "canvas",
-              "cite",
-              "code",
-              "data",
-              "datalist",
-              "del",
-              "dfn",
-              "em",
-              "embed",
-              "i",
-              "iframe",
-              "img",
-              "input",
-              "ins",
-              "kbd",
-              "keygen",
-              "label",
-              "map",
-              "mark",
-              "math",
-              "meter",
-              "noscript",
-              "object",
-              "output",
-              "progress",
-              "q",
-              "ruby",
-              "s",
-              "samp",
-              "select",
-              "small",
-              "span",
-              "strong",
-              "sub",
-              "sup",
-              "svg",
-              "template",
-              "textarea",
-              "time",
-              "u",
-              "var",
-              "video",
-              "wbr",
-              "text",
-              "acronym",
-              "address",
-              "big",
-              "dt",
-              "ins",
-              "strike",
-              "tt",
+              'a',
+              'abbr',
+              'area',
+              'audio',
+              'b',
+              'bdi',
+              'bdo',
+              'br',
+              'button',
+              'canvas',
+              'cite',
+              'code',
+              'data',
+              'datalist',
+              'del',
+              'dfn',
+              'em',
+              'embed',
+              'i',
+              'iframe',
+              'img',
+              'input',
+              'ins',
+              'kbd',
+              'keygen',
+              'label',
+              'map',
+              'mark',
+              'math',
+              'meter',
+              'noscript',
+              'object',
+              'output',
+              'progress',
+              'q',
+              'ruby',
+              's',
+              'samp',
+              'select',
+              'small',
+              'span',
+              'strong',
+              'sub',
+              'sup',
+              'svg',
+              'template',
+              'textarea',
+              'time',
+              'u',
+              'var',
+              'video',
+              'wbr',
+              'text',
+              'acronym',
+              'address',
+              'big',
+              'dt',
+              'ins',
+              'strike',
+              'tt',
             ]),
             (x = f.unformatted || []),
-            (k = f.content_unformatted || ["pre", "textarea"]),
+            (k = f.content_unformatted || ['pre', 'textarea']),
             (r = void 0 === f.preserve_newlines || f.preserve_newlines),
             (i = r
               ? isNaN(parseInt(f.max_preserve_newlines, 10))
@@ -7712,66 +7712,66 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                 : parseInt(f.max_preserve_newlines, 10)
               : 0),
             (S = void 0 !== f.indent_handlebars && f.indent_handlebars),
-            (a = void 0 === f.wrap_attributes ? "auto" : f.wrap_attributes),
+            (a = void 0 === f.wrap_attributes ? 'auto' : f.wrap_attributes),
             (E = isNaN(parseInt(f.wrap_attributes_indent_size, 10))
               ? v
               : parseInt(f.wrap_attributes_indent_size, 10)),
-            (A = "force" === a.substr(0, "force".length)),
-            (C = "force-expand-multiline" === a),
-            (q = "force-aligned" === a),
-            (L = "aligned-multiple" === a),
+            (A = 'force' === a.substr(0, 'force'.length)),
+            (C = 'force-expand-multiline' === a),
+            (q = 'force-aligned' === a),
+            (L = 'aligned-multiple' === a),
             (O = void 0 !== f.end_with_newline && f.end_with_newline),
             (o =
-              "object" == typeof f.extra_liners && f.extra_liners
+              'object' == typeof f.extra_liners && f.extra_liners
                 ? f.extra_liners.concat()
-                : "string" == typeof f.extra_liners
-                ? f.extra_liners.split(",")
-                : "head,body,/html".split(",")),
-            (I = f.eol ? f.eol : "auto"),
-            f.indent_with_tabs && ((y = "\t"), (v = 1)),
-            "auto" === I &&
-              ((I = "\n"), h && c.test(h || "") && (I = h.match(c)[0])),
-            (I = I.replace(/\\r/, "\r").replace(/\\n/, "\n")),
-            (h = h.replace(u, "\n")),
+                : 'string' == typeof f.extra_liners
+                ? f.extra_liners.split(',')
+                : 'head,body,/html'.split(',')),
+            (I = f.eol ? f.eol : 'auto'),
+            f.indent_with_tabs && ((y = '\t'), (v = 1)),
+            'auto' === I &&
+              ((I = '\n'), h && c.test(h || '') && (I = h.match(c)[0])),
+            (I = I.replace(/\\r/, '\r').replace(/\\n/, '\n')),
+            (h = h.replace(u, '\n')),
             (this.beautify = function () {
               (b = new D()).printer(h, y, v, T, w);
               for (
                 var e = null,
                   t = {
-                    text: "",
-                    type: "",
-                    tag_name: "",
+                    text: '',
+                    type: '',
+                    tag_name: '',
                     is_opening_tag: !1,
                     is_closing_tag: !1,
                     is_inline_tag: !1,
                   };
-                "TK_EOF" !== (e = b.get_token()).type;
+                'TK_EOF' !== (e = b.get_token()).type;
 
               ) {
                 switch (e.type) {
-                  case "TK_TAG_START":
+                  case 'TK_TAG_START':
                     e.is_inline_tag ||
-                      "TK_CONTENT" === b.last_token.type ||
+                      'TK_CONTENT' === b.last_token.type ||
                       (e.parent && (e.parent.multiline_content = !0),
                       b.print_newline(!1, b.output)),
                       b.print_token(e.text),
                       b.indent_content &&
-                        ((!b.indent_body_inner_html && "body" === e.tag_name) ||
+                        ((!b.indent_body_inner_html && 'body' === e.tag_name) ||
                           (!b.indent_head_inner_html &&
-                            "head" === e.tag_name) ||
+                            'head' === e.tag_name) ||
                           b.indent(),
                         (b.indent_content = !1)),
                       (t = e),
-                      (b.current_mode = "CONTENT");
+                      (b.current_mode = 'CONTENT');
                     break;
-                  case "TK_TAG_STYLE":
-                  case "TK_TAG_SCRIPT":
+                  case 'TK_TAG_STYLE':
+                  case 'TK_TAG_SCRIPT':
                     b.print_newline(!1, b.output),
                       b.print_token(e.text),
                       (t = e),
-                      (b.current_mode = "CONTENT");
+                      (b.current_mode = 'CONTENT');
                     break;
-                  case "TK_TAG_END":
+                  case 'TK_TAG_END':
                     ((e.start_tag_token &&
                       e.start_tag_token.multiline_content) ||
                       !(
@@ -7781,28 +7781,28 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                           t.is_opening_tag &&
                           e.is_closing_tag &&
                           t.tag_name === e.tag_name) ||
-                        "TK_CONTENT" === b.last_token.type
+                        'TK_CONTENT' === b.last_token.type
                       )) &&
                       b.print_newline(!1, b.output),
                       b.print_token(e.text),
                       (t = e),
-                      (b.current_mode = "CONTENT");
+                      (b.current_mode = 'CONTENT');
                     break;
-                  case "TK_TAG_SINGLE":
-                    ("!--" === e.tag_name &&
+                  case 'TK_TAG_SINGLE':
+                    ('!--' === e.tag_name &&
                       b.last_token.is_closing_tag &&
-                      -1 === e.text.indexOf("\n")) ||
+                      -1 === e.text.indexOf('\n')) ||
                       e.is_inline_tag ||
                       e.is_unformatted ||
                       b.print_newline(!1, b.output),
                       b.print_token(e.text),
                       (t = e),
-                      (b.current_mode = "CONTENT");
+                      (b.current_mode = 'CONTENT');
                     break;
-                  case "TK_TAG_HANDLEBARS_ELSE":
+                  case 'TK_TAG_HANDLEBARS_ELSE':
                     for (
                       var n = !1, r = b.output.length - 1;
-                      0 <= r && "\n" !== b.output[r];
+                      0 <= r && '\n' !== b.output[r];
                       r--
                     )
                       if (b.output[r].match(/{{#if/)) {
@@ -7813,36 +7813,36 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                       b.print_token(e.text),
                       b.indent_content && (b.indent(), (b.indent_content = !1)),
                       (t = e),
-                      (b.current_mode = "CONTENT");
+                      (b.current_mode = 'CONTENT');
                     break;
-                  case "TK_TAG_HANDLEBARS_COMMENT":
-                    b.print_token(e.text), (b.current_mode = "TAG");
+                  case 'TK_TAG_HANDLEBARS_COMMENT':
+                    b.print_token(e.text), (b.current_mode = 'TAG');
                     break;
-                  case "TK_CONTENT":
+                  case 'TK_CONTENT':
                     if (
-                      (b.print_token(e.text), (b.current_mode = "TAG"), !e.text)
+                      (b.print_token(e.text), (b.current_mode = 'TAG'), !e.text)
                     )
                       continue;
                     break;
-                  case "TK_STYLE":
-                  case "TK_SCRIPT":
-                    if ("" !== e.text) {
+                  case 'TK_STYLE':
+                  case 'TK_SCRIPT':
+                    if ('' !== e.text) {
                       b.print_newline(!1, b.output);
                       var i,
                         a = e.text,
                         o = 1;
-                      "TK_SCRIPT" === e.type
-                        ? (i = "function" == typeof g && g)
-                        : "TK_STYLE" === e.type &&
-                          (i = "function" == typeof m && m),
-                        "keep" === f.indent_scripts
+                      'TK_SCRIPT' === e.type
+                        ? (i = 'function' == typeof g && g)
+                        : 'TK_STYLE' === e.type &&
+                          (i = 'function' == typeof m && m),
+                        'keep' === f.indent_scripts
                           ? (o = 0)
-                          : "separate" === f.indent_scripts &&
+                          : 'separate' === f.indent_scripts &&
                             (o = -b.indent_level);
                       var s = b.get_full_indent(o);
                       if (i) {
                         var l = function () {
-                          this.eol = "\n";
+                          this.eol = '\n';
                         };
                         l.prototype = f;
                         var c = new l();
@@ -7856,83 +7856,83 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
                           d = b.get_full_indent(o - u);
                         a = a
                           .replace(/^\s*/, s)
-                          .replace(/\r\n|\r|\n/g, "\n" + d)
-                          .replace(/\s+$/, "");
+                          .replace(/\r\n|\r|\n/g, '\n' + d)
+                          .replace(/\s+$/, '');
                       }
                       a &&
                         (b.print_token_raw(a), b.print_newline(!0, b.output));
                     }
-                    b.current_mode = "TAG";
+                    b.current_mode = 'TAG';
                     break;
                   default:
-                    "" !== e.text && b.print_token(e.text);
+                    '' !== e.text && b.print_token(e.text);
                 }
                 b.last_token = e;
               }
-              var p = b.output.join("").replace(/[\r\n\t ]+$/, "");
+              var p = b.output.join('').replace(/[\r\n\t ]+$/, '');
               return (
-                O && (p += "\n"), "\n" !== I && (p = p.replace(/[\n]/g, I)), p
+                O && (p += '\n'), '\n' !== I && (p = p.replace(/[\n]/g, I)), p
               );
             });
         };
       },
     ]);
-    if ("function" == typeof define && define.amd)
-      define("vscode-html-languageservice/beautify/beautify-html", [
-        "require",
-        "./beautify",
-        "./beautify-css",
+    if ('function' == typeof define && define.amd)
+      define('vscode-html-languageservice/beautify/beautify-html', [
+        'require',
+        './beautify',
+        './beautify-css',
       ], function (e) {
-        var n = e("./beautify"),
-          r = e("./beautify-css");
+        var n = e('./beautify'),
+          r = e('./beautify-css');
         return {
           html_beautify: function (e, t) {
             return i(e, t, n.js_beautify, r.css_beautify);
           },
         };
       });
-    else if ("undefined" != typeof exports) {
-      var n = require("./beautify.js"),
-        r = require("./beautify-css.js");
+    else if ('undefined' != typeof exports) {
+      var n = require('./beautify.js'),
+        r = require('./beautify-css.js');
       exports.html_beautify = function (e, t) {
         return i(e, t, n.js_beautify, r.css_beautify);
       };
     } else
-      "undefined" != typeof window
+      'undefined' != typeof window
         ? (window.html_beautify = function (e, t) {
             return i(e, t, window.js_beautify, window.css_beautify);
           })
-        : "undefined" != typeof global &&
+        : 'undefined' != typeof global &&
           (global.html_beautify = function (e, t) {
             return i(e, t, global.js_beautify, global.css_beautify);
           });
   })(),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/htmlFormatter",
+          'vscode-html-languageservice/services/htmlFormatter',
           [
-            "require",
-            "exports",
-            "vscode-languageserver-types",
-            "../beautify/beautify-html",
-            "../utils/strings",
+            'require',
+            'exports',
+            'vscode-languageserver-types',
+            '../beautify/beautify-html',
+            '../utils/strings',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var g = e("vscode-languageserver-types"),
-      m = e("../beautify/beautify-html"),
-      b = e("../utils/strings");
+    var g = e('vscode-languageserver-types'),
+      m = e('../beautify/beautify-html'),
+      b = e('../utils/strings');
 
     function v(e, t, n) {
       if (e && e.hasOwnProperty(t)) {
@@ -7944,9 +7944,9 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
 
     function y(e, t, n) {
       var r = v(e, t, null);
-      return "string" == typeof r
+      return 'string' == typeof r
         ? 0 < r.length
-          ? r.split(",").map(function (e) {
+          ? r.split(',').map(function (e) {
               return e.trim().toLowerCase();
             })
           : []
@@ -7954,11 +7954,11 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
     }
 
     function T(e, t) {
-      return -1 !== "\r\n".indexOf(e.charAt(t));
+      return -1 !== '\r\n'.indexOf(e.charAt(t));
     }
 
     function w(e, t) {
-      return -1 !== " \t".indexOf(e.charAt(t));
+      return -1 !== ' \t'.indexOf(e.charAt(t));
     }
     t.format = function (e, t, n) {
       var r = e.getText(),
@@ -7980,9 +7980,9 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
           a = (function (e, t, n) {
             for (var r = t, i = 0, a = n.tabSize || 4; r < e.length; ) {
               var o = e.charAt(r);
-              if (" " === o) i++;
+              if (' ' === o) i++;
               else {
-                if ("\t" !== o) break;
+                if ('\t' !== o) break;
                 i += a;
               }
               r++;
@@ -7994,24 +7994,24 @@ define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
         t = g.Range.create(g.Position.create(0, 0), e.positionAt(r.length));
       var p = {
           indent_size: n.insertSpaces ? o : 1,
-          indent_char: n.insertSpaces ? " " : "\t",
-          wrap_line_length: v(n, "wrapLineLength", 120),
-          unformatted: y(n, "unformatted", void 0),
-          content_unformatted: y(n, "contentUnformatted", void 0),
-          indent_inner_html: v(n, "indentInnerHtml", !1),
-          preserve_newlines: v(n, "preserveNewLines", !0),
-          max_preserve_newlines: v(n, "maxPreserveNewLines", 32786),
-          indent_handlebars: v(n, "indentHandlebars", !1),
-          end_with_newline: i && v(n, "endWithNewline", !1),
-          extra_liners: y(n, "extraLiners", void 0),
-          wrap_attributes: v(n, "wrapAttributes", "auto"),
-          wrap_attributes_indent_size: v(n, "wrapAttributesIndentSize", void 0),
-          eol: "\n",
+          indent_char: n.insertSpaces ? ' ' : '\t',
+          wrap_line_length: v(n, 'wrapLineLength', 120),
+          unformatted: y(n, 'unformatted', void 0),
+          content_unformatted: y(n, 'contentUnformatted', void 0),
+          indent_inner_html: v(n, 'indentInnerHtml', !1),
+          preserve_newlines: v(n, 'preserveNewLines', !0),
+          max_preserve_newlines: v(n, 'maxPreserveNewLines', 32786),
+          indent_handlebars: v(n, 'indentHandlebars', !1),
+          end_with_newline: i && v(n, 'endWithNewline', !1),
+          extra_liners: y(n, 'extraLiners', void 0),
+          wrap_attributes: v(n, 'wrapAttributes', 'auto'),
+          wrap_attributes_indent_size: v(n, 'wrapAttributesIndentSize', void 0),
+          eol: '\n',
         },
         h = m.html_beautify(r, p);
       if (0 < a) {
-        var f = n.insertSpaces ? b.repeat(" ", o * a) : b.repeat("\t", a);
-        (h = h.split("\n").join("\n" + f)),
+        var f = n.insertSpaces ? b.repeat(' ', o * a) : b.repeat('\t', a);
+        (h = h.split('\n').join('\n' + f)),
           0 === t.start.character && (h = f + h);
       }
       return [
@@ -8048,58 +8048,58 @@ var __extends =
     };
   })();
 !(function (e) {
-  if ("object" == typeof module && "object" == typeof module.exports) {
+  if ('object' == typeof module && 'object' == typeof module.exports) {
     var t = e(require, exports);
     void 0 !== t && (module.exports = t);
   } else
-    "function" == typeof define &&
+    'function' == typeof define &&
       define.amd &&
-      define("vscode-uri/index", ["require", "exports"], e);
+      define('vscode-uri/index', ['require', 'exports'], e);
 })(function (e, t) {
-  "use strict";
+  'use strict';
   var r;
   if (
-    (Object.defineProperty(t, "__esModule", {
+    (Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
-    "object" == typeof process)
+    'object' == typeof process)
   )
-    r = "win32" === process.platform;
-  else if ("object" == typeof navigator) {
+    r = 'win32' === process.platform;
+  else if ('object' == typeof navigator) {
     var n = navigator.userAgent;
-    r = 0 <= n.indexOf("Windows");
+    r = 0 <= n.indexOf('Windows');
   }
   var a = /^\w[\w\d+.-]*$/,
     o = /^\//,
     s = /^\/\//;
   var i,
-    p = "/",
+    p = '/',
     l = /^(([^:/?#]+?):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/,
     c = (function () {
       function n(e, t, n, r, i) {
-        "object" == typeof e
-          ? ((this.scheme = e.scheme || ""),
-            (this.authority = e.authority || ""),
-            (this.path = e.path || ""),
-            (this.query = e.query || ""),
-            (this.fragment = e.fragment || ""))
-          : ((this.scheme = e || ""),
-            (this.authority = t || ""),
+        'object' == typeof e
+          ? ((this.scheme = e.scheme || ''),
+            (this.authority = e.authority || ''),
+            (this.path = e.path || ''),
+            (this.query = e.query || ''),
+            (this.fragment = e.fragment || ''))
+          : ((this.scheme = e || ''),
+            (this.authority = t || ''),
             (this.path = (function (e, t) {
               switch (e) {
-                case "https":
-                case "http":
-                case "file":
+                case 'https':
+                case 'http':
+                case 'file':
                   t ? t[0] !== p && (t = p + t) : (t = p);
               }
               return t;
-            })(this.scheme, n || "")),
-            (this.query = r || ""),
-            (this.fragment = i || ""),
+            })(this.scheme, n || '')),
+            (this.query = r || ''),
+            (this.fragment = i || ''),
             (function (e) {
               if (e.scheme && !a.test(e.scheme))
                 throw new Error(
-                  "[UriError]: Scheme contains illegal characters."
+                  '[UriError]: Scheme contains illegal characters.'
                 );
               if (e.path)
                 if (e.authority) {
@@ -8118,14 +8118,14 @@ var __extends =
           return (
             e instanceof n ||
             (!!e &&
-              "string" == typeof e.authority &&
-              "string" == typeof e.fragment &&
-              "string" == typeof e.path &&
-              "string" == typeof e.query &&
-              "string" == typeof e.scheme)
+              'string' == typeof e.authority &&
+              'string' == typeof e.fragment &&
+              'string' == typeof e.path &&
+              'string' == typeof e.query &&
+              'string' == typeof e.scheme)
           );
         }),
-        Object.defineProperty(n.prototype, "fsPath", {
+        Object.defineProperty(n.prototype, 'fsPath', {
           get: function () {
             return g(this);
           },
@@ -8140,11 +8140,11 @@ var __extends =
             i = e.query,
             a = e.fragment;
           return (
-            void 0 === t ? (t = this.scheme) : null === t && (t = ""),
-            void 0 === n ? (n = this.authority) : null === n && (n = ""),
-            void 0 === r ? (r = this.path) : null === r && (r = ""),
-            void 0 === i ? (i = this.query) : null === i && (i = ""),
-            void 0 === a ? (a = this.fragment) : null === a && (a = ""),
+            void 0 === t ? (t = this.scheme) : null === t && (t = ''),
+            void 0 === n ? (n = this.authority) : null === n && (n = ''),
+            void 0 === r ? (r = this.path) : null === r && (r = ''),
+            void 0 === i ? (i = this.query) : null === i && (i = ''),
+            void 0 === a ? (a = this.fragment) : null === a && (a = ''),
             t === this.scheme &&
             n === this.authority &&
             r === this.path &&
@@ -8158,23 +8158,23 @@ var __extends =
           var t = l.exec(e);
           return t
             ? new u(
-                t[2] || "",
-                decodeURIComponent(t[4] || ""),
-                decodeURIComponent(t[5] || ""),
-                decodeURIComponent(t[7] || ""),
-                decodeURIComponent(t[9] || "")
+                t[2] || '',
+                decodeURIComponent(t[4] || ''),
+                decodeURIComponent(t[5] || ''),
+                decodeURIComponent(t[7] || ''),
+                decodeURIComponent(t[9] || '')
               )
-            : new u("", "", "", "", "");
+            : new u('', '', '', '', '');
         }),
         (n.file = function (e) {
-          var t = "";
+          var t = '';
           if ((r && (e = e.replace(/\\/g, p)), e[0] === p && e[1] === p)) {
             var n = e.indexOf(p, 2);
             -1 === n
               ? ((t = e.substring(2)), (e = p))
               : ((t = e.substring(2, n)), (e = e.substring(n) || p));
           }
-          return new u("file", t, e, "", "");
+          return new u('file', t, e, '', '');
         }),
         (n.from = function (e) {
           return new u(e.scheme, e.authority, e.path, e.query, e.fragment);
@@ -8203,7 +8203,7 @@ var __extends =
       }
       return (
         __extends(e, t),
-        Object.defineProperty(e.prototype, "fsPath", {
+        Object.defineProperty(e.prototype, 'fsPath', {
           get: function () {
             return this._fsPath || (this._fsPath = g(this)), this._fsPath;
           },
@@ -8238,25 +8238,25 @@ var __extends =
       );
     })((t.default = c)),
     d =
-      (((i = {})[58] = "%3A"),
-      (i[47] = "%2F"),
-      (i[63] = "%3F"),
-      (i[35] = "%23"),
-      (i[91] = "%5B"),
-      (i[93] = "%5D"),
-      (i[64] = "%40"),
-      (i[33] = "%21"),
-      (i[36] = "%24"),
-      (i[38] = "%26"),
-      (i[39] = "%27"),
-      (i[40] = "%28"),
-      (i[41] = "%29"),
-      (i[42] = "%2A"),
-      (i[43] = "%2B"),
-      (i[44] = "%2C"),
-      (i[59] = "%3B"),
-      (i[61] = "%3D"),
-      (i[32] = "%20"),
+      (((i = {})[58] = '%3A'),
+      (i[47] = '%2F'),
+      (i[63] = '%3F'),
+      (i[35] = '%23'),
+      (i[91] = '%5B'),
+      (i[93] = '%5D'),
+      (i[64] = '%40'),
+      (i[33] = '%21'),
+      (i[36] = '%24'),
+      (i[38] = '%26'),
+      (i[39] = '%27'),
+      (i[40] = '%28'),
+      (i[41] = '%29'),
+      (i[42] = '%2A'),
+      (i[43] = '%2B'),
+      (i[44] = '%2C'),
+      (i[59] = '%3B'),
+      (i[61] = '%3D'),
+      (i[32] = '%20'),
       i);
 
   function h(e, t) {
@@ -8304,44 +8304,44 @@ var __extends =
     var t;
     return (
       (t =
-        e.authority && 1 < e.path.length && "file" === e.scheme
-          ? "//" + e.authority + e.path
+        e.authority && 1 < e.path.length && 'file' === e.scheme
+          ? '//' + e.authority + e.path
           : 47 === e.path.charCodeAt(0) &&
             ((65 <= e.path.charCodeAt(1) && e.path.charCodeAt(1) <= 90) ||
               (97 <= e.path.charCodeAt(1) && e.path.charCodeAt(1) <= 122)) &&
             58 === e.path.charCodeAt(2)
           ? e.path[1].toLowerCase() + e.path.substr(2)
           : e.path),
-      r && (t = t.replace(/\//g, "\\")),
+      r && (t = t.replace(/\//g, '\\')),
       t
     );
   }
 
   function m(e, t) {
     var n = t ? f : h,
-      r = "",
+      r = '',
       i = e.scheme,
       a = e.authority,
       o = e.path,
       s = e.query,
       l = e.fragment;
     if (
-      (i && ((r += i), (r += ":")),
-      (a || "file" === i) && ((r += p), (r += p)),
+      (i && ((r += i), (r += ':')),
+      (a || 'file' === i) && ((r += p), (r += p)),
       a)
     ) {
-      var c = a.indexOf("@");
+      var c = a.indexOf('@');
       if (-1 !== c) {
         var u = a.substr(0, c);
         (a = a.substr(c + 1)),
-          -1 === (c = u.indexOf(":"))
+          -1 === (c = u.indexOf(':'))
             ? (r += n(u, !1))
             : ((r += n(u.substr(0, c), !1)),
-              (r += ":"),
+              (r += ':'),
               (r += n(u.substr(c + 1), !1))),
-          (r += "@");
+          (r += '@');
       }
-      -1 === (c = (a = a.toLowerCase()).indexOf(":"))
+      -1 === (c = (a = a.toLowerCase()).indexOf(':'))
         ? (r += n(a, !1))
         : ((r += n(a.substr(0, c), !1)), (r += a.substr(c)));
     }
@@ -8349,53 +8349,53 @@ var __extends =
       if (3 <= o.length && 47 === o.charCodeAt(0) && 58 === o.charCodeAt(2))
         65 <= (d = o.charCodeAt(1)) &&
           d <= 90 &&
-          (o = "/" + String.fromCharCode(d + 32) + ":" + o.substr(3));
+          (o = '/' + String.fromCharCode(d + 32) + ':' + o.substr(3));
       else if (2 <= o.length && 58 === o.charCodeAt(1)) {
         var d;
         65 <= (d = o.charCodeAt(0)) &&
           d <= 90 &&
-          (o = String.fromCharCode(d + 32) + ":" + o.substr(2));
+          (o = String.fromCharCode(d + 32) + ':' + o.substr(2));
       }
       r += n(o, !0);
     }
     return (
-      s && ((r += "?"), (r += n(s, !1))), l && ((r += "#"), (r += n(l, !1))), r
+      s && ((r += '?'), (r += n(s, !1))), l && ((r += '#'), (r += n(l, !1))), r
     );
   }
 }),
-  define("vscode-uri", ["vscode-uri/index"], function (e) {
+  define('vscode-uri', ['vscode-uri/index'], function (e) {
     return e;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/htmlLinks",
+          'vscode-html-languageservice/services/htmlLinks',
           [
-            "require",
-            "exports",
-            "../parser/htmlScanner",
-            "vscode-languageserver-types",
-            "../utils/strings",
-            "vscode-uri",
-            "../htmlLanguageTypes",
+            'require',
+            'exports',
+            '../parser/htmlScanner',
+            'vscode-languageserver-types',
+            '../utils/strings',
+            'vscode-uri',
+            '../htmlLanguageTypes',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var d = e("../parser/htmlScanner"),
-      p = e("vscode-languageserver-types"),
-      h = e("../utils/strings"),
-      f = e("vscode-uri"),
-      g = e("../htmlLanguageTypes");
+    var d = e('../parser/htmlScanner'),
+      p = e('vscode-languageserver-types'),
+      h = e('../utils/strings'),
+      f = e('vscode-uri'),
+      g = e('../htmlLanguageTypes');
 
     function m(e, t) {
       var n = e[0];
@@ -8403,7 +8403,7 @@ var __extends =
         n !== e[e.length - 1] ||
           ("'" !== n && '"' !== n) ||
           (e = e.substr(1, e.length - 2)),
-        "razor" === t && "~" === e[0] && (e = e.substr(1)),
+        'razor' === t && '~' === e[0] && (e = e.substr(1)),
         e
       );
     }
@@ -8413,8 +8413,8 @@ var __extends =
       if (
         !(function (e, t) {
           if (!e.length) return !1;
-          if ("handlebars" === t && /{{.*}}/.test(e)) return !1;
-          if ("razor" === t && /@/.test(e)) return !1;
+          if ('handlebars' === t && /{{.*}}/.test(e)) return !1;
+          if ('razor' === t && /@/.test(e)) return !1;
           try {
             return !!f.default.parse(e);
           } catch (e) {
@@ -8436,13 +8436,13 @@ var __extends =
           /^\s*\#/i.test(l) ||
           /[\n\r]/.test(l)
             ? null
-            : ((l = l.replace(/^\s*/g, "")),
+            : ((l = l.replace(/^\s*/g, '')),
               /^https?:\/\//i.test(l) || /^file:\/\//i.test(l)
                 ? l
                 : /^\/\//i.test(l)
-                ? (h.startsWith(s, "https://") ? "https" : "http") +
-                  ":" +
-                  l.replace(/^\s*/g, "")
+                ? (h.startsWith(s, 'https://') ? 'https' : 'http') +
+                  ':' +
+                  l.replace(/^\s*/g, '')
                 : c
                 ? c.resolveReference(l, u || s)
                 : l));
@@ -8473,11 +8473,11 @@ var __extends =
       ) {
         switch (i) {
           case g.TokenType.StartTag:
-            s || (o = "base" === r.getTokenText().toLowerCase());
+            s || (o = 'base' === r.getTokenText().toLowerCase());
             break;
           case g.TokenType.AttributeName:
             var l = r.getTokenText().toLowerCase();
-            a = "src" === l || "href" === l;
+            a = 'src' === l || 'href' === l;
             break;
           case g.TokenType.AttributeValue:
             if (a) {
@@ -8500,31 +8500,31 @@ var __extends =
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/htmlHighlighting",
+          'vscode-html-languageservice/services/htmlHighlighting',
           [
-            "require",
-            "exports",
-            "../parser/htmlScanner",
-            "vscode-languageserver-types",
-            "../htmlLanguageTypes",
+            'require',
+            'exports',
+            '../parser/htmlScanner',
+            'vscode-languageserver-types',
+            '../htmlLanguageTypes',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var a = e("../parser/htmlScanner"),
-      l = e("vscode-languageserver-types"),
-      c = e("../htmlLanguageTypes");
+    var a = e('../parser/htmlScanner'),
+      l = e('vscode-languageserver-types'),
+      c = e('../htmlLanguageTypes');
 
     function n(e, t) {
       return (
@@ -8557,7 +8557,7 @@ var __extends =
       var a = [],
         o = d(c.TokenType.StartTag, e, i.start),
         s =
-          "number" == typeof i.endTagStart &&
+          'number' == typeof i.endTagStart &&
           d(c.TokenType.EndTag, e, i.endTagStart);
       return (
         ((o && u(o, t)) || (s && u(s, t))) &&
@@ -8576,23 +8576,23 @@ var __extends =
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/htmlSymbolsProvider",
-          ["require", "exports", "vscode-languageserver-types"],
+          'vscode-html-languageservice/services/htmlSymbolsProvider',
+          ['require', 'exports', 'vscode-languageserver-types'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var l = e("vscode-languageserver-types");
+    var l = e('vscode-languageserver-types');
     t.findDocumentSymbols = function (t, e) {
       var n = [];
       return (
@@ -8603,17 +8603,17 @@ var __extends =
                 if (e.attributes) {
                   var n = e.attributes.id,
                     r = e.attributes.class;
-                  n && (t += "#" + n.replace(/[\"\']/g, "")),
+                  n && (t += '#' + n.replace(/[\"\']/g, '')),
                     r &&
                       (t += r
-                        .replace(/[\"\']/g, "")
+                        .replace(/[\"\']/g, '')
                         .split(/\s+/)
                         .map(function (e) {
-                          return "." + e;
+                          return '.' + e;
                         })
-                        .join(""));
+                        .join(''));
                 }
-                return t || "?";
+                return t || '?';
               })(e),
               o = l.Location.create(
                 n.uri,
@@ -8629,40 +8629,40 @@ var __extends =
               e.children.forEach(function (e) {
                 t(n, e, a, i);
               });
-          })(t, e, "", n);
+          })(t, e, '', n);
         }),
         n
       );
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/services/htmlFolding",
+          'vscode-html-languageservice/services/htmlFolding',
           [
-            "require",
-            "exports",
-            "vscode-languageserver-types",
-            "../htmlLanguageTypes",
-            "../parser/htmlScanner",
-            "../parser/htmlTags",
+            'require',
+            'exports',
+            'vscode-languageserver-types',
+            '../htmlLanguageTypes',
+            '../parser/htmlScanner',
+            '../parser/htmlTags',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var b = e("vscode-languageserver-types"),
-      v = e("../htmlLanguageTypes"),
-      y = e("../parser/htmlScanner"),
-      T = e("../parser/htmlTags");
+    var b = e('vscode-languageserver-types'),
+      v = e('../htmlLanguageTypes'),
+      y = e('../parser/htmlScanner'),
+      T = e('../parser/htmlTags');
     t.getFoldingRanges = function (e, t) {
       var n = y.createScanner(e.getText()),
         r = n.scan(),
@@ -8712,7 +8712,7 @@ var __extends =
               if (f[1])
                 a.push({
                   startLine: u,
-                  tagName: "",
+                  tagName: '',
                 });
               else {
                 for (d = a.length - 1; 0 <= d && a[d].tagName.length; ) d--;
@@ -8787,7 +8787,7 @@ var __extends =
             var p = [];
             for (s = 0; s < e.length; s++) {
               var h = i[s];
-              "number" == typeof h &&
+              'number' == typeof h &&
                 (h < u || (h === u && c++ < t)) &&
                 p.push(e[s]);
             }
@@ -8798,51 +8798,51 @@ var __extends =
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-html-languageservice/htmlLanguageService",
+          'vscode-html-languageservice/htmlLanguageService',
           [
-            "require",
-            "exports",
-            "./parser/htmlScanner",
-            "./parser/htmlParser",
-            "./services/htmlCompletion",
-            "./services/htmlHover",
-            "./services/htmlFormatter",
-            "./services/htmlLinks",
-            "./services/htmlHighlighting",
-            "./services/htmlSymbolsProvider",
-            "./services/htmlFolding",
-            "./htmlLanguageTypes",
-            "vscode-languageserver-types",
+            'require',
+            'exports',
+            './parser/htmlScanner',
+            './parser/htmlParser',
+            './services/htmlCompletion',
+            './services/htmlHover',
+            './services/htmlFormatter',
+            './services/htmlLinks',
+            './services/htmlHighlighting',
+            './services/htmlSymbolsProvider',
+            './services/htmlFolding',
+            './htmlLanguageTypes',
+            'vscode-languageserver-types',
           ],
           e
         );
   })(function (e, n) {
-    "use strict";
+    'use strict';
 
     function t(e) {
       for (var t in e) n.hasOwnProperty(t) || (n[t] = e[t]);
     }
-    Object.defineProperty(n, "__esModule", {
+    Object.defineProperty(n, '__esModule', {
       value: !0,
     });
-    var r = e("./parser/htmlScanner"),
-      i = e("./parser/htmlParser"),
-      a = e("./services/htmlCompletion"),
-      o = e("./services/htmlHover"),
-      s = e("./services/htmlFormatter"),
-      l = e("./services/htmlLinks"),
-      c = e("./services/htmlHighlighting"),
-      u = e("./services/htmlSymbolsProvider"),
-      d = e("./services/htmlFolding");
-    t(e("./htmlLanguageTypes")),
-      t(e("vscode-languageserver-types")),
+    var r = e('./parser/htmlScanner'),
+      i = e('./parser/htmlParser'),
+      a = e('./services/htmlCompletion'),
+      o = e('./services/htmlHover'),
+      s = e('./services/htmlFormatter'),
+      l = e('./services/htmlLinks'),
+      c = e('./services/htmlHighlighting'),
+      u = e('./services/htmlSymbolsProvider'),
+      d = e('./services/htmlFolding');
+    t(e('./htmlLanguageTypes')),
+      t(e('vscode-languageserver-types')),
       (n.getLanguageService = function () {
         var e = new a.HTMLCompletion();
         return {
@@ -8863,23 +8863,23 @@ var __extends =
       });
   }),
   define(
-    "vscode-html-languageservice",
-    ["vscode-html-languageservice/htmlLanguageService"],
+    'vscode-html-languageservice',
+    ['vscode-html-languageservice/htmlLanguageService'],
     function (e) {
       return e;
     }
   ),
   define(
-    "vs/language/html/htmlWorker",
+    'vs/language/html/htmlWorker',
     [
-      "require",
-      "exports",
-      "vscode-html-languageservice",
-      "vscode-languageserver-types",
+      'require',
+      'exports',
+      'vscode-html-languageservice',
+      'vscode-languageserver-types',
     ],
     function (e, t, n, i) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var a = monaco.Promise,

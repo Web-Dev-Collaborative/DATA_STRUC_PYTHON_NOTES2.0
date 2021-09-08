@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -46,7 +46,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -65,27 +65,27 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.Textarea = exports.TextareaComponent = void 0;
-const react_1 = __importStar(require("react"));
-const styled_components_1 = __importDefault(require("styled-components"));
-const css_1 = __importDefault(require("@styled-system/css"));
-const rect_1 = __importDefault(require("@reach/rect"));
-const __1 = require("../..");
+const react_1 = __importStar(require('react'));
+const styled_components_1 = __importDefault(require('styled-components'));
+const css_1 = __importDefault(require('@styled-system/css'));
+const rect_1 = __importDefault(require('@reach/rect'));
+const __1 = require('../..');
 exports.TextareaComponent = styled_components_1.default(__1.Input).attrs({
-  as: "textarea",
+  as: 'textarea',
 })(
   css_1.default({
     minHeight: 64,
     padding: 2,
-    width: "100%",
-    resize: "none",
+    width: '100%',
+    resize: 'none',
     lineHeight: 1.2,
     // autosize styles
-    overflow: "hidden",
-    transitionProperty: "height",
+    overflow: 'hidden',
+    transitionProperty: 'height',
     transitionDuration: (theme) => theme.speeds[2],
   })
 );
@@ -93,26 +93,26 @@ const Count = styled_components_1.default.div(({ limit }) =>
   css_1.default({
     fontSize: 2,
     paddingTop: 1,
-    color: limit ? "errorForeground" : "input.placeholderForeground",
-    alignSelf: "flex-end",
+    color: limit ? 'errorForeground' : 'input.placeholderForeground',
+    alignSelf: 'flex-end',
   })
 );
 exports.Textarea = react_1.default.forwardRef((_a, ref) => {
   var {
       maxLength,
-      defaultValue = "",
-      value = "",
+      defaultValue = '',
+      value = '',
       onChange,
       onKeyPress,
       autosize,
     } = _a,
     props = __rest(_a, [
-      "maxLength",
-      "defaultValue",
-      "value",
-      "onChange",
-      "onKeyPress",
-      "autosize",
+      'maxLength',
+      'defaultValue',
+      'value',
+      'onChange',
+      'onKeyPress',
+      'autosize',
     ]);
   const [innerValue, setInnerValue] = react_1.default.useState(defaultValue);
   /**
@@ -135,9 +135,9 @@ exports.Textarea = react_1.default.forwardRef((_a, ref) => {
         ? react_1.default.createElement(
             __1.Stack,
             {
-              direction: "vertical",
+              direction: 'vertical',
               css: {
-                width: "100%",
+                width: '100%',
               },
             },
             children
@@ -193,7 +193,7 @@ exports.Textarea = react_1.default.forwardRef((_a, ref) => {
             limit: maxLength <= innerValue.length,
           },
           innerValue.length,
-          "/",
+          '/',
           maxLength
         )
       : null
@@ -201,29 +201,29 @@ exports.Textarea = react_1.default.forwardRef((_a, ref) => {
 });
 const Autosize = (_a) => {
   var { value, style = {} } = _a,
-    props = __rest(_a, ["value", "style"]);
+    props = __rest(_a, ['value', 'style']);
   return react_1.default.createElement(rect_1.default, null, ({ rect, ref }) =>
     react_1.default.createElement(
       react_1.default.Fragment,
       null,
       react_1.default.createElement(
-        "span",
+        'span',
         {
           style: {
             border: 0,
-            clip: "rect(0 0 0 0)",
-            height: "1px",
-            margin: "-1px",
-            overflow: "hidden",
+            clip: 'rect(0 0 0 0)',
+            height: '1px',
+            margin: '-1px',
+            overflow: 'hidden',
             padding: 0,
-            position: "absolute",
+            position: 'absolute',
             // Do not use "1px" as we need to use pre-wrap to
             // deal with height resize related to not explicitly
             // using linebreak (ENTER) as well
             // width: "1px",
             // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
-            whiteSpace: "nowrap",
-            wordWrap: "normal",
+            whiteSpace: 'nowrap',
+            wordWrap: 'normal',
           },
         },
         react_1.default.createElement(
@@ -235,7 +235,7 @@ const Autosize = (_a) => {
             style: Object.assign(
               {
                 // match textarea styles
-                whiteSpace: "pre-wrap",
+                whiteSpace: 'pre-wrap',
                 lineHeight: 1.2,
                 minHeight: 64,
                 padding: 8,
@@ -243,7 +243,7 @@ const Autosize = (_a) => {
               style
             ),
           },
-          value + " "
+          value + ' '
         )
       ),
       props.children(rect ? rect.height + 20 : 0)

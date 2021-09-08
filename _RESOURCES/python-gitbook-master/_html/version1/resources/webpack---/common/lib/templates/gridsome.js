@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,25 +8,25 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const template_1 = __importDefault(require("./template"));
-const decorate_selector_1 = require("../utils/decorate-selector");
+const template_1 = __importDefault(require('./template'));
+const decorate_selector_1 = require('../utils/decorate-selector');
 class GridsomeTemplate extends template_1.default {
   getViews() {
     const GRIDSOME_VIEWS = [
       {
         views: [
           {
-            id: "codesandbox.browser",
+            id: 'codesandbox.browser',
           },
           {
-            id: "codesandbox.browser",
+            id: 'codesandbox.browser',
             closeable: true,
             options: {
-              url: "/___explore",
-              title: "GraphiQL",
+              url: '/___explore',
+              title: 'GraphiQL',
             },
           },
         ],
@@ -35,13 +35,13 @@ class GridsomeTemplate extends template_1.default {
         open: true,
         views: [
           {
-            id: "codesandbox.terminal",
+            id: 'codesandbox.terminal',
           },
           {
-            id: "codesandbox.console",
+            id: 'codesandbox.console',
           },
           {
-            id: "codesandbox.problems",
+            id: 'codesandbox.problems',
           },
         ],
       },
@@ -50,14 +50,14 @@ class GridsomeTemplate extends template_1.default {
   }
 }
 exports.default = new GridsomeTemplate(
-  "gridsome",
-  "Gridsome",
-  "https://gridsome.org/",
-  "github/SaraVieira/gridsome-starter-codesandbox",
-  decorate_selector_1.decorateSelector(() => "#00a672"),
+  'gridsome',
+  'Gridsome',
+  'https://gridsome.org/',
+  'github/SaraVieira/gridsome-starter-codesandbox',
+  decorate_selector_1.decorateSelector(() => '#00a672'),
   {
-    distDir: "dist",
-    mainFile: ["/src/pages/Index.vue"],
+    distDir: 'dist',
+    mainFile: ['/src/pages/Index.vue'],
     showOnHomePage: true,
     main: true,
   }

@@ -1,5 +1,5 @@
 var hcaptcha = (function () {
-  "use strict";
+  'use strict';
 
   function e(e) {
     var t = this.constructor;
@@ -19,13 +19,13 @@ var hcaptcha = (function () {
 
   function t(e) {
     return new this(function (t, n) {
-      if (!e || "undefined" == typeof e.length)
+      if (!e || 'undefined' == typeof e.length)
         return n(
           new TypeError(
             typeof e +
-              " " +
+              ' ' +
               e +
-              " is not iterable(cannot read property Symbol(Symbol.iterator))"
+              ' is not iterable(cannot read property Symbol(Symbol.iterator))'
           )
         );
       var i = Array.prototype.slice.call(e);
@@ -33,9 +33,9 @@ var hcaptcha = (function () {
       var o = i.length;
 
       function r(e, n) {
-        if (n && ("object" == typeof n || "function" == typeof n)) {
+        if (n && ('object' == typeof n || 'function' == typeof n)) {
           var a = n.then;
-          if ("function" == typeof a)
+          if ('function' == typeof a)
             return void a.call(
               n,
               function (t) {
@@ -43,7 +43,7 @@ var hcaptcha = (function () {
               },
               function (n) {
                 (i[e] = {
-                  status: "rejected",
+                  status: 'rejected',
                   reason: n,
                 }),
                   0 == --o && t(i);
@@ -51,7 +51,7 @@ var hcaptcha = (function () {
             );
         }
         (i[e] = {
-          status: "fulfilled",
+          status: 'fulfilled',
           value: n,
         }),
           0 == --o && t(i);
@@ -62,15 +62,15 @@ var hcaptcha = (function () {
   var n = setTimeout;
 
   function i(e) {
-    return Boolean(e && "undefined" != typeof e.length);
+    return Boolean(e && 'undefined' != typeof e.length);
   }
 
   function o() {}
 
   function r(e) {
     if (!(this instanceof r))
-      throw new TypeError("Promises must be constructed via new");
-    if ("function" != typeof e) throw new TypeError("not a function");
+      throw new TypeError('Promises must be constructed via new');
+    if ('function' != typeof e) throw new TypeError('not a function');
     (this._state = 0),
       (this._handled = !1),
       (this._value = undefined),
@@ -100,11 +100,11 @@ var hcaptcha = (function () {
   function s(e, t) {
     try {
       if (t === e)
-        throw new TypeError("A promise cannot be resolved with itself.");
-      if (t && ("object" == typeof t || "function" == typeof t)) {
+        throw new TypeError('A promise cannot be resolved with itself.');
+      if (t && ('object' == typeof t || 'function' == typeof t)) {
         var n = t.then;
         if (t instanceof r) return (e._state = 3), (e._value = t), void c(e);
-        if ("function" == typeof n)
+        if ('function' == typeof n)
           return void d(
             ((i = n),
             (o = t),
@@ -136,8 +136,8 @@ var hcaptcha = (function () {
   }
 
   function l(e, t, n) {
-    (this.onFulfilled = "function" == typeof e ? e : null),
-      (this.onRejected = "function" == typeof t ? t : null),
+    (this.onFulfilled = 'function' == typeof e ? e : null),
+      (this.onRejected = 'function' == typeof t ? t : null),
       (this.promise = n);
   }
 
@@ -157,26 +157,26 @@ var hcaptcha = (function () {
       (n = !0), h(t, i);
     }
   }
-  (r.prototype["catch"] = function (e) {
+  (r.prototype['catch'] = function (e) {
     return this.then(null, e);
   }),
     (r.prototype.then = function (e, t) {
       var n = new this.constructor(o);
       return a(this, new l(e, t, n)), n;
     }),
-    (r.prototype["finally"] = e),
+    (r.prototype['finally'] = e),
     (r.all = function (e) {
       return new r(function (t, n) {
-        if (!i(e)) return n(new TypeError("Promise.all accepts an array"));
+        if (!i(e)) return n(new TypeError('Promise.all accepts an array'));
         var o = Array.prototype.slice.call(e);
         if (0 === o.length) return t([]);
         var r = o.length;
 
         function a(e, i) {
           try {
-            if (i && ("object" == typeof i || "function" == typeof i)) {
+            if (i && ('object' == typeof i || 'function' == typeof i)) {
               var s = i.then;
-              if ("function" == typeof s)
+              if ('function' == typeof s)
                 return void s.call(
                   i,
                   function (t) {
@@ -195,7 +195,7 @@ var hcaptcha = (function () {
     }),
     (r.allSettled = t),
     (r.resolve = function (e) {
-      return e && "object" == typeof e && e.constructor === r
+      return e && 'object' == typeof e && e.constructor === r
         ? e
         : new r(function (t) {
             t(e);
@@ -208,12 +208,12 @@ var hcaptcha = (function () {
     }),
     (r.race = function (e) {
       return new r(function (t, n) {
-        if (!i(e)) return n(new TypeError("Promise.race accepts an array"));
+        if (!i(e)) return n(new TypeError('Promise.race accepts an array'));
         for (var o = 0, a = e.length; o < a; o++) r.resolve(e[o]).then(t, n);
       });
     }),
     (r._immediateFn =
-      ("function" == typeof setImmediate &&
+      ('function' == typeof setImmediate &&
         function (e) {
           setImmediate(e);
         }) ||
@@ -221,27 +221,27 @@ var hcaptcha = (function () {
         n(e, 0);
       }),
     (r._unhandledRejectionFn = function (e) {
-      "undefined" != typeof console &&
+      'undefined' != typeof console &&
         console &&
-        console.warn("Possible Unhandled Promise Rejection:", e);
+        console.warn('Possible Unhandled Promise Rejection:', e);
     });
   var u = (function () {
-    if ("undefined" != typeof self) return self;
-    if ("undefined" != typeof window) return window;
-    if ("undefined" != typeof global) return global;
-    throw new Error("unable to locate global object");
+    if ('undefined' != typeof self) return self;
+    if ('undefined' != typeof window) return window;
+    if ('undefined' != typeof global) return global;
+    throw new Error('unable to locate global object');
   })();
-  "function" != typeof u.Promise
+  'function' != typeof u.Promise
     ? (u.Promise = r)
-    : u.Promise.prototype["finally"]
+    : u.Promise.prototype['finally']
     ? u.Promise.allSettled || (u.Promise.allSettled = t)
-    : (u.Promise.prototype["finally"] = e);
+    : (u.Promise.prototype['finally'] = e);
   var p,
     f = (function () {
-      if ("undefined" != typeof self) return self;
-      if ("undefined" != typeof window) return window;
-      if ("undefined" != typeof global) return global;
-      throw new Error("unable to locate global object");
+      if ('undefined' != typeof self) return self;
+      if ('undefined' != typeof window) return window;
+      if ('undefined' != typeof global) return global;
+      throw new Error('unable to locate global object');
     })();
   f.Promise.allSettled || (f.Promise.allSettled = t),
     Array.prototype.indexOf ||
@@ -249,7 +249,7 @@ var hcaptcha = (function () {
         return function (t, n) {
           if (null === this || this === undefined)
             throw TypeError(
-              "Array.prototype.indexOf called on null or undefined"
+              'Array.prototype.indexOf called on null or undefined'
             );
           var i = e(this),
             o = i.length >>> 0,
@@ -266,17 +266,17 @@ var hcaptcha = (function () {
       })(Object)),
     Array.isArray ||
       (Array.isArray = function (e) {
-        return "[object Array]" === Object.prototype.toString.call(e);
+        return '[object Array]' === Object.prototype.toString.call(e);
       }),
     document.getElementsByClassName ||
       (window.Element.prototype.getElementsByClassName =
         document.constructor.prototype.getElementsByClassName =
           function (e) {
             if (document.querySelectorAll)
-              return document.querySelectorAll("." + e);
+              return document.querySelectorAll('.' + e);
             for (
-              var t = document.getElementsByTagName("*"),
-                n = new RegExp("(^|\\s)" + e + "(\\s|$)"),
+              var t = document.getElementsByTagName('*'),
+                n = new RegExp('(^|\\s)' + e + '(\\s|$)'),
                 i = [],
                 o = 0;
               o < t.length;
@@ -300,11 +300,11 @@ var hcaptcha = (function () {
     if (
       Object.defineProperty &&
       Object.getOwnPropertyDescriptor &&
-      Object.getOwnPropertyDescriptor(Element.prototype, "textContent") &&
-      !Object.getOwnPropertyDescriptor(Element.prototype, "textContent").get
+      Object.getOwnPropertyDescriptor(Element.prototype, 'textContent') &&
+      !Object.getOwnPropertyDescriptor(Element.prototype, 'textContent').get
     ) {
-      var m = Object.getOwnPropertyDescriptor(Element.prototype, "innerText");
-      Object.defineProperty(Element.prototype, "textContent", {
+      var m = Object.getOwnPropertyDescriptor(Element.prototype, 'innerText');
+      Object.defineProperty(Element.prototype, 'textContent', {
         get: function () {
           return m.get.call(this);
         },
@@ -316,8 +316,8 @@ var hcaptcha = (function () {
   } catch (qt) {}
   Function.prototype.bind ||
     (Function.prototype.bind = function (e) {
-      if ("function" != typeof this)
-        throw new TypeError("Function.prototype.bind: Item Can Not Be Bound.");
+      if ('function' != typeof this)
+        throw new TypeError('Function.prototype.bind: Item Can Not Be Bound.');
       var t = Array.prototype.slice.call(arguments, 1),
         n = this,
         i = function () {},
@@ -333,10 +333,10 @@ var hcaptcha = (function () {
         o
       );
     }),
-    "function" != typeof Object.create &&
+    'function' != typeof Object.create &&
       (Object.create = function (e, t) {
         function n() {}
-        if (((n.prototype = e), "object" == typeof t))
+        if (((n.prototype = e), 'object' == typeof t))
           for (var i in t) t.hasOwnProperty(i) && (n[i] = t[i]);
         return new n();
       }),
@@ -352,7 +352,7 @@ var hcaptcha = (function () {
       w,
       b,
       _,
-      x = ["error", "info", "log", "show", "table", "trace", "warn"],
+      x = ['error', 'info', 'log', 'show', 'table', 'trace', 'warn'],
       C = function (e) {},
       k = x.length;
     --k > -1;
@@ -361,27 +361,27 @@ var hcaptcha = (function () {
     (p = x[k]), window.console[p] || (window.console[p] = C);
   if (window.atob)
     try {
-      window.atob(" ");
+      window.atob(' ');
     } catch (Ht) {
       window.atob =
         ((g = window.atob),
         ((y = function (e) {
-          return g(String(e).replace(/[\t\n\f\r ]+/g, ""));
+          return g(String(e).replace(/[\t\n\f\r ]+/g, ''));
         }).original = g),
         y);
     }
   else {
-    var E = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+    var E = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
       S =
         /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
     window.atob = function (e) {
-      if (((e = String(e).replace(/[\t\n\f\r ]+/g, "")), !S.test(e)))
+      if (((e = String(e).replace(/[\t\n\f\r ]+/g, '')), !S.test(e)))
         throw new TypeError(
           "Failed to execute 'atob' on 'Window': The string to be decoded is not correctly encoded."
         );
       var t, n, i;
-      e += "==".slice(2 - (3 & e.length));
-      for (var o = "", r = 0; r < e.length; )
+      e += '=='.slice(2 - (3 & e.length));
+      for (var o = '', r = 0; r < e.length; )
         (t =
           (E.indexOf(e.charAt(r++)) << 18) |
           (E.indexOf(e.charAt(r++)) << 12) |
@@ -408,7 +408,7 @@ var hcaptcha = (function () {
     window.Prototype && Array.prototype.toJSON)
   ) {
     console.error(
-      "[hCaptcha] Custom JSON polyfill detected, please remove to ensure hCaptcha works properly"
+      '[hCaptcha] Custom JSON polyfill detected, please remove to ensure hCaptcha works properly'
     );
     var O = Array.prototype.toJSON,
       P = JSON.stringify;
@@ -427,20 +427,20 @@ var hcaptcha = (function () {
         {
           toString: null,
         },
-        "toString"
+        'toString'
       )),
       (_ = (b = [
-        "toString",
-        "toLocaleString",
-        "valueOf",
-        "hasOwnProperty",
-        "isPrototypeOf",
-        "propertyIsEnumerable",
-        "constructor",
+        'toString',
+        'toLocaleString',
+        'valueOf',
+        'hasOwnProperty',
+        'isPrototypeOf',
+        'propertyIsEnumerable',
+        'constructor',
       ]).length),
       function (e) {
-        if ("function" != typeof e && ("object" != typeof e || null === e))
-          throw new TypeError("Object.keys called on non-object");
+        if ('function' != typeof e && ('object' != typeof e || null === e))
+          throw new TypeError('Object.keys called on non-object');
         var t,
           n,
           i = [];
@@ -495,324 +495,324 @@ var hcaptcha = (function () {
     };
   var j = [
       {
-        family: "UC Browser",
-        patterns: ["(UC? ?Browser|UCWEB|U3)[ /]?(\\d+)\\.(\\d+)\\.(\\d+)"],
+        family: 'UC Browser',
+        patterns: ['(UC? ?Browser|UCWEB|U3)[ /]?(\\d+)\\.(\\d+)\\.(\\d+)'],
       },
       {
-        family: "Opera",
-        name_replace: "Opera Mobile",
+        family: 'Opera',
+        name_replace: 'Opera Mobile',
         patterns: [
-          "(Opera)/.+Opera Mobi.+Version/(\\d+)\\.(\\d+)",
-          "(Opera)/(\\d+)\\.(\\d+).+Opera Mobi",
-          "Opera Mobi.+(Opera)(?:/|\\s+)(\\d+)\\.(\\d+)",
-          "Opera Mobi",
-          "(?:Mobile Safari).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
+          '(Opera)/.+Opera Mobi.+Version/(\\d+)\\.(\\d+)',
+          '(Opera)/(\\d+)\\.(\\d+).+Opera Mobi',
+          'Opera Mobi.+(Opera)(?:/|\\s+)(\\d+)\\.(\\d+)',
+          'Opera Mobi',
+          '(?:Mobile Safari).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)',
         ],
       },
       {
-        family: "Opera",
-        name_replace: "Opera Mini",
+        family: 'Opera',
+        name_replace: 'Opera Mini',
         patterns: [
-          "(Opera Mini)(?:/att|)/?(\\d+|)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
-          "(OPiOS)/(\\d+).(\\d+).(\\d+)",
+          '(Opera Mini)(?:/att|)/?(\\d+|)(?:\\.(\\d+)|)(?:\\.(\\d+)|)',
+          '(OPiOS)/(\\d+).(\\d+).(\\d+)',
         ],
       },
       {
-        family: "Opera",
-        name_replace: "Opera Neon",
-        patterns: ["Chrome/.+( MMS)/(\\d+).(\\d+).(\\d+)"],
+        family: 'Opera',
+        name_replace: 'Opera Neon',
+        patterns: ['Chrome/.+( MMS)/(\\d+).(\\d+).(\\d+)'],
       },
       {
-        name_replace: "Opera",
+        name_replace: 'Opera',
         patterns: [
-          "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(?:Chrome).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
+          '(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)',
+          '(?:Chrome).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)',
         ],
       },
       {
-        family: "Firefox",
-        name_replace: "Firefox Mobile",
+        family: 'Firefox',
+        name_replace: 'Firefox Mobile',
         patterns: [
-          "(Fennec)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)",
-          "(Fennec)/(\\d+)\\.(\\d+)(pre)",
-          "(Fennec)/(\\d+)\\.(\\d+)",
-          "(?:Mobile|Tablet);.*(Firefox)/(\\d+)\\.(\\d+)",
-          "(FxiOS)/(\\d+)\\.(\\d+)(\\.(\\d+)|)(\\.(\\d+)|)",
+          '(Fennec)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)',
+          '(Fennec)/(\\d+)\\.(\\d+)(pre)',
+          '(Fennec)/(\\d+)\\.(\\d+)',
+          '(?:Mobile|Tablet);.*(Firefox)/(\\d+)\\.(\\d+)',
+          '(FxiOS)/(\\d+)\\.(\\d+)(\\.(\\d+)|)(\\.(\\d+)|)',
         ],
       },
       {
-        name_replace: "Coc Coc",
-        patterns: ["(coc_coc_browser)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"],
+        name_replace: 'Coc Coc',
+        patterns: ['(coc_coc_browser)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)'],
       },
       {
-        family: "QQ",
-        name_replace: "QQ Mini",
-        patterns: ["(MQQBrowser/Mini)(?:(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
+        family: 'QQ',
+        name_replace: 'QQ Mini',
+        patterns: ['(MQQBrowser/Mini)(?:(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)'],
       },
       {
-        family: "QQ",
-        name_replace: "QQ Mobile",
-        patterns: ["(MQQBrowser)(?:/(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
+        family: 'QQ',
+        name_replace: 'QQ Mobile',
+        patterns: ['(MQQBrowser)(?:/(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)'],
       },
       {
-        name_replace: "QQ",
+        name_replace: 'QQ',
         patterns: [
-          "(QQBrowser)(?:/(\\d+)(?:\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)|)",
+          '(QQBrowser)(?:/(\\d+)(?:\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)|)',
         ],
       },
       {
-        family: "Edge",
-        name: "Edge Mobile",
+        family: 'Edge',
+        name: 'Edge Mobile',
         patterns: [
-          "Windows Phone .*(Edge)/(\\d+)\\.(\\d+)",
-          "(EdgiOS|EdgA)/(\\d+)\\.(\\d+).(\\d+).(\\d+)",
+          'Windows Phone .*(Edge)/(\\d+)\\.(\\d+)',
+          '(EdgiOS|EdgA)/(\\d+)\\.(\\d+).(\\d+).(\\d+)',
         ],
       },
       {
-        name_replace: "Edge",
-        patterns: ["(Edge|Edg)/(\\d+)(?:\\.(\\d+)|)"],
+        name_replace: 'Edge',
+        patterns: ['(Edge|Edg)/(\\d+)(?:\\.(\\d+)|)'],
       },
       {
-        patterns: ["(Puffin)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"],
+        patterns: ['(Puffin)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)'],
       },
       {
-        family: "Chrome",
-        name_replace: "Chrome Mobile",
+        family: 'Chrome',
+        name_replace: 'Chrome Mobile',
         patterns: [
-          "Version/.+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "; wv\\).+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(CriOS)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile(?:[ /]|$)",
-          " Mobile .*(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+          'Version/.+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)',
+          '; wv\\).+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)',
+          '(CriOS)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)',
+          '(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)',
+          '(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile(?:[ /]|$)',
+          ' Mobile .*(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)',
         ],
       },
       {
-        family: "Yandex",
-        name_replace: "Yandex Mobile",
-        patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+).*Mobile"],
+        family: 'Yandex',
+        name_replace: 'Yandex Mobile',
+        patterns: ['(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+).*Mobile'],
       },
       {
-        name_replace: "Yandex",
-        patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)"],
+        name_replace: 'Yandex',
+        patterns: ['(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)'],
       },
       {
         patterns: [
-          "(Vivaldi)/(\\d+)\\.(\\d+)",
-          "(Vivaldi)/(\\d+)\\.(\\d+)\\.(\\d+)",
+          '(Vivaldi)/(\\d+)\\.(\\d+)',
+          '(Vivaldi)/(\\d+)\\.(\\d+)\\.(\\d+)',
         ],
       },
       {
-        name_replace: "Brave",
-        patterns: ["(brave)/(\\d+)\\.(\\d+)\\.(\\d+) Chrome"],
+        name_replace: 'Brave',
+        patterns: ['(brave)/(\\d+)\\.(\\d+)\\.(\\d+) Chrome'],
       },
       {
-        family: "Chrome",
+        family: 'Chrome',
         patterns: [
-          "(Chromium|Chrome)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+          '(Chromium|Chrome)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)',
         ],
       },
       {
-        name_replace: "Internet Explorer Mobile",
-        patterns: ["(IEMobile)[ /](\\d+)\\.(\\d+)"],
+        name_replace: 'Internet Explorer Mobile',
+        patterns: ['(IEMobile)[ /](\\d+)\\.(\\d+)'],
       },
       {
-        family: "Safari",
-        name_replace: "Safari Mobile",
+        family: 'Safari',
+        name_replace: 'Safari Mobile',
         patterns: [
-          "(iPod|iPhone|iPad).+Version/(d+).(d+)(?:.(d+)|).*[ +]Safari",
-          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).* AppleNews\\/\\d+\\.\\d+\\.\\d+?",
-          "(iPod|iPhone|iPad).+Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile.*[ +]Safari",
-          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile",
-          "(iPod|iPod touch|iPhone|iPad).* Safari",
-          "(iPod|iPod touch|iPhone|iPad)",
+          '(iPod|iPhone|iPad).+Version/(d+).(d+)(?:.(d+)|).*[ +]Safari',
+          '(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).* AppleNews\\/\\d+\\.\\d+\\.\\d+?',
+          '(iPod|iPhone|iPad).+Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)',
+          '(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile.*[ +]Safari',
+          '(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile',
+          '(iPod|iPod touch|iPhone|iPad).* Safari',
+          '(iPod|iPod touch|iPhone|iPad)',
         ],
       },
       {
-        name_replace: "Safari",
-        patterns: ["(Version)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|).*Safari/"],
+        name_replace: 'Safari',
+        patterns: ['(Version)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|).*Safari/'],
       },
       {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(7|8).(0)"],
-        major_replace: "11",
+        name_replace: 'Internet Explorer',
+        patterns: ['(Trident)/(7|8).(0)'],
+        major_replace: '11',
       },
       {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(6)\\.(0)"],
-        major_replace: "10",
+        name_replace: 'Internet Explorer',
+        patterns: ['(Trident)/(6)\\.(0)'],
+        major_replace: '10',
       },
       {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(5)\\.(0)"],
-        major_replace: "9",
+        name_replace: 'Internet Explorer',
+        patterns: ['(Trident)/(5)\\.(0)'],
+        major_replace: '9',
       },
       {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(4)\\.(0)"],
-        major_replace: "8",
+        name_replace: 'Internet Explorer',
+        patterns: ['(Trident)/(4)\\.(0)'],
+        major_replace: '8',
       },
       {
-        family: "Firefox",
+        family: 'Firefox',
         patterns: [
-          "(Firefox)/(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(Firefox)/(\\d+)\\.(\\d+)(pre|[ab]\\d+[a-z]*|)",
+          '(Firefox)/(\\d+)\\.(\\d+)\\.(\\d+)',
+          '(Firefox)/(\\d+)\\.(\\d+)(pre|[ab]\\d+[a-z]*|)',
         ],
       },
     ],
     M = [
       {
-        family: "Windows",
-        name_replace: "Windows Phone",
+        family: 'Windows',
+        name_replace: 'Windows Phone',
         patterns: [
-          "(Windows Phone) (?:OS[ /])?(\\d+)\\.(\\d+)",
-          "^UCWEB.*; (wds) (\\d+)\\.(d+)(?:\\.(\\d+)|);",
-          "^UCWEB.*; (wds) (\\d+)\\.(\\d+)(?:\\.(\\d+)|);",
+          '(Windows Phone) (?:OS[ /])?(\\d+)\\.(\\d+)',
+          '^UCWEB.*; (wds) (\\d+)\\.(d+)(?:\\.(\\d+)|);',
+          '^UCWEB.*; (wds) (\\d+)\\.(\\d+)(?:\\.(\\d+)|);',
         ],
       },
       {
-        family: "Windows",
-        name_replace: "Windows Mobile",
-        patterns: ["(Windows ?Mobile)"],
+        family: 'Windows',
+        name_replace: 'Windows Mobile',
+        patterns: ['(Windows ?Mobile)'],
       },
       {
-        name_replace: "Android",
+        name_replace: 'Android',
         patterns: [
-          "(Android)[ \\-/](\\d+)(?:\\.(\\d+)|)(?:[.\\-]([a-z0-9]+)|)",
-          "(Android) (d+);",
-          "^UCWEB.*; (Adr) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+)|);",
-          "^(JUC).*; ?U; ?(?:Android|)(\\d+)\\.(\\d+)(?:[\\.\\-]([a-z0-9]+)|)",
-          "(android)\\s(?:mobile\\/)(\\d+)(?:\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "(Silk-Accelerated=[a-z]{4,5})",
-          "Puffin/[\\d\\.]+AT",
-          "Puffin/[\\d\\.]+AP",
+          '(Android)[ \\-/](\\d+)(?:\\.(\\d+)|)(?:[.\\-]([a-z0-9]+)|)',
+          '(Android) (d+);',
+          '^UCWEB.*; (Adr) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+)|);',
+          '^(JUC).*; ?U; ?(?:Android|)(\\d+)\\.(\\d+)(?:[\\.\\-]([a-z0-9]+)|)',
+          '(android)\\s(?:mobile\\/)(\\d+)(?:\\.(\\d+)(?:\\.(\\d+)|)|)',
+          '(Silk-Accelerated=[a-z]{4,5})',
+          'Puffin/[\\d\\.]+AT',
+          'Puffin/[\\d\\.]+AP',
         ],
       },
       {
-        name_replace: "Chrome OS",
+        name_replace: 'Chrome OS',
         patterns: [
-          "(x86_64|aarch64)\\ (\\d+)\\.(\\d+)\\.(\\d+).*Chrome.*(?:CitrixChromeApp)$",
-          "(CrOS) [a-z0-9_]+ (\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+          '(x86_64|aarch64)\\ (\\d+)\\.(\\d+)\\.(\\d+).*Chrome.*(?:CitrixChromeApp)$',
+          '(CrOS) [a-z0-9_]+ (\\d+)\\.(\\d+)(?:\\.(\\d+)|)',
         ],
       },
       {
-        name_replace: "Windows",
-        patterns: ["(Windows 10)", "(Windows NT 6\\.4)", "(Windows NT 10\\.0)"],
-        major_replace: "10",
+        name_replace: 'Windows',
+        patterns: ['(Windows 10)', '(Windows NT 6\\.4)', '(Windows NT 10\\.0)'],
+        major_replace: '10',
       },
       {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.3; ARM;)", "(Windows NT 6.3)"],
-        major_replace: "8",
-        minor_replace: "1",
+        name_replace: 'Windows',
+        patterns: ['(Windows NT 6\\.3; ARM;)', '(Windows NT 6.3)'],
+        major_replace: '8',
+        minor_replace: '1',
       },
       {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.2)"],
-        major_replace: "8",
+        name_replace: 'Windows',
+        patterns: ['(Windows NT 6\\.2)'],
+        major_replace: '8',
       },
       {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.1)"],
-        major_replace: "7",
+        name_replace: 'Windows',
+        patterns: ['(Windows NT 6\\.1)'],
+        major_replace: '7',
       },
       {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.0)"],
-        major_replace: "Vista",
+        name_replace: 'Windows',
+        patterns: ['(Windows NT 6\\.0)'],
+        major_replace: 'Vista',
       },
       {
-        name_replace: "Windows",
-        patterns: ["(Windows (?:NT 5\\.2|NT 5\\.1))"],
-        major_replace: "XP",
+        name_replace: 'Windows',
+        patterns: ['(Windows (?:NT 5\\.2|NT 5\\.1))'],
+        major_replace: 'XP',
       },
       {
-        name_replace: "Mac OS X",
+        name_replace: 'Mac OS X',
         patterns: [
-          "((?:Mac[ +]?|; )OS[ +]X)[\\s+/](?:(\\d+)[_.](\\d+)(?:[_.](\\d+)|)|Mach-O)",
-          "\\w+\\s+Mac OS X\\s+\\w+\\s+(\\d+).(\\d+).(\\d+).*",
-          "(?:PPC|Intel) (Mac OS X)",
+          '((?:Mac[ +]?|; )OS[ +]X)[\\s+/](?:(\\d+)[_.](\\d+)(?:[_.](\\d+)|)|Mach-O)',
+          '\\w+\\s+Mac OS X\\s+\\w+\\s+(\\d+).(\\d+).(\\d+).*',
+          '(?:PPC|Intel) (Mac OS X)',
         ],
       },
       {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(10).(d+).*((?:i386|x86_64))"],
-        major_replace: "10",
-        minor_replace: "6",
+        name_replace: 'Mac OS X',
+        patterns: [' (Dar)(win)/(10).(d+).*((?:i386|x86_64))'],
+        major_replace: '10',
+        minor_replace: '6',
       },
       {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(11).(\\d+).*\\((?:i386|x86_64)\\)"],
-        major_replace: "10",
-        minor_replace: "7",
+        name_replace: 'Mac OS X',
+        patterns: [' (Dar)(win)/(11).(\\d+).*\\((?:i386|x86_64)\\)'],
+        major_replace: '10',
+        minor_replace: '7',
       },
       {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(12).(\\d+).*\\((?:i386|x86_64)\\)"],
-        major_replace: "10",
-        minor_replace: "8",
+        name_replace: 'Mac OS X',
+        patterns: [' (Dar)(win)/(12).(\\d+).*\\((?:i386|x86_64)\\)'],
+        major_replace: '10',
+        minor_replace: '8',
       },
       {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(13).(\\d+).*\\((?:i386|x86_64)\\)"],
-        major_replace: "10",
-        minor_replace: "9",
+        name_replace: 'Mac OS X',
+        patterns: [' (Dar)(win)/(13).(\\d+).*\\((?:i386|x86_64)\\)'],
+        major_replace: '10',
+        minor_replace: '9',
       },
       {
-        name_replace: "iOS",
+        name_replace: 'iOS',
         patterns: [
-          "^UCWEB.*; (iPad|iPh|iPd) OS (\\d+)_(\\d+)(?:_(\\d+)|);",
-          "(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS)[ +]+(\\d+)[_\\.](\\d+)(?:[_\\.](\\d+)|)",
-          "(iPhone|iPad|iPod); Opera",
-          "(iPhone|iPad|iPod).*Mac OS X.*Version/(\\d+)\\.(\\d+)",
-          "\\b(iOS[ /]|iOS; |iPhone(?:/| v|[ _]OS[/,]|; | OS : |\\d,\\d/|\\d,\\d; )|iPad/)(\\d{1,2})[_\\.](\\d{1,2})(?:[_\\.](\\d+)|)",
-          "\\((iOS);",
-          "(iPod|iPhone|iPad)",
-          "Puffin/[\\d\\.]+IT",
-          "Puffin/[\\d\\.]+IP",
+          '^UCWEB.*; (iPad|iPh|iPd) OS (\\d+)_(\\d+)(?:_(\\d+)|);',
+          '(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS)[ +]+(\\d+)[_\\.](\\d+)(?:[_\\.](\\d+)|)',
+          '(iPhone|iPad|iPod); Opera',
+          '(iPhone|iPad|iPod).*Mac OS X.*Version/(\\d+)\\.(\\d+)',
+          '\\b(iOS[ /]|iOS; |iPhone(?:/| v|[ _]OS[/,]|; | OS : |\\d,\\d/|\\d,\\d; )|iPad/)(\\d{1,2})[_\\.](\\d{1,2})(?:[_\\.](\\d+)|)',
+          '\\((iOS);',
+          '(iPod|iPhone|iPad)',
+          'Puffin/[\\d\\.]+IT',
+          'Puffin/[\\d\\.]+IP',
         ],
       },
       {
-        family: "Chrome",
-        name_replace: "Chromecast",
+        family: 'Chrome',
+        name_replace: 'Chromecast',
         patterns: [
-          "(CrKey -)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "(CrKey[ +]armv7l)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "(CrKey)(?:[/](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+          '(CrKey -)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)',
+          '(CrKey[ +]armv7l)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)',
+          '(CrKey)(?:[/](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)',
         ],
       },
       {
-        name_replace: "Debian",
-        patterns: ["([Dd]ebian)"],
+        name_replace: 'Debian',
+        patterns: ['([Dd]ebian)'],
       },
       {
-        family: "Linux",
-        name_replace: "Linux",
-        patterns: ["(Linux Mint)(?:/(\\d+)|)"],
+        family: 'Linux',
+        name_replace: 'Linux',
+        patterns: ['(Linux Mint)(?:/(\\d+)|)'],
       },
       {
-        family: "Linux",
+        family: 'Linux',
         patterns: [
-          "(Ubuntu|Kubuntu|Arch Linux|CentOS|Slackware|Gentoo|openSUSE|SUSE|Red Hat|Fedora|PCLinuxOS|Mageia|(?:Free|Open|Net|\\b)BSD)",
-          "(Mandriva)(?: Linux|)/(?:[\\d.-]+m[a-z]{2}(\\d+).(\\d)|)",
-          "(Linux)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "\\(linux-gnu\\)",
+          '(Ubuntu|Kubuntu|Arch Linux|CentOS|Slackware|Gentoo|openSUSE|SUSE|Red Hat|Fedora|PCLinuxOS|Mageia|(?:Free|Open|Net|\\b)BSD)',
+          '(Mandriva)(?: Linux|)/(?:[\\d.-]+m[a-z]{2}(\\d+).(\\d)|)',
+          '(Linux)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)',
+          '\\(linux-gnu\\)',
         ],
       },
       {
-        family: "BlackBerry",
-        name_replace: "BlackBerry OS",
+        family: 'BlackBerry',
+        name_replace: 'BlackBerry OS',
         patterns: [
-          "(BB10);.+Version/(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(Black[Bb]erry)[0-9a-z]+/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(Black[Bb]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(Black[Bb]erry)",
+          '(BB10);.+Version/(\\d+)\\.(\\d+)\\.(\\d+)',
+          '(Black[Bb]erry)[0-9a-z]+/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)',
+          '(Black[Bb]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)',
+          '(Black[Bb]erry)',
         ],
       },
       {
         patterns: [
-          "(Fedora|Red Hat|PCLinuxOS|Puppy|Ubuntu|Kindle|Bada|Sailfish|Lubuntu|BackTrack|Slackware|(?:Free|Open|Net|\\b)BSD)[/ ](\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+          '(Fedora|Red Hat|PCLinuxOS|Puppy|Ubuntu|Kindle|Bada|Sailfish|Lubuntu|BackTrack|Slackware|(?:Free|Open|Net|\\b)BSD)[/ ](\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)',
         ],
       },
     ],
@@ -832,10 +832,10 @@ var hcaptcha = (function () {
       var n = new RegExp(t).exec(e);
       return n
         ? {
-            name: n[1] || "Other",
-            major: n[2] || "0",
-            minor: n[3] || "0",
-            patch: n[4] || "0",
+            name: n[1] || 'Other',
+            major: n[2] || '0',
+            minor: n[3] || '0',
+            patch: n[4] || '0',
           }
         : null;
     } catch (Ht) {
@@ -857,11 +857,11 @@ var hcaptcha = (function () {
         n.patch_replace && (i.minor = n.patch_replace),
         i)
       : {
-          family: "Other",
-          name: "Other",
-          major: "0",
-          minor: "0",
-          patch: "0",
+          family: 'Other',
+          name: 'Other',
+          major: '0',
+          minor: '0',
+          patch: '0',
         };
   }
 
@@ -872,7 +872,7 @@ var hcaptcha = (function () {
     (this.agent = n.toLowerCase()),
       (this.language =
         window.navigator.userLanguage || window.navigator.language),
-      (this.isCSS1 = "CSS1Compat" === (document.compatMode || "")),
+      (this.isCSS1 = 'CSS1Compat' === (document.compatMode || '')),
       (this.width = function () {
         return window.innerWidth && window.document.documentElement.clientWidth
           ? Math.min(window.innerWidth, document.documentElement.clientWidth)
@@ -902,22 +902,22 @@ var hcaptcha = (function () {
           : document.body.scrollTop;
       }),
       (this.type =
-        "Edge" === t.family
-          ? "edge"
-          : "Internet Explorer" === t.family
-          ? "ie"
-          : "Chrome" === t.family
-          ? "chrome"
-          : "Safari" === t.family
-          ? "safari"
-          : "Firefox" === t.family
-          ? "firefox"
+        'Edge' === t.family
+          ? 'edge'
+          : 'Internet Explorer' === t.family
+          ? 'ie'
+          : 'Chrome' === t.family
+          ? 'chrome'
+          : 'Safari' === t.family
+          ? 'safari'
+          : 'Firefox' === t.family
+          ? 'firefox'
           : t.family.toLowerCase()),
-      (this.version = 1 * (t.major + "." + t.minor) || 0),
+      (this.version = 1 * (t.major + '.' + t.minor) || 0),
       (this.hasPostMessage = !!window.postMessage);
   }
   (z.prototype.hasEvent = function (e, t) {
-    return "on" + e in (t || document.createElement("div"));
+    return 'on' + e in (t || document.createElement('div'));
   }),
     (z.prototype.getScreenDimensions = function () {
       var e = {};
@@ -941,14 +941,14 @@ var hcaptcha = (function () {
       return e;
     }),
     (z.prototype.supportsCanvas = function () {
-      var e = document.createElement("canvas");
-      return !(!e.getContext || !e.getContext("2d"));
+      var e = document.createElement('canvas');
+      return !(!e.getContext || !e.getContext('2d'));
     }),
     (z.prototype.supportsWebAssembly = function () {
       try {
         if (
-          "object" == typeof WebAssembly &&
-          "function" == typeof WebAssembly.instantiate
+          'object' == typeof WebAssembly &&
+          'function' == typeof WebAssembly.instantiate
         ) {
           var e = new WebAssembly.Module(
             Uint8Array.of(0, 97, 115, 109, 1, 0, 0, 0)
@@ -969,7 +969,7 @@ var hcaptcha = (function () {
           i = L();
         (this.mobile =
           ((e = !!(
-            "ontouchstart" in window ||
+            'ontouchstart' in window ||
             navigator.maxTouchPoints > 0 ||
             navigator.msMaxTouchPoints > 0
           )),
@@ -977,11 +977,11 @@ var hcaptcha = (function () {
           n &&
             (t =
               [
-                "iOS",
-                "Windows Phone",
-                "Windows Mobile",
-                "Android",
-                "BlackBerry OS",
+                'iOS',
+                'Windows Phone',
+                'Windows Mobile',
+                'Android',
+                'BlackBerry OS',
               ].indexOf(n.name) >= 0),
           e && t)),
           (this.dpr = function () {
@@ -989,27 +989,27 @@ var hcaptcha = (function () {
           }),
           this.mobile &&
             n &&
-            "Windows" === n.family &&
-            i.indexOf("touch") < 0 &&
+            'Windows' === n.family &&
+            i.indexOf('touch') < 0 &&
             (this.mobile = !1),
           (this.os =
-            "iOS" === n.family
-              ? "ios"
-              : "Android" === n.family
-              ? "android"
-              : "Mac OS X" === n.family
-              ? "mac"
-              : "Windows" === n.family
-              ? "windows"
-              : "Linux" === n.family
-              ? "linux"
+            'iOS' === n.family
+              ? 'ios'
+              : 'Android' === n.family
+              ? 'android'
+              : 'Mac OS X' === n.family
+              ? 'mac'
+              : 'Windows' === n.family
+              ? 'windows'
+              : 'Linux' === n.family
+              ? 'linux'
               : n.family.toLowerCase()),
           (this.version = (function () {
-            if (!n) return "unknown";
+            if (!n) return 'unknown';
             var e = n.major;
             return (
-              n.minor && (e += "." + n.minor),
-              n.patch && (e += "." + n.patch),
+              n.minor && (e += '.' + n.minor),
+              n.patch && (e += '.' + n.patch),
               e
             );
           })());
@@ -1021,47 +1021,47 @@ var hcaptcha = (function () {
       sitekey: null,
       a11y_tfe: null,
       pingdom:
-        "safari" === W.Browser.type &&
-        "windows" !== W.System.os &&
-        "mac" !== W.System.os &&
-        "ios" !== W.System.os &&
-        "android" !== W.System.os,
-      assetDomain: "https://newassets.hcaptcha.com",
-      assetUrl: "https://newassets.hcaptcha.com/captcha/v1/ff4a4ed/static",
+        'safari' === W.Browser.type &&
+        'windows' !== W.System.os &&
+        'mac' !== W.System.os &&
+        'ios' !== W.System.os &&
+        'android' !== W.System.os,
+      assetDomain: 'https://newassets.hcaptcha.com',
+      assetUrl: 'https://newassets.hcaptcha.com/captcha/v1/ff4a4ed/static',
       width: null,
       height: null,
       mobile: null,
     },
     F = {
       custom: !1,
-      tplinks: "on",
+      tplinks: 'on',
       language: null,
-      reportapi: "https://accounts.hcaptcha.com",
-      endpoint: "https://hcaptcha.com",
+      reportapi: 'https://accounts.hcaptcha.com',
+      endpoint: 'https://hcaptcha.com',
       endpointOverride: null,
-      size: "normal",
-      theme: "light",
+      size: 'normal',
+      theme: 'light',
       assethost: null,
       imghost: null,
-      recaptchacompat: "true",
+      recaptchacompat: 'true',
     };
 
   function J(e, t) {
-    (e.style.width = "304px"),
-      (e.style.height = "78px"),
-      (e.style.backgroundColor = "#f9e5e5"),
-      (e.style.position = "relative"),
-      (e.innerHTML = "");
-    var n = document.createElement("div");
-    (n.style.width = "284px"),
-      (n.style.position = "absolute"),
-      (n.style.top = "12px"),
-      (n.style.left = "10px"),
-      (n.style.fontFamily = "arial, sans-serif"),
-      (n.style.color = "#7c0a06"),
-      (n.style.fontSize = "14px"),
-      (n.style.fontWeight = "normal"),
-      (n.style.lineHeight = "18px"),
+    (e.style.width = '304px'),
+      (e.style.height = '78px'),
+      (e.style.backgroundColor = '#f9e5e5'),
+      (e.style.position = 'relative'),
+      (e.innerHTML = '');
+    var n = document.createElement('div');
+    (n.style.width = '284px'),
+      (n.style.position = 'absolute'),
+      (n.style.top = '12px'),
+      (n.style.left = '10px'),
+      (n.style.fontFamily = 'arial, sans-serif'),
+      (n.style.color = '#7c0a06'),
+      (n.style.fontSize = '14px'),
+      (n.style.fontWeight = 'normal'),
+      (n.style.lineHeight = '18px'),
       (n.innerHTML =
         t ||
         "Please <a style='color:inherit;text-decoration:underline; font: inherit' target='_blank' href='https://www.whatismybrowser.com/guides/how-to-update-your-browser/auto'>upgrade your browser</a> to complete this captcha."),
@@ -1071,14 +1071,14 @@ var hcaptcha = (function () {
 
   function H(e) {
     var t = {
-      message: e.name + ": " + e.message,
+      message: e.name + ': ' + e.message,
     };
     e.stack &&
       (t.stack_trace = {
         trace: e.stack,
       }),
-      Y("report error", "internal", "debug", t),
-      X("internal error", "error", U.file);
+      Y('report error', 'internal', 'debug', t),
+      X('internal error', 'error', U.file);
   }
 
   function X(e, t, n) {
@@ -1103,13 +1103,13 @@ var hcaptcha = (function () {
 
   function V(e) {
     var t = [].slice.call(arguments, 1);
-    "string" == typeof e
+    'string' == typeof e
       ? window[e]
-        ? "function" == typeof window[e]
+        ? 'function' == typeof window[e]
           ? window[e].apply(null, t)
           : console.log("[hCaptcha] Callback '" + e + "' is not a function.")
         : console.log("[hCaptcha] Callback '" + e + "' is not defined.")
-      : "function" == typeof e
+      : 'function' == typeof e
       ? e.apply(null, t)
       : console.log("[hcaptcha] Invalid callback '" + e + "'.");
   }
@@ -1118,14 +1118,14 @@ var hcaptcha = (function () {
     try {
       V.apply(null, arguments);
     } catch (qt) {
-      console.error("[hCaptcha] There was an error in your callback."),
+      console.error('[hCaptcha] There was an error in your callback.'),
         console.error(qt);
     }
   }
 
   function G(e, t) {
     var n,
-      i = "attempts" in (t = t || {}) ? t.attempts : 1,
+      i = 'attempts' in (t = t || {}) ? t.attempts : 1,
       o = t.delay || 0,
       r = t.onFail;
     return (
@@ -1146,35 +1146,35 @@ var hcaptcha = (function () {
       eventName: function (e) {
         var t = e;
         return (
-          "down" === e ||
-          "up" === e ||
-          "move" === e ||
-          "over" === e ||
-          "out" === e
+          'down' === e ||
+          'up' === e ||
+          'move' === e ||
+          'over' === e ||
+          'out' === e
             ? (t =
-                !W.System.mobile || ("down" !== e && "up" !== e && "move" !== e)
-                  ? "mouse" + e
-                  : "down" === e
-                  ? "touchstart"
-                  : "up" === e
-                  ? "touchend"
-                  : "touchmove")
-            : "enter" === e && (t = "keydown"),
+                !W.System.mobile || ('down' !== e && 'up' !== e && 'move' !== e)
+                  ? 'mouse' + e
+                  : 'down' === e
+                  ? 'touchstart'
+                  : 'up' === e
+                  ? 'touchend'
+                  : 'touchmove')
+            : 'enter' === e && (t = 'keydown'),
           t
         );
       },
       actionName: function (e) {
         var t = e;
         return (
-          "touchstart" === t || "mousedown" === t
-            ? (t = "down")
-            : "touchmove" === t || "mousemove" === t
-            ? (t = "move")
-            : "touchend" === t || "mouseup" === t
-            ? (t = "up")
-            : "mouseover" === t
-            ? (t = "over")
-            : "mouseout" === t && (t = "out"),
+          'touchstart' === t || 'mousedown' === t
+            ? (t = 'down')
+            : 'touchmove' === t || 'mousemove' === t
+            ? (t = 'move')
+            : 'touchend' === t || 'mouseup' === t
+            ? (t = 'up')
+            : 'mouseover' === t
+            ? (t = 'over')
+            : 'mouseout' === t && (t = 'out'),
           t
         );
       },
@@ -1183,12 +1183,12 @@ var hcaptcha = (function () {
         return function (o) {
           if (
             ((o = o || window.event),
-            "down" === i ||
-              "move" === i ||
-              "up" === i ||
-              "over" === i ||
-              "out" === i ||
-              "click" === i)
+            'down' === i ||
+              'move' === i ||
+              'up' === i ||
+              'over' === i ||
+              'out' === i ||
+              'click' === i)
           ) {
             var r = K.eventCoords(o),
               a = n.getBoundingClientRect();
@@ -1198,7 +1198,7 @@ var hcaptcha = (function () {
               (o.elementY = o.windowY - (a.y || a.top));
           }
           (o.keyNum = o.which || o.keyCode || 0),
-            ("enter" === e && 13 !== o.keyNum && 32 !== o.keyNum) ||
+            ('enter' === e && 13 !== o.keyNum && 32 !== o.keyNum) ||
               ((o.action = i), (o.targetElement = n), t(o));
         };
       },
@@ -1218,8 +1218,8 @@ var hcaptcha = (function () {
         return t;
       },
     },
-    Z = ["Webkit", "Moz", "ms"],
-    ee = document.createElement("div").style,
+    Z = ['Webkit', 'Moz', 'ms'],
+    ee = document.createElement('div').style,
     te = {};
 
   function ne(e) {
@@ -1243,26 +1243,26 @@ var hcaptcha = (function () {
       (this._nodes = []),
       (this._listeners = []),
       (this._frag = null),
-      e && "object" == typeof e)
+      e && 'object' == typeof e)
     ) {
       this.dom = e;
       var i = [],
         o = [];
-      "string" == typeof e.className && (o = e.className.split(" "));
+      'string' == typeof e.className && (o = e.className.split(' '));
       for (var r = 0; r < o.length; r++)
-        "" !== o[r] && " " !== o[r] && i.push(o[r]);
+        '' !== o[r] && ' ' !== o[r] && i.push(o[r]);
       this._clss = i;
     } else
       (n !== undefined && null !== n) || (n = !0),
         (!e ||
-          ("string" == typeof e &&
-            (e.indexOf("#") >= 0 || e.indexOf(".") >= 0))) &&
-          (e && (t = e), (e = "div")),
+          ('string' == typeof e &&
+            (e.indexOf('#') >= 0 || e.indexOf('.') >= 0))) &&
+          (e && (t = e), (e = 'div')),
         (this.dom = document.createElement(e)),
         t &&
-          (t.indexOf("#") >= 0
-            ? (this.dom.id = t.split("#")[1])
-            : (t.indexOf(".") >= 0 && (t = t.split(".")[1]),
+          (t.indexOf('#') >= 0
+            ? (this.dom.id = t.split('#')[1])
+            : (t.indexOf('.') >= 0 && (t = t.split('.')[1]),
               this.addClass.call(this, t)));
     !0 === n &&
       ((this._frag = document.createDocumentFragment()),
@@ -1270,14 +1270,14 @@ var hcaptcha = (function () {
   }
 
   function oe(e) {
-    if (null === e) return "";
+    if (null === e) return '';
     var t = [];
-    return re(e, t), t.join("&");
+    return re(e, t), t.join('&');
   }
 
   function re(e, t) {
     var n, i;
-    if ("object" == typeof e)
+    if ('object' == typeof e)
       for (i in e) !0 === ae((n = e[i])) ? re(n, t) : (t[t.length] = se(i, n));
     else if (!0 === Array.isArray(e))
       for (var o = 0; o < e.length; o++)
@@ -1286,12 +1286,12 @@ var hcaptcha = (function () {
   }
 
   function ae(e) {
-    return !0 === Array.isArray(e) || "object" == typeof e;
+    return !0 === Array.isArray(e) || 'object' == typeof e;
   }
 
   function se(e, t) {
     return (
-      encodeURIComponent(e) + "=" + encodeURIComponent(null === t ? "" : t)
+      encodeURIComponent(e) + '=' + encodeURIComponent(null === t ? '' : t)
     );
   }
   (ie.prototype.createElement = function (e, t) {
@@ -1301,8 +1301,8 @@ var hcaptcha = (function () {
     (ie.prototype.appendElement = function (e) {
       if (e === undefined)
         return H({
-          name: "DomElement Add Child",
-          message: "Child Element is undefined",
+          name: 'DomElement Add Child',
+          message: 'Child Element is undefined',
         });
       var t;
       t =
@@ -1315,8 +1315,8 @@ var hcaptcha = (function () {
         e instanceof ie && (e._parent = this), this.dom.appendChild(t);
       } catch (Ht) {
         H({
-          name: "DomElement Add Child",
-          message: "Failed to append child.",
+          name: 'DomElement Add Child',
+          message: 'Failed to append child.',
         });
       }
       return this;
@@ -1335,21 +1335,21 @@ var hcaptcha = (function () {
         t.parentNode === this.dom && this.dom.removeChild(t);
       } catch (Ht) {
         H({
-          name: "DomElement Remove Child",
-          message: "Failed to remove child.",
+          name: 'DomElement Remove Child',
+          message: 'Failed to remove child.',
         });
       }
     }),
     (ie.prototype.addClass = function (e) {
       return (
         !1 === this.hasClass.call(this, e) &&
-          (this._clss.push(e), (this.dom.className = this._clss.join(" "))),
+          (this._clss.push(e), (this.dom.className = this._clss.join(' '))),
         this
       );
     }),
     (ie.prototype.hasClass = function (e) {
       for (
-        var t = -1 !== this.dom.className.split(" ").indexOf(e),
+        var t = -1 !== this.dom.className.split(' ').indexOf(e),
           n = this._clss.length;
         n-- && !t;
 
@@ -1360,7 +1360,7 @@ var hcaptcha = (function () {
     (ie.prototype.removeClass = function (e) {
       for (var t = this._clss.length; --t > -1; )
         this._clss[t] === e && this._clss.splice(t, 1);
-      return (this.dom.className = this._clss.join(" ")), this;
+      return (this.dom.className = this._clss.join(' ')), this;
     }),
     (ie.prototype.text = function (e) {
       if (this && this.dom) {
@@ -1373,10 +1373,10 @@ var hcaptcha = (function () {
           !1 === a.test(t[0])
             ? ((i = t[0]),
               (o = void 0),
-              ((o = document.createElement("div")).innerHTML = i),
+              ((o = document.createElement('div')).innerHTML = i),
               (n = o.textContent),
-              (e = e.replace(new RegExp(t[0], "g"), n)))
-            : (e = e.replace(t[0], ""));
+              (e = e.replace(new RegExp(t[0], 'g'), n)))
+            : (e = e.replace(t[0], ''));
         }
         return (this.dom.textContent = e), this;
       }
@@ -1388,17 +1388,17 @@ var hcaptcha = (function () {
         t = e[n];
         try {
           if (
-            ("opacity" !== n &&
-              "zIndex" !== n &&
-              "fontWeight" !== n &&
+            ('opacity' !== n &&
+              'zIndex' !== n &&
+              'fontWeight' !== n &&
               isFinite(t) &&
               parseFloat(t) === t &&
-              (t += "px"),
-            "ie" === W.Browser.type &&
+              (t += 'px'),
+            'ie' === W.Browser.type &&
               8 === W.Browser.version &&
-              "opacity" === n)
+              'opacity' === n)
           )
-            this.dom.style.filter = "alpha(opacity=" + 100 * t + ")";
+            this.dom.style.filter = 'alpha(opacity=' + 100 * t + ')';
           else {
             var i = ne(n);
             this.dom.style[i] = t;
@@ -1410,9 +1410,9 @@ var hcaptcha = (function () {
     (ie.prototype.backgroundImage = function (e, t, n, i) {
       var o = t !== undefined && n !== undefined,
         r = {
-          "-ms-high-contrast-adjust": "none",
+          '-ms-high-contrast-adjust': 'none',
         };
-      if (("object" == typeof t && (i = t), i === undefined && (i = {}), o)) {
+      if (('object' == typeof t && (i = t), i === undefined && (i = {}), o)) {
         var a = e.width / e.height,
           s = t,
           h = s / a;
@@ -1423,37 +1423,37 @@ var hcaptcha = (function () {
           i.center &&
             ((r.marginLeft = -s / 2),
             (r.marginTop = -h / 2),
-            (r.position = "absolute"),
-            (r.left = "50%"),
-            (r.top = "50%")),
+            (r.position = 'absolute'),
+            (r.left = '50%'),
+            (r.top = '50%')),
           (i.left || i.right) && ((r.left = i.left || 0), (r.top = i.top || 0));
       }
-      "ie" === W.Browser.type && 8 === W.Browser.version
+      'ie' === W.Browser.type && 8 === W.Browser.version
         ? (r.filter =
             "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" +
             e.src +
             "',sizingMethod='scale')")
-        : ((r.background = "url(" + e.src + ")"),
-          (r.backgroundPosition = "50% 50%"),
-          (r.backgroundRepeat = "no-repeat"),
+        : ((r.background = 'url(' + e.src + ')'),
+          (r.backgroundPosition = '50% 50%'),
+          (r.backgroundRepeat = 'no-repeat'),
           (r.backgroundSize = o
-            ? s + "px " + h + "px"
+            ? s + 'px ' + h + 'px'
             : i.cover
-            ? "cover"
+            ? 'cover'
             : i.contain
-            ? "contain"
-            : "100%")),
+            ? 'contain'
+            : '100%')),
         this.css.call(this, r);
     }),
     (ie.prototype.setAttribute = function (e, t) {
       var n;
-      if ("object" == typeof e)
+      if ('object' == typeof e)
         for (var i in e) (n = e[i]), this.dom.setAttribute(i, n);
       else this.dom.setAttribute(e, t);
     }),
     (ie.prototype.removeAttribute = function (e, t) {
       var n;
-      if ("object" == typeof e)
+      if ('object' == typeof e)
         for (var i in e) (n = e[i]), this.dom.removeAttribute(i, n);
       else this.dom.removeAttribute(e, t);
     }),
@@ -1466,7 +1466,7 @@ var hcaptcha = (function () {
       this._listeners.push(i),
         this.dom.addEventListener
           ? this.dom.addEventListener(i.event, i.handler, n)
-          : this.dom.attachEvent("on" + i.event, i.handler);
+          : this.dom.attachEvent('on' + i.event, i.handler);
     }),
     (ie.prototype.removeEventListener = function (e, t, n) {
       for (var i, o = this._listeners.length; --o > -1; )
@@ -1475,7 +1475,7 @@ var hcaptcha = (function () {
           (this._listeners.splice(o, 1),
           this.dom.removeEventListener
             ? this.dom.removeEventListener(i.event, i.handler, n)
-            : this.dom.detachEvent("on" + i.event, i.handler));
+            : this.dom.detachEvent('on' + i.event, i.handler));
     }),
     (ie.prototype.focus = function () {
       this.dom.focus();
@@ -1492,7 +1492,7 @@ var hcaptcha = (function () {
           this._listeners.splice(t, 1),
           this.dom.removeEventListener
             ? this.dom.removeEventListener(e.event, e.handler)
-            : this.dom.detachEvent("on" + e.event, e.handler);
+            : this.dom.detachEvent('on' + e.event, e.handler);
       return (
         (this.dom = null),
         (this._clss = []),
@@ -1504,295 +1504,295 @@ var hcaptcha = (function () {
       );
     });
   var he = {
-      af: "Afrikaans",
-      sq: "Albanian",
-      am: "Amharic",
-      ar: "Arabic",
-      hy: "Armenian",
-      az: "Azerbaijani",
-      eu: "Basque",
-      be: "Belarusian",
-      bn: "Bengali",
-      bg: "Bulgarian",
-      bs: "Bosnian",
-      my: "Burmese",
-      ca: "Catalan",
-      ceb: "Cebuano",
-      zh: "Chinese",
-      "zh-CN": "Chinese Simplified",
-      "zh-TW": "Chinese Traditional",
-      co: "Corsican",
-      hr: "Croatian",
-      cs: "Czech",
-      da: "Danish",
-      nl: "Dutch",
-      en: "English",
-      eo: "Esperanto",
-      et: "Estonian",
-      fa: "Persian",
-      fi: "Finnish",
-      fr: "French",
-      fy: "Frisian",
-      gd: "Gaelic",
-      gl: "Galacian",
-      ka: "Georgian",
-      de: "German",
-      el: "Greek",
-      gu: "Gujurati",
-      ht: "Haitian",
-      ha: "Hausa",
-      haw: "Hawaiian",
-      he: "Hebrew",
-      hi: "Hindi",
-      hmn: "Hmong",
-      hu: "Hungarian",
-      is: "Icelandic",
-      ig: "Igbo",
-      id: "Indonesian",
-      ga: "Irish",
-      it: "Italian",
-      ja: "Japanese",
-      jw: "Javanese",
-      kn: "Kannada",
-      kk: "Kazakh",
-      km: "Khmer",
-      rw: "Kinyarwanda",
-      ky: "Kirghiz",
-      ko: "Korean",
-      ku: "Kurdish",
-      lo: "Lao",
-      la: "Latin",
-      lv: "Latvian",
-      lt: "Lithuanian",
-      lb: "Luxembourgish",
-      mk: "Macedonian",
-      mg: "Malagasy",
-      ms: "Malay",
-      ml: "Malayalam",
-      mt: "Maltese",
-      mi: "Maori",
-      mr: "Marathi",
-      mn: "Mongolian",
-      ne: "Nepali",
-      no: "Norwegian",
-      ny: "Nyanja",
-      or: "Oriya",
-      pl: "Polish",
-      "pt-BR": "Portuguese (Brazil)",
-      pt: "Portuguese (Portugal)",
-      ps: "Pashto",
-      pa: "Punjabi",
-      ro: "Romanian",
-      ru: "Russian",
-      sm: "Samoan",
-      sn: "Shona",
-      sd: "Sindhi",
-      si: "Singhalese",
-      sr: "Serbian",
-      sk: "Slovak",
-      sl: "Slovenian",
-      so: "Somani",
-      st: "Southern Sotho",
-      es: "Spanish",
-      su: "Sundanese",
-      sw: "Swahili",
-      sv: "Swedish",
-      tl: "Tagalog",
-      tg: "Tajik",
-      ta: "Tamil",
-      tt: "Tatar",
-      te: "Teluga",
-      th: "Thai",
-      tr: "Turkish",
-      tk: "Turkmen",
-      ug: "Uyghur",
-      uk: "Ukrainian",
-      ur: "Urdu",
-      uz: "Uzbek",
-      vi: "Vietnamese",
-      cy: "Welsh",
-      xh: "Xhosa",
-      yi: "Yiddish",
-      yo: "Yoruba",
-      zu: "Zulu",
+      af: 'Afrikaans',
+      sq: 'Albanian',
+      am: 'Amharic',
+      ar: 'Arabic',
+      hy: 'Armenian',
+      az: 'Azerbaijani',
+      eu: 'Basque',
+      be: 'Belarusian',
+      bn: 'Bengali',
+      bg: 'Bulgarian',
+      bs: 'Bosnian',
+      my: 'Burmese',
+      ca: 'Catalan',
+      ceb: 'Cebuano',
+      zh: 'Chinese',
+      'zh-CN': 'Chinese Simplified',
+      'zh-TW': 'Chinese Traditional',
+      co: 'Corsican',
+      hr: 'Croatian',
+      cs: 'Czech',
+      da: 'Danish',
+      nl: 'Dutch',
+      en: 'English',
+      eo: 'Esperanto',
+      et: 'Estonian',
+      fa: 'Persian',
+      fi: 'Finnish',
+      fr: 'French',
+      fy: 'Frisian',
+      gd: 'Gaelic',
+      gl: 'Galacian',
+      ka: 'Georgian',
+      de: 'German',
+      el: 'Greek',
+      gu: 'Gujurati',
+      ht: 'Haitian',
+      ha: 'Hausa',
+      haw: 'Hawaiian',
+      he: 'Hebrew',
+      hi: 'Hindi',
+      hmn: 'Hmong',
+      hu: 'Hungarian',
+      is: 'Icelandic',
+      ig: 'Igbo',
+      id: 'Indonesian',
+      ga: 'Irish',
+      it: 'Italian',
+      ja: 'Japanese',
+      jw: 'Javanese',
+      kn: 'Kannada',
+      kk: 'Kazakh',
+      km: 'Khmer',
+      rw: 'Kinyarwanda',
+      ky: 'Kirghiz',
+      ko: 'Korean',
+      ku: 'Kurdish',
+      lo: 'Lao',
+      la: 'Latin',
+      lv: 'Latvian',
+      lt: 'Lithuanian',
+      lb: 'Luxembourgish',
+      mk: 'Macedonian',
+      mg: 'Malagasy',
+      ms: 'Malay',
+      ml: 'Malayalam',
+      mt: 'Maltese',
+      mi: 'Maori',
+      mr: 'Marathi',
+      mn: 'Mongolian',
+      ne: 'Nepali',
+      no: 'Norwegian',
+      ny: 'Nyanja',
+      or: 'Oriya',
+      pl: 'Polish',
+      'pt-BR': 'Portuguese (Brazil)',
+      pt: 'Portuguese (Portugal)',
+      ps: 'Pashto',
+      pa: 'Punjabi',
+      ro: 'Romanian',
+      ru: 'Russian',
+      sm: 'Samoan',
+      sn: 'Shona',
+      sd: 'Sindhi',
+      si: 'Singhalese',
+      sr: 'Serbian',
+      sk: 'Slovak',
+      sl: 'Slovenian',
+      so: 'Somani',
+      st: 'Southern Sotho',
+      es: 'Spanish',
+      su: 'Sundanese',
+      sw: 'Swahili',
+      sv: 'Swedish',
+      tl: 'Tagalog',
+      tg: 'Tajik',
+      ta: 'Tamil',
+      tt: 'Tatar',
+      te: 'Teluga',
+      th: 'Thai',
+      tr: 'Turkish',
+      tk: 'Turkmen',
+      ug: 'Uyghur',
+      uk: 'Ukrainian',
+      ur: 'Urdu',
+      uz: 'Uzbek',
+      vi: 'Vietnamese',
+      cy: 'Welsh',
+      xh: 'Xhosa',
+      yi: 'Yiddish',
+      yo: 'Yoruba',
+      zu: 'Zulu',
     },
     ce = {
       zh: {
-        "I am human": "我是人",
+        'I am human': '我是人',
       },
       ar: {
-        "I am human": "أنا الإنسان",
+        'I am human': 'أنا الإنسان',
       },
       af: {
-        "I am human": "Ek is menslike",
+        'I am human': 'Ek is menslike',
       },
       am: {
-        "I am human": "እኔ ሰው ነኝ",
+        'I am human': 'እኔ ሰው ነኝ',
       },
       hy: {
-        "I am human": "Ես մարդ եմ",
+        'I am human': 'Ես մարդ եմ',
       },
       az: {
-        "I am human": "Mən insanam",
+        'I am human': 'Mən insanam',
       },
       eu: {
-        "I am human": "Gizakia naiz",
+        'I am human': 'Gizakia naiz',
       },
       bn: {
-        "I am human": "আমি মানব নই",
+        'I am human': 'আমি মানব নই',
       },
       bg: {
-        "I am human": "Аз съм човек",
+        'I am human': 'Аз съм човек',
       },
       ca: {
-        "I am human": "Sóc humà",
+        'I am human': 'Sóc humà',
       },
       hr: {
-        "I am human": "Ja sam čovjek",
+        'I am human': 'Ja sam čovjek',
       },
       cs: {
-        "I am human": "Jsem člověk",
+        'I am human': 'Jsem člověk',
       },
       da: {
-        "I am human": "Jeg er et menneske",
+        'I am human': 'Jeg er et menneske',
       },
       nl: {
-        "I am human": "Ik ben een mens",
+        'I am human': 'Ik ben een mens',
       },
       et: {
-        "I am human": "Ma olen inimeste",
+        'I am human': 'Ma olen inimeste',
       },
       fi: {
-        "I am human": "Olen ihminen",
+        'I am human': 'Olen ihminen',
       },
       fr: {
-        "I am human": "Je suis humain",
+        'I am human': 'Je suis humain',
       },
       gl: {
-        "I am human": "Eu son humano",
+        'I am human': 'Eu son humano',
       },
       ka: {
-        "I am human": "მე ვარ ადამიანი",
+        'I am human': 'მე ვარ ადამიანი',
       },
       de: {
-        "I am human": "Ich bin ein Mensch",
+        'I am human': 'Ich bin ein Mensch',
       },
       el: {
-        "I am human": "Είμαι άνθρωπος",
+        'I am human': 'Είμαι άνθρωπος',
       },
       gu: {
-        "I am human": "હું માનવ છું",
+        'I am human': 'હું માનવ છું',
       },
       iw: {
-        "I am human": ". אני אנושי",
+        'I am human': '. אני אנושי',
       },
       hi: {
-        "I am human": "मैं मानव हूं",
+        'I am human': 'मैं मानव हूं',
       },
       hu: {
-        "I am human": "Nem vagyok robot",
+        'I am human': 'Nem vagyok robot',
       },
       is: {
-        "I am human": "Ég er manneskja",
+        'I am human': 'Ég er manneskja',
       },
       id: {
-        "I am human": "Aku manusia",
+        'I am human': 'Aku manusia',
       },
       it: {
-        "I am human": "Sono un essere umano",
+        'I am human': 'Sono un essere umano',
       },
       ja: {
-        "I am human": "私は人間です",
+        'I am human': '私は人間です',
       },
       kn: {
-        "I am human": "ನಾನು ಮಾನವನು",
+        'I am human': 'ನಾನು ಮಾನವನು',
       },
       ko: {
-        "I am human": "사람입니다",
+        'I am human': '사람입니다',
       },
       lo: {
-        "I am human": "ຂ້ອຍເປັນມະນຸດ",
+        'I am human': 'ຂ້ອຍເປັນມະນຸດ',
       },
       lv: {
-        "I am human": "Es esmu cilvēks",
+        'I am human': 'Es esmu cilvēks',
       },
       lt: {
-        "I am human": "Aš esu žmogaus",
+        'I am human': 'Aš esu žmogaus',
       },
       ms: {
-        "I am human": "Saya manusia",
+        'I am human': 'Saya manusia',
       },
       ml: {
-        "I am human": "ഞാൻ മനുഷ്യനാണ്",
+        'I am human': 'ഞാൻ മനുഷ്യനാണ്',
       },
       mr: {
-        "I am human": "मी मानवी आहे",
+        'I am human': 'मी मानवी आहे',
       },
       mn: {
-        "I am human": "Би бол хүн",
+        'I am human': 'Би бол хүн',
       },
       no: {
-        "I am human": "Jeg er menneskelig",
+        'I am human': 'Jeg er menneskelig',
       },
       fa: {
-        "I am human": "من انسانی هستم",
+        'I am human': 'من انسانی هستم',
       },
       pl: {
-        "I am human": "Jestem człowiekiem",
+        'I am human': 'Jestem człowiekiem',
       },
       pt: {
-        "I am human": "Sou humano",
+        'I am human': 'Sou humano',
       },
       ro: {
-        "I am human": "Eu sunt om",
+        'I am human': 'Eu sunt om',
       },
       ru: {
-        "I am human": "Я человек",
+        'I am human': 'Я человек',
       },
       sr: {
-        "I am human": "Ja sam ljudski",
+        'I am human': 'Ja sam ljudski',
       },
       si: {
-        "I am human": "මම මිනිස්සු",
+        'I am human': 'මම මිනිස්සු',
       },
       sk: {
-        "I am human": "Ja som človek",
+        'I am human': 'Ja som človek',
       },
       sl: {
-        "I am human": "Jaz sem človeški",
+        'I am human': 'Jaz sem človeški',
       },
       es: {
-        "I am human": "Soy humano",
+        'I am human': 'Soy humano',
       },
       sw: {
-        "I am human": "Mimi ni binadamu",
+        'I am human': 'Mimi ni binadamu',
       },
       sv: {
-        "I am human": "Jag är människa",
+        'I am human': 'Jag är människa',
       },
       ta: {
-        "I am human": "நான் மனித",
+        'I am human': 'நான் மனித',
       },
       te: {
-        "I am human": "నేను మనిషిని",
+        'I am human': 'నేను మనిషిని',
       },
       th: {
-        "I am human": "ผมมนุษย์",
+        'I am human': 'ผมมนุษย์',
       },
       tr: {
-        "I am human": "Ben bir insanım",
+        'I am human': 'Ben bir insanım',
       },
       uk: {
-        "I am human": "Я людини",
+        'I am human': 'Я людини',
       },
       ur: {
-        "I am human": "میں انسان ہوں",
+        'I am human': 'میں انسان ہوں',
       },
       vi: {
-        "I am human": "Tôi là con người",
+        'I am human': 'Tôi là con người',
       },
       zu: {
-        "I am human": "Ngingumuntu",
+        'I am human': 'Ngingumuntu',
       },
     },
     le = null,
@@ -1807,7 +1807,7 @@ var hcaptcha = (function () {
           ? e[t]
           : de.getShortLocale(t) in e
           ? e[de.getShortLocale(t)]
-          : "en" in e
+          : 'en' in e
           ? e.en
           : null;
       },
@@ -1816,20 +1816,20 @@ var hcaptcha = (function () {
             le || window.navigator.userLanguage || window.navigator.language,
           t = de.getShortLocale(e);
         return (
-          "in" === t && (e = "id"),
-          "iw" === t && (e = "he"),
-          "nb" === t && (e = "no"),
-          "ji" === t && (e = "yi"),
-          "zh-CN" === e && (e = "zh"),
-          "jv" === t && (e = "jw"),
-          he[e] ? e : he[t] ? t : "en"
+          'in' === t && (e = 'id'),
+          'iw' === t && (e = 'he'),
+          'nb' === t && (e = 'no'),
+          'ji' === t && (e = 'yi'),
+          'zh-CN' === e && (e = 'zh'),
+          'jv' === t && (e = 'jw'),
+          he[e] ? e : he[t] ? t : 'en'
         );
       },
       setLocale: function (e) {
         le = e;
       },
       getShortLocale: function (e) {
-        return e.indexOf("-") >= 0 ? e.substring(0, e.indexOf("-")) : e;
+        return e.indexOf('-') >= 0 ? e.substring(0, e.indexOf('-')) : e;
       },
       isShortLocale: function (e) {
         return 2 === e.length || 3 === e.length;
@@ -1853,9 +1853,9 @@ var hcaptcha = (function () {
       },
     },
     ue = {
-      400: "Rate limited or network error. Please retry.",
-      429: "Your computer or network has sent too many requests.",
-      500: "Cannot contact hCaptcha. Check your connection and try again.",
+      400: 'Rate limited or network error. Please retry.',
+      429: 'Your computer or network has sent too many requests.',
+      500: 'Cannot contact hCaptcha. Check your connection and try again.',
     },
     pe = function (e) {
       try {
@@ -1865,15 +1865,15 @@ var hcaptcha = (function () {
       }
     },
     fe =
-      "undefined" != typeof XDomainRequest &&
-      !("withCredentials" in XMLHttpRequest.prototype);
+      'undefined' != typeof XDomainRequest &&
+      !('withCredentials' in XMLHttpRequest.prototype);
 
   function me(e, t, n) {
     n = n || {};
     var i = {
       url: t,
       method: e.toUpperCase(),
-      responseType: n.responseType || "string",
+      responseType: n.responseType || 'string',
       dataType: n.dataType || null,
       withCredentials: n.withCredentials || !1,
       headers: n.headers || null,
@@ -1883,10 +1883,10 @@ var hcaptcha = (function () {
     return (
       (i.legacy = i.withCredentials && fe),
       i.data &&
-        ("json" === i.dataType &&
-          "object" == typeof i.data &&
+        ('json' === i.dataType &&
+          'object' == typeof i.data &&
           (i.data = JSON.stringify(i.data)),
-        "query" === i.dataType && (i.data = oe(i.data))),
+        'query' === i.dataType && (i.data = oe(i.data))),
       n.retry
         ? G(function () {
             return ge(i);
@@ -1897,25 +1897,25 @@ var hcaptcha = (function () {
 
   function ge(e) {
     var t = e.legacy ? new XDomainRequest() : new XMLHttpRequest(),
-      n = "function" == typeof e.url ? e.url() : e.url;
+      n = 'function' == typeof e.url ? e.url() : e.url;
     return new Promise(function (i, o) {
       var r,
         a = function (r) {
           return function () {
             var a = t.response || t.responseText,
-              s = t.statusText || "",
+              s = t.statusText || '',
               h = t.status,
               c = t.readyState;
             if (4 === c || e.legacy) {
-              if ("error" === r || (h >= 400 && h <= 511))
+              if ('error' === r || (h >= 400 && h <= 511))
                 return void o({
-                  event: "network-error",
+                  event: 'network-error',
                   endpoint: n,
                   state: c,
                   status: h,
                   message: pe(h || 400) || s,
                 });
-              "json" === e.responseType && a && (a = JSON.parse(a)),
+              'json' === e.responseType && a && (a = JSON.parse(a)),
                 i({
                   state: c,
                   status: h,
@@ -1926,8 +1926,8 @@ var hcaptcha = (function () {
           };
         };
       if (
-        ((t.onload = a("complete")),
-        (t.onerror = t.ontimeout = a("error")),
+        ((t.onload = a('complete')),
+        (t.onerror = t.ontimeout = a('error')),
         t.open(e.method, n),
         e.timeout && (t.timeout = e.timeout),
         !e.legacy) &&
@@ -1941,49 +1941,49 @@ var hcaptcha = (function () {
   }
   var ye = function (e, t) {
       if (
-        ("object" == typeof e && t === undefined && (e = (t = e).url),
+        ('object' == typeof e && t === undefined && (e = (t = e).url),
         null === e)
       )
-        throw new Error("Url missing");
-      return me("GET", e, t);
+        throw new Error('Url missing');
+      return me('GET', e, t);
     },
     ve = function (e) {
       return e.toLowerCase().match(/\.(?:jpg|gif|png|jpeg|svg)$/g)
-        ? "image"
+        ? 'image'
         : e.toLowerCase().match(/\.(?:js)$/g)
-        ? "script"
-        : "file";
+        ? 'script'
+        : 'file';
     },
     we = function (e) {
       if (F.assethost && e.indexOf(U.assetDomain) >= 0)
-        return F.assethost + e.replace(U.assetDomain, "");
-      if (F.imghost && e.indexOf("imgs") >= 0) {
+        return F.assethost + e.replace(U.assetDomain, '');
+      if (F.imghost && e.indexOf('imgs') >= 0) {
         var t =
-          e.indexOf(".ai") >= 0 ? e.indexOf(".ai") + 3 : e.indexOf(".com") + 4;
+          e.indexOf('.ai') >= 0 ? e.indexOf('.ai') + 3 : e.indexOf('.com') + 4;
         return F.imghost + e.substr(t, e.length);
       }
       return e;
     },
-    be = ["svg", "gif", "png"];
+    be = ['svg', 'gif', 'png'];
 
   function _e(e, t) {
     t = t || {};
     var n,
       i = e;
-    if (0 === i.indexOf("data:image"))
+    if (0 === i.indexOf('data:image'))
       for (var o = !1, r = be.length, a = -1; a++ < r && !o; )
         (o = i.indexOf(be[a]) >= 0) && (n = be[a]);
-    else n = i.substr(i.lastIndexOf(".") + 1, i.length);
+    else n = i.substr(i.lastIndexOf('.') + 1, i.length);
     !!(
       !document.createElementNS ||
-      !document.createElementNS("http://www.w3.org/2000/svg", "svg")
+      !document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         .createSVGRect
     ) &&
       t.fallback &&
-      (t.fallback.indexOf(".") >= 0
-        ? (n = (i = t.fallback).substr(i.lastIndexOf(".") + 1, i.length))
+      (t.fallback.indexOf('.') >= 0
+        ? (n = (i = t.fallback).substr(i.lastIndexOf('.') + 1, i.length))
         : ((i = e.substr(0, e.indexOf(n)) + t.fallback), (n = t.fallback))),
-      t.prefix && (i = t.prefix + "/" + i),
+      t.prefix && (i = t.prefix + '/' + i),
       (this.attribs = {
         crossOrigin: t.crossOrigin || null,
       }),
@@ -2005,13 +2005,13 @@ var hcaptcha = (function () {
   function xe(e, t, n) {
     for (var i = e[t], o = i.length, r = null; --o > -1; )
       (r = i[o]), i.splice(o, 1), r(n);
-    "error" === t ? (e.load = []) : (e.error = []);
+    'error' === t ? (e.load = []) : (e.error = []);
   }
 
   function Ce(e, t) {
     var n = e;
     t || (t = {}),
-      t.prefix && (n = t.prefix + "/" + e),
+      t.prefix && (n = t.prefix + '/' + e),
       (this.attribs = {
         defer: t.defer || null,
         async: t.async || null,
@@ -2031,13 +2031,13 @@ var hcaptcha = (function () {
   function ke(e, t, n) {
     for (var i = e[t], o = i.length, r = null; --o > -1; )
       (r = i[o]), i.splice(o, 1), r(n);
-    "error" === t ? (e.load = []) : (e.error = []);
+    'error' === t ? (e.load = []) : (e.error = []);
   }
 
   function Ee(e, t) {
     var n = e;
     t || (t = {}),
-      t.prefix && (n = t.prefix + "/" + e),
+      t.prefix && (n = t.prefix + '/' + e),
       (this.id = n),
       (this.src = we(n)),
       (this.loaded = !1),
@@ -2052,18 +2052,18 @@ var hcaptcha = (function () {
   function Se(e, t, n) {
     for (var i = e[t], o = i.length, r = null; --o > -1; )
       (r = i[o]), i.splice(o, 1), r(n);
-    "error" === t ? (e.load = []) : (e.error = []);
+    'error' === t ? (e.load = []) : (e.error = []);
   }
   (_e.prototype.load = function () {
-    return "svg" === this.ext ? this._loadSvg() : this._loadImg();
+    return 'svg' === this.ext ? this._loadSvg() : this._loadImg();
   }),
     (_e.prototype._loadSvg = function () {
       var e,
         t = this,
         n = this.src,
         i = this.id;
-      if (0 === n.indexOf("data:image/svg+xml")) {
-        var o = n.slice("data:image/svg+xml,".length);
+      if (0 === n.indexOf('data:image/svg+xml')) {
+        var o = n.slice('data:image/svg+xml,'.length);
         e = Promise.resolve(decodeURIComponent(o));
       } else
         e = ye(n).then(function (e) {
@@ -2073,16 +2073,16 @@ var hcaptcha = (function () {
         .then(function (e) {
           var n = new DOMParser().parseFromString(
               e,
-              "image/svg+xml"
+              'image/svg+xml'
             ).documentElement,
-            i = parseInt(n.getAttribute("width")),
-            o = parseInt(n.getAttribute("height"));
+            i = parseInt(n.getAttribute('width')),
+            o = parseInt(n.getAttribute('height'));
           return t._imgLoaded(n, i, o), t;
         })
-        ["catch"](function (e) {
+        ['catch'](function (e) {
           t.error = !0;
-          var n = (e && e.message ? e.message : "Loading Error") + ": " + i;
-          throw (xe(t.cb, "error", n), n);
+          var n = (e && e.message ? e.message : 'Loading Error') + ': ' + i;
+          throw (xe(t.cb, 'error', n), n);
         });
     }),
     (_e.prototype._loadImg = function () {
@@ -2095,8 +2095,8 @@ var hcaptcha = (function () {
         t.crossOrigin && (a.crossOrigin = t.crossOrigin),
           (a.onerror = function (t) {
             (e.error = !0), (a.onload = a.onerror = null);
-            var n = (t && t.message ? t.message : "Loading Error") + ": " + i;
-            xe(e.cb, "error", n), r(n);
+            var n = (t && t.message ? t.message : 'Loading Error') + ': ' + i;
+            xe(e.cb, 'error', n), r(n);
           }),
           (a.onload = function () {
             e.loaded ||
@@ -2114,7 +2114,7 @@ var hcaptcha = (function () {
         (this.height = n),
         (this.aspect = t / n),
         (this.loaded = !0),
-        xe(this.cb, "load", this);
+        xe(this.cb, 'load', this);
     }),
     (_e.prototype.onload = function (e) {
       this.error || (this.loaded ? e(this) : this.cb.load.push(e));
@@ -2129,27 +2129,27 @@ var hcaptcha = (function () {
         n = this.src,
         i = this.id;
       return new Promise(function (o, r) {
-        var a = document.createElement("script");
+        var a = document.createElement('script');
         (e.element = a),
           (a.onerror = function (t) {
             (e.error = !0),
               (a.onload = a.onreadystatechange = a.onerror = null);
-            var n = (t.message || "Loading Error") + ": " + i;
-            ke(e.cb, "error", n), r(n);
+            var n = (t.message || 'Loading Error') + ': ' + i;
+            ke(e.cb, 'error', n), r(n);
           }),
           (a.onload = a.onreadystatechange =
             function () {
               this.loaded ||
                 (a.readyState &&
-                  "loaded" !== a.readyState &&
-                  "complete" !== a.readyState) ||
+                  'loaded' !== a.readyState &&
+                  'complete' !== a.readyState) ||
                 ((e.loaded = !0),
                 (a.onload = a.onreadystatechange = a.onerror = null),
                 document.body.removeChild(a),
-                ke(e.cb, "load", e),
+                ke(e.cb, 'load', e),
                 o(e));
             }),
-          (a.type = "text/javascript"),
+          (a.type = 'text/javascript'),
           (a.src = n),
           t.crossOrigin && (a.crossorigin = t.crossOrigin),
           t.async && (a.async = !0),
@@ -2171,15 +2171,15 @@ var hcaptcha = (function () {
         n = this.id;
       return new Promise(function (i, o) {
         var r = {};
-        t.indexOf("json") >= 0 && (r.responseType = "json"),
+        t.indexOf('json') >= 0 && (r.responseType = 'json'),
           ye(t, r)
             .then(function (t) {
-              (e.loaded = !0), (e.data = t.body), Se(e.cb, "load", e), i(e);
+              (e.loaded = !0), (e.data = t.body), Se(e.cb, 'load', e), i(e);
             })
-            ["catch"](function (t) {
+            ['catch'](function (t) {
               e.error = !0;
-              var i = (t && t.message ? t.message : "Loading Error") + ": " + n;
-              Se(e.cb, "error", i), o(i);
+              var i = (t && t.message ? t.message : 'Loading Error') + ': ' + n;
+              Se(e.cb, 'error', i), o(i);
             });
       });
     }),
@@ -2201,7 +2201,7 @@ var hcaptcha = (function () {
           var o = e[i];
           n.push(Pe.add(o, t));
         }
-        return Promise.all(n)["finally"](function () {
+        return Promise.all(n)['finally'](function () {
           n = [];
         });
       },
@@ -2260,7 +2260,7 @@ var hcaptcha = (function () {
   var je = {
     queue: Te,
     depth: function Xt(e, t, n) {
-      if ("object" == typeof e && e[t] && e[t].length > 0)
+      if ('object' == typeof e && e[t] && e[t].length > 0)
         for (var i = e[t].length; --i > -1; ) Xt(e[t][i], t, n);
       e !== undefined && n(e);
     },
@@ -2275,17 +2275,17 @@ var hcaptcha = (function () {
   };
 
   function Me(e, t) {
-    Ie(this, ie, t || "div", e), (this.children = []), (this._events = []);
+    Ie(this, ie, t || 'div', e), (this.children = []), (this._events = []);
   }
 
   function Ae(e) {
-    Ie(this, Me, e.id || "." + e.name),
+    Ie(this, Me, e.id || '.' + e.name),
       (this.state = {
         loaded: !1,
-        name: e.name + ".svg",
+        name: e.name + '.svg',
         prefix:
           e.prefix ||
-          "https://newassets.hcaptcha.com/captcha/v1/ff4a4ed/static/images",
+          'https://newassets.hcaptcha.com/captcha/v1/ff4a4ed/static/images',
         fill: e.fill,
         width: e.width || 25,
         height: e.height || e.width || 25,
@@ -2319,14 +2319,14 @@ var hcaptcha = (function () {
     (Me.prototype.destroy = function () {
       var e = this;
       try {
-        je.depth(this, "children", function (t) {
+        je.depth(this, 'children', function (t) {
           if (e !== t)
             for (var n = e.children.length; --n > -1; )
               e.children[n] === t && e.children.splice(n, 1);
           t._destroy && t._destroy(), (t = null);
         });
       } catch (Ht) {
-        throw new Error("Trouble destroying nodes: " + Ht);
+        throw new Error('Trouble destroying nodes: ' + Ht);
       }
       return null;
     }),
@@ -2345,8 +2345,8 @@ var hcaptcha = (function () {
           (this.initComponent = null);
       } catch (Ht) {
         H({
-          name: "DomComponent",
-          message: "Failed to destroy.",
+          name: 'DomComponent',
+          message: 'Failed to destroy.',
         });
       }
     }),
@@ -2389,13 +2389,13 @@ var hcaptcha = (function () {
           t = e.state.name;
         return Pe.image(t, {
           prefix: e.state.prefix,
-          fallback: "png",
+          fallback: 'png',
         })
           .then(function (t) {
             (e.img = t.element), e.appendElement(e.img), e._style();
           })
-          ["catch"](function () {
-            Y("svg failed to load", "image", "info", {
+          ['catch'](function () {
+            Y('svg failed to load', 'image', 'info', {
               svgName: t,
             });
           });
@@ -2409,7 +2409,7 @@ var hcaptcha = (function () {
         this.img.css({
           width: this.state.width,
           height: this.state.height,
-          display: "block",
+          display: 'block',
         }),
         this.state.fill && this.fill(this.state.fill);
     }),
@@ -2455,22 +2455,22 @@ var hcaptcha = (function () {
       }
     });
   var $e = {
-      touchstart: "ts",
-      touchend: "te",
-      touchmove: "tm",
-      touchcancel: "tc",
+      touchstart: 'ts',
+      touchend: 'te',
+      touchmove: 'tm',
+      touchcancel: 'tc',
     },
     De = {
-      mousedown: "md",
-      mouseup: "mu",
-      mousemove: "mm",
+      mousedown: 'md',
+      mouseup: 'mu',
+      mousemove: 'mm',
     },
     Re = {
-      keydown: "kd",
-      keyup: "ku",
+      keydown: 'kd',
+      keyup: 'ku',
     },
     Ne = {
-      devicemotion: "dm",
+      devicemotion: 'dm',
     },
     ze = function (e, t) {
       var n = De[e],
@@ -2593,25 +2593,25 @@ var hcaptcha = (function () {
     ) {
       var o = new ie(document.body);
       this.state.record.mouse &&
-        (o.addEventListener("mousedown", ze("mousedown", this._recordEvent)),
-        o.addEventListener("mousemove", ze("mousemove", this._recordEvent)),
-        o.addEventListener("mouseup", ze("mouseup", this._recordEvent))),
+        (o.addEventListener('mousedown', ze('mousedown', this._recordEvent)),
+        o.addEventListener('mousemove', ze('mousemove', this._recordEvent)),
+        o.addEventListener('mouseup', ze('mouseup', this._recordEvent))),
         !0 === this.state.record.keys &&
-          (o.addEventListener("keyup", Ue("keyup", this._recordEvent)),
-          o.addEventListener("keydown", Ue("keydown", this._recordEvent))),
+          (o.addEventListener('keyup', Ue('keyup', this._recordEvent)),
+          o.addEventListener('keydown', Ue('keydown', this._recordEvent))),
         this.state.record.touch &&
-          !0 === W.Browser.hasEvent("touchstart", document.body) &&
+          !0 === W.Browser.hasEvent('touchstart', document.body) &&
           (o.addEventListener(
-            "touchstart",
-            We("touchstart", this._recordEvent)
+            'touchstart',
+            We('touchstart', this._recordEvent)
           ),
-          o.addEventListener("touchmove", We("touchmove", this._recordEvent)),
-          o.addEventListener("touchend", We("touchend", this._recordEvent))),
+          o.addEventListener('touchmove', We('touchmove', this._recordEvent)),
+          o.addEventListener('touchend', We('touchend', this._recordEvent))),
         this.state.record.motion &&
-          !0 === W.Browser.hasEvent("devicemotion", window) &&
+          !0 === W.Browser.hasEvent('devicemotion', window) &&
           o.addEventListener(
-            "devicemotion",
-            Fe("devicemotion", this._recordEvent)
+            'devicemotion',
+            Fe('devicemotion', this._recordEvent)
           ),
         (this.state.initRecord = !0);
     }
@@ -2626,7 +2626,7 @@ var hcaptcha = (function () {
     (Je.prototype.getData = function () {
       for (var e in this.state.timeBuffers)
         (this._manifest[e] = this.state.timeBuffers[e].getData()),
-          (this._manifest[e + "-mp"] =
+          (this._manifest[e + '-mp'] =
             this.state.timeBuffers[e].getMeanPeriod());
       return this._manifest;
     }),
@@ -2647,7 +2647,7 @@ var hcaptcha = (function () {
             (this.state.timeBuffers[e] = new Le(16, 15e3)),
             this.state.timeBuffers[e].push(n, t);
         } catch (Ht) {
-          X("Event recording error: " + JSON.stringify(Ht), "error", "motion");
+          X('Event recording error: ' + JSON.stringify(Ht), 'error', 'motion');
         }
     });
   var qe = new Je(),
@@ -2657,17 +2657,17 @@ var hcaptcha = (function () {
 
   function Ve() {
     document.addEventListener
-      ? (document.addEventListener("DOMContentLoaded", Ge),
-        window.addEventListener("load", Ge))
-      : (document.attachEvent("onreadystatechange", Qe),
-        window.attachEvent("onload", Ge)),
+      ? (document.addEventListener('DOMContentLoaded', Ge),
+        window.addEventListener('load', Ge))
+      : (document.attachEvent('onreadystatechange', Qe),
+        window.attachEvent('onload', Ge)),
       (Xe = !0);
   }
 
   function Qe() {
-    ("interactive" !== document.readyState &&
-      "loaded" !== document.readyState &&
-      "complete" !== document.readyState) ||
+    ('interactive' !== document.readyState &&
+      'loaded' !== document.readyState &&
+      'complete' !== document.readyState) ||
       Ge();
   }
 
@@ -2678,17 +2678,17 @@ var hcaptcha = (function () {
     }
     (Ye = !0),
       document.removeEventListener
-        ? (document.removeEventListener("DOMContentLoaded", Ge),
-          window.removeEventListener("load", Ge))
-        : (document.detachEvent("onreadystatechange", Qe),
-          window.detachEvent("onload", Ge));
+        ? (document.removeEventListener('DOMContentLoaded', Ge),
+          window.removeEventListener('load', Ge))
+        : (document.detachEvent('onreadystatechange', Qe),
+          window.detachEvent('onload', Ge));
   }
   new ie(document);
   var Ke = new ie(window);
 
   function Ze() {
     try {
-      return Object.keys(window).sort().join(",");
+      return Object.keys(window).sort().join(',');
     } catch (Ht) {
       return null;
     }
@@ -2698,15 +2698,15 @@ var hcaptcha = (function () {
     for (var n in t) {
       var i = t[n];
       switch (typeof i) {
-        case "string":
+        case 'string':
           e[n] = i;
           break;
-        case "object":
+        case 'object':
           (e[n] = e[n] || {}), et(e[n], i);
           break;
         default:
           throw new Error(
-            "Source theme contains invalid data types. Only string and object types are supported."
+            'Source theme contains invalid data types. Only string and object types are supported.'
           );
       }
     }
@@ -2721,7 +2721,7 @@ var hcaptcha = (function () {
   }
 
   function nt(e) {
-    return !!e && "object" == typeof e;
+    return !!e && 'object' == typeof e;
   }
 
   function it(e) {
@@ -2751,32 +2751,32 @@ var hcaptcha = (function () {
     return i;
   }
   var rt = {
-      white: "#ffffff",
-      black: "#000000",
+      white: '#ffffff',
+      black: '#000000',
     },
     at = {
-      100: "#fafafa",
-      200: "#f5f5f5",
-      300: "#E0E0E0",
-      400: "#D7D7D7",
-      500: "#BFBFBF",
-      600: "#919191",
-      700: "#555555",
-      800: "#333333",
-      900: "#222222",
-      1e3: "#14191F",
+      100: '#fafafa',
+      200: '#f5f5f5',
+      300: '#E0E0E0',
+      400: '#D7D7D7',
+      500: '#BFBFBF',
+      600: '#919191',
+      700: '#555555',
+      800: '#333333',
+      900: '#222222',
+      1e3: '#14191F',
     },
-    st = "#00838F",
+    st = '#00838F',
     ht = {
-      mode: "light",
+      mode: 'light',
       grey: at,
       primary: {
         main: st,
       },
       warn: {
-        light: "#EB5757",
-        main: "#EB5757",
-        dark: "#DE3F3F",
+        light: '#EB5757',
+        main: '#EB5757',
+        dark: '#DE3F3F',
       },
       text: {
         heading: at[700],
@@ -2784,7 +2784,7 @@ var hcaptcha = (function () {
       },
     },
     ct = {
-      mode: "dark",
+      mode: 'dark',
       grey: at,
       primary: {
         main: st,
@@ -2796,29 +2796,29 @@ var hcaptcha = (function () {
     };
 
   function lt(e, t) {
-    return "dark" === t && e in ct ? ct[e] : ht[e];
+    return 'dark' === t && e in ct ? ct[e] : ht[e];
   }
 
   function dt() {
     (this._themes = Object.create(null)),
-      (this._active = "light"),
-      this.add("light", {}),
-      this.add("dark", {
+      (this._active = 'light'),
+      this.add('light', {}),
+      this.add('dark', {
         palette: {
-          mode: "dark",
+          mode: 'dark',
         },
       });
   }
   (dt.prototype.get = function (e) {
     if (!e) return this._themes[this._active];
     var t = this._themes[e];
-    if (!t) throw new Error("Cannot find theme with name: " + e);
+    if (!t) throw new Error('Cannot find theme with name: ' + e);
     return t;
   }),
     (dt.prototype.use = function (e) {
       this._themes[e]
         ? (this._active = e)
-        : console.error("Cannot find theme with name: " + e);
+        : console.error('Cannot find theme with name: ' + e);
     }),
     (dt.prototype.active = function () {
       return this._active;
@@ -2827,11 +2827,11 @@ var hcaptcha = (function () {
       t || (t = {}),
         (t.palette = (function (e) {
           e || (e = {});
-          var t = e.mode || "light",
-            n = e.primary || lt("primary", t),
-            i = e.warn || lt("warn", t),
-            o = e.grey || lt("grey", t),
-            r = e.text || lt("text", t);
+          var t = e.mode || 'light',
+            n = e.primary || lt('primary', t),
+            i = e.warn || lt('warn', t),
+            o = e.grey || lt('grey', t),
+            r = e.text || lt('text', t);
           return ot(
             {
               common: rt,
@@ -2848,34 +2848,34 @@ var hcaptcha = (function () {
         (this._themes[e] = t);
     }),
     (dt.prototype.extend = function (e, t) {
-      "string" == typeof t && (t = JSON.parse(t));
+      'string' == typeof t && (t = JSON.parse(t));
       var n = JSON.parse(JSON.stringify(this.get(e)));
       return et(n, t), n;
     }),
     (dt.merge = function (e, t) {
       return ot(e, t || {});
     });
-  var ut = ["light", "dark", "contrast", "grey-red"],
+  var ut = ['light', 'dark', 'contrast', 'grey-red'],
     pt = new dt();
 
   function ft(e) {
-    var t = "",
+    var t = '',
       n = null;
     n = e ? T.getById(e) : T.getByIndex(0);
     try {
       for (var i = T.getSession(), o = i.length, r = !1; --o > -1 && !r; )
         (r = i[o][1] === n.id) && (t = i[o][0]);
     } catch (a) {
-      t = "";
+      t = '';
     }
     return t;
   }
-  pt.add("contrast", {}),
-    pt.add("grey-red", {
+  pt.add('contrast', {}),
+    pt.add('grey-red', {
       component: {
         challenge: {
           main: {
-            border: "#6a6a6a",
+            border: '#6a6a6a',
           },
         },
       },
@@ -2884,20 +2884,20 @@ var hcaptcha = (function () {
     var t = [];
     for (var n in e) {
       var i = e[n];
-      (i = "object" == typeof i ? JSON.stringify(i) : i),
-        t.push([encodeURIComponent(n), encodeURIComponent(i)].join("="));
+      (i = 'object' == typeof i ? JSON.stringify(i) : i),
+        t.push([encodeURIComponent(n), encodeURIComponent(i)].join('='));
     }
-    return t.join("&");
+    return t.join('&');
   };
 
   function gt(e, t) {
     var n = e instanceof HTMLIFrameElement;
     try {
       n
-        ? e.parentNode && e.contentWindow.postMessage(JSON.stringify(t), "*")
-        : e.postMessage(JSON.stringify(t), "*");
+        ? e.parentNode && e.contentWindow.postMessage(JSON.stringify(t), '*')
+        : e.postMessage(JSON.stringify(t), '*');
     } catch (qt) {
-      X(qt.message, "error", "messaging");
+      X(qt.message, 'error', 'messaging');
     }
   }
 
@@ -2916,7 +2916,7 @@ var hcaptcha = (function () {
         (i.resolve = e), (i.reject = t);
       }),
       r = {
-        source: "hcaptcha",
+        source: 'hcaptcha',
         label: e,
         id: n.id,
         promise: null,
@@ -2925,12 +2925,12 @@ var hcaptcha = (function () {
     return (
       o
         .then(function (e) {
-          (r.promise = "resolve"),
+          (r.promise = 'resolve'),
             null !== e && (r.contents = e),
             gt(n.target, r);
         })
-        ["catch"](function (e) {
-          (r.promise = "reject"), null !== e && (r.error = e), gt(n.target, r);
+        ['catch'](function (e) {
+          (r.promise = 'reject'), null !== e && (r.error = e), gt(n.target, r);
         }),
       i
     );
@@ -2941,19 +2941,19 @@ var hcaptcha = (function () {
     (yt.prototype.contact = function (e, t) {
       if (!this.id)
         throw new Error(
-          "Chat requires unique id to communicate between windows"
+          'Chat requires unique id to communicate between windows'
         );
       var n = this,
         i = Date.now().toString(36),
         o = {
-          source: "hcaptcha",
+          source: 'hcaptcha',
           label: e,
           id: this.id,
-          promise: "create",
+          promise: 'create',
           lookup: i,
         };
       if (t) {
-        if ("object" != typeof t) throw new Error("Message must be an object.");
+        if ('object' != typeof t) throw new Error('Message must be an object.');
         o.contents = t;
       }
       return new Promise(function (t, r) {
@@ -2969,7 +2969,7 @@ var hcaptcha = (function () {
     (yt.prototype.listen = function (e, t) {
       if (!this.id)
         throw new Error(
-          "Chat requires unique id to communicate between windows"
+          'Chat requires unique id to communicate between windows'
         );
       for (var n = this.messages.length, i = !1; --n > -1 && !1 === i; )
         this.messages[n].label === e && (i = this.messages[n]);
@@ -2984,7 +2984,7 @@ var hcaptcha = (function () {
     (yt.prototype.answer = function (e, t) {
       if (!this.id)
         throw new Error(
-          "Chat requires unique id to communicate between windows"
+          'Chat requires unique id to communicate between windows'
         );
       for (var n = this.incoming.length, i = !1; --n > -1 && !1 === i; )
         this.incoming[n].label === e && (i = this.incoming[n]);
@@ -2999,15 +2999,15 @@ var hcaptcha = (function () {
     (yt.prototype.send = function (e, t) {
       if (!this.id)
         throw new Error(
-          "Chat requires unique id to communicate between windows"
+          'Chat requires unique id to communicate between windows'
         );
       var n = {
-        source: "hcaptcha",
+        source: 'hcaptcha',
         label: e,
         id: this.id,
       };
       if (t) {
-        if ("object" != typeof t) throw new Error("Message must be an object.");
+        if ('object' != typeof t) throw new Error('Message must be an object.');
         n.contents = t;
       }
       gt(this.target, n);
@@ -3046,7 +3046,7 @@ var hcaptcha = (function () {
             ((t = r[i]),
             e.error && a.push(e.error),
             e.contents && a.push(e.contents),
-            e.promise && "create" !== e.promise)
+            e.promise && 'create' !== e.promise)
           ) {
             t[e.promise].apply(t[e.promise], a);
             for (var s = this.waiting.length, h = !1; --s > -1 && !1 === h; )
@@ -3056,7 +3056,7 @@ var hcaptcha = (function () {
             continue;
           }
           for (o = 0; o < t.listeners.length; o++) {
-            if (((n = t.listeners[o]), "create" === e.promise)) {
+            if (((n = t.listeners[o]), 'create' === e.promise)) {
               var c = vt.call(this, t.label, e.lookup);
               a.push(c);
             }
@@ -3094,14 +3094,14 @@ var hcaptcha = (function () {
     },
     handle: function (e) {
       var t = e.data;
-      if ("string" == typeof t)
+      if ('string' == typeof t)
         try {
-          if (!(t.indexOf("hcaptcha") >= 0)) return;
+          if (!(t.indexOf('hcaptcha') >= 0)) return;
           t = JSON.parse(t);
           for (var n, i = wt.chats, o = -1; ++o < i.length; )
             (n = i[o]).id === t.id && n.respond(t);
         } catch (qt) {
-          Y("postMessage handler error", "postMessage", "debug", {
+          Y('postMessage handler error', 'postMessage', 'debug', {
             event: e,
             error: qt,
           });
@@ -3119,33 +3119,33 @@ var hcaptcha = (function () {
       (this.config = t),
       (this._visible = !1),
       (this._selected = !1),
-      (this.$iframe = new ie("iframe")),
+      (this.$iframe = new ie('iframe')),
       (this._host = U.host || window.location.hostname);
     var n = U.assetUrl;
-    F.assethost && (n = F.assethost + U.assetUrl.replace(U.assetDomain, "")),
+    F.assethost && (n = F.assethost + U.assetUrl.replace(U.assetDomain, '')),
       (this.$iframe.dom.src =
         n +
-        "/hcaptcha-challenge.html#id=" +
+        '/hcaptcha-challenge.html#id=' +
         this.id +
-        "&host=" +
+        '&host=' +
         this._host +
-        (t ? "&" + mt(this.config) : "")),
-      (this.$iframe.dom.title = "Main content of the hCaptcha challenge"),
+        (t ? '&' + mt(this.config) : '')),
+      (this.$iframe.dom.title = 'Main content of the hCaptcha challenge'),
       (this.$iframe.dom.frameBorder = 0),
-      (this.$iframe.dom.scrolling = "no"),
+      (this.$iframe.dom.scrolling = 'no'),
       this.setupParentContainer(t),
       this._hasCustomContainer
         ? (this._hideIframe(), this._parent.appendChild(this.$iframe.dom))
-        : ((this.$container = new ie("div")),
-          (this.$wrapper = this.$container.createElement("div")),
-          (this.$overlay = this.$container.createElement("div")),
-          (this.$arrow = this.$container.createElement("div")),
-          (this.$arrow.fg = this.$arrow.createElement("div")),
-          (this.$arrow.bg = this.$arrow.createElement("div")),
+        : ((this.$container = new ie('div')),
+          (this.$wrapper = this.$container.createElement('div')),
+          (this.$overlay = this.$container.createElement('div')),
+          (this.$arrow = this.$container.createElement('div')),
+          (this.$arrow.fg = this.$arrow.createElement('div')),
+          (this.$arrow.bg = this.$arrow.createElement('div')),
           this.style.call(this),
           this.$wrapper.appendElement(this.$iframe),
           this._parent.appendChild(this.$container.dom),
-          this.$container.setAttribute("aria-hidden", !0)),
+          this.$container.setAttribute('aria-hidden', !0)),
       (this.chat = wt.createChat(this.$iframe.dom, e));
   }
 
@@ -3161,43 +3161,43 @@ var hcaptcha = (function () {
       (this._ticked = !0),
       (this.$container = e instanceof ie ? e : new ie(e)),
       (this._host = U.host || window.location.hostname),
-      (this.$iframe = new ie("iframe"));
+      (this.$iframe = new ie('iframe'));
     var i = U.assetUrl;
-    F.assethost && (i = F.assethost + U.assetUrl.replace(U.assetDomain, "")),
+    F.assethost && (i = F.assethost + U.assetUrl.replace(U.assetDomain, '')),
       (this.$iframe.dom.src =
         i +
-        "/hcaptcha-checkbox.html#id=" +
+        '/hcaptcha-checkbox.html#id=' +
         this.id +
-        "&host=" +
+        '&host=' +
         this._host +
-        (n ? "&" + mt(this.config) : "")),
+        (n ? '&' + mt(this.config) : '')),
       (this.$iframe.dom.title =
-        "widget containing checkbox for hCaptcha security challenge"),
+        'widget containing checkbox for hCaptcha security challenge'),
       (this.$iframe.dom.tabIndex = this.config.tabindex || 0),
-      (this.$iframe.dom.frameBorder = "0"),
-      (this.$iframe.dom.scrolling = "no"),
+      (this.$iframe.dom.frameBorder = '0'),
+      (this.$iframe.dom.scrolling = 'no'),
       this.config.size &&
-        "invisible" === this.config.size &&
-        this.$iframe.setAttribute("aria-hidden", "true"),
-      this.$iframe.setAttribute("data-hcaptcha-widget-id", t),
-      this.$iframe.setAttribute("data-hcaptcha-response", ""),
+        'invisible' === this.config.size &&
+        this.$iframe.setAttribute('aria-hidden', 'true'),
+      this.$iframe.setAttribute('data-hcaptcha-widget-id', t),
+      this.$iframe.setAttribute('data-hcaptcha-response', ''),
       this.$container.appendElement(this.$iframe),
-      "off" !== F.recaptchacompat &&
+      'off' !== F.recaptchacompat &&
         ((this.$textArea0 = this.$container.createElement(
-          "textarea",
-          "#g-recaptcha-response-" + t
+          'textarea',
+          '#g-recaptcha-response-' + t
         )),
-        (this.$textArea0.dom.name = "g-recaptcha-response"),
+        (this.$textArea0.dom.name = 'g-recaptcha-response'),
         this.$textArea0.css({
-          display: "none",
+          display: 'none',
         })),
       (this.$textArea1 = this.$container.createElement(
-        "textarea",
-        "#h-captcha-response-" + t
+        'textarea',
+        '#h-captcha-response-' + t
       )),
-      (this.$textArea1.dom.name = "h-captcha-response"),
+      (this.$textArea1.dom.name = 'h-captcha-response'),
       this.$textArea1.css({
-        display: "none",
+        display: 'none',
       }),
       (this.chat = wt.createChat(this.$iframe.dom, t)),
       (this.clearLoading = this.clearLoading.bind(this));
@@ -3206,8 +3206,8 @@ var hcaptcha = (function () {
   function xt(e, t, n) {
     if (!n.sitekey)
       throw new Ct(
-        "Missing sitekey",
-        "https://hcaptcha.com/docs/configuration#jsapi"
+        'Missing sitekey',
+        'https://hcaptcha.com/docs/configuration#jsapi'
       );
     (this.id = t),
       (this.visible = !1),
@@ -3246,19 +3246,19 @@ var hcaptcha = (function () {
   }
 
   function Ct(e, t) {
-    var n = "[hCaptcha] " + e;
-    t && (n += " - " + t),
+    var n = '[hCaptcha] ' + e;
+    t && (n += ' - ' + t),
       (this.message =
-        "hCaptcha has failed to initialize. Please see the developer tools console for more information."),
+        'hCaptcha has failed to initialize. Please see the developer tools console for more information.'),
       (this.reason = n);
   }
 
   function kt(e, t) {
-    (this.name = "ApiError"), (this.message = e), (this.type = t);
+    (this.name = 'ApiError'), (this.message = e), (this.type = t);
   }
 
   function Et(e, t) {
-    "object" != typeof e || t || ((t = e), (e = null));
+    'object' != typeof e || t || ((t = e), (e = null));
     var n,
       i,
       o,
@@ -3271,45 +3271,45 @@ var hcaptcha = (function () {
       (a.reject = o),
       (n = e ? T.getById(e) : T.getByIndex(0)))
     )
-      qe.setData("exec", !0),
+      qe.setData('exec', !0),
         r && n.setPromise(a),
         n.onReady(n.initChallenge, t);
     else if (e) {
-      if (!r) throw Error("[hCaptcha] invalid captcha id: " + e);
-      a.reject(new kt("invalid captcha id: " + e, "invalidId"));
+      if (!r) throw Error('[hCaptcha] invalid captcha id: ' + e);
+      a.reject(new kt('invalid captcha id: ' + e, 'invalidId'));
     } else {
-      if (!r) throw Error("[hCaptcha] no captchas exist.");
-      a.reject(new kt("no captchas exist.", "noCaptcha"));
+      if (!r) throw Error('[hCaptcha] no captchas exist.');
+      a.reject(new kt('no captchas exist.', 'noCaptcha'));
     }
     if (r) return a;
   }
   window.addEventListener
-    ? window.addEventListener("message", wt.handle)
-    : window.attachEvent("onmessage", wt.handle),
+    ? window.addEventListener('message', wt.handle)
+    : window.attachEvent('onmessage', wt.handle),
     (bt.prototype.setupParentContainer = function (e) {
       var t,
-        n = e["challenge-container"];
-      n && (t = "string" == typeof n ? document.getElementById(n) : n),
+        n = e['challenge-container'];
+      n && (t = 'string' == typeof n ? document.getElementById(n) : n),
         t
           ? ((this._hasCustomContainer = !0), (this._parent = t))
           : ((this._hasCustomContainer = !1), (this._parent = document.body));
     }),
     (bt.prototype._hideIframe = function () {
       var e = {};
-      "ie" !== W.Browser.type ||
-      ("ie" === W.Browser.type && 8 !== W.Browser.version)
-        ? ((e.opacity = 0), (e.visibility = "hidden"))
-        : (e.display = "none"),
-        this.$iframe.setAttribute("aria-hidden", !0),
+      'ie' !== W.Browser.type ||
+      ('ie' === W.Browser.type && 8 !== W.Browser.version)
+        ? ((e.opacity = 0), (e.visibility = 'hidden'))
+        : (e.display = 'none'),
+        this.$iframe.setAttribute('aria-hidden', !0),
         this.$iframe.css(e);
     }),
     (bt.prototype._showIframe = function () {
       var e = {};
-      "ie" !== W.Browser.type ||
-      ("ie" === W.Browser.type && 8 !== W.Browser.version)
-        ? ((e.opacity = 1), (e.visibility = "visible"))
-        : (e.display = "block"),
-        this.$iframe.removeAttribute("aria-hidden"),
+      'ie' !== W.Browser.type ||
+      ('ie' === W.Browser.type && 8 !== W.Browser.version)
+        ? ((e.opacity = 1), (e.visibility = 'visible'))
+        : (e.display = 'block'),
+        this.$iframe.removeAttribute('aria-hidden'),
         this.$iframe.css(e);
     }),
     (bt.prototype.style = function () {
@@ -3329,36 +3329,36 @@ var hcaptcha = (function () {
       if (this._hasCustomContainer)
         this.$iframe.css({
           border: 0,
-          position: "relative",
+          position: 'relative',
           backgroundColor: e.main.fill,
         });
       else {
         var t = {
           backgroundColor: e.main.fill,
-          border: "1px solid " + e.main.border,
-          boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 4px",
+          border: '1px solid ' + e.main.border,
+          boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 4px',
           borderRadius: 4,
           left: -1e4,
           top: -1e4,
           zIndex: -9999999999999,
-          position: "absolute",
+          position: 'absolute',
         };
-        "ie" !== W.Browser.type ||
-        ("ie" === W.Browser.type && 8 !== W.Browser.version)
-          ? ((t.transition = "opacity 0.15s ease-out"),
+        'ie' !== W.Browser.type ||
+        ('ie' === W.Browser.type && 8 !== W.Browser.version)
+          ? ((t.transition = 'opacity 0.15s ease-out'),
             (t.opacity = 0),
-            (t.visibility = "hidden"))
-          : (t.display = "none"),
+            (t.visibility = 'hidden'))
+          : (t.display = 'none'),
           this.$container.css(t),
           this.$wrapper.css({
-            position: "relative",
+            position: 'relative',
             zIndex: 1,
           }),
           this.$overlay.css({
-            width: "100%",
-            height: "100%",
-            position: "fixed",
-            pointerEvents: "none",
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            pointerEvents: 'none',
             top: 0,
             left: 0,
             zIndex: 0,
@@ -3367,53 +3367,53 @@ var hcaptcha = (function () {
           }),
           this.$arrow.css({
             borderWidth: 11,
-            position: "absolute",
-            pointerEvents: "none",
+            position: 'absolute',
+            pointerEvents: 'none',
             marginTop: -11,
             zIndex: 1,
-            right: "100%",
+            right: '100%',
           }),
           this.$arrow.fg.css({
             borderWidth: 10,
-            borderStyle: "solid",
+            borderStyle: 'solid',
             borderColor:
-              "transparent rgb(255, 255, 255) transparent transparent",
-            position: "relative",
+              'transparent rgb(255, 255, 255) transparent transparent',
+            position: 'relative',
             top: 10,
             zIndex: 1,
           }),
           this.$arrow.bg.css({
             borderWidth: 11,
-            borderStyle: "solid",
+            borderStyle: 'solid',
             borderColor:
-              "transparent " + e.main.border + " transparent transparent",
-            position: "relative",
+              'transparent ' + e.main.border + ' transparent transparent',
+            position: 'relative',
             top: -11,
             zIndex: 0,
           }),
           this.$iframe.css({
             border: 0,
             zIndex: 2e9,
-            position: "relative",
+            position: 'relative',
           });
       }
     }),
     (bt.prototype.setup = function (e) {
-      return this.chat.send("create-challenge", e);
+      return this.chat.send('create-challenge', e);
     }),
     (bt.prototype.sendTranslation = function (e) {
       var t = {
         locale: e,
         table: de.getTable(e) || {},
       };
-      this.chat && this.chat.send("challenge-translate", t);
+      this.chat && this.chat.send('challenge-translate', t);
     }),
     (bt.prototype.isVisible = function () {
       return this._visible;
     }),
     (bt.prototype.getDimensions = function (e, t) {
       return this._visible
-        ? this.chat.contact("resize-challenge", {
+        ? this.chat.contact('resize-challenge', {
             width: e,
             height: t,
           })
@@ -3427,15 +3427,15 @@ var hcaptcha = (function () {
           var e = {
             zIndex: 9999999999999,
           };
-          "ie" !== W.Browser.type ||
-          ("ie" === W.Browser.type && 8 !== W.Browser.version)
-            ? ((e.opacity = 1), (e.visibility = "visible"))
-            : (e.display = "block"),
+          'ie' !== W.Browser.type ||
+          ('ie' === W.Browser.type && 8 !== W.Browser.version)
+            ? ((e.opacity = 1), (e.visibility = 'visible'))
+            : (e.display = 'block'),
             this.$container.css(e),
-            this.$container.removeAttribute("aria-hidden"),
+            this.$container.removeAttribute('aria-hidden'),
             this.$overlay.css({
-              pointerEvents: "auto",
-              cursor: "pointer",
+              pointerEvents: 'auto',
+              cursor: 'pointer',
             }),
             this.$iframe.dom.focus();
         }
@@ -3444,7 +3444,7 @@ var hcaptcha = (function () {
       if (((this._visible = !1), this._hasCustomContainer))
         return (
           this._hideIframe(),
-          void this.chat.send("close-challenge", {
+          void this.chat.send('close-challenge', {
             event: e,
           })
         );
@@ -3453,20 +3453,20 @@ var hcaptcha = (function () {
         top: -1e4,
         zIndex: -9999999999999,
       };
-      "ie" !== W.Browser.type ||
-      ("ie" === W.Browser.type && 8 !== W.Browser.version)
-        ? ((t.opacity = 0), (t.visibility = "hidden"))
-        : (t.display = "none"),
+      'ie' !== W.Browser.type ||
+      ('ie' === W.Browser.type && 8 !== W.Browser.version)
+        ? ((t.opacity = 0), (t.visibility = 'hidden'))
+        : (t.display = 'none'),
         this.$container.css(t),
         this._hasCustomContainer ||
           this.$overlay.css({
-            pointerEvents: "none",
-            cursor: "default",
+            pointerEvents: 'none',
+            cursor: 'default',
           }),
-        this.chat.send("close-challenge", {
+        this.chat.send('close-challenge', {
           event: e,
         }),
-        this.$container.setAttribute("aria-hidden", !0);
+        this.$container.setAttribute('aria-hidden', !0);
     }),
     (bt.prototype.size = function (e, t, n) {
       (this.width = e),
@@ -3498,7 +3498,7 @@ var hcaptcha = (function () {
           r = W.Browser.height(),
           a =
             this.mobile ||
-            "invisible" === this.config.size ||
+            'invisible' === this.config.size ||
             e.offset.left + e.tick.x <= e.tick.width / 2,
           s = Math.round(e.bounding.top) + i !== e.offset.top,
           h = this.height > n.clientHeight,
@@ -3526,10 +3526,10 @@ var hcaptcha = (function () {
             top: d,
           }),
           this.$arrow.fg.css({
-            display: a ? "none" : "block",
+            display: a ? 'none' : 'block',
           }),
           this.$arrow.bg.css({
-            display: a ? "none" : "block",
+            display: a ? 'none' : 'block',
           }),
           this.$arrow.css({
             top: u,
@@ -3563,68 +3563,68 @@ var hcaptcha = (function () {
       this.ready ? n() : this.listeners.push(n);
     }),
     (bt.prototype.onOverlayClick = function (e) {
-      this._hasCustomContainer || this.$overlay.addEventListener("click", e);
+      this._hasCustomContainer || this.$overlay.addEventListener('click', e);
     }),
     (bt.prototype.setConfig = function (e) {
       return this.chat
-        ? this.chat.contact("challenge-update", e)
+        ? this.chat.contact('challenge-update', e)
         : Promise.resolve();
     }),
     (bt.prototype.setData = function (e) {
-      this.chat && this.chat.send("challenge-data", e);
+      this.chat && this.chat.send('challenge-data', e);
     }),
     (_t.prototype.setResponse = function (e) {
       (this.response = e),
-        this.$iframe.dom.setAttribute("data-hcaptcha-response", e),
-        "off" !== F.recaptchacompat && (this.$textArea0.dom.value = e),
+        this.$iframe.dom.setAttribute('data-hcaptcha-response', e),
+        'off' !== F.recaptchacompat && (this.$textArea0.dom.value = e),
         (this.$textArea1.dom.value = e);
     }),
     (_t.prototype.style = function () {
       switch (this.config.size) {
-        case "compact":
+        case 'compact':
           this.$iframe.css({
             width: 164,
             height: 144,
           });
           break;
-        case "invisible":
+        case 'invisible':
           this.$iframe.css({
-            display: "none",
+            display: 'none',
           });
           break;
         default:
           this.$iframe.css({
             width: 303,
             height: 78,
-            overflow: "hidden",
+            overflow: 'hidden',
           });
       }
     }),
     (_t.prototype.reset = function () {
-      (this._ticked = !1), this.chat && this.chat.send("checkbox-reset");
+      (this._ticked = !1), this.chat && this.chat.send('checkbox-reset');
     }),
     (_t.prototype.clearLoading = function () {
-      this.chat && this.chat.send("checkbox-clear");
+      this.chat && this.chat.send('checkbox-clear');
     }),
     (_t.prototype.sendTranslation = function (e) {
       var t = {
         locale: e,
         table: de.getTable(e) || {},
       };
-      this.chat && this.chat.send("checkbox-translate", t);
+      this.chat && this.chat.send('checkbox-translate', t);
     }),
     (_t.prototype.status = function (e, t) {
       this.chat &&
-        this.chat.send("checkbox-status", {
+        this.chat.send('checkbox-status', {
           text: e || null,
           a11yOnly: t || !1,
         });
     }),
     (_t.prototype.tick = function () {
-      (this._ticked = !0), this.chat && this.chat.send("checkbox-tick");
+      (this._ticked = !0), this.chat && this.chat.send('checkbox-tick');
     }),
     (_t.prototype.getTickLocation = function () {
-      return this.chat.contact("checkbox-location");
+      return this.chat.contact('checkbox-location');
     }),
     (_t.prototype.getOffset = function () {
       var e = this.$iframe.dom;
@@ -3643,7 +3643,7 @@ var hcaptcha = (function () {
       this._ticked && this.reset(),
         this.$container.removeElement(this.$iframe),
         this.$container.removeElement(this.$textArea1),
-        "off" !== F.recaptchacompat &&
+        'off' !== F.recaptchacompat &&
           (this.$container.removeElement(this.$textArea0),
           (this.$textArea0 = this.$textArea0.__destroy())),
         (this.$textArea1 = this.$textArea1.__destroy()),
@@ -3662,14 +3662,14 @@ var hcaptcha = (function () {
         n = e.charity || null,
         i = e.a11yChallenge || !1,
         o = e.link || null,
-        r = e.action || "",
+        r = e.action || '',
         a = e.rqdata || null,
         s = W.Browser.width(),
         h = W.Browser.height();
       (this._active = !0),
         this._resetTimer(),
         this._resetState(),
-        this.checkbox.setResponse(""),
+        this.checkbox.setResponse(''),
         this.challenge.setup({
           a11yChallenge: i,
           manifest: t,
@@ -3703,19 +3703,19 @@ var hcaptcha = (function () {
         var n = this.checkbox,
           i = this.challenge,
           o = W.Browser.height();
-        if (!("ie" === W.Browser.type && 8 === W.Browser.version)) {
+        if (!('ie' === W.Browser.type && 8 === W.Browser.version)) {
           var r = window
             .getComputedStyle(document.body)
-            .getPropertyValue("overflow-y");
-          (this.overflow.override = "hidden" === r),
+            .getPropertyValue('overflow-y');
+          (this.overflow.override = 'hidden' === r),
             this.overflow.override &&
               ((this.overflow.cssUsed =
-                "" === document.body.style.overflow &&
-                "" === document.body.style.overflowY),
+                '' === document.body.style.overflow &&
+                '' === document.body.style.overflowY),
               this.overflow.cssUsed ||
-                (this.overflow.value = "" === r ? "auto" : r),
+                (this.overflow.value = '' === r ? 'auto' : r),
               (this.overflow.scroll = W.Browser.scrollY()),
-              (document.body.style.overflowY = "auto"));
+              (document.body.style.overflowY = 'auto'));
         }
         return new Promise(function (r) {
           n.status(),
@@ -3732,7 +3732,7 @@ var hcaptcha = (function () {
                 )
                   (
                     window.document.scrollingElement ||
-                    document.getElementsByTagName("html")[0]
+                    document.getElementsByTagName('html')[0]
                   ).scrollTop = Math.abs(i.height - o) + i.top;
                 r();
               }
@@ -3753,10 +3753,10 @@ var hcaptcha = (function () {
             (o.location.offset = o.getOffset()),
             (W.System.mobile && !n) || r.position(o.location);
         })
-        ["catch"](function (e) {
+        ['catch'](function (e) {
           i.closeChallenge.call(i, {
-            event: "challenge-error",
-            message: "Captcha resize caused error.",
+            event: 'challenge-error',
+            message: 'Captcha resize caused error.',
             error: e,
           });
         });
@@ -3769,7 +3769,7 @@ var hcaptcha = (function () {
     }),
     (xt.prototype.reset = function () {
       this.checkbox.reset(),
-        this.checkbox.setResponse(""),
+        this.checkbox.setResponse(''),
         this._resetTimer(),
         this._resetState();
     }),
@@ -3784,41 +3784,41 @@ var hcaptcha = (function () {
       this.overflow.override &&
         (((
           window.document.scrollingElement ||
-          document.getElementsByTagName("html")[0]
+          document.getElementsByTagName('html')[0]
         ).scrollTop = this.overflow.scroll),
         (this.overflow.override = !1),
         (this.overflow.scroll = 0),
         (document.body.style.overflowY = this.overflow.cssUsed
           ? null
           : this.overflow.value));
-      var o = e.response || "";
+      var o = e.response || '';
       switch (
         (n.setResponse(o), i.close(e.event), n.$iframe.dom.focus(), e.event)
       ) {
-        case "challenge-escaped":
+        case 'challenge-escaped':
           (this._state.escaped = !0),
             n.reset(),
             t.onClose && Q(t.onClose),
             t._promise &&
-              t._promise.reject(new kt("challenge closed", "closed"));
+              t._promise.reject(new kt('challenge closed', 'closed'));
           break;
-        case "challenge-expired":
+        case 'challenge-expired':
           (this._state.expiredChallenge = !0),
             n.reset(),
-            n.status("hCaptcha window closed due to timeout.", !0),
+            n.status('hCaptcha window closed due to timeout.', !0),
             t.onChalExpire && Q(t.onChalExpire),
             t._promise &&
-              t._promise.reject(new kt("challenge expired", "chalExpired"));
+              t._promise.reject(new kt('challenge expired', 'chalExpired'));
           break;
-        case "challenge-error":
-        case "bundle-error":
-        case "network-error":
+        case 'challenge-error':
+        case 'bundle-error':
+        case 'network-error':
           n.reset(),
-            "network-error" === e.event && n.status(e.message),
-            this.onError && Q(this.onError, e.message || ""),
-            t._promise && t._promise.reject(new kt(e.message || "", "error"));
+            'network-error' === e.event && n.status(e.message),
+            this.onError && Q(this.onError, e.message || ''),
+            t._promise && t._promise.reject(new kt(e.message || '', 'error'));
           break;
-        case "challenge-passed":
+        case 'challenge-passed':
           (this._state.passed = !0),
             n.tick(),
             this.onPass && Q(this.onPass, o),
@@ -3827,22 +3827,22 @@ var hcaptcha = (function () {
                 response: o,
                 key: ft(this.id),
               }),
-            "number" == typeof e.expiration &&
+            'number' == typeof e.expiration &&
               (t._resetTimer(),
               (t._responseTimer = setTimeout(function () {
                 try {
                   n.reset(),
-                    n.setResponse(""),
+                    n.setResponse(''),
                     n.status(
-                      "hCaptcha security token has expired. Please complete the challenge again.",
+                      'hCaptcha security token has expired. Please complete the challenge again.',
                       !0
                     );
                 } catch (Ht) {
                   X(
-                    "Checkbox not present or could not destroy on expiration: " +
+                    'Checkbox not present or could not destroy on expiration: ' +
                       Ht.message,
-                    "error",
-                    "global"
+                    'error',
+                    'global'
                   );
                 }
                 t.onExpire && Q(t.onExpire),
@@ -3877,7 +3877,7 @@ var hcaptcha = (function () {
       (this._resetTimer(), this.overflow.override) &&
         (((
           window.document.scrollingElement ||
-          document.getElementsByTagName("html")[0]
+          document.getElementsByTagName('html')[0]
         ).scrollTop = this.overflow.scroll),
         (this.overflow.override = !1),
         (this.overflow.scroll = 0),
@@ -3892,7 +3892,7 @@ var hcaptcha = (function () {
     (xt.prototype.setSiteConfig = function (e) {
       var t = e && e.features && e.features.custom_theme;
       if (this.config.themeConfig && t) {
-        var n = "custom-" + this.id;
+        var n = 'custom-' + this.id;
         pt.add(n, pt.extend(pt.active(), this.config.themeConfig)),
           pt.use(n),
           this.challenge.style();
@@ -3905,13 +3905,13 @@ var hcaptcha = (function () {
     (kt.prototype = Error.prototype);
   var St = {
     getCookie: function (e) {
-      var t = document.cookie.replace(/ /g, "").split(";");
+      var t = document.cookie.replace(/ /g, '').split(';');
       try {
-        for (var n = "", i = t.length; i-- && !n; )
+        for (var n = '', i = t.length; i-- && !n; )
           t[i].indexOf(e) >= 0 && (n = t[i]);
         return n;
       } catch (Ht) {
-        return "";
+        return '';
       }
     },
     hasCookie: function (e) {
@@ -3920,7 +3920,7 @@ var hcaptcha = (function () {
     supportsAPI: function () {
       try {
         return (
-          "hasStorageAccess" in document && "requestStorageAccess" in document
+          'hasStorageAccess' in document && 'requestStorageAccess' in document
         );
       } catch (Ht) {
         return !1;
@@ -3933,7 +3933,7 @@ var hcaptcha = (function () {
           .then(function () {
             e(!0);
           })
-          ["catch"](function () {
+          ['catch'](function () {
             e(!1);
           });
       });
@@ -3948,13 +3948,13 @@ var hcaptcha = (function () {
   };
 
   function Ot() {
-    Ie(this, ie, "canvas");
+    Ie(this, ie, 'canvas');
     var e = this;
     (this.element = this.dom),
-      (this.ctx = this.element.getContext("2d")),
+      (this.ctx = this.element.getContext('2d')),
       (this.scale = 1),
       (this.dpr = window.devicePixelRatio || 1),
-      (this.clearColor = "#fff"),
+      (this.clearColor = '#fff'),
       (this.ctx.roundedRect = function (t, n, i, o, r) {
         var a = i > 0 ? r : -r,
           s = o > 0 ? r : -r;
@@ -3982,8 +3982,8 @@ var hcaptcha = (function () {
       (this.tolerance = 0),
       (this.fill = !1),
       (this.stroke = !1),
-      (this.fillColor = "#fff"),
-      (this.strokeColor = "#fff"),
+      (this.fillColor = '#fff'),
+      (this.strokeColor = '#fff'),
       (this.strokeWidth = 1);
   }
 
@@ -3997,8 +3997,8 @@ var hcaptcha = (function () {
   }
 
   function Bt(e) {
-    if ("en" === e) return Promise.resolve();
-    var t = e + ".json";
+    if ('en' === e) return Promise.resolve();
+    var t = e + '.json';
     return new Promise(function (n, i) {
       Pe.retrieve(t)
         .then(function (n) {
@@ -4006,7 +4006,7 @@ var hcaptcha = (function () {
             n ||
             Pe.file(t, {
               prefix:
-                "https://newassets.hcaptcha.com/captcha/v1/ff4a4ed/static/i18n",
+                'https://newassets.hcaptcha.com/captcha/v1/ff4a4ed/static/i18n',
             }).then(function (t) {
               return de.addTable(e, t.data), t;
             })
@@ -4015,7 +4015,7 @@ var hcaptcha = (function () {
         .then(function (e) {
           n(e.data);
         })
-        ["catch"](function (e) {
+        ['catch'](function (e) {
           i(e);
         });
     });
@@ -4071,8 +4071,8 @@ var hcaptcha = (function () {
       return this.radius + this.tolerance >= this.getDistance(e);
     }),
     (Pt.prototype.restrict = function (e, t, n, i) {
-      if ("x" !== e && "y" !== e)
-        throw new Error("Point.restrict requires a value: x or y");
+      if ('x' !== e && 'y' !== e)
+        throw new Error('Point.restrict requires a value: x or y');
       return (
         t + this[e] < n
           ? (t = this[e] - n)
@@ -4148,64 +4148,64 @@ var hcaptcha = (function () {
     });
   var Tt = 0,
     jt = [
-      "hl",
-      "custom",
-      "tplinks",
-      "sitekey",
-      "theme",
-      "size",
-      "tabindex",
-      "challenge-container",
+      'hl',
+      'custom',
+      'tplinks',
+      'sitekey',
+      'theme',
+      'size',
+      'tabindex',
+      'challenge-container',
     ];
   var Mt = {
     render: function (e, t) {
       if (
-        ("string" == typeof e && (e = document.getElementById(e)),
+        ('string' == typeof e && (e = document.getElementById(e)),
         e && 1 === e.nodeType)
       )
         if (
           (function (e) {
-            if (!e || !("challenge-container" in e)) return !0;
-            var t = e["challenge-container"];
+            if (!e || !('challenge-container' in e)) return !0;
+            var t = e['challenge-container'];
             return (
-              "string" == typeof t && (t = document.getElementById(t)),
+              'string' == typeof t && (t = document.getElementById(t)),
               !!t && 1 === t.nodeType
             );
           })(t)
         ) {
           if (!1 !== wt.isSupported()) {
             for (
-              var n, i, o = e.getElementsByTagName("iframe"), r = -1;
+              var n, i, o = e.getElementsByTagName('iframe'), r = -1;
               ++r < o.length && !n;
 
             )
-              (i = o[r].getAttribute("data-hcaptcha-widget-id")) && (n = !0);
+              (i = o[r].getAttribute('data-hcaptcha-widget-id')) && (n = !0);
             if (n)
               return (
                 console.error(
-                  "Only one captcha is permitted per parent container."
+                  'Only one captcha is permitted per parent container.'
                 ),
                 i
               );
             var a = (function (e, t) {
                 for (
                   var n = [
-                      "hl",
-                      "custom",
-                      "tplinks",
-                      "sitekey",
-                      "theme",
-                      "type",
-                      "size",
-                      "tabindex",
-                      "callback",
-                      "expired-callback",
-                      "chalexpired-callback",
-                      "error-callback",
-                      "open-callback",
-                      "close-callback",
-                      "endpoint",
-                      "challenge-container",
+                      'hl',
+                      'custom',
+                      'tplinks',
+                      'sitekey',
+                      'theme',
+                      'type',
+                      'size',
+                      'tabindex',
+                      'callback',
+                      'expired-callback',
+                      'chalexpired-callback',
+                      'error-callback',
+                      'open-callback',
+                      'close-callback',
+                      'endpoint',
+                      'challenge-container',
                     ],
                     i = {},
                     o = 0;
@@ -4214,7 +4214,7 @@ var hcaptcha = (function () {
                 ) {
                   var r = n[o],
                     a = t && t[r];
-                  a || (a = e.getAttribute("data-" + r)), a && (i[r] = a);
+                  a || (a = e.getAttribute('data-' + r)), a && (i[r] = a);
                 }
                 return i;
               })(e, t),
@@ -4237,7 +4237,7 @@ var hcaptcha = (function () {
             if (((h.theme = F.theme), a.theme))
               try {
                 var d = a.theme;
-                "string" == typeof d && (d = JSON.parse(d)),
+                'string' == typeof d && (d = JSON.parse(d)),
                   (h.themeConfig = d);
               } catch (Ht) {
                 h.theme = d;
@@ -4246,33 +4246,33 @@ var hcaptcha = (function () {
               e instanceof HTMLButtonElement ||
               e instanceof HTMLInputElement
             ) {
-              var u = new ie("div", ".h-captcha");
+              var u = new ie('div', '.h-captcha');
               u.css({
-                display: "none",
+                display: 'none',
               });
               for (var p = null, f = 0; f < e.attributes.length; f++)
-                (p = e.attributes[f]).name.startsWith("data-") &&
+                (p = e.attributes[f]).name.startsWith('data-') &&
                   u.setAttribute(p.name, p.value);
               var m =
                 e.tagName.toLowerCase() +
                 "[data-hcaptcha-widget-id='" +
                 s +
                 "']";
-              e.setAttribute("data-hcaptcha-widget-id", s),
-                u.setAttribute("data-hcaptcha-source-id", m),
+              e.setAttribute('data-hcaptcha-widget-id', s),
+                u.setAttribute('data-hcaptcha-source-id', m),
                 e.parentNode.insertBefore(u.dom, e),
                 (e.onclick = function (e) {
                   return e.preventDefault(), Et(s);
                 }),
                 (e = u),
-                (h.size = "invisible");
+                (h.size = 'invisible');
             }
             try {
               var g = new xt(e, s, h);
               g.challenge.style(), g.checkbox.style();
             } catch (qt) {
               var y =
-                "Your browser plugins or privacy policies are blocking the hCaptcha service. Please disable them for hCaptcha.com";
+                'Your browser plugins or privacy policies are blocking the hCaptcha service. Please disable them for hCaptcha.com';
               return (
                 qt instanceof Ct &&
                   ((y = qt.message), console.error(qt.reason)),
@@ -4281,23 +4281,23 @@ var hcaptcha = (function () {
             }
             return (
               a.callback && (g.onPass = a.callback),
-              a["expired-callback"] && (g.onExpire = a["expired-callback"]),
-              a["chalexpired-callback"] &&
-                (g.onChalExpire = a["chalexpired-callback"]),
-              a["open-callback"] && (g.onOpen = a["open-callback"]),
-              a["close-callback"] && (g.onClose = a["close-callback"]),
-              a["error-callback"] && (g.onError = a["error-callback"]),
-              qe.setData("inv", "invisible" === h.size),
-              g.checkbox.chat.listen("checkbox-selected", function (e) {
-                qe.setData("exec", !1), g.onReady(g.initChallenge, e);
+              a['expired-callback'] && (g.onExpire = a['expired-callback']),
+              a['chalexpired-callback'] &&
+                (g.onChalExpire = a['chalexpired-callback']),
+              a['open-callback'] && (g.onOpen = a['open-callback']),
+              a['close-callback'] && (g.onClose = a['close-callback']),
+              a['error-callback'] && (g.onError = a['error-callback']),
+              qe.setData('inv', 'invisible' === h.size),
+              g.checkbox.chat.listen('checkbox-selected', function (e) {
+                qe.setData('exec', !1), g.onReady(g.initChallenge, e);
               }),
-              g.checkbox.chat.listen("checkbox-loaded", function (e) {
+              g.checkbox.chat.listen('checkbox-loaded', function (e) {
                 (g.checkbox.location.bounding = g.checkbox.getBounding()),
                   (g.checkbox.location.tick = e),
                   (g.checkbox.location.offset = g.checkbox.getOffset()),
                   g.checkbox.sendTranslation(h.hl);
               }),
-              g.checkbox.chat.listen("checkbox-setup", function (e) {
+              g.checkbox.chat.listen('checkbox-setup', function (e) {
                 F.endpointOverride && (e.endpoint = null),
                   g.challenge.onReady(function () {
                     g.setSiteConfig(e).then(function () {
@@ -4305,44 +4305,44 @@ var hcaptcha = (function () {
                     });
                   });
               }),
-              g.challenge.chat.listen("challenge-loaded", function () {
+              g.challenge.chat.listen('challenge-loaded', function () {
                 g.challenge.setReady(!0), g.challenge.sendTranslation(h.hl);
               }),
-              g.challenge.chat.answer("challenge-ready", function (e, t) {
+              g.challenge.chat.answer('challenge-ready', function (e, t) {
                 g.displayChallenge(e).then(t.resolve);
               }),
-              g.challenge.chat.listen("challenge-resize", function () {
+              g.challenge.chat.listen('challenge-resize', function () {
                 var e = W.Browser.width(),
                   t = W.Browser.height();
                 g.resize(e, t);
               }),
-              g.challenge.chat.listen("challenge-closed", g.closeChallenge),
-              g.challenge.chat.answer("get-url", function (e) {
+              g.challenge.chat.listen('challenge-closed', g.closeChallenge),
+              g.challenge.chat.answer('get-url', function (e) {
                 e.resolve(window.location.href);
               }),
-              g.challenge.chat.answer("getcaptcha-manifest", function (e) {
+              g.challenge.chat.answer('getcaptcha-manifest', function (e) {
                 e.resolve(g.getGetCaptchaManifest());
               }),
-              g.challenge.chat.answer("check-api", function (e) {
+              g.challenge.chat.answer('check-api', function (e) {
                 e.resolve(qe.getData());
               }),
-              g.challenge.chat.listen("challenge-key", function (e) {
+              g.challenge.chat.listen('challenge-key', function (e) {
                 T.pushSession(e.key, g.id);
               }),
               g.challenge.onOverlayClick(function () {
                 g.closeChallenge({
-                  event: "challenge-escaped",
+                  event: 'challenge-escaped',
                 });
               }),
-              g.challenge.chat.listen("challenge-language", v),
+              g.challenge.chat.listen('challenge-language', v),
               v(
                 {
                   locale: h.hl,
                 },
                 !0
               ),
-              g.challenge.chat.answer("get-ac", function (e) {
-                e.resolve(St.hasCookie("hc_accessibility"));
+              g.challenge.chat.answer('get-ac', function (e) {
+                e.resolve(St.hasCookie('hc_accessibility'));
               }),
               T.add(g),
               s
@@ -4355,7 +4355,7 @@ var hcaptcha = (function () {
         } else
           console.log(
             "[hCaptcha] render: invalid challenge container '" +
-              t["challenge-container"] +
+              t['challenge-container'] +
               "'."
           );
       else console.log("[hCaptcha] render: invalid container '" + e + "'.");
@@ -4369,9 +4369,9 @@ var hcaptcha = (function () {
               e.updateTranslation(n);
             } catch (qt) {
               X(
-                "Failed to update text translation: " + JSON.stringify(qt),
-                "error",
-                "translation"
+                'Failed to update text translation: ' + JSON.stringify(qt),
+                'error',
+                'translation'
               );
             }
         }
@@ -4380,8 +4380,8 @@ var hcaptcha = (function () {
             .then(function () {
               t ? i(g) : T.each(i);
             })
-            ["catch"](function (e) {
-              X("Language failed to load: " + n, "error", "api");
+            ['catch'](function (e) {
+              X('Language failed to load: ' + n, 'error', 'api');
             });
       }
     },
@@ -4389,11 +4389,11 @@ var hcaptcha = (function () {
       var t;
       if (e) {
         if (!(t = T.getById(e)))
-          throw Error("[hCaptcha] invalid captcha id: " + e);
+          throw Error('[hCaptcha] invalid captcha id: ' + e);
         t.reset();
       } else {
         if (!(t = T.getByIndex(0)))
-          throw Error("[hCaptcha] no captchas exist.");
+          throw Error('[hCaptcha] no captchas exist.');
         t.reset();
       }
     },
@@ -4401,8 +4401,8 @@ var hcaptcha = (function () {
       var t = e ? T.getById(e) : T.getByIndex(0);
       if (!t)
         throw e
-          ? Error("[hCaptcha] invalid captcha id: " + e)
-          : Error("[hCaptcha] no captchas exist.");
+          ? Error('[hCaptcha] invalid captcha id: ' + e)
+          : Error('[hCaptcha] no captchas exist.');
       T.remove(t), t.destroy(), (t = null);
     },
     execute: Et,
@@ -4410,46 +4410,46 @@ var hcaptcha = (function () {
       var t, n;
       if (
         ((n = e ? T.getById(e) : T.getByIndex(0)) &&
-          (t = n.checkbox.response || ""),
+          (t = n.checkbox.response || ''),
         void 0 !== t)
       )
         return t;
       throw e
-        ? new Error("[hCaptcha] invalid captcha id: " + e)
-        : new Error("[hCaptcha] no captchas exist.");
+        ? new Error('[hCaptcha] invalid captcha id: ' + e)
+        : new Error('[hCaptcha] no captchas exist.');
     },
     getRespKey: ft,
     close: function (e) {
       var t = !1;
       if (!(t = e ? T.getById(e) : T.getByIndex(0)))
         throw e
-          ? Error("[hCaptcha] invalid captcha id: " + e)
-          : Error("[hCaptcha] no captchas exist.");
+          ? Error('[hCaptcha] invalid captcha id: ' + e)
+          : Error('[hCaptcha] no captchas exist.');
       t.closeChallenge({
-        event: "challenge-escaped",
+        event: 'challenge-escaped',
       });
     },
     setData: function (e, t) {
       if (
-        ("object" != typeof e || t || ((t = e), (e = null)),
-        !t || "object" != typeof t)
+        ('object' != typeof e || t || ((t = e), (e = null)),
+        !t || 'object' != typeof t)
       )
-        throw Error("[hCaptcha] invalid data supplied");
+        throw Error('[hCaptcha] invalid data supplied');
       var n = !1;
       if (!(n = e ? T.getById(e) : T.getByIndex(0)))
         throw e
-          ? Error("[hCaptcha] invalid captcha id: " + e)
-          : Error("[hCaptcha] no captchas exist.");
+          ? Error('[hCaptcha] invalid captcha id: ' + e)
+          : Error('[hCaptcha] no captchas exist.');
       var i = n.challenge.setData.bind(n.challenge);
       n.onReady(i, t);
     },
     nodes: T,
   };
-  U.file = "hcaptcha";
+  U.file = 'hcaptcha';
   var At = document.currentScript,
     Lt = !1,
     $t = !1,
-    Dt = "on",
+    Dt = 'on',
     Rt = W.Browser.width() / W.Browser.height(),
     Nt = window.hcaptcha || !1;
 
@@ -4473,7 +4473,7 @@ var hcaptcha = (function () {
   }
 
   function Ut() {
-    qe.circBuffPush("xy", [
+    qe.circBuffPush('xy', [
       W.Browser.scrollX(),
       W.Browser.scrollY(),
       document.documentElement.clientWidth / W.Browser.width(),
@@ -4482,7 +4482,7 @@ var hcaptcha = (function () {
   }
 
   function Ft() {
-    qe.circBuffPush("wn", [
+    qe.circBuffPush('wn', [
       W.Browser.width(),
       W.Browser.height(),
       W.System.dpr(),
@@ -4492,9 +4492,9 @@ var hcaptcha = (function () {
   !(function (e) {
     var t = Array.prototype.slice.call(arguments, 1);
     !0 !== Ye &&
-    "interactive" !== document.readyState &&
-    "loaded" !== document.readyState &&
-    "complete" !== document.readyState
+    'interactive' !== document.readyState &&
+    'loaded' !== document.readyState &&
+    'complete' !== document.readyState
       ? (He.push({
           fn: e,
           args: t,
@@ -4507,7 +4507,7 @@ var hcaptcha = (function () {
     Nt ||
       (!(function () {
         var e;
-        e = At ? [At] : document.getElementsByTagName("script");
+        e = At ? [At] : document.getElementsByTagName('script');
         var t = -1,
           n = !1,
           i = null,
@@ -4515,13 +4515,13 @@ var hcaptcha = (function () {
         for (; ++t < e.length && !1 === n; )
           e[t] &&
             e[t].src &&
-            ((o = (i = e[t].src.split("?"))[0]),
+            ((o = (i = e[t].src.split('?'))[0]),
             /\/(hcaptcha|1\/api)\.js$/.test(o) &&
               ((n = e[t]),
               o &&
-                -1 !== o.toLowerCase().indexOf("www.") &&
+                -1 !== o.toLowerCase().indexOf('www.') &&
                 console.warn(
-                  "[hCaptcha] JS API is being loaded from www.hcaptcha.com. Please use https://js.hcaptcha.com/1/api.js"
+                  '[hCaptcha] JS API is being loaded from www.hcaptcha.com. Please use https://js.hcaptcha.com/1/api.js'
                 )));
         if (!1 === n) return;
         var r = (function (e) {
@@ -4530,18 +4530,18 @@ var hcaptcha = (function () {
               n,
               i,
               o = {},
-              r = e ? (e.indexOf("&") >= 0 ? e.split("&") : [e]) : [],
+              r = e ? (e.indexOf('&') >= 0 ? e.split('&') : [e]) : [],
               a = 0;
             a < r.length;
             a++
           )
-            if (r[a].indexOf("=") >= 0) {
+            if (r[a].indexOf('=') >= 0) {
               if (
-                ((t = r[a].split("=")),
+                ((t = r[a].split('=')),
                 (n = decodeURIComponent(t[0])),
-                ("false" !== (i = decodeURIComponent(t[1])) && "true" !== i) ||
-                  (i = "true" === i),
-                "theme" === n || "themeConfig" === n)
+                ('false' !== (i = decodeURIComponent(t[1])) && 'true' !== i) ||
+                  (i = 'true' === i),
+                'theme' === n || 'themeConfig' === n)
               )
                 try {
                   i = JSON.parse(i);
@@ -4552,7 +4552,7 @@ var hcaptcha = (function () {
         })(i[1]);
         (Lt = r.onload || !1),
           ($t = r.render || !1),
-          "off" === r.tplinks && (Dt = "off");
+          'off' === r.tplinks && (Dt = 'off');
         (F.tplinks = Dt),
           (F.language = r.hl || null),
           r.endpoint && (F.endpointOverride = r.endpoint);
@@ -4569,14 +4569,14 @@ var hcaptcha = (function () {
           de.setLocale(F.language),
           (a = r.sentry === undefined || r.sentry),
           void (q = a),
-          "off" === F.recaptchacompat
-            ? console.log("recaptchacompat disabled")
+          'off' === F.recaptchacompat
+            ? console.log('recaptchacompat disabled')
             : (window.grecaptcha = Jt);
         var a;
       })(),
       (function () {
         var e = de.getLocale();
-        if (e.indexOf("en") >= 0) return;
+        if (e.indexOf('en') >= 0) return;
         Bt(e)
           .then(function () {
             Mt.nodes.each(function (t) {
@@ -4585,21 +4585,21 @@ var hcaptcha = (function () {
                   t.updateTranslation(e);
                 } catch (qt) {
                   X(
-                    "Failed to update text translation: " + JSON.stringify(qt),
-                    "error",
-                    "translation"
+                    'Failed to update text translation: ' + JSON.stringify(qt),
+                    'error',
+                    'translation'
                   );
                 }
             });
           })
-          ["catch"](function () {
-            X("Language failed to load: " + e, "error", "api");
+          ['catch'](function () {
+            X('Language failed to load: ' + e, 'error', 'api');
           });
       })(),
-      !1 === $t || "onload" === $t
+      !1 === $t || 'onload' === $t
         ? (function (e) {
             for (
-              var t = document.getElementsByClassName("h-captcha"),
+              var t = document.getElementsByClassName('h-captcha'),
                 n = [],
                 i = 0;
               i < t.length;
@@ -4607,16 +4607,16 @@ var hcaptcha = (function () {
             )
               n.push(t[i]);
             var o = [];
-            if ("off" !== F.recaptchacompat)
+            if ('off' !== F.recaptchacompat)
               for (
-                var r = document.getElementsByClassName("g-recaptcha"), a = 0;
+                var r = document.getElementsByClassName('g-recaptcha'), a = 0;
                 a < r.length;
                 a++
               )
                 o.push(r[a]);
             for (var s = [].concat(n, o), h = 0; h < s.length; h++) e(s[h]);
           })(Mt.render)
-        : "explicit" !== $t &&
+        : 'explicit' !== $t &&
           console.log(
             "hcaptcha: invalid render parameter '" +
               $t +
@@ -4629,15 +4629,15 @@ var hcaptcha = (function () {
       (function () {
         try {
           qe.record(),
-            qe.setData("sc", W.Browser.getScreenDimensions()),
-            qe.setData("nv", W.Browser.interrogateNavigator()),
-            qe.setData("dr", document.referrer),
+            qe.setData('sc', W.Browser.getScreenDimensions()),
+            qe.setData('nv', W.Browser.interrogateNavigator()),
+            qe.setData('dr', document.referrer),
             Ft(),
             Ut();
         } catch (qt) {}
       })(),
-      Ke.addEventListener("resize", zt),
-      Ke.addEventListener("scroll", Wt));
+      Ke.addEventListener('resize', zt),
+      Ke.addEventListener('scroll', Wt));
   });
   var Jt = {
     render: Mt.render,

@@ -105,7 +105,7 @@
 }
 
 .recaptcha-checkbox-spinner-overlay {
-  content: "";
+  content: '';
   position: absolute;
   top: -7px;
   left: -7px;
@@ -178,7 +178,7 @@
 }
 
 .recaptcha-checkbox-loading .recaptcha-checkbox-spinner-gif {
-  background-image: url("https://www.gstatic.com/recaptcha/api2/loading.gif");
+  background-image: url('https://www.gstatic.com/recaptcha/api2/loading.gif');
 }
 
 .recaptcha-checkbox-checked .recaptcha-checkbox-border,
@@ -344,7 +344,7 @@ body {
 }
 
 .rc-anchor-logo-img {
-  background: url("https://www.gstatic.com/recaptcha/api2/logo_48.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/logo_48.png');
   background-repeat: no-repeat;
 }
 
@@ -418,7 +418,7 @@ body {
 }
 
 .rc-anchor-pt {
-  background-image: url("data:image/png;base64,iVBORw0KGgBUHYcaWxgb2kea3QBAVj6bWWvBYMFABTMVZWNFTmwtBIwMCbGFkRatlX3RFtEYBqHNlcUGoIuldvHSwb3oBbBgbamfedGlb2ABvGkBHHvOBV0Q0GJxUgIoePgBYSN0oc0ItSrl62aMcQBHSttMWjUTGyfa3VwmIxnBY1uxEuYiY/9CE/VlLBSyVP+qcCgBc2bKeWczyGllBsAhLiFttQBGznnub9dN0RyBbGy+YJbkbjABdWjaSGNlRPsQtFFidF1y6QB4GFys3EBqgBZMZwYCoJFm8BQ0D1qwlyBFOdBNEqhcVBxShk5YgIyBaKvfjnYYBYjlTzmiUBaGAeGmVJbvKZdZ4xTQBsChNZWULA3RkB7Snx3sxRE0jFUQBzZ9mZ3JyvWwBd5gyamABb1C6TYnR1k5kRHYBUWggtmUBaSNAIBkQd2YBXfJs916lfVxdfBKAF+bBqT8rqDsF0pCCbsFXmQ0ankJb9hmOK/1aXB1c3i7msV95aVYZ/dXrkIMD4WHmBG/TBZWV13F/0c1ezuwBdNIFBIV80nmdvBVbY9nCo3HKFnaDIBQ2giPFyD8QB6D0mZylyZ7dtIDYBa66+ZFNvBU2TT8nRsfHs3b/W7NVg1Wd0BXW4mdTOuuiB2BbhNvOABZyJJUlhwUW97KJMgUjJhdA0");
+  background-image: url('data:image/png;base64,iVBORw0KGgBUHYcaWxgb2kea3QBAVj6bWWvBYMFABTMVZWNFTmwtBIwMCbGFkRatlX3RFtEYBqHNlcUGoIuldvHSwb3oBbBgbamfedGlb2ABvGkBHHvOBV0Q0GJxUgIoePgBYSN0oc0ItSrl62aMcQBHSttMWjUTGyfa3VwmIxnBY1uxEuYiY/9CE/VlLBSyVP+qcCgBc2bKeWczyGllBsAhLiFttQBGznnub9dN0RyBbGy+YJbkbjABdWjaSGNlRPsQtFFidF1y6QB4GFys3EBqgBZMZwYCoJFm8BQ0D1qwlyBFOdBNEqhcVBxShk5YgIyBaKvfjnYYBYjlTzmiUBaGAeGmVJbvKZdZ4xTQBsChNZWULA3RkB7Snx3sxRE0jFUQBzZ9mZ3JyvWwBd5gyamABb1C6TYnR1k5kRHYBUWggtmUBaSNAIBkQd2YBXfJs916lfVxdfBKAF+bBqT8rqDsF0pCCbsFXmQ0ankJb9hmOK/1aXB1c3i7msV95aVYZ/dXrkIMD4WHmBG/TBZWV13F/0c1ezuwBdNIFBIV80nmdvBVbY9nCo3HKFnaDIBQ2giPFyD8QB6D0mZylyZ7dtIDYBa66+ZFNvBU2TT8nRsfHs3b/W7NVg1Wd0BXW4mdTOuuiB2BbhNvOABZyJJUlhwUW97KJMgUjJhdA0');
 }
 
 .rc-anchor-pt a {
@@ -673,73 +673,73 @@ body {
 }
 
 .rc-button-reload {
-  background: url("https://www.gstatic.com/recaptcha/api2/refresh_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/refresh_2x.png');
 }
 
 @media screen and (forced-colors: active) and (prefers-color-scheme: dark) {
   .rc-button-reload {
-    background: url("https://www.gstatic.com/recaptcha/api2/refresh_white_2x.png");
+    background: url('https://www.gstatic.com/recaptcha/api2/refresh_white_2x.png');
   }
 }
 
 .rc-button-reload-on-dark {
-  background: url("https://www.gstatic.com/recaptcha/api2/refresh_white_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/refresh_white_2x.png');
 }
 
 .rc-button-audio {
-  background: url("https://www.gstatic.com/recaptcha/api2/audio_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/audio_2x.png');
 }
 
 @media screen and (forced-colors: active) and (prefers-color-scheme: dark) {
   .rc-button-audio {
-    background: url("https://www.gstatic.com/recaptcha/api2/audio_white_2x.png");
+    background: url('https://www.gstatic.com/recaptcha/api2/audio_white_2x.png');
   }
 }
 
 .rc-button-audio-on-dark {
-  background: url("https://www.gstatic.com/recaptcha/api2/audio_white_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/audio_white_2x.png');
 }
 
 .rc-button-image {
-  background: url("https://www.gstatic.com/recaptcha/api2/image_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/image_2x.png');
 }
 
 @media screen and (forced-colors: active) and (prefers-color-scheme: dark) {
   .rc-button-image {
-    background: url("https://www.gstatic.com/recaptcha/api2/image_white_2x.png");
+    background: url('https://www.gstatic.com/recaptcha/api2/image_white_2x.png');
   }
 }
 
 .rc-button-image-on-dark {
-  background: url("https://www.gstatic.com/recaptcha/api2/image_white_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/image_white_2x.png');
 }
 
 .rc-button-help {
-  background: url("https://www.gstatic.com/recaptcha/api2/info_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/info_2x.png');
 }
 
 @media screen and (forced-colors: active) and (prefers-color-scheme: dark) {
   .rc-button-help {
-    background: url("https://www.gstatic.com/recaptcha/api2/info_white_2x.png");
+    background: url('https://www.gstatic.com/recaptcha/api2/info_white_2x.png');
   }
 }
 
 .rc-button-help-on-dark {
-  background: url("https://www.gstatic.com/recaptcha/api2/info_white_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/info_white_2x.png');
 }
 
 .rc-button-undo {
-  background: url("https://www.gstatic.com/recaptcha/api2/undo_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/undo_2x.png');
 }
 
 @media screen and (forced-colors: active) and (prefers-color-scheme: dark) {
   .rc-button-undo {
-    background: url("https://www.gstatic.com/recaptcha/api2/undo_white_2x.png");
+    background: url('https://www.gstatic.com/recaptcha/api2/undo_white_2x.png');
   }
 }
 
 .rc-button-undo-on-dark {
-  background: url("https://www.gstatic.com/recaptcha/api2/undo_white_2x.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/undo_white_2x.png');
 }
 
 .rc-button {
@@ -853,7 +853,7 @@ body {
 }
 
 .rc-audiochallenge-tdownload-link {
-  background-image: url("https://www.gstatic.com/recaptcha/api2/download.png");
+  background-image: url('https://www.gstatic.com/recaptcha/api2/download.png');
   background-repeat: no-repeat;
   background-size: 36px;
   color: transparent;
@@ -866,7 +866,7 @@ body {
 
 @media screen and (forced-colors: active) and (prefers-color-scheme: dark) {
   .rc-audiochallenge-tdownload-link {
-    background-image: url("https://www.gstatic.com/recaptcha/api2/download_white.png");
+    background-image: url('https://www.gstatic.com/recaptcha/api2/download_white.png');
     background-repeat: no-repeat;
     background-size: 36px;
     color: transparent;
@@ -879,7 +879,7 @@ body {
 }
 
 .rc-audiochallenge-tdownload-link-on-dark {
-  background-image: url("https://www.gstatic.com/recaptcha/api2/download_white.png");
+  background-image: url('https://www.gstatic.com/recaptcha/api2/download_white.png');
   background-repeat: no-repeat;
   background-size: 36px;
   color: transparent;
@@ -1331,42 +1331,42 @@ td:focus {
 }
 
 .rc-canonical-stop-sign {
-  background: url("https://www.gstatic.com/recaptcha/api2/stop_sign.jpg");
+  background: url('https://www.gstatic.com/recaptcha/api2/stop_sign.jpg');
   background-repeat: no-repeat;
 }
 
 .rc-canonical-speed-limit {
-  background: url("https://www.gstatic.com/recaptcha/api2/canonical_speed_limit.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/canonical_speed_limit.png');
   background-repeat: no-repeat;
 }
 
 .rc-canonical-street-name {
-  background: url("https://www.gstatic.com/recaptcha/api2/canonical_street_name.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/canonical_street_name.png');
   background-repeat: no-repeat;
 }
 
 .rc-canonical-other {
-  background: url("https://www.gstatic.com/recaptcha/api2/canonical_other.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/canonical_other.png');
   background-repeat: no-repeat;
 }
 
 .rc-canonical-bounding-box {
-  background: url("https://www.gstatic.com/recaptcha/api2/boundingbox2.gif");
+  background: url('https://www.gstatic.com/recaptcha/api2/boundingbox2.gif');
   background-repeat: no-repeat;
 }
 
 .rc-canonical-car {
-  background: url("https://www.gstatic.com/recaptcha/api2/canonical_car.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/canonical_car.png');
   background-repeat: no-repeat;
 }
 
 .rc-canonical-road {
-  background: url("https://www.gstatic.com/recaptcha/api2/canonical_road.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/canonical_road.png');
   background-repeat: no-repeat;
 }
 
 .rc-canonical-bridge {
-  background: url("https://www.gstatic.com/recaptcha/api2/canonical_bridge.png");
+  background: url('https://www.gstatic.com/recaptcha/api2/canonical_bridge.png');
   background-repeat: no-repeat;
 }
 

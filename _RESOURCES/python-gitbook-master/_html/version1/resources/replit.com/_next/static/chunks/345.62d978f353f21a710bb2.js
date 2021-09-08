@@ -4,10 +4,10 @@
     R9As: function (e, t, r) {
       self,
         (e.exports = (() => {
-          "use strict";
+          'use strict';
           var e = {
               775: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.FitAddon = void 0);
@@ -42,20 +42,20 @@
                           var t = window.getComputedStyle(
                               this._terminal.element.parentElement
                             ),
-                            r = parseInt(t.getPropertyValue("height")),
+                            r = parseInt(t.getPropertyValue('height')),
                             i = Math.max(
                               0,
-                              parseInt(t.getPropertyValue("width"))
+                              parseInt(t.getPropertyValue('width'))
                             ),
                             n = window.getComputedStyle(this._terminal.element),
                             o =
                               r -
-                              (parseInt(n.getPropertyValue("padding-top")) +
-                                parseInt(n.getPropertyValue("padding-bottom"))),
+                              (parseInt(n.getPropertyValue('padding-top')) +
+                                parseInt(n.getPropertyValue('padding-bottom'))),
                             a =
                               i -
-                              (parseInt(n.getPropertyValue("padding-right")) +
-                                parseInt(n.getPropertyValue("padding-left"))) -
+                              (parseInt(n.getPropertyValue('padding-right')) +
+                                parseInt(n.getPropertyValue('padding-left'))) -
                               e.viewport.scrollBarWidth;
                           return {
                             cols: Math.max(

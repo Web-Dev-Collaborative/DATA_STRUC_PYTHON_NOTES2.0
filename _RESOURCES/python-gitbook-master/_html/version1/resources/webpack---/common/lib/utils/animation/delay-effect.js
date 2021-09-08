@@ -1,8 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const styled_components_1 = require("styled-components");
+const styled_components_1 = require('styled-components');
 const animation = styled_components_1.keyframes`
   0%   { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0px); }

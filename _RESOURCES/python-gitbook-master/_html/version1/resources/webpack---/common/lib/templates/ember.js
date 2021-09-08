@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,15 +8,15 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const template_1 = __importDefault(require("./template"));
-const decorate_selector_1 = require("../utils/decorate-selector");
+const template_1 = __importDefault(require('./template'));
+const decorate_selector_1 = require('../utils/decorate-selector');
 exports.default = new template_1.default(
-  "ember",
-  "Ember",
-  "https://emberjs.com/",
+  'ember',
+  'Ember',
+  'https://emberjs.com/',
   /**
    * Ideally, we'd point to https://github.com/ember-cli/ember-new-output
    * but there are a few tweaks that must be addressed before then.
@@ -32,8 +32,8 @@ exports.default = new template_1.default(
    *
    * https://github.com/ember-cli/ember-new-output/compare/stable...NullVoxPopuli:stable
    */
-  "github/NullVoxPopuli/ember-new-output/tree/stable",
-  decorate_selector_1.decorateSelector(() => "#E04E39"),
+  'github/NullVoxPopuli/ember-new-output/tree/stable',
+  decorate_selector_1.decorateSelector(() => '#E04E39'),
   {
     showOnHomePage: true,
     main: false,

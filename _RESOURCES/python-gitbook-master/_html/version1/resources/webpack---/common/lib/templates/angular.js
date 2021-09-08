@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,13 +8,13 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const path_1 = require("../utils/path");
-const template_1 = __importDefault(require("./template"));
-const configuration_1 = __importDefault(require("./configuration"));
-const decorate_selector_1 = require("../utils/decorate-selector");
+const path_1 = require('../utils/path');
+const template_1 = __importDefault(require('./template'));
+const configuration_1 = __importDefault(require('./configuration'));
+const decorate_selector_1 = require('../utils/decorate-selector');
 
 function getAngularCLIEntries(parsed) {
   const entries = [];
@@ -81,16 +81,16 @@ class AngularTemplate extends template_1.default {
   getEntries(configurationFiles) {
     let entries = [];
     try {
-      if (!configurationFiles["angular-config"].generated) {
-        const { parsed } = configurationFiles["angular-config"];
+      if (!configurationFiles['angular-config'].generated) {
+        const { parsed } = configurationFiles['angular-config'];
         entries = entries.concat(getAngularJSONEntries(parsed));
       } else {
-        const { parsed } = configurationFiles["angular-cli"];
+        const { parsed } = configurationFiles['angular-cli'];
         entries = entries.concat(getAngularCLIEntries(parsed));
       }
     } catch (e) {
       console.warn(
-        `${configurationFiles["angular-config"].path} is malformed: ${e.message}`
+        `${configurationFiles['angular-config'].path} is malformed: ${e.message}`
       );
     }
     if (
@@ -99,39 +99,39 @@ class AngularTemplate extends template_1.default {
     ) {
       entries.push(path_1.absolute(configurationFiles.package.parsed.main));
     }
-    entries.push("/src/main.ts");
-    entries.push("/main.ts");
+    entries.push('/src/main.ts');
+    entries.push('/main.ts');
     return entries;
   }
   getHTMLEntries(configurationFiles) {
     let entries = [];
-    if (!configurationFiles["angular-config"].generated) {
-      const { parsed } = configurationFiles["angular-config"];
+    if (!configurationFiles['angular-config'].generated) {
+      const { parsed } = configurationFiles['angular-config'];
       entries = entries.concat(getAngularJSONHTMLEntry(parsed));
-    } else if (configurationFiles["angular-cli"]) {
-      const { parsed } = configurationFiles["angular-cli"];
+    } else if (configurationFiles['angular-cli']) {
+      const { parsed } = configurationFiles['angular-cli'];
       entries = entries.concat(getAngularCLIHTMLEntry(parsed));
     }
-    entries.push("/public/index.html");
-    entries.push("/index.html");
+    entries.push('/public/index.html');
+    entries.push('/index.html');
     return entries;
   }
 }
 exports.default = new AngularTemplate(
-  "angular-cli",
-  "Angular",
-  "https://github.com/angular/angular",
-  "angular",
-  decorate_selector_1.decorateSelector(() => "#DD0031"),
+  'angular-cli',
+  'Angular',
+  'https://github.com/angular/angular',
+  'angular',
+  decorate_selector_1.decorateSelector(() => '#DD0031'),
   {
     extraConfigurations: {
-      "/.angular-cli.json": configuration_1.default.angularCli,
-      "/angular.json": configuration_1.default.angularJSON,
-      "/tsconfig.json": configuration_1.default.tsconfig,
+      '/.angular-cli.json': configuration_1.default.angularCli,
+      '/angular.json': configuration_1.default.angularJSON,
+      '/tsconfig.json': configuration_1.default.tsconfig,
     },
     staticDeployment: false,
     isTypescript: true,
-    distDir: "dist",
+    distDir: 'dist',
     showOnHomePage: true,
     popular: true,
     main: true,

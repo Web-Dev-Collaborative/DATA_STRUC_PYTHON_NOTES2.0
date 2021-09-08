@@ -10,7 +10,7 @@
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg"></a>
 <a href="https://github.com/prathimacode-hub/PyAlgo-Tree/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/prathimacode-hub/PyAlgo-Tree"></a>
 <a href="https://github.com/prathimacode-hub"><img src="https://img.shields.io/maintenance/yes/2021"></a>
-</p> 
+</p>
 
 <p align="center">
 <a href="https://github.com/prathimacode-hub/PyAlgo-Tree/stargazers"><img src="https://badgen.net/github/stars/prathimacode-hub/PyAlgo-Tree"></a>
@@ -22,24 +22,19 @@
 <a href="https://github.com/prathimacode-hub/PyAlgo-Tree/pulls?q=is%3Apr+is%3Aclosed"><img src="https://badgen.net/github/closed-prs/prathimacode-hub/PyAlgo-Tree"></a>
 </p>
 
-
 <h2> 📌Repository</h2>
 
-This project aims to be a finest hub of various data structures and algorithms you need to know in python across different topics and fields.  
+This project aims to be a finest hub of various data structures and algorithms you need to know in python across different topics and fields.
 
 You can get all the wisdom here about data structures and algorithms before you dive into real time projects. Let's get a short intro to it.
-
 
 ## 📍Data Structures & Algorithms
 
 Data structures & Algorithms are an essential part of programming. It comes under the fundamentals of computer science. It gives us the advantage of writing better and efficient code in less time. It's a key topic when it comes to Software Engineering. So as developers, we must have knowledge of Data Structure and Algorithms
 
-
 ## 📍Data Structures
 
-In computer science, a data structure is a data organization, management, and storage format that enables efficient access and modification.
-Data structure is a way or a format how your data is stored in memory for effecient usage and retrieval.
-
+In computer science, a data structure is a data organization, management, and storage format that enables efficient access and modification. Data structure is a way or a format how your data is stored in memory for effecient usage and retrieval.
 
 ## 📍Algorithms
 
@@ -47,12 +42,11 @@ An algorithm is a set of instructions that are used to accomplish a task, such a
 
 Algorithms are not limited to computers. They are like a set of step-by-step instructions or an even a recipe, containing things you need, steps to do, the order to do them, conditions to look for, and expected results.
 
-
 <h2> 🙌Join Here</h2>
 
 Anyone related to technology who are looking to contribute to open-source, are all invited to hop in. This place has a task for everyone.
 
-If you find this repo useful or it did help you in enhancing your python knowledge, do share it with the world so that others can get benefitted as you did.  
+If you find this repo useful or it did help you in enhancing your python knowledge, do share it with the world so that others can get benefitted as you did.
 
 <h3> Language - Python</h3>
 
@@ -61,7 +55,6 @@ Are you new to Python? You can gain strong foundations on Basic Python through t
 To make your learning journey more fruitful, I had created an open source project of [Awesome Python Scripts](https://github.com/prathimacode-hub/Awesome_Python_Scripts). Do add your projects to enhance your learning experience. It has everything to offer for you and is a one stop place for all kinds of python scripts.
 
 Drop me a private message, if this project enriched your skills better and made you progress in building up your own projects in python. Any queries, feel free to ask. I would be happy to assist you.
-
 
 <h2> 💡Table Of Contents</h2>
 
@@ -111,35 +104,30 @@ Drop me a private message, if this project enriched your skills better and made 
 - [Trees](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Trees)
 - [Unix](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Unix)
 
-
 If you worked on or want to initiate a your script and share it with the world, you can do that here. Go through the contributing guidelines in [CONTRIBUTING_GUIDELINES](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/CONTRIBUTING_GUIDELINES.md)👩‍💻
 
 When raising an issue, do make sure to mention the kind of script, project title, short description of the project and what it does and the purpose of it. As a good practice, always link the issue number with pull request. (#issue number : Give this details when you raise a PR).
 
 Subsequently, also go through the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-
 <h2>🌱Pre-requisites</h2>
 
 - Python IDE : Install it by using this link [python.org](https://www.python.org/downloads/)
-- If you are new to python programming and want to have a fair knowledge before you start working on it, you can learn it in a simplified way through this [repo](https://github.com/prathimacode-hub/Learn-Python-For-Beginners).  
-
+- If you are new to python programming and want to have a fair knowledge before you start working on it, you can learn it in a simplified way through this [repo](https://github.com/prathimacode-hub/Learn-Python-For-Beginners).
 
 <h2>⚙️ Things to Note</h2>
 
-* Make sure you do not copy codes from external sources because that work will not be considered. Plagiarism is strictly not allowed.
-* You can only work on issues that have been assigned to you.
-* If you want to contribute the script, it's preferable that you create a new issue before making a PR and link your PR to that issue.
-* If you have modified/added code, make sure the code compiles before submitting.
-* Strictly use snake_case (underscore_separated) in your file_name and push it in the correct folder.
-* Add detailed comments and explain the script elaborately with test cases to help us know what the Script is all about.
-* Do not update the **[README.md](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/README.md).**
-
+- Make sure you do not copy codes from external sources because that work will not be considered. Plagiarism is strictly not allowed.
+- You can only work on issues that have been assigned to you.
+- If you want to contribute the script, it's preferable that you create a new issue before making a PR and link your PR to that issue.
+- If you have modified/added code, make sure the code compiles before submitting.
+- Strictly use snake_case (underscore_separated) in your file_name and push it in the correct folder.
+- Add detailed comments and explain the script elaborately with test cases to help us know what the Script is all about.
+- Do not update the **[README.md](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/README.md).**
 
 <h2>📝Project Structure</h2>
 
 Your projects should contain this flow to maintain similarity across all other projects. Make sure to note these things, before you create a PR.
-
 
 - **For algorithms based on basic python skills, the project structure should look like this:**
 
@@ -151,12 +139,11 @@ The project repository you had created would have :
 
 **README.md** - This file is must included to get good understanding of the project (Elaborate it briefly about how it works using [README](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/.github/README/readme1_template.md) template).
 
-**requirements.txt** - In this file, you should add all the libraries you had included in your project 
+**requirements.txt** - In this file, you should add all the libraries you had included in your project
 
 **Images** - This folder would have all images added, be it screenshots or step by step process images.
 
 **Related files** - The other additional and related files would be added up in "Related" folder.
-
 
 - **For algorithms based on Machine Learning, Deep Learning, Computer Vision, Artificial Intelligence etc, the project should look like this:**
 
@@ -174,7 +161,6 @@ The project repository you had created would have :
 
 Elaborate your **README** briefly about how it works by showing step by step procedure.
 
-
 <h2>🛠Templates to Follow</h2>
 
 - [Feature request](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/.github/issue_template/feature_request.md)
@@ -182,8 +168,7 @@ Elaborate your **README** briefly about how it works by showing step by step pro
 - [Pull Request](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/.github/pullrequest_template.md)
 - [README](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/.github/README) - Kindly choose the README according to the algorithm you choose.
 
-**Note** : One should follow these templates while creating a new issue or pull request. 
-
+**Note** : One should follow these templates while creating a new issue or pull request.
 
 <h2>👨‍💻 Workflow:</h2>
 
@@ -195,15 +180,14 @@ Elaborate your **README** briefly about how it works by showing step by step pro
 
 - Add, Commit and Push
 
-- Then in GitHub, in your cloned repository, find the option to make a pull request. 
+- Then in GitHub, in your cloned repository, find the option to make a pull request.
 
 > print("Start contributing for **PyAlgo-Tree**")
-
 
 <h2>👍OpenSource Program</h2>
 
 This project was a part of this open source program.
- 
+
 <tr>
  <td>
 <a href="https://github.com/prathimacode-hub"><img src="https://user-images.githubusercontent.com/54024433/125442861-013b33c2-35c1-46b0-8390-d6a6e2f038ab.jpg" width=150px height=150px /></a> 
@@ -211,10 +195,9 @@ This project was a part of this open source program.
 </tr>
 </table>
 
+<h2>✨Hall Of Fame</h2>
 
-<h2>✨Hall Of Fame</h2>   
-
-Thanks goes to these Wonderful People. Contributions of any kind are welcome!🚀 
+Thanks goes to these Wonderful People. Contributions of any kind are welcome!🚀
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -226,18 +209,16 @@ Thanks goes to these Wonderful People. Contributions of any kind are welcome!�
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <h2>📜 Code Of Conduct</h2>
 
 You can find our Code of Conduct [here](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/CODE_OF_CONDUCT.md).
 
-
 <h2> 📝License</h2>
 
 This project follows the MIT [License](LICENSE)
-
 
 <h2>✔Project Maintainer</h2>
 
@@ -247,31 +228,27 @@ This project follows the MIT [License](LICENSE)
   </tr>
 </table>
 
-
 <h2> 😎 Project Admin</h2>
 
-<a href="https://github.com/prathimacode-hub"><img src="https://avatars.githubusercontent.com/u/74645302?v=4" width=100px height=100px /></a>
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+<a href="https://github.com/prathimacode-hub"><img src="https://avatars.githubusercontent.com/u/74645302?v=4" width=100px height=100px /></a> | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
 ![Visitor Count](https://profile-counter.glitch.me/{prathimacode-hub}/count.svg)
-
 
 <h2>🌟 Stargazers Over Time 🌟</h2>
 
 [![Stargazers over time](https://starchart.cc/prathimacode-hub/PyAlgo-Tree.svg)](https://starchart.cc/prathimacode-hub/PyAlgo-Tree)
 
-
 <h2>⭐Give this Project a Star</h2>
 
-[![GitHub followers](https://img.shields.io/github/followers/prathimacode-hub.svg?label=Follow%20@prathimacode-hub&style=social)](https://github.com/prathimak88/)  [![Twitter Follow](https://img.shields.io/twitter/follow/prathimak88?style=social)](https://twitter.com/prathimak88)
+[![GitHub followers](https://img.shields.io/github/followers/prathimacode-hub.svg?label=Follow%20@prathimacode-hub&style=social)](https://github.com/prathimak88/) [![Twitter Follow](https://img.shields.io/twitter/follow/prathimak88?style=social)](https://twitter.com/prathimak88)
 
 If you like this project, consider giving a ⭐ to this project and share it as much as you can.
 
 🎉 🎊 😃 Happy Contributing 😃 🎊 🎉
 
-<sup><kbd>***[Click here](https://github.com/prathimacode-hub/prathimacode-hub/blob/main/PROJECTS.md)***</kbd> *to view my other projects.</sup>* <br>
-</td>
+<sup><kbd>**_[Click here](https://github.com/prathimacode-hub/prathimacode-hub/blob/main/PROJECTS.md)_**</kbd> _to view my other projects.</sup>_ <br>
 
+</td>
 
 <h2>📬 Contact</h2>
 
@@ -279,8 +256,6 @@ If you want to contact me, you can reach me through social handles.
 
 <a href="https://twitter.com/prathimak88"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c8/Twitter_Bird.svg/1200px-Twitter_Bird.svg.png" width="25"></img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/prathima-kadari/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"></img></a>
 
-
 © 2021 Prathima Kadari
-
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)

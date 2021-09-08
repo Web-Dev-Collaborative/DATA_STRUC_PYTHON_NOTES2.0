@@ -1,4 +1,4 @@
-import stream = require("stream");
+import stream = require('stream');
 
 class TTY extends stream.Duplex {
   public isRaw: boolean = false;
@@ -20,7 +20,7 @@ class TTY extends stream.Duplex {
       this.isRaw = mode;
       // [BFS] TTY implementations can use this to change their event emitting
       //       patterns.
-      this.emit("modeChange");
+      this.emit('modeChange');
     }
   }
 
@@ -31,7 +31,7 @@ class TTY extends stream.Duplex {
     if (columns !== this.columns) {
       this.columns = columns;
       // Resize event.
-      this.emit("resize");
+      this.emit('resize');
     }
   }
 
@@ -42,7 +42,7 @@ class TTY extends stream.Duplex {
     if (rows !== this.rows) {
       this.rows = rows;
       // Resize event.
-      this.emit("resize");
+      this.emit('resize');
     }
   }
 
@@ -57,7 +57,7 @@ class TTY extends stream.Duplex {
     var error: any;
     try {
       var data: Buffer;
-      if (typeof chunk === "string") {
+      if (typeof chunk === 'string') {
         data = new Buffer(chunk, encoding);
       } else {
         data = chunk;

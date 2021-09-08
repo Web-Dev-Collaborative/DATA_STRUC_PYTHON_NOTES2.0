@@ -4,7 +4,7 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-"use strict";
+'use strict';
 
 exports.__esModule = true;
 /**
@@ -369,7 +369,7 @@ var LcsDiff =
         if (modifiedStart <= modifiedEnd) {
           Debug.Assert(
             originalStart === originalEnd + 1,
-            "originalStart should only be one more than originalEnd"
+            'originalStart should only be one more than originalEnd'
           ); // All insertions
 
           changes = [
@@ -383,7 +383,7 @@ var LcsDiff =
         } else if (originalStart <= originalEnd) {
           Debug.Assert(
             modifiedStart === modifiedEnd + 1,
-            "modifiedStart should only be one more than modifiedEnd"
+            'modifiedStart should only be one more than modifiedEnd'
           ); // All deletions
 
           changes = [
@@ -397,11 +397,11 @@ var LcsDiff =
         } else {
           Debug.Assert(
             originalStart === originalEnd + 1,
-            "originalStart should only be one more than originalEnd"
+            'originalStart should only be one more than originalEnd'
           );
           Debug.Assert(
             modifiedStart === modifiedEnd + 1,
-            "modifiedStart should only be one more than modifiedEnd"
+            'modifiedStart should only be one more than modifiedEnd'
           ); // Identical sequences - No differences
 
           changes = [];
@@ -1201,7 +1201,7 @@ var LcsDiff =
       }
 
       var element = this.OriginalSequence.getElementAtIndex(index);
-      return typeof element === "string" && /^\s*$/.test(element);
+      return typeof element === 'string' && /^\s*$/.test(element);
     };
 
     LcsDiff.prototype._OriginalRegionIsBoundary = function (
@@ -1235,7 +1235,7 @@ var LcsDiff =
       }
 
       var element = this.ModifiedSequence.getElementAtIndex(index);
-      return typeof element === "string" && /^\s*$/.test(element);
+      return typeof element === 'string' && /^\s*$/.test(element);
     };
 
     LcsDiff.prototype._ModifiedRegionIsBoundary = function (
@@ -1328,11 +1328,11 @@ var LcsDiff =
     LcsDiff.prototype.ChangesOverlap = function (left, right, mergedChangeArr) {
       Debug.Assert(
         left.originalStart <= right.originalStart,
-        "Left change is not less than or equal to right change"
+        'Left change is not less than or equal to right change'
       );
       Debug.Assert(
         left.modifiedStart <= right.modifiedStart,
-        "Left change is not less than or equal to right change"
+        'Left change is not less than or equal to right change'
       );
 
       if (

@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 module.exports = LRUCache;
 
 // This will be a proper iterable 'Map' in engines that support it,
 // or a fakey-fake PseudoMap in older versions.
-var Map = require("pseudomap");
-var util = require("util");
+var Map = require('pseudomap');
+var util = require('util');
 
 // A linked list to keep track of recently-used-ness
-var Yallist = require("yallist");
+var Yallist = require('yallist');
 
 // use symbols if possible, otherwise just _props
-var hasSymbol = typeof Symbol === "function";
+var hasSymbol = typeof Symbol === 'function';
 var makeSymbol;
 if (hasSymbol) {
   makeSymbol = function (key) {
@@ -19,19 +19,19 @@ if (hasSymbol) {
   };
 } else {
   makeSymbol = function (key) {
-    return "_" + key;
+    return '_' + key;
   };
 }
 
-var MAX = makeSymbol("max");
-var LENGTH = makeSymbol("length");
-var LENGTH_CALCULATOR = makeSymbol("lengthCalculator");
-var ALLOW_STALE = makeSymbol("allowStale");
-var MAX_AGE = makeSymbol("maxAge");
-var DISPOSE = makeSymbol("dispose");
-var NO_DISPOSE_ON_SET = makeSymbol("noDisposeOnSet");
-var LRU_LIST = makeSymbol("lruList");
-var CACHE = makeSymbol("cache");
+var MAX = makeSymbol('max');
+var LENGTH = makeSymbol('length');
+var LENGTH_CALCULATOR = makeSymbol('lengthCalculator');
+var ALLOW_STALE = makeSymbol('allowStale');
+var MAX_AGE = makeSymbol('maxAge');
+var DISPOSE = makeSymbol('dispose');
+var NO_DISPOSE_ON_SET = makeSymbol('noDisposeOnSet');
+var LRU_LIST = makeSymbol('lruList');
+var CACHE = makeSymbol('cache');
 
 function naiveLength() {
   return 1;
@@ -50,7 +50,7 @@ function LRUCache(options) {
     return new LRUCache(options);
   }
 
-  if (typeof options === "number") {
+  if (typeof options === 'number') {
     options = {
       max: options,
     };
@@ -62,12 +62,12 @@ function LRUCache(options) {
 
   var max = (this[MAX] = options.max);
   // Kind of weird to have a default max of Infinity, but oh well.
-  if (!max || !(typeof max === "number") || max <= 0) {
+  if (!max || !(typeof max === 'number') || max <= 0) {
     this[MAX] = Infinity;
   }
 
   var lc = options.length || naiveLength;
-  if (typeof lc !== "function") {
+  if (typeof lc !== 'function') {
     lc = naiveLength;
   }
   this[LENGTH_CALCULATOR] = lc;
@@ -80,9 +80,9 @@ function LRUCache(options) {
 }
 
 // resize the cache when the max changes.
-Object.defineProperty(LRUCache.prototype, "max", {
+Object.defineProperty(LRUCache.prototype, 'max', {
   set: function (mL) {
-    if (!mL || !(typeof mL === "number") || mL <= 0) {
+    if (!mL || !(typeof mL === 'number') || mL <= 0) {
       mL = Infinity;
     }
     this[MAX] = mL;
@@ -94,7 +94,7 @@ Object.defineProperty(LRUCache.prototype, "max", {
   enumerable: true,
 });
 
-Object.defineProperty(LRUCache.prototype, "allowStale", {
+Object.defineProperty(LRUCache.prototype, 'allowStale', {
   set: function (allowStale) {
     this[ALLOW_STALE] = !!allowStale;
   },
@@ -104,9 +104,9 @@ Object.defineProperty(LRUCache.prototype, "allowStale", {
   enumerable: true,
 });
 
-Object.defineProperty(LRUCache.prototype, "maxAge", {
+Object.defineProperty(LRUCache.prototype, 'maxAge', {
   set: function (mA) {
-    if (!mA || !(typeof mA === "number") || mA < 0) {
+    if (!mA || !(typeof mA === 'number') || mA < 0) {
       mA = 0;
     }
     this[MAX_AGE] = mA;
@@ -119,9 +119,9 @@ Object.defineProperty(LRUCache.prototype, "maxAge", {
 });
 
 // resize the cache when the lengthCalculator changes.
-Object.defineProperty(LRUCache.prototype, "lengthCalculator", {
+Object.defineProperty(LRUCache.prototype, 'lengthCalculator', {
   set: function (lC) {
-    if (typeof lC !== "function") {
+    if (typeof lC !== 'function') {
       lC = naiveLength;
     }
     if (lC !== this[LENGTH_CALCULATOR]) {
@@ -140,14 +140,14 @@ Object.defineProperty(LRUCache.prototype, "lengthCalculator", {
   enumerable: true,
 });
 
-Object.defineProperty(LRUCache.prototype, "length", {
+Object.defineProperty(LRUCache.prototype, 'length', {
   get: function () {
     return this[LENGTH];
   },
   enumerable: true,
 });
 
-Object.defineProperty(LRUCache.prototype, "itemCount", {
+Object.defineProperty(LRUCache.prototype, 'itemCount', {
   get: function () {
     return this[LRU_LIST].length;
   },
@@ -230,54 +230,54 @@ LRUCache.prototype.dumpLru = function () {
 };
 
 LRUCache.prototype.inspect = function (n, opts) {
-  var str = "LRUCache {";
+  var str = 'LRUCache {';
   var extras = false;
 
   var as = this[ALLOW_STALE];
   if (as) {
-    str += "\n  allowStale: true";
+    str += '\n  allowStale: true';
     extras = true;
   }
 
   var max = this[MAX];
   if (max && max !== Infinity) {
     if (extras) {
-      str += ",";
+      str += ',';
     }
-    str += "\n  max: " + util.inspect(max, opts);
+    str += '\n  max: ' + util.inspect(max, opts);
     extras = true;
   }
 
   var maxAge = this[MAX_AGE];
   if (maxAge) {
     if (extras) {
-      str += ",";
+      str += ',';
     }
-    str += "\n  maxAge: " + util.inspect(maxAge, opts);
+    str += '\n  maxAge: ' + util.inspect(maxAge, opts);
     extras = true;
   }
 
   var lc = this[LENGTH_CALCULATOR];
   if (lc && lc !== naiveLength) {
     if (extras) {
-      str += ",";
+      str += ',';
     }
-    str += "\n  length: " + util.inspect(this[LENGTH], opts);
+    str += '\n  length: ' + util.inspect(this[LENGTH], opts);
     extras = true;
   }
 
   var didFirst = false;
   this[LRU_LIST].forEach(function (item) {
     if (didFirst) {
-      str += ",\n  ";
+      str += ',\n  ';
     } else {
       if (extras) {
-        str += ",\n";
+        str += ',\n';
       }
       didFirst = true;
-      str += "\n  ";
+      str += '\n  ';
     }
-    var key = util.inspect(item.key).split("\n").join("\n  ");
+    var key = util.inspect(item.key).split('\n').join('\n  ');
     var val = {
       value: item.value,
     };
@@ -291,14 +291,14 @@ LRUCache.prototype.inspect = function (n, opts) {
       val.stale = true;
     }
 
-    val = util.inspect(val, opts).split("\n").join("\n  ");
-    str += key + " => " + val;
+    val = util.inspect(val, opts).split('\n').join('\n  ');
+    str += key + ' => ' + val;
   });
 
   if (didFirst || extras) {
-    str += "\n";
+    str += '\n';
   }
-  str += "}";
+  str += '}';
 
   return str;
 };

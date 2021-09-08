@@ -1,10 +1,10 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [349],
   {
-    "/POA": function (e, t, r) {
+    '/POA': function (e, t, r) {
       self,
         (e.exports = (() => {
-          "use strict";
+          'use strict';
           var e = {
               4567: function (e, t, r) {
                 var i,
@@ -35,7 +35,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.AccessibilityManager = void 0);
@@ -53,16 +53,16 @@
                         (i._renderService = r),
                         (i._liveRegionLineCount = 0),
                         (i._charsToConsume = []),
-                        (i._charsToAnnounce = ""),
+                        (i._charsToAnnounce = ''),
                         (i._accessibilityTreeRoot =
-                          document.createElement("div")),
+                          document.createElement('div')),
                         i._accessibilityTreeRoot.classList.add(
-                          "xterm-accessibility"
+                          'xterm-accessibility'
                         ),
-                        (i._rowContainer = document.createElement("div")),
-                        i._rowContainer.setAttribute("role", "list"),
+                        (i._rowContainer = document.createElement('div')),
+                        i._rowContainer.setAttribute('role', 'list'),
                         i._rowContainer.classList.add(
-                          "xterm-accessibility-tree"
+                          'xterm-accessibility-tree'
                         ),
                         (i._rowElements = []);
                       for (var n = 0; n < i._terminal.rows; n++)
@@ -76,13 +76,13 @@
                           return i._onBoundaryFocus(e, 1);
                         }),
                         i._rowElements[0].addEventListener(
-                          "focus",
+                          'focus',
                           i._topBoundaryFocusListener
                         ),
                         i._rowElements[
                           i._rowElements.length - 1
                         ].addEventListener(
-                          "focus",
+                          'focus',
                           i._bottomBoundaryFocusListener
                         ),
                         i._refreshRowsDimensions(),
@@ -91,18 +91,18 @@
                           i._renderRows.bind(i)
                         )),
                         i._refreshRows(),
-                        (i._liveRegion = document.createElement("div")),
-                        i._liveRegion.classList.add("live-region"),
-                        i._liveRegion.setAttribute("aria-live", "assertive"),
+                        (i._liveRegion = document.createElement('div')),
+                        i._liveRegion.classList.add('live-region'),
+                        i._liveRegion.setAttribute('aria-live', 'assertive'),
                         i._accessibilityTreeRoot.appendChild(i._liveRegion),
                         !i._terminal.element)
                       )
                         throw new Error(
-                          "Cannot enable accessibility before Terminal.open"
+                          'Cannot enable accessibility before Terminal.open'
                         );
                       return (
                         i._terminal.element.insertAdjacentElement(
-                          "afterbegin",
+                          'afterbegin',
                           i._accessibilityTreeRoot
                         ),
                         i.register(i._renderRowsDebouncer),
@@ -128,7 +128,7 @@
                         ),
                         i.register(
                           i._terminal.onLineFeed(function () {
-                            return i._onChar("\n");
+                            return i._onChar('\n');
                           })
                         ),
                         i.register(
@@ -159,7 +159,7 @@
                         i.register(
                           c.addDisposableDomListener(
                             window,
-                            "resize",
+                            'resize',
                             function () {
                               return i._refreshRowsDimensions();
                             }
@@ -184,10 +184,10 @@
                               0 === t ? 1 : this._rowElements.length - 2
                             ];
                         if (
-                          r.getAttribute("aria-posinset") !==
+                          r.getAttribute('aria-posinset') !==
                             (0 === t
-                              ? "1"
-                              : "" + this._terminal.buffer.lines.length) &&
+                              ? '1'
+                              : '' + this._terminal.buffer.lines.length) &&
                           e.relatedTarget === i
                         ) {
                           var n, o;
@@ -200,11 +200,11 @@
                                 (o = r),
                                 this._rowContainer.removeChild(n)),
                             n.removeEventListener(
-                              "focus",
+                              'focus',
                               this._topBoundaryFocusListener
                             ),
                             o.removeEventListener(
-                              "focus",
+                              'focus',
                               this._bottomBoundaryFocusListener
                             ),
                             0 === t)
@@ -212,7 +212,7 @@
                             var s = this._createAccessibilityTreeNode();
                             this._rowElements.unshift(s),
                               this._rowContainer.insertAdjacentElement(
-                                "afterbegin",
+                                'afterbegin',
                                 s
                               );
                           } else
@@ -220,13 +220,13 @@
                               this._rowElements.push(s),
                               this._rowContainer.appendChild(s);
                           this._rowElements[0].addEventListener(
-                            "focus",
+                            'focus',
                             this._topBoundaryFocusListener
                           ),
                             this._rowElements[
                               this._rowElements.length - 1
                             ].addEventListener(
-                              "focus",
+                              'focus',
                               this._bottomBoundaryFocusListener
                             ),
                             this._terminal.scrollLines(0 === t ? -1 : 1),
@@ -241,7 +241,7 @@
                         this._rowElements[
                           this._rowElements.length - 1
                         ].removeEventListener(
-                          "focus",
+                          'focus',
                           this._bottomBoundaryFocusListener
                         );
                         for (
@@ -261,22 +261,22 @@
                         this._rowElements[
                           this._rowElements.length - 1
                         ].addEventListener(
-                          "focus",
+                          'focus',
                           this._bottomBoundaryFocusListener
                         ),
                           this._refreshRowsDimensions();
                       }),
                       (t.prototype._createAccessibilityTreeNode = function () {
-                        var e = document.createElement("div");
+                        var e = document.createElement('div');
                         return (
-                          e.setAttribute("role", "listitem"),
+                          e.setAttribute('role', 'listitem'),
                           (e.tabIndex = -1),
                           this._refreshRowDimensions(e),
                           e
                         );
                       }),
                       (t.prototype._onTab = function (e) {
-                        for (var t = 0; t < e; t++) this._onChar(" ");
+                        for (var t = 0; t < e; t++) this._onChar(' ');
                       }),
                       (t.prototype._onChar = function (e) {
                         var t = this;
@@ -285,7 +285,7 @@
                             ? this._charsToConsume.shift() !== e &&
                               (this._charsToAnnounce += e)
                             : (this._charsToAnnounce += e),
-                          "\n" === e &&
+                          '\n' === e &&
                             (this._liveRegionLineCount++,
                             21 === this._liveRegionLineCount &&
                               (this._liveRegion.textContent +=
@@ -301,7 +301,7 @@
                             }, 0));
                       }),
                       (t.prototype._clearLiveRegion = function () {
-                        (this._liveRegion.textContent = ""),
+                        (this._liveRegion.textContent = ''),
                           (this._liveRegionLineCount = 0),
                           s.isMac &&
                             u.removeElementFromParent(this._liveRegion);
@@ -332,10 +332,10 @@
                             a = this._rowElements[n];
                           a &&
                             (0 === o.length
-                              ? (a.innerText = "\xa0")
+                              ? (a.innerText = '\xa0')
                               : (a.textContent = o),
-                            a.setAttribute("aria-posinset", s),
-                            a.setAttribute("aria-setsize", i));
+                            a.setAttribute('aria-posinset', s),
+                            a.setAttribute('aria-setsize', i));
                         }
                         this._announceCharacters();
                       }),
@@ -350,13 +350,13 @@
                       (t.prototype._refreshRowDimensions = function (e) {
                         e.style.height =
                           this._renderService.dimensions.actualCellHeight +
-                          "px";
+                          'px';
                       }),
                       (t.prototype._announceCharacters = function () {
                         0 !== this._charsToAnnounce.length &&
                           ((this._liveRegion.textContent +=
                             this._charsToAnnounce),
-                          (this._charsToAnnounce = ""));
+                          (this._charsToAnnounce = ''));
                       }),
                       t
                     );
@@ -365,31 +365,31 @@
               },
               3614: (e, t) => {
                 function r(e) {
-                  return e.replace(/\r?\n/g, "\r");
+                  return e.replace(/\r?\n/g, '\r');
                 }
 
                 function i(e, t) {
-                  return t ? "\x1b[200~" + e + "\x1b[201~" : e;
+                  return t ? '\x1b[200~' + e + '\x1b[201~' : e;
                 }
 
                 function n(e, t, n) {
                   (e = i((e = r(e)), n.decPrivateModes.bracketedPasteMode)),
                     n.triggerDataEvent(e, !0),
-                    (t.value = "");
+                    (t.value = '');
                 }
 
                 function o(e, t, r) {
                   var i = r.getBoundingClientRect(),
                     n = e.clientX - i.left - 10,
                     o = e.clientY - i.top - 10;
-                  (t.style.width = "20px"),
-                    (t.style.height = "20px"),
-                    (t.style.left = n + "px"),
-                    (t.style.top = o + "px"),
-                    (t.style.zIndex = "1000"),
+                  (t.style.width = '20px'),
+                    (t.style.height = '20px'),
+                    (t.style.left = n + 'px'),
+                    (t.style.top = o + 'px'),
+                    (t.style.zIndex = '1000'),
                     t.focus();
                 }
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.rightClickHandler =
@@ -404,13 +404,13 @@
                   (t.bracketTextForPaste = i),
                   (t.copyHandler = function (e, t) {
                     e.clipboardData &&
-                      e.clipboardData.setData("text/plain", t.selectionText),
+                      e.clipboardData.setData('text/plain', t.selectionText),
                       e.preventDefault();
                   }),
                   (t.handlePasteEvent = function (e, t, r) {
                     e.stopPropagation(),
                       e.clipboardData &&
-                        n(e.clipboardData.getData("text/plain"), t, r);
+                        n(e.clipboardData.getData('text/plain'), t, r);
                   }),
                   (t.paste = n),
                   (t.moveTextAreaUnderMouseCursor = o),
@@ -426,7 +426,7 @@
 
                 function s(e) {
                   var t = e.toString(16);
-                  return t.length < 2 ? "0" + t : t;
+                  return t.length < 2 ? '0' + t : t;
                 }
 
                 function a(e, t) {
@@ -434,7 +434,7 @@
                     ? (t + 0.05) / (e + 0.05)
                     : (e + 0.05) / (t + 0.05);
                 }
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.contrastRatio =
@@ -448,8 +448,8 @@
                   (function (e) {
                     (e.toCss = function (e, t, r, i) {
                       return void 0 !== i
-                        ? "#" + s(e) + s(t) + s(r) + s(i)
-                        : "#" + s(e) + s(t) + s(r);
+                        ? '#' + s(e) + s(t) + s(r) + s(i)
+                        : '#' + s(e) + s(t) + s(r);
                     }),
                       (e.toRgba = function (e, t, r, i) {
                         return (
@@ -526,7 +526,7 @@
                           rgba: parseInt(e.slice(1), 16) >>> 0,
                         };
                     }
-                    throw new Error("css.toColor: Unsupported css format");
+                    throw new Error('css.toColor: Unsupported css format');
                   }),
                   (function (e) {
                     function t(e, t, r) {
@@ -629,7 +629,7 @@
                   (t.contrastRatio = a);
               },
               7239: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.ColorContrastCache = void 0);
@@ -661,40 +661,40 @@
                 t.ColorContrastCache = r;
               },
               5680: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.ColorManager = t.DEFAULT_ANSI_COLORS = void 0);
                 var i = r(4774),
                   n = r(7239),
-                  o = i.css.toColor("#ffffff"),
-                  s = i.css.toColor("#000000"),
-                  a = i.css.toColor("#ffffff"),
-                  c = i.css.toColor("#000000"),
+                  o = i.css.toColor('#ffffff'),
+                  s = i.css.toColor('#000000'),
+                  a = i.css.toColor('#ffffff'),
+                  c = i.css.toColor('#000000'),
                   l = {
-                    css: "rgba(255, 255, 255, 0.3)",
+                    css: 'rgba(255, 255, 255, 0.3)',
                     rgba: 4294967117,
                   };
                 t.DEFAULT_ANSI_COLORS = Object.freeze(
                   (function () {
                     for (
                       var e = [
-                          i.css.toColor("#2e3436"),
-                          i.css.toColor("#cc0000"),
-                          i.css.toColor("#4e9a06"),
-                          i.css.toColor("#c4a000"),
-                          i.css.toColor("#3465a4"),
-                          i.css.toColor("#75507b"),
-                          i.css.toColor("#06989a"),
-                          i.css.toColor("#d3d7cf"),
-                          i.css.toColor("#555753"),
-                          i.css.toColor("#ef2929"),
-                          i.css.toColor("#8ae234"),
-                          i.css.toColor("#fce94f"),
-                          i.css.toColor("#729fcf"),
-                          i.css.toColor("#ad7fa8"),
-                          i.css.toColor("#34e2e2"),
-                          i.css.toColor("#eeeeec"),
+                          i.css.toColor('#2e3436'),
+                          i.css.toColor('#cc0000'),
+                          i.css.toColor('#4e9a06'),
+                          i.css.toColor('#c4a000'),
+                          i.css.toColor('#3465a4'),
+                          i.css.toColor('#75507b'),
+                          i.css.toColor('#06989a'),
+                          i.css.toColor('#d3d7cf'),
+                          i.css.toColor('#555753'),
+                          i.css.toColor('#ef2929'),
+                          i.css.toColor('#8ae234'),
+                          i.css.toColor('#fce94f'),
+                          i.css.toColor('#729fcf'),
+                          i.css.toColor('#ad7fa8'),
+                          i.css.toColor('#34e2e2'),
+                          i.css.toColor('#eeeeec'),
                         ],
                         t = [0, 95, 135, 175, 215, 255],
                         r = 0;
@@ -722,12 +722,12 @@
                 var h = (function () {
                   function e(e, r) {
                     this.allowTransparency = r;
-                    var h = e.createElement("canvas");
+                    var h = e.createElement('canvas');
                     (h.width = 1), (h.height = 1);
-                    var u = h.getContext("2d");
-                    if (!u) throw new Error("Could not get rendering context");
+                    var u = h.getContext('2d');
+                    if (!u) throw new Error('Could not get rendering context');
                     (this._ctx = u),
-                      (this._ctx.globalCompositeOperation = "copy"),
+                      (this._ctx.globalCompositeOperation = 'copy'),
                       (this._litmusColor = this._ctx.createLinearGradient(
                         0,
                         0,
@@ -748,7 +748,7 @@
                   }
                   return (
                     (e.prototype.onOptionsChange = function (e) {
-                      "minimumContrastRatio" === e &&
+                      'minimumContrastRatio' === e &&
                         this._contrastCache.clear();
                     }),
                     (e.prototype.setTheme = function (e) {
@@ -860,13 +860,13 @@
                       if (
                         ((this._ctx.fillStyle = this._litmusColor),
                         (this._ctx.fillStyle = e),
-                        "string" != typeof this._ctx.fillStyle)
+                        'string' != typeof this._ctx.fillStyle)
                       )
                         return (
                           console.warn(
-                            "Color: " +
+                            'Color: ' +
                               e +
-                              " is invalid using fallback " +
+                              ' is invalid using fallback ' +
                               t.css
                           ),
                           t
@@ -877,17 +877,17 @@
                         if (!r)
                           return (
                             console.warn(
-                              "Color: " +
+                              'Color: ' +
                                 e +
-                                " is using transparency, but allowTransparency is false. Using fallback " +
+                                ' is using transparency, but allowTransparency is false. Using fallback ' +
                                 t.css +
-                                "."
+                                '.'
                             ),
                             t
                           );
                         var o = this._ctx.fillStyle
                             .substring(5, this._ctx.fillStyle.length - 1)
-                            .split(",")
+                            .split(',')
                             .map(function (e) {
                               return Number(e);
                             }),
@@ -912,7 +912,7 @@
                 t.ColorManager = h;
               },
               9631: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.removeElementFromParent = void 0),
@@ -928,7 +928,7 @@
                   });
               },
               3656: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.addDisposableDomListener = void 0),
@@ -955,8 +955,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -974,7 +974,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.MouseZone = t.Linkifier = void 0);
@@ -998,7 +998,7 @@
                     return (
                       Object.defineProperty(
                         e.prototype,
-                        "onShowLinkUnderline",
+                        'onShowLinkUnderline',
                         {
                           get: function () {
                             return this._onShowLinkUnderline.event;
@@ -1009,7 +1009,7 @@
                       ),
                       Object.defineProperty(
                         e.prototype,
-                        "onHideLinkUnderline",
+                        'onHideLinkUnderline',
                         {
                           get: function () {
                             return this._onHideLinkUnderline.event;
@@ -1018,7 +1018,7 @@
                           configurable: !0,
                         }
                       ),
-                      Object.defineProperty(e.prototype, "onLinkTooltip", {
+                      Object.defineProperty(e.prototype, 'onLinkTooltip', {
                         get: function () {
                           return this._onLinkTooltip.event;
                         },
@@ -1093,12 +1093,12 @@
                           }
                         } else
                           this._logService.debug(
-                            "_rowToLinkify was unset before _linkifyRows was called"
+                            '_rowToLinkify was unset before _linkifyRows was called'
                           );
                       }),
                       (e.prototype.registerLinkMatcher = function (e, t, r) {
                         if ((void 0 === r && (r = {}), !t))
-                          throw new Error("handler must be defined");
+                          throw new Error('handler must be defined');
                         var i = {
                           id: this._nextLinkMatcherId++,
                           regex: e,
@@ -1140,39 +1140,39 @@
                             n = this,
                             o = new RegExp(
                               r.regex.source,
-                              (r.regex.flags || "") + "g"
+                              (r.regex.flags || '') + 'g'
                             ),
                             s = -1,
                             a = function () {
                               var a =
                                 i[
-                                  "number" != typeof r.matchIndex
+                                  'number' != typeof r.matchIndex
                                     ? 0
                                     : r.matchIndex
                                 ];
                               if (!a)
                                 return (
                                   c._logService.debug(
-                                    "match found without corresponding matchIndex",
+                                    'match found without corresponding matchIndex',
                                     i,
                                     r
                                   ),
-                                  "break"
+                                  'break'
                                 );
                               if (
                                 ((s = t.indexOf(a, s + 1)),
                                 (o.lastIndex = s + a.length),
                                 s < 0)
                               )
-                                return "break";
+                                return 'break';
                               var l =
                                 c._bufferService.buffer.stringIndexToBufferIndex(
                                   e,
                                   s
                                 );
-                              if (l[0] < 0) return "break";
+                              if (l[0] < 0) return 'break';
                               var h = c._bufferService.buffer.lines.get(l[0]);
-                              if (!h) return "break";
+                              if (!h) return 'break';
                               var u = h.getFg(l[1]),
                                 f = u ? (u >> 9) & 511 : void 0;
                               r.validationCallback
@@ -1196,7 +1196,7 @@
                                   );
                             },
                             c = this;
-                          null !== (i = o.exec(t)) && "break" !== a();
+                          null !== (i = o.exec(t)) && 'break' !== a();
 
                         );
                       }),
@@ -1223,7 +1223,7 @@
                                   t
                                     ? ((t.opener = null), (t.location.href = r))
                                     : console.warn(
-                                        "Opening link blocked as opener could not be cleared"
+                                        'Opening link blocked as opener could not be cleared'
                                       );
                                 },
                                 function () {
@@ -1231,7 +1231,7 @@
                                     o._createLinkHoverEvent(a, l, h, u, n)
                                   ),
                                     o._element.classList.add(
-                                      "xterm-cursor-pointer"
+                                      'xterm-cursor-pointer'
                                     );
                                 },
                                 function (e) {
@@ -1255,7 +1255,7 @@
                                     o._createLinkHoverEvent(a, l, h, u, n)
                                   ),
                                     o._element.classList.remove(
-                                      "xterm-cursor-pointer"
+                                      'xterm-cursor-pointer'
                                     ),
                                     i.hoverLeaveCallback &&
                                       i.hoverLeaveCallback();
@@ -1352,8 +1352,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -1371,7 +1371,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Linkifier2 = void 0);
@@ -1404,7 +1404,7 @@
                       n(t, e),
                       Object.defineProperty(
                         t.prototype,
-                        "onShowLinkUnderline",
+                        'onShowLinkUnderline',
                         {
                           get: function () {
                             return this._onShowLinkUnderline.event;
@@ -1415,7 +1415,7 @@
                       ),
                       Object.defineProperty(
                         t.prototype,
-                        "onHideLinkUnderline",
+                        'onHideLinkUnderline',
                         {
                           get: function () {
                             return this._onHideLinkUnderline.event;
@@ -1444,7 +1444,7 @@
                           this.register(
                             h.addDisposableDomListener(
                               this._element,
-                              "mouseleave",
+                              'mouseleave',
                               function () {
                                 (i._isMouseOut = !0), i._clearCurrentLink();
                               }
@@ -1453,14 +1453,14 @@
                           this.register(
                             h.addDisposableDomListener(
                               this._element,
-                              "mousemove",
+                              'mousemove',
                               this._onMouseMove.bind(this)
                             )
                           ),
                           this.register(
                             h.addDisposableDomListener(
                               this._element,
-                              "click",
+                              'click',
                               this._onClick.bind(this)
                             )
                           );
@@ -1483,8 +1483,8 @@
                               i++
                             ) {
                               var n = r[i];
-                              if (n.classList.contains("xterm")) break;
-                              if (n.classList.contains("xterm-hover")) return;
+                              if (n.classList.contains('xterm')) break;
+                              if (n.classList.contains('xterm-hover')) return;
                             }
                             (this._lastBufferCell &&
                               t.x === this._lastBufferCell.x &&
@@ -1722,7 +1722,7 @@
                                       (null === (i = t._element) ||
                                         void 0 === i ||
                                         i.classList.toggle(
-                                          "xterm-cursor-pointer",
+                                          'xterm-cursor-pointer',
                                           e
                                         )));
                                 },
@@ -1787,7 +1787,7 @@
                           this._currentLink.state.decorations.underline &&
                             this._fireUnderlineEvent(t, !0),
                           this._currentLink.state.decorations.pointerCursor &&
-                            e.classList.add("xterm-cursor-pointer")),
+                            e.classList.add('xterm-cursor-pointer')),
                           t.hover && t.hover(r, t.text);
                       }),
                       (t.prototype._fireUnderlineEvent = function (e, t) {
@@ -1814,7 +1814,7 @@
                           this._currentLink.state.decorations.underline &&
                             this._fireUnderlineEvent(t, !1),
                           this._currentLink.state.decorations.pointerCursor &&
-                            e.classList.remove("xterm-cursor-pointer")),
+                            e.classList.remove('xterm-cursor-pointer')),
                           t.leave && t.leave(r, t.text);
                       }),
                       (t.prototype._linkAtPosition = function (e, t) {
@@ -1871,13 +1871,13 @@
                 t.Linkifier2 = u;
               },
               9042: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.tooMuchOutput = t.promptLabel = void 0),
-                  (t.promptLabel = "Terminal input"),
+                  (t.promptLabel = 'Terminal input'),
                   (t.tooMuchOutput =
-                    "Too much output to announce, navigate to rows manually to read");
+                    'Too much output to announce, navigate to rows manually to read');
               },
               6954: function (e, t, r) {
                 var i,
@@ -1920,8 +1920,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -1939,7 +1939,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.MouseZoneManager = void 0);
@@ -1964,7 +1964,7 @@
                         a.register(
                           c.addDisposableDomListener(
                             a._element,
-                            "mousedown",
+                            'mousedown',
                             function (e) {
                               return a._onMouseDown(e);
                             }
@@ -2013,15 +2013,15 @@
                         this._areZonesActive ||
                           ((this._areZonesActive = !0),
                           this._element.addEventListener(
-                            "mousemove",
+                            'mousemove',
                             this._mouseMoveListener
                           ),
                           this._element.addEventListener(
-                            "mouseleave",
+                            'mouseleave',
                             this._mouseLeaveListener
                           ),
                           this._element.addEventListener(
-                            "click",
+                            'click',
                             this._clickListener
                           ));
                       }),
@@ -2029,15 +2029,15 @@
                         this._areZonesActive &&
                           ((this._areZonesActive = !1),
                           this._element.removeEventListener(
-                            "mousemove",
+                            'mousemove',
                             this._mouseMoveListener
                           ),
                           this._element.removeEventListener(
-                            "mouseleave",
+                            'mouseleave',
                             this._mouseLeaveListener
                           ),
                           this._element.removeEventListener(
-                            "click",
+                            'click',
                             this._clickListener
                           ));
                       }),
@@ -2141,7 +2141,7 @@
                 t.MouseZoneManager = u;
               },
               6193: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.RenderDebouncer = void 0);
@@ -2223,7 +2223,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.ScreenDprMonitor = void 0);
@@ -2262,9 +2262,9 @@
                         (this._currentDevicePixelRatio =
                           window.devicePixelRatio),
                         (this._resolutionMediaMatchList = window.matchMedia(
-                          "screen and (resolution: " +
+                          'screen and (resolution: ' +
                             window.devicePixelRatio +
-                            "dppx)"
+                            'dppx)'
                         )),
                         this._resolutionMediaMatchList.addListener(
                           this._outerListener
@@ -2315,7 +2315,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Terminal = void 0);
@@ -2346,7 +2346,7 @@
                   x = r(5114),
                   D = r(8969),
                   T = r(4774),
-                  O = "undefined" != typeof window ? window.document : null,
+                  O = 'undefined' != typeof window ? window.document : null,
                   M = (function (e) {
                     function t(t) {
                       void 0 === t && (t = {});
@@ -2436,70 +2436,70 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "options", {
+                      Object.defineProperty(t.prototype, 'options', {
                         get: function () {
                           return this.optionsService.options;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onCursorMove", {
+                      Object.defineProperty(t.prototype, 'onCursorMove', {
                         get: function () {
                           return this._onCursorMove.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onKey", {
+                      Object.defineProperty(t.prototype, 'onKey', {
                         get: function () {
                           return this._onKey.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onRender", {
+                      Object.defineProperty(t.prototype, 'onRender', {
                         get: function () {
                           return this._onRender.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onSelectionChange", {
+                      Object.defineProperty(t.prototype, 'onSelectionChange', {
                         get: function () {
                           return this._onSelectionChange.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onTitleChange", {
+                      Object.defineProperty(t.prototype, 'onTitleChange', {
                         get: function () {
                           return this._onTitleChange.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onFocus", {
+                      Object.defineProperty(t.prototype, 'onFocus', {
                         get: function () {
                           return this._onFocus.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onBlur", {
+                      Object.defineProperty(t.prototype, 'onBlur', {
                         get: function () {
                           return this._onBlur.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onA11yChar", {
+                      Object.defineProperty(t.prototype, 'onA11yChar', {
                         get: function () {
                           return this._onA11yCharEmitter.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onA11yTab", {
+                      Object.defineProperty(t.prototype, 'onA11yTab', {
                         get: function () {
                           return this._onA11yTabEmitter.event;
                         },
@@ -2543,7 +2543,7 @@
                         e.prototype._setup.call(this),
                           (this._customKeyEventHandler = void 0);
                       }),
-                      Object.defineProperty(t.prototype, "buffer", {
+                      Object.defineProperty(t.prototype, 'buffer', {
                         get: function () {
                           return this.buffers.active;
                         },
@@ -2559,8 +2559,8 @@
                       (t.prototype._updateOptions = function (t) {
                         var r, i, n, o;
                         switch ((e.prototype._updateOptions.call(this, t), t)) {
-                          case "fontFamily":
-                          case "fontSize":
+                          case 'fontFamily':
+                          case 'fontSize':
                             null === (r = this._renderService) ||
                               void 0 === r ||
                               r.clear(),
@@ -2568,16 +2568,16 @@
                                 void 0 === i ||
                                 i.measure();
                             break;
-                          case "cursorBlink":
-                          case "cursorStyle":
+                          case 'cursorBlink':
+                          case 'cursorStyle':
                             this.refresh(this.buffer.y, this.buffer.y);
                             break;
-                          case "drawBoldTextInBrightColors":
-                          case "letterSpacing":
-                          case "lineHeight":
-                          case "fontWeight":
-                          case "fontWeightBold":
-                          case "minimumContrastRatio":
+                          case 'drawBoldTextInBrightColors':
+                          case 'letterSpacing':
+                          case 'lineHeight':
+                          case 'fontWeight':
+                          case 'fontWeightBold':
+                          case 'minimumContrastRatio':
                             this._renderService &&
                               (this._renderService.clear(),
                               this._renderService.onResize(
@@ -2586,7 +2586,7 @@
                               ),
                               this.refresh(0, this.rows - 1));
                             break;
-                          case "rendererType":
+                          case 'rendererType':
                             this._renderService &&
                               (this._renderService.setRenderer(
                                 this._createRenderer()
@@ -2596,12 +2596,12 @@
                                 this.rows
                               ));
                             break;
-                          case "scrollback":
+                          case 'scrollback':
                             null === (n = this.viewport) ||
                               void 0 === n ||
                               n.syncScrollArea();
                             break;
-                          case "screenReaderMode":
+                          case 'screenReaderMode':
                             this.optionsService.options.screenReaderMode
                               ? !this._accessibilityManager &&
                                 this._renderService &&
@@ -2615,18 +2615,18 @@
                                   o.dispose(),
                                 (this._accessibilityManager = void 0));
                             break;
-                          case "tabStopWidth":
+                          case 'tabStopWidth':
                             this.buffers.setupTabStops();
                             break;
-                          case "theme":
+                          case 'theme':
                             this._setTheme(this.optionsService.options.theme);
                         }
                       }),
                       (t.prototype._onTextAreaFocus = function (e) {
                         this._coreService.decPrivateModes.sendFocus &&
-                          this._coreService.triggerDataEvent(c.C0.ESC + "[I"),
+                          this._coreService.triggerDataEvent(c.C0.ESC + '[I'),
                           this.updateCursorStyle(e),
-                          this.element.classList.add("focus"),
+                          this.element.classList.add('focus'),
                           this._showCursor(),
                           this._onFocus.fire();
                       }),
@@ -2637,11 +2637,11 @@
                           : e.blur();
                       }),
                       (t.prototype._onTextAreaBlur = function () {
-                        (this.textarea.value = ""),
+                        (this.textarea.value = ''),
                           this.refresh(this.buffer.y, this.buffer.y),
                           this._coreService.decPrivateModes.sendFocus &&
-                            this._coreService.triggerDataEvent(c.C0.ESC + "[O"),
-                          this.element.classList.remove("focus"),
+                            this._coreService.triggerDataEvent(c.C0.ESC + '[O'),
+                          this.element.classList.remove('focus'),
                           this._onBlur.fire();
                       }),
                       (t.prototype._syncTextArea = function () {
@@ -2658,13 +2658,13 @@
                             r =
                               this._bufferService.buffer.x *
                               this._charSizeService.width;
-                          (this.textarea.style.left = r + "px"),
-                            (this.textarea.style.top = t + "px"),
+                          (this.textarea.style.left = r + 'px'),
+                            (this.textarea.style.top = t + 'px'),
                             (this.textarea.style.width =
-                              this._charSizeService.width + "px"),
-                            (this.textarea.style.height = e + "px"),
-                            (this.textarea.style.lineHeight = e + "px"),
-                            (this.textarea.style.zIndex = "-5");
+                              this._charSizeService.width + 'px'),
+                            (this.textarea.style.height = e + 'px'),
+                            (this.textarea.style.lineHeight = e + 'px'),
+                            (this.textarea.style.zIndex = '-5');
                         }
                       }),
                       (t.prototype._initGlobal = function () {
@@ -2673,7 +2673,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.element,
-                              "copy",
+                              'copy',
                               function (t) {
                                 e.hasSelection() &&
                                   a.copyHandler(t, e._selectionService);
@@ -2688,16 +2688,16 @@
                           );
                         };
                         this.register(
-                          d.addDisposableDomListener(this.textarea, "paste", t)
+                          d.addDisposableDomListener(this.textarea, 'paste', t)
                         ),
                           this.register(
-                            d.addDisposableDomListener(this.element, "paste", t)
+                            d.addDisposableDomListener(this.element, 'paste', t)
                           ),
                           _.isFirefox
                             ? this.register(
                                 d.addDisposableDomListener(
                                   this.element,
-                                  "mousedown",
+                                  'mousedown',
                                   function (t) {
                                     2 === t.button &&
                                       a.rightClickHandler(
@@ -2713,7 +2713,7 @@
                             : this.register(
                                 d.addDisposableDomListener(
                                   this.element,
-                                  "contextmenu",
+                                  'contextmenu',
                                   function (t) {
                                     a.rightClickHandler(
                                       t,
@@ -2729,7 +2729,7 @@
                             this.register(
                               d.addDisposableDomListener(
                                 this.element,
-                                "auxclick",
+                                'auxclick',
                                 function (t) {
                                   1 === t.button &&
                                     a.moveTextAreaUnderMouseCursor(
@@ -2746,7 +2746,7 @@
                         this.register(
                           d.addDisposableDomListener(
                             this.textarea,
-                            "keyup",
+                            'keyup',
                             function (t) {
                               return e._keyUp(t);
                             },
@@ -2756,7 +2756,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.textarea,
-                              "keydown",
+                              'keydown',
                               function (t) {
                                 return e._keyDown(t);
                               },
@@ -2766,7 +2766,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.textarea,
-                              "keypress",
+                              'keypress',
                               function (t) {
                                 return e._keyPress(t);
                               },
@@ -2776,7 +2776,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.textarea,
-                              "compositionstart",
+                              'compositionstart',
                               function () {
                                 return e._compositionHelper.compositionstart();
                               }
@@ -2785,7 +2785,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.textarea,
-                              "compositionupdate",
+                              'compositionupdate',
                               function (t) {
                                 return e._compositionHelper.compositionupdate(
                                   t
@@ -2796,7 +2796,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.textarea,
-                              "compositionend",
+                              'compositionend',
                               function () {
                                 return e._compositionHelper.compositionend();
                               }
@@ -2817,52 +2817,52 @@
                         var t = this;
                         if (!e)
                           throw new Error(
-                            "Terminal requires a parent element."
+                            'Terminal requires a parent element.'
                           );
                         O.body.contains(e) ||
                           this._logService.debug(
-                            "Terminal.open was called on an element that was not attached to the DOM"
+                            'Terminal.open was called on an element that was not attached to the DOM'
                           ),
                           (this._document = e.ownerDocument),
-                          (this.element = this._document.createElement("div")),
-                          (this.element.dir = "ltr"),
-                          this.element.classList.add("terminal"),
-                          this.element.classList.add("xterm"),
-                          this.element.setAttribute("tabindex", "0"),
-                          this.element.setAttribute("role", "document"),
+                          (this.element = this._document.createElement('div')),
+                          (this.element.dir = 'ltr'),
+                          this.element.classList.add('terminal'),
+                          this.element.classList.add('xterm'),
+                          this.element.setAttribute('tabindex', '0'),
+                          this.element.setAttribute('role', 'document'),
                           e.appendChild(this.element);
                         var r = O.createDocumentFragment();
-                        (this._viewportElement = O.createElement("div")),
-                          this._viewportElement.classList.add("xterm-viewport"),
+                        (this._viewportElement = O.createElement('div')),
+                          this._viewportElement.classList.add('xterm-viewport'),
                           r.appendChild(this._viewportElement),
-                          (this._viewportScrollArea = O.createElement("div")),
+                          (this._viewportScrollArea = O.createElement('div')),
                           this._viewportScrollArea.classList.add(
-                            "xterm-scroll-area"
+                            'xterm-scroll-area'
                           ),
                           this._viewportElement.appendChild(
                             this._viewportScrollArea
                           ),
-                          (this.screenElement = O.createElement("div")),
-                          this.screenElement.classList.add("xterm-screen"),
-                          (this._helperContainer = O.createElement("div")),
-                          this._helperContainer.classList.add("xterm-helpers"),
+                          (this.screenElement = O.createElement('div')),
+                          this.screenElement.classList.add('xterm-screen'),
+                          (this._helperContainer = O.createElement('div')),
+                          this._helperContainer.classList.add('xterm-helpers'),
                           this.screenElement.appendChild(this._helperContainer),
                           r.appendChild(this.screenElement),
-                          (this.textarea = O.createElement("textarea")),
-                          this.textarea.classList.add("xterm-helper-textarea"),
+                          (this.textarea = O.createElement('textarea')),
+                          this.textarea.classList.add('xterm-helper-textarea'),
                           this.textarea.setAttribute(
-                            "aria-label",
+                            'aria-label',
                             p.promptLabel
                           ),
-                          this.textarea.setAttribute("aria-multiline", "false"),
-                          this.textarea.setAttribute("autocorrect", "off"),
-                          this.textarea.setAttribute("autocapitalize", "off"),
-                          this.textarea.setAttribute("spellcheck", "false"),
+                          this.textarea.setAttribute('aria-multiline', 'false'),
+                          this.textarea.setAttribute('autocorrect', 'off'),
+                          this.textarea.setAttribute('autocapitalize', 'off'),
+                          this.textarea.setAttribute('spellcheck', 'false'),
                           (this.textarea.tabIndex = 0),
                           this.register(
                             d.addDisposableDomListener(
                               this.textarea,
-                              "focus",
+                              'focus',
                               function (e) {
                                 return t._onTextAreaFocus(e);
                               }
@@ -2871,7 +2871,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.textarea,
-                              "blur",
+                              'blur',
                               function () {
                                 return t._onTextAreaBlur();
                               }
@@ -2896,9 +2896,9 @@
                             L.ICharSizeService,
                             this._charSizeService
                           ),
-                          (this._compositionView = O.createElement("div")),
+                          (this._compositionView = O.createElement('div')),
                           this._compositionView.classList.add(
-                            "composition-view"
+                            'composition-view'
                           ),
                           (this._compositionHelper =
                             this._instantiationService.createInstance(
@@ -3063,7 +3063,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this._viewportElement,
-                              "scroll",
+                              'scroll',
                               function () {
                                 return t._selectionService.refresh();
                               }
@@ -3093,7 +3093,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               this.element,
-                              "mousedown",
+                              'mousedown',
                               function (e) {
                                 return t._selectionService.onMouseDown(e);
                               }
@@ -3101,7 +3101,7 @@
                           ),
                           this._coreMouseService.areMouseEventsActive
                             ? (this._selectionService.disable(),
-                              this.element.classList.add("enable-mouse-events"))
+                              this.element.classList.add('enable-mouse-events'))
                             : this._selectionService.enable(),
                           this.options.screenReaderMode &&
                             (this._accessibilityManager =
@@ -3116,7 +3116,7 @@
                       }),
                       (t.prototype._createRenderer = function () {
                         switch (this.options.rendererType) {
-                          case "canvas":
+                          case 'canvas':
                             return this._instantiationService.createInstance(
                               h.Renderer,
                               this._colorManager.colors,
@@ -3124,7 +3124,7 @@
                               this.linkifier,
                               this.linkifier2
                             );
-                          case "dom":
+                          case 'dom':
                             return this._instantiationService.createInstance(
                               b.DomRenderer,
                               this._colorManager.colors,
@@ -3171,7 +3171,7 @@
                             );
                           if (!n) return !1;
                           switch (e.overrideType || e.type) {
-                            case "mousemove":
+                            case 'mousemove':
                               (i = 32),
                                 void 0 === e.buttons
                                   ? ((r = 3),
@@ -3186,13 +3186,13 @@
                                         ? 2
                                         : 3);
                               break;
-                            case "mouseup":
+                            case 'mouseup':
                               (i = 0), (r = e.button < 3 ? e.button : 3);
                               break;
-                            case "mousedown":
+                            case 'mousedown':
                               (i = 1), (r = e.button < 3 ? e.button : 3);
                               break;
-                            case "wheel":
+                            case 'wheel':
                               0 !== e.deltaY && (i = e.deltaY < 0 ? 0 : 1),
                                 (r = 4);
                               break;
@@ -3223,12 +3223,12 @@
                               i(t),
                               t.buttons ||
                                 (e._document.removeEventListener(
-                                  "mouseup",
+                                  'mouseup',
                                   n.mouseup
                                 ),
                                 n.mousedrag &&
                                   e._document.removeEventListener(
-                                    "mousemove",
+                                    'mousemove',
                                     n.mousedrag
                                   )),
                               e.cancel(t)
@@ -3246,49 +3246,49 @@
                         this.register(
                           this._coreMouseService.onProtocolChange(function (t) {
                             t
-                              ? ("debug" ===
+                              ? ('debug' ===
                                   e.optionsService.options.logLevel &&
                                   e._logService.debug(
-                                    "Binding to mouse events:",
+                                    'Binding to mouse events:',
                                     e._coreMouseService.explainEvents(t)
                                   ),
-                                e.element.classList.add("enable-mouse-events"),
+                                e.element.classList.add('enable-mouse-events'),
                                 e._selectionService.disable())
                               : (e._logService.debug(
-                                  "Unbinding from mouse events."
+                                  'Unbinding from mouse events.'
                                 ),
                                 e.element.classList.remove(
-                                  "enable-mouse-events"
+                                  'enable-mouse-events'
                                 ),
                                 e._selectionService.enable()),
                               8 & t
                                 ? n.mousemove ||
-                                  (r.addEventListener("mousemove", l),
+                                  (r.addEventListener('mousemove', l),
                                   (n.mousemove = l))
                                 : (r.removeEventListener(
-                                    "mousemove",
+                                    'mousemove',
                                     n.mousemove
                                   ),
                                   (n.mousemove = null)),
                               16 & t
                                 ? n.wheel ||
-                                  (r.addEventListener("wheel", s, {
+                                  (r.addEventListener('wheel', s, {
                                     passive: !1,
                                   }),
                                   (n.wheel = s))
-                                : (r.removeEventListener("wheel", n.wheel),
+                                : (r.removeEventListener('wheel', n.wheel),
                                   (n.wheel = null)),
                               2 & t
                                 ? n.mouseup || (n.mouseup = o)
                                 : (e._document.removeEventListener(
-                                    "mouseup",
+                                    'mouseup',
                                     n.mouseup
                                   ),
                                   (n.mouseup = null)),
                               4 & t
                                 ? n.mousedrag || (n.mousedrag = a)
                                 : (e._document.removeEventListener(
-                                    "mousemove",
+                                    'mousemove',
                                     n.mousedrag
                                   ),
                                   (n.mousedrag = null));
@@ -3299,7 +3299,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               r,
-                              "mousedown",
+                              'mousedown',
                               function (t) {
                                 if (
                                   (t.preventDefault(),
@@ -3313,12 +3313,12 @@
                                     i(t),
                                     n.mouseup &&
                                       e._document.addEventListener(
-                                        "mouseup",
+                                        'mouseup',
                                         n.mouseup
                                       ),
                                     n.mousedrag &&
                                       e._document.addEventListener(
-                                        "mousemove",
+                                        'mousemove',
                                         n.mousedrag
                                       ),
                                     e.cancel(t)
@@ -3329,7 +3329,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               r,
-                              "wheel",
+                              'wheel',
                               function (t) {
                                 if (n.wheel);
                                 else if (!e.buffer.hasScrollback) {
@@ -3340,10 +3340,10 @@
                                         c.C0.ESC +
                                         (e._coreService.decPrivateModes
                                           .applicationCursorKeys
-                                          ? "O"
-                                          : "[") +
-                                        (t.deltaY < 0 ? "A" : "B"),
-                                      o = "",
+                                          ? 'O'
+                                          : '[') +
+                                        (t.deltaY < 0 ? 'A' : 'B'),
+                                      o = '',
                                       s = 0;
                                     s < Math.abs(r);
                                     s++
@@ -3360,7 +3360,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               r,
-                              "wheel",
+                              'wheel',
                               function (t) {
                                 if (!n.wheel)
                                   return e.viewport.onWheel(t)
@@ -3375,7 +3375,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               r,
-                              "touchstart",
+                              'touchstart',
                               function (t) {
                                 if (!e._coreMouseService.areMouseEventsActive)
                                   return (
@@ -3390,7 +3390,7 @@
                           this.register(
                             d.addDisposableDomListener(
                               r,
-                              "touchmove",
+                              'touchmove',
                               function (t) {
                                 if (!e._coreMouseService.areMouseEventsActive)
                                   return e.viewport.onTouchMove(t)
@@ -3418,8 +3418,8 @@
                       (t.prototype.updateCursorStyle = function (e) {
                         this._selectionService &&
                         this._selectionService.shouldColumnSelect(e)
-                          ? this.element.classList.add("column-select")
-                          : this.element.classList.remove("column-select");
+                          ? this.element.classList.add('column-select')
+                          : this.element.classList.remove('column-select');
                       }),
                       (t.prototype._showCursor = function () {
                         this._coreService.isCursorInitialized ||
@@ -3455,7 +3455,7 @@
                         this._renderService.deregisterCharacterJoiner(e) &&
                           this.refresh(0, this.rows - 1);
                       }),
-                      Object.defineProperty(t.prototype, "markers", {
+                      Object.defineProperty(t.prototype, 'markers', {
                         get: function () {
                           return this.buffer.markers;
                         },
@@ -3480,7 +3480,7 @@
                       (t.prototype.getSelection = function () {
                         return this._selectionService
                           ? this._selectionService.selectionText
-                          : "";
+                          : '';
                       }),
                       (t.prototype.getSelectionPosition = function () {
                         if (
@@ -3549,7 +3549,7 @@
                             (t.cancel && this.cancel(e, !0),
                             !t.key ||
                               ((t.key !== c.C0.ETX && t.key !== c.C0.CR) ||
-                                (this.textarea.value = ""),
+                                (this.textarea.value = ''),
                               this._onKey.fire({
                                 key: t.key,
                                 domEvent: e,
@@ -3569,7 +3569,7 @@
                             !t.ctrlKey &&
                             !t.metaKey) ||
                           (e.isWindows && t.altKey && t.ctrlKey && !t.metaKey);
-                        return "keypress" === t.type
+                        return 'keypress' === t.type
                           ? r
                           : r && (!t.keyCode || t.keyCode > 47);
                       }),
@@ -3682,7 +3682,7 @@
                                     0
                                   );
                               this._coreService.triggerDataEvent(
-                                c.C0.ESC + "[4;" + r + ";" + t + "t"
+                                c.C0.ESC + '[4;' + r + ';' + t + 't'
                               );
                               break;
                             case l.WindowsOptionsReportType
@@ -3696,7 +3696,7 @@
                                     0
                                   );
                               this._coreService.triggerDataEvent(
-                                c.C0.ESC + "[6;" + n + ";" + i + "t"
+                                c.C0.ESC + '[6;' + n + ';' + i + 't'
                               );
                           }
                       }),
@@ -3708,7 +3708,7 @@
                         return !1;
                       }),
                       (t.prototype._soundBell = function () {
-                        return "sound" === this.options.bellStyle;
+                        return 'sound' === this.options.bellStyle;
                       }),
                       t
                     );
@@ -3756,8 +3756,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -3775,7 +3775,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Viewport = void 0);
@@ -3810,7 +3810,7 @@
                         l.register(
                           c.addDisposableDomListener(
                             l._viewportElement,
-                            "scroll",
+                            'scroll',
                             l._onScroll.bind(l)
                           )
                         ),
@@ -3860,7 +3860,7 @@
                           this._lastRecordedBufferHeight !== e &&
                             ((this._lastRecordedBufferHeight = e),
                             (this._scrollArea.style.height =
-                              this._lastRecordedBufferHeight + "px"));
+                              this._lastRecordedBufferHeight + 'px'));
                         }
                         var t =
                           this._bufferService.buffer.ydisp *
@@ -3963,9 +3963,9 @@
                       }),
                       (t.prototype._applyScrollModifier = function (e, t) {
                         var r = this._optionsService.options.fastScrollModifier;
-                        return ("alt" === r && t.altKey) ||
-                          ("ctrl" === r && t.ctrlKey) ||
-                          ("shift" === r && t.shiftKey)
+                        return ('alt' === r && t.altKey) ||
+                          ('ctrl' === r && t.ctrlKey) ||
+                          ('shift' === r && t.shiftKey)
                           ? e *
                               this._optionsService.options
                                 .fastScrollSensitivity *
@@ -4010,8 +4010,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -4029,7 +4029,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CompositionHelper = void 0);
@@ -4049,10 +4049,10 @@
                           start: 0,
                           end: 0,
                         }),
-                        (this._dataAlreadySent = "");
+                        (this._dataAlreadySent = '');
                     }
                     return (
-                      Object.defineProperty(e.prototype, "isComposing", {
+                      Object.defineProperty(e.prototype, 'isComposing', {
                         get: function () {
                           return this._isComposing;
                         },
@@ -4063,9 +4063,9 @@
                         (this._isComposing = !0),
                           (this._compositionPosition.start =
                             this._textarea.value.length),
-                          (this._compositionView.textContent = ""),
-                          (this._dataAlreadySent = ""),
-                          this._compositionView.classList.add("active");
+                          (this._compositionView.textContent = ''),
+                          (this._dataAlreadySent = ''),
+                          this._compositionView.classList.add('active');
                       }),
                       (e.prototype.compositionupdate = function (e) {
                         var t = this;
@@ -4098,7 +4098,7 @@
                       (e.prototype._finalizeComposition = function (e) {
                         var t = this;
                         if (
-                          (this._compositionView.classList.remove("active"),
+                          (this._compositionView.classList.remove('active'),
                           (this._isComposing = !1),
                           e)
                         ) {
@@ -4132,7 +4132,7 @@
                           t = this._textarea.value;
                         setTimeout(function () {
                           if (!e._isComposing) {
-                            var r = e._textarea.value.replace(t, "");
+                            var r = e._textarea.value.replace(t, '');
                             r.length > 0 &&
                               ((e._dataAlreadySent = r),
                               e._coreService.triggerDataEvent(r, !0));
@@ -4151,23 +4151,23 @@
                               n =
                                 this._bufferService.buffer.x *
                                 this._charSizeService.width;
-                            (this._compositionView.style.left = n + "px"),
-                              (this._compositionView.style.top = i + "px"),
-                              (this._compositionView.style.height = r + "px"),
+                            (this._compositionView.style.left = n + 'px'),
+                              (this._compositionView.style.top = i + 'px'),
+                              (this._compositionView.style.height = r + 'px'),
                               (this._compositionView.style.lineHeight =
-                                r + "px"),
+                                r + 'px'),
                               (this._compositionView.style.fontFamily =
                                 this._optionsService.options.fontFamily),
                               (this._compositionView.style.fontSize =
-                                this._optionsService.options.fontSize + "px");
+                                this._optionsService.options.fontSize + 'px');
                             var o =
                               this._compositionView.getBoundingClientRect();
-                            (this._textarea.style.left = n + "px"),
-                              (this._textarea.style.top = i + "px"),
-                              (this._textarea.style.width = o.width + "px"),
-                              (this._textarea.style.height = o.height + "px"),
+                            (this._textarea.style.left = n + 'px'),
+                              (this._textarea.style.top = i + 'px'),
+                              (this._textarea.style.width = o.width + 'px'),
+                              (this._textarea.style.height = o.height + 'px'),
                               (this._textarea.style.lineHeight =
-                                o.height + "px");
+                                o.height + 'px');
                           }
                           e ||
                             setTimeout(function () {
@@ -4193,7 +4193,7 @@
                   var r = t.getBoundingClientRect();
                   return [e.clientX - r.left, e.clientY - r.top];
                 }
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.getRawByteCoords =
@@ -4223,7 +4223,7 @@
                   });
               },
               9504: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.moveToCellSequence = void 0);
@@ -4240,7 +4240,7 @@
                           c < Math.abs(n - a);
                           c++
                         ) {
-                          var l = "A" === s(e, t) ? -1 : 1,
+                          var l = 'A' === s(e, t) ? -1 : 1,
                             h = r.buffer.lines.get(n + l * c);
                           h && h.isWrapped && i++;
                         }
@@ -4261,11 +4261,11 @@
                 }
 
                 function s(e, t) {
-                  return e > t ? "A" : "B";
+                  return e > t ? 'A' : 'B';
                 }
 
                 function a(e, t, r, i, n, o) {
-                  for (var s = e, a = t, c = ""; s !== r || a !== i; )
+                  for (var s = e, a = t, c = ''; s !== r || a !== i; )
                     (s += n ? 1 : -1),
                       n && s > o.cols - 1
                         ? ((c += o.buffer.translateBufferLineToString(
@@ -4291,13 +4291,13 @@
                 }
 
                 function c(e, t) {
-                  var r = t ? "O" : "[";
+                  var r = t ? 'O' : '[';
                   return i.C0.ESC + r + e;
                 }
 
                 function l(e, t) {
                   e = Math.floor(e);
-                  for (var r = "", i = 0; i < e; i++) r += t;
+                  for (var r = '', i = 0; i < e; i++) r += t;
                   return r;
                 }
                 t.moveToCellSequence = function (e, t, r, i) {
@@ -4308,8 +4308,8 @@
                     return (
                       (function (e, t, r, i, s, h) {
                         return 0 === n(t, i, s, h).length
-                          ? ""
-                          : l(a(e, t, e, t - o(s, t), !1, s).length, c("D", h));
+                          ? ''
+                          : l(a(e, t, e, t - o(s, t), !1, s).length, c('D', h));
                       })(h, u, 0, t, r, i) +
                       n(u, t, r, i) +
                       (function (e, t, r, i, s, h) {
@@ -4320,15 +4320,15 @@
                             var c;
                             return (
                               (c = n(r, i, s, a).length > 0 ? i - o(s, i) : t),
-                              (e < r && c <= i) || (e >= r && c < i) ? "C" : "D"
+                              (e < r && c <= i) || (e >= r && c < i) ? 'C' : 'D'
                             );
                           })(e, t, r, i, s, h);
-                        return l(a(e, u, r, f, "C" === _, s).length, c(_, h));
+                        return l(a(e, u, r, f, 'C' === _, s).length, c(_, h));
                       })(h, u, e, t, r, i)
                     );
                   if (u === t)
-                    return (s = h > e ? "D" : "C"), l(Math.abs(h - e), c(s, i));
-                  s = u > t ? "D" : "C";
+                    return (s = h > e ? 'D' : 'C'), l(Math.abs(h - e), c(s, i));
+                  s = u > t ? 'D' : 'C';
                   var f = Math.abs(u - t);
                   return l(
                     (function (e, t) {
@@ -4342,7 +4342,7 @@
                 };
               },
               244: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.AddonManager = void 0);
@@ -4377,7 +4377,7 @@
                           }
                         if (-1 === t)
                           throw new Error(
-                            "Could not dispose an addon that has not been loaded"
+                            'Could not dispose an addon that has not been loaded'
                           );
                         (e.isDisposed = !0),
                           e.dispose.apply(e.instance),
@@ -4390,7 +4390,7 @@
                 t.AddonManager = r;
               },
               4389: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Terminal = void 0);
@@ -4408,87 +4408,87 @@
                       (e.prototype._checkProposedApi = function () {
                         if (!this._core.optionsService.options.allowProposedApi)
                           throw new Error(
-                            "You must set the allowProposedApi option to true to use proposed API"
+                            'You must set the allowProposedApi option to true to use proposed API'
                           );
                       }),
-                      Object.defineProperty(e.prototype, "onCursorMove", {
+                      Object.defineProperty(e.prototype, 'onCursorMove', {
                         get: function () {
                           return this._core.onCursorMove;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onLineFeed", {
+                      Object.defineProperty(e.prototype, 'onLineFeed', {
                         get: function () {
                           return this._core.onLineFeed;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onSelectionChange", {
+                      Object.defineProperty(e.prototype, 'onSelectionChange', {
                         get: function () {
                           return this._core.onSelectionChange;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onData", {
+                      Object.defineProperty(e.prototype, 'onData', {
                         get: function () {
                           return this._core.onData;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onBinary", {
+                      Object.defineProperty(e.prototype, 'onBinary', {
                         get: function () {
                           return this._core.onBinary;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onTitleChange", {
+                      Object.defineProperty(e.prototype, 'onTitleChange', {
                         get: function () {
                           return this._core.onTitleChange;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onScroll", {
+                      Object.defineProperty(e.prototype, 'onScroll', {
                         get: function () {
                           return this._core.onScroll;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onKey", {
+                      Object.defineProperty(e.prototype, 'onKey', {
                         get: function () {
                           return this._core.onKey;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onRender", {
+                      Object.defineProperty(e.prototype, 'onRender', {
                         get: function () {
                           return this._core.onRender;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onResize", {
+                      Object.defineProperty(e.prototype, 'onResize', {
                         get: function () {
                           return this._core.onResize;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "element", {
+                      Object.defineProperty(e.prototype, 'element', {
                         get: function () {
                           return this._core.element;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "parser", {
+                      Object.defineProperty(e.prototype, 'parser', {
                         get: function () {
                           return (
                             this._checkProposedApi(),
@@ -4499,35 +4499,35 @@
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "unicode", {
+                      Object.defineProperty(e.prototype, 'unicode', {
                         get: function () {
                           return this._checkProposedApi(), new _(this._core);
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "textarea", {
+                      Object.defineProperty(e.prototype, 'textarea', {
                         get: function () {
                           return this._core.textarea;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "rows", {
+                      Object.defineProperty(e.prototype, 'rows', {
                         get: function () {
                           return this._core.rows;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "cols", {
+                      Object.defineProperty(e.prototype, 'cols', {
                         get: function () {
                           return this._core.cols;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "buffer", {
+                      Object.defineProperty(e.prototype, 'buffer', {
                         get: function () {
                           return (
                             this._checkProposedApi(),
@@ -4538,7 +4538,7 @@
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "markers", {
+                      Object.defineProperty(e.prototype, 'markers', {
                         get: function () {
                           return this._checkProposedApi(), this._core.markers;
                         },
@@ -4647,7 +4647,7 @@
                         this._core.write(e, t);
                       }),
                       (e.prototype.writeln = function (e, t) {
-                        this._core.write(e), this._core.write("\r\n", t);
+                        this._core.write(e), this._core.write('\r\n', t);
                       }),
                       (e.prototype.paste = function (e) {
                         this._core.paste(e);
@@ -4667,7 +4667,7 @@
                       (e.prototype.loadAddon = function (e) {
                         return this._addonManager.loadAddon(this, e);
                       }),
-                      Object.defineProperty(e, "strings", {
+                      Object.defineProperty(e, 'strings', {
                         get: function () {
                           return o;
                         },
@@ -4680,7 +4680,7 @@
                         for (var r = 0, i = e; r < i.length; r++) {
                           var n = i[r];
                           if (n === 1 / 0 || isNaN(n) || n % 1 != 0)
-                            throw new Error("This API only accepts integers");
+                            throw new Error('This API only accepts integers');
                         }
                       }),
                       e
@@ -4695,35 +4695,35 @@
                       (e.prototype.init = function (e) {
                         return (this._buffer = e), this;
                       }),
-                      Object.defineProperty(e.prototype, "cursorY", {
+                      Object.defineProperty(e.prototype, 'cursorY', {
                         get: function () {
                           return this._buffer.y;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "cursorX", {
+                      Object.defineProperty(e.prototype, 'cursorX', {
                         get: function () {
                           return this._buffer.x;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "viewportY", {
+                      Object.defineProperty(e.prototype, 'viewportY', {
                         get: function () {
                           return this._buffer.ydisp;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "baseY", {
+                      Object.defineProperty(e.prototype, 'baseY', {
                         get: function () {
                           return this._buffer.ybase;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "length", {
+                      Object.defineProperty(e.prototype, 'length', {
                         get: function () {
                           return this._buffer.lines.length;
                         },
@@ -4747,25 +4747,25 @@
                         (this._onBufferChange = new s.EventEmitter()),
                         (this._normal = new l(
                           this._core.buffers.normal,
-                          "normal"
+                          'normal'
                         )),
                         (this._alternate = new l(
                           this._core.buffers.alt,
-                          "alternate"
+                          'alternate'
                         )),
                         this._core.buffers.onBufferActivate(function () {
                           return t._onBufferChange.fire(t.active);
                         });
                     }
                     return (
-                      Object.defineProperty(e.prototype, "onBufferChange", {
+                      Object.defineProperty(e.prototype, 'onBufferChange', {
                         get: function () {
                           return this._onBufferChange.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "active", {
+                      Object.defineProperty(e.prototype, 'active', {
                         get: function () {
                           if (
                             this._core.buffers.active ===
@@ -4777,20 +4777,20 @@
                           )
                             return this.alternate;
                           throw new Error(
-                            "Active buffer is neither normal nor alternate"
+                            'Active buffer is neither normal nor alternate'
                           );
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "normal", {
+                      Object.defineProperty(e.prototype, 'normal', {
                         get: function () {
                           return this._normal.init(this._core.buffers.normal);
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "alternate", {
+                      Object.defineProperty(e.prototype, 'alternate', {
                         get: function () {
                           return this._alternate.init(this._core.buffers.alt);
                         },
@@ -4805,14 +4805,14 @@
                       this._line = e;
                     }
                     return (
-                      Object.defineProperty(e.prototype, "isWrapped", {
+                      Object.defineProperty(e.prototype, 'isWrapped', {
                         get: function () {
                           return this._line.isWrapped;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "length", {
+                      Object.defineProperty(e.prototype, 'length', {
                         get: function () {
                           return this._line.length;
                         },
@@ -4875,14 +4875,14 @@
                       (e.prototype.register = function (e) {
                         this._core.unicodeService.register(e);
                       }),
-                      Object.defineProperty(e.prototype, "versions", {
+                      Object.defineProperty(e.prototype, 'versions', {
                         get: function () {
                           return this._core.unicodeService.versions;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "activeVersion", {
+                      Object.defineProperty(e.prototype, 'activeVersion', {
                         get: function () {
                           return this._core.unicodeService.activeVersion;
                         },
@@ -4897,7 +4897,7 @@
                   })();
               },
               1546: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.BaseRenderLayer = void 0);
@@ -4923,7 +4923,7 @@
                         (this._scaledCharLeft = 0),
                         (this._scaledCharTop = 0),
                         (this._currentGlyphIdentifier = {
-                          chars: "",
+                          chars: '',
                           code: 0,
                           bg: 0,
                           fg: 0,
@@ -4931,8 +4931,8 @@
                           dim: !1,
                           italic: !1,
                         }),
-                        (this._canvas = document.createElement("canvas")),
-                        this._canvas.classList.add("xterm-" + t + "-layer"),
+                        (this._canvas = document.createElement('canvas')),
+                        this._canvas.classList.add('xterm-' + t + '-layer'),
                         (this._canvas.style.zIndex = r.toString()),
                         this._initCanvas(),
                         this._container.appendChild(this._canvas);
@@ -4947,7 +4947,7 @@
                       }),
                       (e.prototype._initCanvas = function () {
                         (this._ctx = a.throwIfFalsy(
-                          this._canvas.getContext("2d", {
+                          this._canvas.getContext('2d', {
                             alpha: this._alpha,
                           })
                         )),
@@ -4996,8 +4996,8 @@
                           (this._scaledCharTop = e.scaledCharTop),
                           (this._canvas.width = e.scaledCanvasWidth),
                           (this._canvas.height = e.scaledCanvasHeight),
-                          (this._canvas.style.width = e.canvasWidth + "px"),
-                          (this._canvas.style.height = e.canvasHeight + "px"),
+                          (this._canvas.style.width = e.canvasWidth + 'px'),
+                          (this._canvas.style.height = e.canvasHeight + 'px'),
                           this._alpha || this._clearAll(),
                           this._refreshCharAtlas(this._colors);
                       }),
@@ -5075,7 +5075,7 @@
                       }),
                       (e.prototype._fillCharTrueColor = function (e, t, r) {
                         (this._ctx.font = this._getFont(!1, !1)),
-                          (this._ctx.textBaseline = "middle"),
+                          (this._ctx.textBaseline = 'middle'),
                           this._clipRow(r),
                           this._ctx.fillText(
                             e.getChars(),
@@ -5138,7 +5138,7 @@
                             !!e.isBold(),
                             !!e.isItalic()
                           )),
-                          (this._ctx.textBaseline = "middle"),
+                          (this._ctx.textBaseline = 'middle'),
                           e.isInverse())
                         )
                           if (i) this._ctx.fillStyle = i.css;
@@ -5148,11 +5148,11 @@
                             ).css;
                           else if (e.isBgRGB())
                             this._ctx.fillStyle =
-                              "rgb(" +
+                              'rgb(' +
                               s.AttributeData.toColorRGB(e.getBgColor()).join(
-                                ","
+                                ','
                               ) +
-                              ")";
+                              ')';
                           else {
                             var o = e.getBgColor();
                             this._optionsService.options
@@ -5167,11 +5167,11 @@
                           this._ctx.fillStyle = this._colors.foreground.css;
                         else if (e.isFgRGB())
                           this._ctx.fillStyle =
-                            "rgb(" +
+                            'rgb(' +
                             s.AttributeData.toColorRGB(e.getFgColor()).join(
-                              ","
+                              ','
                             ) +
-                            ")";
+                            ')';
                         else {
                           var a = e.getFgColor();
                           this._optionsService.options
@@ -5204,15 +5204,15 @@
                       }),
                       (e.prototype._getFont = function (e, t) {
                         return (
-                          (t ? "italic" : "") +
-                          " " +
+                          (t ? 'italic' : '') +
+                          ' ' +
                           (e
                             ? this._optionsService.options.fontWeightBold
                             : this._optionsService.options.fontWeight) +
-                          " " +
+                          ' ' +
                           this._optionsService.options.fontSize *
                             window.devicePixelRatio +
-                          "px " +
+                          'px ' +
                           this._optionsService.options.fontFamily
                         );
                       }),
@@ -5340,7 +5340,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CharacterJoinerRegistry = t.JoinedCellData = void 0);
@@ -5352,7 +5352,7 @@
                       var n = e.call(this) || this;
                       return (
                         (n.content = 0),
-                        (n.combinedData = ""),
+                        (n.combinedData = ''),
                         (n.fg = t.fg),
                         (n.bg = t.bg),
                         (n.combinedData = r),
@@ -5375,7 +5375,7 @@
                         return 2097151;
                       }),
                       (t.prototype.setFromCharData = function (e) {
-                        throw new Error("not implemented");
+                        throw new Error('not implemented');
                       }),
                       (t.prototype.getAsCharData = function () {
                         return [
@@ -5561,7 +5561,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CursorRenderLayer = void 0);
@@ -5571,7 +5571,7 @@
                   c = (function (e) {
                     function t(t, r, i, n, o, a, c, l, h) {
                       var u =
-                        e.call(this, t, "cursor", r, !0, i, n, a, c) || this;
+                        e.call(this, t, 'cursor', r, !0, i, n, a, c) || this;
                       return (
                         (u._onRequestRedraw = o),
                         (u._coreService = l),
@@ -5581,7 +5581,7 @@
                           x: 0,
                           y: 0,
                           isFocused: !1,
-                          style: "",
+                          style: '',
                           width: 0,
                         }),
                         (u._cursorRenderers = {
@@ -5600,7 +5600,7 @@
                             x: 0,
                             y: 0,
                             isFocused: !1,
-                            style: "",
+                            style: '',
                             width: 0,
                           });
                       }),
@@ -5687,7 +5687,7 @@
                                 var n =
                                   this._optionsService.options.cursorStyle;
                                 return (
-                                  n && "block" !== n
+                                  n && 'block' !== n
                                     ? this._cursorRenderers[n](i, r, this._cell)
                                     : this._renderBlurCursor(i, r, this._cell),
                                   this._ctx.restore(),
@@ -5720,7 +5720,7 @@
                                 this._ctx.save(),
                                   this._cursorRenderers[
                                     this._optionsService.options.cursorStyle ||
-                                      "block"
+                                      'block'
                                   ](i, r, this._cell),
                                   this._ctx.restore(),
                                   (this._state.x = i),
@@ -5746,7 +5746,7 @@
                             x: 0,
                             y: 0,
                             isFocused: !1,
-                            style: "",
+                            style: '',
                             width: 0,
                           }));
                       }),
@@ -5791,7 +5791,7 @@
                       e && this._restartInterval();
                   }
                   return (
-                    Object.defineProperty(e.prototype, "isPaused", {
+                    Object.defineProperty(e.prototype, 'isPaused', {
                       get: function () {
                         return !(
                           this._blinkStartTimeout || this._blinkInterval
@@ -5890,7 +5890,7 @@
                 })();
               },
               3700: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.GridCache = void 0);
@@ -5947,7 +5947,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.LinkRenderLayer = void 0);
@@ -5957,7 +5957,7 @@
                   c = (function (e) {
                     function t(t, r, i, n, o, s, a, c) {
                       var l =
-                        e.call(this, t, "link", r, !0, i, n, a, c) || this;
+                        e.call(this, t, 'link', r, !0, i, n, a, c) || this;
                       return (
                         o.onShowLinkUnderline(function (e) {
                           return l._onShowLinkUnderline(e);
@@ -6082,8 +6082,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -6101,7 +6101,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Renderer = void 0);
@@ -6193,7 +6193,7 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "onRequestRedraw", {
+                      Object.defineProperty(t.prototype, 'onRequestRedraw', {
                         get: function () {
                           return this._onRequestRedraw.event;
                         },
@@ -6238,9 +6238,9 @@
                         )
                           i[r].resize(this.dimensions);
                         (this._screenElement.style.width =
-                          this.dimensions.canvasWidth + "px"),
+                          this.dimensions.canvasWidth + 'px'),
                           (this._screenElement.style.height =
-                            this.dimensions.canvasHeight + "px");
+                            this.dimensions.canvasHeight + 'px');
                       }),
                       (t.prototype.onCharSizeChanged = function () {
                         this.onResize(
@@ -6371,12 +6371,12 @@
                 t.Renderer = y;
               },
               1752: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.throwIfFalsy = void 0),
                   (t.throwIfFalsy = function (e) {
-                    if (!e) throw new Error("value must not be falsy");
+                    if (!e) throw new Error('value must not be falsy');
                     return e;
                   });
               },
@@ -6409,14 +6409,14 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.SelectionRenderLayer = void 0);
                 var o = (function (e) {
                   function t(t, r, i, n, o, s) {
                     var a =
-                      e.call(this, t, "selection", r, !0, i, n, o, s) || this;
+                      e.call(this, t, 'selection', r, !0, i, n, o, s) || this;
                     return a._clearState(), a;
                   }
                   return (
@@ -6536,7 +6536,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.TextRenderLayer = void 0);
@@ -6548,10 +6548,10 @@
                   h = r(511),
                   u = (function (e) {
                     function t(t, r, i, n, s, a, c, l) {
-                      var u = e.call(this, t, "text", r, s, i, a, c, l) || this;
+                      var u = e.call(this, t, 'text', r, s, i, a, c, l) || this;
                       return (
                         (u._characterWidth = 0),
-                        (u._characterFont = ""),
+                        (u._characterFont = ''),
                         (u._characterOverlapCache = {}),
                         (u._workCell = new h.CellData()),
                         (u._state = new o.GridCache()),
@@ -6628,29 +6628,29 @@
                               ? (h = e.isFgDefault()
                                   ? r._colors.foreground.css
                                   : e.isFgRGB()
-                                  ? "rgb(" +
+                                  ? 'rgb(' +
                                     a.AttributeData.toColorRGB(
                                       e.getFgColor()
-                                    ).join(",") +
-                                    ")"
+                                    ).join(',') +
+                                    ')'
                                   : r._colors.ansi[e.getFgColor()].css)
                               : e.isBgRGB()
                               ? (h =
-                                  "rgb(" +
+                                  'rgb(' +
                                   a.AttributeData.toColorRGB(
                                     e.getBgColor()
-                                  ).join(",") +
-                                  ")")
+                                  ).join(',') +
+                                  ')')
                               : e.isBgPalette() &&
                                 (h = r._colors.ansi[e.getBgColor()].css),
                               null === c && ((o = t), (s = l)),
                               l !== s
-                                ? ((i.fillStyle = c || ""),
+                                ? ((i.fillStyle = c || ''),
                                   r._fillCells(o, s, n - o, 1),
                                   (o = t),
                                   (s = l))
                                 : c !== h &&
-                                  ((i.fillStyle = c || ""),
+                                  ((i.fillStyle = c || ''),
                                   r._fillCells(o, s, t - o, 1),
                                   (o = t),
                                   (s = l)),
@@ -6677,11 +6677,11 @@
                                   r._ctx.fillStyle = r._colors.background.css;
                                 else if (e.isBgRGB())
                                   r._ctx.fillStyle =
-                                    "rgb(" +
+                                    'rgb(' +
                                     a.AttributeData.toColorRGB(
                                       e.getBgColor()
-                                    ).join(",") +
-                                    ")";
+                                    ).join(',') +
+                                    ')';
                                 else {
                                   var n = e.getBgColor();
                                   r._optionsService.options
@@ -6695,11 +6695,11 @@
                                 r._ctx.fillStyle = r._colors.foreground.css;
                               else if (e.isFgRGB())
                                 r._ctx.fillStyle =
-                                  "rgb(" +
+                                  'rgb(' +
                                   a.AttributeData.toColorRGB(
                                     e.getFgColor()
-                                  ).join(",") +
-                                  ")";
+                                  ).join(',') +
+                                  ')';
                               else {
                                 var o = e.getFgColor();
                                 r._optionsService.options
@@ -6755,7 +6755,7 @@
                 t.TextRenderLayer = u;
               },
               9616: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.BaseCharAtlas = void 0);
@@ -6777,7 +6777,7 @@
                 t.BaseCharAtlas = r;
               },
               1420: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.removeTerminalFromCache = t.acquireCharAtlas = void 0);
@@ -6824,7 +6824,7 @@
                   });
               },
               2040: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.is256Color = t.configEquals = t.generateConfig = void 0);
@@ -6872,7 +6872,7 @@
                   });
               },
               8803: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CHAR_ATLAS_CELL_SPACING =
@@ -6912,7 +6912,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.NoneCharAtlas =
@@ -6927,7 +6927,7 @@
                   h = r(1752),
                   u = r(4774),
                   f = {
-                    css: "rgba(0, 0, 0, 0)",
+                    css: 'rgba(0, 0, 0, 0)',
                     rgba: 0,
                   };
 
@@ -6948,19 +6948,19 @@
                       (i._glyphsWaitingOnBitmap = []),
                       (i._bitmapCommitTimeout = null),
                       (i._bitmap = null),
-                      (i._cacheCanvas = t.createElement("canvas")),
+                      (i._cacheCanvas = t.createElement('canvas')),
                       (i._cacheCanvas.width = 1024),
                       (i._cacheCanvas.height = 1024),
                       (i._cacheCtx = h.throwIfFalsy(
-                        i._cacheCanvas.getContext("2d", {
+                        i._cacheCanvas.getContext('2d', {
                           alpha: !0,
                         })
                       ));
-                    var n = t.createElement("canvas");
+                    var n = t.createElement('canvas');
                     (n.width = i._config.scaledCharWidth),
                       (n.height = i._config.scaledCharHeight),
                       (i._tmpCtx = h.throwIfFalsy(
-                        n.getContext("2d", {
+                        n.getContext('2d', {
                           alpha: i._config.allowTransparency,
                         })
                       )),
@@ -7059,7 +7059,7 @@
                     (t.prototype._drawToCache = function (e, t) {
                       this._drawToCacheCount++, this._tmpCtx.save();
                       var r = this._getBackgroundColor(e);
-                      (this._tmpCtx.globalCompositeOperation = "copy"),
+                      (this._tmpCtx.globalCompositeOperation = 'copy'),
                         (this._tmpCtx.fillStyle = r.css),
                         this._tmpCtx.fillRect(
                           0,
@@ -7067,20 +7067,20 @@
                           this._config.scaledCharWidth,
                           this._config.scaledCharHeight
                         ),
-                        (this._tmpCtx.globalCompositeOperation = "source-over");
+                        (this._tmpCtx.globalCompositeOperation = 'source-over');
                       var i = e.bold
                           ? this._config.fontWeightBold
                           : this._config.fontWeight,
-                        n = e.italic ? "italic" : "";
+                        n = e.italic ? 'italic' : '';
                       (this._tmpCtx.font =
                         n +
-                        " " +
+                        ' ' +
                         i +
-                        " " +
+                        ' ' +
                         this._config.fontSize * this._config.devicePixelRatio +
-                        "px " +
+                        'px ' +
                         this._config.fontFamily),
-                        (this._tmpCtx.textBaseline = "middle"),
+                        (this._tmpCtx.textBaseline = 'middle'),
                         (this._tmpCtx.fillStyle =
                           this._getForegroundColor(e).css),
                         e.dim && (this._tmpCtx.globalAlpha = o.DIM_OPACITY),
@@ -7127,7 +7127,7 @@
                     }),
                     (t.prototype._addGlyphToBitmap = function (e) {
                       var t = this;
-                      !("createImageBitmap" in window) ||
+                      !('createImageBitmap' in window) ||
                         l.isFirefox ||
                         l.isSafari ||
                         (this._glyphsWaitingOnBitmap.push(e),
@@ -7171,7 +7171,7 @@
                 t.NoneCharAtlas = p;
               },
               7001: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.LRUMap = void 0);
@@ -7296,8 +7296,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -7315,7 +7315,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.DomRenderer = void 0);
@@ -7327,10 +7327,10 @@
                   f = r(8460),
                   _ = r(4774),
                   d = r(9631),
-                  p = "xterm-dom-renderer-owner-",
-                  v = "xterm-fg-",
-                  g = "xterm-bg-",
-                  y = "xterm-focus",
+                  p = 'xterm-dom-renderer-owner-',
+                  v = 'xterm-fg-',
+                  g = 'xterm-bg-',
+                  y = 'xterm-focus',
                   b = 1,
                   S = (function (e) {
                     function t(t, r, i, n, o, s, c, l, h) {
@@ -7347,19 +7347,19 @@
                         (u._bufferService = h),
                         (u._terminalClass = b++),
                         (u._rowElements = []),
-                        (u._rowContainer = document.createElement("div")),
-                        u._rowContainer.classList.add("xterm-rows"),
-                        (u._rowContainer.style.lineHeight = "normal"),
-                        u._rowContainer.setAttribute("aria-hidden", "true"),
+                        (u._rowContainer = document.createElement('div')),
+                        u._rowContainer.classList.add('xterm-rows'),
+                        (u._rowContainer.style.lineHeight = 'normal'),
+                        u._rowContainer.setAttribute('aria-hidden', 'true'),
                         u._refreshRowElements(
                           u._bufferService.cols,
                           u._bufferService.rows
                         ),
-                        (u._selectionContainer = document.createElement("div")),
-                        u._selectionContainer.classList.add("xterm-selection"),
+                        (u._selectionContainer = document.createElement('div')),
+                        u._selectionContainer.classList.add('xterm-selection'),
                         u._selectionContainer.setAttribute(
-                          "aria-hidden",
-                          "true"
+                          'aria-hidden',
+                          'true'
                         ),
                         (u.dimensions = {
                           scaledCharWidth: 0,
@@ -7402,7 +7402,7 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "onRequestRedraw", {
+                      Object.defineProperty(t.prototype, 'onRequestRedraw', {
                         get: function () {
                           return new f.EventEmitter().event;
                         },
@@ -7464,31 +7464,31 @@
                           e++
                         ) {
                           var r = t[e];
-                          (r.style.width = this.dimensions.canvasWidth + "px"),
+                          (r.style.width = this.dimensions.canvasWidth + 'px'),
                             (r.style.height =
-                              this.dimensions.actualCellHeight + "px"),
+                              this.dimensions.actualCellHeight + 'px'),
                             (r.style.lineHeight =
-                              this.dimensions.actualCellHeight + "px"),
-                            (r.style.overflow = "hidden");
+                              this.dimensions.actualCellHeight + 'px'),
+                            (r.style.overflow = 'hidden');
                         }
                         this._dimensionsStyleElement ||
                           ((this._dimensionsStyleElement =
-                            document.createElement("style")),
+                            document.createElement('style')),
                           this._screenElement.appendChild(
                             this._dimensionsStyleElement
                           ));
                         var i =
                           this._terminalSelector +
-                          " .xterm-rows span { display: inline-block; height: 100%; vertical-align: top; width: " +
+                          ' .xterm-rows span { display: inline-block; height: 100%; vertical-align: top; width: ' +
                           this.dimensions.actualCellWidth +
-                          "px}";
+                          'px}';
                         (this._dimensionsStyleElement.textContent = i),
                           (this._selectionContainer.style.height =
                             this._viewportElement.style.height),
                           (this._screenElement.style.width =
-                            this.dimensions.canvasWidth + "px"),
+                            this.dimensions.canvasWidth + 'px'),
                           (this._screenElement.style.height =
-                            this.dimensions.canvasHeight + "px");
+                            this.dimensions.canvasHeight + 'px');
                       }),
                       (t.prototype.setColors = function (e) {
                         (this._colors = e), this._injectCss();
@@ -7497,148 +7497,148 @@
                         var e = this;
                         this._themeStyleElement ||
                           ((this._themeStyleElement =
-                            document.createElement("style")),
+                            document.createElement('style')),
                           this._screenElement.appendChild(
                             this._themeStyleElement
                           ));
                         var t =
                           this._terminalSelector +
-                          " .xterm-rows { color: " +
+                          ' .xterm-rows { color: ' +
                           this._colors.foreground.css +
-                          "; font-family: " +
+                          '; font-family: ' +
                           this._optionsService.options.fontFamily +
-                          "; font-size: " +
+                          '; font-size: ' +
                           this._optionsService.options.fontSize +
-                          "px;}";
+                          'px;}';
                         (t +=
                           this._terminalSelector +
-                          " span:not(." +
+                          ' span:not(.' +
                           a.BOLD_CLASS +
-                          ") { font-weight: " +
+                          ') { font-weight: ' +
                           this._optionsService.options.fontWeight +
-                          ";}" +
+                          ';}' +
                           this._terminalSelector +
-                          " span." +
+                          ' span.' +
                           a.BOLD_CLASS +
-                          " { font-weight: " +
+                          ' { font-weight: ' +
                           this._optionsService.options.fontWeightBold +
-                          ";}" +
+                          ';}' +
                           this._terminalSelector +
-                          " span." +
+                          ' span.' +
                           a.ITALIC_CLASS +
-                          " { font-style: italic;}"),
+                          ' { font-style: italic;}'),
                           (t +=
-                            "@keyframes blink_box_shadow_" +
+                            '@keyframes blink_box_shadow_' +
                             this._terminalClass +
-                            " { 50% {  box-shadow: none; }}"),
+                            ' { 50% {  box-shadow: none; }}'),
                           (t +=
-                            "@keyframes blink_block_" +
+                            '@keyframes blink_block_' +
                             this._terminalClass +
-                            " { 0% {  background-color: " +
+                            ' { 0% {  background-color: ' +
                             this._colors.cursor.css +
-                            ";  color: " +
+                            ';  color: ' +
                             this._colors.cursorAccent.css +
-                            "; } 50% {  background-color: " +
+                            '; } 50% {  background-color: ' +
                             this._colors.cursorAccent.css +
-                            ";  color: " +
+                            ';  color: ' +
                             this._colors.cursor.css +
-                            "; }}"),
+                            '; }}'),
                           (t +=
                             this._terminalSelector +
-                            " .xterm-rows:not(.xterm-focus) ." +
+                            ' .xterm-rows:not(.xterm-focus) .' +
                             a.CURSOR_CLASS +
-                            "." +
+                            '.' +
                             a.CURSOR_STYLE_BLOCK_CLASS +
-                            " { outline: 1px solid " +
+                            ' { outline: 1px solid ' +
                             this._colors.cursor.css +
-                            "; outline-offset: -1px;}" +
+                            '; outline-offset: -1px;}' +
                             this._terminalSelector +
-                            " .xterm-rows.xterm-focus ." +
+                            ' .xterm-rows.xterm-focus .' +
                             a.CURSOR_CLASS +
-                            "." +
+                            '.' +
                             a.CURSOR_BLINK_CLASS +
-                            ":not(." +
+                            ':not(.' +
                             a.CURSOR_STYLE_BLOCK_CLASS +
-                            ") { animation: blink_box_shadow_" +
+                            ') { animation: blink_box_shadow_' +
                             this._terminalClass +
-                            " 1s step-end infinite;}" +
+                            ' 1s step-end infinite;}' +
                             this._terminalSelector +
-                            " .xterm-rows.xterm-focus ." +
+                            ' .xterm-rows.xterm-focus .' +
                             a.CURSOR_CLASS +
-                            "." +
+                            '.' +
                             a.CURSOR_BLINK_CLASS +
-                            "." +
+                            '.' +
                             a.CURSOR_STYLE_BLOCK_CLASS +
-                            " { animation: blink_block_" +
+                            ' { animation: blink_block_' +
                             this._terminalClass +
-                            " 1s step-end infinite;}" +
+                            ' 1s step-end infinite;}' +
                             this._terminalSelector +
-                            " .xterm-rows.xterm-focus ." +
+                            ' .xterm-rows.xterm-focus .' +
                             a.CURSOR_CLASS +
-                            "." +
+                            '.' +
                             a.CURSOR_STYLE_BLOCK_CLASS +
-                            " { background-color: " +
+                            ' { background-color: ' +
                             this._colors.cursor.css +
-                            "; color: " +
+                            '; color: ' +
                             this._colors.cursorAccent.css +
-                            ";}" +
+                            ';}' +
                             this._terminalSelector +
-                            " .xterm-rows ." +
+                            ' .xterm-rows .' +
                             a.CURSOR_CLASS +
-                            "." +
+                            '.' +
                             a.CURSOR_STYLE_BAR_CLASS +
-                            " { box-shadow: " +
+                            ' { box-shadow: ' +
                             this._optionsService.options.cursorWidth +
-                            "px 0 0 " +
+                            'px 0 0 ' +
                             this._colors.cursor.css +
-                            " inset;}" +
+                            ' inset;}' +
                             this._terminalSelector +
-                            " .xterm-rows ." +
+                            ' .xterm-rows .' +
                             a.CURSOR_CLASS +
-                            "." +
+                            '.' +
                             a.CURSOR_STYLE_UNDERLINE_CLASS +
-                            " { box-shadow: 0 -1px 0 " +
+                            ' { box-shadow: 0 -1px 0 ' +
                             this._colors.cursor.css +
-                            " inset;}"),
+                            ' inset;}'),
                           (t +=
                             this._terminalSelector +
-                            " .xterm-selection { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none;}" +
+                            ' .xterm-selection { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none;}' +
                             this._terminalSelector +
-                            " .xterm-selection div { position: absolute; background-color: " +
+                            ' .xterm-selection div { position: absolute; background-color: ' +
                             this._colors.selectionTransparent.css +
-                            ";}"),
+                            ';}'),
                           this._colors.ansi.forEach(function (r, i) {
                             t +=
                               e._terminalSelector +
-                              " ." +
+                              ' .' +
                               v +
                               i +
-                              " { color: " +
+                              ' { color: ' +
                               r.css +
-                              "; }" +
+                              '; }' +
                               e._terminalSelector +
-                              " ." +
+                              ' .' +
                               g +
                               i +
-                              " { background-color: " +
+                              ' { background-color: ' +
                               r.css +
-                              "; }";
+                              '; }';
                           }),
                           (t +=
                             this._terminalSelector +
-                            " ." +
+                            ' .' +
                             v +
                             c.INVERTED_DEFAULT_COLOR +
-                            " { color: " +
+                            ' { color: ' +
                             _.color.opaque(this._colors.background).css +
-                            "; }" +
+                            '; }' +
                             this._terminalSelector +
-                            " ." +
+                            ' .' +
                             g +
                             c.INVERTED_DEFAULT_COLOR +
-                            " { background-color: " +
+                            ' { background-color: ' +
                             this._colors.foreground.css +
-                            "; }"),
+                            '; }'),
                           (this._themeStyleElement.textContent = t);
                       }),
                       (t.prototype.onDevicePixelRatioChange = function () {
@@ -7646,7 +7646,7 @@
                       }),
                       (t.prototype._refreshRowElements = function (e, t) {
                         for (var r = this._rowElements.length; r <= t; r++) {
-                          var i = document.createElement("div");
+                          var i = document.createElement('div');
                           this._rowContainer.appendChild(i),
                             this._rowElements.push(i);
                         }
@@ -7725,16 +7725,16 @@
                         i
                       ) {
                         void 0 === i && (i = 1);
-                        var n = document.createElement("div");
+                        var n = document.createElement('div');
                         return (
                           (n.style.height =
-                            i * this.dimensions.actualCellHeight + "px"),
+                            i * this.dimensions.actualCellHeight + 'px'),
                           (n.style.top =
-                            e * this.dimensions.actualCellHeight + "px"),
+                            e * this.dimensions.actualCellHeight + 'px'),
                           (n.style.left =
-                            t * this.dimensions.actualCellWidth + "px"),
+                            t * this.dimensions.actualCellWidth + 'px'),
                           (n.style.width =
-                            this.dimensions.actualCellWidth * (r - t) + "px"),
+                            this.dimensions.actualCellWidth * (r - t) + 'px'),
                           n
                         );
                       }),
@@ -7748,7 +7748,7 @@
                           e < t.length;
                           e++
                         )
-                          t[e].innerText = "";
+                          t[e].innerText = '';
                       }),
                       (t.prototype.renderRows = function (e, t) {
                         for (
@@ -7765,7 +7765,7 @@
                           o++
                         ) {
                           var s = this._rowElements[o];
-                          s.innerText = "";
+                          s.innerText = '';
                           var a = o + this._bufferService.buffer.ydisp,
                             c = this._bufferService.buffer.lines.get(a),
                             l = this._optionsService.options.cursorStyle;
@@ -7782,9 +7782,9 @@
                           );
                         }
                       }),
-                      Object.defineProperty(t.prototype, "_terminalSelector", {
+                      Object.defineProperty(t.prototype, '_terminalSelector', {
                         get: function () {
-                          return "." + p + this._terminalClass;
+                          return '.' + p + this._terminalClass;
                         },
                         enumerable: !1,
                         configurable: !0,
@@ -7828,7 +7828,7 @@
                           if (!s) return;
                           var a = s.children[e];
                           a &&
-                            (a.style.textDecoration = o ? "underline" : "none"),
+                            (a.style.textDecoration = o ? 'underline' : 'none'),
                             ++e >= n && ((e = 0), r++);
                         }
                       }),
@@ -7845,7 +7845,7 @@
                 t.DomRenderer = S;
               },
               3787: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.DomRendererRowFactory =
@@ -7863,15 +7863,15 @@
                   n = r(643),
                   o = r(511),
                   s = r(4774);
-                (t.BOLD_CLASS = "xterm-bold"),
-                  (t.DIM_CLASS = "xterm-dim"),
-                  (t.ITALIC_CLASS = "xterm-italic"),
-                  (t.UNDERLINE_CLASS = "xterm-underline"),
-                  (t.CURSOR_CLASS = "xterm-cursor"),
-                  (t.CURSOR_BLINK_CLASS = "xterm-cursor-blink"),
-                  (t.CURSOR_STYLE_BLOCK_CLASS = "xterm-cursor-block"),
-                  (t.CURSOR_STYLE_BAR_CLASS = "xterm-cursor-bar"),
-                  (t.CURSOR_STYLE_UNDERLINE_CLASS = "xterm-cursor-underline");
+                (t.BOLD_CLASS = 'xterm-bold'),
+                  (t.DIM_CLASS = 'xterm-dim'),
+                  (t.ITALIC_CLASS = 'xterm-italic'),
+                  (t.UNDERLINE_CLASS = 'xterm-underline'),
+                  (t.CURSOR_CLASS = 'xterm-cursor'),
+                  (t.CURSOR_BLINK_CLASS = 'xterm-cursor-blink'),
+                  (t.CURSOR_STYLE_BLOCK_CLASS = 'xterm-cursor-block'),
+                  (t.CURSOR_STYLE_BAR_CLASS = 'xterm-cursor-bar'),
+                  (t.CURSOR_STYLE_UNDERLINE_CLASS = 'xterm-cursor-underline');
                 var a = (function () {
                   function e(e, t, r) {
                     (this._document = e),
@@ -7903,9 +7903,9 @@
                         e.loadCell(d, this._workCell);
                         var p = this._workCell.getWidth();
                         if (0 !== p) {
-                          var v = this._document.createElement("span");
+                          var v = this._document.createElement('span');
                           if (
-                            (p > 1 && (v.style.width = h * p + "px"),
+                            (p > 1 && (v.style.width = h * p + 'px'),
                             r && d === a)
                           )
                             switch (
@@ -7913,10 +7913,10 @@
                               l && v.classList.add(t.CURSOR_BLINK_CLASS),
                               o)
                             ) {
-                              case "bar":
+                              case 'bar':
                                 v.classList.add(t.CURSOR_STYLE_BAR_CLASS);
                                 break;
-                              case "underline":
+                              case 'underline':
                                 v.classList.add(t.CURSOR_STYLE_UNDERLINE_CLASS);
                                 break;
                               default:
@@ -7958,7 +7958,7 @@
                                   v,
                                   this._colors.background,
                                   this._colors.ansi[g]
-                                ) || v.classList.add("xterm-fg-" + g);
+                                ) || v.classList.add('xterm-fg-' + g);
                               break;
                             case 50331648:
                               var E = s.rgba.toColor(
@@ -7973,7 +7973,7 @@
                               ) ||
                                 this._addStyle(
                                   v,
-                                  "color:#" + c(g.toString(16), "0", 6)
+                                  'color:#' + c(g.toString(16), '0', 6)
                                 );
                               break;
                             case 0:
@@ -7985,25 +7985,25 @@
                               ) ||
                                 (m &&
                                   v.classList.add(
-                                    "xterm-fg-" + i.INVERTED_DEFAULT_COLOR
+                                    'xterm-fg-' + i.INVERTED_DEFAULT_COLOR
                                   ));
                           }
                           switch (S) {
                             case 16777216:
                             case 33554432:
-                              v.classList.add("xterm-bg-" + b);
+                              v.classList.add('xterm-bg-' + b);
                               break;
                             case 50331648:
                               this._addStyle(
                                 v,
-                                "background-color:#" + c(b.toString(16), "0", 6)
+                                'background-color:#' + c(b.toString(16), '0', 6)
                               );
                               break;
                             case 0:
                             default:
                               m &&
                                 v.classList.add(
-                                  "xterm-bg-" + i.INVERTED_DEFAULT_COLOR
+                                  'xterm-bg-' + i.INVERTED_DEFAULT_COLOR
                                 );
                           }
                           f.appendChild(v);
@@ -8032,13 +8032,13 @@
                             this._workCell.fg,
                             null != i ? i : null
                           )),
-                        !!i && (this._addStyle(e, "color:" + i.css), !0)
+                        !!i && (this._addStyle(e, 'color:' + i.css), !0)
                       );
                     }),
                     (e.prototype._addStyle = function (e, t) {
                       e.setAttribute(
-                        "style",
-                        "" + (e.getAttribute("style") || "") + t + ";"
+                        'style',
+                        '' + (e.getAttribute('style') || '') + t + ';'
                       );
                     }),
                     e
@@ -8052,7 +8052,7 @@
                 t.DomRendererRowFactory = a;
               },
               456: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.SelectionModel = void 0);
@@ -8069,7 +8069,7 @@
                         (this.isSelectAllActive = !1),
                         (this.selectionStartLength = 0);
                     }),
-                    Object.defineProperty(e.prototype, "finalSelectionStart", {
+                    Object.defineProperty(e.prototype, 'finalSelectionStart', {
                       get: function () {
                         return this.isSelectAllActive
                           ? [0, 0]
@@ -8082,7 +8082,7 @@
                       enumerable: !1,
                       configurable: !0,
                     }),
-                    Object.defineProperty(e.prototype, "finalSelectionEnd", {
+                    Object.defineProperty(e.prototype, 'finalSelectionEnd', {
                       get: function () {
                         if (this.isSelectAllActive)
                           return [
@@ -8161,8 +8161,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -8180,7 +8180,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CharSizeService = void 0);
@@ -8199,14 +8199,14 @@
                         ));
                     }
                     return (
-                      Object.defineProperty(e.prototype, "hasValidSize", {
+                      Object.defineProperty(e.prototype, 'hasValidSize', {
                         get: function () {
                           return this.width > 0 && this.height > 0;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onCharSizeChange", {
+                      Object.defineProperty(e.prototype, 'onCharSizeChange', {
                         get: function () {
                           return this._onCharSizeChange.event;
                         },
@@ -8234,12 +8234,12 @@
                         height: 0,
                       }),
                       (this._measureElement =
-                        this._document.createElement("span")),
+                        this._document.createElement('span')),
                       this._measureElement.classList.add(
-                        "xterm-char-measure-element"
+                        'xterm-char-measure-element'
                       ),
-                      (this._measureElement.textContent = "W"),
-                      this._measureElement.setAttribute("aria-hidden", "true"),
+                      (this._measureElement.textContent = 'W'),
+                      this._measureElement.setAttribute('aria-hidden', 'true'),
                       this._parentElement.appendChild(this._measureElement);
                   }
                   return (
@@ -8247,7 +8247,7 @@
                       (this._measureElement.style.fontFamily =
                         this._optionsService.options.fontFamily),
                         (this._measureElement.style.fontSize =
-                          this._optionsService.options.fontSize + "px");
+                          this._optionsService.options.fontSize + 'px');
                       var e = this._measureElement.getBoundingClientRect();
                       return (
                         0 !== e.width &&
@@ -8262,7 +8262,7 @@
                 })();
               },
               5114: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CoreBrowserService = void 0);
@@ -8271,7 +8271,7 @@
                     this._textarea = e;
                   }
                   return (
-                    Object.defineProperty(e.prototype, "isFocused", {
+                    Object.defineProperty(e.prototype, 'isFocused', {
                       get: function () {
                         return (
                           (this._textarea.getRootNode
@@ -8302,8 +8302,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -8321,7 +8321,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.MouseService = void 0);
@@ -8394,8 +8394,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -8413,7 +8413,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.RenderService = void 0);
@@ -8483,13 +8483,13 @@
                         l.register(
                           u.addDisposableDomListener(
                             window,
-                            "resize",
+                            'resize',
                             function () {
                               return l.onDevicePixelRatioChange();
                             }
                           )
                         ),
-                        "IntersectionObserver" in window)
+                        'IntersectionObserver' in window)
                       ) {
                         var f = new IntersectionObserver(
                           function (e) {
@@ -8510,7 +8510,7 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "onDimensionsChange", {
+                      Object.defineProperty(t.prototype, 'onDimensionsChange', {
                         get: function () {
                           return this._onDimensionsChange.event;
                         },
@@ -8519,7 +8519,7 @@
                       }),
                       Object.defineProperty(
                         t.prototype,
-                        "onRenderedBufferChange",
+                        'onRenderedBufferChange',
                         {
                           get: function () {
                             return this._onRender.event;
@@ -8528,14 +8528,14 @@
                           configurable: !0,
                         }
                       ),
-                      Object.defineProperty(t.prototype, "onRefreshRequest", {
+                      Object.defineProperty(t.prototype, 'onRefreshRequest', {
                         get: function () {
                           return this._onRefreshRequest.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "dimensions", {
+                      Object.defineProperty(t.prototype, 'dimensions', {
                         get: function () {
                           return this._renderer.dimensions;
                         },
@@ -8707,8 +8707,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -8726,7 +8726,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.SelectionService = void 0);
@@ -8740,7 +8740,7 @@
                   d = r(9504),
                   p = r(844),
                   v = String.fromCharCode(160),
-                  g = new RegExp(v, "g"),
+                  g = new RegExp(v, 'g'),
                   y = (function (e) {
                     function t(t, r, i, n, o, s, a) {
                       var u = e.call(this) || this;
@@ -8800,7 +8800,7 @@
                       n(t, e),
                       Object.defineProperty(
                         t.prototype,
-                        "onLinuxMouseSelection",
+                        'onLinuxMouseSelection',
                         {
                           get: function () {
                             return this._onLinuxMouseSelection.event;
@@ -8809,14 +8809,14 @@
                           configurable: !0,
                         }
                       ),
-                      Object.defineProperty(t.prototype, "onRequestRedraw", {
+                      Object.defineProperty(t.prototype, 'onRequestRedraw', {
                         get: function () {
                           return this._onRedrawRequest.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onSelectionChange", {
+                      Object.defineProperty(t.prototype, 'onSelectionChange', {
                         get: function () {
                           return this._onSelectionChange.event;
                         },
@@ -8825,7 +8825,7 @@
                       }),
                       Object.defineProperty(
                         t.prototype,
-                        "onRequestScrollLines",
+                        'onRequestScrollLines',
                         {
                           get: function () {
                             return this._onRequestScrollLines.event;
@@ -8846,21 +8846,21 @@
                       (t.prototype.enable = function () {
                         this._enabled = !0;
                       }),
-                      Object.defineProperty(t.prototype, "selectionStart", {
+                      Object.defineProperty(t.prototype, 'selectionStart', {
                         get: function () {
                           return this._model.finalSelectionStart;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "selectionEnd", {
+                      Object.defineProperty(t.prototype, 'selectionEnd', {
                         get: function () {
                           return this._model.finalSelectionEnd;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "hasSelection", {
+                      Object.defineProperty(t.prototype, 'hasSelection', {
                         get: function () {
                           var e = this._model.finalSelectionStart,
                             t = this._model.finalSelectionEnd;
@@ -8873,15 +8873,15 @@
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "selectionText", {
+                      Object.defineProperty(t.prototype, 'selectionText', {
                         get: function () {
                           var e = this._model.finalSelectionStart,
                             t = this._model.finalSelectionEnd;
-                          if (!e || !t) return "";
+                          if (!e || !t) return '';
                           var r = this._bufferService.buffer,
                             i = [];
                           if (3 === this._activeSelectionMode) {
-                            if (e[0] === t[0]) return "";
+                            if (e[0] === t[0]) return '';
                             for (var n = e[1]; n <= t[1]; n++) {
                               var o = r.translateBufferLineToString(
                                 n,
@@ -8921,9 +8921,9 @@
                           }
                           return i
                             .map(function (e) {
-                              return e.replace(g, " ");
+                              return e.replace(g, ' ');
                             })
-                            .join(a.isWindows ? "\r\n" : "\n");
+                            .join(a.isWindows ? '\r\n' : '\n');
                         },
                         enumerable: !1,
                         configurable: !0,
@@ -9067,11 +9067,11 @@
                         var e = this;
                         this._screenElement.ownerDocument &&
                           (this._screenElement.ownerDocument.addEventListener(
-                            "mousemove",
+                            'mousemove',
                             this._mouseMoveListener
                           ),
                           this._screenElement.ownerDocument.addEventListener(
-                            "mouseup",
+                            'mouseup',
                             this._mouseUpListener
                           )),
                           (this._dragScrollIntervalTimer = window.setInterval(
@@ -9084,11 +9084,11 @@
                       (t.prototype._removeMouseDownListeners = function () {
                         this._screenElement.ownerDocument &&
                           (this._screenElement.ownerDocument.removeEventListener(
-                            "mousemove",
+                            'mousemove',
                             this._mouseMoveListener
                           ),
                           this._screenElement.ownerDocument.removeEventListener(
-                            "mouseup",
+                            'mouseup',
                             this._mouseUpListener
                           )),
                           clearInterval(this._dragScrollIntervalTimer),
@@ -9223,7 +9223,7 @@
                             t < 500 &&
                             e.altKey &&
                             this._optionsService.getOption(
-                              "altClickMovesCursor"
+                              'altClickMovesCursor'
                             ))
                         ) {
                           if (
@@ -9327,9 +9327,9 @@
                               u = 0,
                               f = 0,
                               _ = 0;
-                            if (" " === s.charAt(a)) {
-                              for (; a > 0 && " " === s.charAt(a - 1); ) a--;
-                              for (; c < s.length && " " === s.charAt(c + 1); )
+                            if (' ' === s.charAt(a)) {
+                              for (; a > 0 && ' ' === s.charAt(a - 1); ) a--;
+                              for (; c < s.length && ' ' === s.charAt(c + 1); )
                                 c++;
                             } else {
                               var d = e[0],
@@ -9378,7 +9378,7 @@
                                 this._bufferService.cols,
                                 c - a + h + u - f - _
                               );
-                            if (t || "" !== s.slice(a, c).trim()) {
+                            if (t || '' !== s.slice(a, c).trim()) {
                               if (r && 0 === b && 32 !== o.getCodePoint(0)) {
                                 var m = n.lines.get(e[1] - 1);
                                 if (
@@ -9490,7 +9490,7 @@
                 t.SelectionService = y;
               },
               4725: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.ISoundService =
@@ -9501,13 +9501,13 @@
                     t.ICharSizeService =
                       void 0);
                 var i = r(8343);
-                (t.ICharSizeService = i.createDecorator("CharSizeService")),
+                (t.ICharSizeService = i.createDecorator('CharSizeService')),
                   (t.ICoreBrowserService =
-                    i.createDecorator("CoreBrowserService")),
-                  (t.IMouseService = i.createDecorator("MouseService")),
-                  (t.IRenderService = i.createDecorator("RenderService")),
-                  (t.ISelectionService = i.createDecorator("SelectionService")),
-                  (t.ISoundService = i.createDecorator("SoundService"));
+                    i.createDecorator('CoreBrowserService')),
+                  (t.IMouseService = i.createDecorator('MouseService')),
+                  (t.IRenderService = i.createDecorator('RenderService')),
+                  (t.ISelectionService = i.createDecorator('SelectionService')),
+                  (t.ISoundService = i.createDecorator('SoundService'));
               },
               357: function (e, t, r) {
                 var i =
@@ -9522,8 +9522,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -9541,7 +9541,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.SoundService = void 0);
@@ -9551,7 +9551,7 @@
                       this._optionsService = e;
                     }
                     return (
-                      Object.defineProperty(e, "audioContext", {
+                      Object.defineProperty(e, 'audioContext', {
                         get: function () {
                           if (!e._audioContext) {
                             var t =
@@ -9559,7 +9559,7 @@
                             if (!t)
                               return (
                                 console.warn(
-                                  "Web Audio API is not supported by this browser. Consider upgrading to the latest version"
+                                  'Web Audio API is not supported by this browser. Consider upgrading to the latest version'
                                 ),
                                 null
                               );
@@ -9601,7 +9601,7 @@
                         return i.buffer;
                       }),
                       (e.prototype._removeMimeType = function (e) {
-                        return e.split(",")[1];
+                        return e.split(',')[1];
                       }),
                       (e = i([n(0, o.IOptionsService)], e))
                     );
@@ -9609,7 +9609,7 @@
                 t.SoundService = s;
               },
               6349: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CircularList = void 0);
@@ -9625,28 +9625,28 @@
                         (this._length = 0);
                     }
                     return (
-                      Object.defineProperty(e.prototype, "onDelete", {
+                      Object.defineProperty(e.prototype, 'onDelete', {
                         get: function () {
                           return this.onDeleteEmitter.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onInsert", {
+                      Object.defineProperty(e.prototype, 'onInsert', {
                         get: function () {
                           return this.onInsertEmitter.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "onTrim", {
+                      Object.defineProperty(e.prototype, 'onTrim', {
                         get: function () {
                           return this.onTrimEmitter.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "maxLength", {
+                      Object.defineProperty(e.prototype, 'maxLength', {
                         get: function () {
                           return this._maxLength;
                         },
@@ -9666,7 +9666,7 @@
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "length", {
+                      Object.defineProperty(e.prototype, 'length', {
                         get: function () {
                           return this._length;
                         },
@@ -9696,7 +9696,7 @@
                       (e.prototype.recycle = function () {
                         if (this._length !== this._maxLength)
                           throw new Error(
-                            "Can only recycle when the buffer is full"
+                            'Can only recycle when the buffer is full'
                           );
                         return (
                           (this._startIndex =
@@ -9705,7 +9705,7 @@
                           this._array[this._getCyclicIndex(this._length - 1)]
                         );
                       }),
-                      Object.defineProperty(e.prototype, "isFull", {
+                      Object.defineProperty(e.prototype, 'isFull', {
                         get: function () {
                           return this._length === this._maxLength;
                         },
@@ -9758,10 +9758,10 @@
                       (e.prototype.shiftElements = function (e, t, r) {
                         if (!(t <= 0)) {
                           if (e < 0 || e >= this._length)
-                            throw new Error("start argument out of range");
+                            throw new Error('start argument out of range');
                           if (e + r < 0)
                             throw new Error(
-                              "Cannot shift elements in list beyond index 0"
+                              'Cannot shift elements in list beyond index 0'
                             );
                           if (r > 0) {
                             for (var i = t - 1; i >= 0; i--)
@@ -9790,12 +9790,12 @@
                 t.CircularList = n;
               },
               1439: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.clone = void 0),
                   (t.clone = function e(t, r) {
-                    if ((void 0 === r && (r = 5), "object" != typeof t))
+                    if ((void 0 === r && (r = 5), 'object' != typeof t))
                       return t;
                     var i = Array.isArray(t) ? [] : {};
                     for (var n in t)
@@ -9832,7 +9832,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CoreTerminal = void 0);
@@ -9966,56 +9966,56 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "onBinary", {
+                      Object.defineProperty(t.prototype, 'onBinary', {
                         get: function () {
                           return this._onBinary.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onData", {
+                      Object.defineProperty(t.prototype, 'onData', {
                         get: function () {
                           return this._onData.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onLineFeed", {
+                      Object.defineProperty(t.prototype, 'onLineFeed', {
                         get: function () {
                           return this._onLineFeed.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onResize", {
+                      Object.defineProperty(t.prototype, 'onResize', {
                         get: function () {
                           return this._onResize.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onScroll", {
+                      Object.defineProperty(t.prototype, 'onScroll', {
                         get: function () {
                           return this._onScroll.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "cols", {
+                      Object.defineProperty(t.prototype, 'cols', {
                         get: function () {
                           return this._bufferService.cols;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "rows", {
+                      Object.defineProperty(t.prototype, 'rows', {
                         get: function () {
                           return this._bufferService.rows;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "buffers", {
+                      Object.defineProperty(t.prototype, 'buffers', {
                         get: function () {
                           return this._bufferService.buffers;
                         },
@@ -10137,10 +10137,10 @@
                       (t.prototype._updateOptions = function (e) {
                         var t;
                         switch (e) {
-                          case "scrollback":
+                          case 'scrollback':
                             this.buffers.resize(this.cols, this.rows);
                             break;
-                          case "windowsMode":
+                          case 'windowsMode':
                             this.optionsService.options.windowsMode
                               ? this._enableWindowsMode()
                               : (null === (t = this._windowsMode) ||
@@ -10164,7 +10164,7 @@
                             t.push(
                               this.addCsiHandler(
                                 {
-                                  final: "H",
+                                  final: 'H',
                                 },
                                 function () {
                                   return (
@@ -10190,7 +10190,7 @@
                 t.CoreTerminal = S;
               },
               8460: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.forwardEvent = t.EventEmitter = void 0);
@@ -10199,7 +10199,7 @@
                     (this._listeners = []), (this._disposed = !1);
                   }
                   return (
-                    Object.defineProperty(e.prototype, "event", {
+                    Object.defineProperty(e.prototype, 'event', {
                       get: function () {
                         var e = this;
                         return (
@@ -10275,7 +10275,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.InputHandler = t.WindowsOptionsReportType = void 0);
@@ -10294,12 +10294,12 @@
                   g = r(6242),
                   y = r(6351),
                   b = {
-                    "(": 0,
-                    ")": 1,
-                    "*": 2,
-                    "+": 3,
-                    "-": 1,
-                    ".": 2,
+                    '(': 0,
+                    ')': 1,
+                    '*': 2,
+                    '+': 3,
+                    '-': 1,
+                    '.': 2,
                   },
                   S = 131072;
 
@@ -10354,8 +10354,8 @@
                   return !1;
                 }
                 !(function (e) {
-                  (e[(e.GET_WIN_SIZE_PIXELS = 0)] = "GET_WIN_SIZE_PIXELS"),
-                    (e[(e.GET_CELL_SIZE_PIXELS = 1)] = "GET_CELL_SIZE_PIXELS");
+                  (e[(e.GET_WIN_SIZE_PIXELS = 0)] = 'GET_WIN_SIZE_PIXELS'),
+                    (e[(e.GET_CELL_SIZE_PIXELS = 1)] = 'GET_CELL_SIZE_PIXELS');
                 })(
                   (o =
                     t.WindowsOptionsReportType ||
@@ -10382,31 +10382,31 @@
                         switch (((this._data = new Uint32Array(0)), t)) {
                           case '"q':
                             this._coreService.triggerDataEvent(
-                              s.C0.ESC + 'P1$r0"q' + s.C0.ESC + "\\"
+                              s.C0.ESC + 'P1$r0"q' + s.C0.ESC + '\\'
                             );
                             break;
                           case '"p':
                             this._coreService.triggerDataEvent(
-                              s.C0.ESC + 'P1$r61;1"p' + s.C0.ESC + "\\"
+                              s.C0.ESC + 'P1$r61;1"p' + s.C0.ESC + '\\'
                             );
                             break;
-                          case "r":
+                          case 'r':
                             var r =
                               this._bufferService.buffer.scrollTop +
                               1 +
-                              ";" +
+                              ';' +
                               (this._bufferService.buffer.scrollBottom + 1) +
-                              "r";
+                              'r';
                             this._coreService.triggerDataEvent(
-                              s.C0.ESC + "P1$r" + r + s.C0.ESC + "\\"
+                              s.C0.ESC + 'P1$r' + r + s.C0.ESC + '\\'
                             );
                             break;
-                          case "m":
+                          case 'm':
                             this._coreService.triggerDataEvent(
-                              s.C0.ESC + "P1$r0m" + s.C0.ESC + "\\"
+                              s.C0.ESC + 'P1$r0m' + s.C0.ESC + '\\'
                             );
                             break;
-                          case " q":
+                          case ' q':
                             var i = {
                               block: 2,
                               underline: 4,
@@ -10416,13 +10416,13 @@
                               ? 1
                               : 0),
                               this._coreService.triggerDataEvent(
-                                s.C0.ESC + "P1$r" + i + " q" + s.C0.ESC + "\\"
+                                s.C0.ESC + 'P1$r' + i + ' q' + s.C0.ESC + '\\'
                               );
                             break;
                           default:
-                            this._logService.debug("Unknown DCS $q %s", t),
+                            this._logService.debug('Unknown DCS $q %s', t),
                               this._coreService.triggerDataEvent(
-                                s.C0.ESC + "P0$r" + s.C0.ESC + "\\"
+                                s.C0.ESC + 'P0$r' + s.C0.ESC + '\\'
                               );
                         }
                         return !0;
@@ -10447,8 +10447,8 @@
                         (y._stringDecoder = new u.StringToUtf32()),
                         (y._utf8Decoder = new u.Utf8ToUtf32()),
                         (y._workCell = new p.CellData()),
-                        (y._windowTitle = ""),
-                        (y._iconName = ""),
+                        (y._windowTitle = ''),
+                        (y._iconName = ''),
                         (y._windowTitleStack = []),
                         (y._iconNameStack = []),
                         (y._curAttrData = f.DEFAULT_ATTR_DATA.clone()),
@@ -10470,31 +10470,31 @@
                         (y._onAnsiColorChange = new _.EventEmitter()),
                         y.register(y._parser),
                         y._parser.setCsiHandlerFallback(function (e, t) {
-                          y._logService.debug("Unknown CSI code: ", {
+                          y._logService.debug('Unknown CSI code: ', {
                             identifier: y._parser.identToString(e),
                             params: t.toArray(),
                           });
                         }),
                         y._parser.setEscHandlerFallback(function (e) {
-                          y._logService.debug("Unknown ESC code: ", {
+                          y._logService.debug('Unknown ESC code: ', {
                             identifier: y._parser.identToString(e),
                           });
                         }),
                         y._parser.setExecuteHandlerFallback(function (e) {
-                          y._logService.debug("Unknown EXECUTE code: ", {
+                          y._logService.debug('Unknown EXECUTE code: ', {
                             code: e,
                           });
                         }),
                         y._parser.setOscHandlerFallback(function (e, t, r) {
-                          y._logService.debug("Unknown OSC code: ", {
+                          y._logService.debug('Unknown OSC code: ', {
                             identifier: e,
                             action: t,
                             data: r,
                           });
                         }),
                         y._parser.setDcsHandlerFallback(function (e, t, r) {
-                          "HOOK" === t && (r = r.toArray()),
-                            y._logService.debug("Unknown DCS code: ", {
+                          'HOOK' === t && (r = r.toArray()),
+                            y._logService.debug('Unknown DCS code: ', {
                               identifier: y._parser.identToString(e),
                               action: t,
                               payload: r,
@@ -10505,7 +10505,7 @@
                         }),
                         y._parser.registerCsiHandler(
                           {
-                            final: "@",
+                            final: '@',
                           },
                           function (e) {
                             return y.insertChars(e);
@@ -10513,8 +10513,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            intermediates: " ",
-                            final: "@",
+                            intermediates: ' ',
+                            final: '@',
                           },
                           function (e) {
                             return y.scrollLeft(e);
@@ -10522,7 +10522,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "A",
+                            final: 'A',
                           },
                           function (e) {
                             return y.cursorUp(e);
@@ -10530,8 +10530,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            intermediates: " ",
-                            final: "A",
+                            intermediates: ' ',
+                            final: 'A',
                           },
                           function (e) {
                             return y.scrollRight(e);
@@ -10539,7 +10539,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "B",
+                            final: 'B',
                           },
                           function (e) {
                             return y.cursorDown(e);
@@ -10547,7 +10547,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "C",
+                            final: 'C',
                           },
                           function (e) {
                             return y.cursorForward(e);
@@ -10555,7 +10555,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "D",
+                            final: 'D',
                           },
                           function (e) {
                             return y.cursorBackward(e);
@@ -10563,7 +10563,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "E",
+                            final: 'E',
                           },
                           function (e) {
                             return y.cursorNextLine(e);
@@ -10571,7 +10571,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "F",
+                            final: 'F',
                           },
                           function (e) {
                             return y.cursorPrecedingLine(e);
@@ -10579,7 +10579,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "G",
+                            final: 'G',
                           },
                           function (e) {
                             return y.cursorCharAbsolute(e);
@@ -10587,7 +10587,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "H",
+                            final: 'H',
                           },
                           function (e) {
                             return y.cursorPosition(e);
@@ -10595,7 +10595,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "I",
+                            final: 'I',
                           },
                           function (e) {
                             return y.cursorForwardTab(e);
@@ -10603,7 +10603,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "J",
+                            final: 'J',
                           },
                           function (e) {
                             return y.eraseInDisplay(e);
@@ -10611,8 +10611,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            prefix: "?",
-                            final: "J",
+                            prefix: '?',
+                            final: 'J',
                           },
                           function (e) {
                             return y.eraseInDisplay(e);
@@ -10620,7 +10620,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "K",
+                            final: 'K',
                           },
                           function (e) {
                             return y.eraseInLine(e);
@@ -10628,8 +10628,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            prefix: "?",
-                            final: "K",
+                            prefix: '?',
+                            final: 'K',
                           },
                           function (e) {
                             return y.eraseInLine(e);
@@ -10637,7 +10637,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "L",
+                            final: 'L',
                           },
                           function (e) {
                             return y.insertLines(e);
@@ -10645,7 +10645,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "M",
+                            final: 'M',
                           },
                           function (e) {
                             return y.deleteLines(e);
@@ -10653,7 +10653,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "P",
+                            final: 'P',
                           },
                           function (e) {
                             return y.deleteChars(e);
@@ -10661,7 +10661,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "S",
+                            final: 'S',
                           },
                           function (e) {
                             return y.scrollUp(e);
@@ -10669,7 +10669,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "T",
+                            final: 'T',
                           },
                           function (e) {
                             return y.scrollDown(e);
@@ -10677,7 +10677,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "X",
+                            final: 'X',
                           },
                           function (e) {
                             return y.eraseChars(e);
@@ -10685,7 +10685,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "Z",
+                            final: 'Z',
                           },
                           function (e) {
                             return y.cursorBackwardTab(e);
@@ -10693,7 +10693,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "`",
+                            final: '`',
                           },
                           function (e) {
                             return y.charPosAbsolute(e);
@@ -10701,7 +10701,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "a",
+                            final: 'a',
                           },
                           function (e) {
                             return y.hPositionRelative(e);
@@ -10709,7 +10709,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "b",
+                            final: 'b',
                           },
                           function (e) {
                             return y.repeatPrecedingCharacter(e);
@@ -10717,7 +10717,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "c",
+                            final: 'c',
                           },
                           function (e) {
                             return y.sendDeviceAttributesPrimary(e);
@@ -10725,8 +10725,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            prefix: ">",
-                            final: "c",
+                            prefix: '>',
+                            final: 'c',
                           },
                           function (e) {
                             return y.sendDeviceAttributesSecondary(e);
@@ -10734,7 +10734,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "d",
+                            final: 'd',
                           },
                           function (e) {
                             return y.linePosAbsolute(e);
@@ -10742,7 +10742,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "e",
+                            final: 'e',
                           },
                           function (e) {
                             return y.vPositionRelative(e);
@@ -10750,7 +10750,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "f",
+                            final: 'f',
                           },
                           function (e) {
                             return y.hVPosition(e);
@@ -10758,7 +10758,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "g",
+                            final: 'g',
                           },
                           function (e) {
                             return y.tabClear(e);
@@ -10766,7 +10766,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "h",
+                            final: 'h',
                           },
                           function (e) {
                             return y.setMode(e);
@@ -10774,8 +10774,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            prefix: "?",
-                            final: "h",
+                            prefix: '?',
+                            final: 'h',
                           },
                           function (e) {
                             return y.setModePrivate(e);
@@ -10783,7 +10783,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "l",
+                            final: 'l',
                           },
                           function (e) {
                             return y.resetMode(e);
@@ -10791,8 +10791,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            prefix: "?",
-                            final: "l",
+                            prefix: '?',
+                            final: 'l',
                           },
                           function (e) {
                             return y.resetModePrivate(e);
@@ -10800,7 +10800,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "m",
+                            final: 'm',
                           },
                           function (e) {
                             return y.charAttributes(e);
@@ -10808,7 +10808,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "n",
+                            final: 'n',
                           },
                           function (e) {
                             return y.deviceStatus(e);
@@ -10816,8 +10816,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            prefix: "?",
-                            final: "n",
+                            prefix: '?',
+                            final: 'n',
                           },
                           function (e) {
                             return y.deviceStatusPrivate(e);
@@ -10825,8 +10825,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            intermediates: "!",
-                            final: "p",
+                            intermediates: '!',
+                            final: 'p',
                           },
                           function (e) {
                             return y.softReset(e);
@@ -10834,8 +10834,8 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            intermediates: " ",
-                            final: "q",
+                            intermediates: ' ',
+                            final: 'q',
                           },
                           function (e) {
                             return y.setCursorStyle(e);
@@ -10843,7 +10843,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "r",
+                            final: 'r',
                           },
                           function (e) {
                             return y.setScrollRegion(e);
@@ -10851,7 +10851,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "s",
+                            final: 's',
                           },
                           function (e) {
                             return y.saveCursor(e);
@@ -10859,7 +10859,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "t",
+                            final: 't',
                           },
                           function (e) {
                             return y.windowOptions(e);
@@ -10867,7 +10867,7 @@
                         ),
                         y._parser.registerCsiHandler(
                           {
-                            final: "u",
+                            final: 'u',
                           },
                           function (e) {
                             return y.restoreCursor(e);
@@ -10876,7 +10876,7 @@
                         y._parser.registerCsiHandler(
                           {
                             intermediates: "'",
-                            final: "}",
+                            final: '}',
                           },
                           function (e) {
                             return y.insertColumns(e);
@@ -10885,7 +10885,7 @@
                         y._parser.registerCsiHandler(
                           {
                             intermediates: "'",
-                            final: "~",
+                            final: '~',
                           },
                           function (e) {
                             return y.deleteColumns(e);
@@ -10953,7 +10953,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "7",
+                            final: '7',
                           },
                           function () {
                             return y.saveCursor();
@@ -10961,7 +10961,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "8",
+                            final: '8',
                           },
                           function () {
                             return y.restoreCursor();
@@ -10969,7 +10969,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "D",
+                            final: 'D',
                           },
                           function () {
                             return y.index();
@@ -10977,7 +10977,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "E",
+                            final: 'E',
                           },
                           function () {
                             return y.nextLine();
@@ -10985,7 +10985,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "H",
+                            final: 'H',
                           },
                           function () {
                             return y.tabSet();
@@ -10993,7 +10993,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "M",
+                            final: 'M',
                           },
                           function () {
                             return y.reverseIndex();
@@ -11001,7 +11001,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "=",
+                            final: '=',
                           },
                           function () {
                             return y.keypadApplicationMode();
@@ -11009,7 +11009,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: ">",
+                            final: '>',
                           },
                           function () {
                             return y.keypadNumericMode();
@@ -11017,7 +11017,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "c",
+                            final: 'c',
                           },
                           function () {
                             return y.fullReset();
@@ -11025,7 +11025,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "n",
+                            final: 'n',
                           },
                           function () {
                             return y.setgLevel(2);
@@ -11033,7 +11033,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "o",
+                            final: 'o',
                           },
                           function () {
                             return y.setgLevel(3);
@@ -11041,7 +11041,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "|",
+                            final: '|',
                           },
                           function () {
                             return y.setgLevel(3);
@@ -11049,7 +11049,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "}",
+                            final: '}',
                           },
                           function () {
                             return y.setgLevel(2);
@@ -11057,7 +11057,7 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            final: "~",
+                            final: '~',
                           },
                           function () {
                             return y.setgLevel(1);
@@ -11065,8 +11065,8 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            intermediates: "%",
-                            final: "@",
+                            intermediates: '%',
+                            final: '@',
                           },
                           function () {
                             return y.selectDefaultCharset();
@@ -11074,8 +11074,8 @@
                         ),
                         y._parser.registerEscHandler(
                           {
-                            intermediates: "%",
-                            final: "G",
+                            intermediates: '%',
+                            final: 'G',
                           },
                           function () {
                             return y.selectDefaultCharset();
@@ -11084,65 +11084,65 @@
                       var b = function (e) {
                           S._parser.registerEscHandler(
                             {
-                              intermediates: "(",
+                              intermediates: '(',
                               final: e,
                             },
                             function () {
-                              return y.selectCharset("(" + e);
+                              return y.selectCharset('(' + e);
                             }
                           ),
                             S._parser.registerEscHandler(
                               {
-                                intermediates: ")",
+                                intermediates: ')',
                                 final: e,
                               },
                               function () {
-                                return y.selectCharset(")" + e);
+                                return y.selectCharset(')' + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               {
-                                intermediates: "*",
+                                intermediates: '*',
                                 final: e,
                               },
                               function () {
-                                return y.selectCharset("*" + e);
+                                return y.selectCharset('*' + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               {
-                                intermediates: "+",
+                                intermediates: '+',
                                 final: e,
                               },
                               function () {
-                                return y.selectCharset("+" + e);
+                                return y.selectCharset('+' + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               {
-                                intermediates: "-",
+                                intermediates: '-',
                                 final: e,
                               },
                               function () {
-                                return y.selectCharset("-" + e);
+                                return y.selectCharset('-' + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               {
-                                intermediates: ".",
+                                intermediates: '.',
                                 final: e,
                               },
                               function () {
-                                return y.selectCharset("." + e);
+                                return y.selectCharset('.' + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               {
-                                intermediates: "/",
+                                intermediates: '/',
                                 final: e,
                               },
                               function () {
-                                return y.selectCharset("/" + e);
+                                return y.selectCharset('/' + e);
                               }
                             );
                         },
@@ -11151,20 +11151,20 @@
                       return (
                         y._parser.registerEscHandler(
                           {
-                            intermediates: "#",
-                            final: "8",
+                            intermediates: '#',
+                            final: '8',
                           },
                           function () {
                             return y.screenAlignmentPattern();
                           }
                         ),
                         y._parser.setErrorHandler(function (e) {
-                          return y._logService.error("Parsing error: ", e), e;
+                          return y._logService.error('Parsing error: ', e), e;
                         }),
                         y._parser.registerDcsHandler(
                           {
-                            intermediates: "$",
-                            final: "q",
+                            intermediates: '$',
+                            final: 'q',
                           },
                           new C(
                             y._bufferService,
@@ -11178,7 +11178,7 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "onRequestBell", {
+                      Object.defineProperty(t.prototype, 'onRequestBell', {
                         get: function () {
                           return this._onRequestBell.event;
                         },
@@ -11187,7 +11187,7 @@
                       }),
                       Object.defineProperty(
                         t.prototype,
-                        "onRequestRefreshRows",
+                        'onRequestRefreshRows',
                         {
                           get: function () {
                             return this._onRequestRefreshRows.event;
@@ -11196,14 +11196,14 @@
                           configurable: !0,
                         }
                       ),
-                      Object.defineProperty(t.prototype, "onRequestReset", {
+                      Object.defineProperty(t.prototype, 'onRequestReset', {
                         get: function () {
                           return this._onRequestReset.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onRequestScroll", {
+                      Object.defineProperty(t.prototype, 'onRequestScroll', {
                         get: function () {
                           return this._onRequestScroll.event;
                         },
@@ -11212,7 +11212,7 @@
                       }),
                       Object.defineProperty(
                         t.prototype,
-                        "onRequestSyncScrollBar",
+                        'onRequestSyncScrollBar',
                         {
                           get: function () {
                             return this._onRequestSyncScrollBar.event;
@@ -11223,7 +11223,7 @@
                       ),
                       Object.defineProperty(
                         t.prototype,
-                        "onRequestWindowsOptionsReport",
+                        'onRequestWindowsOptionsReport',
                         {
                           get: function () {
                             return this._onRequestWindowsOptionsReport.event;
@@ -11232,49 +11232,49 @@
                           configurable: !0,
                         }
                       ),
-                      Object.defineProperty(t.prototype, "onA11yChar", {
+                      Object.defineProperty(t.prototype, 'onA11yChar', {
                         get: function () {
                           return this._onA11yChar.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onA11yTab", {
+                      Object.defineProperty(t.prototype, 'onA11yTab', {
                         get: function () {
                           return this._onA11yTab.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onCursorMove", {
+                      Object.defineProperty(t.prototype, 'onCursorMove', {
                         get: function () {
                           return this._onCursorMove.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onLineFeed", {
+                      Object.defineProperty(t.prototype, 'onLineFeed', {
                         get: function () {
                           return this._onLineFeed.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onScroll", {
+                      Object.defineProperty(t.prototype, 'onScroll', {
                         get: function () {
                           return this._onScroll.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onTitleChange", {
+                      Object.defineProperty(t.prototype, 'onTitleChange', {
                         get: function () {
                           return this._onTitleChange.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onAnsiColorChange", {
+                      Object.defineProperty(t.prototype, 'onAnsiColorChange', {
                         get: function () {
                           return this._onAnsiColorChange.event;
                         },
@@ -11289,7 +11289,7 @@
                           r = t.x,
                           i = t.y;
                         if (
-                          (this._logService.debug("parsing data", e),
+                          (this._logService.debug('parsing data', e),
                           this._parseBuffer.length < e.length &&
                             this._parseBuffer.length < S &&
                             (this._parseBuffer = new Uint32Array(
@@ -11301,7 +11301,7 @@
                           for (var n = 0; n < e.length; n += S) {
                             var o = n + S < e.length ? n + S : e.length,
                               s =
-                                "string" == typeof e
+                                'string' == typeof e
                                   ? this._stringDecoder.decode(
                                       e.substring(n, o),
                                       this._parseBuffer
@@ -11314,7 +11314,7 @@
                           }
                         else
                           (s =
-                            "string" == typeof e
+                            'string' == typeof e
                               ? this._stringDecoder.decode(e, this._parseBuffer)
                               : this._utf8Decoder.decode(e, this._parseBuffer)),
                             this._parser.parse(this._parseBuffer, s);
@@ -11451,7 +11451,7 @@
                       }),
                       (t.prototype.addCsiHandler = function (e, t) {
                         var r = this;
-                        return "t" !== e.final || e.prefix || e.intermediates
+                        return 't' !== e.final || e.prefix || e.intermediates
                           ? this._parser.registerCsiHandler(e, t)
                           : this._parser.registerCsiHandler(e, function (e) {
                               return (
@@ -12134,15 +12134,15 @@
                       (t.prototype.sendDeviceAttributesPrimary = function (e) {
                         return (
                           e.params[0] > 0 ||
-                            (this._is("xterm") ||
-                            this._is("rxvt-unicode") ||
-                            this._is("screen")
+                            (this._is('xterm') ||
+                            this._is('rxvt-unicode') ||
+                            this._is('screen')
                               ? this._coreService.triggerDataEvent(
-                                  s.C0.ESC + "[?1;2c"
+                                  s.C0.ESC + '[?1;2c'
                                 )
-                              : this._is("linux") &&
+                              : this._is('linux') &&
                                 this._coreService.triggerDataEvent(
-                                  s.C0.ESC + "[?6c"
+                                  s.C0.ESC + '[?6c'
                                 )),
                           !0
                         );
@@ -12152,21 +12152,21 @@
                       ) {
                         return (
                           e.params[0] > 0 ||
-                            (this._is("xterm")
+                            (this._is('xterm')
                               ? this._coreService.triggerDataEvent(
-                                  s.C0.ESC + "[>0;276;0c"
+                                  s.C0.ESC + '[>0;276;0c'
                                 )
-                              : this._is("rxvt-unicode")
+                              : this._is('rxvt-unicode')
                               ? this._coreService.triggerDataEvent(
-                                  s.C0.ESC + "[>85;95;0c"
+                                  s.C0.ESC + '[>85;95;0c'
                                 )
-                              : this._is("linux")
+                              : this._is('linux')
                               ? this._coreService.triggerDataEvent(
-                                  e.params[0] + "c"
+                                  e.params[0] + 'c'
                                 )
-                              : this._is("screen") &&
+                              : this._is('screen') &&
                                 this._coreService.triggerDataEvent(
-                                  s.C0.ESC + "[>83;40003;0c"
+                                  s.C0.ESC + '[>83;40003;0c'
                                 )),
                           !0
                         );
@@ -12174,7 +12174,7 @@
                       (t.prototype._is = function (e) {
                         return (
                           0 ===
-                          (this._optionsService.options.termName + "").indexOf(
+                          (this._optionsService.options.termName + '').indexOf(
                             e
                           )
                         );
@@ -12236,38 +12236,38 @@
                               break;
                             case 66:
                               this._logService.debug(
-                                "Serial port requested application keypad."
+                                'Serial port requested application keypad.'
                               ),
                                 (this._coreService.decPrivateModes.applicationKeypad =
                                   !0),
                                 this._onRequestSyncScrollBar.fire();
                               break;
                             case 9:
-                              this._coreMouseService.activeProtocol = "X10";
+                              this._coreMouseService.activeProtocol = 'X10';
                               break;
                             case 1e3:
-                              this._coreMouseService.activeProtocol = "VT200";
+                              this._coreMouseService.activeProtocol = 'VT200';
                               break;
                             case 1002:
-                              this._coreMouseService.activeProtocol = "DRAG";
+                              this._coreMouseService.activeProtocol = 'DRAG';
                               break;
                             case 1003:
-                              this._coreMouseService.activeProtocol = "ANY";
+                              this._coreMouseService.activeProtocol = 'ANY';
                               break;
                             case 1004:
                               this._coreService.decPrivateModes.sendFocus = !0;
                               break;
                             case 1005:
                               this._logService.debug(
-                                "DECSET 1005 not supported (see #2507)"
+                                'DECSET 1005 not supported (see #2507)'
                               );
                               break;
                             case 1006:
-                              this._coreMouseService.activeEncoding = "SGR";
+                              this._coreMouseService.activeEncoding = 'SGR';
                               break;
                             case 1015:
                               this._logService.debug(
-                                "DECSET 1015 not supported (see #2507)"
+                                'DECSET 1015 not supported (see #2507)'
                               );
                               break;
                             case 25:
@@ -12335,7 +12335,7 @@
                               break;
                             case 66:
                               this._logService.debug(
-                                "Switching back to normal keypad."
+                                'Switching back to normal keypad.'
                               ),
                                 (this._coreService.decPrivateModes.applicationKeypad =
                                   !1),
@@ -12345,22 +12345,22 @@
                             case 1e3:
                             case 1002:
                             case 1003:
-                              this._coreMouseService.activeProtocol = "NONE";
+                              this._coreMouseService.activeProtocol = 'NONE';
                               break;
                             case 1004:
                               this._coreService.decPrivateModes.sendFocus = !1;
                               break;
                             case 1005:
                               this._logService.debug(
-                                "DECRST 1005 not supported (see #2507)"
+                                'DECRST 1005 not supported (see #2507)'
                               );
                               break;
                             case 1006:
-                              this._coreMouseService.activeEncoding = "DEFAULT";
+                              this._coreMouseService.activeEncoding = 'DEFAULT';
                               break;
                             case 1015:
                               this._logService.debug(
-                                "DECRST 1015 not supported (see #2507)"
+                                'DECRST 1015 not supported (see #2507)'
                               );
                               break;
                             case 25:
@@ -12543,7 +12543,7 @@
                               (i.bg &= -67108864),
                               (i.bg |= 16777215 & f.DEFAULT_ATTR_DATA.bg))
                             : this._logService.debug(
-                                "Unknown SGR attribute: %d.",
+                                'Unknown SGR attribute: %d.',
                                 t
                               );
                         return !0;
@@ -12552,14 +12552,14 @@
                         switch (e.params[0]) {
                           case 5:
                             this._coreService.triggerDataEvent(
-                              s.C0.ESC + "[0n"
+                              s.C0.ESC + '[0n'
                             );
                             break;
                           case 6:
                             var t = this._bufferService.buffer.y + 1,
                               r = this._bufferService.buffer.x + 1;
                             this._coreService.triggerDataEvent(
-                              s.C0.ESC + "[" + t + ";" + r + "R"
+                              s.C0.ESC + '[' + t + ';' + r + 'R'
                             );
                         }
                         return !0;
@@ -12570,7 +12570,7 @@
                             var t = this._bufferService.buffer.y + 1,
                               r = this._bufferService.buffer.x + 1;
                             this._coreService.triggerDataEvent(
-                              s.C0.ESC + "[?" + t + ";" + r + "R"
+                              s.C0.ESC + '[?' + t + ';' + r + 'R'
                             );
                         }
                         return !0;
@@ -12603,16 +12603,16 @@
                         switch (t) {
                           case 1:
                           case 2:
-                            this._optionsService.options.cursorStyle = "block";
+                            this._optionsService.options.cursorStyle = 'block';
                             break;
                           case 3:
                           case 4:
                             this._optionsService.options.cursorStyle =
-                              "underline";
+                              'underline';
                             break;
                           case 5:
                           case 6:
-                            this._optionsService.options.cursorStyle = "bar";
+                            this._optionsService.options.cursorStyle = 'bar';
                         }
                         var r = t % 2 == 1;
                         return (
@@ -12659,11 +12659,11 @@
                             this._bufferService &&
                               this._coreService.triggerDataEvent(
                                 s.C0.ESC +
-                                  "[8;" +
+                                  '[8;' +
                                   this._bufferService.rows +
-                                  ";" +
+                                  ';' +
                                   this._bufferService.cols +
-                                  "t"
+                                  't'
                               );
                             break;
                           case 22:
@@ -12758,7 +12758,7 @@
                           t
                             ? this._onAnsiColorChange.fire(t)
                             : this._logService.warn(
-                                "Expected format <num>;rgb:<rr>/<gg>/<bb> but got data: " +
+                                'Expected format <num>;rgb:<rr>/<gg>/<bb> but got data: ' +
                                   e
                               ),
                           !0
@@ -12772,7 +12772,7 @@
                       (t.prototype.keypadApplicationMode = function () {
                         return (
                           this._logService.debug(
-                            "Serial port requested application keypad."
+                            'Serial port requested application keypad.'
                           ),
                           (this._coreService.decPrivateModes.applicationKeypad =
                             !0),
@@ -12783,7 +12783,7 @@
                       (t.prototype.keypadNumericMode = function () {
                         return (
                           this._logService.debug(
-                            "Switching back to normal keypad."
+                            'Switching back to normal keypad.'
                           ),
                           (this._coreService.decPrivateModes.applicationKeypad =
                             !1),
@@ -12804,7 +12804,7 @@
                       (t.prototype.selectCharset = function (e) {
                         return 2 !== e.length
                           ? (this.selectDefaultCharset(), !0)
-                          : ("/" === e[0] ||
+                          : ('/' === e[0] ||
                               this._charsetService.setgCharset(
                                 b[e[0]],
                                 a.CHARSETS[e[1]] || a.DEFAULT_CHARSET
@@ -12873,7 +12873,7 @@
                       }),
                       (t.prototype.screenAlignmentPattern = function () {
                         var e = new p.CellData();
-                        (e.content = (1 << 22) | "E".charCodeAt(0)),
+                        (e.content = (1 << 22) | 'E'.charCodeAt(0)),
                           (e.fg = this._curAttrData.fg),
                           (e.bg = this._curAttrData.bg);
                         var t = this._bufferService.buffer;
@@ -12895,7 +12895,7 @@
                 t.InputHandler = w;
               },
               844: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.getDisposeArrayDisposable =
@@ -12939,7 +12939,7 @@
                   });
               },
               6114: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.isLinux =
@@ -12950,26 +12950,26 @@
                     t.isSafari =
                     t.isFirefox =
                       void 0);
-                var r = "undefined" == typeof navigator,
-                  i = r ? "node" : navigator.userAgent,
-                  n = r ? "node" : navigator.platform;
-                (t.isFirefox = i.includes("Firefox")),
+                var r = 'undefined' == typeof navigator,
+                  i = r ? 'node' : navigator.userAgent,
+                  n = r ? 'node' : navigator.platform;
+                (t.isFirefox = i.includes('Firefox')),
                   (t.isSafari = /^((?!chrome|android).)*safari/i.test(i)),
                   (t.isMac = [
-                    "Macintosh",
-                    "MacIntel",
-                    "MacPPC",
-                    "Mac68K",
+                    'Macintosh',
+                    'MacIntel',
+                    'MacPPC',
+                    'Mac68K',
                   ].includes(n)),
-                  (t.isIpad = "iPad" === n),
-                  (t.isIphone = "iPhone" === n),
+                  (t.isIpad = 'iPad' === n),
+                  (t.isIphone = 'iPhone' === n),
                   (t.isWindows = [
-                    "Windows",
-                    "Win16",
-                    "Win32",
-                    "WinCE",
+                    'Windows',
+                    'Win16',
+                    'Win32',
+                    'WinCE',
                   ].includes(n)),
-                  (t.isLinux = n.indexOf("Linux") >= 0);
+                  (t.isLinux = n.indexOf('Linux') >= 0);
               },
               8273: (e, t) => {
                 function r(e, t, r, i) {
@@ -12984,7 +12984,7 @@
                   for (var n = r; n < i; ++n) e[n] = t;
                   return e;
                 }
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.concat = t.fillFallback = t.fill = void 0),
@@ -12998,7 +12998,7 @@
                   });
               },
               9282: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.updateWindowsModeWrappedState = void 0);
@@ -13015,7 +13015,7 @@
                 };
               },
               3734: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.ExtendedAttrs = t.AttributeData = void 0);
@@ -13198,7 +13198,7 @@
                 t.ExtendedAttrs = i;
               },
               9092: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.BufferStringIterator =
@@ -13282,7 +13282,7 @@
                         t
                       );
                     }),
-                    Object.defineProperty(e.prototype, "hasScrollback", {
+                    Object.defineProperty(e.prototype, 'hasScrollback', {
                       get: function () {
                         return (
                           this._hasScrollback &&
@@ -13292,7 +13292,7 @@
                       enumerable: !1,
                       configurable: !0,
                     }),
-                    Object.defineProperty(e.prototype, "isCursorInViewport", {
+                    Object.defineProperty(e.prototype, 'isCursorInViewport', {
                       get: function () {
                         var e = this.ybase + this.y - this.ydisp;
                         return e >= 0 && e < this._rows;
@@ -13377,7 +13377,7 @@
                           this.lines.get(o).resize(e, r);
                       (this._cols = e), (this._rows = t);
                     }),
-                    Object.defineProperty(e.prototype, "_isReflowEnabled", {
+                    Object.defineProperty(e.prototype, '_isReflowEnabled', {
                       get: function () {
                         return (
                           this._hasScrollback &&
@@ -13584,7 +13584,7 @@
                     ) {
                       void 0 === r && (r = 0);
                       var n = this.lines.get(e);
-                      return n ? n.translateToString(t, r, i) : "";
+                      return n ? n.translateToString(t, r, i) : '';
                     }),
                     (e.prototype.getWrappedRangeForLine = function (e) {
                       for (
@@ -13703,7 +13703,7 @@
                           (e.last = this._endIndex + this._endOverscan),
                         (e.first = Math.max(e.first, 0)),
                         (e.last = Math.min(e.last, this._buffer.lines.length));
-                      for (var t = "", r = e.first; r <= e.last; ++r)
+                      for (var t = '', r = e.first; r <= e.last; ++r)
                         t += this._buffer.translateBufferLineToString(
                           r,
                           this._trimRight
@@ -13722,7 +13722,7 @@
                 t.BufferStringIterator = f;
               },
               8437: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.BufferLine = t.DEFAULT_ATTR_DATA = void 0);
@@ -13764,7 +13764,7 @@
                           ? this._combined[e]
                           : r
                           ? i.stringFromCodePoint(r)
-                          : "",
+                          : '',
                         t >> 22,
                         2097152 & t
                           ? this._combined[e].charCodeAt(
@@ -13815,7 +13815,7 @@
                         ? this._combined[e]
                         : 2097151 & t
                         ? i.stringFromCodePoint(2097151 & t)
-                        : "";
+                        : '';
                     }),
                     (e.prototype.loadCell = function (e, t) {
                       var r = 3 * e;
@@ -14045,7 +14045,7 @@
                         void 0 === t && (t = 0),
                         void 0 === r && (r = this.length),
                         e && (r = Math.min(r, this.getTrimmedLength()));
-                      for (var o = ""; t < r; ) {
+                      for (var o = ''; t < r; ) {
                         var s = this._data[3 * t + 0],
                           a = 2097151 & s;
                         (o +=
@@ -14070,7 +14070,7 @@
                     n = 2 === e[t + 1].getWidth(0);
                   return i && n ? r - 1 : r;
                 }
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.getWrappedLineTrimmedLength =
@@ -14214,7 +14214,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.BufferSet = void 0);
@@ -14235,7 +14235,7 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "onBufferActivate", {
+                      Object.defineProperty(t.prototype, 'onBufferActivate', {
                         get: function () {
                           return this._onBufferActivate.event;
                         },
@@ -14257,21 +14257,21 @@
                           (this._activeBuffer = this._normal),
                           this.setupTabStops();
                       }),
-                      Object.defineProperty(t.prototype, "alt", {
+                      Object.defineProperty(t.prototype, 'alt', {
                         get: function () {
                           return this._alt;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "active", {
+                      Object.defineProperty(t.prototype, 'active', {
                         get: function () {
                           return this._activeBuffer;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "normal", {
+                      Object.defineProperty(t.prototype, 'normal', {
                         get: function () {
                           return this._normal;
                         },
@@ -14341,7 +14341,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CellData = void 0);
@@ -14356,7 +14356,7 @@
                         (t.fg = 0),
                         (t.bg = 0),
                         (t.extended = new a.ExtendedAttrs()),
-                        (t.combinedData = ""),
+                        (t.combinedData = ''),
                         t
                       );
                     }
@@ -14377,7 +14377,7 @@
                           ? this.combinedData
                           : 2097151 & this.content
                           ? o.stringFromCodePoint(2097151 & this.content)
-                          : "";
+                          : '';
                       }),
                       (t.prototype.getCode = function () {
                         return this.isCombined()
@@ -14423,7 +14423,7 @@
                 t.CellData = c;
               },
               643: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.WHITESPACE_CELL_CODE =
@@ -14445,10 +14445,10 @@
                   (t.CHAR_DATA_CHAR_INDEX = 1),
                   (t.CHAR_DATA_WIDTH_INDEX = 2),
                   (t.CHAR_DATA_CODE_INDEX = 3),
-                  (t.NULL_CELL_CHAR = ""),
+                  (t.NULL_CELL_CHAR = ''),
                   (t.NULL_CELL_WIDTH = 1),
                   (t.NULL_CELL_CODE = 0),
-                  (t.WHITESPACE_CELL_CHAR = " "),
+                  (t.WHITESPACE_CELL_CHAR = ' '),
                   (t.WHITESPACE_CELL_WIDTH = 1),
                   (t.WHITESPACE_CELL_CODE = 32);
               },
@@ -14481,7 +14481,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Marker = void 0);
@@ -14499,14 +14499,14 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "id", {
+                      Object.defineProperty(t.prototype, 'id', {
                         get: function () {
                           return this._id;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onDispose", {
+                      Object.defineProperty(t.prototype, 'onDispose', {
                         get: function () {
                           return this._onDispose.event;
                         },
@@ -14527,268 +14527,268 @@
                 t.Marker = s;
               },
               7116: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.DEFAULT_CHARSET = t.CHARSETS = void 0),
                   (t.CHARSETS = {}),
                   (t.DEFAULT_CHARSET = t.CHARSETS.B),
                   (t.CHARSETS[0] = {
-                    "`": "\u25c6",
-                    a: "\u2592",
-                    b: "\u2409",
-                    c: "\u240c",
-                    d: "\u240d",
-                    e: "\u240a",
-                    f: "\xb0",
-                    g: "\xb1",
-                    h: "\u2424",
-                    i: "\u240b",
-                    j: "\u2518",
-                    k: "\u2510",
-                    l: "\u250c",
-                    m: "\u2514",
-                    n: "\u253c",
-                    o: "\u23ba",
-                    p: "\u23bb",
-                    q: "\u2500",
-                    r: "\u23bc",
-                    s: "\u23bd",
-                    t: "\u251c",
-                    u: "\u2524",
-                    v: "\u2534",
-                    w: "\u252c",
-                    x: "\u2502",
-                    y: "\u2264",
-                    z: "\u2265",
-                    "{": "\u03c0",
-                    "|": "\u2260",
-                    "}": "\xa3",
-                    "~": "\xb7",
+                    '`': '\u25c6',
+                    a: '\u2592',
+                    b: '\u2409',
+                    c: '\u240c',
+                    d: '\u240d',
+                    e: '\u240a',
+                    f: '\xb0',
+                    g: '\xb1',
+                    h: '\u2424',
+                    i: '\u240b',
+                    j: '\u2518',
+                    k: '\u2510',
+                    l: '\u250c',
+                    m: '\u2514',
+                    n: '\u253c',
+                    o: '\u23ba',
+                    p: '\u23bb',
+                    q: '\u2500',
+                    r: '\u23bc',
+                    s: '\u23bd',
+                    t: '\u251c',
+                    u: '\u2524',
+                    v: '\u2534',
+                    w: '\u252c',
+                    x: '\u2502',
+                    y: '\u2264',
+                    z: '\u2265',
+                    '{': '\u03c0',
+                    '|': '\u2260',
+                    '}': '\xa3',
+                    '~': '\xb7',
                   }),
                   (t.CHARSETS.A = {
-                    "#": "\xa3",
+                    '#': '\xa3',
                   }),
                   (t.CHARSETS.B = void 0),
                   (t.CHARSETS[4] = {
-                    "#": "\xa3",
-                    "@": "\xbe",
-                    "[": "ij",
-                    "\\": "\xbd",
-                    "]": "|",
-                    "{": "\xa8",
-                    "|": "f",
-                    "}": "\xbc",
-                    "~": "\xb4",
+                    '#': '\xa3',
+                    '@': '\xbe',
+                    '[': 'ij',
+                    '\\': '\xbd',
+                    ']': '|',
+                    '{': '\xa8',
+                    '|': 'f',
+                    '}': '\xbc',
+                    '~': '\xb4',
                   }),
                   (t.CHARSETS.C = t.CHARSETS[5] =
                     {
-                      "[": "\xc4",
-                      "\\": "\xd6",
-                      "]": "\xc5",
-                      "^": "\xdc",
-                      "`": "\xe9",
-                      "{": "\xe4",
-                      "|": "\xf6",
-                      "}": "\xe5",
-                      "~": "\xfc",
+                      '[': '\xc4',
+                      '\\': '\xd6',
+                      ']': '\xc5',
+                      '^': '\xdc',
+                      '`': '\xe9',
+                      '{': '\xe4',
+                      '|': '\xf6',
+                      '}': '\xe5',
+                      '~': '\xfc',
                     }),
                   (t.CHARSETS.R = {
-                    "#": "\xa3",
-                    "@": "\xe0",
-                    "[": "\xb0",
-                    "\\": "\xe7",
-                    "]": "\xa7",
-                    "{": "\xe9",
-                    "|": "\xf9",
-                    "}": "\xe8",
-                    "~": "\xa8",
+                    '#': '\xa3',
+                    '@': '\xe0',
+                    '[': '\xb0',
+                    '\\': '\xe7',
+                    ']': '\xa7',
+                    '{': '\xe9',
+                    '|': '\xf9',
+                    '}': '\xe8',
+                    '~': '\xa8',
                   }),
                   (t.CHARSETS.Q = {
-                    "@": "\xe0",
-                    "[": "\xe2",
-                    "\\": "\xe7",
-                    "]": "\xea",
-                    "^": "\xee",
-                    "`": "\xf4",
-                    "{": "\xe9",
-                    "|": "\xf9",
-                    "}": "\xe8",
-                    "~": "\xfb",
+                    '@': '\xe0',
+                    '[': '\xe2',
+                    '\\': '\xe7',
+                    ']': '\xea',
+                    '^': '\xee',
+                    '`': '\xf4',
+                    '{': '\xe9',
+                    '|': '\xf9',
+                    '}': '\xe8',
+                    '~': '\xfb',
                   }),
                   (t.CHARSETS.K = {
-                    "@": "\xa7",
-                    "[": "\xc4",
-                    "\\": "\xd6",
-                    "]": "\xdc",
-                    "{": "\xe4",
-                    "|": "\xf6",
-                    "}": "\xfc",
-                    "~": "\xdf",
+                    '@': '\xa7',
+                    '[': '\xc4',
+                    '\\': '\xd6',
+                    ']': '\xdc',
+                    '{': '\xe4',
+                    '|': '\xf6',
+                    '}': '\xfc',
+                    '~': '\xdf',
                   }),
                   (t.CHARSETS.Y = {
-                    "#": "\xa3",
-                    "@": "\xa7",
-                    "[": "\xb0",
-                    "\\": "\xe7",
-                    "]": "\xe9",
-                    "`": "\xf9",
-                    "{": "\xe0",
-                    "|": "\xf2",
-                    "}": "\xe8",
-                    "~": "\xec",
+                    '#': '\xa3',
+                    '@': '\xa7',
+                    '[': '\xb0',
+                    '\\': '\xe7',
+                    ']': '\xe9',
+                    '`': '\xf9',
+                    '{': '\xe0',
+                    '|': '\xf2',
+                    '}': '\xe8',
+                    '~': '\xec',
                   }),
                   (t.CHARSETS.E = t.CHARSETS[6] =
                     {
-                      "@": "\xc4",
-                      "[": "\xc6",
-                      "\\": "\xd8",
-                      "]": "\xc5",
-                      "^": "\xdc",
-                      "`": "\xe4",
-                      "{": "\xe6",
-                      "|": "\xf8",
-                      "}": "\xe5",
-                      "~": "\xfc",
+                      '@': '\xc4',
+                      '[': '\xc6',
+                      '\\': '\xd8',
+                      ']': '\xc5',
+                      '^': '\xdc',
+                      '`': '\xe4',
+                      '{': '\xe6',
+                      '|': '\xf8',
+                      '}': '\xe5',
+                      '~': '\xfc',
                     }),
                   (t.CHARSETS.Z = {
-                    "#": "\xa3",
-                    "@": "\xa7",
-                    "[": "\xa1",
-                    "\\": "\xd1",
-                    "]": "\xbf",
-                    "{": "\xb0",
-                    "|": "\xf1",
-                    "}": "\xe7",
+                    '#': '\xa3',
+                    '@': '\xa7',
+                    '[': '\xa1',
+                    '\\': '\xd1',
+                    ']': '\xbf',
+                    '{': '\xb0',
+                    '|': '\xf1',
+                    '}': '\xe7',
                   }),
                   (t.CHARSETS.H = t.CHARSETS[7] =
                     {
-                      "@": "\xc9",
-                      "[": "\xc4",
-                      "\\": "\xd6",
-                      "]": "\xc5",
-                      "^": "\xdc",
-                      "`": "\xe9",
-                      "{": "\xe4",
-                      "|": "\xf6",
-                      "}": "\xe5",
-                      "~": "\xfc",
+                      '@': '\xc9',
+                      '[': '\xc4',
+                      '\\': '\xd6',
+                      ']': '\xc5',
+                      '^': '\xdc',
+                      '`': '\xe9',
+                      '{': '\xe4',
+                      '|': '\xf6',
+                      '}': '\xe5',
+                      '~': '\xfc',
                     }),
-                  (t.CHARSETS["="] = {
-                    "#": "\xf9",
-                    "@": "\xe0",
-                    "[": "\xe9",
-                    "\\": "\xe7",
-                    "]": "\xea",
-                    "^": "\xee",
-                    _: "\xe8",
-                    "`": "\xf4",
-                    "{": "\xe4",
-                    "|": "\xf6",
-                    "}": "\xfc",
-                    "~": "\xfb",
+                  (t.CHARSETS['='] = {
+                    '#': '\xf9',
+                    '@': '\xe0',
+                    '[': '\xe9',
+                    '\\': '\xe7',
+                    ']': '\xea',
+                    '^': '\xee',
+                    _: '\xe8',
+                    '`': '\xf4',
+                    '{': '\xe4',
+                    '|': '\xf6',
+                    '}': '\xfc',
+                    '~': '\xfb',
                   });
               },
               2584: (e, t) => {
                 var r, i;
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.C1 = t.C0 = void 0),
-                  ((i = t.C0 || (t.C0 = {})).NUL = "\0"),
-                  (i.SOH = "\x01"),
-                  (i.STX = "\x02"),
-                  (i.ETX = "\x03"),
-                  (i.EOT = "\x04"),
-                  (i.ENQ = "\x05"),
-                  (i.ACK = "\x06"),
-                  (i.BEL = "\x07"),
-                  (i.BS = "\b"),
-                  (i.HT = "\t"),
-                  (i.LF = "\n"),
-                  (i.VT = "\v"),
-                  (i.FF = "\f"),
-                  (i.CR = "\r"),
-                  (i.SO = "\x0e"),
-                  (i.SI = "\x0f"),
-                  (i.DLE = "\x10"),
-                  (i.DC1 = "\x11"),
-                  (i.DC2 = "\x12"),
-                  (i.DC3 = "\x13"),
-                  (i.DC4 = "\x14"),
-                  (i.NAK = "\x15"),
-                  (i.SYN = "\x16"),
-                  (i.ETB = "\x17"),
-                  (i.CAN = "\x18"),
-                  (i.EM = "\x19"),
-                  (i.SUB = "\x1a"),
-                  (i.ESC = "\x1b"),
-                  (i.FS = "\x1c"),
-                  (i.GS = "\x1d"),
-                  (i.RS = "\x1e"),
-                  (i.US = "\x1f"),
-                  (i.SP = " "),
-                  (i.DEL = "\x7f"),
-                  ((r = t.C1 || (t.C1 = {})).PAD = "\x80"),
-                  (r.HOP = "\x81"),
-                  (r.BPH = "\x82"),
-                  (r.NBH = "\x83"),
-                  (r.IND = "\x84"),
-                  (r.NEL = "\x85"),
-                  (r.SSA = "\x86"),
-                  (r.ESA = "\x87"),
-                  (r.HTS = "\x88"),
-                  (r.HTJ = "\x89"),
-                  (r.VTS = "\x8a"),
-                  (r.PLD = "\x8b"),
-                  (r.PLU = "\x8c"),
-                  (r.RI = "\x8d"),
-                  (r.SS2 = "\x8e"),
-                  (r.SS3 = "\x8f"),
-                  (r.DCS = "\x90"),
-                  (r.PU1 = "\x91"),
-                  (r.PU2 = "\x92"),
-                  (r.STS = "\x93"),
-                  (r.CCH = "\x94"),
-                  (r.MW = "\x95"),
-                  (r.SPA = "\x96"),
-                  (r.EPA = "\x97"),
-                  (r.SOS = "\x98"),
-                  (r.SGCI = "\x99"),
-                  (r.SCI = "\x9a"),
-                  (r.CSI = "\x9b"),
-                  (r.ST = "\x9c"),
-                  (r.OSC = "\x9d"),
-                  (r.PM = "\x9e"),
-                  (r.APC = "\x9f");
+                  ((i = t.C0 || (t.C0 = {})).NUL = '\0'),
+                  (i.SOH = '\x01'),
+                  (i.STX = '\x02'),
+                  (i.ETX = '\x03'),
+                  (i.EOT = '\x04'),
+                  (i.ENQ = '\x05'),
+                  (i.ACK = '\x06'),
+                  (i.BEL = '\x07'),
+                  (i.BS = '\b'),
+                  (i.HT = '\t'),
+                  (i.LF = '\n'),
+                  (i.VT = '\v'),
+                  (i.FF = '\f'),
+                  (i.CR = '\r'),
+                  (i.SO = '\x0e'),
+                  (i.SI = '\x0f'),
+                  (i.DLE = '\x10'),
+                  (i.DC1 = '\x11'),
+                  (i.DC2 = '\x12'),
+                  (i.DC3 = '\x13'),
+                  (i.DC4 = '\x14'),
+                  (i.NAK = '\x15'),
+                  (i.SYN = '\x16'),
+                  (i.ETB = '\x17'),
+                  (i.CAN = '\x18'),
+                  (i.EM = '\x19'),
+                  (i.SUB = '\x1a'),
+                  (i.ESC = '\x1b'),
+                  (i.FS = '\x1c'),
+                  (i.GS = '\x1d'),
+                  (i.RS = '\x1e'),
+                  (i.US = '\x1f'),
+                  (i.SP = ' '),
+                  (i.DEL = '\x7f'),
+                  ((r = t.C1 || (t.C1 = {})).PAD = '\x80'),
+                  (r.HOP = '\x81'),
+                  (r.BPH = '\x82'),
+                  (r.NBH = '\x83'),
+                  (r.IND = '\x84'),
+                  (r.NEL = '\x85'),
+                  (r.SSA = '\x86'),
+                  (r.ESA = '\x87'),
+                  (r.HTS = '\x88'),
+                  (r.HTJ = '\x89'),
+                  (r.VTS = '\x8a'),
+                  (r.PLD = '\x8b'),
+                  (r.PLU = '\x8c'),
+                  (r.RI = '\x8d'),
+                  (r.SS2 = '\x8e'),
+                  (r.SS3 = '\x8f'),
+                  (r.DCS = '\x90'),
+                  (r.PU1 = '\x91'),
+                  (r.PU2 = '\x92'),
+                  (r.STS = '\x93'),
+                  (r.CCH = '\x94'),
+                  (r.MW = '\x95'),
+                  (r.SPA = '\x96'),
+                  (r.EPA = '\x97'),
+                  (r.SOS = '\x98'),
+                  (r.SGCI = '\x99'),
+                  (r.SCI = '\x9a'),
+                  (r.CSI = '\x9b'),
+                  (r.ST = '\x9c'),
+                  (r.OSC = '\x9d'),
+                  (r.PM = '\x9e'),
+                  (r.APC = '\x9f');
               },
               7399: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.evaluateKeyboardEvent = void 0);
                 var i = r(2584),
                   n = {
-                    48: ["0", ")"],
-                    49: ["1", "!"],
-                    50: ["2", "@"],
-                    51: ["3", "#"],
-                    52: ["4", "$"],
-                    53: ["5", "%"],
-                    54: ["6", "^"],
-                    55: ["7", "&"],
-                    56: ["8", "*"],
-                    57: ["9", "("],
-                    186: [";", ":"],
-                    187: ["=", "+"],
-                    188: [",", "<"],
-                    189: ["-", "_"],
-                    190: [".", ">"],
-                    191: ["/", "?"],
-                    192: ["`", "~"],
-                    219: ["[", "{"],
-                    220: ["\\", "|"],
-                    221: ["]", "}"],
+                    48: ['0', ')'],
+                    49: ['1', '!'],
+                    50: ['2', '@'],
+                    51: ['3', '#'],
+                    52: ['4', '$'],
+                    53: ['5', '%'],
+                    54: ['6', '^'],
+                    55: ['7', '&'],
+                    56: ['8', '*'],
+                    57: ['9', '('],
+                    186: [';', ':'],
+                    187: ['=', '+'],
+                    188: [',', '<'],
+                    189: ['-', '_'],
+                    190: ['.', '>'],
+                    191: ['/', '?'],
+                    192: ['`', '~'],
+                    219: ['[', '{'],
+                    220: ['\\', '|'],
+                    221: [']', '}'],
                     222: ["'", '"'],
                   };
                 t.evaluateKeyboardEvent = function (e, t, r, o) {
@@ -14804,14 +14804,14 @@
                       (e.metaKey ? 8 : 0);
                   switch (e.keyCode) {
                     case 0:
-                      "UIKeyInputUpArrow" === e.key
-                        ? (s.key = t ? i.C0.ESC + "OA" : i.C0.ESC + "[A")
-                        : "UIKeyInputLeftArrow" === e.key
-                        ? (s.key = t ? i.C0.ESC + "OD" : i.C0.ESC + "[D")
-                        : "UIKeyInputRightArrow" === e.key
-                        ? (s.key = t ? i.C0.ESC + "OC" : i.C0.ESC + "[C")
-                        : "UIKeyInputDownArrow" === e.key &&
-                          (s.key = t ? i.C0.ESC + "OB" : i.C0.ESC + "[B");
+                      'UIKeyInputUpArrow' === e.key
+                        ? (s.key = t ? i.C0.ESC + 'OA' : i.C0.ESC + '[A')
+                        : 'UIKeyInputLeftArrow' === e.key
+                        ? (s.key = t ? i.C0.ESC + 'OD' : i.C0.ESC + '[D')
+                        : 'UIKeyInputRightArrow' === e.key
+                        ? (s.key = t ? i.C0.ESC + 'OC' : i.C0.ESC + '[C')
+                        : 'UIKeyInputDownArrow' === e.key &&
+                          (s.key = t ? i.C0.ESC + 'OB' : i.C0.ESC + '[B');
                       break;
                     case 8:
                       if (e.shiftKey) {
@@ -14826,7 +14826,7 @@
                       break;
                     case 9:
                       if (e.shiftKey) {
-                        s.key = i.C0.ESC + "[Z";
+                        s.key = i.C0.ESC + '[Z';
                         break;
                       }
                       (s.key = i.C0.HT), (s.cancel = !0);
@@ -14843,124 +14843,124 @@
                     case 37:
                       if (e.metaKey) break;
                       a
-                        ? ((s.key = i.C0.ESC + "[1;" + (a + 1) + "D"),
-                          s.key === i.C0.ESC + "[1;3D" &&
-                            (s.key = i.C0.ESC + (r ? "b" : "[1;5D")))
-                        : (s.key = t ? i.C0.ESC + "OD" : i.C0.ESC + "[D");
+                        ? ((s.key = i.C0.ESC + '[1;' + (a + 1) + 'D'),
+                          s.key === i.C0.ESC + '[1;3D' &&
+                            (s.key = i.C0.ESC + (r ? 'b' : '[1;5D')))
+                        : (s.key = t ? i.C0.ESC + 'OD' : i.C0.ESC + '[D');
                       break;
                     case 39:
                       if (e.metaKey) break;
                       a
-                        ? ((s.key = i.C0.ESC + "[1;" + (a + 1) + "C"),
-                          s.key === i.C0.ESC + "[1;3C" &&
-                            (s.key = i.C0.ESC + (r ? "f" : "[1;5C")))
-                        : (s.key = t ? i.C0.ESC + "OC" : i.C0.ESC + "[C");
+                        ? ((s.key = i.C0.ESC + '[1;' + (a + 1) + 'C'),
+                          s.key === i.C0.ESC + '[1;3C' &&
+                            (s.key = i.C0.ESC + (r ? 'f' : '[1;5C')))
+                        : (s.key = t ? i.C0.ESC + 'OC' : i.C0.ESC + '[C');
                       break;
                     case 38:
                       if (e.metaKey) break;
                       a
-                        ? ((s.key = i.C0.ESC + "[1;" + (a + 1) + "A"),
+                        ? ((s.key = i.C0.ESC + '[1;' + (a + 1) + 'A'),
                           r ||
-                            s.key !== i.C0.ESC + "[1;3A" ||
-                            (s.key = i.C0.ESC + "[1;5A"))
-                        : (s.key = t ? i.C0.ESC + "OA" : i.C0.ESC + "[A");
+                            s.key !== i.C0.ESC + '[1;3A' ||
+                            (s.key = i.C0.ESC + '[1;5A'))
+                        : (s.key = t ? i.C0.ESC + 'OA' : i.C0.ESC + '[A');
                       break;
                     case 40:
                       if (e.metaKey) break;
                       a
-                        ? ((s.key = i.C0.ESC + "[1;" + (a + 1) + "B"),
+                        ? ((s.key = i.C0.ESC + '[1;' + (a + 1) + 'B'),
                           r ||
-                            s.key !== i.C0.ESC + "[1;3B" ||
-                            (s.key = i.C0.ESC + "[1;5B"))
-                        : (s.key = t ? i.C0.ESC + "OB" : i.C0.ESC + "[B");
+                            s.key !== i.C0.ESC + '[1;3B' ||
+                            (s.key = i.C0.ESC + '[1;5B'))
+                        : (s.key = t ? i.C0.ESC + 'OB' : i.C0.ESC + '[B');
                       break;
                     case 45:
-                      e.shiftKey || e.ctrlKey || (s.key = i.C0.ESC + "[2~");
+                      e.shiftKey || e.ctrlKey || (s.key = i.C0.ESC + '[2~');
                       break;
                     case 46:
                       s.key = a
-                        ? i.C0.ESC + "[3;" + (a + 1) + "~"
-                        : i.C0.ESC + "[3~";
+                        ? i.C0.ESC + '[3;' + (a + 1) + '~'
+                        : i.C0.ESC + '[3~';
                       break;
                     case 36:
                       s.key = a
-                        ? i.C0.ESC + "[1;" + (a + 1) + "H"
+                        ? i.C0.ESC + '[1;' + (a + 1) + 'H'
                         : t
-                        ? i.C0.ESC + "OH"
-                        : i.C0.ESC + "[H";
+                        ? i.C0.ESC + 'OH'
+                        : i.C0.ESC + '[H';
                       break;
                     case 35:
                       s.key = a
-                        ? i.C0.ESC + "[1;" + (a + 1) + "F"
+                        ? i.C0.ESC + '[1;' + (a + 1) + 'F'
                         : t
-                        ? i.C0.ESC + "OF"
-                        : i.C0.ESC + "[F";
+                        ? i.C0.ESC + 'OF'
+                        : i.C0.ESC + '[F';
                       break;
                     case 33:
-                      e.shiftKey ? (s.type = 2) : (s.key = i.C0.ESC + "[5~");
+                      e.shiftKey ? (s.type = 2) : (s.key = i.C0.ESC + '[5~');
                       break;
                     case 34:
-                      e.shiftKey ? (s.type = 3) : (s.key = i.C0.ESC + "[6~");
+                      e.shiftKey ? (s.type = 3) : (s.key = i.C0.ESC + '[6~');
                       break;
                     case 112:
                       s.key = a
-                        ? i.C0.ESC + "[1;" + (a + 1) + "P"
-                        : i.C0.ESC + "OP";
+                        ? i.C0.ESC + '[1;' + (a + 1) + 'P'
+                        : i.C0.ESC + 'OP';
                       break;
                     case 113:
                       s.key = a
-                        ? i.C0.ESC + "[1;" + (a + 1) + "Q"
-                        : i.C0.ESC + "OQ";
+                        ? i.C0.ESC + '[1;' + (a + 1) + 'Q'
+                        : i.C0.ESC + 'OQ';
                       break;
                     case 114:
                       s.key = a
-                        ? i.C0.ESC + "[1;" + (a + 1) + "R"
-                        : i.C0.ESC + "OR";
+                        ? i.C0.ESC + '[1;' + (a + 1) + 'R'
+                        : i.C0.ESC + 'OR';
                       break;
                     case 115:
                       s.key = a
-                        ? i.C0.ESC + "[1;" + (a + 1) + "S"
-                        : i.C0.ESC + "OS";
+                        ? i.C0.ESC + '[1;' + (a + 1) + 'S'
+                        : i.C0.ESC + 'OS';
                       break;
                     case 116:
                       s.key = a
-                        ? i.C0.ESC + "[15;" + (a + 1) + "~"
-                        : i.C0.ESC + "[15~";
+                        ? i.C0.ESC + '[15;' + (a + 1) + '~'
+                        : i.C0.ESC + '[15~';
                       break;
                     case 117:
                       s.key = a
-                        ? i.C0.ESC + "[17;" + (a + 1) + "~"
-                        : i.C0.ESC + "[17~";
+                        ? i.C0.ESC + '[17;' + (a + 1) + '~'
+                        : i.C0.ESC + '[17~';
                       break;
                     case 118:
                       s.key = a
-                        ? i.C0.ESC + "[18;" + (a + 1) + "~"
-                        : i.C0.ESC + "[18~";
+                        ? i.C0.ESC + '[18;' + (a + 1) + '~'
+                        : i.C0.ESC + '[18~';
                       break;
                     case 119:
                       s.key = a
-                        ? i.C0.ESC + "[19;" + (a + 1) + "~"
-                        : i.C0.ESC + "[19~";
+                        ? i.C0.ESC + '[19;' + (a + 1) + '~'
+                        : i.C0.ESC + '[19~';
                       break;
                     case 120:
                       s.key = a
-                        ? i.C0.ESC + "[20;" + (a + 1) + "~"
-                        : i.C0.ESC + "[20~";
+                        ? i.C0.ESC + '[20;' + (a + 1) + '~'
+                        : i.C0.ESC + '[20~';
                       break;
                     case 121:
                       s.key = a
-                        ? i.C0.ESC + "[21;" + (a + 1) + "~"
-                        : i.C0.ESC + "[21~";
+                        ? i.C0.ESC + '[21;' + (a + 1) + '~'
+                        : i.C0.ESC + '[21~';
                       break;
                     case 122:
                       s.key = a
-                        ? i.C0.ESC + "[23;" + (a + 1) + "~"
-                        : i.C0.ESC + "[23~";
+                        ? i.C0.ESC + '[23;' + (a + 1) + '~'
+                        : i.C0.ESC + '[23~';
                       break;
                     case 123:
                       s.key = a
-                        ? i.C0.ESC + "[24;" + (a + 1) + "~"
-                        : i.C0.ESC + "[24~";
+                        ? i.C0.ESC + '[24;' + (a + 1) + '~'
+                        : i.C0.ESC + '[24~';
                       break;
                     default:
                       if (!e.ctrlKey || e.shiftKey || e.altKey || e.metaKey)
@@ -14979,7 +14979,7 @@
                               ? (s.key = e.key)
                               : e.key &&
                                 e.ctrlKey &&
-                                "_" === e.key &&
+                                '_' === e.key &&
                                 (s.key = i.C0.US)
                             : 65 === e.keyCode && (s.type = 1);
                         else {
@@ -15010,7 +15010,7 @@
                 };
               },
               482: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Utf8ToUtf32 =
@@ -15027,7 +15027,7 @@
                   }),
                   (t.utf32ToString = function (e, t, r) {
                     void 0 === t && (t = 0), void 0 === r && (r = e.length);
-                    for (var i = "", n = t; n < r; ++n) {
+                    for (var i = '', n = t; n < r; ++n) {
                       var o = e[n];
                       o > 65535
                         ? ((o -= 65536),
@@ -15232,7 +15232,7 @@
                 t.Utf8ToUtf32 = i;
               },
               225: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.UnicodeV6 = void 0);
@@ -15386,7 +15386,7 @@
                   ],
                   a = (function () {
                     function e() {
-                      if (((this.version = "6"), !i)) {
+                      if (((this.version = '6'), !i)) {
                         (i = new Uint8Array(65536)),
                           n.fill(i, 1),
                           (i[0] = 0),
@@ -15440,7 +15440,7 @@
                 t.UnicodeV6 = a;
               },
               5981: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.WriteBuffer = void 0);
@@ -15475,7 +15475,7 @@
                       var r = this;
                       if (this._pendingData > 5e7)
                         throw new Error(
-                          "write data discarded, use flow control to avoid losing data"
+                          'write data discarded, use flow control to avoid losing data'
                         );
                       this._writeBuffer.length ||
                         ((this._bufferOffset = 0),
@@ -15526,14 +15526,14 @@
                 t.WriteBuffer = r;
               },
               5770: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.PAYLOAD_LIMIT = void 0),
                   (t.PAYLOAD_LIMIT = 1e7);
               },
               6351: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.DcsHandler = t.DcsParser = void 0);
@@ -15588,7 +15588,7 @@
                         )
                           for (var r = this._active.length - 1; r >= 0; r--)
                             this._active[r].hook(t);
-                        else this._handlerFb(this._ident, "HOOK", t);
+                        else this._handlerFb(this._ident, 'HOOK', t);
                       }),
                       (e.prototype.put = function (e, t, r) {
                         if (this._active.length)
@@ -15597,7 +15597,7 @@
                         else
                           this._handlerFb(
                             this._ident,
-                            "PUT",
+                            'PUT',
                             i.utf32ToString(e, t, r)
                           );
                       }),
@@ -15609,7 +15609,7 @@
                             t--
                           );
                           for (t--; t >= 0; t--) this._active[t].unhook(!1);
-                        } else this._handlerFb(this._ident, "UNHOOK", e);
+                        } else this._handlerFb(this._ident, 'UNHOOK', e);
                         (this._active = s), (this._ident = 0);
                       }),
                       e
@@ -15621,7 +15621,7 @@
                 var l = (function () {
                   function e(e) {
                     (this._handler = e),
-                      (this._data = ""),
+                      (this._data = ''),
                       (this._params = c),
                       (this._hitLimit = !1);
                   }
@@ -15629,14 +15629,14 @@
                     (e.prototype.hook = function (e) {
                       (this._params =
                         e.length > 1 || e.params[0] ? e.clone() : c),
-                        (this._data = ""),
+                        (this._data = ''),
                         (this._hitLimit = !1);
                     }),
                     (e.prototype.put = function (e, t, r) {
                       this._hitLimit ||
                         ((this._data += i.utf32ToString(e, t, r)),
                         this._data.length > o.PAYLOAD_LIMIT &&
-                          ((this._data = ""), (this._hitLimit = !0)));
+                          ((this._data = ''), (this._hitLimit = !0)));
                     }),
                     (e.prototype.unhook = function (e) {
                       var t = !1;
@@ -15645,7 +15645,7 @@
                           ? (t = !1)
                           : e && (t = this._handler(this._data, this._params)),
                         (this._params = c),
-                        (this._data = ""),
+                        (this._data = ''),
                         (this._hitLimit = !1),
                         t
                       );
@@ -15684,7 +15684,7 @@
                             ? Object.create(t)
                             : ((r.prototype = t.prototype), new r()));
                     });
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.EscapeSequenceParser =
@@ -15849,7 +15849,7 @@
                       (i._errorHandler = i._errorHandlerFb),
                       i.registerEscHandler(
                         {
-                          final: "\\",
+                          final: '\\',
                         },
                         function () {
                           return !0;
@@ -15865,39 +15865,39 @@
                       var r = 0;
                       if (e.prefix) {
                         if (e.prefix.length > 1)
-                          throw new Error("only one byte as prefix supported");
+                          throw new Error('only one byte as prefix supported');
                         if (((r = e.prefix.charCodeAt(0)) && 60 > r) || r > 63)
                           throw new Error(
-                            "prefix must be in range 0x3c .. 0x3f"
+                            'prefix must be in range 0x3c .. 0x3f'
                           );
                       }
                       if (e.intermediates) {
                         if (e.intermediates.length > 2)
                           throw new Error(
-                            "only two bytes as intermediates are supported"
+                            'only two bytes as intermediates are supported'
                           );
                         for (var i = 0; i < e.intermediates.length; ++i) {
                           var n = e.intermediates.charCodeAt(i);
                           if (32 > n || n > 47)
                             throw new Error(
-                              "intermediate must be in range 0x20 .. 0x2f"
+                              'intermediate must be in range 0x20 .. 0x2f'
                             );
                           (r <<= 8), (r |= n);
                         }
                       }
                       if (1 !== e.final.length)
-                        throw new Error("final must be a single byte");
+                        throw new Error('final must be a single byte');
                       var o = e.final.charCodeAt(0);
                       if (t[0] > o || o > t[1])
                         throw new Error(
-                          "final must be in range " + t[0] + " .. " + t[1]
+                          'final must be in range ' + t[0] + ' .. ' + t[1]
                         );
                       return (r <<= 8) | o;
                     }),
                     (r.prototype.identToString = function (e) {
                       for (var t = []; e; )
                         t.push(String.fromCharCode(255 & e)), (e >>= 8);
-                      return t.reverse().join("");
+                      return t.reverse().join('');
                     }),
                     (r.prototype.dispose = function () {
                       (this._csiHandlers = Object.create(null)),
@@ -16175,7 +16175,7 @@
                 t.EscapeSequenceParser = f;
               },
               6242: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.OscHandler = t.OscParser = void 0);
@@ -16229,7 +16229,7 @@
                         )
                           for (var e = this._active.length - 1; e >= 0; e--)
                             this._active[e].start();
-                        else this._handlerFb(this._id, "START");
+                        else this._handlerFb(this._id, 'START');
                       }),
                       (e.prototype._put = function (e, t, r) {
                         if (this._active.length)
@@ -16238,7 +16238,7 @@
                         else
                           this._handlerFb(
                             this._id,
-                            "PUT",
+                            'PUT',
                             n.utf32ToString(e, t, r)
                           );
                       }),
@@ -16250,7 +16250,7 @@
                             t--
                           );
                           for (t--; t >= 0; t--) this._active[t].end(!1);
-                        } else this._handlerFb(this._id, "END", e);
+                        } else this._handlerFb(this._id, 'END', e);
                       }),
                       (e.prototype.start = function () {
                         this.reset(), (this._state = 1);
@@ -16287,18 +16287,18 @@
                 var a = (function () {
                   function e(e) {
                     (this._handler = e),
-                      (this._data = ""),
+                      (this._data = ''),
                       (this._hitLimit = !1);
                   }
                   return (
                     (e.prototype.start = function () {
-                      (this._data = ""), (this._hitLimit = !1);
+                      (this._data = ''), (this._hitLimit = !1);
                     }),
                     (e.prototype.put = function (e, t, r) {
                       this._hitLimit ||
                         ((this._data += n.utf32ToString(e, t, r)),
                         this._data.length > i.PAYLOAD_LIMIT &&
-                          ((this._data = ""), (this._hitLimit = !0)));
+                          ((this._data = ''), (this._hitLimit = !0)));
                     }),
                     (e.prototype.end = function (e) {
                       var t = !1;
@@ -16306,7 +16306,7 @@
                         this._hitLimit
                           ? (t = !1)
                           : e && (t = this._handler(this._data)),
-                        (this._data = ""),
+                        (this._data = ''),
                         (this._hitLimit = !1),
                         t
                       );
@@ -16317,7 +16317,7 @@
                 t.OscHandler = a;
               },
               8742: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.Params = void 0);
@@ -16332,7 +16332,7 @@
                         t > 256)
                       )
                         throw new Error(
-                          "maxSubParamsLength must not be greater than 256"
+                          'maxSubParamsLength must not be greater than 256'
                         );
                       (this.params = new Int32Array(e)),
                         (this.length = 0),
@@ -16402,7 +16402,7 @@
                         else {
                           if (e < -1)
                             throw new Error(
-                              "values lesser than -1 are not allowed"
+                              'values lesser than -1 are not allowed'
                             );
                           (this._subParamsIdx[this.length] =
                             (this._subParamsLength << 8) |
@@ -16420,7 +16420,7 @@
                           else {
                             if (e < -1)
                               throw new Error(
-                                "values lesser than -1 are not allowed"
+                                'values lesser than -1 are not allowed'
                               );
                             (this._subParams[this._subParamsLength++] =
                               e > r ? r : e),
@@ -16513,8 +16513,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -16532,7 +16532,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.BufferService = t.MINIMUM_ROWS = t.MINIMUM_COLS = void 0);
@@ -16556,14 +16556,14 @@
                   }
                   return (
                     n(r, e),
-                    Object.defineProperty(r.prototype, "onResize", {
+                    Object.defineProperty(r.prototype, 'onResize', {
                       get: function () {
                         return this._onResize.event;
                       },
                       enumerable: !1,
                       configurable: !0,
                     }),
-                    Object.defineProperty(r.prototype, "buffer", {
+                    Object.defineProperty(r.prototype, 'buffer', {
                       get: function () {
                         return this.buffers.active;
                       },
@@ -16592,7 +16592,7 @@
                 t.BufferService = u;
               },
               7994: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CharsetService = void 0);
@@ -16631,8 +16631,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -16650,7 +16650,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CoreMouseService = void 0);
@@ -16713,13 +16713,13 @@
                     DEFAULT: function (e) {
                       var t = [c(e, !1) + 32, e.col + 32, e.row + 32];
                       return t[0] > 255 || t[1] > 255 || t[2] > 255
-                        ? ""
-                        : "\x1b[M" + l(t[0]) + l(t[1]) + l(t[2]);
+                        ? ''
+                        : '\x1b[M' + l(t[0]) + l(t[1]) + l(t[2]);
                     },
                     SGR: function (e) {
-                      var t = 0 === e.action && 4 !== e.button ? "m" : "M";
+                      var t = 0 === e.action && 4 !== e.button ? 'm' : 'M';
                       return (
-                        "\x1b[<" + c(e, !0) + ";" + e.col + ";" + e.row + t
+                        '\x1b[<' + c(e, !0) + ';' + e.col + ';' + e.row + t
                       );
                     },
                   },
@@ -16729,8 +16729,8 @@
                         (this._coreService = t),
                         (this._protocols = {}),
                         (this._encodings = {}),
-                        (this._activeProtocol = ""),
-                        (this._activeEncoding = ""),
+                        (this._activeProtocol = ''),
+                        (this._activeEncoding = ''),
                         (this._onProtocolChange = new s.EventEmitter()),
                         (this._lastEvent = null);
                       for (var r = 0, i = Object.keys(a); r < i.length; r++) {
@@ -16750,7 +16750,7 @@
                       (e.prototype.addEncoding = function (e, t) {
                         this._encodings[e] = t;
                       }),
-                      Object.defineProperty(e.prototype, "activeProtocol", {
+                      Object.defineProperty(e.prototype, 'activeProtocol', {
                         get: function () {
                           return this._activeProtocol;
                         },
@@ -16767,7 +16767,7 @@
                       }),
                       Object.defineProperty(
                         e.prototype,
-                        "areMouseEventsActive",
+                        'areMouseEventsActive',
                         {
                           get: function () {
                             return (
@@ -16778,7 +16778,7 @@
                           configurable: !0,
                         }
                       ),
-                      Object.defineProperty(e.prototype, "activeEncoding", {
+                      Object.defineProperty(e.prototype, 'activeEncoding', {
                         get: function () {
                           return this._activeEncoding;
                         },
@@ -16791,11 +16791,11 @@
                         configurable: !0,
                       }),
                       (e.prototype.reset = function () {
-                        (this.activeProtocol = "NONE"),
-                          (this.activeEncoding = "DEFAULT"),
+                        (this.activeProtocol = 'NONE'),
+                          (this.activeEncoding = 'DEFAULT'),
                           (this._lastEvent = null);
                       }),
-                      Object.defineProperty(e.prototype, "onProtocolChange", {
+                      Object.defineProperty(e.prototype, 'onProtocolChange', {
                         get: function () {
                           return this._onProtocolChange.event;
                         },
@@ -16830,7 +16830,7 @@
                         var t = this._encodings[this._activeEncoding](e);
                         return (
                           t &&
-                            ("DEFAULT" === this._activeEncoding
+                            ('DEFAULT' === this._activeEncoding
                               ? this._coreService.triggerBinaryEvent(t)
                               : this._coreService.triggerDataEvent(t, !0)),
                           (this._lastEvent = e),
@@ -16903,8 +16903,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -16922,7 +16922,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.CoreService = void 0);
@@ -16967,21 +16967,21 @@
                     }
                     return (
                       n(t, e),
-                      Object.defineProperty(t.prototype, "onData", {
+                      Object.defineProperty(t.prototype, 'onData', {
                         get: function () {
                           return this._onData.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onUserInput", {
+                      Object.defineProperty(t.prototype, 'onUserInput', {
                         get: function () {
                           return this._onUserInput.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(t.prototype, "onBinary", {
+                      Object.defineProperty(t.prototype, 'onBinary', {
                         get: function () {
                           return this._onBinary.event;
                         },
@@ -17003,7 +17003,7 @@
                             this._logService.debug(
                               'sending data "' + e + '"',
                               function () {
-                                return e.split("").map(function (e) {
+                                return e.split('').map(function (e) {
                                   return e.charCodeAt(0);
                                 });
                               }
@@ -17016,7 +17016,7 @@
                           (this._logService.debug(
                             'sending binary "' + e + '"',
                             function () {
-                              return e.split("").map(function (e) {
+                              return e.split('').map(function (e) {
                                 return e.charCodeAt(0);
                               });
                             }
@@ -17048,8 +17048,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -17067,7 +17067,7 @@
                         t(r, i, e);
                       };
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.DirtyRowService = void 0);
@@ -17077,14 +17077,14 @@
                       (this._bufferService = e), this.clearRange();
                     }
                     return (
-                      Object.defineProperty(e.prototype, "start", {
+                      Object.defineProperty(e.prototype, 'start', {
                         get: function () {
                           return this._start;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "end", {
+                      Object.defineProperty(e.prototype, 'end', {
                         get: function () {
                           return this._end;
                         },
@@ -17133,7 +17133,7 @@
                         i[n] = o[s];
                     return i;
                   };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.InstantiationService = t.ServiceCollection = void 0);
@@ -17202,24 +17202,24 @@
                           h = this._services.get(l.id);
                         if (!h)
                           throw new Error(
-                            "[createInstance] " +
+                            '[createInstance] ' +
                               e.name +
-                              " depends on UNKNOWN service " +
+                              ' depends on UNKNOWN service ' +
                               l.id +
-                              "."
+                              '.'
                           );
                         s.push(h);
                       }
                       var u = n.length > 0 ? n[0].index : t.length;
                       if (t.length !== u)
                         throw new Error(
-                          "[createInstance] First service dependency of " +
+                          '[createInstance] First service dependency of ' +
                             e.name +
-                            " at position " +
+                            ' at position ' +
                             (u + 1) +
-                            " conflicts with " +
+                            ' conflicts with ' +
                             t.length +
-                            " static arguments"
+                            ' static arguments'
                         );
                       return new (e.bind.apply(e, i([void 0], i(t, s))))();
                     }),
@@ -17241,8 +17241,8 @@
                             ? (i = Object.getOwnPropertyDescriptor(t, r))
                             : i;
                       if (
-                        "object" == typeof Reflect &&
-                        "function" == typeof Reflect.decorate
+                        'object' == typeof Reflect &&
+                        'function' == typeof Reflect.decorate
                       )
                         s = Reflect.decorate(e, t, r, i);
                       else
@@ -17276,18 +17276,18 @@
                           i[n] = o[s];
                       return i;
                     };
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.LogService = t.LogLevel = void 0);
                 var s,
                   a = r(2585);
                 !(function (e) {
-                  (e[(e.DEBUG = 0)] = "DEBUG"),
-                    (e[(e.INFO = 1)] = "INFO"),
-                    (e[(e.WARN = 2)] = "WARN"),
-                    (e[(e.ERROR = 3)] = "ERROR"),
-                    (e[(e.OFF = 4)] = "OFF");
+                  (e[(e.DEBUG = 0)] = 'DEBUG'),
+                    (e[(e.INFO = 1)] = 'INFO'),
+                    (e[(e.WARN = 2)] = 'WARN'),
+                    (e[(e.ERROR = 3)] = 'ERROR'),
+                    (e[(e.OFF = 4)] = 'OFF');
                 })((s = t.LogLevel || (t.LogLevel = {})));
                 var c = {
                     debug: s.DEBUG,
@@ -17302,7 +17302,7 @@
                       (this._optionsService = e),
                         this._updateLogLevel(),
                         this._optionsService.onOptionChange(function (e) {
-                          "logLevel" === e && t._updateLogLevel();
+                          'logLevel' === e && t._updateLogLevel();
                         });
                     }
                     return (
@@ -17312,11 +17312,11 @@
                       }),
                       (e.prototype._evalLazyOptionalParams = function (e) {
                         for (var t = 0; t < e.length; t++)
-                          "function" == typeof e[t] && (e[t] = e[t]());
+                          'function' == typeof e[t] && (e[t] = e[t]());
                       }),
                       (e.prototype._log = function (e, t, r) {
                         this._evalLazyOptionalParams(r),
-                          e.call.apply(e, o([console, "xterm.js: " + t], r));
+                          e.call.apply(e, o([console, 'xterm.js: ' + t], r));
                       }),
                       (e.prototype.debug = function (e) {
                         for (var t = [], r = 1; r < arguments.length; r++)
@@ -17348,7 +17348,7 @@
                 t.LogService = l;
               },
               7302: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.OptionsService =
@@ -17359,26 +17359,26 @@
                   n = r(6114),
                   o = r(1439);
                 (t.DEFAULT_BELL_SOUND =
-                  "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjMyLjEwNAAAAAAAAAAAAAAA//tQxAADB8AhSmxhIIEVCSiJrDCQBTcu3UrAIwUdkRgQbFAZC1CQEwTJ9mjRvBA4UOLD8nKVOWfh+UlK3z/177OXrfOdKl7pyn3Xf//WreyTRUoAWgBgkOAGbZHBgG1OF6zM82DWbZaUmMBptgQhGjsyYqc9ae9XFz280948NMBWInljyzsNRFLPWdnZGWrddDsjK1unuSrVN9jJsK8KuQtQCtMBjCEtImISdNKJOopIpBFpNSMbIHCSRpRR5iakjTiyzLhchUUBwCgyKiweBv/7UsQbg8isVNoMPMjAAAA0gAAABEVFGmgqK////9bP/6XCykxBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"),
+                  'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjMyLjEwNAAAAAAAAAAAAAAA//tQxAADB8AhSmxhIIEVCSiJrDCQBTcu3UrAIwUdkRgQbFAZC1CQEwTJ9mjRvBA4UOLD8nKVOWfh+UlK3z/177OXrfOdKl7pyn3Xf//WreyTRUoAWgBgkOAGbZHBgG1OF6zM82DWbZaUmMBptgQhGjsyYqc9ae9XFz280948NMBWInljyzsNRFLPWdnZGWrddDsjK1unuSrVN9jJsK8KuQtQCtMBjCEtImISdNKJOopIpBFpNSMbIHCSRpRR5iakjTiyzLhchUUBwCgyKiweBv/7UsQbg8isVNoMPMjAAAA0gAAABEVFGmgqK////9bP/6XCykxBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq'),
                   (t.DEFAULT_OPTIONS = Object.freeze({
                     cols: 80,
                     rows: 24,
                     cursorBlink: !1,
-                    cursorStyle: "block",
+                    cursorStyle: 'block',
                     cursorWidth: 1,
                     bellSound: t.DEFAULT_BELL_SOUND,
-                    bellStyle: "none",
+                    bellStyle: 'none',
                     drawBoldTextInBrightColors: !0,
-                    fastScrollModifier: "alt",
+                    fastScrollModifier: 'alt',
                     fastScrollSensitivity: 5,
-                    fontFamily: "courier-new, courier, monospace",
+                    fontFamily: 'courier-new, courier, monospace',
                     fontSize: 15,
-                    fontWeight: "normal",
-                    fontWeightBold: "bold",
+                    fontWeight: 'normal',
+                    fontWeightBold: 'bold',
                     lineHeight: 1,
                     linkTooltipHoverDuration: 500,
                     letterSpacing: 0,
-                    logLevel: "info",
+                    logLevel: 'info',
                     scrollback: 1e3,
                     scrollSensitivity: 1,
                     screenReaderMode: !1,
@@ -17391,29 +17391,29 @@
                     tabStopWidth: 8,
                     theme: {},
                     rightClickSelectsWord: n.isMac,
-                    rendererType: "canvas",
+                    rendererType: 'canvas',
                     windowOptions: {},
                     windowsMode: !1,
-                    wordSeparator: " ()[]{}',\"`",
+                    wordSeparator: ' ()[]{}\',"`',
                     altClickMovesCursor: !0,
                     convertEol: !1,
-                    termName: "xterm",
+                    termName: 'xterm',
                     cancelEvents: !1,
                   }));
                 var s = [
-                    "normal",
-                    "bold",
-                    "100",
-                    "200",
-                    "300",
-                    "400",
-                    "500",
-                    "600",
-                    "700",
-                    "800",
-                    "900",
+                    'normal',
+                    'bold',
+                    '100',
+                    '200',
+                    '300',
+                    '400',
+                    '500',
+                    '600',
+                    '700',
+                    '800',
+                    '900',
                   ],
-                  a = ["cols", "rows"],
+                  a = ['cols', 'rows'],
                   c = (function () {
                     function e(e) {
                       (this._onOptionChange = new i.EventEmitter()),
@@ -17433,7 +17433,7 @@
                       }
                     }
                     return (
-                      Object.defineProperty(e.prototype, "onOptionChange", {
+                      Object.defineProperty(e.prototype, 'onOptionChange', {
                         get: function () {
                           return this._onOptionChange.event;
                         },
@@ -17460,45 +17460,45 @@
                         r
                       ) {
                         switch (e) {
-                          case "bellStyle":
-                          case "cursorStyle":
-                          case "rendererType":
-                          case "wordSeparator":
+                          case 'bellStyle':
+                          case 'cursorStyle':
+                          case 'rendererType':
+                          case 'wordSeparator':
                             r || (r = t.DEFAULT_OPTIONS[e]);
                             break;
-                          case "fontWeight":
-                          case "fontWeightBold":
-                            if ("number" == typeof r && 1 <= r && r <= 1e3)
+                          case 'fontWeight':
+                          case 'fontWeightBold':
+                            if ('number' == typeof r && 1 <= r && r <= 1e3)
                               break;
                             r = s.includes(r) ? r : t.DEFAULT_OPTIONS[e];
                             break;
-                          case "cursorWidth":
+                          case 'cursorWidth':
                             r = Math.floor(r);
-                          case "lineHeight":
-                          case "tabStopWidth":
+                          case 'lineHeight':
+                          case 'tabStopWidth':
                             if (r < 1)
                               throw new Error(
-                                e + " cannot be less than 1, value: " + r
+                                e + ' cannot be less than 1, value: ' + r
                               );
                             break;
-                          case "minimumContrastRatio":
+                          case 'minimumContrastRatio':
                             r = Math.max(
                               1,
                               Math.min(21, Math.round(10 * r) / 10)
                             );
                             break;
-                          case "scrollback":
+                          case 'scrollback':
                             if ((r = Math.min(r, 4294967295)) < 0)
                               throw new Error(
-                                e + " cannot be less than 0, value: " + r
+                                e + ' cannot be less than 0, value: ' + r
                               );
                             break;
-                          case "fastScrollSensitivity":
-                          case "scrollSensitivity":
+                          case 'fastScrollSensitivity':
+                          case 'scrollSensitivity':
                             if (r <= 0)
                               throw new Error(
                                 e +
-                                  " cannot be less than or equal to 0, value: " +
+                                  ' cannot be less than or equal to 0, value: ' +
                                   r
                               );
                         }
@@ -17529,7 +17529,7 @@
                       ]),
                       (t.di$target = t));
                 }
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.createDecorator =
@@ -17546,7 +17546,7 @@
                     var i = function (e, t, n) {
                       if (3 !== arguments.length)
                         throw new Error(
-                          "@IServiceName-decorator can only be used to decorate a parameter"
+                          '@IServiceName-decorator can only be used to decorate a parameter'
                         );
                       r(i, e, n);
                     };
@@ -17560,7 +17560,7 @@
                   });
               },
               2585: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.IUnicodeService =
@@ -17574,20 +17574,20 @@
                     t.IBufferService =
                       void 0);
                 var i = r(8343);
-                (t.IBufferService = i.createDecorator("BufferService")),
-                  (t.ICoreMouseService = i.createDecorator("CoreMouseService")),
-                  (t.ICoreService = i.createDecorator("CoreService")),
-                  (t.ICharsetService = i.createDecorator("CharsetService")),
-                  (t.IDirtyRowService = i.createDecorator("DirtyRowService")),
+                (t.IBufferService = i.createDecorator('BufferService')),
+                  (t.ICoreMouseService = i.createDecorator('CoreMouseService')),
+                  (t.ICoreService = i.createDecorator('CoreService')),
+                  (t.ICharsetService = i.createDecorator('CharsetService')),
+                  (t.IDirtyRowService = i.createDecorator('DirtyRowService')),
                   (t.IInstantiationService = i.createDecorator(
-                    "InstantiationService"
+                    'InstantiationService'
                   )),
-                  (t.ILogService = i.createDecorator("LogService")),
-                  (t.IOptionsService = i.createDecorator("OptionsService")),
-                  (t.IUnicodeService = i.createDecorator("UnicodeService"));
+                  (t.ILogService = i.createDecorator('LogService')),
+                  (t.IOptionsService = i.createDecorator('OptionsService')),
+                  (t.IUnicodeService = i.createDecorator('UnicodeService'));
               },
               1480: (e, t, r) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.UnicodeService = void 0);
@@ -17596,7 +17596,7 @@
                   o = (function () {
                     function e() {
                       (this._providers = Object.create(null)),
-                        (this._active = ""),
+                        (this._active = ''),
                         (this._onChange = new i.EventEmitter());
                       var e = new n.UnicodeV6();
                       this.register(e),
@@ -17604,21 +17604,21 @@
                         (this._activeProvider = e);
                     }
                     return (
-                      Object.defineProperty(e.prototype, "onChange", {
+                      Object.defineProperty(e.prototype, 'onChange', {
                         get: function () {
                           return this._onChange.event;
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "versions", {
+                      Object.defineProperty(e.prototype, 'versions', {
                         get: function () {
                           return Object.keys(this._providers);
                         },
                         enumerable: !1,
                         configurable: !0,
                       }),
-                      Object.defineProperty(e.prototype, "activeVersion", {
+                      Object.defineProperty(e.prototype, 'activeVersion', {
                         get: function () {
                           return this._active;
                         },

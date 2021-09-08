@@ -69,13 +69,13 @@
 }
 
 .WhatChangedKey:first-of-type::before {
-  content: " (";
+  content: ' (';
 }
 
 .WhatChangedKey::after {
-  content: ", ";
+  content: ', ';
 }
 
 .WhatChangedKey:last-of-type::after {
-  content: ")";
+  content: ')';
 }

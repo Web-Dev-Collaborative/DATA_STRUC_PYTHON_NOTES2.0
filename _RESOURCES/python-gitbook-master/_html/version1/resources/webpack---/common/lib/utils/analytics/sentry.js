@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -60,7 +60,7 @@ var __awaiter =
 
       function rejected(value) {
         try {
-          step(generator["throw"](value));
+          step(generator['throw'](value));
         } catch (e) {
           reject(e);
         }
@@ -83,7 +83,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.resetUserId =
@@ -93,13 +93,13 @@ exports.resetUserId =
   exports.logBreadcrumb =
   exports.initialize =
     void 0;
-const version_1 = __importDefault(require("../../version"));
-const utils_1 = require("./utils");
+const version_1 = __importDefault(require('../../version'));
+const utils_1 = require('./utils');
 let _Sentry;
 
 function getSentry() {
   return Promise.resolve().then(() =>
-    __importStar(require(/* webpackChunkName: 'sentry' */ "@sentry/browser"))
+    __importStar(require(/* webpackChunkName: 'sentry' */ '@sentry/browser'))
   );
 }
 let latestVersionPromise;
@@ -107,9 +107,9 @@ const versionTimeout = 1 * 60 * 1000;
 
 function getLatestVersion() {
   if (!latestVersionPromise) {
-    latestVersionPromise = fetch("/version.txt")
+    latestVersionPromise = fetch('/version.txt')
       .then((x) => x.text())
-      .catch((x) => "");
+      .catch((x) => '');
     setTimeout(() => {
       latestVersionPromise = undefined;
     }, versionTimeout);
@@ -130,8 +130,8 @@ function initialize(dsn) {
         dsn,
         release: version_1.default,
         ignoreErrors: [
-          "Custom Object",
-          "TypeScript Server Error",
+          'Custom Object',
+          'TypeScript Server Error',
           /^Canceled$/,
           // react devtools Outside of our scope for now, but we definitely want to check this out.
           // TODO: check what's happening here: https://sentry.io/organizations/codesandbox/issues/1239466583/?project=155188&query=is%3Aunresolved+release%3APROD-1573653062-4134efc0a
@@ -156,7 +156,7 @@ function initialize(dsn) {
          * Don't send messages from the sandbox, so don't send from eg.
          * new.codesandbox.io or new.csb.app
          */
-        denyUrls: ["codesandbox.editor.main.js", /.*\.csb\.app/],
+        denyUrls: ['codesandbox.editor.main.js', /.*\.csb\.app/],
         beforeSend: (event, hint) => {
           var _a, _b, _c, _d, _e;
           const exception =
@@ -184,32 +184,32 @@ function initialize(dsn) {
               ? void 0
               : exceptionFrame.filename;
           let errorMessage =
-            typeof hint.originalException === "string"
+            typeof hint.originalException === 'string'
               ? hint.originalException
               : ((_e = hint.originalException) === null || _e === void 0
                   ? void 0
                   : _e.message) || exception.value;
-          if (typeof errorMessage !== "string") {
-            errorMessage = "";
+          if (typeof errorMessage !== 'string') {
+            errorMessage = '';
           }
           if (filename) {
             if (
-              filename.includes("typescript-worker") &&
-              errorMessage.includes("too much recursion")
+              filename.includes('typescript-worker') &&
+              errorMessage.includes('too much recursion')
             ) {
               // https://sentry.io/organizations/codesandbox/issues/1293123855/events/b01ee0feb7e3415a8bb81b6a9df19152/?project=155188&query=is%3Aunresolved&statsPeriod=14d
               return null;
             }
             if (
-              filename.endsWith("codesandbox.editor.main.js") ||
-              filename.startsWith("/extensions/")
+              filename.endsWith('codesandbox.editor.main.js') ||
+              filename.startsWith('/extensions/')
             ) {
               // This is the spammy event that doesn't do anything: https://sentry.io/organizations/codesandbox/issues/1054971728/?project=155188&query=is%3Aunresolved
               // Don't do anything with it right now, I can't seem to reproduce it for some reason.
               // We need to add sourcemaps
               return null;
             }
-            if (filename.includes("tsserver.js")) {
+            if (filename.includes('tsserver.js')) {
               // We don't have control over this
               return null;
             }
@@ -217,13 +217,13 @@ function initialize(dsn) {
           const customError = ((hint && hint.originalException) || {}).error;
           if (
             customError &&
-            errorMessage.startsWith("Non-Error exception captured") &&
+            errorMessage.startsWith('Non-Error exception captured') &&
             exception.mechanism.handled
           ) {
             // This is an error coming from the sandbox, return with no error.
             return null;
           }
-          if (errorMessage.includes("Unexpected frame by generating stack.")) {
+          if (errorMessage.includes('Unexpected frame by generating stack.')) {
             // A firefox error with error-polyfill, not critical. Referenced here: https://sentry.io/organizations/codesandbox/issues/1293236389/?project=155188&query=is%3Aunresolved
             return null;
           }

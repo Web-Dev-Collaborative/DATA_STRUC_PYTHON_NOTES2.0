@@ -5,17 +5,17 @@
  * https://github.com/Microsoft/monaco-json/blob/master/LICENSE.md
  *-----------------------------------------------------------------------------*/
 !(function (e) {
-  if ("object" == typeof module && "object" == typeof module.exports) {
+  if ('object' == typeof module && 'object' == typeof module.exports) {
     var t = e(require, exports);
     void 0 !== t && (module.exports = t);
   } else
-    "function" == typeof define &&
+    'function' == typeof define &&
       define.amd &&
-      define("vscode-languageserver-types/main", ["require", "exports"], e);
+      define('vscode-languageserver-types/main', ['require', 'exports'], e);
 })(function (e, t) {
-  "use strict";
+  'use strict';
   var a, r, n, o, i, s, c, u, f, l, d, p, h, m, g, v, y, b, x, S, C, j, T, A;
-  Object.defineProperty(t, "__esModule", {
+  Object.defineProperty(t, '__esModule', {
     value: !0,
   }),
     ((r = a = t.Position || (t.Position = {})).create = function (e, t) {
@@ -40,15 +40,15 @@
           end: t,
         };
       throw new Error(
-        "Range#create called with invalid arguments[" +
+        'Range#create called with invalid arguments[' +
           e +
-          ", " +
+          ', ' +
           t +
-          ", " +
+          ', ' +
           r +
-          ", " +
+          ', ' +
           n +
-          "]"
+          ']'
       );
     }),
     (o.is = function (e) {
@@ -117,9 +117,9 @@
           Y.typedArray(t.additionalTextEdits, S.is))
       );
     }),
-    ((d = t.FoldingRangeKind || (t.FoldingRangeKind = {})).Comment = "comment"),
-    (d.Imports = "imports"),
-    (d.Region = "region"),
+    ((d = t.FoldingRangeKind || (t.FoldingRangeKind = {})).Comment = 'comment'),
+    (d.Imports = 'imports'),
+    (d.Region = 'region'),
     ((p = t.FoldingRange || (t.FoldingRange = {})).create = function (
       e,
       t,
@@ -228,7 +228,7 @@
     (C.del = function (e) {
       return {
         range: e,
-        newText: "",
+        newText: '',
       };
     }),
     (C.is = function (e) {
@@ -311,7 +311,7 @@
                 }));
       }
       return (
-        Object.defineProperty(e.prototype, "edit", {
+        Object.defineProperty(e.prototype, 'edit', {
           get: function () {
             return this._workspaceEdit;
           },
@@ -328,7 +328,7 @@
               !this._workspaceEdit.documentChanges)
             )
               throw new Error(
-                "Workspace edit is not configured for versioned document changes."
+                'Workspace edit is not configured for versioned document changes.'
               );
             var t = e;
             if (!(n = this._textEditChanges[t.uri])) {
@@ -350,7 +350,7 @@
             !this._workspaceEdit.changes)
           )
             throw new Error(
-              "Workspace edit is not configured for normal text edit changes."
+              'Workspace edit is not configured for normal text edit changes.'
             );
           var n;
           if (!(n = this._textEditChanges[e])) {
@@ -410,8 +410,8 @@
         Y.string(t.text)
       );
     }),
-    ((w = P = t.MarkupKind || (t.MarkupKind = {})).PlainText = "plaintext"),
-    (w.Markdown = "markdown"),
+    ((w = P = t.MarkupKind || (t.MarkupKind = {})).PlainText = 'plaintext'),
+    (w.Markdown = 'markdown'),
     ((N = P = t.MarkupKind || (t.MarkupKind = {})).is = function (e) {
       var t = e;
       return t === N.PlainText || t === N.Markdown;
@@ -460,7 +460,7 @@
     }),
     ((F = D = t.MarkedString || (t.MarkedString = {})).fromPlainText =
       function (e) {
-        return e.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
+        return e.replace(/[\\`*_{}[\]()#+\-.!]/g, '\\$&');
       }),
     (F.is = function (e) {
       var t = e;
@@ -597,13 +597,13 @@
       );
     }),
     (t.DocumentSymbol = z),
-    ((K = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = "quickfix"),
-    (K.Refactor = "refactor"),
-    (K.RefactorExtract = "refactor.extract"),
-    (K.RefactorInline = "refactor.inline"),
-    (K.RefactorRewrite = "refactor.rewrite"),
-    (K.Source = "source"),
-    (K.SourceOrganizeImports = "source.organizeImports"),
+    ((K = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = 'quickfix'),
+    (K.Refactor = 'refactor'),
+    (K.RefactorExtract = 'refactor.extract'),
+    (K.RefactorInline = 'refactor.inline'),
+    (K.RefactorRewrite = 'refactor.rewrite'),
+    (K.Source = 'source'),
+    (K.SourceOrganizeImports = 'source.organizeImports'),
     ((U = t.CodeActionContext || (t.CodeActionContext = {})).create = function (
       e,
       t
@@ -695,7 +695,7 @@
       );
     }),
     (t.DocumentLink = X),
-    (t.EOL = ["\n", "\r\n", "\r"]),
+    (t.EOL = ['\n', '\r\n', '\r']),
     ((Q = t.TextDocument || (t.TextDocument = {})).create = function (
       e,
       t,
@@ -746,7 +746,7 @@
         var a = n[i],
           s = e.offsetAt(a.range.start),
           c = e.offsetAt(a.range.end);
-        if (!(c <= o)) throw new Error("Ovelapping edit");
+        if (!(c <= o)) throw new Error('Ovelapping edit');
         (r = r.substring(0, s) + a.newText + r.substring(c, r.length)), (o = s);
       }
       return r;
@@ -767,21 +767,21 @@
           (this._lineOffsets = null);
       }
       return (
-        Object.defineProperty(e.prototype, "uri", {
+        Object.defineProperty(e.prototype, 'uri', {
           get: function () {
             return this._uri;
           },
           enumerable: !0,
           configurable: !0,
         }),
-        Object.defineProperty(e.prototype, "languageId", {
+        Object.defineProperty(e.prototype, 'languageId', {
           get: function () {
             return this._languageId;
           },
           enumerable: !0,
           configurable: !0,
         }),
-        Object.defineProperty(e.prototype, "version", {
+        Object.defineProperty(e.prototype, 'version', {
           get: function () {
             return this._version;
           },
@@ -810,10 +810,10 @@
             ) {
               r && (e.push(n), (r = !1));
               var o = t.charAt(n);
-              (r = "\r" === o || "\n" === o),
-                "\r" === o &&
+              (r = '\r' === o || '\n' === o),
+                '\r' === o &&
                   n + 1 < t.length &&
-                  "\n" === t.charAt(n + 1) &&
+                  '\n' === t.charAt(n + 1) &&
                   n++;
             }
             r && 0 < t.length && e.push(t.length), (this._lineOffsets = e);
@@ -841,7 +841,7 @@
             n = e.line + 1 < t.length ? t[e.line + 1] : this._content.length;
           return Math.max(Math.min(r + e.character, n), r);
         }),
-        Object.defineProperty(e.prototype, "lineCount", {
+        Object.defineProperty(e.prototype, 'lineCount', {
           get: function () {
             return this.getLineOffsets().length;
           },
@@ -863,38 +863,38 @@
       return !0 === e || !1 === e;
     }),
     (ee.string = function (e) {
-      return "[object String]" === te.call(e);
+      return '[object String]' === te.call(e);
     }),
     (ee.number = function (e) {
-      return "[object Number]" === te.call(e);
+      return '[object Number]' === te.call(e);
     }),
     (ee.func = function (e) {
-      return "[object Function]" === te.call(e);
+      return '[object Function]' === te.call(e);
     }),
     (ee.objectLiteral = function (e) {
-      return null !== e && "object" == typeof e;
+      return null !== e && 'object' == typeof e;
     }),
     (ee.typedArray = function (e, t) {
       return Array.isArray(e) && e.every(t);
     });
 }),
   define(
-    "vscode-languageserver-types",
-    ["vscode-languageserver-types/main"],
+    'vscode-languageserver-types',
+    ['vscode-languageserver-types/main'],
     function (e) {
       return e;
     }
   ),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
-        define("jsonc-parser/impl/scanner", ["require", "exports"], e);
+        define('jsonc-parser/impl/scanner', ['require', 'exports'], e);
   })(function (e, t) {
-    "use strict";
+    'use strict';
 
     function d(e) {
       return (
@@ -919,14 +919,14 @@
     function h(e) {
       return 48 <= e && e <= 57;
     }
-    Object.defineProperty(t, "__esModule", {
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.createScanner = function (i, e) {
         void 0 === e && (e = !1);
         var a = 0,
           o = i.length,
-          n = "",
+          n = '',
           s = 0,
           c = 16,
           u = 0;
@@ -946,7 +946,7 @@
         }
 
         function t() {
-          if (((n = ""), (u = 0), o <= (s = a))) return (s = o), (c = 17);
+          if (((n = ''), (u = 0), o <= (s = a))) return (s = o), (c = 17);
           var e = i.charCodeAt(a);
           if (d(e)) {
             for (
@@ -960,7 +960,7 @@
             return (
               a++,
               (n += String.fromCharCode(e)),
-              13 === e && 10 === i.charCodeAt(a) && (a++, (n += "\n")),
+              13 === e && 10 === i.charCodeAt(a) && (a++, (n += '\n')),
               (c = 14)
             );
           switch (e) {
@@ -980,7 +980,7 @@
               return (
                 a++,
                 (n = (function () {
-                  for (var e = "", t = a; ; ) {
+                  for (var e = '', t = a; ; ) {
                     if (o <= a) {
                       (e += i.substring(t, a)), (u = 2);
                       break;
@@ -1009,25 +1009,25 @@
                           e += '"';
                           break;
                         case 92:
-                          e += "\\";
+                          e += '\\';
                           break;
                         case 47:
-                          e += "/";
+                          e += '/';
                           break;
                         case 98:
-                          e += "\b";
+                          e += '\b';
                           break;
                         case 102:
-                          e += "\f";
+                          e += '\f';
                           break;
                         case 110:
-                          e += "\n";
+                          e += '\n';
                           break;
                         case 114:
-                          e += "\r";
+                          e += '\r';
                           break;
                         case 116:
-                          e += "\t";
+                          e += '\t';
                           break;
                         case 117:
                           var n = f(4, !0);
@@ -1113,11 +1113,11 @@
               for (; a < o && l(e); ) a++, (e = i.charCodeAt(a));
               if (s !== a) {
                 switch ((n = i.substring(s, a))) {
-                  case "true":
+                  case 'true':
                     return (c = 8);
-                  case "false":
+                  case 'false':
                     return (c = 9);
-                  case "null":
+                  case 'null':
                     return (c = 7);
                 }
                 return (c = 16);
@@ -1143,7 +1143,7 @@
         }
         return {
           setPosition: function (e) {
-            (a = e), (n = ""), (c = 16), (u = s = 0);
+            (a = e), (n = ''), (c = 16), (u = s = 0);
           },
           getPosition: function () {
             return a;
@@ -1173,31 +1173,31 @@
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/impl/format",
-          ["require", "exports", "./scanner"],
+          'jsonc-parser/impl/format',
+          ['require', 'exports', './scanner'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var T = e("./scanner");
+    var T = e('./scanner');
 
     function A(e, t) {
-      for (var r = "", n = 0; n < t; n++) r += e;
+      for (var r = '', n = 0; n < t; n++) r += e;
       return r;
     }
 
     function O(e, t) {
-      return -1 !== "\r\n".indexOf(e.charAt(t));
+      return -1 !== '\r\n'.indexOf(e.charAt(t));
     }
     (t.format = function (n, e, t) {
       var r, o, i, a, s;
@@ -1209,9 +1209,9 @@
           (r = (function (e, t) {
             for (var r = 0, n = 0, o = t.tabSize || 4; r < e.length; ) {
               var i = e.charAt(r);
-              if (" " === i) n++;
+              if (' ' === i) n++;
               else {
-                if ("\t" !== i) break;
+                if ('\t' !== i) break;
                 n += o;
               }
               r++;
@@ -1223,17 +1223,17 @@
         f = (function (e, t) {
           for (var r = 0; r < t.length; r++) {
             var n = t.charAt(r);
-            if ("\r" === n)
-              return r + 1 < t.length && "\n" === t.charAt(r + 1)
-                ? "\r\n"
-                : "\r";
-            if ("\n" === n) return "\n";
+            if ('\r' === n)
+              return r + 1 < t.length && '\n' === t.charAt(r + 1)
+                ? '\r\n'
+                : '\r';
+            if ('\n' === n) return '\n';
           }
-          return (e && e.eol) || "\n";
+          return (e && e.eol) || '\n';
         })(t, n),
         l = !1,
         d = 0;
-      u = t.insertSpaces ? A(" ", t.tabSize || 4) : "\t";
+      u = t.insertSpaces ? A(' ', t.tabSize || 4) : '\t';
       var p = T.createScanner(o, !1),
         h = !1;
 
@@ -1267,13 +1267,13 @@
       }
       for (; 17 !== b; ) {
         for (
-          var S = p.getTokenOffset() + p.getTokenLength() + i, C = g(), j = "";
+          var S = p.getTokenOffset() + p.getTokenLength() + i, C = g(), j = '';
           !l && (12 === C || 13 === C);
 
         )
-          y(" ", S, p.getTokenOffset() + i),
+          y(' ', S, p.getTokenOffset() + i),
             (S = p.getTokenOffset() + p.getTokenLength() + i),
-            (j = 12 === C ? m() : ""),
+            (j = 12 === C ? m() : ''),
             (C = g());
         if (2 === C) 1 !== b && (d--, (j = m()));
         else if (4 === C) 3 !== b && (d--, (j = m()));
@@ -1288,14 +1288,14 @@
               j = m();
               break;
             case 13:
-              j = l ? m() : " ";
+              j = l ? m() : ' ';
               break;
             case 6:
-              j = " ";
+              j = ' ';
               break;
             case 10:
               if (6 === C) {
-                j = "";
+                j = '';
                 break;
               }
             case 7:
@@ -1305,7 +1305,7 @@
             case 2:
             case 4:
               12 === C || 13 === C
-                ? (j = " ")
+                ? (j = ' ')
                 : 5 !== C && 17 !== C && (h = !0);
               break;
             case 16:
@@ -1320,23 +1320,23 @@
       (t.isEOL = O);
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/impl/parser",
-          ["require", "exports", "./scanner"],
+          'jsonc-parser/impl/parser',
+          ['require', 'exports', './scanner'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var S = e("./scanner");
+    var S = e('./scanner');
 
     function s(e, t, r) {
       return (
@@ -1448,7 +1448,7 @@
               u(), v();
               for (var e = !1; 4 !== o.getToken() && 17 !== o.getToken(); ) {
                 if (5 === o.getToken()) {
-                  if ((e || y(4, [], []), d(","), v(), 4 === o.getToken() && g))
+                  if ((e || y(4, [], []), d(','), v(), 4 === o.getToken() && g))
                     break;
                 } else e && y(6, [], []);
                 x() || y(4, [], [4, 5]), (e = !0);
@@ -1460,14 +1460,14 @@
               a(), v();
               for (var e = !1; 2 !== o.getToken() && 17 !== o.getToken(); ) {
                 if (5 === o.getToken()) {
-                  if ((e || y(4, [], []), d(","), v(), 2 === o.getToken() && g))
+                  if ((e || y(4, [], []), d(','), v(), 2 === o.getToken() && g))
                     break;
                 } else e && y(6, [], []);
                 (10 !== o.getToken()
                   ? (y(3, [], [2, 5]), 0)
                   : (b(!1),
                     6 === o.getToken()
-                      ? (d(":"), v(), x() || y(4, [], [2, 5]))
+                      ? (d(':'), v(), x() || y(4, [], [2, 5]))
                       : y(5, [], [2, 5]),
                     1)) || y(4, [], [2, 5]),
                   (e = !0);
@@ -1482,7 +1482,7 @@
                 case 11:
                   var e = 0;
                   try {
-                    "number" != typeof (e = JSON.parse(o.getTokenValue())) &&
+                    'number' != typeof (e = JSON.parse(o.getTokenValue())) &&
                       (y(2), (e = 0));
                   } catch (e) {
                     y(2);
@@ -1514,14 +1514,14 @@
 
     function l(e) {
       switch (typeof e) {
-        case "boolean":
-          return "boolean";
-        case "number":
-          return "number";
-        case "string":
-          return "string";
+        case 'boolean':
+          return 'boolean';
+        case 'number':
+          return 'number';
+        case 'string':
+          return 'string';
         default:
-          return "null";
+          return 'null';
       }
     }
     (t.getLocation = function (e, o) {
@@ -1532,7 +1532,7 @@
           value: {},
           offset: 0,
           length: 0,
-          type: "object",
+          type: 'object',
           parent: void 0,
         },
         u = !1;
@@ -1549,11 +1549,11 @@
         f(e, {
           onObjectBegin: function (e, t) {
             if (o <= e) throw a;
-            (s = void 0), (u = e < o), i.push("");
+            (s = void 0), (u = e < o), i.push('');
           },
           onObjectProperty: function (e, t, r) {
             if (o < t) throw a;
-            if ((n(e, t, r, "property"), (i[i.length - 1] = e), o <= t + r))
+            if ((n(e, t, r, 'property'), (i[i.length - 1] = e), o <= t + r))
               throw a;
           },
           onObjectEnd: function (e, t) {
@@ -1574,13 +1574,13 @@
           },
           onSeparator: function (e, t, r) {
             if (o <= t) throw a;
-            if (":" === e && s && "property" === s.type)
+            if (':' === e && s && 'property' === s.type)
               (s.colonOffset = t), (u = !1), (s = void 0);
-            else if ("," === e) {
+            else if (',' === e) {
               var n = i[i.length - 1];
-              "number" == typeof n
+              'number' == typeof n
                 ? (i[i.length - 1] = n + 1)
-                : ((u = !0), (i[i.length - 1] = "")),
+                : ((u = !0), (i[i.length - 1] = '')),
                 (s = void 0);
             }
           },
@@ -1594,8 +1594,8 @@
         isAtPropertyKey: u,
         matches: function (e) {
           for (var t = 0, r = 0; t < e.length && r < i.length; r++)
-            if (e[t] === i[r] || "*" === e[t]) t++;
-            else if ("**" !== e[t]) return !1;
+            if (e[t] === i[r] || '*' === e[t]) t++;
+            else if ('**' !== e[t]) return !1;
           return t === e.length;
         },
       };
@@ -1647,7 +1647,7 @@
       (t.parseTree = function (e, n, t) {
         void 0 === n && (n = []);
         var o = {
-          type: "array",
+          type: 'array',
           offset: -1,
           length: -1,
           children: [],
@@ -1655,7 +1655,7 @@
         };
 
         function i(e) {
-          "property" === o.type && ((o.length = e - o.offset), (o = o.parent));
+          'property' === o.type && ((o.length = e - o.offset), (o = o.parent));
         }
 
         function a(e) {
@@ -1666,7 +1666,7 @@
           {
             onObjectBegin: function (e) {
               o = a({
-                type: "object",
+                type: 'object',
                 offset: e,
                 length: -1,
                 parent: o,
@@ -1675,13 +1675,13 @@
             },
             onObjectProperty: function (e, t, r) {
               (o = a({
-                type: "property",
+                type: 'property',
                 offset: t,
                 length: -1,
                 parent: o,
                 children: [],
               })).children.push({
-                type: "string",
+                type: 'string',
                 value: e,
                 offset: t,
                 length: r,
@@ -1693,7 +1693,7 @@
             },
             onArrayBegin: function (e, t) {
               o = a({
-                type: "array",
+                type: 'array',
                 offset: e,
                 length: -1,
                 parent: o,
@@ -1714,8 +1714,8 @@
                 i(t + r);
             },
             onSeparator: function (e, t, r) {
-              "property" === o.type &&
-                (":" === e ? (o.colonOffset = t) : "," === e && i(t));
+              'property' === o.type &&
+                (':' === e ? (o.colonOffset = t) : ',' === e && i(t));
             },
             onError: function (e, t, r) {
               n.push({
@@ -1734,8 +1734,8 @@
         if (e) {
           for (var r = e, n = 0, o = t; n < o.length; n++) {
             var i = o[n];
-            if ("string" == typeof i) {
-              if ("object" !== r.type || !Array.isArray(r.children)) return;
+            if ('string' == typeof i) {
+              if ('object' !== r.type || !Array.isArray(r.children)) return;
               for (var a = !1, s = 0, c = r.children; s < c.length; s++) {
                 var u = c[s];
                 if (Array.isArray(u.children) && u.children[0].value === i) {
@@ -1747,7 +1747,7 @@
             } else {
               var f = i;
               if (
-                "array" !== r.type ||
+                'array' !== r.type ||
                 f < 0 ||
                 !Array.isArray(r.children) ||
                 f >= r.children.length
@@ -1762,10 +1762,10 @@
       (t.getNodePath = function e(t) {
         if (!t.parent || !t.parent.children) return [];
         var r = e(t.parent);
-        if ("property" === t.parent.type) {
+        if ('property' === t.parent.type) {
           var n = t.parent.children[0].value;
           r.push(n);
-        } else if ("array" === t.parent.type) {
+        } else if ('array' === t.parent.type) {
           var o = t.parent.children.indexOf(t);
           -1 !== o && r.push(o);
         }
@@ -1773,9 +1773,9 @@
       }),
       (t.getNodeValue = function e(t) {
         switch (t.type) {
-          case "array":
+          case 'array':
             return t.children.map(e);
-          case "object":
+          case 'object':
             for (
               var r = Object.create(null), n = 0, o = t.children;
               n < o.length;
@@ -1786,10 +1786,10 @@
               a && (r[i.children[0].value] = e(a));
             }
             return r;
-          case "null":
-          case "string":
-          case "number":
-          case "boolean":
+          case 'null':
+          case 'string':
+          case 'number':
+          case 'boolean':
             return t.value;
           default:
             return;
@@ -1825,28 +1825,28 @@
                 (a = o.getPosition());
           }
         } while (17 !== r);
-        return i.join("");
+        return i.join('');
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/impl/edit",
-          ["require", "exports", "./format", "./parser"],
+          'jsonc-parser/impl/edit',
+          ['require', 'exports', './format', './parser'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var u = e("./format"),
-      x = e("./parser");
+    var u = e('./format'),
+      x = e('./parser');
 
     function n(e, t, r, n, o) {
       for (
@@ -1856,17 +1856,17 @@
         void 0 === (s = x.findNodeAtLocation(a, t)) && void 0 !== r);
 
       )
-        "string" == typeof c ? (((i = {})[c] = r), (r = i)) : (r = [r]);
+        'string' == typeof c ? (((i = {})[c] = r), (r = i)) : (r = [r]);
       if (s) {
         if (
-          "object" === s.type &&
-          "string" == typeof c &&
+          'object' === s.type &&
+          'string' == typeof c &&
           Array.isArray(s.children)
         ) {
           var u = x.findNodeAtLocation(s, [c]);
           if (void 0 !== u) {
             if (void 0 === r) {
-              if (!u.parent) throw new Error("Malformed AST");
+              if (!u.parent) throw new Error('Malformed AST');
               var f = s.children.indexOf(u.parent),
                 l = void 0,
                 d = u.parent.offset + u.parent.length;
@@ -1878,7 +1878,7 @@
                 {
                   offset: l,
                   length: d - l,
-                  content: "",
+                  content: '',
                 },
                 n
               );
@@ -1894,7 +1894,7 @@
             );
           }
           if (void 0 === r) return [];
-          var p = JSON.stringify(c) + ": " + JSON.stringify(r),
+          var p = JSON.stringify(c) + ': ' + JSON.stringify(r),
             h = o
               ? o(
                   s.children.map(function (e) {
@@ -1910,7 +1910,7 @@
                 ? {
                     offset: (y = s.children[h - 1]).offset + y.length,
                     length: 0,
-                    content: "," + p,
+                    content: ',' + p,
                   }
                 : 0 === s.children.length
                 ? {
@@ -1921,18 +1921,18 @@
                 : {
                     offset: s.offset + 1,
                     length: 0,
-                    content: p + ",",
+                    content: p + ',',
                   }),
             n
           );
         }
         if (
-          "array" === s.type &&
-          "number" == typeof c &&
+          'array' === s.type &&
+          'number' == typeof c &&
           Array.isArray(s.children)
         ) {
           if (-1 === c) {
-            (p = "" + JSON.stringify(r)), (m = void 0);
+            (p = '' + JSON.stringify(r)), (m = void 0);
             if (0 === s.children.length)
               m = {
                 offset: s.offset + 1,
@@ -1944,7 +1944,7 @@
                 offset:
                   (y = s.children[s.children.length - 1]).offset + y.length,
                 length: 0,
-                content: "," + p,
+                content: ',' + p,
               };
             return S(e, m, n);
           }
@@ -1956,7 +1956,7 @@
               m = {
                 offset: s.offset + 1,
                 length: s.length - 2,
-                content: "",
+                content: '',
               };
             else if (s.children.length - 1 === g) {
               var y,
@@ -1964,26 +1964,26 @@
               m = {
                 offset: b,
                 length: s.offset + s.length - 2 - b,
-                content: "",
+                content: '',
               };
             } else
               m = {
                 offset: v.offset,
                 length: s.children[g + 1].offset - v.offset,
-                content: "",
+                content: '',
               };
             return S(e, m, n);
           }
-          throw new Error("Array modification not supported yet");
+          throw new Error('Array modification not supported yet');
         }
         throw new Error(
-          "Can not add " +
-            ("number" != typeof c ? "index" : "property") +
-            " to parent of type " +
+          'Can not add ' +
+            ('number' != typeof c ? 'index' : 'property') +
+            ' to parent of type ' +
             s.type
         );
       }
-      if (void 0 === r) throw new Error("Can not delete in empty document");
+      if (void 0 === r) throw new Error('Can not delete in empty document');
       return S(
         e,
         {
@@ -2042,37 +2042,37 @@
       (t.setProperty = n),
       (t.applyEdit = f),
       (t.isWS = function (e, t) {
-        return -1 !== "\r\n \t".indexOf(e.charAt(t));
+        return -1 !== '\r\n \t'.indexOf(e.charAt(t));
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/main",
+          'jsonc-parser/main',
           [
-            "require",
-            "exports",
-            "./impl/format",
-            "./impl/edit",
-            "./impl/scanner",
-            "./impl/parser",
+            'require',
+            'exports',
+            './impl/format',
+            './impl/edit',
+            './impl/scanner',
+            './impl/parser',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var n = e("./impl/format"),
-      o = e("./impl/edit"),
-      r = e("./impl/scanner"),
-      i = e("./impl/parser");
+    var n = e('./impl/format'),
+      o = e('./impl/edit'),
+      r = e('./impl/scanner'),
+      i = e('./impl/parser');
     (t.createScanner = r.createScanner),
       (t.getLocation = i.getLocation),
       (t.parse = i.parse),
@@ -2094,31 +2094,31 @@
         return e;
       });
   }),
-  define("jsonc-parser", ["jsonc-parser/main"], function (e) {
+  define('jsonc-parser', ['jsonc-parser/main'], function (e) {
     return e;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/utils/objects",
-          ["require", "exports"],
+          'vscode-json-languageservice/utils/objects',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.equals = function e(t, r) {
         if (t === r) return !0;
         if (null == t || null == r) return !1;
         if (typeof t != typeof r) return !1;
-        if ("object" != typeof t) return !1;
+        if ('object' != typeof t) return !1;
         if (Array.isArray(t) !== Array.isArray(r)) return !1;
         var n, o;
         if (Array.isArray(t)) {
@@ -2137,24 +2137,24 @@
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/jsonLanguageTypes",
-          ["require", "exports", "vscode-languageserver-types"],
+          'vscode-json-languageservice/jsonLanguageTypes',
+          ['require', 'exports', 'vscode-languageserver-types'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
     var r,
-      n = e("vscode-languageserver-types");
+      n = e('vscode-languageserver-types');
     (t.Range = n.Range),
       (t.TextEdit = n.TextEdit),
       (t.Color = n.Color),
@@ -2163,27 +2163,27 @@
       (t.FoldingRange = n.FoldingRange),
       (t.FoldingRangeKind = n.FoldingRangeKind),
       ((r = t.ErrorCode || (t.ErrorCode = {}))[(r.Undefined = 0)] =
-        "Undefined"),
-      (r[(r.EnumValueMismatch = 1)] = "EnumValueMismatch"),
-      (r[(r.UnexpectedEndOfComment = 257)] = "UnexpectedEndOfComment"),
-      (r[(r.UnexpectedEndOfString = 258)] = "UnexpectedEndOfString"),
-      (r[(r.UnexpectedEndOfNumber = 259)] = "UnexpectedEndOfNumber"),
-      (r[(r.InvalidUnicode = 260)] = "InvalidUnicode"),
-      (r[(r.InvalidEscapeCharacter = 261)] = "InvalidEscapeCharacter"),
-      (r[(r.InvalidCharacter = 262)] = "InvalidCharacter"),
-      (r[(r.PropertyExpected = 513)] = "PropertyExpected"),
-      (r[(r.CommaExpected = 514)] = "CommaExpected"),
-      (r[(r.ColonExpected = 515)] = "ColonExpected"),
-      (r[(r.ValueExpected = 516)] = "ValueExpected"),
-      (r[(r.CommaOrCloseBacketExpected = 517)] = "CommaOrCloseBacketExpected"),
-      (r[(r.CommaOrCloseBraceExpected = 518)] = "CommaOrCloseBraceExpected"),
-      (r[(r.TrailingComma = 519)] = "TrailingComma"),
-      (r[(r.DuplicateKey = 520)] = "DuplicateKey"),
-      (r[(r.CommentNotPermitted = 521)] = "CommentNotPermitted"),
-      (r[(r.SchemaResolveError = 768)] = "SchemaResolveError");
+        'Undefined'),
+      (r[(r.EnumValueMismatch = 1)] = 'EnumValueMismatch'),
+      (r[(r.UnexpectedEndOfComment = 257)] = 'UnexpectedEndOfComment'),
+      (r[(r.UnexpectedEndOfString = 258)] = 'UnexpectedEndOfString'),
+      (r[(r.UnexpectedEndOfNumber = 259)] = 'UnexpectedEndOfNumber'),
+      (r[(r.InvalidUnicode = 260)] = 'InvalidUnicode'),
+      (r[(r.InvalidEscapeCharacter = 261)] = 'InvalidEscapeCharacter'),
+      (r[(r.InvalidCharacter = 262)] = 'InvalidCharacter'),
+      (r[(r.PropertyExpected = 513)] = 'PropertyExpected'),
+      (r[(r.CommaExpected = 514)] = 'CommaExpected'),
+      (r[(r.ColonExpected = 515)] = 'ColonExpected'),
+      (r[(r.ValueExpected = 516)] = 'ValueExpected'),
+      (r[(r.CommaOrCloseBacketExpected = 517)] = 'CommaOrCloseBacketExpected'),
+      (r[(r.CommaOrCloseBraceExpected = 518)] = 'CommaOrCloseBraceExpected'),
+      (r[(r.TrailingComma = 519)] = 'TrailingComma'),
+      (r[(r.DuplicateKey = 520)] = 'DuplicateKey'),
+      (r[(r.CommentNotPermitted = 521)] = 'CommentNotPermitted'),
+      (r[(r.SchemaResolveError = 768)] = 'SchemaResolveError');
   }),
-  define("vscode-nls/vscode-nls", ["require", "exports"], function (e, t) {
-    "use strict";
+  define('vscode-nls/vscode-nls', ['require', 'exports'], function (e, t) {
+    'use strict';
 
     function r(e, t) {
       for (var r, n, o = [], i = 2; i < arguments.length; i++)
@@ -2202,7 +2202,7 @@
     function n(e) {
       return r;
     }
-    Object.defineProperty(t, "__esModule", {
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.loadMessageBundle = n),
@@ -2210,7 +2210,7 @@
         return n;
       });
   }),
-  define("vscode-nls", ["vscode-nls/vscode-nls"], function (e) {
+  define('vscode-nls', ['vscode-nls/vscode-nls'], function (e) {
     return e;
   });
 var __extends =
@@ -2239,58 +2239,58 @@ var __extends =
     };
   })();
 !(function (e) {
-  if ("object" == typeof module && "object" == typeof module.exports) {
+  if ('object' == typeof module && 'object' == typeof module.exports) {
     var t = e(require, exports);
     void 0 !== t && (module.exports = t);
   } else
-    "function" == typeof define &&
+    'function' == typeof define &&
       define.amd &&
-      define("vscode-uri/index", ["require", "exports"], e);
+      define('vscode-uri/index', ['require', 'exports'], e);
 })(function (e, t) {
-  "use strict";
+  'use strict';
   var n;
   if (
-    (Object.defineProperty(t, "__esModule", {
+    (Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
-    "object" == typeof process)
+    'object' == typeof process)
   )
-    n = "win32" === process.platform;
-  else if ("object" == typeof navigator) {
+    n = 'win32' === process.platform;
+  else if ('object' == typeof navigator) {
     var r = navigator.userAgent;
-    n = 0 <= r.indexOf("Windows");
+    n = 0 <= r.indexOf('Windows');
   }
   var i = /^\w[\w\d+.-]*$/,
     a = /^\//,
     s = /^\/\//;
   var o,
-    d = "/",
+    d = '/',
     c = /^(([^:/?#]+?):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/,
     u = (function () {
       function r(e, t, r, n, o) {
-        "object" == typeof e
-          ? ((this.scheme = e.scheme || ""),
-            (this.authority = e.authority || ""),
-            (this.path = e.path || ""),
-            (this.query = e.query || ""),
-            (this.fragment = e.fragment || ""))
-          : ((this.scheme = e || ""),
-            (this.authority = t || ""),
+        'object' == typeof e
+          ? ((this.scheme = e.scheme || ''),
+            (this.authority = e.authority || ''),
+            (this.path = e.path || ''),
+            (this.query = e.query || ''),
+            (this.fragment = e.fragment || ''))
+          : ((this.scheme = e || ''),
+            (this.authority = t || ''),
             (this.path = (function (e, t) {
               switch (e) {
-                case "https":
-                case "http":
-                case "file":
+                case 'https':
+                case 'http':
+                case 'file':
                   t ? t[0] !== d && (t = d + t) : (t = d);
               }
               return t;
-            })(this.scheme, r || "")),
-            (this.query = n || ""),
-            (this.fragment = o || ""),
+            })(this.scheme, r || '')),
+            (this.query = n || ''),
+            (this.fragment = o || ''),
             (function (e) {
               if (e.scheme && !i.test(e.scheme))
                 throw new Error(
-                  "[UriError]: Scheme contains illegal characters."
+                  '[UriError]: Scheme contains illegal characters.'
                 );
               if (e.path)
                 if (e.authority) {
@@ -2309,14 +2309,14 @@ var __extends =
           return (
             e instanceof r ||
             (!!e &&
-              "string" == typeof e.authority &&
-              "string" == typeof e.fragment &&
-              "string" == typeof e.path &&
-              "string" == typeof e.query &&
-              "string" == typeof e.scheme)
+              'string' == typeof e.authority &&
+              'string' == typeof e.fragment &&
+              'string' == typeof e.path &&
+              'string' == typeof e.query &&
+              'string' == typeof e.scheme)
           );
         }),
-        Object.defineProperty(r.prototype, "fsPath", {
+        Object.defineProperty(r.prototype, 'fsPath', {
           get: function () {
             return m(this);
           },
@@ -2331,11 +2331,11 @@ var __extends =
             o = e.query,
             i = e.fragment;
           return (
-            void 0 === t ? (t = this.scheme) : null === t && (t = ""),
-            void 0 === r ? (r = this.authority) : null === r && (r = ""),
-            void 0 === n ? (n = this.path) : null === n && (n = ""),
-            void 0 === o ? (o = this.query) : null === o && (o = ""),
-            void 0 === i ? (i = this.fragment) : null === i && (i = ""),
+            void 0 === t ? (t = this.scheme) : null === t && (t = ''),
+            void 0 === r ? (r = this.authority) : null === r && (r = ''),
+            void 0 === n ? (n = this.path) : null === n && (n = ''),
+            void 0 === o ? (o = this.query) : null === o && (o = ''),
+            void 0 === i ? (i = this.fragment) : null === i && (i = ''),
             t === this.scheme &&
             r === this.authority &&
             n === this.path &&
@@ -2349,23 +2349,23 @@ var __extends =
           var t = c.exec(e);
           return t
             ? new f(
-                t[2] || "",
-                decodeURIComponent(t[4] || ""),
-                decodeURIComponent(t[5] || ""),
-                decodeURIComponent(t[7] || ""),
-                decodeURIComponent(t[9] || "")
+                t[2] || '',
+                decodeURIComponent(t[4] || ''),
+                decodeURIComponent(t[5] || ''),
+                decodeURIComponent(t[7] || ''),
+                decodeURIComponent(t[9] || '')
               )
-            : new f("", "", "", "", "");
+            : new f('', '', '', '', '');
         }),
         (r.file = function (e) {
-          var t = "";
+          var t = '';
           if ((n && (e = e.replace(/\\/g, d)), e[0] === d && e[1] === d)) {
             var r = e.indexOf(d, 2);
             -1 === r
               ? ((t = e.substring(2)), (e = d))
               : ((t = e.substring(2, r)), (e = e.substring(r) || d));
           }
-          return new f("file", t, e, "", "");
+          return new f('file', t, e, '', '');
         }),
         (r.from = function (e) {
           return new f(e.scheme, e.authority, e.path, e.query, e.fragment);
@@ -2394,7 +2394,7 @@ var __extends =
       }
       return (
         __extends(e, t),
-        Object.defineProperty(e.prototype, "fsPath", {
+        Object.defineProperty(e.prototype, 'fsPath', {
           get: function () {
             return this._fsPath || (this._fsPath = m(this)), this._fsPath;
           },
@@ -2429,25 +2429,25 @@ var __extends =
       );
     })((t.default = u)),
     l =
-      (((o = {})[58] = "%3A"),
-      (o[47] = "%2F"),
-      (o[63] = "%3F"),
-      (o[35] = "%23"),
-      (o[91] = "%5B"),
-      (o[93] = "%5D"),
-      (o[64] = "%40"),
-      (o[33] = "%21"),
-      (o[36] = "%24"),
-      (o[38] = "%26"),
-      (o[39] = "%27"),
-      (o[40] = "%28"),
-      (o[41] = "%29"),
-      (o[42] = "%2A"),
-      (o[43] = "%2B"),
-      (o[44] = "%2C"),
-      (o[59] = "%3B"),
-      (o[61] = "%3D"),
-      (o[32] = "%20"),
+      (((o = {})[58] = '%3A'),
+      (o[47] = '%2F'),
+      (o[63] = '%3F'),
+      (o[35] = '%23'),
+      (o[91] = '%5B'),
+      (o[93] = '%5D'),
+      (o[64] = '%40'),
+      (o[33] = '%21'),
+      (o[36] = '%24'),
+      (o[38] = '%26'),
+      (o[39] = '%27'),
+      (o[40] = '%28'),
+      (o[41] = '%29'),
+      (o[42] = '%2A'),
+      (o[43] = '%2B'),
+      (o[44] = '%2C'),
+      (o[59] = '%3B'),
+      (o[61] = '%3D'),
+      (o[32] = '%20'),
       o);
 
   function p(e, t) {
@@ -2495,44 +2495,44 @@ var __extends =
     var t;
     return (
       (t =
-        e.authority && 1 < e.path.length && "file" === e.scheme
-          ? "//" + e.authority + e.path
+        e.authority && 1 < e.path.length && 'file' === e.scheme
+          ? '//' + e.authority + e.path
           : 47 === e.path.charCodeAt(0) &&
             ((65 <= e.path.charCodeAt(1) && e.path.charCodeAt(1) <= 90) ||
               (97 <= e.path.charCodeAt(1) && e.path.charCodeAt(1) <= 122)) &&
             58 === e.path.charCodeAt(2)
           ? e.path[1].toLowerCase() + e.path.substr(2)
           : e.path),
-      n && (t = t.replace(/\//g, "\\")),
+      n && (t = t.replace(/\//g, '\\')),
       t
     );
   }
 
   function g(e, t) {
     var r = t ? h : p,
-      n = "",
+      n = '',
       o = e.scheme,
       i = e.authority,
       a = e.path,
       s = e.query,
       c = e.fragment;
     if (
-      (o && ((n += o), (n += ":")),
-      (i || "file" === o) && ((n += d), (n += d)),
+      (o && ((n += o), (n += ':')),
+      (i || 'file' === o) && ((n += d), (n += d)),
       i)
     ) {
-      var u = i.indexOf("@");
+      var u = i.indexOf('@');
       if (-1 !== u) {
         var f = i.substr(0, u);
         (i = i.substr(u + 1)),
-          -1 === (u = f.indexOf(":"))
+          -1 === (u = f.indexOf(':'))
             ? (n += r(f, !1))
             : ((n += r(f.substr(0, u), !1)),
-              (n += ":"),
+              (n += ':'),
               (n += r(f.substr(u + 1), !1))),
-          (n += "@");
+          (n += '@');
       }
-      -1 === (u = (i = i.toLowerCase()).indexOf(":"))
+      -1 === (u = (i = i.toLowerCase()).indexOf(':'))
         ? (n += r(i, !1))
         : ((n += r(i.substr(0, u), !1)), (n += i.substr(u)));
     }
@@ -2540,21 +2540,21 @@ var __extends =
       if (3 <= a.length && 47 === a.charCodeAt(0) && 58 === a.charCodeAt(2))
         65 <= (l = a.charCodeAt(1)) &&
           l <= 90 &&
-          (a = "/" + String.fromCharCode(l + 32) + ":" + a.substr(3));
+          (a = '/' + String.fromCharCode(l + 32) + ':' + a.substr(3));
       else if (2 <= a.length && 58 === a.charCodeAt(1)) {
         var l;
         65 <= (l = a.charCodeAt(0)) &&
           l <= 90 &&
-          (a = String.fromCharCode(l + 32) + ":" + a.substr(2));
+          (a = String.fromCharCode(l + 32) + ':' + a.substr(2));
       }
       n += r(a, !0);
     }
     return (
-      s && ((n += "?"), (n += r(s, !1))), c && ((n += "#"), (n += r(c, !1))), n
+      s && ((n += '?'), (n += r(s, !1))), c && ((n += '#'), (n += r(c, !1))), n
     );
   }
 }),
-  define("vscode-uri", ["vscode-uri/index"], function (e) {
+  define('vscode-uri', ['vscode-uri/index'], function (e) {
     return e;
   });
 __extends =
@@ -2583,37 +2583,37 @@ __extends =
     };
   })();
 !(function (e) {
-  if ("object" == typeof module && "object" == typeof module.exports) {
+  if ('object' == typeof module && 'object' == typeof module.exports) {
     var t = e(require, exports);
     void 0 !== t && (module.exports = t);
   } else
-    "function" == typeof define &&
+    'function' == typeof define &&
       define.amd &&
       define(
-        "vscode-json-languageservice/parser/jsonParser",
+        'vscode-json-languageservice/parser/jsonParser',
         [
-          "require",
-          "exports",
-          "jsonc-parser",
-          "../utils/objects",
-          "../jsonLanguageTypes",
-          "vscode-nls",
-          "vscode-uri",
-          "vscode-languageserver-types",
+          'require',
+          'exports',
+          'jsonc-parser',
+          '../utils/objects',
+          '../jsonLanguageTypes',
+          'vscode-nls',
+          'vscode-uri',
+          'vscode-languageserver-types',
         ],
         e
       );
 })(function (e, t) {
-  "use strict";
-  Object.defineProperty(t, "__esModule", {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
     value: !0,
   });
-  var o = e("jsonc-parser"),
-    h = e("../utils/objects"),
-    y = e("../jsonLanguageTypes"),
-    r = e("vscode-nls"),
-    s = e("vscode-uri"),
-    b = e("vscode-languageserver-types"),
+  var o = e('jsonc-parser'),
+    h = e('../utils/objects'),
+    y = e('../jsonLanguageTypes'),
+    r = e('vscode-nls'),
+    s = e('vscode-uri'),
+    b = e('vscode-languageserver-types'),
     x = r.loadMessageBundle(),
     c = /^#([0-9A-Fa-f]{3,4}|([0-9A-Fa-f]{2}){3,4})$/,
     u =
@@ -2623,7 +2623,7 @@ __extends =
         (this.offset = t), (this.length = r), (this.parent = e);
       }
       return (
-        Object.defineProperty(e.prototype, "children", {
+        Object.defineProperty(e.prototype, 'children', {
           get: function () {
             return [];
           },
@@ -2632,14 +2632,14 @@ __extends =
         }),
         (e.prototype.toString = function () {
           return (
-            "type: " +
+            'type: ' +
             this.type +
-            " (" +
+            ' (' +
             this.offset +
-            "/" +
+            '/' +
             this.length +
-            ")" +
-            (this.parent ? " parent: {" + this.parent.toString() + "}" : "")
+            ')' +
+            (this.parent ? ' parent: {' + this.parent.toString() + '}' : '')
           );
         }),
         e
@@ -2648,7 +2648,7 @@ __extends =
     i = (function (n) {
       function e(e, t) {
         var r = n.call(this, e, t) || this;
-        return (r.type = "null"), (r.value = null), r;
+        return (r.type = 'null'), (r.value = null), r;
       }
       return __extends(e, n), e;
     })((t.ASTNodeImpl = n));
@@ -2656,7 +2656,7 @@ __extends =
   var S = (function (o) {
     function e(e, t, r) {
       var n = o.call(this, e, r) || this;
-      return (n.type = "boolean"), (n.value = t), n;
+      return (n.type = 'boolean'), (n.value = t), n;
     }
     return __extends(e, o), e;
   })(n);
@@ -2664,11 +2664,11 @@ __extends =
   var C = (function (n) {
     function e(e, t) {
       var r = n.call(this, e, t) || this;
-      return (r.type = "array"), (r.items = []), r;
+      return (r.type = 'array'), (r.items = []), r;
     }
     return (
       __extends(e, n),
-      Object.defineProperty(e.prototype, "children", {
+      Object.defineProperty(e.prototype, 'children', {
         get: function () {
           return this.items;
         },
@@ -2682,7 +2682,7 @@ __extends =
   var j = (function (n) {
     function e(e, t) {
       var r = n.call(this, e, t) || this;
-      return (r.type = "number"), (r.isInteger = !0), (r.value = Number.NaN), r;
+      return (r.type = 'number'), (r.isInteger = !0), (r.value = Number.NaN), r;
     }
     return __extends(e, n), e;
   })(n);
@@ -2690,7 +2690,7 @@ __extends =
   var T = (function (o) {
     function e(e, t, r) {
       var n = o.call(this, e, t, r) || this;
-      return (n.type = "string"), (n.value = ""), n;
+      return (n.type = 'string'), (n.value = ''), n;
     }
     return __extends(e, o), e;
   })(n);
@@ -2698,11 +2698,11 @@ __extends =
   var A = (function (n) {
     function e(e, t) {
       var r = n.call(this, e, t) || this;
-      return (r.type = "property"), (r.colonOffset = -1), r;
+      return (r.type = 'property'), (r.colonOffset = -1), r;
     }
     return (
       __extends(e, n),
-      Object.defineProperty(e.prototype, "children", {
+      Object.defineProperty(e.prototype, 'children', {
         get: function () {
           return this.valueNode
             ? [this.keyNode, this.valueNode]
@@ -2719,11 +2719,11 @@ __extends =
     O = (function (n) {
       function e(e, t) {
         var r = n.call(this, e, t) || this;
-        return (r.type = "object"), (r.properties = []), r;
+        return (r.type = 'object'), (r.properties = []), r;
       }
       return (
         __extends(e, n),
-        Object.defineProperty(e.prototype, "children", {
+        Object.defineProperty(e.prototype, 'children', {
           get: function () {
             return this.properties;
           },
@@ -2735,7 +2735,7 @@ __extends =
     })(n);
 
   function m(e) {
-    return "boolean" == typeof e
+    return 'boolean' == typeof e
       ? e
         ? {}
         : {
@@ -2745,8 +2745,8 @@ __extends =
   }
   (t.ObjectASTNodeImpl = O),
     (t.asSchema = m),
-    ((a = t.EnumMatch || (t.EnumMatch = {}))[(a.Key = 0)] = "Key"),
-    (a[(a.Enum = 1)] = "Enum");
+    ((a = t.EnumMatch || (t.EnumMatch = {}))[(a.Key = 0)] = 'Key'),
+    (a[(a.Enum = 1)] = 'Enum');
   var f = (function () {
       function e(e, t) {
         void 0 === e && (e = -1),
@@ -2778,7 +2778,7 @@ __extends =
     g = (function () {
       function e() {}
       return (
-        Object.defineProperty(e.prototype, "schemas", {
+        Object.defineProperty(e.prototype, 'schemas', {
           get: function () {
             return [];
           },
@@ -2831,13 +2831,13 @@ __extends =
               var n = r[t];
               n.code === y.ErrorCode.EnumValueMismatch &&
                 (n.message = x(
-                  "enumWarning",
-                  "Value is not accepted. Valid values: {0}.",
+                  'enumWarning',
+                  'Value is not accepted. Valid values: {0}.',
                   this.enumValues
                     .map(function (e) {
                       return JSON.stringify(e);
                     })
-                    .join(", ")
+                    .join(', ')
                 ));
             }
           }
@@ -2945,7 +2945,7 @@ __extends =
   function I(f, l, d, p) {
     if (f && p.include(f)) {
       switch (f.type) {
-        case "object":
+        case 'object':
           !(function (i, s, c, u) {
             var f = Object.create(null),
               r = [];
@@ -2958,7 +2958,7 @@ __extends =
                   if (!f[e]) {
                     var t =
                         i.parent &&
-                        "property" === i.parent.type &&
+                        'property' === i.parent.type &&
                         i.parent.keyNode,
                       r = t
                         ? {
@@ -2973,7 +2973,7 @@ __extends =
                       location: r,
                       severity: b.DiagnosticSeverity.Warning,
                       message: x(
-                        "MissingRequiredPropWarning",
+                        'MissingRequiredPropWarning',
                         'Missing property "{0}".',
                         e
                       ),
@@ -2990,7 +2990,7 @@ __extends =
                 var t = s.properties[e],
                   r = f[e];
                 if (r)
-                  if ("boolean" == typeof t)
+                  if ('boolean' == typeof t)
                     if (t) c.propertiesMatches++, c.propertiesValueMatches++;
                     else {
                       var n = r.parent;
@@ -3003,8 +3003,8 @@ __extends =
                         message:
                           s.errorMessage ||
                           x(
-                            "DisallowedExtraPropWarning",
-                            "Property {0} is not allowed.",
+                            'DisallowedExtraPropWarning',
+                            'Property {0} is not allowed.',
                             e
                           ),
                       });
@@ -3023,7 +3023,7 @@ __extends =
                     var t = f[e];
                     if (t) {
                       var r = s.patternProperties[i];
-                      if ("boolean" == typeof r)
+                      if ('boolean' == typeof r)
                         if (r)
                           c.propertiesMatches++, c.propertiesValueMatches++;
                         else {
@@ -3037,8 +3037,8 @@ __extends =
                             message:
                               s.errorMessage ||
                               x(
-                                "DisallowedExtraPropWarning",
-                                "Property {0} is not allowed.",
+                                'DisallowedExtraPropWarning',
+                                'Property {0} is not allowed.',
                                 e
                               ),
                           });
@@ -3051,7 +3051,7 @@ __extends =
                   }
                 });
               });
-            "object" == typeof s.additionalProperties
+            'object' == typeof s.additionalProperties
               ? r.forEach(function (e) {
                   var t = f[e];
                   if (t) {
@@ -3074,8 +3074,8 @@ __extends =
                       message:
                         s.errorMessage ||
                         x(
-                          "DisallowedExtraPropWarning",
-                          "Property {0} is not allowed.",
+                          'DisallowedExtraPropWarning',
+                          'Property {0} is not allowed.',
                           e
                         ),
                     });
@@ -3090,8 +3090,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "MaxPropWarning",
-                  "Object has more properties than limit of {0}.",
+                  'MaxPropWarning',
+                  'Object has more properties than limit of {0}.',
                   s.maxProperties
                 ),
               });
@@ -3104,8 +3104,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "MinPropWarning",
-                  "Object has fewer properties than the required number of {0}",
+                  'MinPropWarning',
+                  'Object has fewer properties than the required number of {0}',
                   s.minProperties
                 ),
               });
@@ -3125,8 +3125,8 @@ __extends =
                             },
                             severity: b.DiagnosticSeverity.Warning,
                             message: x(
-                              "RequiredDependentPropWarning",
-                              "Object is missing property {0} required by property {1}.",
+                              'RequiredDependentPropWarning',
+                              'Object is missing property {0} required by property {1}.',
                               e,
                               t
                             ),
@@ -3149,7 +3149,7 @@ __extends =
               });
           })(f, l, d, p);
           break;
-        case "array":
+        case 'array':
           !(function (i, e, a, s) {
             if (Array.isArray(e.items)) {
               var c = e.items;
@@ -3164,7 +3164,7 @@ __extends =
                 }),
                 i.items.length > c.length)
               )
-                if ("object" == typeof e.additionalItems)
+                if ('object' == typeof e.additionalItems)
                   for (var t = c.length; t < i.items.length; t++) {
                     var r = new v();
                     I(i.items[t], e.additionalItems, r, s),
@@ -3179,8 +3179,8 @@ __extends =
                       },
                       severity: b.DiagnosticSeverity.Warning,
                       message: x(
-                        "additionalItemsWarning",
-                        "Array has too many items according to schema. Expected {0} or fewer.",
+                        'additionalItemsWarning',
+                        'Array has too many items according to schema. Expected {0} or fewer.',
                         c.length
                       ),
                     });
@@ -3208,8 +3208,8 @@ __extends =
                   message:
                     e.errorMessage ||
                     x(
-                      "requiredItemMissingWarning",
-                      "Array does not contain required item."
+                      'requiredItemMissingWarning',
+                      'Array does not contain required item.'
                     ),
                 });
             }
@@ -3222,8 +3222,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "minItemsWarning",
-                  "Array has too few items. Expected {0} or more.",
+                  'minItemsWarning',
+                  'Array has too few items. Expected {0} or more.',
                   e.minItems
                 ),
               });
@@ -3236,8 +3236,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "maxItemsWarning",
-                  "Array has too many items. Expected {0} or fewer.",
+                  'maxItemsWarning',
+                  'Array has too many items. Expected {0} or fewer.',
                   e.maxItems
                 ),
               });
@@ -3254,14 +3254,14 @@ __extends =
                   },
                   severity: b.DiagnosticSeverity.Warning,
                   message: x(
-                    "uniqueItemsWarning",
-                    "Array has duplicate items."
+                    'uniqueItemsWarning',
+                    'Array has duplicate items.'
                   ),
                 });
             }
           })(f, l, d, p);
           break;
-        case "string":
+        case 'string':
           !(function (e, t, r, n) {
             t.minLength &&
               e.value.length < t.minLength &&
@@ -3272,8 +3272,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "minLengthWarning",
-                  "String is shorter than the minimum length of {0}.",
+                  'minLengthWarning',
+                  'String is shorter than the minimum length of {0}.',
                   t.minLength
                 ),
               });
@@ -3286,8 +3286,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "maxLengthWarning",
-                  "String is longer than the maximum length of {0}.",
+                  'maxLengthWarning',
+                  'String is longer than the maximum length of {0}.',
                   t.maxLength
                 ),
               });
@@ -3304,7 +3304,7 @@ __extends =
                     t.patternErrorMessage ||
                     t.errorMessage ||
                     x(
-                      "patternWarning",
+                      'patternWarning',
                       'String does not match the pattern of "{0}".',
                       t.pattern
                     ),
@@ -3312,22 +3312,22 @@ __extends =
             }
             if (t.format)
               switch (t.format) {
-                case "uri":
-                case "uri-reference":
+                case 'uri':
+                case 'uri-reference':
                   var i = void 0;
                   if (e.value)
                     try {
                       var a = s.default.parse(e.value);
                       a.scheme ||
-                        "uri" !== t.format ||
+                        'uri' !== t.format ||
                         (i = x(
-                          "uriSchemeMissing",
-                          "URI with a scheme is expected."
+                          'uriSchemeMissing',
+                          'URI with a scheme is expected.'
                         ));
                     } catch (e) {
                       i = e.message;
                     }
-                  else i = x("uriEmpty", "URI expected.");
+                  else i = x('uriEmpty', 'URI expected.');
                   i &&
                     r.problems.push({
                       location: {
@@ -3338,10 +3338,10 @@ __extends =
                       message:
                         t.patternErrorMessage ||
                         t.errorMessage ||
-                        x("uriFormatWarning", "String is not a URI: {0}", i),
+                        x('uriFormatWarning', 'String is not a URI: {0}', i),
                     });
                   break;
-                case "email":
+                case 'email':
                   e.value.match(u) ||
                     r.problems.push({
                       location: {
@@ -3353,12 +3353,12 @@ __extends =
                         t.patternErrorMessage ||
                         t.errorMessage ||
                         x(
-                          "emailFormatWarning",
-                          "String is not an e-mail address."
+                          'emailFormatWarning',
+                          'String is not an e-mail address.'
                         ),
                     });
                   break;
-                case "color-hex":
+                case 'color-hex':
                   e.value.match(c) ||
                     r.problems.push({
                       location: {
@@ -3370,17 +3370,17 @@ __extends =
                         t.patternErrorMessage ||
                         t.errorMessage ||
                         x(
-                          "colorHexFormatWarning",
-                          "Invalid color format. Use #RGB, #RGBA, #RRGGBB or #RRGGBBAA."
+                          'colorHexFormatWarning',
+                          'Invalid color format. Use #RGB, #RGBA, #RRGGBB or #RRGGBBAA.'
                         ),
                     });
               }
           })(f, l, d);
           break;
-        case "number":
+        case 'number':
           !(function (e, t, r, n) {
             var o = e.value;
-            "number" == typeof t.multipleOf &&
+            'number' == typeof t.multipleOf &&
               o % t.multipleOf != 0 &&
               r.problems.push({
                 location: {
@@ -3389,25 +3389,25 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "multipleOfWarning",
-                  "Value is not divisible by {0}.",
+                  'multipleOfWarning',
+                  'Value is not divisible by {0}.',
                   t.multipleOf
                 ),
               });
 
             function i(e, t) {
-              return "number" == typeof t
+              return 'number' == typeof t
                 ? t
-                : "boolean" == typeof t && t
+                : 'boolean' == typeof t && t
                 ? e
                 : void 0;
             }
 
             function a(e, t) {
-              if ("boolean" != typeof t || !t) return e;
+              if ('boolean' != typeof t || !t) return e;
             }
             var s = i(t.minimum, t.exclusiveMinimum);
-            "number" == typeof s &&
+            'number' == typeof s &&
               o <= s &&
               r.problems.push({
                 location: {
@@ -3416,13 +3416,13 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "exclusiveMinimumWarning",
-                  "Value is below the exclusive minimum of {0}.",
+                  'exclusiveMinimumWarning',
+                  'Value is below the exclusive minimum of {0}.',
                   s
                 ),
               });
             var c = i(t.maximum, t.exclusiveMaximum);
-            "number" == typeof c &&
+            'number' == typeof c &&
               c <= o &&
               r.problems.push({
                 location: {
@@ -3431,13 +3431,13 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "exclusiveMaximumWarning",
-                  "Value is above the exclusive maximum of {0}.",
+                  'exclusiveMaximumWarning',
+                  'Value is above the exclusive maximum of {0}.',
                   c
                 ),
               });
             var u = a(t.minimum, t.exclusiveMinimum);
-            "number" == typeof u &&
+            'number' == typeof u &&
               o < u &&
               r.problems.push({
                 location: {
@@ -3446,13 +3446,13 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "minimumWarning",
-                  "Value is below the minimum of {0}.",
+                  'minimumWarning',
+                  'Value is below the minimum of {0}.',
                   u
                 ),
               });
             var f = a(t.maximum, t.exclusiveMaximum);
-            "number" == typeof f &&
+            'number' == typeof f &&
               f < o &&
               r.problems.push({
                 location: {
@@ -3461,21 +3461,21 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "maximumWarning",
-                  "Value is above the maximum of {0}.",
+                  'maximumWarning',
+                  'Value is above the maximum of {0}.',
                   f
                 ),
               });
           })(f, l, d);
           break;
-        case "property":
+        case 'property':
           return I(f.valueNode, l, d, p);
       }
       !(function () {
         function e(e) {
           return (
             f.type === e ||
-            ("integer" === e && "number" === f.type && f.isInteger)
+            ('integer' === e && 'number' === f.type && f.isInteger)
           );
         }
         Array.isArray(l.type)
@@ -3489,9 +3489,9 @@ __extends =
               message:
                 l.errorMessage ||
                 x(
-                  "typeArrayMismatchWarning",
-                  "Incorrect type. Expected one of {0}.",
-                  l.type.join(", ")
+                  'typeArrayMismatchWarning',
+                  'Incorrect type. Expected one of {0}.',
+                  l.type.join(', ')
                 ),
             })
           : l.type &&
@@ -3505,7 +3505,7 @@ __extends =
                 message:
                   l.errorMessage ||
                   x(
-                    "typeMismatchWarning",
+                    'typeMismatchWarning',
                     'Incorrect type. Expected "{0}".',
                     l.type
                   ),
@@ -3527,8 +3527,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "notSchemaWarning",
-                  "Matches a schema that is not allowed."
+                  'notSchemaWarning',
+                  'Matches a schema that is not allowed.'
                 ),
               }),
             n.schemas.forEach(function (e) {
@@ -3577,8 +3577,8 @@ __extends =
                 },
                 severity: b.DiagnosticSeverity.Warning,
                 message: x(
-                  "oneOfWarning",
-                  "Matches multiple schemas when only one must validate."
+                  'oneOfWarning',
+                  'Matches multiple schemas when only one must validate.'
                 ),
               }),
             null !== s &&
@@ -3612,13 +3612,13 @@ __extends =
                 message:
                   l.errorMessage ||
                   x(
-                    "enumWarning",
-                    "Value is not accepted. Valid values: {0}.",
+                    'enumWarning',
+                    'Value is not accepted. Valid values: {0}.',
                     l.enum
                       .map(function (e) {
                         return JSON.stringify(e);
                       })
-                      .join(", ")
+                      .join(', ')
                   ),
               });
         }
@@ -3636,8 +3636,8 @@ __extends =
                 message:
                   l.errorMessage ||
                   x(
-                    "constWarning",
-                    "Value must be {0}.",
+                    'constWarning',
+                    'Value must be {0}.',
                     JSON.stringify(l.const)
                   ),
               }),
@@ -3729,7 +3729,7 @@ __extends =
           case 4:
             return (
               p(
-                x("InvalidUnicode", "Invalid unicode sequence in string."),
+                x('InvalidUnicode', 'Invalid unicode sequence in string.'),
                 y.ErrorCode.InvalidUnicode
               ),
               !0
@@ -3738,8 +3738,8 @@ __extends =
             return (
               p(
                 x(
-                  "InvalidEscapeCharacter",
-                  "Invalid escape character in string."
+                  'InvalidEscapeCharacter',
+                  'Invalid escape character in string.'
                 ),
                 y.ErrorCode.InvalidEscapeCharacter
               ),
@@ -3748,7 +3748,7 @@ __extends =
           case 3:
             return (
               p(
-                x("UnexpectedEndOfNumber", "Unexpected end of number."),
+                x('UnexpectedEndOfNumber', 'Unexpected end of number.'),
                 y.ErrorCode.UnexpectedEndOfNumber
               ),
               !0
@@ -3756,7 +3756,7 @@ __extends =
           case 1:
             return (
               p(
-                x("UnexpectedEndOfComment", "Unexpected end of comment."),
+                x('UnexpectedEndOfComment', 'Unexpected end of comment.'),
                 y.ErrorCode.UnexpectedEndOfComment
               ),
               !0
@@ -3764,7 +3764,7 @@ __extends =
           case 2:
             return (
               p(
-                x("UnexpectedEndOfString", "Unexpected end of string."),
+                x('UnexpectedEndOfString', 'Unexpected end of string.'),
                 y.ErrorCode.UnexpectedEndOfString
               ),
               !0
@@ -3773,8 +3773,8 @@ __extends =
             return (
               p(
                 x(
-                  "InvalidCharacter",
-                  "Invalid characters in string. Control characters must be escaped."
+                  'InvalidCharacter',
+                  'Invalid characters in string. Control characters must be escaped.'
                 ),
                 y.ErrorCode.InvalidCharacter
               ),
@@ -3798,7 +3798,7 @@ __extends =
         if (!n) {
           if (16 !== f.getToken()) return null;
           p(
-            x("DoubleQuotesExpected", "Property keys must be doublequoted"),
+            x('DoubleQuotesExpected', 'Property keys must be doublequoted'),
             y.ErrorCode.Undefined
           );
           var o = new T(r, f.getTokenOffset(), f.getTokenLength());
@@ -3808,15 +3808,15 @@ __extends =
         if (
           (i
             ? (d(
-                x("DuplicateKeyWarning", "Duplicate object key"),
+                x('DuplicateKeyWarning', 'Duplicate object key'),
                 y.ErrorCode.DuplicateKey,
                 r.keyNode.offset,
                 r.keyNode.offset + r.keyNode.length,
                 b.DiagnosticSeverity.Warning
               ),
-              "object" == typeof i &&
+              'object' == typeof i &&
                 d(
-                  x("DuplicateKeyWarning", "Duplicate object key"),
+                  x('DuplicateKeyWarning', 'Duplicate object key'),
                   y.ErrorCode.DuplicateKey,
                   i.keyNode.offset,
                   i.keyNode.offset + i.keyNode.length,
@@ -3828,7 +3828,7 @@ __extends =
         )
           (r.colonOffset = f.getTokenOffset()), l();
         else if (
-          (p(x("ColonExpected", "Colon expected"), y.ErrorCode.ColonExpected),
+          (p(x('ColonExpected', 'Colon expected'), y.ErrorCode.ColonExpected),
           10 === f.getToken() &&
             s.positionAt(n.offset + n.length).line <
               s.positionAt(f.getTokenOffset()).line)
@@ -3838,7 +3838,7 @@ __extends =
         return a
           ? ((r.valueNode = a), (r.length = a.offset + a.length - r.offset), r)
           : p(
-              x("ValueExpected", "Value expected"),
+              x('ValueExpected', 'Value expected'),
               y.ErrorCode.ValueExpected,
               r,
               [],
@@ -3862,14 +3862,14 @@ __extends =
               if (5 === f.getToken()) {
                 r ||
                   p(
-                    x("ValueExpected", "Value expected"),
+                    x('ValueExpected', 'Value expected'),
                     y.ErrorCode.ValueExpected
                   );
                 var n = f.getTokenOffset();
                 if ((l(), 4 === f.getToken())) {
                   r &&
                     d(
-                      x("TrailingComma", "Trailing comma"),
+                      x('TrailingComma', 'Trailing comma'),
                       y.ErrorCode.TrailingComma,
                       n,
                       n + 1
@@ -3879,14 +3879,14 @@ __extends =
               } else
                 r &&
                   p(
-                    x("ExpectedComma", "Expected comma"),
+                    x('ExpectedComma', 'Expected comma'),
                     y.ErrorCode.CommaExpected
                   );
               var o = v(t, 0);
               o
                 ? t.items.push(o)
                 : p(
-                    x("PropertyExpected", "Value expected"),
+                    x('PropertyExpected', 'Value expected'),
                     y.ErrorCode.ValueExpected,
                     null,
                     [],
@@ -3897,8 +3897,8 @@ __extends =
             return 4 !== f.getToken()
               ? p(
                   x(
-                    "ExpectedCloseBracket",
-                    "Expected comma or closing bracket"
+                    'ExpectedCloseBracket',
+                    'Expected comma or closing bracket'
                   ),
                   y.ErrorCode.CommaOrCloseBacketExpected,
                   t
@@ -3914,14 +3914,14 @@ __extends =
               if (5 === f.getToken()) {
                 n ||
                   p(
-                    x("PropertyExpected", "Property expected"),
+                    x('PropertyExpected', 'Property expected'),
                     y.ErrorCode.PropertyExpected
                   );
                 var o = f.getTokenOffset();
                 if ((l(), 2 === f.getToken())) {
                   n &&
                     d(
-                      x("TrailingComma", "Trailing comma"),
+                      x('TrailingComma', 'Trailing comma'),
                       y.ErrorCode.TrailingComma,
                       o,
                       o + 1
@@ -3931,14 +3931,14 @@ __extends =
               } else
                 n &&
                   p(
-                    x("ExpectedComma", "Expected comma"),
+                    x('ExpectedComma', 'Expected comma'),
                     y.ErrorCode.CommaExpected
                   );
               var i = m(t, r);
               i
                 ? t.properties.push(i)
                 : p(
-                    x("PropertyExpected", "Property expected"),
+                    x('PropertyExpected', 'Property expected'),
                     y.ErrorCode.PropertyExpected,
                     null,
                     [],
@@ -3948,7 +3948,7 @@ __extends =
             }
             return 2 !== f.getToken()
               ? p(
-                  x("ExpectedCloseBrace", "Expected comma or closing brace"),
+                  x('ExpectedCloseBrace', 'Expected comma or closing brace'),
                   y.ErrorCode.CommaOrCloseBraceExpected,
                   t
                 )
@@ -3962,21 +3962,21 @@ __extends =
               var r = f.getTokenValue();
               try {
                 var n = JSON.parse(r);
-                if ("number" != typeof n)
+                if ('number' != typeof n)
                   return p(
-                    x("InvalidNumberFormat", "Invalid number format."),
+                    x('InvalidNumberFormat', 'Invalid number format.'),
                     y.ErrorCode.Undefined,
                     t
                   );
                 t.value = n;
               } catch (e) {
                 return p(
-                  x("InvalidNumberFormat", "Invalid number format."),
+                  x('InvalidNumberFormat', 'Invalid number format.'),
                   y.ErrorCode.Undefined,
                   t
                 );
               }
-              t.isInteger = -1 === r.indexOf(".");
+              t.isInteger = -1 === r.indexOf('.');
             }
             return h(t, !0);
           })(e) ||
@@ -4000,13 +4000,13 @@ __extends =
           ((n = v(null))
             ? 17 !== f.getToken() &&
               p(
-                x("End of file expected", "End of file expected."),
+                x('End of file expected', 'End of file expected.'),
                 y.ErrorCode.Undefined
               )
             : p(
                 x(
-                  "Invalid symbol",
-                  "Expected a JSON object, array or literal."
+                  'Invalid symbol',
+                  'Expected a JSON object, array or literal.'
                 ),
                 y.ErrorCode.Undefined
               )),
@@ -4015,61 +4015,61 @@ __extends =
     });
 }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/utils/json",
-          ["require", "exports"],
+          'vscode-json-languageservice/utils/json',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.stringifyObject = function e(t, r, n) {
-        if (null !== t && "object" == typeof t) {
-          var o = r + "\t";
+        if (null !== t && 'object' == typeof t) {
+          var o = r + '\t';
           if (Array.isArray(t)) {
-            if (0 === t.length) return "[]";
-            for (var i = "[\n", a = 0; a < t.length; a++)
+            if (0 === t.length) return '[]';
+            for (var i = '[\n', a = 0; a < t.length; a++)
               (i += o + e(t[a], o, n)),
-                a < t.length - 1 && (i += ","),
-                (i += "\n");
-            return (i += r + "]");
+                a < t.length - 1 && (i += ','),
+                (i += '\n');
+            return (i += r + ']');
           }
           var s = Object.keys(t);
-          if (0 === s.length) return "{}";
-          for (i = "{\n", a = 0; a < s.length; a++) {
+          if (0 === s.length) return '{}';
+          for (i = '{\n', a = 0; a < s.length; a++) {
             var c = s[a];
-            (i += o + JSON.stringify(c) + ": " + e(t[c], o, n)),
-              a < s.length - 1 && (i += ","),
-              (i += "\n");
+            (i += o + JSON.stringify(c) + ': ' + e(t[c], o, n)),
+              a < s.length - 1 && (i += ','),
+              (i += '\n');
           }
-          return (i += r + "}");
+          return (i += r + '}');
         }
         return n(t);
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/utils/strings",
-          ["require", "exports"],
+          'vscode-json-languageservice/utils/strings',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.startsWith = function (e, t) {
@@ -4083,47 +4083,47 @@ __extends =
       }),
       (t.convertSimple2RegExpPattern = function (e) {
         return e
-          .replace(/[\-\\\{\}\+\?\|\^\$\.\,\[\]\(\)\#\s]/g, "\\$&")
-          .replace(/[\*]/g, ".*");
+          .replace(/[\-\\\{\}\+\?\|\^\$\.\,\[\]\(\)\#\s]/g, '\\$&')
+          .replace(/[\*]/g, '.*');
       }),
       (t.repeat = function (e, t) {
-        for (var r = ""; 0 < t; )
+        for (var r = ''; 0 < t; )
           1 == (1 & t) && (r += e), (e += e), (t >>>= 1);
         return r;
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/services/jsonCompletion",
+          'vscode-json-languageservice/services/jsonCompletion',
           [
-            "require",
-            "exports",
-            "../parser/jsonParser",
-            "jsonc-parser",
-            "../utils/json",
-            "../utils/strings",
-            "vscode-languageserver-types",
-            "vscode-nls",
+            'require',
+            'exports',
+            '../parser/jsonParser',
+            'jsonc-parser',
+            '../utils/json',
+            '../utils/strings',
+            'vscode-languageserver-types',
+            'vscode-nls',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var b = e("../parser/jsonParser"),
-      s = e("jsonc-parser"),
-      r = e("../utils/json"),
-      c = e("../utils/strings"),
-      x = e("vscode-languageserver-types"),
-      n = e("vscode-nls").loadMessageBundle(),
+    var b = e('../parser/jsonParser'),
+      s = e('jsonc-parser'),
+      r = e('../utils/json'),
+      c = e('../utils/strings'),
+      x = e('vscode-languageserver-types'),
+      n = e('vscode-nls').loadMessageBundle(),
       o = (function () {
         function e(e, t, r) {
           void 0 === t && (t = []),
@@ -4155,10 +4155,10 @@ __extends =
               g = null;
             if (
               !h ||
-              ("string" !== h.type &&
-                "number" !== h.type &&
-                "boolean" !== h.type &&
-                "null" !== h.type)
+              ('string' !== h.type &&
+                'number' !== h.type &&
+                'boolean' !== h.type &&
+                'null' !== h.type)
             ) {
               var t = p - m.length;
               0 < t && '"' === u.getText()[t - 1] && t--,
@@ -4196,25 +4196,25 @@ __extends =
               .then(function (e) {
                 var r = [],
                   n = !0,
-                  t = "",
+                  t = '',
                   o = null;
-                if (h && "string" === h.type) {
+                if (h && 'string' === h.type) {
                   var i = h.parent;
                   i &&
-                    "property" === i.type &&
+                    'property' === i.type &&
                     i.keyNode === h &&
                     ((n = !i.valueNode),
                     (o = i),
                     (t = u.getText().substr(h.offset + 1, h.length - 2)),
                     i && (h = i.parent));
                 }
-                if (h && "object" === h.type) {
+                if (h && 'object' === h.type) {
                   if (h.offset === p) return d;
                   h.properties.forEach(function (e) {
                     (o && o === e) ||
-                      (v[e.keyNode.value] = x.CompletionItem.create("__"));
+                      (v[e.keyNode.value] = x.CompletionItem.create('__'));
                   });
-                  var a = "";
+                  var a = '';
                   n && (a = l.evaluateSeparatorAfter(u, u.offsetAt(g.end))),
                     e
                       ? l.getPropertyCompletions(e, f, h, n, a, y)
@@ -4226,7 +4226,7 @@ __extends =
                       s,
                       m,
                       n,
-                      "" === a,
+                      '' === a,
                       y
                     );
                     t && r.push(t);
@@ -4239,7 +4239,7 @@ __extends =
                         label: l.getLabelForValue(m),
                         insertText: l.getInsertTextForProperty(m, null, !1, a),
                         insertTextFormat: x.InsertTextFormat.Snippet,
-                        documentation: "",
+                        documentation: '',
                       });
                 }
                 var c = {};
@@ -4253,10 +4253,10 @@ __extends =
                     if (0 === y.getNumberOfProposals()) {
                       var e = p;
                       !h ||
-                        ("string" !== h.type &&
-                          "number" !== h.type &&
-                          "boolean" !== h.type &&
-                          "null" !== h.type) ||
+                        ('string' !== h.type &&
+                          'number' !== h.type &&
+                          'boolean' !== h.type &&
+                          'null' !== h.type) ||
                         (e = h.offset + h.length);
                       var t = l.evaluateSeparatorAfter(u, e);
                       l.addFillerValueCompletions(c, t, y);
@@ -4275,7 +4275,7 @@ __extends =
                   Object.keys(n).forEach(function (e) {
                     var t = n[e];
                     if (
-                      "object" == typeof t &&
+                      'object' == typeof t &&
                       !t.deprecationMessage &&
                       !t.doNotSuggest
                     ) {
@@ -4285,12 +4285,12 @@ __extends =
                         insertText: s.getInsertTextForProperty(e, t, o, i),
                         insertTextFormat: x.InsertTextFormat.Snippet,
                         filterText: s.getFilterTextForValue(e),
-                        documentation: t.description || "",
+                        documentation: t.description || '',
                       };
-                      c.endsWith(r.insertText, "$1" + i) &&
+                      c.endsWith(r.insertText, '$1' + i) &&
                         (r.command = {
-                          title: "Suggest",
-                          command: "editor.action.triggerSuggest",
+                          title: 'Suggest',
+                          command: 'editor.action.triggerSuggest',
                         }),
                         a.add(r);
                     }
@@ -4311,46 +4311,46 @@ __extends =
                   n.add({
                     kind: x.CompletionItemKind.Property,
                     label: t,
-                    insertText: o.getInsertTextForValue(t, ""),
+                    insertText: o.getInsertTextForValue(t, ''),
                     insertTextFormat: x.InsertTextFormat.Snippet,
                     filterText: o.getFilterTextForValue(t),
-                    documentation: "",
+                    documentation: '',
                   });
                 });
               };
             if (t.parent)
-              if ("property" === t.parent.type) {
+              if ('property' === t.parent.type) {
                 var a = t.parent.keyNode.value;
                 e.visit(function (e) {
                   return (
-                    "property" === e.type &&
+                    'property' === e.type &&
                       e !== t.parent &&
                       e.keyNode.value === a &&
                       e.valueNode &&
-                      "object" === e.valueNode.type &&
+                      'object' === e.valueNode.type &&
                       i(e.valueNode),
                     !0
                   );
                 });
               } else
-                "array" === t.parent.type &&
+                'array' === t.parent.type &&
                   t.parent.items.forEach(function (e) {
-                    "object" === e.type && e !== t && i(e);
+                    'object' === e.type && e !== t && i(e);
                   });
             else
-              "object" === t.type &&
+              'object' === t.type &&
                 n.add({
                   kind: x.CompletionItemKind.Property,
-                  label: "$schema",
+                  label: '$schema',
                   insertText: this.getInsertTextForProperty(
-                    "$schema",
+                    '$schema',
                     null,
                     !0,
-                    ""
+                    ''
                   ),
                   insertTextFormat: x.InsertTextFormat.Snippet,
-                  documentation: "",
-                  filterText: this.getFilterTextForValue("$schema"),
+                  documentation: '',
+                  filterText: this.getFilterTextForValue('$schema'),
                 });
           }),
           (e.prototype.getSchemaLessValueCompletions = function (
@@ -4364,27 +4364,27 @@ __extends =
               a = r;
             if (
               (!t ||
-                ("string" !== t.type &&
-                  "number" !== t.type &&
-                  "boolean" !== t.type &&
-                  "null" !== t.type) ||
+                ('string' !== t.type &&
+                  'number' !== t.type &&
+                  'boolean' !== t.type &&
+                  'null' !== t.type) ||
                 ((a = t.offset + t.length), (t = t.parent)),
               !t)
             )
               return (
                 o.add({
-                  kind: this.getSuggestionKind("object"),
-                  label: "Empty object",
-                  insertText: this.getInsertTextForValue({}, ""),
+                  kind: this.getSuggestionKind('object'),
+                  label: 'Empty object',
+                  insertText: this.getInsertTextForValue({}, ''),
                   insertTextFormat: x.InsertTextFormat.Snippet,
-                  documentation: "",
+                  documentation: '',
                 }),
                 void o.add({
-                  kind: this.getSuggestionKind("array"),
-                  label: "Empty array",
-                  insertText: this.getInsertTextForValue([], ""),
+                  kind: this.getSuggestionKind('array'),
+                  label: 'Empty array',
+                  insertText: this.getInsertTextForValue([], ''),
                   insertTextFormat: x.InsertTextFormat.Snippet,
-                  documentation: "",
+                  documentation: '',
                 })
               );
             var s = this.evaluateSeparatorAfter(n, a),
@@ -4395,44 +4395,44 @@ __extends =
                     label: i.getLabelTextForMatchingNode(e, n),
                     insertText: i.getInsertTextForMatchingNode(e, n, s),
                     insertTextFormat: x.InsertTextFormat.Snippet,
-                    documentation: "",
+                    documentation: '',
                   }),
-                  "boolean" === e.type &&
+                  'boolean' === e.type &&
                     i.addBooleanValueCompletion(!e.value, s, o);
               };
-            if ("property" === t.type && r > t.colonOffset) {
+            if ('property' === t.type && r > t.colonOffset) {
               var u = t.valueNode;
               if (
                 u &&
                 (r > u.offset + u.length ||
-                  "object" === u.type ||
-                  "array" === u.type)
+                  'object' === u.type ||
+                  'array' === u.type)
               )
                 return;
               var f = t.keyNode.value;
               e.visit(function (e) {
                 return (
-                  "property" === e.type &&
+                  'property' === e.type &&
                     e.keyNode.value === f &&
                     e.valueNode &&
                     c(e.valueNode),
                   !0
                 );
               }),
-                "$schema" === f &&
+                '$schema' === f &&
                   t.parent &&
                   !t.parent.parent &&
                   this.addDollarSchemaCompletions(s, o);
             }
-            if ("array" === t.type)
-              if (t.parent && "property" === t.parent.type) {
+            if ('array' === t.type)
+              if (t.parent && 'property' === t.parent.type) {
                 var l = t.parent.keyNode.value;
                 e.visit(function (e) {
                   return (
-                    "property" === e.type &&
+                    'property' === e.type &&
                       e.keyNode.value === l &&
                       e.valueNode &&
-                      "array" === e.valueNode.type &&
+                      'array' === e.valueNode.type &&
                       e.valueNode.items.forEach(c),
                     !0
                   );
@@ -4446,25 +4446,25 @@ __extends =
               f = null;
             if (
               (!n ||
-                ("string" !== n.type &&
-                  "number" !== n.type &&
-                  "boolean" !== n.type &&
-                  "null" !== n.type) ||
+                ('string' !== n.type &&
+                  'number' !== n.type &&
+                  'boolean' !== n.type &&
+                  'null' !== n.type) ||
                 ((r = n.offset + n.length), (n = (f = n).parent)),
               n)
             ) {
-              if ("property" === n.type && o > n.colonOffset) {
+              if ('property' === n.type && o > n.colonOffset) {
                 var l = n.valueNode;
                 if (l && o > l.offset + l.length) return;
                 (u = n.keyNode.value), (n = n.parent);
               }
-              if (n && (null !== u || "array" === n.type)) {
+              if (n && (null !== u || 'array' === n.type)) {
                 var d = this.evaluateSeparatorAfter(i, r);
                 t
                   .getMatchingSchemas(e.schema, n.offset, f)
                   .forEach(function (e) {
                     if (e.node === n && !e.inverted && e.schema) {
-                      if ("array" === n.type && e.schema.items)
+                      if ('array' === n.type && e.schema.items)
                         if (Array.isArray(e.schema.items)) {
                           var t = c.findItemAtOffset(n, i, o);
                           t < e.schema.items.length &&
@@ -4482,7 +4482,7 @@ __extends =
                       }
                     }
                   }),
-                  "$schema" !== u ||
+                  '$schema' !== u ||
                     n.parent ||
                     this.addDollarSchemaCompletions(d, a),
                   s.boolean &&
@@ -4490,7 +4490,7 @@ __extends =
                     this.addBooleanValueCompletion(!1, d, a)),
                   s.null && this.addNullValueCompletion(d, a);
               }
-            } else this.addSchemaValueCompletions(e.schema, "", a, s);
+            } else this.addSchemaValueCompletions(e.schema, '', a, s);
           }),
           (e.prototype.getContributedValueCompletions = function (
             e,
@@ -4502,12 +4502,12 @@ __extends =
           ) {
             if (t) {
               if (
-                (("string" !== t.type &&
-                  "number" !== t.type &&
-                  "boolean" !== t.type &&
-                  "null" !== t.type) ||
+                (('string' !== t.type &&
+                  'number' !== t.type &&
+                  'boolean' !== t.type &&
+                  'null' !== t.type) ||
                   (t = t.parent),
-                "property" === t.type && r > t.colonOffset)
+                'property' === t.type && r > t.colonOffset)
               ) {
                 var a = t.keyNode.value,
                   s = t.valueNode;
@@ -4527,7 +4527,7 @@ __extends =
           }),
           (e.prototype.addSchemaValueCompletions = function (e, t, r, n) {
             var o = this;
-            "object" == typeof e &&
+            'object' == typeof e &&
               (this.addEnumValueCompletions(e, t, r),
               this.addDefaultValueCompletions(e, t, r),
               this.collectTypes(e, n),
@@ -4550,13 +4550,13 @@ __extends =
             var m = !1;
             if (g(f.default)) {
               for (var e = f.type, t = f.default, r = p; 0 < r; r--)
-                (t = [t]), (e = "array");
+                (t = [t]), (e = 'array');
               d.add({
                 kind: this.getSuggestionKind(e),
                 label: this.getLabelForValue(t),
                 insertText: this.getInsertTextForValue(t, l),
                 insertTextFormat: x.InsertTextFormat.Snippet,
-                detail: n("json.suggest.default", "Default value"),
+                detail: n('json.suggest.default', 'Default value'),
               }),
                 (m = !0);
             }
@@ -4569,22 +4569,22 @@ __extends =
                   i = e.label;
                 if (g(o)) {
                   f.type;
-                  for (var a = p; 0 < a; a--) (o = [o]), "array";
+                  for (var a = p; 0 < a; a--) (o = [o]), 'array';
                   (t = h.getInsertTextForSnippetValue(o, l)),
                     (r = h.getFilterTextForSnippetValue(o)),
                     (i = i || h.getLabelForSnippetValue(o));
-                } else if ("string" == typeof e.bodyText) {
-                  var s = "",
-                    c = "",
-                    u = "";
+                } else if ('string' == typeof e.bodyText) {
+                  var s = '',
+                    c = '',
+                    u = '';
                   for (a = p; 0 < a; a--)
-                    (s = s + u + "[\n"),
-                      (c = c + "\n" + u + "]"),
-                      (u += "\t"),
-                      (n = "array");
-                  (t = s + u + e.bodyText.split("\n").join("\n" + u) + c + l),
+                    (s = s + u + '[\n'),
+                      (c = c + '\n' + u + ']'),
+                      (u += '\t'),
+                      (n = 'array');
+                  (t = s + u + e.bodyText.split('\n').join('\n' + u) + c + l),
                     (i = i || t),
-                    (r = t.replace(/[\n]/g, ""));
+                    (r = t.replace(/[\n]/g, ''));
                 }
                 d.add({
                   kind: h.getSuggestionKind(n),
@@ -4597,7 +4597,7 @@ __extends =
                   (m = !0);
               }),
               m ||
-                "object" != typeof f.items ||
+                'object' != typeof f.items ||
                 Array.isArray(f.items) ||
                 this.addDefaultValueCompletions(f.items, l, d, p + 1);
           }),
@@ -4641,46 +4641,46 @@ __extends =
           (e.prototype.addFillerValueCompletions = function (e, t, r) {
             e.object &&
               r.add({
-                kind: this.getSuggestionKind("object"),
-                label: "{}",
+                kind: this.getSuggestionKind('object'),
+                label: '{}',
                 insertText: this.getInsertTextForGuessedValue({}, t),
                 insertTextFormat: x.InsertTextFormat.Snippet,
-                detail: n("defaults.object", "New object"),
-                documentation: "",
+                detail: n('defaults.object', 'New object'),
+                documentation: '',
               }),
               e.array &&
                 r.add({
-                  kind: this.getSuggestionKind("array"),
-                  label: "[]",
+                  kind: this.getSuggestionKind('array'),
+                  label: '[]',
                   insertText: this.getInsertTextForGuessedValue([], t),
                   insertTextFormat: x.InsertTextFormat.Snippet,
-                  detail: n("defaults.array", "New array"),
-                  documentation: "",
+                  detail: n('defaults.array', 'New array'),
+                  documentation: '',
                 });
           }),
           (e.prototype.addBooleanValueCompletion = function (e, t, r) {
             r.add({
-              kind: this.getSuggestionKind("boolean"),
-              label: e ? "true" : "false",
+              kind: this.getSuggestionKind('boolean'),
+              label: e ? 'true' : 'false',
               insertText: this.getInsertTextForValue(e, t),
               insertTextFormat: x.InsertTextFormat.Snippet,
-              documentation: "",
+              documentation: '',
             });
           }),
           (e.prototype.addNullValueCompletion = function (e, t) {
             t.add({
-              kind: this.getSuggestionKind("null"),
-              label: "null",
-              insertText: "null" + e,
+              kind: this.getSuggestionKind('null'),
+              label: 'null',
+              insertText: 'null' + e,
               insertTextFormat: x.InsertTextFormat.Snippet,
-              documentation: "",
+              documentation: '',
             });
           }),
           (e.prototype.addDollarSchemaCompletions = function (t, r) {
             var n = this;
             this.schemaService
               .getRegisteredSchemaIds(function (e) {
-                return "http" === e || "https" === e;
+                return 'http' === e || 'https' === e;
               })
               .forEach(function (e) {
                 return r.add({
@@ -4689,41 +4689,41 @@ __extends =
                   filterText: n.getFilterTextForValue(e),
                   insertText: n.getInsertTextForValue(e, t),
                   insertTextFormat: x.InsertTextFormat.Snippet,
-                  documentation: "",
+                  documentation: '',
                 });
               });
           }),
           (e.prototype.getLabelForValue = function (e) {
             var t = JSON.stringify(e);
-            return 57 < t.length ? t.substr(0, 57).trim() + "..." : t;
+            return 57 < t.length ? t.substr(0, 57).trim() + '...' : t;
           }),
           (e.prototype.getFilterTextForValue = function (e) {
             return JSON.stringify(e);
           }),
           (e.prototype.getFilterTextForSnippetValue = function (e) {
-            return JSON.stringify(e).replace(/\$\{\d+:([^}]+)\}|\$\d+/g, "$1");
+            return JSON.stringify(e).replace(/\$\{\d+:([^}]+)\}|\$\d+/g, '$1');
           }),
           (e.prototype.getLabelForSnippetValue = function (e) {
             var t = JSON.stringify(e);
-            return 57 < (t = t.replace(/\$\{\d+:([^}]+)\}|\$\d+/g, "$1")).length
-              ? t.substr(0, 57).trim() + "..."
+            return 57 < (t = t.replace(/\$\{\d+:([^}]+)\}|\$\d+/g, '$1')).length
+              ? t.substr(0, 57).trim() + '...'
               : t;
           }),
           (e.prototype.getInsertTextForPlainText = function (e) {
-            return e.replace(/[\\\$\}]/g, "\\$&");
+            return e.replace(/[\\\$\}]/g, '\\$&');
           }),
           (e.prototype.getInsertTextForValue = function (e, t) {
-            var r = JSON.stringify(e, null, "\t");
-            return "{}" === r
-              ? "{\n\t$1\n}" + t
-              : "[]" === r
-              ? "[\n\t$1\n]" + t
+            var r = JSON.stringify(e, null, '\t');
+            return '{}' === r
+              ? '{\n\t$1\n}' + t
+              : '[]' === r
+              ? '[\n\t$1\n]' + t
               : this.getInsertTextForPlainText(r + t);
           }),
           (e.prototype.getInsertTextForSnippetValue = function (e, t) {
             return (
-              r.stringifyObject(e, "", function (e) {
-                return "string" == typeof e && "^" === e[0]
+              r.stringifyObject(e, '', function (e) {
+                return 'string' == typeof e && '^' === e[0]
                   ? e.substr(1)
                   : JSON.stringify(e);
               }) + t
@@ -4731,19 +4731,19 @@ __extends =
           }),
           (e.prototype.getInsertTextForGuessedValue = function (e, t) {
             switch (typeof e) {
-              case "object":
+              case 'object':
                 return null === e
-                  ? "${1:null}" + t
+                  ? '${1:null}' + t
                   : this.getInsertTextForValue(e, t);
-              case "string":
+              case 'string':
                 var r = JSON.stringify(e);
                 return (
                   (r = r.substr(1, r.length - 2)),
                   '"${1:' + (r = this.getInsertTextForPlainText(r)) + '}"' + t
                 );
-              case "number":
-              case "boolean":
-                return "${1:" + JSON.stringify(e) + "}" + t;
+              case 'number':
+              case 'boolean':
+                return '${1:' + JSON.stringify(e) + '}' + t;
             }
             return this.getInsertTextForValue(e, t);
           }),
@@ -4754,11 +4754,11 @@ __extends =
             }
             if (!e) return x.CompletionItemKind.Value;
             switch (e) {
-              case "string":
+              case 'string':
                 return x.CompletionItemKind.Value;
-              case "object":
+              case 'object':
                 return x.CompletionItemKind.Module;
-              case "property":
+              case 'property':
                 return x.CompletionItemKind.Property;
               default:
                 return x.CompletionItemKind.Value;
@@ -4766,19 +4766,19 @@ __extends =
           }),
           (e.prototype.getLabelTextForMatchingNode = function (e, t) {
             switch (e.type) {
-              case "array":
-                return "[]";
-              case "object":
-                return "{}";
+              case 'array':
+                return '[]';
+              case 'object':
+                return '{}';
               default:
                 return t.getText().substr(e.offset, e.length);
             }
           }),
           (e.prototype.getInsertTextForMatchingNode = function (e, t, r) {
             switch (e.type) {
-              case "array":
+              case 'array':
                 return this.getInsertTextForValue([], r);
-              case "object":
+              case 'object':
                 return this.getInsertTextForValue({}, r);
               default:
                 var n = t.getText().substr(e.offset, e.length) + r;
@@ -4786,16 +4786,16 @@ __extends =
             }
           }),
           (e.prototype.getInsertTextForProperty = function (e, t, r, n) {
-            var o = this.getInsertTextForValue(e, "");
+            var o = this.getInsertTextForValue(e, '');
             if (!r) return o;
             var i,
-              a = o + ": ",
+              a = o + ': ',
               s = 0;
             if (t) {
               if (Array.isArray(t.defaultSnippets)) {
                 if (1 === t.defaultSnippets.length) {
                   var c = t.defaultSnippets[0].body;
-                  g(c) && (i = this.getInsertTextForSnippetValue(c, ""));
+                  g(c) && (i = this.getInsertTextForSnippetValue(c, ''));
                 }
                 s += t.defaultSnippets.length;
               }
@@ -4803,44 +4803,44 @@ __extends =
                 (t.enum &&
                   (i ||
                     1 !== t.enum.length ||
-                    (i = this.getInsertTextForGuessedValue(t.enum[0], "")),
+                    (i = this.getInsertTextForGuessedValue(t.enum[0], '')),
                   (s += t.enum.length)),
                 g(t.default) &&
-                  (i || (i = this.getInsertTextForGuessedValue(t.default, "")),
+                  (i || (i = this.getInsertTextForGuessedValue(t.default, '')),
                   s++),
                 0 === s)
               ) {
                 var u = Array.isArray(t.type) ? t.type[0] : t.type;
                 switch (
                   (u ||
-                    (t.properties ? (u = "object") : t.items && (u = "array")),
+                    (t.properties ? (u = 'object') : t.items && (u = 'array')),
                   u)
                 ) {
-                  case "boolean":
-                    i = "$1";
+                  case 'boolean':
+                    i = '$1';
                     break;
-                  case "string":
+                  case 'string':
                     i = '"$1"';
                     break;
-                  case "object":
-                    i = "{\n\t$1\n}";
+                  case 'object':
+                    i = '{\n\t$1\n}';
                     break;
-                  case "array":
-                    i = "[\n\t$1\n]";
+                  case 'array':
+                    i = '[\n\t$1\n]';
                     break;
-                  case "number":
-                  case "integer":
-                    i = "${1:0}";
+                  case 'number':
+                  case 'integer':
+                    i = '${1:0}';
                     break;
-                  case "null":
-                    i = "${1:null}";
+                  case 'null':
+                    i = '${1:null}';
                     break;
                   default:
                     return o;
                 }
               }
             }
-            return (!i || 1 < s) && (i = "$1"), a + i + n;
+            return (!i || 1 < s) && (i = '$1'), a + i + n;
           }),
           (e.prototype.getCurrentWord = function (e, t) {
             for (
@@ -4858,9 +4858,9 @@ __extends =
               case 2:
               case 4:
               case 17:
-                return "";
+                return '';
               default:
-                return ",";
+                return ',';
             }
           }),
           (e.prototype.findItemAtOffset = function (e, t, r) {
@@ -4904,29 +4904,29 @@ __extends =
     t.JSONCompletion = o;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/services/jsonHover",
+          'vscode-json-languageservice/services/jsonHover',
           [
-            "require",
-            "exports",
-            "../parser/jsonParser",
-            "vscode-languageserver-types",
+            'require',
+            'exports',
+            '../parser/jsonParser',
+            'vscode-languageserver-types',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var d = e("../parser/jsonParser"),
-      p = e("vscode-languageserver-types"),
+    var d = e('../parser/jsonParser'),
+      p = e('vscode-languageserver-types'),
       r = (function () {
         function e(e, t, r) {
           void 0 === t && (t = []),
@@ -4940,16 +4940,16 @@ __extends =
               c = s.getNodeFromOffset(r);
             if (
               !c ||
-              (("object" === c.type || "array" === c.type) &&
+              (('object' === c.type || 'array' === c.type) &&
                 r > c.offset + 1 &&
                 r < c.offset + c.length - 1)
             )
               return this.promise.resolve(null);
             var n = c;
-            if ("string" === c.type) {
+            if ('string' === c.type) {
               var o = c.parent;
               if (
-                "property" === o.type &&
+                'property' === o.type &&
                 o.keyNode === c &&
                 !(c = o.valueNode)
               )
@@ -5004,18 +5004,18 @@ __extends =
                         : e.schema.enumDescriptions &&
                           (o = h(e.schema.enumDescriptions[t])),
                         o &&
-                          "string" != typeof (i = e.schema.enum[t]) &&
+                          'string' != typeof (i = e.schema.enum[t]) &&
                           (i = JSON.stringify(i));
                     }
                     return !0;
                   });
-                  var a = "";
+                  var a = '';
                   return (
                     r && (a = h(r)),
-                    n && (0 < a.length && (a += "\n\n"), (a += n)),
+                    n && (0 < a.length && (a += '\n\n'), (a += n)),
                     o &&
-                      (0 < a.length && (a += "\n\n"),
-                      (a += "`" + h(i) + "`: " + o)),
+                      (0 < a.length && (a += '\n\n'),
+                      (a += '`' + h(i) + '`: ' + o)),
                     u([a])
                   );
                 }
@@ -5029,37 +5029,37 @@ __extends =
     function h(e) {
       if (e)
         return e
-          .replace(/([^\n\r])(\r?\n)([^\n\r])/gm, "$1\n\n$3")
-          .replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
+          .replace(/([^\n\r])(\r?\n)([^\n\r])/gm, '$1\n\n$3')
+          .replace(/[\\`*_{}[\]()#+\-.!]/g, '\\$&');
     }
     t.JSONHover = r;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/services/jsonValidation",
+          'vscode-json-languageservice/services/jsonValidation',
           [
-            "require",
-            "exports",
-            "vscode-languageserver-types",
-            "../jsonLanguageTypes",
-            "vscode-nls",
+            'require',
+            'exports',
+            'vscode-languageserver-types',
+            '../jsonLanguageTypes',
+            'vscode-nls',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var m = e("vscode-languageserver-types"),
-      g = e("../jsonLanguageTypes"),
-      v = e("vscode-nls").loadMessageBundle(),
+    var m = e('vscode-languageserver-types'),
+      g = e('../jsonLanguageTypes'),
+      v = e('vscode-nls').loadMessageBundle(),
       r = (function () {
         function e(e, t) {
           (this.jsonSchemaService = e),
@@ -5082,9 +5082,9 @@ __extends =
               h = function (e) {
                 var t =
                   e.range.start.line +
-                  " " +
+                  ' ' +
                   e.range.start.character +
-                  " " +
+                  ' ' +
                   e.message;
                 r[t] || ((r[t] = !0), p.push(e));
               },
@@ -5094,8 +5094,8 @@ __extends =
                 if (e) {
                   if (e.errors.length && f.root) {
                     var n = f.root,
-                      o = "object" === n.type ? n.properties[0] : null;
-                    if (o && "$schema" === o.keyNode.value) {
+                      o = 'object' === n.type ? n.properties[0] : null;
+                    if (o && '$schema' === o.keyNode.value) {
                       var i = o.valueNode || o,
                         a = m.Range.create(
                           u.positionAt(i.offset),
@@ -5132,16 +5132,16 @@ __extends =
                 if (
                   (f.syntaxErrors.forEach(function (e) {
                     if (e.code === g.ErrorCode.TrailingComma) {
-                      if ("number" != typeof r) return;
+                      if ('number' != typeof r) return;
                       e.severity = t;
                     }
                     h(e);
                   }),
-                  "number" == typeof r)
+                  'number' == typeof r)
                 ) {
                   var c = v(
-                    "InvalidCommentToken",
-                    "Comments are not permitted in JSON."
+                    'InvalidCommentToken',
+                    'Comments are not permitted in JSON.'
                   );
                   f.comments.forEach(function (e) {
                     h(
@@ -5169,7 +5169,7 @@ __extends =
       })();
 
     function y(e) {
-      if (e && "object" == typeof e) {
+      if (e && 'object' == typeof e) {
         if (e.allowComments) return !0;
         if (e.allOf) return e.allOf.some(y);
       }
@@ -5178,31 +5178,31 @@ __extends =
 
     function b(e) {
       switch (e) {
-        case "error":
+        case 'error':
           return m.DiagnosticSeverity.Error;
-        case "warning":
+        case 'warning':
           return m.DiagnosticSeverity.Warning;
-        case "ignore":
+        case 'ignore':
           return;
       }
     }
     t.JSONValidation = r;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/utils/colors",
-          ["require", "exports"],
+          'vscode-json-languageservice/utils/colors',
+          ['require', 'exports'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
     var r = 48,
@@ -5220,7 +5220,7 @@ __extends =
     }
     (t.hexDigit = s),
       (t.colorFromHex = function (e) {
-        if ("#" !== e[0]) return null;
+        if ('#' !== e[0]) return null;
         switch (e.length) {
           case 4:
             return {
@@ -5266,33 +5266,33 @@ __extends =
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/services/jsonDocumentSymbols",
+          'vscode-json-languageservice/services/jsonDocumentSymbols',
           [
-            "require",
-            "exports",
-            "../parser/jsonParser",
-            "../utils/strings",
-            "../utils/colors",
-            "vscode-languageserver-types",
+            'require',
+            'exports',
+            '../parser/jsonParser',
+            '../utils/strings',
+            '../utils/colors',
+            'vscode-languageserver-types',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var l = e("../parser/jsonParser"),
-      n = e("../utils/strings"),
-      d = e("../utils/colors"),
-      p = e("vscode-languageserver-types"),
+    var l = e('../parser/jsonParser'),
+      n = e('../utils/strings'),
+      d = e('../utils/colors'),
+      p = e('vscode-languageserver-types'),
       r = (function () {
         function e(e) {
           this.schemaService = e;
@@ -5304,17 +5304,17 @@ __extends =
             if (!t) return null;
             var r = a.uri;
             if (
-              ("vscode://defaultsettings/keybindings.json" === r ||
-                n.endsWith(r.toLowerCase(), "/user/keybindings.json")) &&
-              "array" === t.type
+              ('vscode://defaultsettings/keybindings.json' === r ||
+                n.endsWith(r.toLowerCase(), '/user/keybindings.json')) &&
+              'array' === t.type
             ) {
               var i = [];
               return (
                 t.items.forEach(function (e) {
-                  if ("object" === e.type)
+                  if ('object' === e.type)
                     for (var t = 0, r = e.properties; t < r.length; t++) {
                       var n = r[t];
-                      if ("key" === n.keyNode.value) {
+                      if ('key' === n.keyNode.value) {
                         if (n.valueNode) {
                           var o = p.Location.create(
                             a.uri,
@@ -5338,11 +5338,11 @@ __extends =
             }
             var c = function (o, e, i) {
               return (
-                "array" === e.type
+                'array' === e.type
                   ? e.items.forEach(function (e) {
                       return c(o, e, i);
                     })
-                  : "object" === e.type &&
+                  : 'object' === e.type &&
                     e.properties.forEach(function (e) {
                       var t = p.Location.create(
                           a.uri,
@@ -5353,7 +5353,7 @@ __extends =
                         ),
                         r = e.valueNode;
                       if (r) {
-                        var n = i ? i + "." + e.keyNode.value : e.keyNode.value;
+                        var n = i ? i + '.' + e.keyNode.value : e.keyNode.value;
                         o.push({
                           name: e.keyNode.value,
                           kind: s.getSymbolKind(r.type),
@@ -5370,15 +5370,15 @@ __extends =
           }),
           (e.prototype.getSymbolKind = function (e) {
             switch (e) {
-              case "object":
+              case 'object':
                 return p.SymbolKind.Module;
-              case "string":
+              case 'string':
                 return p.SymbolKind.String;
-              case "number":
+              case 'number':
                 return p.SymbolKind.Number;
-              case "array":
+              case 'array':
                 return p.SymbolKind.Array;
-              case "boolean":
+              case 'boolean':
                 return p.SymbolKind.Boolean;
               default:
                 return p.SymbolKind.Variable;
@@ -5399,10 +5399,10 @@ __extends =
                     if (
                       !i.inverted &&
                       i.schema &&
-                      ("color" === i.schema.format ||
-                        "color-hex" === i.schema.format) &&
+                      ('color' === i.schema.format ||
+                        'color-hex' === i.schema.format) &&
                       i.node &&
-                      "string" === i.node.type
+                      'string' === i.node.type
                     ) {
                       var a = String(i.node.offset);
                       if (!r[a]) {
@@ -5433,13 +5433,13 @@ __extends =
 
             function u(e) {
               var t = e.toString(16);
-              return 2 !== t.length ? "0" + t : t;
+              return 2 !== t.length ? '0' + t : t;
             }
             return (
               (o =
                 1 === r.alpha
-                  ? "#" + u(a) + u(s) + u(c)
-                  : "#" + u(a) + u(s) + u(c) + u(Math.round(255 * r.alpha))),
+                  ? '#' + u(a) + u(s) + u(c)
+                  : '#' + u(a) + u(s) + u(c) + u(Math.round(255 * r.alpha))),
               i.push({
                 label: o,
                 textEdit: p.TextEdit.replace(n, JSON.stringify(o)),
@@ -5453,48 +5453,48 @@ __extends =
     t.JSONDocumentSymbols = r;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/services/configuration",
-          ["require", "exports", "vscode-nls"],
+          'vscode-json-languageservice/services/configuration',
+          ['require', 'exports', 'vscode-nls'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var r = e("vscode-nls").loadMessageBundle();
+    var r = e('vscode-nls').loadMessageBundle();
     t.schemaContributions = {
       schemaAssociations: {},
       schemas: {
-        "http://json-schema.org/draft-04/schema#": {
+        'http://json-schema.org/draft-04/schema#': {
           title: r(
-            "schema.json",
-            "Describes a JSON file using a schema. See json-schema.org for more info."
+            'schema.json',
+            'Describes a JSON file using a schema. See json-schema.org for more info.'
           ),
-          $schema: "http://json-schema.org/draft-04/schema#",
+          $schema: 'http://json-schema.org/draft-04/schema#',
           definitions: {
             schemaArray: {
-              type: "array",
+              type: 'array',
               minItems: 1,
               items: {
-                $ref: "#",
+                $ref: '#',
               },
             },
             positiveInteger: {
-              type: "integer",
+              type: 'integer',
               minimum: 0,
             },
             positiveIntegerDefault0: {
               allOf: [
                 {
-                  $ref: "#/definitions/positiveInteger",
+                  $ref: '#/definitions/positiveInteger',
                 },
                 {
                   default: 0,
@@ -5502,390 +5502,390 @@ __extends =
               ],
             },
             simpleTypes: {
-              type: "string",
+              type: 'string',
               enum: [
-                "array",
-                "boolean",
-                "integer",
-                "null",
-                "number",
-                "object",
-                "string",
+                'array',
+                'boolean',
+                'integer',
+                'null',
+                'number',
+                'object',
+                'string',
               ],
             },
             stringArray: {
-              type: "array",
+              type: 'array',
               items: {
-                type: "string",
+                type: 'string',
               },
               minItems: 1,
               uniqueItems: !0,
             },
           },
-          type: "object",
+          type: 'object',
           properties: {
             id: {
-              type: "string",
-              format: "uri",
+              type: 'string',
+              format: 'uri',
               description: r(
-                "schema.json.id",
-                "A unique identifier for the schema."
+                'schema.json.id',
+                'A unique identifier for the schema.'
               ),
             },
             $schema: {
-              type: "string",
-              format: "uri",
+              type: 'string',
+              format: 'uri',
               description: r(
-                "schema.json.$schema",
-                "The schema to verify this document against "
+                'schema.json.$schema',
+                'The schema to verify this document against '
               ),
             },
             title: {
-              type: "string",
+              type: 'string',
               description: r(
-                "schema.json.title",
-                "A descriptive title of the element"
+                'schema.json.title',
+                'A descriptive title of the element'
               ),
             },
             description: {
-              type: "string",
+              type: 'string',
               description: r(
-                "schema.json.description",
-                "A long description of the element. Used in hover menus and suggestions."
+                'schema.json.description',
+                'A long description of the element. Used in hover menus and suggestions.'
               ),
             },
             default: {
               description: r(
-                "schema.json.default",
-                "A default value. Used by suggestions."
+                'schema.json.default',
+                'A default value. Used by suggestions.'
               ),
             },
             multipleOf: {
-              type: "number",
+              type: 'number',
               minimum: 0,
               exclusiveMinimum: !0,
               description: r(
-                "schema.json.multipleOf",
-                "A number that should cleanly divide the current value (i.e. have no remainder)"
+                'schema.json.multipleOf',
+                'A number that should cleanly divide the current value (i.e. have no remainder)'
               ),
             },
             maximum: {
-              type: "number",
+              type: 'number',
               description: r(
-                "schema.json.maximum",
-                "The maximum numerical value, inclusive by default."
+                'schema.json.maximum',
+                'The maximum numerical value, inclusive by default.'
               ),
             },
             exclusiveMaximum: {
-              type: "boolean",
+              type: 'boolean',
               default: !1,
               description: r(
-                "schema.json.exclusiveMaximum",
-                "Makes the maximum property exclusive."
+                'schema.json.exclusiveMaximum',
+                'Makes the maximum property exclusive.'
               ),
             },
             minimum: {
-              type: "number",
+              type: 'number',
               description: r(
-                "schema.json.minimum",
-                "The minimum numerical value, inclusive by default."
+                'schema.json.minimum',
+                'The minimum numerical value, inclusive by default.'
               ),
             },
             exclusiveMinimum: {
-              type: "boolean",
+              type: 'boolean',
               default: !1,
               description: r(
-                "schema.json.exclusiveMininum",
-                "Makes the minimum property exclusive."
+                'schema.json.exclusiveMininum',
+                'Makes the minimum property exclusive.'
               ),
             },
             maxLength: {
               allOf: [
                 {
-                  $ref: "#/definitions/positiveInteger",
+                  $ref: '#/definitions/positiveInteger',
                 },
               ],
               description: r(
-                "schema.json.maxLength",
-                "The maximum length of a string."
+                'schema.json.maxLength',
+                'The maximum length of a string.'
               ),
             },
             minLength: {
               allOf: [
                 {
-                  $ref: "#/definitions/positiveIntegerDefault0",
+                  $ref: '#/definitions/positiveIntegerDefault0',
                 },
               ],
               description: r(
-                "schema.json.minLength",
-                "The minimum length of a string."
+                'schema.json.minLength',
+                'The minimum length of a string.'
               ),
             },
             pattern: {
-              type: "string",
-              format: "regex",
+              type: 'string',
+              format: 'regex',
               description: r(
-                "schema.json.pattern",
-                "A regular expression to match the string against. It is not implicitly anchored."
+                'schema.json.pattern',
+                'A regular expression to match the string against. It is not implicitly anchored.'
               ),
             },
             additionalItems: {
               anyOf: [
                 {
-                  type: "boolean",
+                  type: 'boolean',
                 },
                 {
-                  $ref: "#",
+                  $ref: '#',
                 },
               ],
               default: {},
               description: r(
-                "schema.json.additionalItems",
-                "For arrays, only when items is set as an array. If it is a schema, then this schema validates items after the ones specified by the items array. If it is false, then additional items will cause validation to fail."
+                'schema.json.additionalItems',
+                'For arrays, only when items is set as an array. If it is a schema, then this schema validates items after the ones specified by the items array. If it is false, then additional items will cause validation to fail.'
               ),
             },
             items: {
               anyOf: [
                 {
-                  $ref: "#",
+                  $ref: '#',
                 },
                 {
-                  $ref: "#/definitions/schemaArray",
+                  $ref: '#/definitions/schemaArray',
                 },
               ],
               default: {},
               description: r(
-                "schema.json.items",
-                "For arrays. Can either be a schema to validate every element against or an array of schemas to validate each item against in order (the first schema will validate the first element, the second schema will validate the second element, and so on."
+                'schema.json.items',
+                'For arrays. Can either be a schema to validate every element against or an array of schemas to validate each item against in order (the first schema will validate the first element, the second schema will validate the second element, and so on.'
               ),
             },
             maxItems: {
               allOf: [
                 {
-                  $ref: "#/definitions/positiveInteger",
+                  $ref: '#/definitions/positiveInteger',
                 },
               ],
               description: r(
-                "schema.json.maxItems",
-                "The maximum number of items that can be inside an array. Inclusive."
+                'schema.json.maxItems',
+                'The maximum number of items that can be inside an array. Inclusive.'
               ),
             },
             minItems: {
               allOf: [
                 {
-                  $ref: "#/definitions/positiveIntegerDefault0",
+                  $ref: '#/definitions/positiveIntegerDefault0',
                 },
               ],
               description: r(
-                "schema.json.minItems",
-                "The minimum number of items that can be inside an array. Inclusive."
+                'schema.json.minItems',
+                'The minimum number of items that can be inside an array. Inclusive.'
               ),
             },
             uniqueItems: {
-              type: "boolean",
+              type: 'boolean',
               default: !1,
               description: r(
-                "schema.json.uniqueItems",
-                "If all of the items in the array must be unique. Defaults to false."
+                'schema.json.uniqueItems',
+                'If all of the items in the array must be unique. Defaults to false.'
               ),
             },
             maxProperties: {
               allOf: [
                 {
-                  $ref: "#/definitions/positiveInteger",
+                  $ref: '#/definitions/positiveInteger',
                 },
               ],
               description: r(
-                "schema.json.maxProperties",
-                "The maximum number of properties an object can have. Inclusive."
+                'schema.json.maxProperties',
+                'The maximum number of properties an object can have. Inclusive.'
               ),
             },
             minProperties: {
               allOf: [
                 {
-                  $ref: "#/definitions/positiveIntegerDefault0",
+                  $ref: '#/definitions/positiveIntegerDefault0',
                 },
               ],
               description: r(
-                "schema.json.minProperties",
-                "The minimum number of properties an object can have. Inclusive."
+                'schema.json.minProperties',
+                'The minimum number of properties an object can have. Inclusive.'
               ),
             },
             required: {
               allOf: [
                 {
-                  $ref: "#/definitions/stringArray",
+                  $ref: '#/definitions/stringArray',
                 },
               ],
               description: r(
-                "schema.json.required",
-                "An array of strings that lists the names of all properties required on this object."
+                'schema.json.required',
+                'An array of strings that lists the names of all properties required on this object.'
               ),
             },
             additionalProperties: {
               anyOf: [
                 {
-                  type: "boolean",
+                  type: 'boolean',
                 },
                 {
-                  $ref: "#",
+                  $ref: '#',
                 },
               ],
               default: {},
               description: r(
-                "schema.json.additionalProperties",
+                'schema.json.additionalProperties',
                 "Either a schema or a boolean. If a schema, then used to validate all properties not matched by 'properties' or 'patternProperties'. If false, then any properties not matched by either will cause this schema to fail."
               ),
             },
             definitions: {
-              type: "object",
+              type: 'object',
               additionalProperties: {
-                $ref: "#",
+                $ref: '#',
               },
               default: {},
               description: r(
-                "schema.json.definitions",
-                "Not used for validation. Place subschemas here that you wish to reference inline with $ref"
+                'schema.json.definitions',
+                'Not used for validation. Place subschemas here that you wish to reference inline with $ref'
               ),
             },
             properties: {
-              type: "object",
+              type: 'object',
               additionalProperties: {
-                $ref: "#",
+                $ref: '#',
               },
               default: {},
               description: r(
-                "schema.json.properties",
-                "A map of property names to schemas for each property."
+                'schema.json.properties',
+                'A map of property names to schemas for each property.'
               ),
             },
             patternProperties: {
-              type: "object",
+              type: 'object',
               additionalProperties: {
-                $ref: "#",
+                $ref: '#',
               },
               default: {},
               description: r(
-                "schema.json.patternProperties",
-                "A map of regular expressions on property names to schemas for matching properties."
+                'schema.json.patternProperties',
+                'A map of regular expressions on property names to schemas for matching properties.'
               ),
             },
             dependencies: {
-              type: "object",
+              type: 'object',
               additionalProperties: {
                 anyOf: [
                   {
-                    $ref: "#",
+                    $ref: '#',
                   },
                   {
-                    $ref: "#/definitions/stringArray",
+                    $ref: '#/definitions/stringArray',
                   },
                 ],
               },
               description: r(
-                "schema.json.dependencies",
-                "A map of property names to either an array of property names or a schema. An array of property names means the property named in the key depends on the properties in the array being present in the object in order to be valid. If the value is a schema, then the schema is only applied to the object if the property in the key exists on the object."
+                'schema.json.dependencies',
+                'A map of property names to either an array of property names or a schema. An array of property names means the property named in the key depends on the properties in the array being present in the object in order to be valid. If the value is a schema, then the schema is only applied to the object if the property in the key exists on the object.'
               ),
             },
             enum: {
-              type: "array",
+              type: 'array',
               minItems: 1,
               uniqueItems: !0,
               description: r(
-                "schema.json.enum",
-                "The set of literal values that are valid"
+                'schema.json.enum',
+                'The set of literal values that are valid'
               ),
             },
             type: {
               anyOf: [
                 {
-                  $ref: "#/definitions/simpleTypes",
+                  $ref: '#/definitions/simpleTypes',
                 },
                 {
-                  type: "array",
+                  type: 'array',
                   items: {
-                    $ref: "#/definitions/simpleTypes",
+                    $ref: '#/definitions/simpleTypes',
                   },
                   minItems: 1,
                   uniqueItems: !0,
                 },
               ],
               description: r(
-                "schema.json.type",
-                "Either a string of one of the basic schema types (number, integer, null, array, object, boolean, string) or an array of strings specifying a subset of those types."
+                'schema.json.type',
+                'Either a string of one of the basic schema types (number, integer, null, array, object, boolean, string) or an array of strings specifying a subset of those types.'
               ),
             },
             format: {
               anyOf: [
                 {
-                  type: "string",
+                  type: 'string',
                   description: r(
-                    "schema.json.format",
-                    "Describes the format expected for the value."
+                    'schema.json.format',
+                    'Describes the format expected for the value.'
                   ),
                   enum: [
-                    "date-time",
-                    "uri",
-                    "email",
-                    "hostname",
-                    "ipv4",
-                    "ipv6",
-                    "regex",
+                    'date-time',
+                    'uri',
+                    'email',
+                    'hostname',
+                    'ipv4',
+                    'ipv6',
+                    'regex',
                   ],
                 },
                 {
-                  type: "string",
+                  type: 'string',
                 },
               ],
             },
             allOf: {
               allOf: [
                 {
-                  $ref: "#/definitions/schemaArray",
+                  $ref: '#/definitions/schemaArray',
                 },
               ],
               description: r(
-                "schema.json.allOf",
-                "An array of schemas, all of which must match."
+                'schema.json.allOf',
+                'An array of schemas, all of which must match.'
               ),
             },
             anyOf: {
               allOf: [
                 {
-                  $ref: "#/definitions/schemaArray",
+                  $ref: '#/definitions/schemaArray',
                 },
               ],
               description: r(
-                "schema.json.anyOf",
-                "An array of schemas, where at least one must match."
+                'schema.json.anyOf',
+                'An array of schemas, where at least one must match.'
               ),
             },
             oneOf: {
               allOf: [
                 {
-                  $ref: "#/definitions/schemaArray",
+                  $ref: '#/definitions/schemaArray',
                 },
               ],
               description: r(
-                "schema.json.oneOf",
-                "An array of schemas, exactly one of which must match."
+                'schema.json.oneOf',
+                'An array of schemas, exactly one of which must match.'
               ),
             },
             not: {
               allOf: [
                 {
-                  $ref: "#",
+                  $ref: '#',
                 },
               ],
               description: r(
-                "schema.json.not",
-                "A schema which must not match."
+                'schema.json.not',
+                'A schema which must not match.'
               ),
             },
           },
           dependencies: {
-            exclusiveMaximum: ["maximum"],
-            exclusiveMinimum: ["minimum"],
+            exclusiveMaximum: ['maximum'],
+            exclusiveMinimum: ['minimum'],
           },
           default: {},
         },
@@ -5893,40 +5893,40 @@ __extends =
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/services/jsonSchemaService",
+          'vscode-json-languageservice/services/jsonSchemaService',
           [
-            "require",
-            "exports",
-            "jsonc-parser",
-            "vscode-uri",
-            "../utils/strings",
-            "../parser/jsonParser",
-            "vscode-nls",
+            'require',
+            'exports',
+            'jsonc-parser',
+            'vscode-uri',
+            '../utils/strings',
+            '../parser/jsonParser',
+            'vscode-nls',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var a = e("jsonc-parser"),
-      n = e("vscode-uri"),
-      p = e("../utils/strings"),
-      h = e("../parser/jsonParser"),
-      l = e("vscode-nls").loadMessageBundle(),
+    var a = e('jsonc-parser'),
+      n = e('vscode-uri'),
+      p = e('../utils/strings'),
+      h = e('../parser/jsonParser'),
+      l = e('vscode-nls').loadMessageBundle(),
       r = (function () {
         function e(e) {
           try {
             this.patternRegExp = new RegExp(
-              p.convertSimple2RegExpPattern(e) + "$"
+              p.convertSimple2RegExpPattern(e) + '$'
             );
           } catch (e) {
             this.patternRegExp = null;
@@ -5993,7 +5993,7 @@ __extends =
         }),
         (e.prototype.getSectionRecursive = function (t, r) {
           var n = this;
-          if (!r || "boolean" == typeof r || 0 === t.length) return r;
+          if (!r || 'boolean' == typeof r || 0 === t.length) return r;
           var o = t.shift();
           if (r.properties && (r.properties[o], 1))
             return this.getSectionRecursive(t, r.properties[o]);
@@ -6003,9 +6003,9 @@ __extends =
                 return n.getSectionRecursive(t, r.patternProperties[e]);
             });
           else {
-            if ("object" == typeof r.additionalProperties)
+            if ('object' == typeof r.additionalProperties)
               return this.getSectionRecursive(t, r.additionalProperties);
-            if (o.match("[0-9]+"))
+            if (o.match('[0-9]+'))
               if (Array.isArray(r.items)) {
                 var e = parseInt(o, 10);
                 if (!isNaN(e) && r.items[e])
@@ -6035,10 +6035,10 @@ __extends =
         (e.prototype.getRegisteredSchemaIds = function (r) {
           return Object.keys(this.registeredSchemasIds).filter(function (e) {
             var t = n.default.parse(e).scheme;
-            return "schemaservice" !== t && (!r || r(t));
+            return 'schemaservice' !== t && (!r || r(t));
           });
         }),
-        Object.defineProperty(e.prototype, "promise", {
+        Object.defineProperty(e.prototype, 'promise', {
           get: function () {
             return this.promiseConstructor;
           },
@@ -6133,7 +6133,7 @@ __extends =
         (e.prototype.loadSchema = function (i) {
           if (!this.requestService) {
             var e = l(
-              "json.schema.norequestservice",
+              'json.schema.norequestservice',
               "Unable to load schema from '{0}'. No schema request service available",
               c(i)
             );
@@ -6143,7 +6143,7 @@ __extends =
             function (e) {
               if (!e) {
                 var t = l(
-                  "json.schema.nocontent",
+                  'json.schema.nocontent',
                   "Unable to load schema from '{0}': No content.",
                   c(i)
                 );
@@ -6155,7 +6155,7 @@ __extends =
               var o = n.length
                 ? [
                     l(
-                      "json.schema.invalidFormat",
+                      'json.schema.invalidFormat',
                       "Unable to parse content from '{0}': Parse error at offset {1}.",
                       c(i),
                       n[0].offset
@@ -6166,7 +6166,7 @@ __extends =
             },
             function (e) {
               var t = l(
-                "json.schema.unabletoload",
+                'json.schema.unabletoload',
                 "Unable to load schema from '{0}': {1}",
                 c(i),
                 e.toString()
@@ -6185,8 +6185,8 @@ __extends =
                 if (!t) return e;
                 var r = e;
                 return (
-                  "/" === t[0] && (t = t.substr(1)),
-                  t.split("/").some(function (e) {
+                  '/' === t[0] && (t = t.substr(1)),
+                  t.split('/').some(function (e) {
                     return !(r = r[e]);
                   }),
                   r
@@ -6198,7 +6198,7 @@ __extends =
               else
                 a.push(
                   l(
-                    "json.schema.invalidref",
+                    'json.schema.invalidref',
                     "$ref '{0}' in '{1}' can not be resolved.",
                     n,
                     r
@@ -6216,10 +6216,10 @@ __extends =
                   .getUnresolvedSchema()
                   .then(function (e) {
                     if (e.errors.length) {
-                      var t = o ? n + "#" + o : n;
+                      var t = o ? n + '#' + o : n;
                       a.push(
                         l(
-                          "json.schema.problemloadingref",
+                          'json.schema.problemloadingref',
                           "Problems loading reference '{0}': {1}",
                           t,
                           e.errors[0]
@@ -6231,14 +6231,14 @@ __extends =
               );
             },
             c = function (e, r, n) {
-              if (!e || "object" != typeof e) return Promise.resolve(null);
+              if (!e || 'object' != typeof e) return Promise.resolve(null);
               for (
                 var c = [e],
                   t = [],
                   o = [],
                   i = function (e) {
                     for (; e.$ref; ) {
-                      var t = e.$ref.split("#", 2);
+                      var t = e.$ref.split('#', 2);
                       if ((delete e.$ref, 0 < t[0].length))
                         return void o.push(f(e, t[0], t[1], n));
                       u(e, r, n, t[1]);
@@ -6248,7 +6248,7 @@ __extends =
                         e[t] = arguments[t];
                       for (var r = 0, n = e; r < n.length; r++) {
                         var o = n[r];
-                        "object" == typeof o && c.push(o);
+                        'object' == typeof o && c.push(o);
                       }
                     })(
                       e.items,
@@ -6262,10 +6262,10 @@ __extends =
                           e[t] = arguments[t];
                         for (var r = 0, n = e; r < n.length; r++) {
                           var o = n[r];
-                          if ("object" == typeof o)
+                          if ('object' == typeof o)
                             for (var i in o) {
                               var a = o[i];
-                              "object" == typeof a && c.push(a);
+                              'object' == typeof a && c.push(a);
                             }
                         }
                       })(
@@ -6282,7 +6282,7 @@ __extends =
                           if (Array.isArray(o))
                             for (var i = 0, a = o; i < a.length; i++) {
                               var s = a[i];
-                              "object" == typeof s && c.push(s);
+                              'object' == typeof s && c.push(s);
                             }
                         }
                       })(e.anyOf, e.allOf, e.oneOf, e.items);
@@ -6300,19 +6300,19 @@ __extends =
           });
         }),
         (e.prototype.getSchemaForResource = function (e, t) {
-          if (t && t.root && "object" === t.root.type) {
+          if (t && t.root && 'object' === t.root.type) {
             var r = t.root.properties.filter(function (e) {
               return (
-                "$schema" === e.keyNode.value &&
+                '$schema' === e.keyNode.value &&
                 e.valueNode &&
-                "string" === e.valueNode.type
+                'string' === e.valueNode.type
               );
             });
             if (0 < r.length) {
               var n = h.getNodeValue(r[0].valueNode);
               if (
                 (n &&
-                  p.startsWith(n, ".") &&
+                  p.startsWith(n, '.') &&
                   this.contextService &&
                   (n = this.contextService.resolveRelativePath(n, e)),
                 n)
@@ -6343,7 +6343,7 @@ __extends =
         }),
         (e.prototype.createCombinedSchema = function (e, t) {
           if (1 === t.length) return this.getOrAddSchemaHandle(t[0]);
-          var r = "schemaservice://combinedSchema/" + encodeURIComponent(e),
+          var r = 'schemaservice://combinedSchema/' + encodeURIComponent(e),
             n = {
               allOf: t.map(function (e) {
                 return {
@@ -6360,38 +6360,38 @@ __extends =
     function c(e) {
       try {
         var t = n.default.parse(e);
-        if ("file" === t.scheme) return t.fsPath;
+        if ('file' === t.scheme) return t.fsPath;
       } catch (e) {}
       return e;
     }
     t.JSONSchemaService = i;
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/services/jsonFolding",
+          'vscode-json-languageservice/services/jsonFolding',
           [
-            "require",
-            "exports",
-            "vscode-languageserver-types",
-            "jsonc-parser",
-            "../jsonLanguageTypes",
+            'require',
+            'exports',
+            'vscode-languageserver-types',
+            'jsonc-parser',
+            '../jsonLanguageTypes',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var A = e("vscode-languageserver-types"),
-      O = e("jsonc-parser"),
-      k = e("../jsonLanguageTypes");
+    var A = e('vscode-languageserver-types'),
+      O = e('jsonc-parser'),
+      k = e('../jsonLanguageTypes');
     t.getFoldingRanges = function (e, t) {
       var r = [],
         n = [],
@@ -6410,13 +6410,13 @@ __extends =
             var u = {
               startLine: (d = e.positionAt(a.getTokenOffset()).line),
               endLine: d,
-              kind: 1 === s ? "object" : "array",
+              kind: 1 === s ? 'object' : 'array',
             };
             o.push(u);
             break;
           case 2:
           case 4:
-            var f = 2 === s ? "object" : "array";
+            var f = 2 === s ? 'object' : 'array';
             if (0 < o.length && o[o.length - 1].kind === f) {
               u = o.pop();
               var l = e.positionAt(a.getTokenOffset()).line;
@@ -6470,7 +6470,7 @@ __extends =
         s = a.scan();
       }
       var g = t && t.rangeLimit;
-      if ("number" != typeof g || r.length <= g) return r;
+      if ('number' != typeof g || r.length <= g) return r;
       for (var v = [], y = 0, b = n; y < b.length; y++)
         (T = b[y]) < 30 && (v[T] = (v[T] || 0) + 1);
       var x = 0,
@@ -6488,7 +6488,7 @@ __extends =
       var j = [];
       for (m = 0; m < r.length; m++) {
         var T;
-        "number" == typeof (T = n[m]) &&
+        'number' == typeof (T = n[m]) &&
           (T < S || (T === S && x++ < g)) &&
           j.push(r[m]);
       }
@@ -6496,37 +6496,37 @@ __extends =
     };
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "vscode-json-languageservice/jsonLanguageService",
+          'vscode-json-languageservice/jsonLanguageService',
           [
-            "require",
-            "exports",
-            "vscode-languageserver-types",
-            "./services/jsonCompletion",
-            "./services/jsonHover",
-            "./services/jsonValidation",
-            "./services/jsonDocumentSymbols",
-            "./parser/jsonParser",
-            "./services/configuration",
-            "./services/jsonSchemaService",
-            "./services/jsonFolding",
-            "jsonc-parser",
-            "./jsonLanguageTypes",
+            'require',
+            'exports',
+            'vscode-languageserver-types',
+            './services/jsonCompletion',
+            './services/jsonHover',
+            './services/jsonValidation',
+            './services/jsonDocumentSymbols',
+            './parser/jsonParser',
+            './services/configuration',
+            './services/jsonSchemaService',
+            './services/jsonFolding',
+            'jsonc-parser',
+            './jsonLanguageTypes',
           ],
           e
         );
   })(function (e, r) {
-    "use strict";
-    Object.defineProperty(r, "__esModule", {
+    'use strict';
+    Object.defineProperty(r, '__esModule', {
       value: !0,
     });
-    var s = e("vscode-languageserver-types");
+    var s = e('vscode-languageserver-types');
     (r.TextDocument = s.TextDocument),
       (r.Position = s.Position),
       (r.CompletionItem = s.CompletionItem),
@@ -6538,18 +6538,18 @@ __extends =
       (r.TextEdit = s.TextEdit),
       (r.FormattingOptions = s.FormattingOptions),
       (r.MarkedString = s.MarkedString);
-    var c = e("./services/jsonCompletion"),
-      u = e("./services/jsonHover"),
-      f = e("./services/jsonValidation"),
-      l = e("./services/jsonDocumentSymbols"),
-      d = e("./parser/jsonParser"),
-      p = e("./services/configuration"),
-      h = e("./services/jsonSchemaService"),
-      m = e("./services/jsonFolding"),
-      g = e("jsonc-parser");
+    var c = e('./services/jsonCompletion'),
+      u = e('./services/jsonHover'),
+      f = e('./services/jsonValidation'),
+      l = e('./services/jsonDocumentSymbols'),
+      d = e('./parser/jsonParser'),
+      p = e('./services/configuration'),
+      h = e('./services/jsonSchemaService'),
+      m = e('./services/jsonFolding'),
+      g = e('jsonc-parser');
     !(function (e) {
       for (var t in e) r.hasOwnProperty(t) || (r[t] = e[t]);
-    })(e("./jsonLanguageTypes")),
+    })(e('./jsonLanguageTypes')),
       (r.getLanguageService = function (e) {
         var t = e.promiseConstructor || Promise,
           r = new h.JSONSchemaService(
@@ -6609,7 +6609,7 @@ __extends =
             var i = {
               tabSize: r ? r.tabSize : 4,
               insertSpaces: !r || r.insertSpaces,
-              eol: "\n",
+              eol: '\n',
             };
             return g.format(t.getText(), n, i).map(function (e) {
               return s.TextEdit.replace(
@@ -6625,23 +6625,23 @@ __extends =
       });
   }),
   define(
-    "vscode-json-languageservice",
-    ["vscode-json-languageservice/jsonLanguageService"],
+    'vscode-json-languageservice',
+    ['vscode-json-languageservice/jsonLanguageService'],
     function (e) {
       return e;
     }
   ),
   define(
-    "vs/language/json/jsonWorker",
+    'vs/language/json/jsonWorker',
     [
-      "require",
-      "exports",
-      "vscode-json-languageservice",
-      "vscode-languageserver-types",
+      'require',
+      'exports',
+      'vscode-json-languageservice',
+      'vscode-languageserver-types',
     ],
     function (e, t, r, o) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var a = monaco.Promise,

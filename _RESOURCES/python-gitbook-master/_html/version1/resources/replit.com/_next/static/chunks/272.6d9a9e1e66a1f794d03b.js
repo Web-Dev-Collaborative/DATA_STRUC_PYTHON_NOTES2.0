@@ -2,17 +2,17 @@
   [272],
   {
     GSh6: function (t, e, s) {
-      "use strict";
+      'use strict';
       s.r(e),
-        s.d(e, "StreamLanguage", function () {
+        s.d(e, 'StreamLanguage', function () {
           return l;
         }),
-        s.d(e, "StringStream", function () {
+        s.d(e, 'StringStream', function () {
           return a;
         });
-      var i = s("lmln"),
-        n = s("ubVE"),
-        r = s("yqQ+");
+      var i = s('lmln'),
+        n = s('ubVE'),
+        r = s('yqQ+');
 
       function h(t, e, s, i = 0, n = 0) {
         null == e && -1 == (e = t.search(/[^\s\u00a0]/)) && (e = t.length);
@@ -49,7 +49,7 @@
             s = this.string.charAt(this.pos);
           if (
             ((e =
-              "string" == typeof t
+              'string' == typeof t
                 ? s == t
                 : s && (t instanceof RegExp ? t.test(s) : t(s))),
             e)
@@ -94,7 +94,7 @@
           return h(this.string, null, this.tabSize);
         }
         match(t, e, s) {
-          if ("string" == typeof t) {
+          if ('string' == typeof t) {
             let i = (t) => (s ? t.toLowerCase() : t);
             return i(this.string.substr(this.pos, t.length)) == i(t)
               ? (!1 !== e && (this.pos += t.length), !0)
@@ -113,7 +113,7 @@
       }
 
       function o(t) {
-        if ("object" != typeof t) return t;
+        if ('object' != typeof t) return t;
         let e = {};
         for (let s in t) {
           let i = t[s];
@@ -144,7 +144,7 @@
             (function (t) {
               let e = i.d.define({
                 id: g.length,
-                name: "Document",
+                name: 'Document',
                 props: [r.v.add(() => t)],
               });
               return g.push(e), e;
@@ -294,9 +294,9 @@
         }
         lineAfter(t) {
           let e = this.input.chunk(t);
-          if (this.input.lineChunks) "\n" == e && (e = "");
+          if (this.input.lineChunks) '\n' == e && (e = '');
           else {
-            let t = e.indexOf("\n");
+            let t = e.indexOf('\n');
             t > -1 && (e = e.slice(0, t));
           }
           return t + e.length <= this.to ? e : e.slice(0, this.to - t);
@@ -398,7 +398,7 @@
           let i = t(e, s);
           if (e.pos > e.start) return i;
         }
-        throw new Error("Stream parser failed to advance stream.");
+        throw new Error('Stream parser failed to advance stream.');
       }
       const d = Object.create(null),
         g = [i.d.none],
@@ -410,10 +410,10 @@
           ? d[t] ||
               (d[t] = (function (t) {
                 let e = null;
-                for (let i of t.split(".")) {
+                for (let i of t.split('.')) {
                   let t = n.d[i];
                   t
-                    ? "function" == typeof t
+                    ? 'function' == typeof t
                       ? e
                         ? (e = t(e))
                         : P(i, `Modifier ${i} used at start of tag`)
@@ -423,7 +423,7 @@
                     : P(i, `Unknown highlighting tag ${i}`);
                 }
                 if (!e) return 0;
-                let s = t.replace(/ /g, "_"),
+                let s = t.replace(/ /g, '_'),
                   r = i.d.define({
                     id: g.length,
                     name: s,
@@ -438,18 +438,18 @@
           : 0;
       }
       for (let [w, S] of [
-        ["variable", "variableName"],
-        ["variable-2", "variableName.special"],
-        ["string-2", "string.special"],
-        ["def", "variableName.definition"],
-        ["tag", "typeName"],
-        ["attribute", "propertyName"],
-        ["type", "typeName"],
-        ["builtin", "variableName.standard"],
-        ["qualifier", "modifier"],
-        ["error", "invalid"],
-        ["header", "heading"],
-        ["property", "propertyName"],
+        ['variable', 'variableName'],
+        ['variable-2', 'variableName.special'],
+        ['string-2', 'string.special'],
+        ['def', 'variableName.definition'],
+        ['tag', 'typeName'],
+        ['attribute', 'propertyName'],
+        ['type', 'typeName'],
+        ['builtin', 'variableName.standard'],
+        ['qualifier', 'modifier'],
+        ['error', 'invalid'],
+        ['header', 'heading'],
+        ['property', 'propertyName'],
       ])
         d[w] = b(S);
 

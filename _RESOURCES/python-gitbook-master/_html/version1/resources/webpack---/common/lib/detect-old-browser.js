@@ -1,27 +1,27 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 
 function detectIE() {
   const ua = navigator.userAgent;
-  const msie = ua.indexOf("MSIE ");
+  const msie = ua.indexOf('MSIE ');
   if (msie > 0) {
     // IE 10 or older => return version number
-    return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
   }
-  const trident = ua.indexOf("Trident/");
+  const trident = ua.indexOf('Trident/');
   if (trident > 0) {
     // IE 11 => return version number
-    const rv = ua.indexOf("rv:");
-    return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+    const rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
   }
   // other browser
   return false;
 }
 
 function detectOpera() {
-  return navigator.userAgent.indexOf("Opera") > -1;
+  return navigator.userAgent.indexOf('Opera') > -1;
 }
 
 function detectOldBrowser() {

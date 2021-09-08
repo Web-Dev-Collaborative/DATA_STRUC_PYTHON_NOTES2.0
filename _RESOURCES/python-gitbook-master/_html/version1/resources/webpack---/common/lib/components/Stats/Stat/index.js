@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,11 +8,11 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const react_1 = __importDefault(require("react"));
-const elements_1 = require("./elements");
+const react_1 = __importDefault(require('react'));
+const elements_1 = require('./elements');
 
 function format(count) {
   if (count >= 1000000) {
@@ -33,14 +33,14 @@ function Stat({ Icon, text, textOne, count, vertical }) {
     },
     Icon,
     react_1.default.createElement(
-      "span",
+      'span',
       {
         style: {
-          marginLeft: "0.5em",
+          marginLeft: '0.5em',
         },
       },
       format(count),
-      " ",
+      ' ',
       text && (count === 1 ? textOne || text : text)
     )
   );

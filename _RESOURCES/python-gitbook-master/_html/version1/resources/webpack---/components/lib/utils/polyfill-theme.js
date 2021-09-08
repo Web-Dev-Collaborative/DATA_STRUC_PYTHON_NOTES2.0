@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,7 +8,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 /**
@@ -18,15 +18,15 @@ Object.defineProperty(exports, "__esModule", {
  * collapsible icon
  *
  */
-const deepmerge_1 = __importDefault(require("deepmerge"));
-const color_1 = __importDefault(require("color"));
-const dot_1 = require("./dot");
-const design_language_1 = __importDefault(require("../design-language"));
+const deepmerge_1 = __importDefault(require('deepmerge'));
+const color_1 = __importDefault(require('color'));
+const dot_1 = require('./dot');
+const design_language_1 = __importDefault(require('../design-language'));
 const codesandbox_black_1 = __importDefault(
-  require("../themes/codesandbox-black")
+  require('../themes/codesandbox-black')
 );
 const codesandbox_light_json_1 = __importDefault(
-  require("../themes/codesandbox-light.json")
+  require('../themes/codesandbox-light.json')
 );
 const polyfillTheme = (vsCodeTheme) => {
   /**
@@ -61,7 +61,7 @@ const polyfillTheme = (vsCodeTheme) => {
   const vsCodeColors = dot_1.object(vsCodeTheme.colors || {});
   uiColors = deepmerge_1.default(uiColors, vsCodeColors);
   // Step 2: Fill missing values from existing values or codesandbox dark/light
-  const codesandboxColors = ["dark", "lc"].includes(type)
+  const codesandboxColors = ['dark', 'lc'].includes(type)
     ? dot_1.object(codesandbox_black_1.default.colors)
     : dot_1.object(codesandbox_light_json_1.default.colors);
   // 2.1 First, lets fill in core values that are used to infer other values
@@ -109,7 +109,7 @@ const polyfillTheme = (vsCodeTheme) => {
   // for an interface like ours which has other ui elements as well.
   // To make sure the UI looks great, we change some of these design decisions
   // made by the theme author
-  const decreaseContrast = type === "dark" ? lighten : darken;
+  const decreaseContrast = type === 'dark' ? lighten : darken;
   const mutedForeground = withContrast(
     uiColors.input.placeholderForeground,
     uiColors.sideBar.background,
@@ -181,7 +181,7 @@ const polyfillTheme = (vsCodeTheme) => {
     },
     dangerButton: {
       background: design_language_1.default.colors.reds[300],
-      foreground: "white",
+      foreground: 'white',
       hoverBackground: `linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), ${design_language_1.default.colors.reds[300]}`,
     },
     icon: {
@@ -218,18 +218,18 @@ const polyfillTheme = (vsCodeTheme) => {
     uiColors.activityBar.selectedForeground,
     uiColors.activityBar.inactiveForeground,
     type,
-    "icon"
+    'icon'
   );
   return uiColors;
 };
 exports.default = polyfillTheme;
 const guessType = (theme) => {
-  if (theme.name && theme.name.toLowerCase().includes("light")) return "light";
-  return "dark";
+  if (theme.name && theme.name.toLowerCase().includes('light')) return 'light';
+  return 'dark';
 };
 const lighten = (color, value) => color_1.default(color).lighten(value).hex();
 const darken = (color, value) => color_1.default(color).darken(value).hex();
-const withContrast = (color, background, type, contrastType = "text") => {
+const withContrast = (color, background, type, contrastType = 'text') => {
   const contrastRatio = {
     text: 4.5,
     icon: 1.6,
@@ -238,9 +238,9 @@ const withContrast = (color, background, type, contrastType = "text") => {
   if (color_1.default(color).contrast(color_1.default(background)) > contrast)
     return color;
   // can't fix that
-  if (color === "#FFFFFF" || color === "#000000") return color;
+  if (color === '#FFFFFF' || color === '#000000') return color;
   // recursively increase contrast
-  const increaseContrast = type === "dark" ? lighten : darken;
+  const increaseContrast = type === 'dark' ? lighten : darken;
   return withContrast(
     increaseContrast(color, 0.1),
     background,

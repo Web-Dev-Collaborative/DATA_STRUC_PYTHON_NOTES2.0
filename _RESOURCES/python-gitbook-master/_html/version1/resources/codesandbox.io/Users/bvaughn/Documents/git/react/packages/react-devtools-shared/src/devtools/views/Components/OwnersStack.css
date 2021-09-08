@@ -63,8 +63,8 @@
   color: var(--color-button-hover);
 }
 
-.MenuButton[aria-expanded="true"],
-.MenuButton[aria-expanded="true"]:active {
+.MenuButton[aria-expanded='true'],
+.MenuButton[aria-expanded='true']:active {
   color: var(--color-button-active);
   outline: none;
 }

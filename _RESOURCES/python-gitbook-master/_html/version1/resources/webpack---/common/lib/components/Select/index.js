@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,10 +8,10 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const styled_components_1 = __importDefault(require("styled-components"));
+const styled_components_1 = __importDefault(require('styled-components'));
 exports.default = styled_components_1.default.select`
   transition: 0.3s ease border-color;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNC45NSAxMCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xLjQxIDQuNjdsMS4wNy0xLjQ5IDEuMDYgMS40OUgxLjQxek0zLjU0IDUuMzNMMi40OCA2LjgyIDEuNDEgNS4zM2gyLjEzeiI+PC9wYXRoPjwvc3ZnPg==);
@@ -31,7 +31,7 @@ exports.default = styled_components_1.default.select`
 
   border: 1px solid
     ${(props) =>
-      props.error ? props.theme.red.clearer(0.5) : "rgba(0, 0, 0, 0.1)"};
+      props.error ? props.theme.red.clearer(0.5) : 'rgba(0, 0, 0, 0.1)'};
 
   &:focus {
     border-color: ${(props) => props.theme.secondary.clearer(0.6)};

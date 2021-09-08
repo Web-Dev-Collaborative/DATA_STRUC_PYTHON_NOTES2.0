@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.primary = void 0;
-const styled_components_1 = require("styled-components");
+const styled_components_1 = require('styled-components');
 const base = styled_components_1.css`
   font-family: 'Open Sans';
 `;

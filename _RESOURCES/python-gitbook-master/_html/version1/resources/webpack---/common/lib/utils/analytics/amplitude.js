@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __awaiter =
   (this && this.__awaiter) ||
   function (thisArg, _arguments, P, generator) {
@@ -20,7 +20,7 @@ var __awaiter =
 
       function rejected(value) {
         try {
-          step(generator["throw"](value));
+          step(generator['throw'](value));
         } catch (e) {
           reject(e);
         }
@@ -43,7 +43,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.setGroup =
@@ -53,13 +53,13 @@ exports.setGroup =
   exports.identifyOnce =
   exports.identify =
     void 0;
-const utils_1 = require("./utils");
-const delay_1 = __importDefault(require("../delay"));
+const utils_1 = require('./utils');
+const delay_1 = __importDefault(require('../delay'));
 // After 30min no event we mark a session
 const NEW_SESSION_TIME = 1000 * 60 * 30;
 const getLastTimeEventSent = () => {
   try {
-    const lastTime = localStorage.getItem("csb-last-event-sent");
+    const lastTime = localStorage.getItem('csb-last-event-sent');
     if (lastTime === null) {
       return 0;
     }
@@ -70,19 +70,19 @@ const getLastTimeEventSent = () => {
 };
 const markLastTimeEventSent = () => {
   try {
-    localStorage.setItem("csb-last-event-sent", Date.now().toString());
+    localStorage.setItem('csb-last-event-sent', Date.now().toString());
   } catch (e) {
     console.warn(e);
   }
 };
 const getAmplitude = () =>
   __awaiter(void 0, void 0, void 0, function* () {
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV !== 'production') {
       return false;
     }
     for (let i = 0; i < 10; i++) {
       if (
-        typeof utils_1.global.amplitude !== "undefined" &&
+        typeof utils_1.global.amplitude !== 'undefined' &&
         utils_1.global.amplitude.getInstance()._storageSuffix
       ) {
         return utils_1.global.amplitude;
@@ -99,10 +99,10 @@ exports.identify = (key, value) =>
       const identity = new amplitude.Identify();
       identity.set(key, value);
       amplitude.identify(identity);
-      utils_1.debug("[Amplitude] Identifying", key, value);
+      utils_1.debug('[Amplitude] Identifying', key, value);
     } else {
       utils_1.debug(
-        "[Amplitude] NOT identifying because Amplitude is not loaded"
+        '[Amplitude] NOT identifying because Amplitude is not loaded'
       );
     }
   });
@@ -113,10 +113,10 @@ exports.identifyOnce = (key, value) =>
       const identity = new amplitude.Identify();
       identity.setOnce(key, value);
       amplitude.identify(identity);
-      utils_1.debug("[Amplitude] Identifying", key, value);
+      utils_1.debug('[Amplitude] Identifying', key, value);
     } else {
       utils_1.debug(
-        "[Amplitude] NOT identifying because Amplitude is not loaded"
+        '[Amplitude] NOT identifying because Amplitude is not loaded'
       );
     }
   });
@@ -124,12 +124,12 @@ exports.setUserId = (userId) =>
   __awaiter(void 0, void 0, void 0, function* () {
     const amplitude = yield getAmplitude();
     if (amplitude) {
-      utils_1.debug("[Amplitude] Setting User ID", userId);
-      exports.identify("userId", userId);
+      utils_1.debug('[Amplitude] Setting User ID', userId);
+      exports.identify('userId', userId);
       amplitude.getInstance().setUserId(userId);
     } else {
       utils_1.debug(
-        "[Amplitude] NOT setting userid because Amplitude is not loaded"
+        '[Amplitude] NOT setting userid because Amplitude is not loaded'
       );
     }
   });
@@ -137,8 +137,8 @@ exports.resetUserId = () =>
   __awaiter(void 0, void 0, void 0, function* () {
     const amplitude = yield getAmplitude();
     if (amplitude) {
-      utils_1.debug("[Amplitude] Resetting User ID");
-      exports.identify("userId", null);
+      utils_1.debug('[Amplitude] Resetting User ID');
+      exports.identify('userId', null);
       if (
         amplitude.getInstance().options &&
         amplitude.getInstance().options.userId
@@ -148,7 +148,7 @@ exports.resetUserId = () =>
       }
     } else {
       utils_1.debug(
-        "[Amplitude] NOT resetting user id because Amplitude is not loaded"
+        '[Amplitude] NOT resetting user id because Amplitude is not loaded'
       );
     }
   });
@@ -159,14 +159,14 @@ exports.track = (eventName, data) =>
       const currentTime = Date.now();
       if (currentTime - getLastTimeEventSent() > NEW_SESSION_TIME) {
         // We send a separate New Session event if people have been inactive for a while
-        amplitude.logEvent("New Session");
+        amplitude.logEvent('New Session');
       }
       markLastTimeEventSent();
-      utils_1.debug("[Amplitude] Tracking", eventName, data);
+      utils_1.debug('[Amplitude] Tracking', eventName, data);
       amplitude.logEvent(eventName, data);
     } else {
       utils_1.debug(
-        "[Amplitude] NOT tracking because Amplitude is not loaded",
+        '[Amplitude] NOT tracking because Amplitude is not loaded',
         eventName
       );
     }
@@ -175,7 +175,7 @@ exports.setGroup = (group, value) =>
   __awaiter(void 0, void 0, void 0, function* () {
     const amplitude = yield getAmplitude();
     if (amplitude) {
-      utils_1.debug("[Amplitude] Grouping", group, value);
+      utils_1.debug('[Amplitude] Grouping', group, value);
       amplitude.setGroup(group, value);
     }
   });

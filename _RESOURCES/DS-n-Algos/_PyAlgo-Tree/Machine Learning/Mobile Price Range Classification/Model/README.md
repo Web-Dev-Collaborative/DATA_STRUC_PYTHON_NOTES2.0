@@ -1,5 +1,4 @@
- # **Mobile Price Range Classification**
-
+# **Mobile Price Range Classification**
 
 **INTRODUCTION**
 
@@ -29,39 +28,41 @@ Logistic Regression is a classification algorithm which comes under **SUPERVISED
 
 So for the problem statement we will proceed with following steps to classify the target variable i.e. price_range with value of 0(low cost), 1(medium cost), 2(high cost) and 3(very high cost):
 
-- Data training using the mobile price classification dataset. 
+- Data training using the mobile price classification dataset.
 - Model creation which will include importing logistic regression from sklearn, initializing the classifier, then fit the training data into it and perform classification.
 
 **WORKING OF ALGORITHM**
+
 - The first step is to get started with jupyter notebook/google colab or you can also use an editor that supports it with latest version of python installed in your system..
-- Then import the required dataset using pandas library.
-![](https://github.com/ayushi424/PyAlgo-Tree/blob/main/Machine%20Learning/Mobile%20Price%20Range%20Classification/Images/lr1.jpg)
+- Then import the required dataset using pandas library. ![](https://github.com/ayushi424/PyAlgo-Tree/blob/main/Machine%20Learning/Mobile%20Price%20Range%20Classification/Images/lr1.jpg)
 - Now, we will split the dataset into training and testing data using train-test-split method from sklearn.
 - Training data is the data that the model will use to train itself and testing data is the data on which testing of model will be done in form of predictions.
 - Now, import the logistic Regression from sklearn, and initialize it.
-- After initializing, fit the data into it and perform predictions.
-![](https://github.com/ayushi424/PyAlgo-Tree/blob/main/Machine%20Learning/Mobile%20Price%20Range%20Classification/Images/lr2.jpg)
-![](https://github.com/ayushi424/PyAlgo-Tree/blob/main/Machine%20Learning/Mobile%20Price%20Range%20Classification/Images/lr3.jpg)
+- After initializing, fit the data into it and perform predictions. ![](https://github.com/ayushi424/PyAlgo-Tree/blob/main/Machine%20Learning/Mobile%20Price%20Range%20Classification/Images/lr2.jpg) ![](https://github.com/ayushi424/PyAlgo-Tree/blob/main/Machine%20Learning/Mobile%20Price%20Range%20Classification/Images/lr3.jpg)
 
 **USAGE**
+
 - Various classification tasks and projects.
-- Where  the target variable is discrete variable not continous.
+- Where the target variable is discrete variable not continous.
 
 **USE CASES**
 
 Since we have used a specified dataset for this project, other examples are as:
-- Where  the target variable is discrete variable  and not a continous varaible.
+
+- Where the target variable is discrete variable and not a continous varaible.
 - Email Classification as spam or not spam.
 - Various other fields as medical, gaming etc.
 
 **LIBRARIES USED**
+
 - pandas
 - sklearn
 
 **CONCLUSION**
+
 - Logistic Regression is one of simple ML algorithm used for various classification tasks.
 - It is easy to interpret and understand.
-- Can be used in various  Machine Learning projects. 
+- Can be used in various Machine Learning projects.
 
 **Author**
 

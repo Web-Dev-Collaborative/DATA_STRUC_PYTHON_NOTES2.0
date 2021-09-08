@@ -2,19 +2,19 @@
   [8],
   {
     LPyM: function (t, e, s) {
-      "use strict";
+      'use strict';
       (function (t) {
-        s.d(e, "a", function () {
+        s.d(e, 'a', function () {
           return N;
         }),
-          s.d(e, "b", function () {
+          s.d(e, 'b', function () {
             return p;
           }),
-          s.d(e, "c", function () {
+          s.d(e, 'c', function () {
             return T;
           });
         var i,
-          r = s("lmln");
+          r = s('lmln');
         class h {
           constructor(t, e, s, i, r, h, n, o, a, l = 0, c) {
             (this.p = t),
@@ -33,7 +33,7 @@
             return `[${this.stack
               .filter((t, e) => e % 3 == 0)
               .concat(this.state)}]@${this.pos}${
-              this.score ? "!" + this.score : ""
+              this.score ? '!' + this.score : ''
             }`;
           }
           static start(t, e, s = 0) {
@@ -334,12 +334,12 @@
           }
         }
         !(function (t) {
-          (t[(t.Insert = 200)] = "Insert"),
-            (t[(t.Delete = 190)] = "Delete"),
-            (t[(t.Reduce = 100)] = "Reduce"),
-            (t[(t.MaxNext = 4)] = "MaxNext"),
-            (t[(t.MaxInsertStackDepth = 300)] = "MaxInsertStackDepth"),
-            (t[(t.DampenInsertStackDepth = 120)] = "DampenInsertStackDepth");
+          (t[(t.Insert = 200)] = 'Insert'),
+            (t[(t.Delete = 190)] = 'Delete'),
+            (t[(t.Reduce = 100)] = 'Reduce'),
+            (t[(t.MaxNext = 4)] = 'MaxNext'),
+            (t[(t.MaxInsertStackDepth = 300)] = 'MaxInsertStackDepth'),
+            (t[(t.DampenInsertStackDepth = 120)] = 'DampenInsertStackDepth');
         })(i || (i = {}));
         class o {
           constructor(t) {
@@ -420,9 +420,9 @@
           constructor(t, e) {
             (this.input = t),
               (this.ranges = e),
-              (this.chunk = ""),
+              (this.chunk = ''),
               (this.chunkOff = 0),
-              (this.chunk2 = ""),
+              (this.chunk2 = ''),
               (this.chunk2Pos = 0),
               (this.next = -1),
               (this.token = c),
@@ -477,7 +477,7 @@
           acceptToken(t, e = 0) {
             let s = e ? this.resolveOffset(e, -1) : this.pos;
             if (null == s || s < this.token.start)
-              throw new RangeError("Token end out of bounds");
+              throw new RangeError('Token end out of bounds');
             (this.token.value = t), (this.token.end = s);
           }
           getChunk() {
@@ -527,7 +527,7 @@
               (this.pos = this.chunkPos = this.end),
               (this.range =
                 this.ranges[(this.rangeIndex = this.ranges.length - 1)]),
-              (this.chunk = ""),
+              (this.chunk = ''),
               (this.next = -1)
             );
           }
@@ -547,7 +547,7 @@
                 this.range = this.ranges[++this.rangeIndex];
               t >= this.chunkPos && t < this.chunkPos + this.chunk.length
                 ? (this.chunkOff = t - this.chunkPos)
-                : ((this.chunk = ""), (this.chunkOff = 0)),
+                : ((this.chunk = ''), (this.chunkOff = 0)),
                 this.readNext();
             }
             return this;
@@ -557,7 +557,7 @@
               return this.chunk.slice(t - this.chunkPos, e - this.chunkPos);
             if (t >= this.range.from && e <= this.range.to)
               return this.input.read(t, e);
-            let s = "";
+            let s = '';
             for (let i of this.ranges) {
               if (i.from >= e) break;
               i.to > t &&
@@ -621,7 +621,7 @@
         }
 
         function d(t, e = Uint16Array) {
-          if ("string" != typeof t) return t;
+          if ('string' != typeof t) return t;
           let s = null;
           for (let i = 0, r = 0; i < t.length; ) {
             let h = 0;
@@ -641,7 +641,7 @@
           }
           return s;
         }
-        const k = "undefined" != typeof t && /\bparse\b/.test(t.env.LOG);
+        const k = 'undefined' != typeof t && /\bparse\b/.test(t.env.LOG);
         let g = null;
         var m;
 
@@ -659,7 +659,7 @@
               }
         }
         !(function (t) {
-          t[(t.Margin = 25)] = "Margin";
+          t[(t.Margin = 25)] = 'Margin';
         })(m || (m = {}));
         class b {
           constructor(t, e) {
@@ -836,10 +836,10 @@
         }
         var S;
         !(function (t) {
-          (t[(t.Distance = 5)] = "Distance"),
-            (t[(t.MaxRemainingPerStep = 3)] = "MaxRemainingPerStep"),
-            (t[(t.MinBufferLengthPrune = 200)] = "MinBufferLengthPrune"),
-            (t[(t.ForceReduceLimit = 10)] = "ForceReduceLimit");
+          (t[(t.Distance = 5)] = 'Distance'),
+            (t[(t.MaxRemainingPerStep = 3)] = 'MaxRemainingPerStep'),
+            (t[(t.MinBufferLengthPrune = 200)] = 'MinBufferLengthPrune'),
+            (t[(t.ForceReduceLimit = 10)] = 'ForceReduceLimit');
         })(S || (S = {}));
         class A {
           constructor(t, e, s, i) {
@@ -905,10 +905,10 @@
                   (k &&
                     t &&
                     console.log(
-                      "Stuck with token " +
+                      'Stuck with token ' +
                         this.parser.getName(this.tokens.mainToken.value)
                     ),
-                  new SyntaxError("No parse at " + i))
+                  new SyntaxError('No parse at ' + i))
                 );
               this.recovering || (this.recovering = 5);
             }
@@ -957,7 +957,7 @@
           advanceStack(t, e, s) {
             let i = t.pos,
               { parser: h } = this,
-              n = k ? this.stackID(t) + " -> " : "";
+              n = k ? this.stackID(t) + ' -> ' : '';
             if (null != this.stoppedAt && i > this.stoppedAt)
               return t.forceReduce() ? t : null;
             if (this.fragments) {
@@ -1021,9 +1021,9 @@
                       this.stackID(f) +
                       ` (via ${
                         0 == (65536 & o)
-                          ? "shift"
+                          ? 'shift'
                           : `reduce of ${h.getName(65535 & o)}`
-                      } for ${h.getName(l)} @ ${i}${f == t ? "" : ", split"})`
+                      } for ${h.getName(l)} @ ${i}${f == t ? '' : ', split'})`
                   ),
                 u)
               )
@@ -1046,13 +1046,13 @@
               let n = t[h],
                 o = e[h << 1],
                 a = e[1 + (h << 1)],
-                l = k ? this.stackID(n) + " -> " : "";
+                l = k ? this.stackID(n) + ' -> ' : '';
               if (n.deadEnd) {
                 if (r) continue;
                 if (
                   ((r = !0),
                   n.restart(),
-                  k && console.log(l + this.stackID(n) + " (restarted)"),
+                  k && console.log(l + this.stackID(n) + ' (restarted)'),
                   this.advanceFully(n, s))
                 )
                   continue;
@@ -1062,14 +1062,14 @@
               for (let t = 0; c.forceReduce() && t < 10; t++) {
                 if (
                   (k &&
-                    console.log(u + this.stackID(c) + " (via force-reduce)"),
+                    console.log(u + this.stackID(c) + ' (via force-reduce)'),
                   this.advanceFully(c, s))
                 )
                   break;
-                k && (u = this.stackID(c) + " -> ");
+                k && (u = this.stackID(c) + ' -> ');
               }
               for (let t of n.recoverByInsert(o))
-                k && console.log(l + this.stackID(t) + " (via recover-insert)"),
+                k && console.log(l + this.stackID(t) + ' (via recover-insert)'),
                   this.advanceFully(t, s);
               this.stream.end > n.pos
                 ? (a == n.pos && (a++, (o = 0)),
@@ -1142,9 +1142,9 @@
               throw new RangeError(
                 `Parser version (${t.version}) doesn't match runtime version (13)`
               );
-            let e = t.nodeNames.split(" ");
+            let e = t.nodeNames.split(' ');
             this.minRepeatTerm = e.length;
-            for (let r = 0; r < t.repeatNodeCount; r++) e.push("");
+            for (let r = 0; r < t.repeatNodeCount; r++) e.push('');
             let s = Object.keys(t.topRules).map((e) => t.topRules[e][1]),
               i = [];
             for (let r = 0; r < e.length; r++) i.push([]);
@@ -1196,7 +1196,7 @@
               (this.goto = d(t.goto)),
               (this.maxTerm = t.maxTerm),
               (this.tokenizers = t.tokenizers.map((t) =>
-                "number" == typeof t ? new f(n, t) : t
+                'number' == typeof t ? new f(n, t) : t
               )),
               (this.topRules = t.topRules),
               (this.dialects = t.dialects || {}),
@@ -1315,7 +1315,7 @@
             let e = Object.keys(this.dialects),
               s = e.map(() => !1);
             if (t)
-              for (let r of t.split(" ")) {
+              for (let r of t.split(' ')) {
                 let t = e.indexOf(r);
                 t >= 0 && (s[t] = !0);
               }
@@ -1343,7 +1343,7 @@
           for (let i, r = e; 65535 != (i = t[r]); r++) if (i == s) return r - e;
           return -1;
         }
-      }.call(this, s("8oxB")));
+      }.call(this, s('8oxB')));
     },
   },
 ]);

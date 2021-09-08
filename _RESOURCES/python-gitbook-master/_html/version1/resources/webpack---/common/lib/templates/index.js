@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,7 +8,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.unibit =
@@ -43,67 +43,67 @@ exports.unibit =
   exports.angular =
   exports.adonis =
     void 0;
-const adonis_1 = __importDefault(require("./adonis"));
+const adonis_1 = __importDefault(require('./adonis'));
 exports.adonis = adonis_1.default;
-const angular_1 = __importDefault(require("./angular"));
+const angular_1 = __importDefault(require('./angular'));
 exports.angular = angular_1.default;
-const apollo_server_1 = __importDefault(require("./apollo-server"));
+const apollo_server_1 = __importDefault(require('./apollo-server'));
 exports.apollo = apollo_server_1.default;
-const babel_1 = __importDefault(require("./babel"));
+const babel_1 = __importDefault(require('./babel'));
 exports.babel = babel_1.default;
-const custom_1 = __importDefault(require("./custom"));
+const custom_1 = __importDefault(require('./custom'));
 exports.custom = custom_1.default;
-const cxjs_1 = __importDefault(require("./cxjs"));
+const cxjs_1 = __importDefault(require('./cxjs'));
 exports.cxjs = cxjs_1.default;
-const dojo_1 = __importDefault(require("./dojo"));
+const dojo_1 = __importDefault(require('./dojo'));
 exports.dojo = dojo_1.default;
-const ember_1 = __importDefault(require("./ember"));
+const ember_1 = __importDefault(require('./ember'));
 exports.ember = ember_1.default;
-const gatsby_1 = __importDefault(require("./gatsby"));
+const gatsby_1 = __importDefault(require('./gatsby'));
 exports.gatsby = gatsby_1.default;
-const gridsome_1 = __importDefault(require("./gridsome"));
+const gridsome_1 = __importDefault(require('./gridsome'));
 exports.gridsome = gridsome_1.default;
-const marko_1 = __importDefault(require("./marko"));
+const marko_1 = __importDefault(require('./marko'));
 exports.marko = marko_1.default;
-const mdx_deck_1 = __importDefault(require("./mdx-deck"));
+const mdx_deck_1 = __importDefault(require('./mdx-deck'));
 exports.mdxDeck = mdx_deck_1.default;
-const nest_1 = __importDefault(require("./nest"));
+const nest_1 = __importDefault(require('./nest'));
 exports.nest = nest_1.default;
-const next_1 = __importDefault(require("./next"));
+const next_1 = __importDefault(require('./next'));
 exports.next = next_1.default;
-const node_1 = __importDefault(require("./node"));
+const node_1 = __importDefault(require('./node'));
 exports.node = node_1.default;
-const nuxt_1 = __importDefault(require("./nuxt"));
+const nuxt_1 = __importDefault(require('./nuxt'));
 exports.nuxt = nuxt_1.default;
-const parcel_1 = __importDefault(require("./parcel"));
+const parcel_1 = __importDefault(require('./parcel'));
 exports.parcel = parcel_1.default;
-const preact_1 = __importDefault(require("./preact"));
+const preact_1 = __importDefault(require('./preact'));
 exports.preact = preact_1.default;
-const quasar_1 = __importDefault(require("./quasar"));
+const quasar_1 = __importDefault(require('./quasar'));
 exports.quasar = quasar_1.default;
-const react_1 = __importDefault(require("./react"));
+const react_1 = __importDefault(require('./react'));
 exports.react = react_1.default;
-const react_ts_1 = __importDefault(require("./react-ts"));
+const react_ts_1 = __importDefault(require('./react-ts'));
 exports.reactTs = react_ts_1.default;
-const reason_1 = __importDefault(require("./reason"));
+const reason_1 = __importDefault(require('./reason'));
 exports.reason = reason_1.default;
-const sapper_1 = __importDefault(require("./sapper"));
+const sapper_1 = __importDefault(require('./sapper'));
 exports.sapper = sapper_1.default;
-const static_1 = __importDefault(require("./static"));
+const static_1 = __importDefault(require('./static'));
 exports.staticTemplate = static_1.default;
-const styleguidist_1 = __importDefault(require("./styleguidist"));
+const styleguidist_1 = __importDefault(require('./styleguidist'));
 exports.styleguidist = styleguidist_1.default;
-const svelte_1 = __importDefault(require("./svelte"));
+const svelte_1 = __importDefault(require('./svelte'));
 exports.svelte = svelte_1.default;
-const unibit_1 = __importDefault(require("./unibit"));
+const unibit_1 = __importDefault(require('./unibit'));
 exports.unibit = unibit_1.default;
-const vue_1 = __importDefault(require("./vue"));
+const vue_1 = __importDefault(require('./vue'));
 exports.vue = vue_1.default;
-const vuepress_1 = __importDefault(require("./vuepress"));
+const vuepress_1 = __importDefault(require('./vuepress'));
 exports.vuepress = vuepress_1.default;
-const docusaurus_1 = __importDefault(require("./docusaurus"));
+const docusaurus_1 = __importDefault(require('./docusaurus'));
 exports.docusaurus = docusaurus_1.default;
-const esmodule_react_1 = __importDefault(require("./esmodule-react"));
+const esmodule_react_1 = __importDefault(require('./esmodule-react'));
 exports.esmReact = esmodule_react_1.default;
 
 function getDefinition(theme) {

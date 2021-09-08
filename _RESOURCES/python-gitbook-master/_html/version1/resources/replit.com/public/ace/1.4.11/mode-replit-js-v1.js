@@ -31,7 +31,7 @@ var __makeTemplateObject =
   (this && this.__makeTemplateObject) ||
   function (cooked, raw) {
     if (Object.defineProperty) {
-      Object.defineProperty(cooked, "raw", {
+      Object.defineProperty(cooked, 'raw', {
         value: raw,
       });
     } else {
@@ -41,11 +41,11 @@ var __makeTemplateObject =
   };
 var version = 1;
 window.ace.define(
-  "ace/mode/doc_comment_highlight_rules",
-  ["ace/mode/text_highlight_rules"],
+  'ace/mode/doc_comment_highlight_rules',
+  ['ace/mode/text_highlight_rules'],
   function (require, exports, _module) {
     var TextHighlightRules =
-      require("ace/mode/text_highlight_rules").TextHighlightRules;
+      require('ace/mode/text_highlight_rules').TextHighlightRules;
     var DocCommentHighlightRules = /** @class */ (function (_super) {
       __extends(DocCommentHighlightRules, _super);
 
@@ -54,12 +54,12 @@ window.ace.define(
         _this.$rules = {
           start: [
             {
-              token: "comment.doc.tag",
+              token: 'comment.doc.tag',
               regex: /@\w+/,
             },
             DocCommentHighlightRules.getTagRule(),
             {
-              defaultToken: "comment.doc",
+              defaultToken: 'comment.doc',
               caseInsensitive: true,
             },
           ],
@@ -68,21 +68,21 @@ window.ace.define(
       }
       DocCommentHighlightRules.getTagRule = function (_start) {
         return {
-          token: "comment.doc.tag.storage.type",
+          token: 'comment.doc.tag.storage.type',
           regex: /\b(?:TODO|FIXME|XXX|HACK)\b/,
         };
       };
       DocCommentHighlightRules.getStartRule = function (start) {
         return {
-          token: "comment.doc",
-          regex: "/\\*(?=\\*)",
+          token: 'comment.doc',
+          regex: '/\\*(?=\\*)',
           next: start,
         };
       };
       DocCommentHighlightRules.getEndRule = function (start) {
         return {
-          token: "comment.doc",
-          regex: "\\*/",
+          token: 'comment.doc',
+          regex: '\\*/',
           next: start,
         };
       };
@@ -92,10 +92,10 @@ window.ace.define(
   }
 );
 window.ace.define(
-  "ace/mode/matching_brace_outdent",
-  ["ace/range"],
+  'ace/mode/matching_brace_outdent',
+  ['ace/range'],
   function (require, exports, _module) {
-    var Range = require("ace/range").Range;
+    var Range = require('ace/range').Range;
     var MatchingBraceOutdent = /** @class */ (function () {
       function MatchingBraceOutdent() {}
       MatchingBraceOutdent.prototype.checkOutdent = function (line, input) {
@@ -125,11 +125,11 @@ window.ace.define(
   }
 );
 window.ace.define(
-  "ace/mode/folding/cstyle",
-  ["ace/range", "ace/mode/folding/fold_mode"],
+  'ace/mode/folding/cstyle',
+  ['ace/range', 'ace/mode/folding/fold_mode'],
   function (require, exports, _module) {
-    var Range = require("ace/range").Range;
-    var BaseFoldMode = require("ace/mode/folding/fold_mode").FoldMode;
+    var Range = require('ace/range').Range;
+    var BaseFoldMode = require('ace/mode/folding/fold_mode').FoldMode;
     var FoldMode = /** @class */ (function (_super) {
       __extends(FoldMode, _super);
 
@@ -146,13 +146,13 @@ window.ace.define(
           _this.foldingStartMarker = new RegExp(
             _this.foldingStartMarker.source.replace(
               /\|[^|]*?$/,
-              "|" + commentRegex.start
+              '|' + commentRegex.start
             )
           );
           _this.foldingStopMarker = new RegExp(
             _this.foldingStopMarker.source.replace(
               /\|[^|]*?$/,
-              "|" + commentRegex.end
+              '|' + commentRegex.end
             )
           );
         }
@@ -180,10 +180,10 @@ window.ace.define(
             !this.startRegionRe.test(line) &&
             !this.tripleStarBlockCommentRe.test(line)
           )
-            return "";
+            return '';
         }
         var fw = this._getFoldWidgetBase(session, foldStyle, row);
-        if (!fw && this.startRegionRe.test(line)) return "start"; // lineCommentRegionStart
+        if (!fw && this.startRegionRe.test(line)) return 'start'; // lineCommentRegionStart
         return fw;
       };
       FoldMode.prototype.getFoldWidgetRange = function (
@@ -204,11 +204,11 @@ window.ace.define(
           if (range && !range.isMultiLine()) {
             if (forceMultiline) {
               range = this.getSectionRange(session, row);
-            } else if (foldStyle !== "all") range = null;
+            } else if (foldStyle !== 'all') range = null;
           }
           return range;
         }
-        if (foldStyle === "markbegin") return undefined;
+        if (foldStyle === 'markbegin') return undefined;
         match = line.match(this.foldingStopMarker);
         if (match) {
           var i = match.index + match[0].length;
@@ -231,7 +231,7 @@ window.ace.define(
           var indent = line.search(/\S/);
           if (indent === -1) continue;
           if (startIndent > indent) break;
-          var subRange = this.getFoldWidgetRange(session, "all", row);
+          var subRange = this.getFoldWidgetRange(session, 'all', row);
           if (subRange) {
             if (subRange.start.row <= startRow) {
               break;
@@ -280,24 +280,24 @@ window.ace.define(
   }
 );
 window.ace.define(
-  "ace/mode/replit-js-v" + version + "_highlight_rules",
+  'ace/mode/replit-js-v' + version + '_highlight_rules',
   [
-    "require",
-    "exports",
-    "module",
-    "ace/mode/text_highlight_rules",
-    "ace/mode/doc_comment_highlight_rules",
+    'require',
+    'exports',
+    'module',
+    'ace/mode/text_highlight_rules',
+    'ace/mode/doc_comment_highlight_rules',
   ],
   function (require, exports, _module) {
     var DocCommentHighlightRules =
-      require("ace/mode/doc_comment_highlight_rules").DocCommentHighlightRules;
+      require('ace/mode/doc_comment_highlight_rules').DocCommentHighlightRules;
     var TextHighlightRules =
-      require("ace/mode/text_highlight_rules").TextHighlightRules;
+      require('ace/mode/text_highlight_rules').TextHighlightRules;
     var kwlist = function (_a) {
       var kw = _a[0];
-      return kw.trim().replace(/\s+/gm, "|");
+      return kw.trim().replace(/\s+/gm, '|');
     };
-    var ident = "[a-zA-Z$_\\u00a1-\\uffff][a-zA-Z\\d$_\\u00a1-\\uffff]*";
+    var ident = '[a-zA-Z$_\\u00a1-\\uffff][a-zA-Z\\d$_\\u00a1-\\uffff]*';
     var JSHighlightRules = /** @class */ (function (_super) {
       __extends(JSHighlightRules, _super);
 
@@ -305,449 +305,449 @@ window.ace.define(
         var _this = _super.call(this) || this;
         var keywordMapper = _this.createKeywordMapper(
           {
-            "variable.language": "arguments|prototype|window|document|exports",
+            'variable.language': 'arguments|prototype|window|document|exports',
             keyword: kwlist(
               __makeTemplateObject(
                 [
-                  "\n              const yield import from as get set async await\n              break case catch continue default delete do else finally for function\n              if in of instanceof new return switch throw try typeof let var while with\n              debugger class extends super export static constructor void yield\n              \n              enum implements private public interface package protected\n            ",
+                  '\n              const yield import from as get set async await\n              break case catch continue default delete do else finally for function\n              if in of instanceof new return switch throw try typeof let var while with\n              debugger class extends super export static constructor void yield\n              \n              enum implements private public interface package protected\n            ',
                 ],
                 [
-                  "\n              const yield import from as get set async await\n              break case catch continue default delete do else finally for function\n              if in of instanceof new return switch throw try typeof let var while with\n              debugger class extends super export static constructor void yield\n              \n              enum implements private public interface package protected\n            ",
+                  '\n              const yield import from as get set async await\n              break case catch continue default delete do else finally for function\n              if in of instanceof new return switch throw try typeof let var while with\n              debugger class extends super export static constructor void yield\n              \n              enum implements private public interface package protected\n            ',
                 ]
               )
             ),
-            "constant.language": "null|Infinity|NaN|undefined|this|globalThis",
-            "support.function": kwlist(
+            'constant.language': 'null|Infinity|NaN|undefined|this|globalThis',
+            'support.function': kwlist(
               __makeTemplateObject(
                 [
-                  "\n              alert escape unescape isNaN parseFloat parseInt decodeURI decodeURIComponent\n              encodeURI encodeURIComponent eval isFinite require\n            ",
+                  '\n              alert escape unescape isNaN parseFloat parseInt decodeURI decodeURIComponent\n              encodeURI encodeURIComponent eval isFinite require\n            ',
                 ],
                 [
-                  "\n              alert escape unescape isNaN parseFloat parseInt decodeURI decodeURIComponent\n              encodeURI encodeURIComponent eval isFinite require\n            ",
+                  '\n              alert escape unescape isNaN parseFloat parseInt decodeURI decodeURIComponent\n              encodeURI encodeURIComponent eval isFinite require\n            ',
                 ]
               )
             ),
-            "constant.language.boolean": "true|false",
+            'constant.language.boolean': 'true|false',
           },
-          "identifier"
+          'identifier'
         );
         // keywords which can be followed by regular expressions
         var kwBeforeRe = kwlist(
           __makeTemplateObject(
             [
-              "\n          await case delete do else finally in instanceof of return throw try typeof\n          yield void\n        ",
+              '\n          await case delete do else finally in instanceof of return throw try typeof\n          yield void\n        ',
             ],
             [
-              "\n          await case delete do else finally in instanceof of return throw try typeof\n          yield void\n        ",
+              '\n          await case delete do else finally in instanceof of return throw try typeof\n          yield void\n        ',
             ]
           )
         );
         var escapedRe =
-          "\\\\(?:x[0-9a-fA-F]{2}|" + // hex
-          "u[0-9a-fA-F]{4}|" + // unicode
-          "u{[0-9a-fA-F]{1,6}}|" + // es6 unicode
-          "[0-2][0-7]{0,2}|" + // oct
-          "3[0-7][0-7]?|" + // oct
-          "[4-7][0-7]?|" + //oct
-          ".)";
-        var digits = "(?:\\d(?:_?\\d+)*)";
-        var nextIsArrowFn = "(?=[^()]*?\\)\\s*=>)";
+          '\\\\(?:x[0-9a-fA-F]{2}|' + // hex
+          'u[0-9a-fA-F]{4}|' + // unicode
+          'u{[0-9a-fA-F]{1,6}}|' + // es6 unicode
+          '[0-2][0-7]{0,2}|' + // oct
+          '3[0-7][0-7]?|' + // oct
+          '[4-7][0-7]?|' + //oct
+          '.)';
+        var digits = '(?:\\d(?:_?\\d+)*)';
+        var nextIsArrowFn = '(?=[^()]*?\\)\\s*=>)';
         _this.$rules = {
           no_regex: [
-            DocCommentHighlightRules.getStartRule("doc-start"),
-            comments("no_regex"),
+            DocCommentHighlightRules.getStartRule('doc-start'),
+            comments('no_regex'),
             {
-              token: "string",
+              token: 'string',
               regex: /'(?=.)/,
-              next: "qstring",
+              next: 'qstring',
             },
             {
-              token: "string",
+              token: 'string',
               regex: /"(?=.)/,
-              next: "qqstring",
+              next: 'qqstring',
             },
             {
               regex: /[{}]/,
               onMatch: function (val, state, stack) {
-                this.next = val === "{" ? this.nextState : "";
-                if (val === "{" && stack.length) {
-                  stack.unshift("start", state);
-                } else if (val === "}" && stack.length) {
+                this.next = val === '{' ? this.nextState : '';
+                if (val === '{' && stack.length) {
+                  stack.unshift('start', state);
+                } else if (val === '}' && stack.length) {
                   stack.shift();
                   this.next = stack.shift();
                   if (
-                    this.next.indexOf("string") !== -1 ||
-                    this.next.indexOf("jsx") !== -1
+                    this.next.indexOf('string') !== -1 ||
+                    this.next.indexOf('jsx') !== -1
                   )
-                    return "paren.quasi.end";
+                    return 'paren.quasi.end';
                 }
-                return val === "{" ? "paren.lparen" : "paren.rparen";
+                return val === '{' ? 'paren.lparen' : 'paren.rparen';
               },
-              nextState: "start",
+              nextState: 'start',
             },
             {
-              token: "string.quasi.start",
+              token: 'string.quasi.start',
               regex: /`/,
               push: [
                 {
-                  token: "constant.language.escape",
+                  token: 'constant.language.escape',
                   regex: escapedRe,
                 },
                 {
-                  token: "paren.quasi.start",
+                  token: 'paren.quasi.start',
                   regex: /\${/,
-                  push: "start",
+                  push: 'start',
                 },
                 {
-                  token: "string.quasi.end",
+                  token: 'string.quasi.end',
                   regex: /`/,
-                  next: "pop",
+                  next: 'pop',
                 },
                 {
-                  defaultToken: "string.quasi",
+                  defaultToken: 'string.quasi',
                 },
               ],
             },
             {
-              token: "constant.numeric",
+              token: 'constant.numeric',
               regex:
                 /0(?:[xX][0-9a-fA-F](?:_?[0-9a-fA-F]+)*|[oO][0-7](?:_?[0-7]+)*|[bB][01](?:_?[01]+)*)n?\b/,
             },
             {
-              token: "constant.numeric",
-              regex: digits + "n\\b",
+              token: 'constant.numeric',
+              regex: digits + 'n\\b',
             },
             {
-              token: "constant.numeric",
+              token: 'constant.numeric',
               regex:
-                "(?:" +
+                '(?:' +
                 digits +
-                "(?:\\." +
+                '(?:\\.' +
                 digits +
-                "?)?|\\." +
+                '?)?|\\.' +
                 digits +
-                ")(?:[eE][+-]?" +
+                ')(?:[eE][+-]?' +
                 digits +
-                "\\b)?",
+                '\\b)?',
             },
             {
               // arg => {...}
               token: [
-                "variable.parameter",
-                "text",
-                "storage.type.arrow-operator",
+                'variable.parameter',
+                'text',
+                'storage.type.arrow-operator',
               ],
-              regex: "(" + ident + ")(\\s*)(=>)",
+              regex: '(' + ident + ')(\\s*)(=>)',
             },
             {
               // lazy/hacky thing to support class/object functions
-              token: ["text", "support.function", "white", "paren.lparen"],
+              token: ['text', 'support.function', 'white', 'paren.lparen'],
               regex:
-                "^(\\s*)(?!(?:if|while|function|for|switch|catch|constructor)\\b)(#?" +
+                '^(\\s*)(?!(?:if|while|function|for|switch|catch|constructor)\\b)(#?' +
                 ident +
-                ")(\\s*)(\\()(?=[^()]*\\)\\s*{)",
-              next: "function_arguments",
+                ')(\\s*)(\\()(?=[^()]*\\)\\s*{)',
+              next: 'function_arguments',
             },
             {
               // this.prototype.play = function(...) {...}
               token: [
-                "constant.language",
-                "punctuation.operator",
-                "variable.language",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "keyword",
-                "text",
-                "paren.lparen",
+                'constant.language',
+                'punctuation.operator',
+                'variable.language',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'keyword',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(this)(\\.)(prototype)(\\.)(" +
+                '(this)(\\.)(prototype)(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()",
-              next: "function_arguments",
+                ')(\\s*)(=)(\\s*)(function)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // Sound.prototype.play = function(...) {...}
               token: [
-                "storage.type",
-                "punctuation.operator",
-                "variable.language",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "keyword",
-                "text",
-                "paren.lparen",
+                'storage.type',
+                'punctuation.operator',
+                'variable.language',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'keyword',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(" +
+                '(' +
                 ident +
-                ")(\\.)(prototype)(\\.)(" +
+                ')(\\.)(prototype)(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()",
-              next: "function_arguments",
+                ')(\\s*)(=)(\\s*)(function)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // this.play = function() {...}
               token: [
-                "constant.language",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "keyword",
-                "text",
-                "paren.lparen",
+                'constant.language',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'keyword',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(this)(\\.)(" +
+                '(this)(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()",
-              next: "function_arguments",
+                ')(\\s*)(=)(\\s*)(function)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // this.play = arg => {...}
               token: [
-                "constant.language",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "variable.parameter",
-                "text",
-                "storage.type.arrow-operator",
+                'constant.language',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'variable.parameter',
+                'text',
+                'storage.type.arrow-operator',
               ],
               regex:
-                "(this)(\\.)(" +
+                '(this)(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(" +
+                ')(\\s*)(=)(\\s*)(' +
                 ident +
-                ")(\\s*)(=>)",
+                ')(\\s*)(=>)',
             },
             {
               // this.play = (...) => {...}
               token: [
-                "constant.language",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "paren.lparen",
+                'constant.language',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(this)(\\.)(" +
+                '(this)(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(\\()" +
+                ')(\\s*)(=)(\\s*)(\\()' +
                 nextIsArrowFn,
-              next: "function_arguments",
+              next: 'function_arguments',
             },
             {
               // Sound.play = function() {...}
               token: [
-                "storage.type",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "keyword",
-                "text",
-                "paren.lparen",
+                'storage.type',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'keyword',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(" +
+                '(' +
                 ident +
-                ")(\\.)(" +
+                ')(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()",
-              next: "function_arguments",
+                ')(\\s*)(=)(\\s*)(function)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // Sound.play = arg => {...}
               token: [
-                "storage.type",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "variable.parameter",
-                "text",
-                "storage.type.arrow-operator",
+                'storage.type',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'variable.parameter',
+                'text',
+                'storage.type.arrow-operator',
               ],
               regex:
-                "(" +
+                '(' +
                 ident +
-                ")(\\.)(" +
+                ')(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(" +
+                ')(\\s*)(=)(\\s*)(' +
                 ident +
-                ")(\\s*)(=>)",
+                ')(\\s*)(=>)',
             },
             {
               // Sound.play = (...) => {...}
               token: [
-                "storage.type",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "paren.lparen",
+                'storage.type',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(" +
+                '(' +
                 ident +
-                ")(\\.)(" +
+                ')(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(\\()" +
+                ')(\\s*)(=)(\\s*)(\\()' +
                 nextIsArrowFn,
-              next: "function_arguments",
+              next: 'function_arguments',
             },
             {
               // play = function() {...}
               token: [
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "keyword",
-                "text",
-                "paren.lparen",
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'keyword',
+                'text',
+                'paren.lparen',
               ],
-              regex: "(" + ident + ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()",
-              next: "function_arguments",
+              regex: '(' + ident + ')(\\s*)(=)(\\s*)(function)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // play = arg => {...}
               token: [
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "variable.parameter",
-                "text",
-                "storage.type.arrow-operator",
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'variable.parameter',
+                'text',
+                'storage.type.arrow-operator',
               ],
-              regex: "(" + ident + ")(\\s*)(=)(\\s*)(" + ident + ")(\\s*)(=>)",
+              regex: '(' + ident + ')(\\s*)(=)(\\s*)(' + ident + ')(\\s*)(=>)',
             },
             {
               // play = (...) => {...}
               token: [
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "paren.lparen",
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'paren.lparen',
               ],
-              regex: "(" + ident + ")(\\s*)(=)(\\s*)(\\()" + nextIsArrowFn,
-              next: "function_arguments",
+              regex: '(' + ident + ')(\\s*)(=)(\\s*)(\\()' + nextIsArrowFn,
+              next: 'function_arguments',
             },
             {
               // this.play = function play() {...}
               token: [
-                "constant.language",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "keyword",
-                "text",
-                "entity.name.function",
-                "text",
-                "paren.lparen",
+                'constant.language',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'keyword',
+                'text',
+                'entity.name.function',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(this)(\\.)(" +
+                '(this)(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(function)(\\s+)(\\w+)(\\s*)(\\()",
-              next: "function_arguments",
+                ')(\\s*)(=)(\\s*)(function)(\\s+)(\\w+)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // Sound.play = function play() {...}
               token: [
-                "storage.type",
-                "punctuation.operator",
-                "support.function",
-                "text",
-                "keyword.operator",
-                "text",
-                "keyword",
-                "text",
-                "entity.name.function",
-                "text",
-                "paren.lparen",
+                'storage.type',
+                'punctuation.operator',
+                'support.function',
+                'text',
+                'keyword.operator',
+                'text',
+                'keyword',
+                'text',
+                'entity.name.function',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "(" +
+                '(' +
                 ident +
-                ")(\\.)(" +
+                ')(\\.)(' +
                 ident +
-                ")(\\s*)(=)(\\s*)(function)(\\s+)(\\w+)(\\s*)(\\()",
-              next: "function_arguments",
+                ')(\\s*)(=)(\\s*)(function)(\\s+)(\\w+)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // function myFunc(...) {...} or get myAttr() {...} or set myAttr(value) {...} of static myFunc(...) {...}
               token: [
-                "keyword",
-                "text",
-                "support.function",
-                "text",
-                "paren.lparen",
+                'keyword',
+                'text',
+                'support.function',
+                'text',
+                'paren.lparen',
               ],
               regex:
-                "\\b(function|get|set|static)(\\s+)(#?" +
+                '\\b(function|get|set|static)(\\s+)(#?' +
                 ident +
-                ")(\\s*)(\\()",
-              next: "function_arguments",
+                ')(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // foobar: function() {...}
               token: [
-                "support.function",
-                "text",
-                "punctuation.operator",
-                "text",
-                "keyword",
-                "text",
-                "paren.lparen",
+                'support.function',
+                'text',
+                'punctuation.operator',
+                'text',
+                'keyword',
+                'text',
+                'paren.lparen',
               ],
-              regex: "(" + ident + ")(\\s*)(:)(\\s*)(function)(\\s*)(\\()",
-              next: "function_arguments",
+              regex: '(' + ident + ')(\\s*)(:)(\\s*)(function)(\\s*)(\\()',
+              next: 'function_arguments',
             },
             {
               // foobar: arg => {...}
               token: [
-                "support.function",
-                "text",
-                "punctuation.operator",
-                "text",
-                "variable.parameter",
-                "text",
-                "storage.type.arrow-operator",
+                'support.function',
+                'text',
+                'punctuation.operator',
+                'text',
+                'variable.parameter',
+                'text',
+                'storage.type.arrow-operator',
               ],
-              regex: "(" + ident + ")(\\s*)(:)(\\s*)(" + ident + ")(\\s*)(=>)",
+              regex: '(' + ident + ')(\\s*)(:)(\\s*)(' + ident + ')(\\s*)(=>)',
             },
             {
               // foobar: (...) => {...}
               token: [
-                "support.function",
-                "text",
-                "punctuation.operator",
-                "text",
-                "paren.lparen",
+                'support.function',
+                'text',
+                'punctuation.operator',
+                'text',
+                'paren.lparen',
               ],
-              regex: "(" + ident + ")(\\s*)(:)(\\s*)(\\()" + nextIsArrowFn,
-              next: "function_arguments",
+              regex: '(' + ident + ')(\\s*)(:)(\\s*)(\\()' + nextIsArrowFn,
+              next: 'function_arguments',
             },
             /*{
                       // : function() { } (this is for issues with 'foo': function() { })
@@ -757,34 +757,34 @@ window.ace.define(
                     },*/
             {
               // function() {...} or constructor() {...}
-              token: ["keyword", "text", "paren.lparen"],
+              token: ['keyword', 'text', 'paren.lparen'],
               regex: /\b(function|constructor)(\s*)(\()/,
-              next: "function_arguments",
+              next: 'function_arguments',
             },
             {
               // from "module-path" (this is the only case where 'from' should be a keyword)
-              token: "keyword",
+              token: 'keyword',
               regex: /from(?=\s*['"`])/,
             },
             {
               token: [
-                "keyword.control",
-                "text",
-                "paren.lparen",
-                "text",
-                "variable",
-                "text",
-                "paren.rparen",
+                'keyword.control',
+                'text',
+                'paren.lparen',
+                'text',
+                'variable',
+                'text',
+                'paren.rparen',
               ],
-              regex: "\\b(catch)(\\s*)(\\()(\\s*)(" + ident + ")(\\s*)(\\))",
+              regex: '\\b(catch)(\\s*)(\\()(\\s*)(' + ident + ')(\\s*)(\\))',
             },
             {
-              token: "keyword",
-              regex: "(?:" + kwBeforeRe + ")\\b",
-              next: "start",
+              token: 'keyword',
+              regex: '(?:' + kwBeforeRe + ')\\b',
+              next: 'start',
             },
             {
-              token: "storage.type",
+              token: 'storage.type',
               regex: /\b(?:I(?!nfinity\b)|N(?!aN\b)|[A-HJ-MO-Z])[\w$]*\b/,
             },
             {
@@ -792,134 +792,134 @@ window.ace.define(
               regex: ident,
             },
             {
-              token: "punctuation.operator",
+              token: 'punctuation.operator',
               regex: /\??\.(?!\.)/,
-              next: "property",
+              next: 'property',
             },
             {
-              token: "storage.type.arrow-operator",
+              token: 'storage.type.arrow-operator',
               regex: /=>/,
-              next: "start",
+              next: 'start',
             },
             {
-              token: "keyword.operator",
+              token: 'keyword.operator',
               regex:
                 /--|\+\+|\*\*|\.{3}|===|==|=|!=|!==|<{1,2}=?|>{1,3}=?|!|&&|\|\||\?[.?]?|[:~]|[!%&*+\-/^]=?|\.\.\./,
-              next: "start",
+              next: 'start',
             },
             {
-              token: "punctuation.operator",
+              token: 'punctuation.operator',
               regex: /[?:,;.]/,
-              next: "start",
+              next: 'start',
             },
             {
-              token: "paren.lparen",
+              token: 'paren.lparen',
               regex: /\((?=[^()]+?\)\s*=>)/,
-              next: "function_arguments",
+              next: 'function_arguments',
             },
             {
-              token: "paren.lparen",
+              token: 'paren.lparen',
               regex: /[[({]/,
-              next: "start",
+              next: 'start',
             },
             {
-              token: "paren.rparen",
+              token: 'paren.rparen',
               regex: /[\])}]/,
             },
             {
-              token: "comment",
+              token: 'comment',
               regex: /^#!.*$/,
             },
           ],
           property: [
             {
-              token: "punctuation.operator",
+              token: 'punctuation.operator',
               regex: /\??\.(?!\.)/,
             },
             {
-              token: "storage.type",
+              token: 'storage.type',
               regex: /[A-Z][\w$]*/,
             },
             {
-              token: "support.function",
-              regex: ident + "(?=\\s*\\()",
+              token: 'support.function',
+              regex: ident + '(?=\\s*\\()',
             },
             {
-              token: "variable",
+              token: 'variable',
               regex: ident,
             },
             {
-              regex: "",
-              token: "empty",
-              next: "no_regex",
+              regex: '',
+              token: 'empty',
+              next: 'no_regex',
             },
           ],
           // regular expressions are only allowed after certain tokens. This
           // makes sure we don't mix up regexps with the divison operator
           start: [
-            DocCommentHighlightRules.getStartRule("doc-start"),
-            comments("start"),
+            DocCommentHighlightRules.getStartRule('doc-start'),
+            comments('start'),
             {
-              token: "string.regexp",
+              token: 'string.regexp',
               regex: /\//,
-              next: "regex",
+              next: 'regex',
             },
             {
               // lazy/hacky thing to support class/object functions
-              token: ["text", "support.function", "white", "paren.lparen"],
+              token: ['text', 'support.function', 'white', 'paren.lparen'],
               regex:
-                "^(\\s*)(?!(?:if|while|function|for|switch|catch|constructor)\\b)(#?" +
+                '^(\\s*)(?!(?:if|while|function|for|switch|catch|constructor)\\b)(#?' +
                 ident +
-                ")(\\s*)(\\()(?=[^()]*\\)\\s*\\{)",
-              next: "function_arguments",
+                ')(\\s*)(\\()(?=[^()]*\\)\\s*\\{)',
+              next: 'function_arguments',
             },
             {
-              token: "text",
+              token: 'text',
               regex: /\s+|^$/,
-              next: "start",
+              next: 'start',
             },
             {
               // immediately return to the start mode without matching
               // anything
-              token: "empty",
-              regex: "",
-              next: "no_regex",
+              token: 'empty',
+              regex: '',
+              next: 'no_regex',
             },
           ],
           regexp_special_escapes: [
             {
               // \xhh
-              token: ["regexp.keyword", "constant.numeric"],
+              token: ['regexp.keyword', 'constant.numeric'],
               regex: /(\\x)([\da-fA-F]{2})/,
             },
             {
               // \uhhhh
-              token: ["regexp.keyword", "constant.numeric"],
+              token: ['regexp.keyword', 'constant.numeric'],
               regex: /(\\u)([\da-fA-F]{4})/,
             },
             {
               // \u{hhhh}, \u{hhhhh}
-              token: ["regexp.keyword", "constant.numeric", "regexp.keyword"],
+              token: ['regexp.keyword', 'constant.numeric', 'regexp.keyword'],
               regex: /(\\u{)([\da-fA-F]{4,5})(})/,
             },
             {
               // \cX
-              token: ["regexp.keyword.operator", "regexp.escape.character"],
+              token: ['regexp.keyword.operator', 'regexp.escape.character'],
               regex: /(\\c)([A-Z])/,
             },
             {
               // \p{Name}, \P{Name}
-              token: ["regexp.keyword", "regexp.string", "regexp.keyword"],
+              token: ['regexp.keyword', 'regexp.string', 'regexp.keyword'],
               regex: /(\\[pP]{)([a-zA-Z_]\w*)(})/,
             },
             {
               // \p{Name=Value}, \P{Name=Value}
               token: [
-                "regexp.keyword",
-                "regexp.string",
-                "regexp.operator",
-                "regexp.string",
-                "regexp.keyword",
+                'regexp.keyword',
+                'regexp.string',
+                'regexp.operator',
+                'regexp.string',
+                'regexp.keyword',
               ],
               regex: /(\\[pP]{)([a-zA-Z_]\w*)(=)([a-zA-Z_]\w*)(})/,
             },
@@ -927,218 +927,218 @@ window.ace.define(
           regex: [
             {
               // back-references
-              token: "variable",
+              token: 'variable',
               regex: /\\[1-9]\d*/,
             },
             {
               // named back-references
               token: [
-                "regexp.keyword",
-                "string.regexp",
-                "variable",
-                "string.regexp",
+                'regexp.keyword',
+                'string.regexp',
+                'variable',
+                'string.regexp',
               ],
-              regex: "(\\\\k)(<)(" + ident + ")(>)",
+              regex: '(\\\\k)(<)(' + ident + ')(>)',
             },
             {
-              include: "regexp_special_escapes",
+              include: 'regexp_special_escapes',
             },
             {
               // normal escapes
-              token: "regexp.keyword",
+              token: 'regexp.keyword',
               regex: /\\([$^*()+{}[\]|\\.?/wWdDsSbBrtfvn])/,
             },
             {
               // redundant escapes
-              token: "string.regexp",
+              token: 'string.regexp',
               regex: /\\./,
             },
             {
               // flag
-              token: "string.regexp",
+              token: 'string.regexp',
               regex: /\/[gimsuy]*/,
-              next: "no_regex",
+              next: 'no_regex',
             },
             {
               // invalid operators
-              token: "invalid",
+              token: 'invalid',
               regex: /{\d+\b,?\d*}[+*]|[+*$^?][+*]|[$^]\?|\?{3,}/,
             },
             {
               // named captures
-              token: ["string", "string.regexp", "variable", "string.regexp"],
-              regex: "(\\()(\\?<)(" + ident + ")(>)",
+              token: ['string', 'string.regexp', 'variable', 'string.regexp'],
+              regex: '(\\()(\\?<)(' + ident + ')(>)',
             },
             {
               // {n,m}, {n,}, {n}
               token: [
-                "function",
-                "constant.numeric",
-                "string",
-                "constant.numeric",
-                "function",
+                'function',
+                'constant.numeric',
+                'string',
+                'constant.numeric',
+                'function',
               ],
               regex: /({)(\d+)(,?)(\d*)(})/,
             },
             {
               // (...)
-              token: "string",
+              token: 'string',
               regex: /\((?:\?(?:<?[=!]|:))?|\)/,
             },
             {
               // operators
-              token: "function",
+              token: 'function',
               regex: /[+*?]\??/,
             },
             {
-              token: "constant.language",
+              token: 'constant.language',
               regex: /[$^.]/,
             },
             {
-              token: "delimiter",
+              token: 'delimiter',
               regex: /\|\|?/,
             },
             {
-              token: ["string", "regexp.keyword", "string.regexp"],
+              token: ['string', 'regexp.keyword', 'string.regexp'],
               regex: /(\[)(\^?)(-?)/,
-              next: "regex_character_class",
+              next: 'regex_character_class',
             },
             {
-              token: "empty",
+              token: 'empty',
               regex: /$/,
-              next: "no_regex",
+              next: 'no_regex',
             },
             {
-              defaultToken: "string.regexp",
+              defaultToken: 'string.regexp',
             },
           ],
           regex_character_class: [
             {
-              include: "regexp_special_escapes",
+              include: 'regexp_special_escapes',
             },
             {
               // normal escapes
-              token: "regexp.keyword",
+              token: 'regexp.keyword',
               regex: /\\([\^\-[\]\\./wWdDsSbBrtfvn])/,
             },
             {
               // redundant escapes
-              token: "string.regexp.characterclass",
+              token: 'string.regexp.characterclass',
               regex: /\\./,
             },
             {
-              token: "string",
+              token: 'string',
               regex: /]/,
-              next: "regex",
+              next: 'regex',
             },
             {
-              token: "regexp.keyword",
+              token: 'regexp.keyword',
               regex: /-(?!\])/,
             },
             {
-              token: "empty",
+              token: 'empty',
               regex: /$/,
-              next: "no_regex",
+              next: 'no_regex',
             },
             {
-              defaultToken: "string.regexp.characterclass",
+              defaultToken: 'string.regexp.characterclass',
             },
           ],
           function_arguments: [
             {
               // [...] destructuring
-              token: "paren.lparen",
+              token: 'paren.lparen',
               regex: /\[/,
               push: [
                 {
-                  token: "paren.rparen",
+                  token: 'paren.rparen',
                   regex: /\]/,
-                  next: "pop",
+                  next: 'pop',
                 },
                 {
-                  include: "function_arguments",
+                  include: 'function_arguments',
                 },
               ],
             },
             {
               // {...} destructuring
-              token: "paren.lparen",
+              token: 'paren.lparen',
               regex: /{/,
               push: [
                 {
-                  token: ["variable", "white", "keyword.operator"],
-                  regex: "(" + ident + ")(\\s*)(:)",
+                  token: ['variable', 'white', 'keyword.operator'],
+                  regex: '(' + ident + ')(\\s*)(:)',
                 },
                 {
-                  token: "paren.rparen",
+                  token: 'paren.rparen',
                   regex: /}/,
-                  next: "pop",
+                  next: 'pop',
                 },
                 {
-                  include: "function_arguments",
+                  include: 'function_arguments',
                 },
               ],
             },
             {
-              token: "variable.parameter",
+              token: 'variable.parameter',
               regex: ident,
             },
             {
-              token: "punctuation.operator",
+              token: 'punctuation.operator',
               regex: /[,\s]+/,
             },
             {
-              token: "punctuation.operator",
+              token: 'punctuation.operator',
               regex: /$/,
             },
             {
-              token: "empty",
-              regex: "",
-              next: "no_regex",
+              token: 'empty',
+              regex: '',
+              next: 'no_regex',
             },
           ],
           qqstring: [
             {
-              token: "constant.language.escape",
+              token: 'constant.language.escape',
               regex: escapedRe,
             },
             {
-              token: "string",
+              token: 'string',
               regex: /\\$/,
               consumeLineEnd: true,
             },
             {
-              token: "string",
+              token: 'string',
               regex: /"|$/,
-              next: "no_regex",
+              next: 'no_regex',
             },
             {
-              defaultToken: "string",
+              defaultToken: 'string',
             },
           ],
           qstring: [
             {
-              token: "constant.language.escape",
+              token: 'constant.language.escape',
               regex: escapedRe,
             },
             {
-              token: "string",
+              token: 'string',
               regex: /\\$/,
               consumeLineEnd: true,
             },
             {
-              token: "string",
+              token: 'string',
               regex: /'|$/,
-              next: "no_regex",
+              next: 'no_regex',
             },
             {
-              defaultToken: "string",
+              defaultToken: 'string',
             },
           ],
         };
         if (!options || options.jsx !== false) JSX.call(_this);
-        _this.embedRules(DocCommentHighlightRules, "doc-", [
-          DocCommentHighlightRules.getEndRule("no_regex"),
+        _this.embedRules(DocCommentHighlightRules, 'doc-', [
+          DocCommentHighlightRules.getEndRule('no_regex'),
         ]);
         _this.normalizeRules();
         return _this;
@@ -1147,10 +1147,10 @@ window.ace.define(
     })(TextHighlightRules);
     // Could convert this to a subclass but meh
     function JSX() {
-      var tagRegex = ident.replace("\\d", "\\d\\-");
+      var tagRegex = ident.replace('\\d', '\\d\\-');
       var jsxTag = {
         onMatch: function (val, state, stack) {
-          var offset = val.charAt(1) === "/" ? 2 : 1;
+          var offset = val.charAt(1) === '/' ? 2 : 1;
           if (offset === 1) {
             if (state !== this.nextState)
               stack.unshift(this.next, this.nextState, 0);
@@ -1168,41 +1168,41 @@ window.ace.define(
           return [
             {
               type:
-                "meta.tag.punctuation." +
-                (offset === 1 ? "" : "end-") +
-                "tag-open.xml",
+                'meta.tag.punctuation.' +
+                (offset === 1 ? '' : 'end-') +
+                'tag-open.xml',
               value: val.slice(0, offset),
             },
             {
-              type: "meta.tag.tag-name.xml",
+              type: 'meta.tag.tag-name.xml',
               value: val.substr(offset),
             },
           ];
         },
-        regex: "</?" + tagRegex,
-        next: "jsxAttributes",
-        nextState: "jsx",
+        regex: '</?' + tagRegex,
+        next: 'jsxAttributes',
+        nextState: 'jsx',
       };
       this.$rules.start.unshift(jsxTag);
       var jsxJsRule = {
         regex: /{/,
-        token: "paren.quasi.start",
-        push: "start",
+        token: 'paren.quasi.start',
+        push: 'start',
       };
       this.$rules.jsx = [
         jsxJsRule,
         jsxTag,
         {
-          include: "reference",
+          include: 'reference',
         },
         {
-          defaultToken: "string",
+          defaultToken: 'string',
         },
       ];
       this.$rules.jsxAttributes = [
         {
-          token: "meta.tag.punctuation.tag-close.xml",
-          regex: "/?>",
+          token: 'meta.tag.punctuation.tag-close.xml',
+          regex: '/?>',
           onMatch: function (value, currentState, stack) {
             if (currentState === stack[0]) stack.shift();
             if (value.length === 2) {
@@ -1211,7 +1211,7 @@ window.ace.define(
                 stack.splice(0, 2);
               }
             }
-            this.next = stack[0] || "start";
+            this.next = stack[0] || 'start';
             return [
               {
                 type: this.token,
@@ -1219,55 +1219,55 @@ window.ace.define(
               },
             ];
           },
-          nextState: "jsx",
+          nextState: 'jsx',
         },
         jsxJsRule,
-        comments("jsxAttributes"),
+        comments('jsxAttributes'),
         {
-          token: "entity.other.attribute-name.xml",
+          token: 'entity.other.attribute-name.xml',
           regex: tagRegex,
         },
         {
-          token: "keyword.operator.attribute-equals.xml",
+          token: 'keyword.operator.attribute-equals.xml',
           regex: /=/,
         },
         {
-          token: "text.tag-whitespace.xml",
+          token: 'text.tag-whitespace.xml',
           regex: /\s+/,
         },
         {
-          token: "string.attribute-value.xml",
+          token: 'string.attribute-value.xml',
           regex: /'/,
-          stateName: "jsx_attr_q",
+          stateName: 'jsx_attr_q',
           push: [
             {
-              token: "string.attribute-value.xml",
+              token: 'string.attribute-value.xml',
               regex: /'/,
-              next: "pop",
+              next: 'pop',
             },
             {
-              include: "reference",
+              include: 'reference',
             },
             {
-              defaultToken: "string.attribute-value.xml",
+              defaultToken: 'string.attribute-value.xml',
             },
           ],
         },
         {
-          token: "string.attribute-value.xml",
+          token: 'string.attribute-value.xml',
           regex: /"/,
-          stateName: "jsx_attr_qq",
+          stateName: 'jsx_attr_qq',
           push: [
             {
-              token: "string.attribute-value.xml",
+              token: 'string.attribute-value.xml',
               regex: /"/,
-              next: "pop",
+              next: 'pop',
             },
             {
-              include: "reference",
+              include: 'reference',
             },
             {
-              defaultToken: "string.attribute-value.xml",
+              defaultToken: 'string.attribute-value.xml',
             },
           ],
         },
@@ -1275,7 +1275,7 @@ window.ace.define(
       ];
       this.$rules.reference = [
         {
-          token: "constant.language.escape.reference.xml",
+          token: 'constant.language.escape.reference.xml',
           regex: /(?:&#\d+;)|(?:&#x[\da-fA-F]+;)|(?:&[\w:.-]+;)/,
         },
       ];
@@ -1284,33 +1284,33 @@ window.ace.define(
     function comments(next) {
       return [
         {
-          token: "comment",
-          regex: "/\\*",
+          token: 'comment',
+          regex: '/\\*',
           next: [
             DocCommentHighlightRules.getTagRule(),
             {
-              token: "comment",
-              regex: "\\*/",
-              next: next || "pop",
+              token: 'comment',
+              regex: '\\*/',
+              next: next || 'pop',
             },
             {
-              defaultToken: "comment",
+              defaultToken: 'comment',
               caseInsensitive: true,
             },
           ],
         },
         {
-          token: "comment",
-          regex: "//",
+          token: 'comment',
+          regex: '//',
           next: [
             DocCommentHighlightRules.getTagRule(),
             {
-              token: "comment",
+              token: 'comment',
               regex: /$|^/,
-              next: next || "pop",
+              next: next || 'pop',
             },
             {
-              defaultToken: "comment",
+              defaultToken: 'comment',
               caseInsensitive: true,
             },
           ],
@@ -1321,24 +1321,24 @@ window.ace.define(
   }
 );
 window.ace.define(
-  "ace/mode/replit-js-v" + version,
+  'ace/mode/replit-js-v' + version,
   [
-    "require",
-    "exports",
-    "module",
-    "ace/mode/replit-js-v" + version + "_highlight_rules",
-    "ace/mode/matching_brace_outdent",
+    'require',
+    'exports',
+    'module',
+    'ace/mode/replit-js-v' + version + '_highlight_rules',
+    'ace/mode/matching_brace_outdent',
   ],
   function (require, exports, _module) {
-    var TextMode = require("ace/mode/text").Mode;
-    var JSHighlightRules = require("ace/mode/replit-js-v" +
+    var TextMode = require('ace/mode/text').Mode;
+    var JSHighlightRules = require('ace/mode/replit-js-v' +
       version +
-      "_highlight_rules").JSHighlightRules;
+      '_highlight_rules').JSHighlightRules;
     var MatchingBraceOutdent =
-      require("ace/mode/matching_brace_outdent").MatchingBraceOutdent;
+      require('ace/mode/matching_brace_outdent').MatchingBraceOutdent;
     //const WorkerClient = require("ace/mode/worker/worker_client").WorkerClient;
-    var CstyleBehaviour = require("ace/mode/behaviour/cstyle").CstyleBehaviour;
-    var CStyleFoldMode = require("ace/mode/folding/cstyle").FoldMode;
+    var CstyleBehaviour = require('ace/mode/behaviour/cstyle').CstyleBehaviour;
+    var CStyleFoldMode = require('ace/mode/folding/cstyle').FoldMode;
     var Mode = /** @class */ (function (_super) {
       __extends(Mode, _super);
 
@@ -1348,18 +1348,18 @@ window.ace.define(
         _this.$outdent = new MatchingBraceOutdent();
         _this.$behaviour = new CstyleBehaviour();
         _this.foldingRules = new CStyleFoldMode();
-        _this.lineCommentStart = "//";
+        _this.lineCommentStart = '//';
         _this.blockComment = {
-          start: "/*",
-          end: "*/",
+          start: '/*',
+          end: '*/',
         };
         _this.$quotes = {
           '"': '"',
           "'": "'",
-          "`": "`",
+          '`': '`',
         };
-        _this.$id = "ace/mode/replit-js-v" + version;
-        _this.snippetFileId = "ace/snippets/javascript";
+        _this.$id = 'ace/mode/replit-js-v' + version;
+        _this.snippetFileId = 'ace/snippets/javascript';
         return _this;
         /* Disabled for now
             createWorker(session) {
@@ -1382,24 +1382,24 @@ window.ace.define(
         var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
         var tokens = tokenizedLine.tokens;
         var endState = tokenizedLine.state;
-        if (tokens.length && tokens[tokens.length - 1].type === "comment") {
+        if (tokens.length && tokens[tokens.length - 1].type === 'comment') {
           return indent;
         }
-        if (state === "start" || state === "no_regex") {
+        if (state === 'start' || state === 'no_regex') {
           var match = line.match(/^.*(?:\bcase\b.*:|[([{])\s*$/);
           if (match) {
             indent += tab;
           }
-        } else if (state === "doc-start") {
-          if (endState === "start" || endState === "no_regex") {
-            return "";
+        } else if (state === 'doc-start') {
+          if (endState === 'start' || endState === 'no_regex') {
+            return '';
           }
           var match = line.match(/^\s*(\/?)\*/);
           if (match) {
             if (match[1]) {
-              indent += " ";
+              indent += ' ';
             }
-            indent += "* ";
+            indent += '* ';
           }
         }
         return indent;
@@ -1415,8 +1415,8 @@ window.ace.define(
     exports.Mode = Mode;
   }
 );
-window.ace.require(["ace/mode/replit-js-v" + version], function (m) {
-  if (typeof module === "object" && typeof exports === "object" && module) {
+window.ace.require(['ace/mode/replit-js-v' + version], function (m) {
+  if (typeof module === 'object' && typeof exports === 'object' && module) {
     module.exports = m;
   }
 });

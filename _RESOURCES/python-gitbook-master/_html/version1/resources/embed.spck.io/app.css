@@ -2,8 +2,8 @@
   font-family: Lato;
   font-style: normal;
   font-weight: 400;
-  src: local("Lato Regular"), local("Lato-Regular"),
-    url(assets/fonts/Lato-Regular.woff2) format("woff2");
+  src: local('Lato Regular'), local('Lato-Regular'),
+    url(assets/fonts/Lato-Regular.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
@@ -13,8 +13,8 @@
   font-family: Lato;
   font-style: normal;
   font-weight: 700;
-  src: local("Lato Bold"), local("Lato-Bold"),
-    url(assets/fonts/Lato-Bold.woff2) format("woff2");
+  src: local('Lato Bold'), local('Lato-Bold'),
+    url(assets/fonts/Lato-Bold.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
@@ -22,14 +22,14 @@
 
 @font-face {
   font-family: NotoMono;
-  src: url(assets/fonts/NotoMono-Regular.woff2) format("woff2"),
-    url(assets/fonts/NotoMono-Regular.woff) format("woff");
+  src: url(assets/fonts/NotoMono-Regular.woff2) format('woff2'),
+    url(assets/fonts/NotoMono-Regular.woff) format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 html {
-  font-family: Lato, Ubuntu, "Segoe UI", Roboto, sans-serif;
+  font-family: Lato, Ubuntu, 'Segoe UI', Roboto, sans-serif;
 }
 
 body,
@@ -277,7 +277,7 @@ a[disabled] {
 }
 
 .x-right-cursor {
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22translate(0%2C-24)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%2012%2C24%20c%206.648%2C0%2012%2C5.352%2012%2C12%200%2C6.648%20-5.352%2C12%20-12%2C12%20C%205.352%2C48%200%2C42.648%200%2C36%20l%200%2C-12%2012%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%23558eff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A")
+  background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22translate(0%2C-24)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%2012%2C24%20c%206.648%2C0%2012%2C5.352%2012%2C12%200%2C6.648%20-5.352%2C12%20-12%2C12%20C%205.352%2C48%200%2C42.648%200%2C36%20l%200%2C-12%2012%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%23558eff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A')
     no-repeat 0 0;
 }
 
@@ -819,7 +819,7 @@ a[disabled] {
 }
 
 .ace_editor {
-  font-family: NotoMono, "Droid Sans Mono", Consolas, Monaco, monospace !important;
+  font-family: NotoMono, 'Droid Sans Mono', Consolas, Monaco, monospace !important;
   line-height: 1.36em !important;
 }
 
@@ -916,14 +916,14 @@ a[disabled] {
 
 .ace_dark .ace_gutter-cell.ace_info,
 .ace_gutter-cell.ace_info {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-2%20-1%2018%2019%22%3E%0A%20%20%3Cg%3E%0A%20%20%20%20%3Cpath%20d%3D%22M%200%2C0%20H%2024%20V%2024%20H%200%20V%200%20z%22%20fill%3D%22none%22%20transform%3D%22translate(0%2C-8)%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cpath%20fill%3D%22%232196ff%22%20fill-opacity%3D%22.9412%22%20d%3D%22M7%203H9V5H7z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22%232196ff%22%20fill-opacity%3D%22.9412%22%20d%3D%22M7%207H9V13H7z%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-2%20-1%2018%2019%22%3E%0A%20%20%3Cg%3E%0A%20%20%20%20%3Cpath%20d%3D%22M%200%2C0%20H%2024%20V%2024%20H%200%20V%200%20z%22%20fill%3D%22none%22%20transform%3D%22translate(0%2C-8)%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cpath%20fill%3D%22%232196ff%22%20fill-opacity%3D%22.9412%22%20d%3D%22M7%203H9V5H7z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22%232196ff%22%20fill-opacity%3D%22.9412%22%20d%3D%22M7%207H9V13H7z%22%2F%3E%0A%3C%2Fsvg%3E%0A');
 }
 
 .ace_mobile-menu {
   display: none !important;
 }
 
-.no-animation [class*="uk-animation-"] {
+.no-animation [class*='uk-animation-'] {
   animation-duration: 0s;
 }
 
@@ -1005,7 +1005,7 @@ a[disabled] {
 }
 
 .x-file-breadcrumb > li:nth-child(n + 2):before {
-  content: "\f10f";
+  content: '\f10f';
   font-family: spck-ui-icons;
 }
 

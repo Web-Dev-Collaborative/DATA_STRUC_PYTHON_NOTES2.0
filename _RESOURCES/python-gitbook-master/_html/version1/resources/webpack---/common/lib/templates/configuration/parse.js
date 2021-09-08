@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,16 +8,16 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const markty_toml_1 = __importDefault(require("markty-toml"));
-const jsonlint_browser_1 = require("../../forked-vendors/jsonlint.browser");
+const markty_toml_1 = __importDefault(require('markty-toml'));
+const jsonlint_browser_1 = require('../../forked-vendors/jsonlint.browser');
 
 function stripJSONComments(jsonString) {
   return jsonString.replace(
     /\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g,
-    (m, g) => (g ? "" : m)
+    (m, g) => (g ? '' : m)
   );
 }
 
@@ -41,16 +41,16 @@ function getCode(template, module, sandbox, resolveModule, configurationFile) {
     };
   }
   return {
-    code: "",
+    code: '',
     generated: false,
   };
 }
 
 function titleIncludes(module, test) {
-  if ("title" in module) {
+  if ('title' in module) {
     return module.title.includes(test);
   }
-  if ("path" in module) {
+  if ('path' in module) {
     return module.path.includes(test);
   }
   return false;
@@ -84,10 +84,10 @@ function parseConfigurations(
         // it goes here three times and the third time it doesn't have a title but a path
         // that took a while ffs
         // if toml do it with toml parser
-        if (module && titleIncludes(module, "toml")) {
+        if (module && titleIncludes(module, 'toml')) {
           // never throws
           parsed = markty_toml_1.default(code);
-        } else if (module && titleIncludes(module, "tsconfig.json")) {
+        } else if (module && titleIncludes(module, 'tsconfig.json')) {
           parsed = jsonlint_browser_1.parse(stripJSONComments(code));
         } else {
           parsed = jsonlint_browser_1.parse(code);

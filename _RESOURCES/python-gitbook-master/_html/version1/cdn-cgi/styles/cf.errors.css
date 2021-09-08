@@ -106,7 +106,7 @@
 #cf-wrapper .clearfix:before,
 #cf-wrapper section:after,
 #cf-wrapper section:before {
-  content: " ";
+  content: ' ';
   display: table;
 }
 
@@ -651,9 +651,9 @@
   width: 100%;
 }
 
-#cf-wrapper .cf-form-stacked input[type="button"],
-#cf-wrapper .cf-form-stacked input[type="checkbox"],
-#cf-wrapper .cf-form-stacked input[type="submit"] {
+#cf-wrapper .cf-form-stacked input[type='button'],
+#cf-wrapper .cf-form-stacked input[type='checkbox'],
+#cf-wrapper .cf-form-stacked input[type='submit'] {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -815,7 +815,7 @@
 }
 
 #cf-wrapper #cf-error-banner .cf-close:before {
-  content: "\00D7";
+  content: '\00D7';
   left: 0;
   height: 100%;
   position: absolute;
@@ -915,7 +915,7 @@
 
 #cf-wrapper #cf-error-details .cf-status-item.cf-error-source:after {
   bottom: -60px;
-  content: "";
+  content: '';
   display: none;
   border-bottom: 18px solid #fff;
   border-left: 20px solid transparent;
@@ -935,7 +935,7 @@
 
 #cf-wrapper #cf-error-details .cf-status-item + .cf-status-item:before {
   background: url(../images/cf-icon-horizontal-arrow.png) no-repeat;
-  content: "";
+  content: '';
   display: block;
   left: 0;
   position: absolute;
@@ -1151,7 +1151,7 @@
 #cf-wrapper .cf-caret {
   border: 0.33333em solid transparent;
   border-top-color: inherit;
-  content: "";
+  content: '';
   height: 0;
   width: 0;
   display: -moz-inline-stack;

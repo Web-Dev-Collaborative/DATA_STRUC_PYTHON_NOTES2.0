@@ -8,15 +8,15 @@
   <body>
     <script>
       !(function () {
-        var e = document.createElement("script");
+        var e = document.createElement('script');
         (e.defer = !0),
-          (e.src = "out-4.5.40.js"),
+          (e.src = 'out-4.5.40.js'),
           (e.onload = function () {
             var e, i;
             window.StripeM &&
               ((e = window.location.hash),
               /ping=false/.test(e) ||
-                ((i = (i = e.match(/version=(4|6)/)) ? i[1] : "4"),
+                ((i = (i = e.match(/version=(4|6)/)) ? i[1] : '4'),
                 window.StripeM.p({
                   t: !0,
                   v: i,
@@ -27,7 +27,7 @@
                     var i = ((t = JSON.parse(e.data)).message || t).action,
                       t = t.message ? t.message.payload : t;
                     switch (i) {
-                      case "ping":
+                      case 'ping':
                         window.StripeM.p({
                           t: !0,
                           o: {
@@ -38,10 +38,10 @@
                             title: t.title,
                             v2: t.v2,
                           },
-                          v: t.version || "4",
+                          v: t.version || '4',
                         });
                         break;
-                      case "track":
+                      case 'track':
                         if (!t.source || !t.data) return;
                         window.StripeM.b(
                           {
@@ -51,14 +51,14 @@
                             source: t.source,
                             data: t.data,
                           },
-                          t.version || "4"
+                          t.version || '4'
                         );
                     }
                   } catch (e) {}
               }),
               window.addEventListener
-                ? window.addEventListener("message", i, !1)
-                : window.attachEvent("onMessage", i));
+                ? window.addEventListener('message', i, !1)
+                : window.attachEvent('onMessage', i));
           }),
           document.body.appendChild(e);
       })();

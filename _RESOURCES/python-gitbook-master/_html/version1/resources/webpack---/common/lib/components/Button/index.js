@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __rest =
   (this && this.__rest) ||
   function (s, e) {
@@ -6,7 +6,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -25,13 +25,13 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.buttonStyles = exports.Button = void 0;
-const react_1 = __importDefault(require("react"));
-const elements_1 = require("./elements");
-Object.defineProperty(exports, "buttonStyles", {
+const react_1 = __importDefault(require('react'));
+const elements_1 = require('./elements');
+Object.defineProperty(exports, 'buttonStyles', {
   enumerable: true,
   get: function () {
     return elements_1.styles;
@@ -39,9 +39,9 @@ Object.defineProperty(exports, "buttonStyles", {
 });
 const Button = (_a) => {
   var { style = {} } = _a,
-    props = __rest(_a, ["style"]);
+    props = __rest(_a, ['style']);
   // Link
-  if (typeof props.to === "string") {
+  if (typeof props.to === 'string') {
     // @ts-ignore
     return react_1.default.createElement(
       elements_1.LinkButton,

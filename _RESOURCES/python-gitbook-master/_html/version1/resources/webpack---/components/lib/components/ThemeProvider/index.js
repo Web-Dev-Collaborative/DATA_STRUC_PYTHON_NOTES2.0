@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,11 +8,11 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.ThemeProvider = exports.makeTheme = exports.getThemes = void 0;
-const deepmerge_1 = __importDefault(require("deepmerge"));
+const deepmerge_1 = __importDefault(require('deepmerge'));
 /**
  * There are 3 layers to our component styles.
  *
@@ -20,17 +20,17 @@ const deepmerge_1 = __importDefault(require("deepmerge"));
  * vscode theme - color tokens
  * polyfill - color tokens missing from vscode
  */
-const react_1 = __importDefault(require("react"));
-const styled_components_1 = require("styled-components");
-const theme_1 = __importDefault(require("../../design-language/theme"));
-const themes_1 = __importDefault(require("../../themes"));
-const polyfill_theme_1 = __importDefault(require("../../utils/polyfill-theme"));
+const react_1 = __importDefault(require('react'));
+const styled_components_1 = require('styled-components');
+const theme_1 = __importDefault(require('../../design-language/theme'));
+const themes_1 = __importDefault(require('../../themes'));
+const polyfill_theme_1 = __importDefault(require('../../utils/polyfill-theme'));
 const codesandbox_black_1 = __importDefault(
-  require("../../themes/codesandbox-black")
+  require('../../themes/codesandbox-black')
 );
-const Tooltip_1 = require("../Tooltip");
-const Menu_1 = require("../Menu");
-const SkipNav_1 = require("../SkipNav");
+const Tooltip_1 = require('../Tooltip');
+const Menu_1 = require('../Menu');
+const SkipNav_1 = require('../SkipNav');
 exports.getThemes = () => {
   const results = themes_1.default.map((theme) =>
     Object.assign(
@@ -44,8 +44,8 @@ exports.getThemes = () => {
 };
 const guessType = (theme) => {
   if (theme.type) return theme.type;
-  if (theme.name && theme.name.toLowerCase().includes("light")) return "light";
-  return "dark";
+  if (theme.name && theme.name.toLowerCase().includes('light')) return 'light';
+  return 'dark';
 };
 exports.makeTheme = (vsCodeTheme = {}, name) => {
   // Our interface does not map 1-1 with vscode.

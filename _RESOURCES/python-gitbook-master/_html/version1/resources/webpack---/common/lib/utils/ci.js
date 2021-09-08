@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.formatVersion = exports.CSB_PKG_PROTOCOL = void 0;

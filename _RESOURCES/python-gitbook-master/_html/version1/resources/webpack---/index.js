@@ -1,28 +1,28 @@
-"use strict";
+'use strict';
 
-import stringScore from "./lib/score";
-import cssSnippets from "./lib/snippets";
+import stringScore from './lib/score';
+import cssSnippets from './lib/snippets';
 
-const globalKeywords = ["auto", "inherit", "unset"];
+const globalKeywords = ['auto', 'inherit', 'unset'];
 const unitlessProperties = [
-  "z-index",
-  "line-height",
-  "opacity",
-  "font-weight",
-  "zoom",
-  "flex",
-  "flex-grow",
-  "flex-shrink",
+  'z-index',
+  'line-height',
+  'opacity',
+  'font-weight',
+  'zoom',
+  'flex',
+  'flex-grow',
+  'flex-shrink',
 ];
 
 const defaultOptions = {
-  intUnit: "px",
-  floatUnit: "em",
+  intUnit: 'px',
+  floatUnit: 'em',
   unitAliases: {
-    e: "em",
-    p: "%",
-    x: "ex",
-    r: "rem",
+    e: 'em',
+    p: '%',
+    x: 'ex',
+    r: 'rem',
   },
   fuzzySearchMinScore: 0,
 };
@@ -52,7 +52,7 @@ export default function (tree, registry, options) {
 export function convertToCSSSnippets(registry) {
   return cssSnippets(
     registry.all({
-      type: "string",
+      type: 'string',
     })
   );
 }
@@ -71,13 +71,13 @@ function resolveNode(node, snippets, options) {
   const snippet = findBestMatch(
     node.name,
     snippets,
-    "key",
+    'key',
     options.fuzzySearchMinScore
   );
 
   if (!snippet) {
     // Edge case: `!important` snippet
-    return node.name === "!" ? setNodeAsText(node, "!important") : node;
+    return node.name === '!' ? setNodeAsText(node, '!important') : node;
   }
 
   return snippet.property
@@ -96,7 +96,7 @@ function resolveAsProperty(node, snippet, formatOptions) {
   const abbr = node.name;
   node.name = snippet.property;
 
-  if (node.value && typeof node.value === "object") {
+  if (node.value && typeof node.value === 'object') {
     // resolve keyword shortcuts
     const keywords = snippet.keywords();
 
@@ -107,7 +107,7 @@ function resolveAsProperty(node, snippet, formatOptions) {
       if (!kw) {
         // no matching value, try to get default one
         kw = snippet.defaultValue;
-        if (kw && kw.indexOf("${") === -1) {
+        if (kw && kw.indexOf('${') === -1) {
           // Quick and dirty test for existing field. If not, wrap
           // default value in a field
           kw = `\${1:${kw}}`;
@@ -122,8 +122,8 @@ function resolveAsProperty(node, snippet, formatOptions) {
       for (let i = 0, token; i < node.value.value.length; i++) {
         token = node.value.value[i];
 
-        if (token === "!") {
-          token = `${!i ? "${1} " : ""}!important`;
+        if (token === '!') {
+          token = `${!i ? '${1} ' : ''}!important`;
         } else if (isKeyword(token)) {
           token =
             findBestMatch(token.value, keywords) ||
@@ -200,8 +200,8 @@ function findBestMatch(abbr, items, key, fuzzySearchMinScore) {
 }
 
 function getScoringPart(item, key) {
-  const value = item && typeof item === "object" ? item[key] : item;
-  const m = (value || "").match(/^[\w-@]+/);
+  const value = item && typeof item === 'object' ? item[key] : item;
+  const m = (value || '').match(/^[\w-@]+/);
   return m ? m[0] : value;
 }
 
@@ -222,7 +222,7 @@ function getUnmatchedPart(abbr, string) {
     lastPos++;
   }
 
-  return "";
+  return '';
 }
 
 /**
@@ -231,7 +231,7 @@ function getUnmatchedPart(abbr, string) {
  * @return {Boolean}
  */
 function isKeyword(token) {
-  return tokenTypeOf(token, "keyword");
+  return tokenTypeOf(token, 'keyword');
 }
 
 /**
@@ -240,11 +240,11 @@ function isKeyword(token) {
  * @return {Boolean}
  */
 function isNumericValue(token) {
-  return tokenTypeOf(token, "numeric");
+  return tokenTypeOf(token, 'numeric');
 }
 
 function tokenTypeOf(token, type) {
-  return token && typeof token === "object" && token.type === type;
+  return token && typeof token === 'object' && token.type === type;
 }
 
 /**

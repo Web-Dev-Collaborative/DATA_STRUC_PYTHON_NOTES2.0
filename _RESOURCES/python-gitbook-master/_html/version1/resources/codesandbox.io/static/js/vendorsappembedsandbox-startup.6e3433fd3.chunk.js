@@ -1,12 +1,12 @@
 (this.csbJsonP = this.csbJsonP || []).push([
-  ["vendors~app~embed~sandbox-startup"],
+  ['vendors~app~embed~sandbox-startup'],
   {
-    "../../node_modules/console-feed/lib/Hook/index.js": function (e, t, r) {
-      "use strict";
+    '../../node_modules/console-feed/lib/Hook/index.js': function (e, t, r) {
+      'use strict';
       t.__esModule = !0;
-      var n = r("../../node_modules/console-feed/lib/definitions/Methods.js"),
-        o = r("../../node_modules/console-feed/lib/Hook/parse/index.js"),
-        a = r("../../node_modules/console-feed/lib/Transform/index.js");
+      var n = r('../../node_modules/console-feed/lib/definitions/Methods.js'),
+        o = r('../../node_modules/console-feed/lib/Hook/parse/index.js'),
+        a = r('../../node_modules/console-feed/lib/Transform/index.js');
       t.default = function (e, t, r) {
         void 0 === r && (r = !0);
         for (
@@ -14,8 +14,8 @@
             s = {
               pointers: {},
               src: {
-                npm: "https://npmjs.com/package/console-feed",
-                github: "https://github.com/samdenty99/console-feed",
+                npm: 'https://npmjs.com/package/console-feed',
+                github: 'https://github.com/samdenty99/console-feed',
               },
             },
             u = function (e) {
@@ -43,12 +43,12 @@
         return (i.feed = s), i;
       };
     },
-    "../../node_modules/console-feed/lib/Hook/parse/GUID.js": function (
+    '../../node_modules/console-feed/lib/Hook/parse/GUID.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       (t.__esModule = !0),
         (t.default = function () {
           var e = function () {
@@ -59,25 +59,25 @@
           return (
             e() +
             e() +
-            "-" +
+            '-' +
             e() +
-            "-" +
+            '-' +
             e() +
-            "-" +
+            '-' +
             e() +
-            "-" +
+            '-' +
             e() +
-            "-" +
+            '-' +
             Date.now()
           );
         });
     },
-    "../../node_modules/console-feed/lib/Hook/parse/index.js": function (
+    '../../node_modules/console-feed/lib/Hook/parse/index.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       var n =
           (this && this.__assign) ||
           function () {
@@ -103,43 +103,43 @@
             return n;
           };
       t.__esModule = !0;
-      var a = r("../../node_modules/console-feed/lib/Hook/parse/GUID.js"),
+      var a = r('../../node_modules/console-feed/lib/Hook/parse/GUID.js'),
         i = r(
-          "../../node_modules/console-feed/lib/Hook/parse/methods/timing.js"
+          '../../node_modules/console-feed/lib/Hook/parse/methods/timing.js'
         ),
         s = r(
-          "../../node_modules/console-feed/lib/Hook/parse/methods/count.js"
+          '../../node_modules/console-feed/lib/Hook/parse/methods/count.js'
         ),
         u = r(
-          "../../node_modules/console-feed/lib/Hook/parse/methods/assert.js"
+          '../../node_modules/console-feed/lib/Hook/parse/methods/assert.js'
         );
       t.default = function (e, t, r) {
         var f = r || a.default();
         switch (e) {
-          case "clear":
+          case 'clear':
             return {
               method: e,
               id: f,
             };
-          case "count":
+          case 'count':
             return (
-              !!(l = "string" === typeof t[0] ? t[0] : "default") &&
+              !!(l = 'string' === typeof t[0] ? t[0] : 'default') &&
               n(n({}, s.increment(l)), {
                 id: f,
               })
             );
-          case "time":
-          case "timeEnd":
+          case 'time':
+          case 'timeEnd':
             var l;
             return (
-              !!(l = "string" === typeof t[0] ? t[0] : "default") &&
-              ("time" === e
+              !!(l = 'string' === typeof t[0] ? t[0] : 'default') &&
+              ('time' === e
                 ? (i.start(l), !1)
                 : n(n({}, i.stop(l)), {
                     id: f,
                   }))
             );
-          case "assert":
+          case 'assert':
             if (0 !== t.length) {
               var c = u.test.apply(u, o([t[0]], t.slice(1)));
               if (c)
@@ -148,7 +148,7 @@
                 });
             }
             return !1;
-          case "error":
+          case 'error':
             return {
               method: e,
               id: f,
@@ -169,9 +169,9 @@
         }
       };
     },
-    "../../node_modules/console-feed/lib/Hook/parse/methods/assert.js":
+    '../../node_modules/console-feed/lib/Hook/parse/methods/assert.js':
       function (e, t, r) {
-        "use strict";
+        'use strict';
         var n =
           (this && this.__spreadArrays) ||
           function () {
@@ -191,38 +191,38 @@
               t[r - 1] = arguments[r];
             return (
               !e &&
-              (0 === t.length && t.push("console.assert"),
+              (0 === t.length && t.push('console.assert'),
               {
-                method: "error",
-                data: n(["Assertion failed:"], t),
+                method: 'error',
+                data: n(['Assertion failed:'], t),
               })
             );
           });
       },
-    "../../node_modules/console-feed/lib/Hook/parse/methods/count.js":
+    '../../node_modules/console-feed/lib/Hook/parse/methods/count.js':
       function (e, t, r) {
-        "use strict";
+        'use strict';
         (t.__esModule = !0), (t.increment = void 0);
-        var n = r("../../node_modules/console-feed/lib/Hook/store/state.js"),
-          o = r("../../node_modules/console-feed/lib/Hook/store/dispatch.js"),
-          a = r("../../node_modules/console-feed/lib/Hook/store/actions.js");
+        var n = r('../../node_modules/console-feed/lib/Hook/store/state.js'),
+          o = r('../../node_modules/console-feed/lib/Hook/store/dispatch.js'),
+          a = r('../../node_modules/console-feed/lib/Hook/store/actions.js');
         t.increment = function (e) {
           return (
             o.default(a.count(e)),
             {
-              method: "log",
-              data: [e + ": " + n.state.count[e]],
+              method: 'log',
+              data: [e + ': ' + n.state.count[e]],
             }
           );
         };
       },
-    "../../node_modules/console-feed/lib/Hook/parse/methods/timing.js":
+    '../../node_modules/console-feed/lib/Hook/parse/methods/timing.js':
       function (e, t, r) {
-        "use strict";
+        'use strict';
         (t.__esModule = !0), (t.stop = t.start = void 0);
-        var n = r("../../node_modules/console-feed/lib/Hook/store/state.js"),
-          o = r("../../node_modules/console-feed/lib/Hook/store/dispatch.js"),
-          a = r("../../node_modules/console-feed/lib/Hook/store/actions.js");
+        var n = r('../../node_modules/console-feed/lib/Hook/store/state.js'),
+          o = r('../../node_modules/console-feed/lib/Hook/store/dispatch.js'),
+          a = r('../../node_modules/console-feed/lib/Hook/store/actions.js');
         (t.start = function (e) {
           o.default(a.timeStart(e));
         }),
@@ -234,61 +234,61 @@
             return t && !t.end
               ? (o.default(a.timeEnd(e)),
                 {
-                  method: "log",
-                  data: [e + ": " + n.state.timings[e].time + "ms"],
+                  method: 'log',
+                  data: [e + ': ' + n.state.timings[e].time + 'ms'],
                 })
               : {
-                  method: "warn",
+                  method: 'warn',
                   data: ["Timer '" + e + "' does not exist"],
                 };
           });
       },
-    "../../node_modules/console-feed/lib/Hook/store/actions.js": function (
+    '../../node_modules/console-feed/lib/Hook/store/actions.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       (t.__esModule = !0),
         (t.timeEnd = t.timeStart = t.count = void 0),
         (t.count = function (e) {
           return {
-            type: "COUNT",
+            type: 'COUNT',
             name: e,
           };
         }),
         (t.timeStart = function (e) {
           return {
-            type: "TIME_START",
+            type: 'TIME_START',
             name: e,
           };
         }),
         (t.timeEnd = function (e) {
           return {
-            type: "TIME_END",
+            type: 'TIME_END',
             name: e,
           };
         });
     },
-    "../../node_modules/console-feed/lib/Hook/store/dispatch.js": function (
+    '../../node_modules/console-feed/lib/Hook/store/dispatch.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       t.__esModule = !0;
-      var n = r("../../node_modules/console-feed/lib/Hook/store/reducer.js"),
-        o = r("../../node_modules/console-feed/lib/Hook/store/state.js");
+      var n = r('../../node_modules/console-feed/lib/Hook/store/reducer.js'),
+        o = r('../../node_modules/console-feed/lib/Hook/store/state.js');
       t.default = function (e) {
         o.update(n.default(o.state, e));
       };
     },
-    "../../node_modules/console-feed/lib/Hook/store/reducer.js": function (
+    '../../node_modules/console-feed/lib/Hook/store/reducer.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       var n =
         (this && this.__assign) ||
         function () {
@@ -310,12 +310,12 @@
         (t.default = function (e, r) {
           var o, a, i;
           switch ((void 0 === e && (e = t.initialState), r.type)) {
-            case "COUNT":
+            case 'COUNT':
               var s = e.count[r.name] || 0;
               return n(n({}, e), {
                 count: n(n({}, e.count), ((o = {}), (o[r.name] = s + 1), o)),
               });
-            case "TIME_START":
+            case 'TIME_START':
               return n(n({}, e), {
                 timings: n(
                   n({}, e.timings),
@@ -326,7 +326,7 @@
                   a)
                 ),
               });
-            case "TIME_END":
+            case 'TIME_END':
               var u = e.timings[r.name],
                 f = performance.now() || +new Date(),
                 l = f - u.start;
@@ -346,36 +346,36 @@
           }
         });
     },
-    "../../node_modules/console-feed/lib/Hook/store/state.js": function (
+    '../../node_modules/console-feed/lib/Hook/store/state.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       (t.__esModule = !0),
         (t.update = t.state = void 0),
         (t.update = function (e) {
           t.state = e;
         });
     },
-    "../../node_modules/console-feed/lib/Transform/Function.js": function (
+    '../../node_modules/console-feed/lib/Transform/Function.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       (t.__esModule = !0),
         (t.default = {
-          type: "Function",
+          type: 'Function',
           shouldTransform: function (e, t) {
-            return "function" === typeof t;
+            return 'function' === typeof t;
           },
           toSerializable: function (e) {
-            var t = "";
+            var t = '';
             try {
               t = e
                 .toString()
-                .substring(t.indexOf("{") + 1, t.lastIndexOf("}"));
+                .substring(t.indexOf('{') + 1, t.lastIndexOf('}'));
             } catch (r) {}
             return {
               name: e.name,
@@ -387,17 +387,17 @@
             try {
               var t = function () {};
               return (
-                "string" === typeof e.name &&
-                  Object.defineProperty(t, "name", {
+                'string' === typeof e.name &&
+                  Object.defineProperty(t, 'name', {
                     value: e.name,
                     writable: !1,
                   }),
-                "string" === typeof e.body &&
-                  Object.defineProperty(t, "body", {
+                'string' === typeof e.body &&
+                  Object.defineProperty(t, 'body', {
                     value: e.body,
                     writable: !1,
                   }),
-                "string" === typeof e.proto &&
+                'string' === typeof e.proto &&
                   (t.constructor = {
                     name: e.proto,
                   }),
@@ -409,14 +409,14 @@
           },
         });
     },
-    "../../node_modules/console-feed/lib/Transform/HTML.js": function (
+    '../../node_modules/console-feed/lib/Transform/HTML.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       t.__esModule = !0;
-      var n = document.implementation.createHTMLDocument("sandbox");
+      var n = document.implementation.createHTMLDocument('sandbox');
 
       function o(e) {
         for (var t = {}, r = 0, n = e.attributes; r < n.length; r++) {
@@ -426,13 +426,13 @@
         return t;
       }
       t.default = {
-        type: "HTMLElement",
+        type: 'HTMLElement',
         shouldTransform: function (e, t) {
           return (
             t &&
             t.children &&
-            "string" === typeof t.innerHTML &&
-            "string" === typeof t.tagName
+            'string' === typeof t.innerHTML &&
+            'string' === typeof t.tagName
           );
         },
         toSerializable: function (e) {
@@ -459,8 +459,8 @@
         },
       };
     },
-    "../../node_modules/console-feed/lib/Transform/Map.js": function (e, t, r) {
-      "use strict";
+    '../../node_modules/console-feed/lib/Transform/Map.js': function (e, t, r) {
+      'use strict';
       var n =
         (this && this.__assign) ||
         function () {
@@ -475,19 +475,19 @@
         };
       (t.__esModule = !0),
         (t.default = {
-          type: "Map",
+          type: 'Map',
           shouldTransform: function (e, t) {
-            return t && t.constructor && "Map" === t.constructor.name;
+            return t && t.constructor && 'Map' === t.constructor.name;
           },
           toSerializable: function (e) {
             var t = {};
             return (
               e.forEach(function (e, r) {
-                var n = "object" == typeof r ? JSON.stringify(r) : r;
+                var n = 'object' == typeof r ? JSON.stringify(r) : r;
                 t[n] = e;
               }),
               {
-                name: "Map",
+                name: 'Map',
                 body: t,
                 proto: Object.getPrototypeOf(e).constructor.name,
               }
@@ -497,7 +497,7 @@
             var t = e.body,
               r = n({}, t);
             return (
-              "string" === typeof e.proto &&
+              'string' === typeof e.proto &&
                 (r.constructor = {
                   name: e.proto,
                 }),
@@ -506,24 +506,24 @@
           },
         });
     },
-    "../../node_modules/console-feed/lib/Transform/arithmetic.js": function (
+    '../../node_modules/console-feed/lib/Transform/arithmetic.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       var n;
       (t.__esModule = !0),
         (function (e) {
-          (e[(e.infinity = 0)] = "infinity"),
-            (e[(e.minusInfinity = 1)] = "minusInfinity"),
-            (e[(e.minusZero = 2)] = "minusZero");
+          (e[(e.infinity = 0)] = 'infinity'),
+            (e[(e.minusInfinity = 1)] = 'minusInfinity'),
+            (e[(e.minusZero = 2)] = 'minusZero');
         })(n || (n = {})),
         (t.default = {
-          type: "Arithmetic",
+          type: 'Arithmetic',
           shouldTransform: function (e, t) {
             return (
-              "number" === e &&
+              'number' === e &&
               (t === 1 / 0 ||
                 t === -1 / 0 ||
                 (function (e) {
@@ -549,19 +549,19 @@
           },
         });
     },
-    "../../node_modules/console-feed/lib/Transform/index.js": function (
+    '../../node_modules/console-feed/lib/Transform/index.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       (t.__esModule = !0), (t.Decode = t.Encode = void 0);
-      var n = r("../../node_modules/console-feed/lib/Transform/arithmetic.js"),
-        o = r("../../node_modules/console-feed/lib/Transform/Function.js"),
-        a = r("../../node_modules/console-feed/lib/Transform/HTML.js"),
-        i = r("../../node_modules/console-feed/lib/Transform/Map.js"),
+      var n = r('../../node_modules/console-feed/lib/Transform/arithmetic.js'),
+        o = r('../../node_modules/console-feed/lib/Transform/Function.js'),
+        a = r('../../node_modules/console-feed/lib/Transform/HTML.js'),
+        i = r('../../node_modules/console-feed/lib/Transform/Map.js'),
         s = r(
-          "../../node_modules/console-feed/lib/Transform/replicator/index.js"
+          '../../node_modules/console-feed/lib/Transform/replicator/index.js'
         ),
         u = [a.default, o.default, n.default, i.default],
         f = new s.default();
@@ -573,25 +573,25 @@
           return f.decode(JSON.stringify(e));
         });
     },
-    "../../node_modules/console-feed/lib/Transform/replicator/index.js":
+    '../../node_modules/console-feed/lib/Transform/replicator/index.js':
       function (e, t, r) {
-        "use strict";
+        'use strict';
         t.__esModule = !0;
         var n = /^#*@(t|r)$/,
-          o = (0, eval)("this"),
-          a = "function" === typeof ArrayBuffer,
-          i = "function" === typeof Map,
-          s = "function" === typeof Set,
+          o = (0, eval)('this'),
+          a = 'function' === typeof ArrayBuffer,
+          i = 'function' === typeof Map,
+          s = 'function' === typeof Set,
           u = [
-            "Int8Array",
-            "Uint8Array",
-            "Uint8ClampedArray",
-            "Int16Array",
-            "Uint16Array",
-            "Int32Array",
-            "Uint32Array",
-            "Float32Array",
-            "Float64Array",
+            'Int8Array',
+            'Uint8Array',
+            'Uint8ClampedArray',
+            'Int16Array',
+            'Uint16Array',
+            'Int32Array',
+            'Uint32Array',
+            'Float32Array',
+            'Float64Array',
           ],
           f = Array.prototype.slice,
           l = {
@@ -613,7 +613,7 @@
             return (
               (e._createRefMark = function (e) {
                 var t = Object.create(null);
-                return (t["@r"] = e), t;
+                return (t['@r'] = e), t;
               }),
               (e.prototype._createCircularCandidate = function (e, t, r) {
                 this.circularCandidates.push(e),
@@ -627,9 +627,9 @@
                 var o = Object.create(null),
                   a = n.toSerializable(e);
                 return (
-                  "object" === typeof a &&
+                  'object' === typeof a &&
                     this._createCircularCandidate(e, t, r),
-                  (o["@t"] = n.type),
+                  (o['@t'] = n.type),
                   (o.data = this._handleValue(
                     function () {
                       return a;
@@ -666,7 +666,7 @@
                   o = Object.create(null),
                   a = function (t) {
                     if (Reflect.has(e, t)) {
-                      var r = n.test(t) ? "#" + t : t;
+                      var r = n.test(t) ? '#' + t : t;
                       o[r] = i._handleValue(
                         function () {
                           return e[t];
@@ -691,7 +691,7 @@
                     : r.name;
                 return (
                   u &&
-                    "Object" !== u &&
+                    'Object' !== u &&
                     (o.constructor = {
                       name: u,
                     }),
@@ -722,7 +722,7 @@
                 try {
                   var n = e(),
                     o = typeof n,
-                    a = "object" === o && null !== n;
+                    a = 'object' === o && null !== n;
                   if (a) {
                     var i = this._ensureCircularReference(n);
                     if (i) return i;
@@ -784,10 +784,10 @@
             return (
               (e.prototype._handlePlainObject = function (e) {
                 var t = Object.create(null);
-                for (var r in ("constructor" in e &&
-                  ((e.constructor && "string" === typeof e.constructor.name) ||
+                for (var r in ('constructor' in e &&
+                  ((e.constructor && 'string' === typeof e.constructor.name) ||
                     (e.constructor = {
-                      name: "Object",
+                      name: 'Object',
                     })),
                 e))
                   e.hasOwnProperty(r) &&
@@ -796,14 +796,14 @@
                 for (var o in t) e[o] = t[o];
               }),
               (e.prototype._handleTransformedObject = function (e, t, r) {
-                var n = e["@t"],
+                var n = e['@t'],
                   o = this.transformMap[n];
                 if (!o)
                   throw new Error(
-                    "Can't find transform for \"" + n + '" type.'
+                    'Can\'t find transform for "' + n + '" type.'
                   );
                 this.activeTransformsStack.push(e),
-                  this._handleValue(e.data, e, "data"),
+                  this._handleValue(e.data, e, 'data'),
                   this.activeTransformsStack.pop(),
                   (t[r] = o.fromSerializable(e.data));
               }),
@@ -838,10 +838,10 @@
                     (t[r] = this.references[e]));
               }),
               (e.prototype._handleValue = function (e, t, r) {
-                if ("object" === typeof e && null !== e) {
-                  var n = e["@r"];
+                if ('object' === typeof e && null !== e) {
+                  var n = e['@r'];
                   if (void 0 !== n) this._handleCircularRef(n, t, r);
-                  else if (e["@t"]) this._handleTransformedObject(e, t, r);
+                  else if (e['@t']) this._handleTransformedObject(e, t, r);
                   else if (Array.isArray(e))
                     for (var o = 0; o < e.length; o++)
                       this._handleValue(e[o], e, o);
@@ -860,29 +860,29 @@
           })(),
           m = [
             {
-              type: "[[NaN]]",
+              type: '[[NaN]]',
               shouldTransform: function (e, t) {
-                return "number" === e && isNaN(t);
+                return 'number' === e && isNaN(t);
               },
               toSerializable: function () {
-                return "";
+                return '';
               },
               fromSerializable: function () {
                 return NaN;
               },
             },
             {
-              type: "[[undefined]]",
+              type: '[[undefined]]',
               shouldTransform: function (e) {
-                return "undefined" === e;
+                return 'undefined' === e;
               },
               toSerializable: function () {
-                return "";
+                return '';
               },
               fromSerializable: function () {},
             },
             {
-              type: "[[Date]]",
+              type: '[[Date]]',
               shouldTransform: function (e, t) {
                 return t instanceof Date;
               },
@@ -895,19 +895,19 @@
               },
             },
             {
-              type: "[[RegExp]]",
+              type: '[[RegExp]]',
               shouldTransform: function (e, t) {
                 return t instanceof RegExp;
               },
               toSerializable: function (e) {
                 var t = {
                   src: e.source,
-                  flags: "",
+                  flags: '',
                 };
                 return (
-                  e.global && (t.flags += "g"),
-                  e.ignoreCase && (t.flags += "i"),
-                  e.multiline && (t.flags += "m"),
+                  e.global && (t.flags += 'g'),
+                  e.ignoreCase && (t.flags += 'i'),
+                  e.multiline && (t.flags += 'm'),
                   t
                 );
               },
@@ -916,7 +916,7 @@
               },
             },
             {
-              type: "[[Error]]",
+              type: '[[Error]]',
               shouldTransform: function (e, t) {
                 return t instanceof Error;
               },
@@ -933,7 +933,7 @@
               },
             },
             {
-              type: "[[ArrayBuffer]]",
+              type: '[[ArrayBuffer]]',
               shouldTransform: function (e, t) {
                 return a && t instanceof ArrayBuffer;
               },
@@ -950,11 +950,11 @@
               },
             },
             {
-              type: "[[TypedArray]]",
+              type: '[[TypedArray]]',
               shouldTransform: function (e, t) {
                 for (var r = 0, n = u; r < n.length; r++) {
                   var a = n[r];
-                  if ("function" === typeof o[a] && t instanceof o[a])
+                  if ('function' === typeof o[a] && t instanceof o[a])
                     return !0;
                 }
                 return !1;
@@ -966,13 +966,13 @@
                 };
               },
               fromSerializable: function (e) {
-                return "function" === typeof o[e.ctorName]
+                return 'function' === typeof o[e.ctorName]
                   ? new o[e.ctorName](e.arr)
                   : e.arr;
               },
             },
             {
-              type: "[[Map]]",
+              type: '[[Map]]',
               shouldTransform: function (e, t) {
                 return i && t instanceof Map;
               },
@@ -997,7 +997,7 @@
               },
             },
             {
-              type: "[[Set]]",
+              type: '[[Set]]',
               shouldTransform: function (e, t) {
                 return s && t instanceof Set;
               },
@@ -1068,25 +1068,25 @@
           })();
         t.default = h;
       },
-    "../../node_modules/console-feed/lib/definitions/Methods.js": function (
+    '../../node_modules/console-feed/lib/definitions/Methods.js': function (
       e,
       t,
       r
     ) {
-      "use strict";
+      'use strict';
       t.__esModule = !0;
       t.default = [
-        "log",
-        "debug",
-        "info",
-        "warn",
-        "error",
-        "table",
-        "clear",
-        "time",
-        "timeEnd",
-        "count",
-        "assert",
+        'log',
+        'debug',
+        'info',
+        'warn',
+        'error',
+        'table',
+        'clear',
+        'time',
+        'timeEnd',
+        'count',
+        'assert',
       ];
     },
   },

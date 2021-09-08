@@ -1,15 +1,14 @@
-
-
 ### Arrays
 
 ```js
-list = [a,b,c,d,e]
+list = [a, b, c, d, e];
 ```
+
 {: .-setup}
 
 ```js
-list[1]                 // → b
-list.indexOf(b)         // → 1
+list[1]; // → b
+list.indexOf(b); // → 1
 ```
 
 ### Subsets
@@ -17,16 +16,16 @@ list.indexOf(b)         // → 1
 #### Immutable
 
 ```js
-list.slice(0,1)         // → [a        ]
-list.slice(1)           // → [  b,c,d,e]
-list.slice(1,2)         // → [  b      ]
+list.slice(0, 1); // → [a        ]
+list.slice(1); // → [  b,c,d,e]
+list.slice(1, 2); // → [  b      ]
 ```
 
 #### Mutative
 
 ```js
-re = list.splice(1)     // re = [b,c,d,e]  list == [a]
-re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
+re = list.splice(1); // re = [b,c,d,e]  list == [a]
+re = list.splice(1, 2); // re = [b,c]      list == [a,d,e]
 ```
 
 ### Adding items
@@ -34,15 +33,15 @@ re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
 #### Mutative
 
 ```js
-list.push(X)            // list == [_,_,_,_,_,X]
-list.unshift(X)         // list == [X,_,_,_,_,_]
-list.splice(2, 0, X)    // list == [_,_,X,_,_,_]
+list.push(X); // list == [_,_,_,_,_,X]
+list.unshift(X); // list == [X,_,_,_,_,_]
+list.splice(2, 0, X); // list == [_,_,X,_,_,_]
 ```
 
 #### Immutable
 
 ```js
-list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
+list.concat([X, Y]); // → [_,_,_,_,_,X,Y]
 ```
 
 ### Inserting
@@ -60,15 +59,15 @@ list.splice(list.indexOf(REF), 0, NEW))
 ### Replace items
 
 ```js
-list.splice(2, 1, X)    // list == [a,b,X,d,e]
+list.splice(2, 1, X); // list == [a,b,X,d,e]
 ```
 
 ### Removing items
 
 ```js
-list.pop()              // → e    list == [a,b,c,d]
-list.shift()            // → a    list == [b,c,d,e]
-list.splice(2, 1)       // → [c]  list == [a,b,d,e]
+list.pop(); // → e    list == [a,b,c,d]
+list.shift(); // → a    list == [b,c,d,e]
+list.splice(2, 1); // → [c]  list == [a,b,d,e]
 ```
 
 ### Iterables
@@ -93,50 +92,46 @@ list.splice(2, 1)       // → [c]  list == [a,b,d,e]
 .reduceRight(...)
 ```
 
-
-
-
 ## Date
+
 {: .-left-reference}
 
 ### Constructor
 
 ```js
 // Now
-new Date()
+new Date();
 ```
 
 ```js
 // ms since epoch
-new Date(1419785527580)
+new Date(1419785527580);
 ```
 
 ```js
 // Date format
-new Date("May 17, 1995 03:24:00")
+new Date('May 17, 1995 03:24:00');
 ```
 
 ```js
 // ISO date format
-new Date("2013-03-01T01:10:00")
+new Date('2013-03-01T01:10:00');
 ```
 
 ```js
-new Date(2014, 2, 1, 13, 0, 59, 0)
+new Date(2014, 2, 1, 13, 0, 59, 0);
 ```
 
 ### Constructor
 
-| `new Date(` | `2014,` | `2,`  | `1,` | `13,` | `0,` | `59,` | `0)`  |
-| Date        | Year    | Month | Day  | Hour  | Min  | Sec   | Milli |
-{: .-css-breakdown}
+| `new Date(` | `2014,` | `2,` | `1,` | `13,` | `0,` | `59,` | `0)` | | Date | Year | Month | Day | Hour | Min | Sec | Milli | {: .-css-breakdown}
 
 Months are zero-indexed (eg, January is `0`).
 
 ### Conversion
 
 | Method                   | Result                                      |
-| ---                      | ---                                         |
+| ------------------------ | ------------------------------------------- |
 | `d.toString()`           | `"Mon Dec 29 2014 00:58:28 GMT+0800 (PHT)"` |
 | `d.toTimeString()`       | `"00:58:46 GMT+0800 (PHT)"`                 |
 | `d.toUTCString()`        | `"Sun, 28 Dec 2014 16:58:59 GMT"`           |
@@ -148,13 +143,12 @@ Months are zero-indexed (eg, January is `0`).
 | ---                      | ---                                         |
 | `d.getTime()`            | `1419785527580`                             |
 
-Accessing
----------
+## Accessing
 
 ### Getters
 
 | Method                 | Result            |
-| ---                    | ---               |
+| ---------------------- | ----------------- |
 | `.getDate()`           | `1..31`           |
 | `.getDay()`            | `0..6` (sun..sat) |
 | `.getFullYear()`       | `2014`            |
@@ -173,7 +167,7 @@ UTC versions are also available (eg, `.getUTCDate()`, `.getUTCDay()`, etc).
 ### Setters
 
 | Method                       | Result |
-| ---                          | ---    |
+| ---------------------------- | ------ |
 | `.setDate` _(val)_           |        |
 | `.setDay` _(val)_            |        |
 | `.setFullYear` _(val)_       |        |
@@ -189,13 +183,10 @@ UTC versions are also available (eg, `.getUTCDate()`, `.getUTCDay()`, etc).
 
 See the getters list.
 
-
-
-
-
 # Building Interactive Websites with JavaScript: DOM Events with JavaScript Cheatsheet
 
 > When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences or your device and is mostly used to make the site work as you expect it to. The information does not usually directly identify you, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to find out more and change our default settings. However, blocking some types of cookies may impact your experience of the site and the services we are able to offer.
+
                         More information
 
 ### Privacy Preference Center
@@ -222,11 +213,8 @@ Performance Cookies
 
 These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site. All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.
 
-
-
-
-
 ### Fetch
+
 {: .-prime}
 
 ```js
@@ -237,26 +225,26 @@ fetch('/data.json')
   })
   .catch(err => ...)
 ```
+
 {: data-line="4"}
 
 ### Response
 
 ```js
-fetch('/data.json')
-.then(res => {
-  res.text()       // response body (=> Promise)
-  res.json()       // parse via JSON (=> Promise)
-  res.status       //=> 200
-  res.statusText   //=> 'OK'
-  res.redirected   //=> false
-  res.ok           //=> true
-  res.url          //=> 'http://site.com/data.json'
-  res.type         //=> 'basic'
-                   //   ('cors' 'default' 'error'
-                   //    'opaque' 'opaqueredirect')
+fetch('/data.json').then((res) => {
+  res.text(); // response body (=> Promise)
+  res.json(); // parse via JSON (=> Promise)
+  res.status; //=> 200
+  res.statusText; //=> 'OK'
+  res.redirected; //=> false
+  res.ok; //=> true
+  res.url; //=> 'http://site.com/data.json'
+  res.type; //=> 'basic'
+  //   ('cors' 'default' 'error'
+  //    'opaque' 'opaqueredirect')
 
-  res.headers.get('Content-Type')
-})
+  res.headers.get('Content-Type');
+});
 ```
 
 ### Request options
@@ -280,18 +268,17 @@ fetch('/data.json', {
 ### Catching errors
 
 ```js
-fetch('/data.json')
-  .then(checkStatus)
+fetch('/data.json').then(checkStatus);
 ```
 
 ```js
-function checkStatus (res) {
+function checkStatus(res) {
   if (res.status >= 200 && res.status < 300) {
-    return res
+    return res;
   } else {
-    let err = new Error(res.statusText)
-    err.response = res
-    throw err
+    let err = new Error(res.statusText);
+    err.response = res;
+    throw err;
   }
 }
 ```
@@ -301,12 +288,13 @@ Non-2xx responses are still successful requests. Use another function to turn th
 ### Using with node.js
 
 ```js
-const fetch = require('isomorphic-fetch')
+const fetch = require('isomorphic-fetch');
 ```
 
 See: [isomorphic-fetch](https://npmjs.com/package/isomorphic-fetch) _(npmjs.com)_
 
 ## References
+
 {: .-one-column}
 
 - <https://fetch.spec.whatwg.org/>

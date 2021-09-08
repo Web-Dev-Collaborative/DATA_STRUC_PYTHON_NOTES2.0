@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __rest =
   (this && this.__rest) ||
   function (s, e) {
@@ -6,7 +6,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -25,17 +25,17 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.FormField = void 0;
-const react_1 = __importDefault(require("react"));
-const visually_hidden_1 = __importDefault(require("@reach/visually-hidden"));
-const auto_id_1 = require("@reach/auto-id");
-const index_1 = require("../../index");
+const react_1 = __importDefault(require('react'));
+const visually_hidden_1 = __importDefault(require('@reach/visually-hidden'));
+const auto_id_1 = require('@reach/auto-id');
+const index_1 = require('../../index');
 exports.FormField = (_a) => {
-  var { label, id, hideLabel = false, direction = "horizontal" } = _a,
-    props = __rest(_a, ["label", "id", "hideLabel", "direction"]);
+  var { label, id, hideLabel = false, direction = 'horizontal' } = _a,
+    props = __rest(_a, ['label', 'id', 'hideLabel', 'direction']);
   const inputId = auto_id_1.useId(id);
   const LabelWrapper = hideLabel
     ? visually_hidden_1.default
@@ -45,14 +45,14 @@ exports.FormField = (_a) => {
       id: inputId,
     })
   );
-  if (direction === "horizontal") {
+  if (direction === 'horizontal') {
     return react_1.default.createElement(
       index_1.Stack,
       Object.assign(
         {
-          direction: "horizontal",
-          justify: "space-between",
-          align: "center",
+          direction: 'horizontal',
+          justify: 'space-between',
+          align: 'center',
           css: {
             minHeight: 8,
             paddingX: 2,
@@ -101,8 +101,8 @@ exports.FormField = (_a) => {
     react_1.default.createElement(
       index_1.Stack,
       {
-        direction: "horizontal",
-        align: "center",
+        direction: 'horizontal',
+        align: 'center',
         css: {
           minHeight: 8,
         },

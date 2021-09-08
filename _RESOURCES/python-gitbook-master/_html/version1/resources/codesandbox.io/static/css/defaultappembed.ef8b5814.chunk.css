@@ -81,7 +81,7 @@ body #vscode-editor * {
 
 .xterm {
   font-family: Menlo, courier-new, courier, monospace;
-  font-feature-settings: "liga" 0;
+  font-feature-settings: 'liga' 0;
   font-weight: 100;
   position: relative;
   -moz-user-select: none;

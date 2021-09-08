@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,12 +8,12 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.PreferenceDropdown = void 0;
-const react_1 = __importDefault(require("react"));
-const components_1 = require("@codesandbox/components");
+const react_1 = __importDefault(require('react'));
+const components_1 = require('@codesandbox/components');
 exports.PreferenceDropdown = ({ mapName, options, setValue, value }) => {
   const handleChange = ({ target }) => {
     setValue(target.value);
@@ -26,7 +26,7 @@ exports.PreferenceDropdown = ({ mapName, options, setValue, value }) => {
     },
     options.map((option) =>
       react_1.default.createElement(
-        "option",
+        'option',
         {
           key: option,
           value: option,

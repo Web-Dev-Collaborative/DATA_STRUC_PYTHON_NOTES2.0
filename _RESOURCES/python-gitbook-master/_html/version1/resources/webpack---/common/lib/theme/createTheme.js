@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.createTheme = void 0;
-const decorateSelector_1 = require("./decorateSelector");
+const decorateSelector_1 = require('./decorateSelector');
 exports.createTheme = (colors) =>
   Object.keys(colors)
     .map((c) => ({

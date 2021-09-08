@@ -19,26 +19,26 @@
         });
     }),
     (t.r = function (e) {
-      "undefined" != typeof Symbol &&
+      'undefined' != typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, {
-          value: "Module",
+          value: 'Module',
         }),
-        Object.defineProperty(e, "__esModule", {
+        Object.defineProperty(e, '__esModule', {
           value: !0,
         });
     }),
     (t.t = function (e, n) {
       if ((1 & n && (e = t(e)), 8 & n)) return e;
-      if (4 & n && "object" == typeof e && e && e.__esModule) return e;
+      if (4 & n && 'object' == typeof e && e && e.__esModule) return e;
       var r = Object.create(null);
       if (
         (t.r(r),
-        Object.defineProperty(r, "default", {
+        Object.defineProperty(r, 'default', {
           enumerable: !0,
           value: e,
         }),
-        2 & n && "string" != typeof e)
+        2 & n && 'string' != typeof e)
       )
         for (var o in e)
           t.d(
@@ -59,33 +59,33 @@
           : function () {
               return e;
             };
-      return t.d(n, "a", n), n;
+      return t.d(n, 'a', n), n;
     }),
     (t.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (t.p = ""),
+    (t.p = ''),
     t((t.s = 22));
 })({
   22: function (e, t, n) {
-    e.exports = n("XQp5");
+    e.exports = n('XQp5');
   },
   XQp5: function () {
-    var e = "https://m.stripe.network",
+    var e = 'https://m.stripe.network',
       t = window.location.hash,
-      n = /preview=true/.test(t) ? "inner-preview.html" : "inner.html",
-      r = document.createElement("iframe");
-    r.src = "".concat(e, "/").concat(n).concat(t);
+      n = /preview=true/.test(t) ? 'inner-preview.html' : 'inner.html',
+      r = document.createElement('iframe');
+    r.src = ''.concat(e, '/').concat(n).concat(t);
     var o = function (t) {
       if (t.origin === e) {
         var n = window.opener || window.parent || window;
         if (!n) return;
-        n.postMessage(t.data, "*");
-      } else r.contentWindow.postMessage(t.data, "*");
+        n.postMessage(t.data, '*');
+      } else r.contentWindow.postMessage(t.data, '*');
     };
     window.addEventListener
-      ? window.addEventListener("message", o, !1)
-      : window.attachEvent("onMessage", o),
+      ? window.addEventListener('message', o, !1)
+      : window.attachEvent('onMessage', o),
       document.body && document.body.appendChild(r);
   },
 });

@@ -11,10 +11,10 @@
 // This variable is intentionally declared and unused.
 // eslint-disable-next-line no-unused-vars
 const OFFLINE_VERSION = 1;
-const OFFLINE_CACHE_KEY = "offline";
-const OFFLINE_URL = "/public/offline.html";
+const OFFLINE_CACHE_KEY = 'offline';
+const OFFLINE_URL = '/public/offline.html';
 
-self.addEventListener("install", function (event) {
+self.addEventListener('install', function (event) {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(OFFLINE_CACHE_KEY);
@@ -23,7 +23,7 @@ self.addEventListener("install", function (event) {
       // the network.
       await cache.add(
         new Request(OFFLINE_URL, {
-          cache: "reload",
+          cache: 'reload',
         })
       );
     })()
@@ -32,12 +32,12 @@ self.addEventListener("install", function (event) {
   self.skipWaiting();
 });
 
-self.addEventListener("activate", function (event) {
+self.addEventListener('activate', function (event) {
   event.waitUntil(
     (async () => {
       // Enable navigation preload if it's supported.
       // See https://developers.google.com/web/updates/2017/02/navigation-preload
-      if ("navigationPreload" in self.registration) {
+      if ('navigationPreload' in self.registration) {
         await self.registration.navigationPreload.enable();
       }
     })()
@@ -47,10 +47,10 @@ self.addEventListener("activate", function (event) {
   self.clients.claim();
 });
 
-self.addEventListener("fetch", function (event) {
+self.addEventListener('fetch', function (event) {
   // We only want to call event.respondWith() if this is a navigation request
   // for an HTML page.
-  if (event.request.mode === "navigate") {
+  if (event.request.mode === 'navigate') {
     event.respondWith(
       (async () => {
         try {

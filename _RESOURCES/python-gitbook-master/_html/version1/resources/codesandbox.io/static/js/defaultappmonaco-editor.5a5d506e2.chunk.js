@@ -1,20 +1,20 @@
 (this.csbJsonP = this.csbJsonP || []).push([
-  ["default~app~monaco-editor"],
+  ['default~app~monaco-editor'],
   {
-    "../../node_modules/worker-loader/dist/cjs.js?publicPath=/&name=monaco-linter.[hash:8].worker.js!./src/app/overmind/effects/vscode/LinterWorker/index.js":
+    '../../node_modules/worker-loader/dist/cjs.js?publicPath=/&name=monaco-linter.[hash:8].worker.js!./src/app/overmind/effects/vscode/LinterWorker/index.js':
       function (t, e) {
         t.exports = function () {
-          return new Worker("/monaco-linter.0c347b7e.worker.js");
+          return new Worker('/monaco-linter.0c347b7e.worker.js');
         };
       },
-    "../common/lib/utils/diff/index.js": function (t, e, i) {
-      "use strict";
-      Object.defineProperty(e, "__esModule", {
+    '../common/lib/utils/diff/index.js': function (t, e, i) {
+      'use strict';
+      Object.defineProperty(e, '__esModule', {
         value: !0,
       }),
         (e.getTextOperation = e.findDiff = void 0);
-      const n = i("../../node_modules/ot/lib/index.js"),
-        r = i("../common/lib/utils/diff/lcs.js");
+      const n = i('../../node_modules/ot/lib/index.js'),
+        r = i('../common/lib/utils/diff/lcs.js');
 
       function o(t, e, i) {
         return r.stringDiff(t, e, i);
@@ -26,7 +26,7 @@
             return (
               i.delete(t.length),
               i.insert(e),
-              console.warn("Not optimizing edits, file is larger than 10000b"),
+              console.warn('Not optimizing edits, file is larger than 10000b'),
               i
             );
           const r = o(t, e, !1);
@@ -45,8 +45,8 @@
           );
         });
     },
-    "../common/lib/utils/diff/lcs.js": function (t, e, i) {
-      "use strict";
+    '../common/lib/utils/diff/lcs.js': function (t, e, i) {
+      'use strict';
       e.__esModule = !0;
       var n = (function () {
         function t(t, e, i, n) {
@@ -203,22 +203,22 @@
                   i <= r
                     ? (o.Assert(
                         t === e + 1,
-                        "originalStart should only be one more than originalEnd"
+                        'originalStart should only be one more than originalEnd'
                       ),
                       (s = [new n(t, 0, i, r - i + 1)]))
                     : t <= e
                     ? (o.Assert(
                         i === r + 1,
-                        "modifiedStart should only be one more than modifiedEnd"
+                        'modifiedStart should only be one more than modifiedEnd'
                       ),
                       (s = [new n(t, e - t + 1, i, 0)]))
                     : (o.Assert(
                         t === e + 1,
-                        "originalStart should only be one more than originalEnd"
+                        'originalStart should only be one more than originalEnd'
                       ),
                       o.Assert(
                         i === r + 1,
-                        "modifiedStart should only be one more than modifiedEnd"
+                        'modifiedStart should only be one more than modifiedEnd'
                       ),
                       (s = [])),
                   s
@@ -617,7 +617,7 @@
               if (t <= 0 || t >= this.OriginalSequence.getLength() - 1)
                 return !0;
               var e = this.OriginalSequence.getElementAtIndex(t);
-              return "string" === typeof e && /^\s*$/.test(e);
+              return 'string' === typeof e && /^\s*$/.test(e);
             }),
             (t.prototype._OriginalRegionIsBoundary = function (t, e) {
               if (
@@ -639,7 +639,7 @@
               if (t <= 0 || t >= this.ModifiedSequence.getLength() - 1)
                 return !0;
               var e = this.ModifiedSequence.getElementAtIndex(t);
-              return "string" === typeof e && /^\s*$/.test(e);
+              return 'string' === typeof e && /^\s*$/.test(e);
             }),
             (t.prototype._ModifiedRegionIsBoundary = function (t, e) {
               if (
@@ -685,11 +685,11 @@
               if (
                 (o.Assert(
                   t.originalStart <= e.originalStart,
-                  "Left change is not less than or equal to right change"
+                  'Left change is not less than or equal to right change'
                 ),
                 o.Assert(
                   t.modifiedStart <= e.modifiedStart,
-                  "Left change is not less than or equal to right change"
+                  'Left change is not less than or equal to right change'
                 ),
                 t.originalStart + t.originalLength >= e.originalStart ||
                   t.modifiedStart + t.modifiedLength >= e.modifiedStart)
@@ -725,8 +725,8 @@
         })();
       e.LcsDiff = h;
     },
-    "./src/app/utils/monaco-index-converter.js": function (t, e, i) {
-      "use strict";
+    './src/app/utils/monaco-index-converter.js': function (t, e, i) {
+      'use strict';
 
       function n(t, e, i) {
         for (var n = 0, r = 0; n + 1 < e; )
@@ -746,13 +746,13 @@
         }
         return {
           lineNumber: t.length,
-          column: (t[t.length - 1] || "").length + 1,
+          column: (t[t.length - 1] || '').length + 1,
         };
       }
-      i.d(e, "b", function () {
+      i.d(e, 'b', function () {
         return n;
       }),
-        i.d(e, "a", function () {
+        i.d(e, 'a', function () {
           return r;
         });
     },

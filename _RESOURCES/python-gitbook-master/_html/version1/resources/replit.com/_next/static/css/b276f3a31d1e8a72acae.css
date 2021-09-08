@@ -1,5 +1,5 @@
 .xterm {
-  font-feature-settings: "liga" 0;
+  font-feature-settings: 'liga' 0;
   position: relative;
   user-select: none;
   -ms-user-select: none;
@@ -1066,7 +1066,7 @@ body.os-dragging * {
 #os-dummy-scrollbar-size {
   position: fixed;
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   visibility: hidden;
   overflow: scroll;
   height: 500px;
@@ -1083,7 +1083,7 @@ body.os-dragging * {
 #os-dummy-scrollbar-size:before,
 .os-content:after,
 .os-content:before {
-  content: "";
+  content: '';
   display: table;
   width: 0.01px;
   height: 0.01px;
@@ -1214,7 +1214,7 @@ body.os-dragging * {
   pointer-events: none;
 }
 
-.os-content > .os-textarea[wrap="off"] {
+.os-content > .os-textarea[wrap='off'] {
   white-space: pre !important;
   margin: 0 !important;
 }
@@ -1367,7 +1367,7 @@ html.os-html > .os-host > .os-scrollbar {
 .os-scrollbar-corner {
   position: absolute;
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
   z-index: 1;
 }
 
@@ -1639,7 +1639,7 @@ html.os-html > .os-host > .os-scrollbar {
 .os-theme-dark > .os-scrollbar-vertical .os-scrollbar-handle:before,
 .os-theme-light > .os-scrollbar-horizontal .os-scrollbar-handle:before,
 .os-theme-light > .os-scrollbar-vertical .os-scrollbar-handle:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -1893,7 +1893,7 @@ html.os-html > .os-host > .os-scrollbar {
 }
 
 .DayPickerKeyboardShortcuts_show:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
 }

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,17 +8,17 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.Tooltip = exports.TooltipStyles = void 0;
-const react_1 = __importDefault(require("react"));
-const tooltip_1 = require("@reach/tooltip");
-require("@reach/tooltip/styles.css");
-const portal_1 = __importDefault(require("@reach/portal"));
-const styled_components_1 = require("styled-components");
-const css_1 = __importDefault(require("@styled-system/css"));
-const __1 = require("../..");
+const react_1 = __importDefault(require('react'));
+const tooltip_1 = require('@reach/tooltip');
+require('@reach/tooltip/styles.css');
+const portal_1 = __importDefault(require('@reach/portal'));
+const styled_components_1 = require('styled-components');
+const css_1 = __importDefault(require('@styled-system/css'));
+const __1 = require('../..');
 /** Lots of dragons in this file
  *
  * There are portals, global styles, animations, css triangles
@@ -43,7 +43,7 @@ const transitions = {
   slide: styled_components_1.keyframes({
     from: {
       opacity: 0,
-      transform: "translateY(-2px)",
+      transform: 'translateY(-2px)',
     },
   }),
 };
@@ -64,12 +64,12 @@ const animation = styled_components_1.css`
  */
 exports.TooltipStyles = styled_components_1.createGlobalStyle(
   css_1.default({
-    "[data-reach-tooltip][data-component=Tooltip]": {
-      backgroundColor: "grays.900",
-      border: "1px solid",
-      borderColor: "grays.600",
-      color: "grays.100",
-      borderRadius: "medium",
+    '[data-reach-tooltip][data-component=Tooltip]': {
+      backgroundColor: 'grays.900',
+      border: '1px solid',
+      borderColor: 'grays.600',
+      color: 'grays.100',
+      borderRadius: 'medium',
       paddingX: 2,
       paddingY: 1,
       fontSize: 3,
@@ -77,8 +77,8 @@ exports.TooltipStyles = styled_components_1.createGlobalStyle(
       zIndex: 20,
       // multiline
       maxWidth: 160,
-      whiteSpace: "normal",
-      textAlign: "center",
+      whiteSpace: 'normal',
+      textAlign: 'center',
     },
   }),
   animation
@@ -105,7 +105,7 @@ const Tooltip = (props) => {
     react_1.default.createElement(
       tooltip_1.TooltipPopup,
       Object.assign({}, tooltip, {
-        "data-component": "Tooltip",
+        'data-component': 'Tooltip',
         label: props.label,
         position: centered,
       })
@@ -144,28 +144,28 @@ const Triangle = ({ triggerRect }) =>
     portal_1.default,
     null,
     react_1.default.createElement(__1.Element, {
-      as: "span",
-      "data-component": "TooltipTriangle",
+      as: 'span',
+      'data-component': 'TooltipTriangle',
       css: {
-        position: "absolute",
+        position: 'absolute',
         left:
           triggerRect &&
-          triggerRect.left - 10 + triggerRect.width / 2 + 3 + "px",
-        top: triggerRect && triggerRect.bottom + window.scrollY - 4 + "px",
+          triggerRect.left - 10 + triggerRect.width / 2 + 3 + 'px',
+        top: triggerRect && triggerRect.bottom + window.scrollY - 4 + 'px',
         width: 0,
         height: 0,
-        border: "6px solid transparent",
-        borderBottomColor: "grays.600",
+        border: '6px solid transparent',
+        borderBottomColor: 'grays.600',
         zIndex: 4,
-        ":after": {
+        ':after': {
           content: " ' '",
-          border: "6px solid transparent",
-          borderBottomColor: "grays.900",
+          border: '6px solid transparent',
+          borderBottomColor: 'grays.900',
           height: 0,
           width: 0,
-          position: "absolute",
-          left: "-6px",
-          top: "-4px",
+          position: 'absolute',
+          left: '-6px',
+          top: '-4px',
         },
       },
     })

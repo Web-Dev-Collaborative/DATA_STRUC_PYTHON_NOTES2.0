@@ -1,73 +1,73 @@
 ace.define(
-  "ace/mode/toml_highlight_rules",
+  'ace/mode/toml_highlight_rules',
   [
-    "require",
-    "exports",
-    "module",
-    "ace/lib/oop",
-    "ace/mode/text_highlight_rules",
+    'require',
+    'exports',
+    'module',
+    'ace/lib/oop',
+    'ace/mode/text_highlight_rules',
   ],
   function (e, t, n) {
-    "use strict";
-    var r = e("../lib/oop"),
-      i = e("./text_highlight_rules").TextHighlightRules,
+    'use strict';
+    var r = e('../lib/oop'),
+      i = e('./text_highlight_rules').TextHighlightRules,
       s = function () {
         var e = this.createKeywordMapper(
             {
-              "constant.language.boolean": "true|false",
+              'constant.language.boolean': 'true|false',
             },
-            "identifier"
+            'identifier'
           ),
-          t = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*\\b";
+          t = '[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*\\b';
         this.$rules = {
           start: [
             {
-              token: "comment.toml",
+              token: 'comment.toml',
               regex: /#.*$/,
             },
             {
-              token: "string",
+              token: 'string',
               regex: '"(?=.)',
-              next: "qqstring",
+              next: 'qqstring',
             },
             {
-              token: ["variable.keygroup.toml"],
-              regex: "(?:^\\s*)(\\[\\[([^\\]]+)\\]\\])",
+              token: ['variable.keygroup.toml'],
+              regex: '(?:^\\s*)(\\[\\[([^\\]]+)\\]\\])',
             },
             {
-              token: ["variable.keygroup.toml"],
-              regex: "(?:^\\s*)(\\[([^\\]]+)\\])",
+              token: ['variable.keygroup.toml'],
+              regex: '(?:^\\s*)(\\[([^\\]]+)\\])',
             },
             {
               token: e,
               regex: t,
             },
             {
-              token: "support.date.toml",
-              regex: "\\d{4}-\\d{2}-\\d{2}(T)\\d{2}:\\d{2}:\\d{2}(Z)",
+              token: 'support.date.toml',
+              regex: '\\d{4}-\\d{2}-\\d{2}(T)\\d{2}:\\d{2}:\\d{2}(Z)',
             },
             {
-              token: "constant.numeric.toml",
-              regex: "-?\\d+(\\.?\\d+)?",
+              token: 'constant.numeric.toml',
+              regex: '-?\\d+(\\.?\\d+)?',
             },
           ],
           qqstring: [
             {
-              token: "string",
-              regex: "\\\\$",
-              next: "qqstring",
+              token: 'string',
+              regex: '\\\\$',
+              next: 'qqstring',
             },
             {
-              token: "constant.language.escape",
+              token: 'constant.language.escape',
               regex: '\\\\[0tnr"\\\\]',
             },
             {
-              token: "string",
+              token: 'string',
               regex: '"|$',
-              next: "start",
+              next: 'start',
             },
             {
-              defaultToken: "string",
+              defaultToken: 'string',
             },
           ],
         };
@@ -76,20 +76,20 @@ ace.define(
   }
 ),
   ace.define(
-    "ace/mode/folding/ini",
+    'ace/mode/folding/ini',
     [
-      "require",
-      "exports",
-      "module",
-      "ace/lib/oop",
-      "ace/range",
-      "ace/mode/folding/fold_mode",
+      'require',
+      'exports',
+      'module',
+      'ace/lib/oop',
+      'ace/range',
+      'ace/mode/folding/fold_mode',
     ],
     function (e, t, n) {
-      "use strict";
-      var r = e("../../lib/oop"),
-        i = e("../../range").Range,
-        s = e("./fold_mode").FoldMode,
+      'use strict';
+      var r = e('../../lib/oop'),
+        i = e('../../range').Range,
+        s = e('./fold_mode').FoldMode,
         o = (t.FoldMode = function () {});
       r.inherits(o, s),
         function () {
@@ -99,7 +99,7 @@ ace.define(
                 s = e.getLine(n),
                 o = s.match(r);
               if (!o) return;
-              var u = o[1] + ".",
+              var u = o[1] + '.',
                 a = s.length,
                 f = e.getLength(),
                 l = n,
@@ -120,22 +120,22 @@ ace.define(
     }
   ),
   ace.define(
-    "ace/mode/toml",
+    'ace/mode/toml',
     [
-      "require",
-      "exports",
-      "module",
-      "ace/lib/oop",
-      "ace/mode/text",
-      "ace/mode/toml_highlight_rules",
-      "ace/mode/folding/ini",
+      'require',
+      'exports',
+      'module',
+      'ace/lib/oop',
+      'ace/mode/text',
+      'ace/mode/toml_highlight_rules',
+      'ace/mode/folding/ini',
     ],
     function (e, t, n) {
-      "use strict";
-      var r = e("../lib/oop"),
-        i = e("./text").Mode,
-        s = e("./toml_highlight_rules").TomlHighlightRules,
-        o = e("./folding/ini").FoldMode,
+      'use strict';
+      var r = e('../lib/oop'),
+        i = e('./text').Mode,
+        s = e('./toml_highlight_rules').TomlHighlightRules,
+        o = e('./folding/ini').FoldMode,
         u = function () {
           (this.HighlightRules = s),
             (this.foldingRules = new o()),
@@ -143,14 +143,14 @@ ace.define(
         };
       r.inherits(u, i),
         function () {
-          (this.lineCommentStart = "#"), (this.$id = "ace/mode/toml");
+          (this.lineCommentStart = '#'), (this.$id = 'ace/mode/toml');
         }.call(u.prototype),
         (t.Mode = u);
     }
   );
 (function () {
-  ace.require(["ace/mode/toml"], function (m) {
-    if (typeof module == "object" && typeof exports == "object" && module) {
+  ace.require(['ace/mode/toml'], function (m) {
+    if (typeof module == 'object' && typeof exports == 'object' && module) {
       module.exports = m;
     }
   });

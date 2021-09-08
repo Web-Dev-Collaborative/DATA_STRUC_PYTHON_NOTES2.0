@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,11 +8,11 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const react_1 = __importDefault(require("react"));
-const react_dom_1 = __importDefault(require("react-dom"));
+const react_1 = __importDefault(require('react'));
+const react_dom_1 = __importDefault(require('react-dom'));
 class Portal extends react_1.default.Component {
   componentWillUnmount() {
     if (this.defaultNode) {
@@ -22,7 +22,7 @@ class Portal extends react_1.default.Component {
   }
   render() {
     if (!this.props.node && !this.defaultNode) {
-      this.defaultNode = document.createElement("div");
+      this.defaultNode = document.createElement('div');
       document.body.appendChild(this.defaultNode);
     }
     return react_dom_1.default.createPortal(

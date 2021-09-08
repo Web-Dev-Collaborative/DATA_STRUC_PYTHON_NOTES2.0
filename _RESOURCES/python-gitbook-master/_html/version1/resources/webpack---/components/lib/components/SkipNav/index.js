@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -48,38 +48,38 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.SkipNav = exports.SkipNavStyles = void 0;
-const react_1 = __importDefault(require("react"));
-const Reach = __importStar(require("@reach/skip-nav"));
-const styled_components_1 = require("styled-components");
-const css_1 = __importDefault(require("@styled-system/css"));
+const react_1 = __importDefault(require('react'));
+const Reach = __importStar(require('@reach/skip-nav'));
+const styled_components_1 = require('styled-components');
+const css_1 = __importDefault(require('@styled-system/css'));
 exports.SkipNavStyles = styled_components_1.createGlobalStyle(
   css_1.default({
-    "[data-reach-skip-nav-link]": {
+    '[data-reach-skip-nav-link]': {
       border: 0,
-      clip: "rect(0 0 0 0)",
+      clip: 'rect(0 0 0 0)',
       height: 1,
       width: 1,
-      margin: "-1px",
+      margin: '-1px',
       padding: 0,
-      overflow: "hidden",
-      position: "absolute",
+      overflow: 'hidden',
+      position: 'absolute',
     },
-    "[data-reach-skip-nav-link]:focus": {
-      position: "fixed",
+    '[data-reach-skip-nav-link]:focus': {
+      position: 'fixed',
       top: 2,
       left: 2,
       padding: 2,
-      backgroundColor: "grays.700",
-      border: "1px solid",
-      borderColor: "grays.600",
+      backgroundColor: 'grays.700',
+      border: '1px solid',
+      borderColor: 'grays.600',
       zIndex: 1,
-      width: "auto",
-      height: "auto",
-      clip: "auto",
+      width: 'auto',
+      height: 'auto',
+      clip: 'auto',
     },
   })
 );

@@ -1,14 +1,6 @@
 # Repositories
 
-
-
-
-
 {% embed url="https://github.com/Web-Dev-Collaborative/medium-clone-on-node" %}
-
-
-
-
 
 [https://github.com/Web-Dev-Collaborative/medium-clone-on-node](https://github.com/Web-Dev-Collaborative/medium-clone-on-node)'
 
@@ -23,4 +15,3 @@
 {% embed url="https://github.com/bgoonz/python-scripts" caption="" %}
 
 {% embed url="https://github.com/bgoonz/PYTHON\_PRAC" caption="" %}
-

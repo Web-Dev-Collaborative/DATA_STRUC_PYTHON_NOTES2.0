@@ -1,49 +1,49 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 const config = {
-  title: "angular.json",
-  type: "angular-config",
+  title: 'angular.json',
+  type: 'angular-config',
   description:
-    "The configuration used for angular-cli v6, the new cli to run angular projects.",
-  moreInfoUrl: "https://github.com/angular/angular-cli/wiki/angular-cli",
+    'The configuration used for angular-cli v6, the new cli to run angular projects.',
+  moreInfoUrl: 'https://github.com/angular/angular-cli/wiki/angular-cli',
   partialSupportDisclaimer: `Only \`project.build\` field is supported.`,
   getDefaultCode: () =>
     JSON.stringify(
       {
         version: 1,
-        newProjectRoot: "projects",
+        newProjectRoot: 'projects',
         projects: {
           codesandbox: {
-            root: "",
-            sourceRoot: "src",
-            projectType: "application",
-            prefix: "app",
+            root: '',
+            sourceRoot: 'src',
+            projectType: 'application',
+            prefix: 'app',
             schematics: {},
             architect: {
               build: {
-                builder: "@angular-devkit/build-angular:browser",
+                builder: '@angular-devkit/build-angular:browser',
                 options: {
-                  outputPath: "dist/codesandbox",
-                  index: "src/index.html",
-                  main: "src/main.ts",
-                  polyfills: "src/polyfills.ts",
-                  tsConfig: "src/tsconfig.app.json",
-                  assets: ["src/favicon.png", "src/assets"],
-                  styles: ["src/styles.css"],
+                  outputPath: 'dist/codesandbox',
+                  index: 'src/index.html',
+                  main: 'src/main.ts',
+                  polyfills: 'src/polyfills.ts',
+                  tsConfig: 'src/tsconfig.app.json',
+                  assets: ['src/favicon.png', 'src/assets'],
+                  styles: ['src/styles.css'],
                   scripts: [],
                 },
                 configurations: {
                   production: {
                     fileReplacements: [
                       {
-                        replace: "src/environments/environment.ts",
-                        with: "src/environments/environment.prod.ts",
+                        replace: 'src/environments/environment.ts',
+                        with: 'src/environments/environment.prod.ts',
                       },
                     ],
                     optimization: true,
-                    outputHashing: "all",
+                    outputHashing: 'all',
                     sourceMap: false,
                     extractCss: true,
                     namedChunks: false,
@@ -55,75 +55,75 @@ const config = {
                 },
               },
               serve: {
-                builder: "@angular-devkit/build-angular:dev-server",
+                builder: '@angular-devkit/build-angular:dev-server',
                 options: {
-                  browserTarget: "codesandbox:build",
+                  browserTarget: 'codesandbox:build',
                 },
                 configurations: {
                   production: {
-                    browserTarget: "codesandbox:build:production",
+                    browserTarget: 'codesandbox:build:production',
                   },
                 },
               },
-              "extract-i18n": {
-                builder: "@angular-devkit/build-angular:extract-i18n",
+              'extract-i18n': {
+                builder: '@angular-devkit/build-angular:extract-i18n',
                 options: {
-                  browserTarget: "codesandbox:build",
+                  browserTarget: 'codesandbox:build',
                 },
               },
               test: {
-                builder: "@angular-devkit/build-angular:karma",
+                builder: '@angular-devkit/build-angular:karma',
                 options: {
-                  main: "src/test.ts",
-                  polyfills: "src/polyfills.ts",
-                  tsConfig: "src/tsconfig.spec.json",
-                  karmaConfig: "src/karma.conf.js",
-                  styles: ["src/styles.css"],
+                  main: 'src/test.ts',
+                  polyfills: 'src/polyfills.ts',
+                  tsConfig: 'src/tsconfig.spec.json',
+                  karmaConfig: 'src/karma.conf.js',
+                  styles: ['src/styles.css'],
                   scripts: [],
-                  assets: ["src/favicon.png", "src/assets"],
+                  assets: ['src/favicon.png', 'src/assets'],
                 },
               },
               lint: {
-                builder: "@angular-devkit/build-angular:tslint",
+                builder: '@angular-devkit/build-angular:tslint',
                 options: {
-                  tsConfig: ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
-                  exclude: ["**/node_modules/**"],
+                  tsConfig: ['src/tsconfig.app.json', 'src/tsconfig.spec.json'],
+                  exclude: ['**/node_modules/**'],
                 },
               },
             },
           },
-          "codesandbox-e2e": {
-            root: "e2e/",
-            projectType: "application",
+          'codesandbox-e2e': {
+            root: 'e2e/',
+            projectType: 'application',
             architect: {
               e2e: {
-                builder: "@angular-devkit/build-angular:protractor",
+                builder: '@angular-devkit/build-angular:protractor',
                 options: {
-                  protractorConfig: "e2e/protractor.conf.js",
-                  devServerTarget: "codesandbox:serve",
+                  protractorConfig: 'e2e/protractor.conf.js',
+                  devServerTarget: 'codesandbox:serve',
                 },
                 configurations: {
                   production: {
-                    devServerTarget: "codesandbox:serve:production",
+                    devServerTarget: 'codesandbox:serve:production',
                   },
                 },
               },
               lint: {
-                builder: "@angular-devkit/build-angular:tslint",
+                builder: '@angular-devkit/build-angular:tslint',
                 options: {
-                  tsConfig: "e2e/tsconfig.e2e.json",
-                  exclude: ["**/node_modules/**"],
+                  tsConfig: 'e2e/tsconfig.e2e.json',
+                  exclude: ['**/node_modules/**'],
                 },
               },
             },
           },
         },
-        defaultProject: "codesandbox",
+        defaultProject: 'codesandbox',
       },
       null,
       2
     ),
   schema:
-    "https://raw.githubusercontent.com/angular/angular-cli/master/packages/angular/cli/lib/config/schema.json",
+    'https://raw.githubusercontent.com/angular/angular-cli/master/packages/angular/cli/lib/config/schema.json',
 };
 exports.default = config;

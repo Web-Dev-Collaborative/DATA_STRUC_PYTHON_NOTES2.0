@@ -1,55 +1,49 @@
 # 🎇Contributing Guidelines
 
-This documentation contains a set of guidelines to help you during the contribution process. 
+This documentation contains a set of guidelines to help you during the contribution process.
 
-I'm happy to welcome all the contributions from anyone willing to add new scripts to this repository. Thank you for helping out and remember,
-**no contribution is too small.**
-
+I'm happy to welcome all the contributions from anyone willing to add new scripts to this repository. Thank you for helping out and remember, **no contribution is too small.**
 
 ## 💻Before Contributing
 
 Welcome to [prathimacode-hub/PyAlgo-Tree](https://github.com/prathimacode-hub/PyAlgo-Tree/). Before sending your pull requests, make sure that you **read the whole guidelines**. If you have any doubt on the contributing guide, please feel free to reach out.
 
-
 ## 🙌Contribution
 
 Any contribution is accepted, from fixing grammatical mistakes to contributing algorithm scripts. Please read this section if you are contributing your work.
-
 
 ## 🔖Steps to Contribute
 
 Following are the steps to guide you:
 
-* Step 1: Fork the repo and Go to your Git terminal and  clone it on your machine.
-* Step 2: Add a upstream link to main branch in your cloned repo
-    ```
-    git remote add upstream https://github.com/prathimacode-hub/PyAlgo-Tree.git
-    ```
-* Step 3: Keep your cloned repo upto date by pulling from upstream (this will also avoid any merge conflicts while committing new changes)
-    ```
-    git pull upstream main https://github.com/prathimacode-hub/PyAlgo-Tree.git
-    ```
-* Step 4: Create your feature branch (This is a necessary step, so don't skip it)
-    ```
-    git checkout -b <feature-name>
-    ```
-* Step 5: Commit all the changes (Write commit message as "Small Message")
-    ```
-    git commit -m "Write a meaningfull but small commit message"
-    ```
-* Step 6: Push the changes for review
-    ```
-    git push origin <branch-name>
-    ```
-* Step 7: Create a PR on Github. (Don't just hit the create a pull request button, you must write a PR message to clarify why and what are you contributing)
-
+- Step 1: Fork the repo and Go to your Git terminal and clone it on your machine.
+- Step 2: Add a upstream link to main branch in your cloned repo
+  ```
+  git remote add upstream https://github.com/prathimacode-hub/PyAlgo-Tree.git
+  ```
+- Step 3: Keep your cloned repo upto date by pulling from upstream (this will also avoid any merge conflicts while committing new changes)
+  ```
+  git pull upstream main https://github.com/prathimacode-hub/PyAlgo-Tree.git
+  ```
+- Step 4: Create your feature branch (This is a necessary step, so don't skip it)
+  ```
+  git checkout -b <feature-name>
+  ```
+- Step 5: Commit all the changes (Write commit message as "Small Message")
+  ```
+  git commit -m "Write a meaningfull but small commit message"
+  ```
+- Step 6: Push the changes for review
+  ```
+  git push origin <branch-name>
+  ```
+- Step 7: Create a PR on Github. (Don't just hit the create a pull request button, you must write a PR message to clarify why and what are you contributing)
 
 ## 🔨Note:
 
 > - Do not edit/delete someone else's code in this repository. You can only insert new files/folder in this repository.
 
 > - Give a meaningful name to whatever file or folder you are adding, for e.g., if you have written a script of Merge Sort on Sorting, then merge_sort.py is one example of valid name.
-
 
 ## 💡What should I keep in mind while contributing?
 
@@ -58,11 +52,10 @@ Following are the steps to guide you:
 We want your work to be readable by others; therefore, we encourage you to note the following:
 
 - Follow PEP8 guidelines. Read more about it <a href="https://pep8.org/"> here. </a>
-- Please write in Python 3.7+.  __print()__ is a function in Python 3 so __print "Hello"__ will _not_ work but __print("Hello")__ will.
-- Please focus hard on naming of functions, classes, and variables.  Help your reader by using __descriptive names__ that can help you to remove redundant comments.
+- Please write in Python 3.7+. **print()** is a function in Python 3 so **print "Hello"** will _not_ work but **print("Hello")** will.
+- Please focus hard on naming of functions, classes, and variables. Help your reader by using **descriptive names** that can help you to remove redundant comments.
   - Please follow the [Python Naming Conventions](https://pep8.org/#prescriptive-naming-conventions) so variable_names and function_names should be lower_case, CONSTANTS in UPPERCASE, ClassNames should be CamelCase, etc.
-  - Expand acronyms because __gcf()__ is hard to understand but __greatest_common_factor()__ is not. 
-
+  - Expand acronyms because **gcf()** is hard to understand but **greatest_common_factor()** is not.
 
 ## 🔑Guidelines
 
@@ -86,7 +79,6 @@ We want your work to be readable by others; therefore, we encourage you to note 
 18. Make sure your solution to any issue is better in terms of performance and other parameters in comparison to the previous work.
 19. We all are here to learn. You are allowed to make mistakes. That's how you learn, right!.
 
-
 ### 🧲Pull Requests Review Criteria
 
 1. Please fill the **[PR Template](https://github.com/prathimacode-hub/PyAlgo-Tree/blob/main/.github/pullrequest_template.md)** properly while making a Pull Request.
@@ -96,42 +88,43 @@ We want your work to be readable by others; therefore, we encourage you to note 
 5. Follow the proper [style guides](https://google.github.io/styleguide/) for your work.
 6. For any queries or discussions, please feel free to drop a message.
 
-
 ### 📍Other points to remember while submitting your work:
 
 We want your work to be readable by others; therefore, we encourage you to note the following:
 
 - Create a folder with a meaningful repository name (If Merge Sort is submitted for example, it should go into 'Sorting' folder and the File Name should be as "merge_sort.py")
-- File extension for code should be `.py`. 
+- File extension for code should be `.py`.
 - Strictly use snake_case (underscore_separated) in your file_name, as it will be easy to parse in future using scripts.
-- Please avoid creating new directories if at all possible. Try to fit your work into the existing directory structure you have created for your project. If you want to,  please contact before doing so.
+- Please avoid creating new directories if at all possible. Try to fit your work into the existing directory structure you have created for your project. If you want to, please contact before doing so.
 - The README of the scrip contributing should be concise and clear about what the project is about, what it does and test cases. These should be added up in the script with comments.
 - It should be documented briefly enough to let readers understand.
 - If you have modified/added code work, make sure the script compiles before submitting.
 - If you have modified/added documentation work, ensure your language is concise and contains no grammar errors.
 - Do not update the [README.md](https://github.com/prathimacode-hub/PyAlgo/blob/main/README.md) and [CONTRIBUTING_GUIDELINES.md](https://github.com/prathimacode-hub/PyAlgo/blob/main/CONTRIBUTING_GUIDELINES.md).
 
-
 ## 📖Resources
-1. Markdown : Markdown is a lightweight markup language like HTML, with plain text formatting syntax. 
-  * [Markdown Cheat-Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+1. Markdown : Markdown is a lightweight markup language like HTML, with plain text formatting syntax.
+
+- [Markdown Cheat-Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 2. Git : Git is a distributed version-control system for tracking changes in source code during software development. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files.
-  * [Videos to get started](https://www.youtube.com/watch?v=xAAmje1H9YM&list=PLeo1K3hjS3usJuxZZUBdjAcilgfQHkRzW)
-  * [Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 
+- [Videos to get started](https://www.youtube.com/watch?v=xAAmje1H9YM&list=PLeo1K3hjS3usJuxZZUBdjAcilgfQHkRzW)
+- [Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 
 ## 🤔Need more help?
+
 You can refer to the following articles on basics of Git and Github and also contact me, in case you are stuck:
+
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 - [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)
 - [How to create a Pull Request](https://opensource.com/article/19/7/create-pull-request-github)
 - [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
 - [Learn GitHub from Scratch](https://lab.github.com/githubtraining/introduction-to-github)
 
-
 ## 😇Tip from me
-It always takes time to understand and learn. So, do not worry at all. You can do this**!💪
 
+It always takes time to understand and learn. So, do not worry at all. You can do this\*\*!💪
 
 🎉 🎊 😃 Happy Contributing 😃 🎊 🎉

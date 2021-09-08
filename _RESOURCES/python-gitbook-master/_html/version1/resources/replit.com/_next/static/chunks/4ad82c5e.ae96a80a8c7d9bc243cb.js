@@ -2,51 +2,51 @@
   [16],
   {
     AtEE: function (t, e, i) {
-      "use strict";
-      i.d(e, "a", function () {
+      'use strict';
+      i.d(e, 'a', function () {
         return ot;
       }),
-        i.d(e, "b", function () {
+        i.d(e, 'b', function () {
           return rt;
         }),
-        i.d(e, "c", function () {
+        i.d(e, 'c', function () {
           return Kt;
         }),
-        i.d(e, "d", function () {
+        i.d(e, 'd', function () {
           return Si;
         }),
-        i.d(e, "e", function () {
+        i.d(e, 'e', function () {
           return Ct;
         }),
-        i.d(e, "f", function () {
+        i.d(e, 'f', function () {
           return Et;
         }),
-        i.d(e, "g", function () {
+        i.d(e, 'g', function () {
           return nt;
         }),
-        i.d(e, "h", function () {
+        i.d(e, 'h', function () {
           return Fi;
         }),
-        i.d(e, "i", function () {
+        i.d(e, 'i', function () {
           return os;
         }),
-        i.d(e, "j", function () {
+        i.d(e, 'j', function () {
           return es;
         }),
-        i.d(e, "k", function () {
+        i.d(e, 'k', function () {
           return Ri;
         }),
-        i.d(e, "l", function () {
+        i.d(e, 'l', function () {
           return Mt;
         }),
-        i.d(e, "m", function () {
+        i.d(e, 'm', function () {
           return Ni;
         });
-      var s = i("4eob"),
-        n = i("uZp5"),
-        o = i("rknV"),
-        r = i("wG49"),
-        h = i("nqdA");
+      var s = i('4eob'),
+        n = i('uZp5'),
+        o = i('rknV'),
+        r = i('wG49'),
+        h = i('nqdA');
 
       function l(t) {
         return t.getSelection ? t.getSelection() : document.getSelection();
@@ -85,7 +85,7 @@
         for (;;) {
           if (t == i && e == s) return !0;
           if (e == (n < 0 ? 0 : p(t))) {
-            if ("DIV" == t.nodeName) return !1;
+            if ('DIV' == t.nodeName) return !1;
             let i = t.parentNode;
             if (!i || 1 != i.nodeType) return !1;
             (e = f(t) + (n < 0 ? 0 : 1)), (t = i);
@@ -93,7 +93,7 @@
             if (1 != t.nodeType) return !1;
             if (
               1 == (t = t.childNodes[e + (n < 0 ? -1 : 0)]).nodeType &&
-              "false" == t.contentEditable
+              'false' == t.contentEditable
             )
               return !1;
             e = n < 0 ? p(t) : 0;
@@ -204,9 +204,9 @@
             which: i,
             cancelable: !0,
           },
-          n = new KeyboardEvent("keydown", s);
+          n = new KeyboardEvent('keydown', s);
         (n.synthetic = !0), t.dispatchEvent(n);
-        let o = new KeyboardEvent("keyup", s);
+        let o = new KeyboardEvent('keyup', s);
         return (
           (o.synthetic = !0),
           t.dispatchEvent(o),
@@ -218,10 +218,10 @@
       function D() {
         if (null == k) {
           k = !1;
-          let e = document.createElement("div");
+          let e = document.createElement('div');
           try {
-            (e.contentEditable = "plaintext-only"),
-              (k = "plaintext-only" == e.contentEditable);
+            (e.contentEditable = 'plaintext-only'),
+              (k = 'plaintext-only' == e.contentEditable);
           } catch (t) {}
         }
         return k;
@@ -244,7 +244,7 @@
         }
         get editorView() {
           if (!this.parent)
-            throw new Error("Accessing view in orphan content view");
+            throw new Error('Accessing view in orphan content view');
           return this.parent.editorView;
         }
         get overrideDOMText() {
@@ -262,7 +262,7 @@
             if (i == t) return e;
             e += i.length + i.breakAfter;
           }
-          throw new RangeError("Invalid child in posBefore");
+          throw new RangeError('Invalid child in posBefore');
         }
         posAfter(t) {
           return this.posBefore(t) + t.length;
@@ -398,15 +398,15 @@
           return this.childCursor().findPos(t, e);
         }
         toString() {
-          let t = this.constructor.name.replace("View", "");
+          let t = this.constructor.name.replace('View', '');
           return (
             t +
             (this.children.length
-              ? "(" + this.children.join() + ")"
+              ? '(' + this.children.join() + ')'
               : this.length
-              ? "[" + ("Text" == t ? this.text : this.length) + "]"
-              : "") +
-            (this.breakAfter ? "#" : "")
+              ? '[' + ('Text' == t ? this.text : this.length) + ']'
+              : '') +
+            (this.breakAfter ? '#' : '')
           );
         }
         static get(t) {
@@ -443,13 +443,13 @@
         }
       }
       let [B, N] =
-        "undefined" != typeof navigator
+        'undefined' != typeof navigator
           ? [navigator, document]
           : [
               {
-                userAgent: "",
-                vendor: "",
-                platform: "",
+                userAgent: '',
+                vendor: '',
+                platform: '',
               },
               {
                 documentElement: {
@@ -463,7 +463,7 @@
         W = !!(H || P || V),
         F = !W && /gecko\/(\d+)/i.test(B.userAgent),
         z = !W && /Chrome\/(\d+)/.exec(B.userAgent),
-        q = "webkitFontSmoothing" in N.documentElement.style,
+        q = 'webkitFontSmoothing' in N.documentElement.style,
         I = !W && /Apple Computer/.test(B.vendor);
       var j = {
         mac: /Mac/.test(B.platform),
@@ -484,8 +484,8 @@
           : 0,
         tabSize:
           null != N.documentElement.style.tabSize
-            ? "tab-size"
-            : "-moz-tab-size",
+            ? 'tab-size'
+            : '-moz-tab-size',
       };
       const K = [];
       class G extends T {
@@ -521,7 +521,7 @@
             (!i ||
               (i instanceof _ && !(this.length - (e - t) + i.length > 256))) &&
             ((this.text =
-              this.text.slice(0, t) + (i ? i.text : "") + this.text.slice(e)),
+              this.text.slice(0, t) + (i ? i.text : '') + this.text.slice(e)),
             this.markDirty(),
             !0)
           );
@@ -642,7 +642,7 @@
         sync() {
           (this.dom && this.widget.updateDOM(this.dom)) ||
             (this.setDOM(this.widget.toDOM(this.editorView)),
-            (this.dom.contentEditable = "false"));
+            (this.dom.contentEditable = 'false'));
         }
         getSide() {
           return this.side;
@@ -846,10 +846,10 @@
 
       function et(t, e) {
         for (let i in t)
-          "class" == i && e.class
-            ? (e.class += " " + t.class)
-            : "style" == i && e.style
-            ? (e.style += ";" + t.style)
+          'class' == i && e.class
+            ? (e.class += ' ' + t.class)
+            : 'style' == i && e.style
+            ? (e.style += ';' + t.style)
             : (e[i] = t[i]);
         return e;
       }
@@ -890,10 +890,10 @@
       }
       var ot = (function (t) {
         return (
-          (t[(t.Text = 0)] = "Text"),
-          (t[(t.WidgetBefore = 1)] = "WidgetBefore"),
-          (t[(t.WidgetAfter = 2)] = "WidgetAfter"),
-          (t[(t.WidgetRange = 3)] = "WidgetRange"),
+          (t[(t.Text = 0)] = 'Text'),
+          (t[(t.WidgetBefore = 1)] = 'WidgetBefore'),
+          (t[(t.WidgetAfter = 2)] = 'WidgetAfter'),
+          (t[(t.WidgetRange = 3)] = 'WidgetRange'),
           t
         );
       })(ot || (ot = {}));
@@ -945,8 +945,8 @@
         constructor(t) {
           let { start: e, end: i } = ct(t);
           super(1e8 * (e ? -1 : 1), 1e8 * (i ? 1 : -1), null, t),
-            (this.tagName = t.tagName || "span"),
-            (this.class = t.class || ""),
+            (this.tagName = t.tagName || 'span'),
+            (this.class = t.class || ''),
             (this.attrs = t.attributes || null);
         }
         eq(t) {
@@ -959,7 +959,7 @@
           );
         }
         range(t, e = t) {
-          if (t >= e) throw new RangeError("Mark decorations may not be empty");
+          if (t >= e) throw new RangeError('Mark decorations may not be empty');
           return super.range(t, e);
         }
       }
@@ -973,7 +973,7 @@
         }
         range(t, e = t) {
           if (e != t)
-            throw new RangeError("Line decoration ranges must be zero-length");
+            throw new RangeError('Line decoration ranges must be zero-length');
           return super.range(t, e);
         }
       }
@@ -1018,10 +1018,10 @@
             this.isReplace &&
             (t > e || (t == e && this.startSide > 0 && this.endSide < 0))
           )
-            throw new RangeError("Invalid range for replacement decoration");
+            throw new RangeError('Invalid range for replacement decoration');
           if (!this.isReplace && e != t)
             throw new RangeError(
-              "Widget decorations can only have zero-length ranges"
+              'Widget decorations can only have zero-length ranges'
             );
           return super.range(t, e);
         }
@@ -1105,23 +1105,23 @@
         }
         sync(t) {
           (!this.dom || 4 & this.dirty) &&
-            (this.setDOM(document.createElement("div")),
-            (this.dom.className = "cm-line"),
+            (this.setDOM(document.createElement('div')),
+            (this.dom.className = 'cm-line'),
             (this.prevAttrs = this.attrs ? null : void 0)),
             void 0 !== this.prevAttrs &&
               (st(this.dom, this.prevAttrs, this.attrs),
-              this.dom.classList.add("cm-line"),
+              this.dom.classList.add('cm-line'),
               (this.prevAttrs = void 0)),
             super.sync(t);
           let e = this.dom.lastChild;
           for (; e && T.get(e) instanceof $; ) e = e.lastChild;
           if (
             !e ||
-            ("BR" != e.nodeName &&
+            ('BR' != e.nodeName &&
               T.get(e) instanceof X &&
               (!j.ios || !this.children.some((t) => t instanceof _)))
           ) {
-            let t = document.createElement("BR");
+            let t = document.createElement('BR');
             (t.cmIgnore = !0), this.dom.appendChild(t);
           }
         }
@@ -1195,7 +1195,7 @@
         sync() {
           (this.dom && this.widget.updateDOM(this.dom)) ||
             (this.setDOM(this.widget.toDOM(this.editorView)),
-            (this.dom.contentEditable = "false"));
+            (this.dom.contentEditable = 'false'));
         }
         get overrideDOMText() {
           return this.parent
@@ -1234,7 +1234,7 @@
             (this.breakAtStart = 0),
             (this.openStart = -1),
             (this.openEnd = -1),
-            (this.text = ""),
+            (this.text = ''),
             (this.textOff = 0),
             (this.cursor = t.iter()),
             (this.skip = e);
@@ -1275,7 +1275,7 @@
               } = this.cursor.next(this.skip);
               if (((this.skip = 0), s))
                 throw new Error(
-                  "Ran out of text content when drawing inline views"
+                  'Ran out of text content when drawing inline views'
                 );
               if (i) {
                 this.posCovered() || this.getLine(),
@@ -1312,10 +1312,10 @@
             if (i.block) {
               let { type: t } = i;
               t != ot.WidgetAfter || this.posCovered() || this.getLine(),
-                this.addWidget(new gt(i.widget || new mt("div"), o, t));
+                this.addWidget(new gt(i.widget || new mt('div'), o, t));
             } else {
               let t = this.wrapMarks(
-                X.create(i.widget || new mt("span"), o, i.startSide),
+                X.create(i.widget || new mt('span'), o, i.startSide),
                 s
               );
               this.getLine().append(t, n);
@@ -1327,7 +1327,7 @@
             (this.textOff + o <= this.text.length
               ? (this.textOff += o)
               : ((this.skip += o - (this.text.length - this.textOff)),
-                (this.text = ""),
+                (this.text = ''),
                 (this.textOff = 0)),
             (this.pos = e)),
             this.openStart < 0 && (this.openStart = n);
@@ -1371,7 +1371,7 @@
           : window.onerror
           ? window.onerror(String(e), i, void 0, void 0, e)
           : i
-          ? console.error(i + ":", e)
+          ? console.error(i + ':', e)
           : console.error(e);
       }
       const kt = s.h.define({
@@ -1440,7 +1440,7 @@
                 this.value.update(t);
               } catch (e) {
                 if (
-                  (Mt(t.state, e, "CodeMirror plugin crashed"),
+                  (Mt(t.state, e, 'CodeMirror plugin crashed'),
                   this.value.destroy)
                 )
                   try {
@@ -1453,7 +1453,7 @@
             try {
               this.value = this.spec.create(t);
             } catch (e) {
-              return Mt(t.state, e, "CodeMirror plugin crashed"), Lt.dummy;
+              return Mt(t.state, e, 'CodeMirror plugin crashed'), Lt.dummy;
             }
           return this;
         }
@@ -1463,7 +1463,7 @@
             try {
               this.value.destroy();
             } catch (i) {
-              Mt(t.state, i, "CodeMirror plugin crashed");
+              Mt(t.state, i, 'CodeMirror plugin crashed');
             }
         }
       }
@@ -1662,7 +1662,7 @@
               return r.a.compare(t, e, i, s), s.changes;
             })(s, n, t.changes);
           e = Pt.extendWithRanges(e, o);
-          let h = t.transactions.some((t) => t.isUserEvent("select.pointer"));
+          let h = t.transactions.some((t) => t.isUserEvent('select.pointer'));
           return 0 == this.dirty &&
             0 == e.length &&
             !(12 & t.flags) &&
@@ -1675,10 +1675,10 @@
           this.updateChildren(t, e, i);
           let { observer: o } = this.view;
           o.ignore(() => {
-            (this.dom.style.height = this.view.viewState.domHeight + "px"),
+            (this.dom.style.height = this.view.viewState.domHeight + 'px'),
               (this.dom.style.minWidth = this.minWidth
-                ? this.minWidth + "px"
-                : "");
+                ? this.minWidth + 'px'
+                : '');
             let t =
               j.chrome || j.ios
                 ? {
@@ -1692,7 +1692,7 @@
                 (t.written || o.selectionRange.focusNode != t.node) &&
                 (s = !0),
               this.updateSelection(s, n),
-              (this.dom.style.height = "");
+              (this.dom.style.height = '');
           });
         }
         updateChildren(t, e, i) {
@@ -1767,11 +1767,11 @@
             1 == (o = s).node.nodeType &&
             o.node.firstChild &&
             (0 == o.offset ||
-              "false" == o.node.childNodes[o.offset - 1].contentEditable) &&
+              'false' == o.node.childNodes[o.offset - 1].contentEditable) &&
             (o.offset == o.node.childNodes.length ||
-              "false" == o.node.childNodes[o.offset].contentEditable)
+              'false' == o.node.childNodes[o.offset].contentEditable)
           ) {
-            let e = document.createTextNode("");
+            let e = document.createTextNode('');
             this.view.observer.ignore(() =>
               s.node.insertBefore(e, s.node.childNodes[s.offset] || null)
             ),
@@ -1793,11 +1793,11 @@
                     (o = s.offset),
                     1 != e.nodeType
                       ? 0
-                      : (o && "false" == e.childNodes[o - 1].contentEditable
+                      : (o && 'false' == e.childNodes[o - 1].contentEditable
                           ? 1
                           : 0) |
                         (o < e.childNodes.length &&
-                        "false" == e.childNodes[o].contentEditable
+                        'false' == e.childNodes[o].contentEditable
                           ? 2
                           : 0));
                   if (t && 3 != t) {
@@ -1844,9 +1844,9 @@
           let r = this.domAtPos(t.head + t.assoc);
           e.collapse(r.node, r.offset),
             e.modify(
-              "move",
-              t.assoc < 0 ? "forward" : "backward",
-              "lineboundary"
+              'move',
+              t.assoc < 0 ? 'forward' : 'backward',
+              'lineboundary'
             );
         }
         mayControlSelection() {
@@ -1866,7 +1866,7 @@
           let i = this.nearest(t);
           if (!i)
             throw new RangeError(
-              "Trying to find position for a DOM position outside of the document"
+              'Trying to find position for a DOM position outside of the document'
             );
           return i.localPosFromDOM(t, e) + i.posAtStart;
         }
@@ -1925,10 +1925,10 @@
             }
           let t,
             e,
-            i = document.createElement("div");
+            i = document.createElement('div');
           return (
-            (i.className = "cm-line"),
-            (i.textContent = "abc def ghi jkl mno pqr stu"),
+            (i.className = 'cm-line'),
+            (i.textContent = 'abc def ghi jkl mno pqr stu'),
             this.view.observer.ignore(() => {
               this.dom.appendChild(i);
               let s = d(i.firstChild)[0];
@@ -2066,14 +2066,14 @@
           super(), (this.height = t);
         }
         toDOM() {
-          let t = document.createElement("div");
+          let t = document.createElement('div');
           return this.updateDOM(t), t;
         }
         eq(t) {
           return t.height == this.height;
         }
         updateDOM(t) {
-          return (t.style.height = this.height + "px"), !0;
+          return (t.style.height = this.height + 'px'), !0;
         }
         get estimatedHeight() {
           return this.height;
@@ -2121,7 +2121,7 @@
         }
       }
       var Kt = (function (t) {
-        return (t[(t.LTR = 0)] = "LTR"), (t[(t.RTL = 1)] = "RTL"), t;
+        return (t[(t.LTR = 0)] = 'LTR'), (t[(t.RTL = 1)] = 'RTL'), t;
       })(Kt || (Kt = {}));
       const Gt = Kt.LTR,
         _t = Kt.RTL;
@@ -2132,14 +2132,14 @@
         return e;
       }
       const Ut = $t(
-          "88888888888888888888888888888888888666888888787833333333337888888000000000000000000000000008888880000000000000000000000000088888888888888888888888888888888888887866668888088888663380888308888800000000000000000000000800000000000000000000000000000008"
+          '88888888888888888888888888888888888666888888787833333333337888888000000000000000000000000008888880000000000000000000000000088888888888888888888888888888888888887866668888088888663380888308888800000000000000000000000800000000000000000000000000000008'
         ),
         Xt = $t(
-          "4444448826627288999999999992222222222222222222222222222222222222222222222229999999999999999999994444444444644222822222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222999999949999999229989999223333333333"
+          '4444448826627288999999999992222222222222222222222222222222222222222222222229999999999999999999994444444444644222822222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222999999949999999229989999223333333333'
         ),
         Yt = Object.create(null),
         Jt = [];
-      for (let ls of ["()", "[]", "{}"]) {
+      for (let ls of ['()', '[]', '{}']) {
         let t = ls.charCodeAt(0),
           e = ls.charCodeAt(1);
         (Yt[t] = e), (Yt[e] = -t);
@@ -2170,7 +2170,7 @@
                 (n = o);
             }
           }
-          if (n < 0) throw new RangeError("Index out of range");
+          if (n < 0) throw new RangeError('Index out of range');
           return n;
         }
       }
@@ -2280,7 +2280,7 @@
       function ie(t) {
         return [new Zt(0, t, 0)];
       }
-      let se = "";
+      let se = '';
 
       function ne(t, e, i, o, r) {
         var h;
@@ -2387,7 +2387,7 @@
         let u = Math.max(n.left, Math.min(n.right, e));
         return 3 == s.nodeType
           ? de(s, u, i)
-          : o || "true" != s.contentEditable
+          : o || 'true' != s.contentEditable
           ? {
               node: t,
               offset:
@@ -2479,7 +2479,7 @@
                   if (3 != t.nodeType || e != (s = t.nodeValue.length))
                     return !1;
                   for (let n = t.nextSibling; n; n = n.nextSibling)
-                    if (1 != n.nodeType || "BR" != n.nodeName) return !1;
+                    if (1 != n.nodeType || 'BR' != n.nodeName) return !1;
                   return A(t, s - 1, s).getBoundingClientRect().left > i;
                 })(a, u, e) &&
                 (a = void 0));
@@ -2510,7 +2510,7 @@
             a = se;
           if (!e) {
             if (o.number == (i ? t.state.doc.lines : 1)) return h;
-            (a = "\n"),
+            (a = '\n'),
               (o = t.state.doc.line(o.number + (i ? 1 : -1))),
               (r = t.bidiSpans(o)),
               (e = s.f.cursor(i ? o.from : o.to));
@@ -2559,7 +2559,7 @@
           for (let e in ye) {
             let i = ye[e];
             t.contentDOM.addEventListener(e, (s) => {
-              ("keydown" == e && this.keydown(t, s)) ||
+              ('keydown' == e && this.keydown(t, s)) ||
                 (be(t, s) &&
                   !this.ignoreDuringComposition(s) &&
                   (this.mustFlushObserver(s) && t.observer.forceFlush(),
@@ -2571,7 +2571,7 @@
           }
           (this.notifiedFocused = t.hasFocus),
             this.ensureHandlers(t),
-            j.safari && t.contentDOM.addEventListener("input", () => null);
+            j.safari && t.contentDOM.addEventListener('input', () => null);
         }
         setSelectionOrigin(t) {
           (this.lastSelectionOrigin = t), (this.lastSelectionTime = Date.now());
@@ -2581,7 +2581,7 @@
           for (let i of e)
             for (let e in i.handlers)
               this.registeredEvents.indexOf(e) < 0 &&
-                "scroll" != e &&
+                'scroll' != e &&
                 (this.registeredEvents.push(e),
                 t.contentDOM.addEventListener(e, (i) => {
                   be(t, i) &&
@@ -2602,7 +2602,7 @@
               if (r || i.defaultPrevented)
                 return (
                   j.android &&
-                    "keydown" == t &&
+                    'keydown' == t &&
                     13 == i.keyCode &&
                     e.observer.flushSoon(),
                   !0
@@ -2635,7 +2635,7 @@
                 e.metaKey ||
                 e.synthetic
               ) &&
-                ((this.pendingIOSKey = 13 == e.keyCode ? "enter" : "backspace"),
+                ((this.pendingIOSKey = 13 == e.keyCode ? 'enter' : 'backspace'),
                 setTimeout(() => this.flushIOSKey(t), 250),
                 !0))
           );
@@ -2646,7 +2646,7 @@
             i = this.pendingIOSKey;
           return (
             (this.pendingIOSKey = null),
-            "enter" == i ? M(e, "Enter", 13) : M(e, "Backspace", 8)
+            'enter' == i ? M(e, 'Enter', 13) : M(e, 'Backspace', 8)
           );
         }
         ignoreDuringComposition(t) {
@@ -2668,8 +2668,8 @@
         }
         mustFlushObserver(t) {
           return (
-            ("keydown" == t.type && 229 != t.keyCode) ||
-            ("compositionend" == t.type && !j.ios)
+            ('keydown' == t.type && 229 != t.keyCode) ||
+            ('compositionend' == t.type && !j.ios)
           );
         }
         startMouseSelection(t, e, i) {
@@ -2693,8 +2693,8 @@
             (this.style = n),
             (this.lastEvent = i);
           let o = e.contentDOM.ownerDocument;
-          o.addEventListener("mousemove", (this.move = this.move.bind(this))),
-            o.addEventListener("mouseup", (this.up = this.up.bind(this))),
+          o.addEventListener('mousemove', (this.move = this.move.bind(this))),
+            o.addEventListener('mouseup', (this.up = this.up.bind(this))),
             (this.extend = i.shiftKey),
             (this.multiple =
               e.state.facet(s.g.allowMultipleSelections) &&
@@ -2738,8 +2738,8 @@
         }
         destroy() {
           let t = this.view.contentDOM.ownerDocument;
-          t.removeEventListener("mousemove", this.move),
-            t.removeEventListener("mouseup", this.up),
+          t.removeEventListener('mousemove', this.move),
+            t.removeEventListener('mouseup', this.up),
             (this.inputState.mouseSelection = null);
         }
         select(t) {
@@ -2748,7 +2748,7 @@
             e.main.assoc == this.view.state.selection.main.assoc) ||
             this.view.dispatch({
               selection: e,
-              userEvent: "select.pointer",
+              userEvent: 'select.pointer',
               scrollIntoView: !0,
             });
         }
@@ -2815,12 +2815,12 @@
               })
             : n.replaceSelection(r);
         t.dispatch(i, {
-          userEvent: "input.paste",
+          userEvent: 'input.paste',
           scrollIntoView: !0,
         });
       }
       ye.keydown = (t, e) => {
-        t.inputState.setSelectionOrigin("select");
+        t.inputState.setSelectionOrigin('select');
       };
       let Ae = 0;
 
@@ -2860,10 +2860,10 @@
         }
       }
       (ye.touchstart = (t, e) => {
-        (Ae = Date.now()), t.inputState.setSelectionOrigin("select.pointer");
+        (Ae = Date.now()), t.inputState.setSelectionOrigin('select.pointer');
       }),
         (ye.touchmove = (t) => {
-          t.inputState.setSelectionOrigin("select.pointer");
+          t.inputState.setSelectionOrigin('select.pointer');
         }),
         (ye.mousedown = (t, e) => {
           if ((t.observer.flush(), Ae > Date.now() - 2e3)) return;
@@ -2988,7 +2988,7 @@
               anchor: l.mapPos(n, -1),
               head: l.mapPos(n, 1),
             },
-            userEvent: r ? "move.drop" : "input.drop",
+            userEvent: r ? 'move.drop' : 'input.drop',
           });
       }
       (ye.dragstart = (t, e) => {
@@ -2998,8 +2998,8 @@
           { mouseSelection: s } = t.inputState;
         s && (s.dragging = i),
           e.dataTransfer &&
-            (e.dataTransfer.setData("Text", t.state.sliceDoc(i.from, i.to)),
-            (e.dataTransfer.effectAllowed = "copyMove"));
+            (e.dataTransfer.setData('Text', t.state.sliceDoc(i.from, i.to)),
+            (e.dataTransfer.effectAllowed = 'copyMove'));
       }),
         (ye.drop = (t, e) => {
           if (!e.dataTransfer || !t.state.facet(kt)) return;
@@ -3026,21 +3026,21 @@
                 }),
                 e.readAsText(i[t]);
             }
-          } else Be(t, e, e.dataTransfer.getData("Text"), !0);
+          } else Be(t, e, e.dataTransfer.getData('Text'), !0);
         }),
         (ye.paste = (t, e) => {
           if (!t.state.facet(kt)) return;
           t.observer.flush();
           let i = Se ? null : e.clipboardData,
-            s = i && i.getData("text/plain");
+            s = i && i.getData('text/plain');
           s
             ? (xe(t, s), e.preventDefault())
             : (function (t) {
                 let e = t.dom.parentNode;
                 if (!e) return;
-                let i = e.appendChild(document.createElement("textarea"));
+                let i = e.appendChild(document.createElement('textarea'));
                 (i.style.cssText =
-                  "position: fixed; left: -10000px; top: 10px"),
+                  'position: fixed; left: -10000px; top: 10px'),
                   i.focus(),
                   setTimeout(() => {
                     t.focus(), i.remove(), xe(t, i.value);
@@ -3095,13 +3095,13 @@
           Ne = n ? i : null;
           let o = Se ? null : e.clipboardData;
           o
-            ? (e.preventDefault(), o.clearData(), o.setData("text/plain", i))
+            ? (e.preventDefault(), o.clearData(), o.setData('text/plain', i))
             : (function (t, e) {
                 let i = t.dom.parentNode;
                 if (!i) return;
-                let s = i.appendChild(document.createElement("textarea"));
+                let s = i.appendChild(document.createElement('textarea'));
                 (s.style.cssText =
-                  "position: fixed; left: -10000px; top: 10px"),
+                  'position: fixed; left: -10000px; top: 10px'),
                   (s.value = e),
                   s.focus(),
                   (s.selectionEnd = e.length),
@@ -3110,12 +3110,12 @@
                     s.remove(), t.focus();
                   }, 50);
               })(t, i),
-            "cut" == e.type &&
+            'cut' == e.type &&
               t.state.facet(kt) &&
               t.dispatch({
                 changes: s,
                 scrollIntoView: !0,
-                userEvent: "delete.cut",
+                userEvent: 'delete.cut',
               });
         }),
         (ye.focus = ye.blur =
@@ -3151,7 +3151,7 @@
         (ye.contextmenu = (t) => {
           t.inputState.lastContextMenu = Date.now();
         });
-      const He = ["pre-wrap", "normal", "pre-line"];
+      const He = ['pre-wrap', 'normal', 'pre-line'];
       class Pe {
         constructor() {
           (this.doc = n.a.empty),
@@ -3260,9 +3260,9 @@
       }
       var ze = (function (t) {
         return (
-          (t[(t.ByPos = 0)] = "ByPos"),
-          (t[(t.ByHeight = 1)] = "ByHeight"),
-          (t[(t.ByPosNoHeight = 2)] = "ByPosNoHeight"),
+          (t[(t.ByPos = 0)] = 'ByPos'),
+          (t[(t.ByHeight = 1)] = 'ByHeight'),
+          (t[(t.ByPosNoHeight = 2)] = 'ByPosNoHeight'),
           t
         );
       })(ze || (ze = {}));
@@ -3411,8 +3411,8 @@
           );
         }
         toString() {
-          return `line(${this.length}${this.collapsed ? -this.collapsed : ""}${
-            this.widgetHeight ? ":" + this.widgetHeight : ""
+          return `line(${this.length}${this.collapsed ? -this.collapsed : ''}${
+            this.widgetHeight ? ':' + this.widgetHeight : ''
           })`;
         }
       }
@@ -3623,7 +3623,7 @@
           );
         }
         toString() {
-          return this.left + (this.break ? " " : "-") + this.right;
+          return this.left + (this.break ? ' ' : '-') + this.right;
         }
       }
 
@@ -3772,13 +3772,13 @@
           return t.size == this.size && t.vertical == this.vertical;
         }
         toDOM() {
-          let t = document.createElement("div");
+          let t = document.createElement('div');
           return (
             this.vertical
-              ? (t.style.height = this.size + "px")
-              : ((t.style.width = this.size + "px"),
-                (t.style.height = "2px"),
-                (t.style.display = "inline-block")),
+              ? (t.style.height = this.size + 'px')
+              : ((t.style.width = this.size + 'px'),
+                (t.style.height = '2px'),
+                (t.style.display = 'inline-block')),
             t
           );
         }
@@ -3887,12 +3887,12 @@
         }
         measure(t, e) {
           let i = t.dom,
-            s = "",
+            s = '',
             n = Kt.LTR;
           if (!e) {
             let t = window.getComputedStyle(i);
             (s = t.whiteSpace),
-              (n = "rtl" == t.direction ? Kt.RTL : Kt.LTR),
+              (n = 'rtl' == t.direction ? Kt.RTL : Kt.LTR),
               (this.paddingTop = parseInt(t.paddingTop) || 0),
               (this.paddingBottom = parseInt(t.paddingBottom) || 0);
           }
@@ -3915,7 +3915,7 @@
                       if (
                         (h.scrollHeight > h.clientHeight ||
                           h.scrollWidth > h.clientWidth) &&
-                        "visible" != t.overflow
+                        'visible' != t.overflow
                       ) {
                         let t = h.getBoundingClientRect();
                         (s = Math.max(s, t.left)),
@@ -3924,7 +3924,7 @@
                           (r = Math.min(r, t.bottom));
                       }
                       h =
-                        "absolute" == t.position || "fixed" == t.position
+                        'absolute' == t.position || 'fixed' == t.position
                           ? h.offsetParent
                           : h.parentNode;
                     } else {
@@ -4359,7 +4359,7 @@
         );
       }
       const oi = s.h.define({
-          combine: (t) => t.join(" "),
+          combine: (t) => t.join(' '),
         }),
         ri = s.h.define({
           combine: (t) => t.indexOf(!0) > -1,
@@ -4368,8 +4368,8 @@
         li = o.a.newName(),
         ai = o.a.newName(),
         ci = {
-          "&light": "." + li,
-          "&dark": "." + ai,
+          '&light': '.' + li,
+          '&dark': '.' + ai,
         };
 
       function di(t, e, i) {
@@ -4377,171 +4377,171 @@
           finish: (e) =>
             /&/.test(e)
               ? e.replace(/&\w*/, (e) => {
-                  if ("&" == e) return t;
+                  if ('&' == e) return t;
                   if (!i || !i[e])
                     throw new RangeError(`Unsupported selector: ${e}`);
                   return i[e];
                 })
-              : t + " " + e,
+              : t + ' ' + e,
         });
       }
       const ui = di(
-          "." + hi,
+          '.' + hi,
           {
-            "&": {
-              position: "relative !important",
-              boxSizing: "border-box",
-              "&.cm-focused": {
-                outline: "1px dotted #212121",
+            '&': {
+              position: 'relative !important',
+              boxSizing: 'border-box',
+              '&.cm-focused': {
+                outline: '1px dotted #212121',
               },
-              display: "flex !important",
-              flexDirection: "column",
+              display: 'flex !important',
+              flexDirection: 'column',
             },
-            ".cm-scroller": {
-              display: "flex !important",
-              alignItems: "flex-start !important",
-              fontFamily: "monospace",
+            '.cm-scroller': {
+              display: 'flex !important',
+              alignItems: 'flex-start !important',
+              fontFamily: 'monospace',
               lineHeight: 1.4,
-              height: "100%",
-              overflowX: "auto",
-              position: "relative",
+              height: '100%',
+              overflowX: 'auto',
+              position: 'relative',
               zIndex: 0,
             },
-            ".cm-content": {
+            '.cm-content': {
               margin: 0,
               flexGrow: 2,
-              minHeight: "100%",
-              display: "block",
-              whiteSpace: "pre",
-              wordWrap: "normal",
-              boxSizing: "border-box",
-              padding: "4px 0",
-              outline: "none",
+              minHeight: '100%',
+              display: 'block',
+              whiteSpace: 'pre',
+              wordWrap: 'normal',
+              boxSizing: 'border-box',
+              padding: '4px 0',
+              outline: 'none',
             },
-            ".cm-lineWrapping": {
-              whiteSpace: "pre-wrap",
-              wordBreak: "break-word",
-              overflowWrap: "anywhere",
+            '.cm-lineWrapping': {
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              overflowWrap: 'anywhere',
             },
-            "&light .cm-content": {
-              caretColor: "black",
+            '&light .cm-content': {
+              caretColor: 'black',
             },
-            "&dark .cm-content": {
-              caretColor: "white",
+            '&dark .cm-content': {
+              caretColor: 'white',
             },
-            ".cm-line": {
-              display: "block",
-              padding: "0 2px 0 4px",
+            '.cm-line': {
+              display: 'block',
+              padding: '0 2px 0 4px',
             },
-            ".cm-selectionLayer": {
+            '.cm-selectionLayer': {
               zIndex: -1,
-              contain: "size style",
+              contain: 'size style',
             },
-            ".cm-selectionBackground": {
-              position: "absolute",
+            '.cm-selectionBackground': {
+              position: 'absolute',
             },
-            "&light .cm-selectionBackground": {
-              background: "#d9d9d9",
+            '&light .cm-selectionBackground': {
+              background: '#d9d9d9',
             },
-            "&dark .cm-selectionBackground": {
-              background: "#222",
+            '&dark .cm-selectionBackground': {
+              background: '#222',
             },
-            "&light.cm-focused .cm-selectionBackground": {
-              background: "#d7d4f0",
+            '&light.cm-focused .cm-selectionBackground': {
+              background: '#d7d4f0',
             },
-            "&dark.cm-focused .cm-selectionBackground": {
-              background: "#233",
+            '&dark.cm-focused .cm-selectionBackground': {
+              background: '#233',
             },
-            ".cm-cursorLayer": {
+            '.cm-cursorLayer': {
               zIndex: 100,
-              contain: "size style",
-              pointerEvents: "none",
+              contain: 'size style',
+              pointerEvents: 'none',
             },
-            "&.cm-focused .cm-cursorLayer": {
-              animation: "steps(1) cm-blink 1.2s infinite",
+            '&.cm-focused .cm-cursorLayer': {
+              animation: 'steps(1) cm-blink 1.2s infinite',
             },
-            "@keyframes cm-blink": {
-              "0%": {},
-              "50%": {
-                visibility: "hidden",
+            '@keyframes cm-blink': {
+              '0%': {},
+              '50%': {
+                visibility: 'hidden',
               },
-              "100%": {},
+              '100%': {},
             },
-            "@keyframes cm-blink2": {
-              "0%": {},
-              "50%": {
-                visibility: "hidden",
+            '@keyframes cm-blink2': {
+              '0%': {},
+              '50%': {
+                visibility: 'hidden',
               },
-              "100%": {},
+              '100%': {},
             },
-            ".cm-cursor": {
-              position: "absolute",
-              borderLeft: "1.2px solid black",
-              marginLeft: "-0.6px",
-              pointerEvents: "none",
-              display: "none",
+            '.cm-cursor': {
+              position: 'absolute',
+              borderLeft: '1.2px solid black',
+              marginLeft: '-0.6px',
+              pointerEvents: 'none',
+              display: 'none',
             },
-            "&dark .cm-cursor": {
-              borderLeftColor: "#444",
+            '&dark .cm-cursor': {
+              borderLeftColor: '#444',
             },
-            "&.cm-focused .cm-cursor": {
-              display: "block",
+            '&.cm-focused .cm-cursor': {
+              display: 'block',
             },
-            "&light .cm-activeLine": {
-              backgroundColor: "#f3f9ff",
+            '&light .cm-activeLine': {
+              backgroundColor: '#f3f9ff',
             },
-            "&dark .cm-activeLine": {
-              backgroundColor: "#223039",
+            '&dark .cm-activeLine': {
+              backgroundColor: '#223039',
             },
-            "&light .cm-specialChar": {
-              color: "red",
+            '&light .cm-specialChar': {
+              color: 'red',
             },
-            "&dark .cm-specialChar": {
-              color: "#f78",
+            '&dark .cm-specialChar': {
+              color: '#f78',
             },
-            ".cm-tab": {
-              display: "inline-block",
-              overflow: "hidden",
-              verticalAlign: "bottom",
+            '.cm-tab': {
+              display: 'inline-block',
+              overflow: 'hidden',
+              verticalAlign: 'bottom',
             },
-            ".cm-placeholder": {
-              color: "#888",
-              display: "inline-block",
+            '.cm-placeholder': {
+              color: '#888',
+              display: 'inline-block',
             },
-            ".cm-button": {
-              verticalAlign: "middle",
-              color: "inherit",
-              fontSize: "70%",
-              padding: ".2em 1em",
-              borderRadius: "3px",
+            '.cm-button': {
+              verticalAlign: 'middle',
+              color: 'inherit',
+              fontSize: '70%',
+              padding: '.2em 1em',
+              borderRadius: '3px',
             },
-            "&light .cm-button": {
-              backgroundImage: "linear-gradient(#eff1f5, #d9d9df)",
-              border: "1px solid #888",
-              "&:active": {
-                backgroundImage: "linear-gradient(#b4b4b4, #d0d3d6)",
-              },
-            },
-            "&dark .cm-button": {
-              backgroundImage: "linear-gradient(#393939, #111)",
-              border: "1px solid #888",
-              "&:active": {
-                backgroundImage: "linear-gradient(#111, #333)",
+            '&light .cm-button': {
+              backgroundImage: 'linear-gradient(#eff1f5, #d9d9df)',
+              border: '1px solid #888',
+              '&:active': {
+                backgroundImage: 'linear-gradient(#b4b4b4, #d0d3d6)',
               },
             },
-            ".cm-textfield": {
-              verticalAlign: "middle",
-              color: "inherit",
-              fontSize: "70%",
-              border: "1px solid silver",
-              padding: ".2em .5em",
+            '&dark .cm-button': {
+              backgroundImage: 'linear-gradient(#393939, #111)',
+              border: '1px solid #888',
+              '&:active': {
+                backgroundImage: 'linear-gradient(#111, #333)',
+              },
             },
-            "&light .cm-textfield": {
-              backgroundColor: "white",
+            '.cm-textfield': {
+              verticalAlign: 'middle',
+              color: 'inherit',
+              fontSize: '70%',
+              border: '1px solid silver',
+              padding: '.2em .5em',
             },
-            "&dark .cm-textfield": {
-              border: "1px solid #555",
-              backgroundColor: "inherit",
+            '&light .cm-textfield': {
+              backgroundColor: 'white',
+            },
+            '&dark .cm-textfield': {
+              border: '1px solid #555',
+              backgroundColor: 'inherit',
             },
           },
           ci
@@ -4576,8 +4576,8 @@
                 ((j.ie && j.ie_version <= 11) || (j.ios && t.composing)) &&
                 e.some(
                   (t) =>
-                    ("childList" == t.type && t.removedNodes.length) ||
-                    ("characterData" == t.type &&
+                    ('childList' == t.type && t.removedNodes.length) ||
+                    ('characterData' == t.type &&
                       t.oldValue.length > t.target.nodeValue.length)
                 )
                   ? this.flushSoon()
@@ -4587,7 +4587,7 @@
               (this.onCharData = (t) => {
                 this.queue.push({
                   target: t.target,
-                  type: "characterData",
+                  type: 'characterData',
                   oldValue: t.prevValue,
                 }),
                   this.flushSoon();
@@ -4595,8 +4595,8 @@
             (this.onSelectionChange = this.onSelectionChange.bind(this)),
             this.start(),
             (this.onScroll = this.onScroll.bind(this)),
-            window.addEventListener("scroll", this.onScroll),
-            "function" == typeof IntersectionObserver &&
+            window.addEventListener('scroll', this.onScroll),
+            'function' == typeof IntersectionObserver &&
               ((this.intersection = new IntersectionObserver((t) => {
                 this.parentCheck < 0 &&
                   (this.parentCheck = setTimeout(
@@ -4606,7 +4606,7 @@
                   t[t.length - 1].intersectionRatio > 0 != this.intersecting &&
                     ((this.intersecting = !this.intersecting),
                     this.intersecting != this.view.inView &&
-                      this.onScrollChanged(document.createEvent("Event")));
+                      this.onScrollChanged(document.createEvent('Event')));
               }, {})),
               this.intersection.observe(this.dom)),
             this.listenForScroll();
@@ -4653,9 +4653,9 @@
                       (e = t.getTargetRanges()[0]);
                   }
                   if (
-                    (t.contentDOM.addEventListener("beforeinput", i, !0),
-                    document.execCommand("indent"),
-                    t.contentDOM.removeEventListener("beforeinput", i, !0),
+                    (t.contentDOM.addEventListener('beforeinput', i, !0),
+                    document.execCommand('indent'),
+                    t.contentDOM.removeEventListener('beforeinput', i, !0),
                     !e)
                   )
                     return null;
@@ -4710,9 +4710,9 @@
             e)
           ) {
             for (let t of this.scrollTargets)
-              t.removeEventListener("scroll", this.onScroll);
+              t.removeEventListener('scroll', this.onScroll);
             for (let t of (this.scrollTargets = e))
-              t.addEventListener("scroll", this.onScroll);
+              t.addEventListener('scroll', this.onScroll);
           }
         }
         ignore(t) {
@@ -4727,12 +4727,12 @@
           this.active ||
             (this.observer.observe(this.dom, fi),
             this.dom.ownerDocument.addEventListener(
-              "selectionchange",
+              'selectionchange',
               this.onSelectionChange
             ),
             gi &&
               this.dom.addEventListener(
-                "DOMCharacterDataModified",
+                'DOMCharacterDataModified',
                 this.onCharData
               ),
             (this.active = !0));
@@ -4742,12 +4742,12 @@
             ((this.active = !1),
             this.observer.disconnect(),
             this.dom.ownerDocument.removeEventListener(
-              "selectionchange",
+              'selectionchange',
               this.onSelectionChange
             ),
             gi &&
               this.dom.removeEventListener(
-                "DOMCharacterDataModified",
+                'DOMCharacterDataModified',
                 this.onCharData
               ));
         }
@@ -4804,9 +4804,9 @@
           let e = this.view.docView.nearest(t.target);
           if (!e || e.ignoreMutation(t)) return null;
           if (
-            (e.markDirty("attributes" == t.type),
-            "attributes" == t.type && (e.dirty |= 4),
-            "childList" == t.type)
+            (e.markDirty('attributes' == t.type),
+            'attributes' == t.type && (e.dirty |= 4),
+            'childList' == t.type)
           ) {
             let i = mi(e, t.previousSibling || t.target.previousSibling, -1),
               s = mi(e, t.nextSibling || t.target.nextSibling, 1);
@@ -4816,7 +4816,7 @@
               typeOver: !1,
             };
           }
-          return "characterData" == t.type
+          return 'characterData' == t.type
             ? {
                 from: e.posAtStart,
                 to: e.posAtEnd,
@@ -4827,8 +4827,8 @@
         destroy() {
           this.stop(), this.intersection && this.intersection.disconnect();
           for (let t of this.scrollTargets)
-            t.removeEventListener("scroll", this.onScroll);
-          window.removeEventListener("scroll", this.onScroll),
+            t.removeEventListener('scroll', this.onScroll);
+          window.removeEventListener('scroll', this.onScroll),
             clearTimeout(this.parentCheck);
         }
       }
@@ -4880,7 +4880,7 @@
           ((8 === t.inputState.lastKeyCode &&
             t.inputState.lastKeyTime > Date.now() - 100) ||
             (j.android && a.text.length < i - e)) &&
-            ((c = l.to), (d = "end"));
+            ((c = l.to), (d = 'end'));
           let u = (function (t, e, i, s) {
             let n = Math.min(t.length, e.length),
               o = 0;
@@ -4894,7 +4894,7 @@
 
             )
               r--, h--;
-            if ("end" == s) {
+            if ('end' == s) {
               i -= r + Math.max(0, o - Math.min(r, h)) - o;
             }
             if (r < o && t.length < e.length) {
@@ -4959,15 +4959,15 @@
                   o.to == l.to &&
                   1 == o.insert.length &&
                   2 == o.insert.lines &&
-                  M(t.contentDOM, "Enter", 13)) ||
+                  M(t.contentDOM, 'Enter', 13)) ||
                   (o.from == l.from - 1 &&
                     o.to == l.to &&
                     0 == o.insert.length &&
-                    M(t.contentDOM, "Backspace", 8)) ||
+                    M(t.contentDOM, 'Backspace', 8)) ||
                   (o.from == l.from &&
                     o.to == l.to + 1 &&
                     0 == o.insert.length &&
-                    M(t.contentDOM, "Delete", 46)))) ||
+                    M(t.contentDOM, 'Delete', 46)))) ||
               (j.ios && t.inputState.flushIOSKey(t))
             )
               return;
@@ -4982,8 +4982,8 @@
                 (!r ||
                   (r.main.empty && r.main.from == o.from + o.insert.length)))
             ) {
-              let s = l.from < o.from ? e.sliceDoc(l.from, o.from) : "",
-                n = l.to > o.to ? e.sliceDoc(o.to, l.to) : "";
+              let s = l.from < o.from ? e.sliceDoc(l.from, o.from) : '',
+                n = l.to > o.to ? e.sliceDoc(o.to, l.to) : '';
               i = e.replaceSelection(
                 t.state.toText(
                   s + o.insert.sliceString(0, void 0, t.state.lineBreak) + n
@@ -4999,20 +4999,20 @@
                     : void 0,
               };
             }
-            let n = "input.type";
+            let n = 'input.type';
             t.composing &&
-              ((n += ".compose"),
+              ((n += '.compose'),
               t.inputState.compositionFirstChange &&
-                ((n += ".start"), (t.inputState.compositionFirstChange = !1))),
+                ((n += '.start'), (t.inputState.compositionFirstChange = !1))),
               t.dispatch(i, {
                 scrollIntoView: !0,
                 userEvent: n,
               });
           } else if (r && !r.main.eq(l)) {
             let e = !1,
-              i = "select";
+              i = 'select';
             t.inputState.lastSelectionTime > Date.now() - 50 &&
-              ("select" == t.inputState.lastSelectionOrigin && (e = !0),
+              ('select' == t.inputState.lastSelectionOrigin && (e = !0),
               (i = t.inputState.lastSelectionOrigin)),
               t.dispatch({
                 selection: r,
@@ -5025,7 +5025,7 @@
         constructor(t, e) {
           (this.points = t),
             (this.view = e),
-            (this.text = ""),
+            (this.text = ''),
             (this.lineBreak = e.state.lineBreak);
         }
         readRange(t, e) {
@@ -5039,7 +5039,7 @@
               o = T.get(t);
             ((n ? n.breakAfter : bi(s)) ||
               ((o ? o.breakAfter : bi(t)) &&
-                ("BR" != s.nodeName || s.cmIgnore))) &&
+                ('BR' != s.nodeName || s.cmIgnore))) &&
               (this.text += this.lineBreak),
               (s = t);
           }
@@ -5054,8 +5054,8 @@
             ? (e = s.sliceString(0, void 0, this.lineBreak))
             : 3 == t.nodeType
             ? (e = t.nodeValue)
-            : "BR" == t.nodeName
-            ? (e = t.nextSibling ? this.lineBreak : "")
+            : 'BR' == t.nodeName
+            ? (e = t.nextSibling ? this.lineBreak : '')
             : 1 == t.nodeType && this.readRange(t.firstChild, null),
             null != e &&
               (this.findPointIn(t, e.length),
@@ -5098,16 +5098,16 @@
             (this.updateState = 2),
             (this.measureScheduled = -1),
             (this.measureRequests = []),
-            (this.contentDOM = document.createElement("div")),
-            (this.scrollDOM = document.createElement("div")),
+            (this.contentDOM = document.createElement('div')),
+            (this.scrollDOM = document.createElement('div')),
             (this.scrollDOM.tabIndex = -1),
-            (this.scrollDOM.className = "cm-scroller"),
+            (this.scrollDOM.className = 'cm-scroller'),
             this.scrollDOM.appendChild(this.contentDOM),
-            (this.announceDOM = document.createElement("div")),
+            (this.announceDOM = document.createElement('div')),
             (this.announceDOM.style.cssText =
-              "position: absolute; top: -10000px"),
-            this.announceDOM.setAttribute("aria-live", "polite"),
-            (this.dom = document.createElement("div")),
+              'position: absolute; top: -10000px'),
+            this.announceDOM.setAttribute('aria-live', 'polite'),
+            (this.dom = document.createElement('div')),
             this.dom.appendChild(this.announceDOM),
             this.dom.appendChild(this.scrollDOM),
             (this._dispatch = t.dispatch || ((t) => this.update([t]))),
@@ -5132,7 +5132,7 @@
             this.mountStyles(),
             this.updateAttrs(),
             (this.updateState = 0),
-            window.addEventListener("resize", () => {
+            window.addEventListener('resize', () => {
               -1 == Mi && (Mi = setTimeout(ki, 50));
             }),
             this.requestMeasure(),
@@ -5163,7 +5163,7 @@
         update(t) {
           if (0 != this.updateState)
             throw new Error(
-              "Calls to EditorView.update are not allowed while an update is in progress"
+              'Calls to EditorView.update are not allowed while an update is in progress'
             );
           let e,
             i,
@@ -5202,7 +5202,7 @@
         setState(t) {
           if (0 != this.updateState)
             throw new Error(
-              "Calls to EditorView.setState are not allowed while an update is in progress"
+              'Calls to EditorView.setState are not allowed while an update is in progress'
             );
           this.updateState = 2;
           try {
@@ -5251,7 +5251,7 @@
                 n = this.measureRequests;
               if (!s && !n.length && null == this.viewState.scrollTo) break;
               if (((this.measureRequests = []), t > 5)) {
-                console.warn("Viewport failed to stabilize");
+                console.warn('Viewport failed to stabilize');
                 break;
               }
               let o = n.map((t) => {
@@ -5295,33 +5295,33 @@
         get themeClasses() {
           return (
             hi +
-            " " +
+            ' ' +
             (this.state.facet(ri) ? ai : li) +
-            " " +
+            ' ' +
             this.state.facet(oi)
           );
         }
         updateAttrs() {
           let t = et(this.state.facet(Bt), {
             class:
-              "cm-editor" +
-              (this.hasFocus ? " cm-focused " : " ") +
+              'cm-editor' +
+              (this.hasFocus ? ' cm-focused ' : ' ') +
               this.themeClasses,
           });
           st(this.dom, this.editorAttrs, t), (this.editorAttrs = t);
           let e = et(this.state.facet(Nt), {
-            spellcheck: "false",
-            autocorrect: "off",
-            autocapitalize: "off",
+            spellcheck: 'false',
+            autocorrect: 'off',
+            autocapitalize: 'off',
             contenteditable: this.state.facet(kt)
               ? D()
-                ? "plaintext-only"
-                : "true"
-              : "false",
-            class: "cm-content",
+                ? 'plaintext-only'
+                : 'true'
+              : 'false',
+            class: 'cm-content',
             style: `${j.tabSize}: ${this.state.tabSize}`,
-            role: "textbox",
-            "aria-multiline": "true",
+            role: 'textbox',
+            'aria-multiline': 'true',
           });
           st(this.contentDOM, this.contentAttrs, e), (this.contentAttrs = e);
         }
@@ -5330,10 +5330,10 @@
           for (let i of t)
             for (let t of i.effects)
               if (t.is(Si.announce)) {
-                e && (this.announceDOM.textContent = ""),
+                e && (this.announceDOM.textContent = ''),
                   (e = !1),
                   (this.announceDOM.appendChild(
-                    document.createElement("div")
+                    document.createElement('div')
                   ).textContent = t.value);
               }
         }
@@ -5564,7 +5564,7 @@
           return e && e.dark && s.push(ri.of(!0)), s;
         }
         static baseTheme(t) {
-          return s.j.fallback(Ht.of(di("." + hi, t, ci)));
+          return s.j.fallback(Ht.of(di('.' + hi, t, ci)));
         }
       }
       (Si.styleModule = Ht),
@@ -5579,7 +5579,7 @@
         (Si.contentAttributes = Nt),
         (Si.editorAttributes = Bt),
         (Si.lineWrapping = Si.contentAttributes.of({
-          class: "cm-lineWrapping",
+          class: 'cm-lineWrapping',
         })),
         (Si.announce = s.k.define());
       const xi = 4096;
@@ -5591,7 +5591,7 @@
 
       function ki() {
         Mi = -1;
-        let t = document.querySelectorAll(".cm-content");
+        let t = document.querySelectorAll('.cm-content');
         for (let e = 0; e < t.length; e++) {
           let i = T.get(t[e]);
           i && i.editorView.requestMeasure();
@@ -5618,27 +5618,27 @@
         }
       }
       const Oi =
-        "undefined" == typeof navigator
-          ? "key"
+        'undefined' == typeof navigator
+          ? 'key'
           : /Mac/.test(navigator.platform)
-          ? "mac"
+          ? 'mac'
           : /Win/.test(navigator.platform)
-          ? "win"
+          ? 'win'
           : /Linux|X11/.test(navigator.platform)
-          ? "linux"
-          : "key";
+          ? 'linux'
+          : 'key';
 
       function Ti(t, e, i) {
         return (
-          e.altKey && (t = "Alt-" + t),
-          e.ctrlKey && (t = "Ctrl-" + t),
-          e.metaKey && (t = "Meta-" + t),
-          !1 !== i && e.shiftKey && (t = "Shift-" + t),
+          e.altKey && (t = 'Alt-' + t),
+          e.ctrlKey && (t = 'Ctrl-' + t),
+          e.metaKey && (t = 'Meta-' + t),
+          !1 !== i && e.shiftKey && (t = 'Shift-' + t),
           t
         );
       }
       const Ei = Si.domEventHandlers({
-          keydown: (t, e) => Hi(Bi(e.state), t, e, "editor"),
+          keydown: (t, e) => Hi(Bi(e.state), t, e, 'editor'),
         }),
         Ri = s.h.define({
           enables: Ei,
@@ -5660,9 +5660,9 @@
                     if (null == i) s[t] = e;
                     else if (i != e)
                       throw new Error(
-                        "Key binding " +
+                        'Key binding ' +
                           t +
-                          " is used both as a regular binding and as a multi-stroke prefix"
+                          ' is used both as a regular binding and as a multi-stroke prefix'
                       );
                   },
                   o = (t, s, o, r) => {
@@ -5675,7 +5675,7 @@
                             o,
                             r,
                             h = i[i.length - 1];
-                          "Space" == h && (h = " ");
+                          'Space' == h && (h = ' ');
                           for (let l = 0; l < i.length - 1; ++l) {
                             const t = i[l];
                             if (/^(cmd|meta|m)$/i.test(t)) r = !0;
@@ -5685,22 +5685,22 @@
                             else {
                               if (!/^mod$/i.test(t))
                                 throw new Error(
-                                  "Unrecognized modifier name: " + t
+                                  'Unrecognized modifier name: ' + t
                                 );
-                              "mac" == e ? (r = !0) : (n = !0);
+                              'mac' == e ? (r = !0) : (n = !0);
                             }
                           }
                           return (
-                            s && (h = "Alt-" + h),
-                            n && (h = "Ctrl-" + h),
-                            r && (h = "Meta-" + h),
-                            o && (h = "Shift-" + h),
+                            s && (h = 'Alt-' + h),
+                            n && (h = 'Ctrl-' + h),
+                            r && (h = 'Meta-' + h),
+                            o && (h = 'Shift-' + h),
                             h
                           );
                         })(t, e)
                       );
                     for (let e = 1; e < l.length; e++) {
-                      let i = l.slice(0, e).join(" ");
+                      let i = l.slice(0, e).join(' ');
                       n(i, !0),
                         h[i] ||
                           (h[i] = {
@@ -5722,7 +5722,7 @@
                             ],
                           });
                     }
-                    let a = l.join(" ");
+                    let a = l.join(' ');
                     n(a, !1);
                     let c =
                       h[a] ||
@@ -5735,10 +5735,10 @@
                 for (let r of t) {
                   let t = r[e] || r.key;
                   if (t)
-                    for (let e of r.scope ? r.scope.split(" ") : ["editor"])
+                    for (let e of r.scope ? r.scope.split(' ') : ['editor'])
                       o(e, t, r.run, r.preventDefault),
                         r.shift &&
-                          o(e, "Shift-" + t, r.shift, r.preventDefault);
+                          o(e, 'Shift-' + t, r.shift, r.preventDefault);
                 }
                 return i;
               })(e.reduce((t, e) => t.concat(e), [])))
@@ -5754,13 +5754,13 @@
 
       function Hi(t, e, i, s) {
         let n = Object(h.b)(e),
-          o = 1 == n.length && " " != n,
-          r = "",
+          o = 1 == n.length && ' ' != n,
+          r = '',
           l = !1;
         Vi &&
           Vi.view == i &&
           Vi.scope == s &&
-          ((r = Vi.prefix + " "),
+          ((r = Vi.prefix + ' '),
           (l = we.indexOf(e.keyCode) < 0) && (Vi = null));
         let a,
           c = (t) => {
@@ -5812,14 +5812,14 @@
             (this.className = n);
         }
         draw() {
-          let t = document.createElement("div");
+          let t = document.createElement('div');
           return (t.className = this.className), this.adjust(t), t;
         }
         adjust(t) {
-          (t.style.left = this.left + "px"),
-            (t.style.top = this.top + "px"),
-            this.width >= 0 && (t.style.width = this.width + "px"),
-            (t.style.height = this.height + "px");
+          (t.style.left = this.left + 'px'),
+            (t.style.top = this.top + 'px'),
+            this.width >= 0 && (t.style.width = this.width + 'px'),
+            (t.style.height = this.height + 'px');
         }
         eq(t) {
           return (
@@ -5842,21 +5842,21 @@
                   write: this.drawSel.bind(this),
                 }),
                 (this.selectionLayer = t.scrollDOM.appendChild(
-                  document.createElement("div")
+                  document.createElement('div')
                 )),
-                (this.selectionLayer.className = "cm-selectionLayer"),
-                this.selectionLayer.setAttribute("aria-hidden", "true"),
+                (this.selectionLayer.className = 'cm-selectionLayer'),
+                this.selectionLayer.setAttribute('aria-hidden', 'true'),
                 (this.cursorLayer = t.scrollDOM.appendChild(
-                  document.createElement("div")
+                  document.createElement('div')
                 )),
-                (this.cursorLayer.className = "cm-cursorLayer"),
-                this.cursorLayer.setAttribute("aria-hidden", "true"),
+                (this.cursorLayer.className = 'cm-cursorLayer'),
+                this.cursorLayer.setAttribute('aria-hidden', 'true'),
                 t.requestMeasure(this.measureReq),
                 this.setBlinkRate();
             }
             setBlinkRate() {
               this.cursorLayer.style.animationDuration =
-                this.view.state.facet(Wi).cursorBlinkRate + "ms";
+                this.view.state.facet(Wi).cursorBlinkRate + 'ms';
             }
             update(t) {
               let e = t.startState.facet(Wi) != t.state.facet(Wi);
@@ -5864,9 +5864,9 @@
                 this.view.requestMeasure(this.measureReq),
                 t.transactions.some((t) => t.scrollIntoView) &&
                   (this.cursorLayer.style.animationName =
-                    "cm-blink" == this.cursorLayer.style.animationName
-                      ? "cm-blink2"
-                      : "cm-blink"),
+                    'cm-blink' == this.cursorLayer.style.animationName
+                      ? 'cm-blink2'
+                      : 'cm-blink'),
                 e && this.setBlinkRate();
             }
             readPos() {
@@ -5920,7 +5920,7 @@
                               e - h.top,
                               i - t,
                               s - e,
-                              "cm-selectionBackground"
+                              'cm-selectionBackground'
                             );
                           }
 
@@ -6017,7 +6017,7 @@
                 t.length != this.rangePieces.length ||
                 t.some((t, e) => !t.eq(this.rangePieces[e]))
               ) {
-                this.selectionLayer.textContent = "";
+                this.selectionLayer.textContent = '';
                 for (let e of t) this.selectionLayer.appendChild(e.draw());
                 this.rangePieces = t;
               }
@@ -6027,7 +6027,7 @@
               ) {
                 let t = this.cursorLayer.children;
                 if (t.length !== e.length) {
-                  this.cursorLayer.textContent = "";
+                  this.cursorLayer.textContent = '';
                   for (const t of e) this.cursorLayer.appendChild(t.draw());
                 } else e.forEach((e, i) => e.adjust(t[i]));
                 this.cursors = e;
@@ -6039,16 +6039,16 @@
           }
         ),
         Ii = {
-          ".cm-line": {
-            "& ::selection": {
-              backgroundColor: "transparent !important",
+          '.cm-line': {
+            '& ::selection': {
+              backgroundColor: 'transparent !important',
             },
-            "&::selection": {
-              backgroundColor: "transparent !important",
+            '&::selection': {
+              backgroundColor: 'transparent !important',
             },
           },
         };
-      Pi && (Ii[".cm-line"].caretColor = "transparent !important");
+      Pi && (Ii['.cm-line'].caretColor = 'transparent !important');
       const ji = s.j.override(Si.theme(Ii));
 
       function Ki(t) {
@@ -6089,7 +6089,7 @@
           s.top - n.top,
           -1,
           s.bottom - s.top,
-          i ? "cm-cursor cm-cursor-primary" : "cm-cursor cm-cursor-secondary"
+          i ? 'cm-cursor cm-cursor-primary' : 'cm-cursor cm-cursor-secondary'
         );
       }
 
@@ -6112,7 +6112,7 @@
               "The regular expression given to MatchDecorator should have its 'g' flag set"
             );
           (this.regexp = e),
-            (this.getDeco = "function" == typeof i ? i : () => i),
+            (this.getDeco = 'function' == typeof i ? i : () => i),
             (this.boundary = s);
         }
         createDeco(t) {
@@ -6187,28 +6187,28 @@
           return e;
         }
       }
-      const Yi = null != /x/.unicode ? "gu" : "g",
+      const Yi = null != /x/.unicode ? 'gu' : 'g',
         Ji = new RegExp(
-          "[\0-\b\n-\x1f\x7f-\x9f\xad\u061c\u200b\u200e\u200f\u2028\u2029\ufeff\ufff9-\ufffc]",
+          '[\0-\b\n-\x1f\x7f-\x9f\xad\u061c\u200b\u200e\u200f\u2028\u2029\ufeff\ufff9-\ufffc]',
           Yi
         ),
         Qi = {
-          0: "null",
-          7: "bell",
-          8: "backspace",
-          10: "newline",
-          11: "vertical tab",
-          13: "carriage return",
-          27: "escape",
-          8203: "zero width space",
-          8204: "zero width non-joiner",
-          8205: "zero width joiner",
-          8206: "left-to-right mark",
-          8207: "right-to-left mark",
-          8232: "line separator",
-          8233: "paragraph separator",
-          65279: "zero width no-break space",
-          65532: "object replacement",
+          0: 'null',
+          7: 'bell',
+          8: 'backspace',
+          10: 'newline',
+          11: 'vertical tab',
+          13: 'carriage return',
+          27: 'escape',
+          8203: 'zero width space',
+          8204: 'zero width non-joiner',
+          8205: 'zero width joiner',
+          8206: 'left-to-right mark',
+          8207: 'right-to-left mark',
+          8232: 'line separator',
+          8233: 'paragraph separator',
+          65279: 'zero width no-break space',
+          65532: 'object replacement',
         };
       let Zi = null;
       const ts = s.h.define({
@@ -6223,7 +6223,7 @@
               var t;
               if (
                 null == Zi &&
-                "undefined" != typeof document &&
+                'undefined' != typeof document &&
                 document.body
               ) {
                 let e = document.body.style;
@@ -6233,10 +6233,10 @@
               }
               return Zi || !1;
             })()) &&
-              (e.specialChars = new RegExp("\t|" + e.specialChars.source, Yi)),
+              (e.specialChars = new RegExp('\t|' + e.specialChars.source, Yi)),
             e.addSpecialChars &&
               (e.specialChars = new RegExp(
-                e.specialChars.source + "|" + e.addSpecialChars.source,
+                e.specialChars.source + '|' + e.addSpecialChars.source,
                 Yi
               )),
             e
@@ -6311,23 +6311,23 @@
         toDOM(t) {
           let e =
             (i = this.code) >= 32
-              ? "\u2022"
+              ? '\u2022'
               : 10 == i
-              ? "\u2424"
+              ? '\u2424'
               : String.fromCharCode(9216 + i);
           var i;
           let s =
-              t.state.phrase("Control character") +
-              " " +
-              (Qi[this.code] || "0x" + this.code.toString(16)),
+              t.state.phrase('Control character') +
+              ' ' +
+              (Qi[this.code] || '0x' + this.code.toString(16)),
             n = this.options.render && this.options.render(this.code, s, e);
           if (n) return n;
-          let o = document.createElement("span");
+          let o = document.createElement('span');
           return (
             (o.textContent = e),
             (o.title = s),
-            o.setAttribute("aria-label", s),
-            (o.className = "cm-specialChar"),
+            o.setAttribute('aria-label', s),
+            (o.className = 'cm-specialChar'),
             o
           );
         }
@@ -6343,11 +6343,11 @@
           return t.width == this.width;
         }
         toDOM() {
-          let t = document.createElement("span");
+          let t = document.createElement('span');
           return (
-            (t.textContent = "\t"),
-            (t.className = "cm-tab"),
-            (t.style.width = this.width + "px"),
+            (t.textContent = '\t'),
+            (t.className = 'cm-tab'),
+            (t.style.width = this.width + 'px'),
             t
           );
         }
@@ -6361,7 +6361,7 @@
       }
       const rs = rt.line({
           attributes: {
-            class: "cm-activeLine",
+            class: 'cm-activeLine',
           },
         }),
         hs = Et.fromClass(

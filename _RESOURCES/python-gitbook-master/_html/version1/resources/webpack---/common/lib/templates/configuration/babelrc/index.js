@@ -1,24 +1,24 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const is_babel_7_1 = require("../../../utils/is-babel-7");
-const is_preact_10_1 = require("../../../utils/is-preact-10");
+const is_babel_7_1 = require('../../../utils/is-babel-7');
+const is_preact_10_1 = require('../../../utils/is-preact-10');
 const JSX_PRAGMA = {
-  react: "React.createElement",
-  preact: "h",
+  react: 'React.createElement',
+  preact: 'h',
 };
 const config = {
-  title: ".babelrc",
-  type: "babel",
-  description: "Custom configuration for Babel, the transpiler we use.",
-  moreInfoUrl: "https://babeljs.io/docs/usage/babelrc/",
+  title: '.babelrc',
+  type: 'babel',
+  description: 'Custom configuration for Babel, the transpiler we use.',
+  moreInfoUrl: 'https://babeljs.io/docs/usage/babelrc/',
   getDefaultCode: (template, resolveModule) => {
     let isV7 = false;
     let isPreactV10 = false;
     try {
-      const packageJSON = resolveModule("/package.json");
-      const parsed = JSON.parse(packageJSON.code || "");
+      const packageJSON = resolveModule('/package.json');
+      const parsed = JSON.parse(packageJSON.code || '');
       isV7 = is_babel_7_1.isBabel7(parsed.dependencies, parsed.devDependencies);
       isPreactV10 = is_preact_10_1.isPreact10(
         parsed.dependencies,
@@ -27,41 +27,41 @@ const config = {
     } catch (e) {
       console.error(e);
     }
-    if (template === "preact-cli") {
+    if (template === 'preact-cli') {
       if (isPreactV10) {
         return JSON.stringify(
           {
-            presets: ["env", "typescript"],
+            presets: ['env', 'typescript'],
             plugins: [
-              "syntax-dynamic-import",
-              "transform-object-assign",
+              'syntax-dynamic-import',
+              'transform-object-assign',
               [
-                "proposal-decorators",
+                'proposal-decorators',
                 {
                   legacy: true,
                 },
               ],
               [
-                "proposal-class-properties",
+                'proposal-class-properties',
                 {
                   loose: true,
                 },
               ],
-              "proposal-object-rest-spread",
-              "babel-plugin-macros",
+              'proposal-object-rest-spread',
+              'babel-plugin-macros',
               [
-                "transform-react-jsx",
+                'transform-react-jsx',
                 {
-                  pragma: "h",
-                  pragmaFrag: "Fragment",
+                  pragma: 'h',
+                  pragmaFrag: 'Fragment',
                 },
               ],
               [
-                "jsx-pragmatic",
+                'jsx-pragmatic',
                 {
-                  module: "preact",
-                  export: "h",
-                  import: "h",
+                  module: 'preact',
+                  export: 'h',
+                  import: 'h',
                 },
               ],
             ],
@@ -72,22 +72,22 @@ const config = {
       }
       return JSON.stringify(
         {
-          presets: ["latest", "stage-1"],
+          presets: ['latest', 'stage-1'],
           plugins: [
-            "transform-object-assign",
-            "transform-decorators-legacy",
+            'transform-object-assign',
+            'transform-decorators-legacy',
             [
-              "transform-react-jsx",
+              'transform-react-jsx',
               {
-                pragma: "h",
+                pragma: 'h',
               },
             ],
             [
-              "jsx-pragmatic",
+              'jsx-pragmatic',
               {
-                module: "preact",
-                export: "h",
-                import: "h",
+                module: 'preact',
+                export: 'h',
+                import: 'h',
               },
             ],
           ],
@@ -96,7 +96,7 @@ const config = {
         2
       );
     }
-    if (template === "vue-cli") {
+    if (template === 'vue-cli') {
       // TODO remove this
       /**
        * This hacky fix got added for vue cli templates that are v3, but don't have a config.
@@ -109,27 +109,27 @@ const config = {
         return JSON.stringify({
           presets: [
             [
-              "env",
+              'env',
               {
                 modules: false,
                 targets: {
-                  browsers: [">0.25%", "not ie 11", "not op_mini all"],
+                  browsers: ['>0.25%', 'not ie 11', 'not op_mini all'],
                 },
               },
             ],
           ],
           plugins: [
-            "@vue/babel-plugin-jsx",
-            "@babel/plugin-syntax-dynamic-import",
+            '@vue/babel-plugin-jsx',
+            '@babel/plugin-syntax-dynamic-import',
             [
-              "@babel/plugin-proposal-decorators",
+              '@babel/plugin-proposal-decorators',
               {
                 decoratorsBeforeExport: false,
                 legacy: false,
               },
             ],
             [
-              "@babel/plugin-proposal-class-properties",
+              '@babel/plugin-proposal-class-properties',
               {
                 loose: false,
               },
@@ -141,24 +141,24 @@ const config = {
         {
           presets: [
             [
-              "env",
+              'env',
               {
                 modules: false,
                 targets: {
-                  browsers: ["> 1%", "last 2 versions", "not ie <= 8"],
+                  browsers: ['> 1%', 'last 2 versions', 'not ie <= 8'],
                 },
               },
             ],
-            "stage-2",
+            'stage-2',
           ],
-          plugins: ["transform-vue-jsx", "transform-runtime"],
+          plugins: ['transform-vue-jsx', 'transform-runtime'],
           env: {
             test: {
-              presets: ["env", "stage-2"],
+              presets: ['env', 'stage-2'],
               plugins: [
-                "transform-vue-jsx",
-                "transform-es2015-modules-commonjs",
-                "dynamic-import-node",
+                'transform-vue-jsx',
+                'transform-es2015-modules-commonjs',
+                'dynamic-import-node',
               ],
             },
           },
@@ -167,26 +167,26 @@ const config = {
         2
       );
     }
-    if (template === "parcel") {
-      const presets = ["env"];
+    if (template === 'parcel') {
+      const presets = ['env'];
       const plugins = isV7
-        ? ["transform-runtime"]
+        ? ['transform-runtime']
         : [
             [
-              "transform-runtime",
+              'transform-runtime',
               {
                 polyfill: false,
                 regenerator: true,
               },
             ],
-            "transform-object-rest-spread",
+            'transform-object-rest-spread',
           ];
       const parserOpts = isV7
         ? {
-            plugins: ["dynamicImport"],
+            plugins: ['dynamicImport'],
           }
         : {};
-      const packageJSONModule = resolveModule("/package.json");
+      const packageJSONModule = resolveModule('/package.json');
       if (packageJSONModule) {
         try {
           const parsed = JSON.parse(packageJSONModule.code);
@@ -202,7 +202,7 @@ const config = {
           if (pragma !== null) {
             // @ts-ignore
             plugins.push([
-              "transform-react-jsx",
+              'transform-react-jsx',
               {
                 pragma,
               },
@@ -222,22 +222,22 @@ const config = {
         2
       );
     }
-    if (template === "cxjs") {
+    if (template === 'cxjs') {
       if (isV7) {
         return JSON.stringify(
           {
-            presets: ["env"],
+            presets: ['env'],
             plugins: [
-              "@babel/plugin-proposal-class-properties",
-              "@babel/plugin-proposal-object-rest-spread",
-              "@babel/plugin-proposal-function-bind",
-              "transform-cx-jsx",
-              "@babel/plugin-transform-parameters",
-              "@babel/plugin-syntax-dynamic-import",
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-object-rest-spread',
+              '@babel/plugin-proposal-function-bind',
+              'transform-cx-jsx',
+              '@babel/plugin-transform-parameters',
+              '@babel/plugin-syntax-dynamic-import',
               [
-                "@babel/plugin-transform-react-jsx",
+                '@babel/plugin-transform-react-jsx',
                 {
-                  pragma: "VDOM.createElement",
+                  pragma: 'VDOM.createElement',
                 },
               ],
             ],
@@ -250,7 +250,7 @@ const config = {
         {
           presets: [
             [
-              "env",
+              'env',
               {
                 targets: {
                   chrome: 50,
@@ -264,19 +264,19 @@ const config = {
                 useBuiltIns: true,
               },
             ],
-            "stage-2",
+            'stage-2',
           ],
           plugins: [
-            ["transform-cx-jsx"],
+            ['transform-cx-jsx'],
             [
-              "transform-react-jsx",
+              'transform-react-jsx',
               {
-                pragma: "VDOM.createElement",
+                pragma: 'VDOM.createElement',
               },
             ],
-            "transform-function-bind",
-            "transform-runtime",
-            "transform-regenerator",
+            'transform-function-bind',
+            'transform-runtime',
+            'transform-regenerator',
           ],
         },
         null,
@@ -293,6 +293,6 @@ const config = {
     );
   },
   schema:
-    "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/babelrc.json",
+    'https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/babelrc.json',
 };
 exports.default = config;

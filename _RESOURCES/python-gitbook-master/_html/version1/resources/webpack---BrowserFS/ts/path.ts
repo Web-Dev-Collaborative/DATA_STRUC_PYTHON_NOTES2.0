@@ -1,5 +1,5 @@
 // Type information only.
-import _path = require("path");
+import _path = require('path');
 
 // Split a filename into [root, dir, basename, ext], unix version
 // 'root' is just a slash, or nothing.
@@ -33,8 +33,8 @@ class path {
    */
   public static normalize(p: string): string {
     // Special case: '' -> '.'
-    if (p === "") {
-      p = ".";
+    if (p === '') {
+      p = '.';
     }
     // It's very important to know if the path is relative or not, since it
     // changes how we process .. and reconstruct the split string.
@@ -46,14 +46,14 @@ class path {
     var goodComponents: string[] = [];
     for (var idx = 0; idx < components.length; idx++) {
       var c = components[idx];
-      if (c === ".") {
+      if (c === '.') {
         continue;
       } else if (
-        c === ".." &&
+        c === '..' &&
         (absolute ||
           (!absolute &&
             goodComponents.length > 0 &&
-            goodComponents[0] !== ".."))
+            goodComponents[0] !== '..'))
       ) {
         // In the absolute case: Path is relative to root, so we may pop even if
         // goodComponents is empty (e.g. /../ => /)
@@ -71,12 +71,12 @@ class path {
     if (!absolute && goodComponents.length < 2) {
       switch (goodComponents.length) {
         case 1:
-          if (goodComponents[0] === "") {
-            goodComponents.unshift(".");
+          if (goodComponents[0] === '') {
+            goodComponents.unshift('.');
           }
           break;
         default:
-          goodComponents.push(".");
+          goodComponents.push('.');
       }
     }
     p = goodComponents.join(path.sep);
@@ -107,11 +107,11 @@ class path {
     var processed: string[] = [];
     for (var i = 0; i < paths.length; i++) {
       var segment = paths[i];
-      if (typeof segment !== "string") {
+      if (typeof segment !== 'string') {
         throw new TypeError(
-          "Invalid argument type to path.join: " + typeof segment
+          'Invalid argument type to path.join: ' + typeof segment
         );
-      } else if (segment !== "") {
+      } else if (segment !== '') {
         processed.push(segment);
       }
     }
@@ -163,9 +163,9 @@ class path {
     var processed: string[] = [];
     for (var i = 0; i < paths.length; i++) {
       var p = paths[i];
-      if (typeof p !== "string") {
-        throw new TypeError("Invalid argument type to path.join: " + typeof p);
-      } else if (p !== "") {
+      if (typeof p !== 'string') {
+        throw new TypeError('Invalid argument type to path.join: ' + typeof p);
+      } else if (p !== '') {
         // Remove anything that has occurred before this absolute path, as it
         // doesn't matter.
         if (p.charAt(0) === path.sep) {
@@ -187,17 +187,17 @@ class path {
     if (resolved.charAt(0) !== path.sep) {
       // Remove ./, since we're going to append the current directory.
       if (
-        resolved.charAt(0) === "." &&
+        resolved.charAt(0) === '.' &&
         (resolved.length === 1 || resolved.charAt(1) === path.sep)
       ) {
-        resolved = resolved.length === 1 ? "" : resolved.substr(2);
+        resolved = resolved.length === 1 ? '' : resolved.substr(2);
       }
       // Append the current directory, which *must* be an absolute path.
       var cwd = process.cwd();
-      if (resolved !== "") {
+      if (resolved !== '') {
         // cwd will never end in a /... unless it's the root.
         resolved = this.normalize(
-          cwd + (cwd !== "/" ? path.sep : "") + resolved
+          cwd + (cwd !== '/' ? path.sep : '') + resolved
         );
       } else {
         resolved = cwd;
@@ -258,7 +258,7 @@ class path {
     // outside of the loop, as toSegs.length may be greater than fromSegs.length.
     downSegs = toSegs.slice(i);
     // Special case: If 'from' is '/'
-    if (fromSegs.length === 1 && fromSegs[0] === "") {
+    if (fromSegs.length === 1 && fromSegs[0] === '') {
       upCount = 0;
     }
     // upCount can't be greater than the number of fromSegs
@@ -267,9 +267,9 @@ class path {
       upCount = fromSegs.length;
     }
     // Create the final string!
-    var rv = "";
+    var rv = '';
     for (i = 0; i < upCount; i++) {
-      rv += "../";
+      rv += '../';
     }
     rv += downSegs.join(path.sep);
     // Special case: Remove trailing '/'. Happens if it's all up and no down.
@@ -298,7 +298,7 @@ class path {
     var absolute = p.charAt(0) === path.sep;
     var sections = p.split(path.sep);
     // Do 1 if it's /foo/bar, 2 if it's /foo/bar/
-    if (sections.pop() === "" && sections.length > 0) {
+    if (sections.pop() === '' && sections.length > 0) {
       sections.pop();
     }
     // # of sections needs to be > 1 if absolute, since the first section is '' for '/'.
@@ -309,7 +309,7 @@ class path {
     } else if (absolute) {
       return path.sep;
     } else {
-      return ".";
+      return '.';
     }
   }
 
@@ -327,9 +327,9 @@ class path {
    * @param [String?] ext
    * @return [String]
    */
-  public static basename(p: string, ext: string = ""): string {
+  public static basename(p: string, ext: string = ''): string {
     // Special case: Normalize will modify this to '.'
-    if (p === "") {
+    if (p === '') {
       return p;
     }
     // Normalize the string first to remove any weirdness.
@@ -339,7 +339,7 @@ class path {
     var lastPart = sections[sections.length - 1];
     // Special case: If it's empty, then we have a string like so: foo/
     // Meaning, 'foo' is guaranteed to be a directory.
-    if (lastPart === "" && sections.length > 1) {
+    if (lastPart === '' && sections.length > 1) {
       return sections[sections.length - 2];
     }
     // Remove the extension, if need be.
@@ -376,15 +376,15 @@ class path {
     var sections = p.split(path.sep);
     p = sections.pop();
     // Special case: foo/file.ext/ should return '.ext'
-    if (p === "" && sections.length > 0) {
+    if (p === '' && sections.length > 0) {
       p = sections.pop();
     }
-    if (p === "..") {
-      return "";
+    if (p === '..') {
+      return '';
     }
-    var i = p.lastIndexOf(".");
+    var i = p.lastIndexOf('.');
     if (i === -1 || i === 0) {
-      return "";
+      return '';
     }
     return p.substr(i);
   }
@@ -422,30 +422,30 @@ class path {
   }
 
   public static format(pathObject: _path.ParsedPath): string {
-    if (pathObject === null || typeof pathObject !== "object") {
+    if (pathObject === null || typeof pathObject !== 'object') {
       throw new TypeError(
         `Parameter 'pathObject' must be an object, not ${typeof pathObject}`
       );
     }
 
-    var root = pathObject.root || "";
+    var root = pathObject.root || '';
 
-    if (typeof root !== "string") {
+    if (typeof root !== 'string') {
       throw new TypeError(
         "'pathObject.root' must be a string or undefined, not " +
           typeof pathObject.root
       );
     }
 
-    var dir = pathObject.dir ? pathObject.dir + path.sep : "";
-    var base = pathObject.base || "";
+    var dir = pathObject.dir ? pathObject.dir + path.sep : '';
+    var base = pathObject.base || '';
     return dir + base;
   }
 
   // The platform-specific file separator. BrowserFS uses `/`.
-  public static sep: string = "/";
+  public static sep: string = '/';
 
-  private static _replaceRegex = new RegExp("//+", "g");
+  private static _replaceRegex = new RegExp('//+', 'g');
 
   private static _removeDuplicateSeps(p: string): string {
     p = p.replace(this._replaceRegex, this.sep);
@@ -453,7 +453,7 @@ class path {
   }
 
   // The platform-specific path delimiter. BrowserFS uses `:`.
-  public static delimiter = ":";
+  public static delimiter = ':';
 
   public static posix = path;
   // XXX: Typing hack. We don't actually support win32.

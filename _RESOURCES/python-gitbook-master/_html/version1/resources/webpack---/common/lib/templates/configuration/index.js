@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,21 +8,21 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const package_json_1 = __importDefault(require("./package-json"));
-const prettierRC_1 = __importDefault(require("./prettierRC"));
-const sandbox_1 = __importDefault(require("./sandbox"));
-const babelrc_1 = __importDefault(require("./babelrc"));
-const now_1 = __importDefault(require("./now"));
-const netlify_1 = __importDefault(require("./netlify"));
-const angular_cli_1 = __importDefault(require("./angular-cli"));
-const angular_json_1 = __importDefault(require("./angular-json"));
-const tsconfig_1 = __importDefault(require("./tsconfig"));
-const jsconfig_1 = __importDefault(require("./jsconfig"));
-const babel_transpiler_1 = __importDefault(require("./babel-transpiler"));
-const custom_codesandbox_1 = __importDefault(require("./custom-codesandbox"));
+const package_json_1 = __importDefault(require('./package-json'));
+const prettierRC_1 = __importDefault(require('./prettierRC'));
+const sandbox_1 = __importDefault(require('./sandbox'));
+const babelrc_1 = __importDefault(require('./babelrc'));
+const now_1 = __importDefault(require('./now'));
+const netlify_1 = __importDefault(require('./netlify'));
+const angular_cli_1 = __importDefault(require('./angular-cli'));
+const angular_json_1 = __importDefault(require('./angular-json'));
+const tsconfig_1 = __importDefault(require('./tsconfig'));
+const jsconfig_1 = __importDefault(require('./jsconfig'));
+const babel_transpiler_1 = __importDefault(require('./babel-transpiler'));
+const custom_codesandbox_1 = __importDefault(require('./custom-codesandbox'));
 const configs = {
   babelrc: babelrc_1.default,
   babelTranspiler: babel_transpiler_1.default,

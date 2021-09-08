@@ -1,18 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const global_1 = require("./global");
+const global_1 = require('./global');
 const shouldShowDebugger = () => {
-  if (typeof __DEV__ !== "undefined" && __DEV__) {
+  if (typeof __DEV__ !== 'undefined' && __DEV__) {
     return true;
   }
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === 'development') {
     return true;
   }
   if (
-    typeof document !== "undefined" &&
-    document.location.search.includes("debug")
+    typeof document !== 'undefined' &&
+    document.location.search.includes('debug')
   ) {
     return true;
   }
@@ -26,11 +26,11 @@ const getDebugger = () => {
       // Disable it for now, seems to affect performance. That's the last thing we want
       // from this (https://github.com/codesandbox/codesandbox-client/issues/1671)
       // TODO: move this to sentry
-      if (false || typeof global.Raven === "object") {
+      if (false || typeof global.Raven === 'object') {
         try {
           global.Raven.captureBreadcrumb({
             message: `${key} - ${message}`,
-            category: "logging",
+            category: 'logging',
           });
         } catch (e) {
           console.error(e);
@@ -39,7 +39,7 @@ const getDebugger = () => {
     };
   }
   // @ts-ignore
-  const debug = require("debug"); // eslint-disable-line global-require
+  const debug = require('debug'); // eslint-disable-line global-require
   // debug.enable('cs:*');
   // debug.disable('cs:cp-*');
   return debug;

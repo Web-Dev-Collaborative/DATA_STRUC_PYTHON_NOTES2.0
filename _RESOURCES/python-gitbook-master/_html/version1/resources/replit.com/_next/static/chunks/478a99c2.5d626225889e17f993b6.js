@@ -1,18 +1,18 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [12],
   {
-    "5+mB": function (e, t, n) {
+    '5+mB': function (e, t, n) {
       var r, o, i;
-      (o = [n("VDtp")]),
+      (o = [n('VDtp')]),
         void 0 ===
           (i =
-            "function" ===
+            'function' ===
             typeof (r = function (e) {
-              "use strict";
+              'use strict';
               var t = e.Reader,
                 n = e.Writer,
                 r = e.util,
-                o = e.roots["./main/index"] || (e.roots["./main/index"] = {});
+                o = e.roots['./main/index'] || (e.roots['./main/index'] = {});
               return (
                 (o.api = (function () {
                   var i = {};
@@ -166,149 +166,149 @@
                         (i.prototype.dotReplitGetRequest = null),
                         (i.prototype.dotReplitGetResponse = null),
                         (i.prototype.startLSP = null),
-                        (i.prototype.ref = ""),
-                        Object.defineProperty(i.prototype, "body", {
+                        (i.prototype.ref = ''),
+                        Object.defineProperty(i.prototype, 'body', {
                           get: r.oneOfGetter(
                             (a = [
-                              "openChan",
-                              "openChanRes",
-                              "closeChan",
-                              "closeChanRes",
-                              "containerState",
-                              "portOpen",
-                              "toast",
-                              "protocolError",
-                              "redirect",
-                              "alwaysOn",
-                              "runMain",
-                              "clear",
-                              "eval",
-                              "result",
-                              "input",
-                              "output",
-                              "error",
-                              "stderr",
-                              "log",
-                              "saneTerm",
-                              "resizeTerm",
-                              "state",
-                              "ok",
-                              "persist",
-                              "persistMirror",
-                              "write",
-                              "remove",
-                              "move",
-                              "tryRemove",
-                              "mkdir",
-                              "stat",
-                              "statRes",
-                              "transferStart",
-                              "transferChunk",
-                              "transferComplete",
-                              "transferCancel",
-                              "transfer",
-                              "read",
-                              "readdir",
-                              "files",
-                              "file",
-                              "checkChanges",
-                              "changedFiles",
-                              "lintResults",
-                              "runContainedTest",
-                              "testResult",
-                              "debuggerStart",
-                              "debuggerStep",
-                              "debuggerStatus",
-                              "ensurePackages",
-                              "ping",
-                              "pong",
-                              "hello",
-                              "goodbye",
-                              "hint",
-                              "connect",
-                              "send",
-                              "recv",
-                              "disconnect",
-                              "fileAuthReq",
-                              "fileAuthRes",
-                              "mutliFileAuthRes",
-                              "listObjects",
-                              "listObjectsResp",
-                              "ot",
-                              "otstatus",
-                              "otLinkFile",
-                              "otLinkFileResponse",
-                              "otNewCursor",
-                              "otDeleteCursor",
-                              "otFetchRequest",
-                              "otFetchResponse",
-                              "otTransformSelectionRequest",
-                              "otTransformSelectionResponse",
-                              "flush",
-                              "debug",
-                              "startVCR",
-                              "readVCR",
-                              "VCRLog",
-                              "auth",
-                              "execInfo",
-                              "subscribeFile",
-                              "fileEvent",
-                              "roster",
-                              "join",
-                              "part",
-                              "openFile",
-                              "fileOpened",
-                              "followUser",
-                              "unfollowUser",
-                              "updateSessionTimestamp",
-                              "sessionTimestampUpdated",
-                              "exec",
-                              "packageSearch",
-                              "packageSearchResp",
-                              "packageInfo",
-                              "packageInfoResp",
-                              "packageAdd",
-                              "packageRemove",
-                              "packageInstall",
-                              "packageListSpecfile",
-                              "packageListSpecfileResp",
-                              "packageCacheSave",
-                              "chatMessage",
-                              "chatTyping",
-                              "chatScrollback",
-                              "fsSnapshot",
-                              "fsTakeLock",
-                              "fsReleaseLock",
-                              "hasCap",
-                              "pid1Config",
-                              "metrics",
-                              "bootStatus",
-                              "readMetaRequest",
-                              "readMetaResponse",
-                              "writeMetaRequest",
-                              "writeMetaResponse",
-                              "appendMetaRequest",
-                              "appendMetaResponse",
-                              "audio",
-                              "pprofRequest",
-                              "pprofResponse",
-                              "audio2",
-                              "PTYConfig",
-                              "debugMain",
-                              "debugState",
-                              "debugMainReply",
-                              "debugInput",
-                              "debugOutput",
-                              "debugStop",
-                              "debugLeave",
-                              "debugSessions",
-                              "debugAddBreakpointRequest",
-                              "debugUpdateBreakpointRequest",
-                              "debugRemoveBreakpointRequest",
-                              "debugBreakpointEvent",
-                              "dotReplitGetRequest",
-                              "dotReplitGetResponse",
-                              "startLSP",
+                              'openChan',
+                              'openChanRes',
+                              'closeChan',
+                              'closeChanRes',
+                              'containerState',
+                              'portOpen',
+                              'toast',
+                              'protocolError',
+                              'redirect',
+                              'alwaysOn',
+                              'runMain',
+                              'clear',
+                              'eval',
+                              'result',
+                              'input',
+                              'output',
+                              'error',
+                              'stderr',
+                              'log',
+                              'saneTerm',
+                              'resizeTerm',
+                              'state',
+                              'ok',
+                              'persist',
+                              'persistMirror',
+                              'write',
+                              'remove',
+                              'move',
+                              'tryRemove',
+                              'mkdir',
+                              'stat',
+                              'statRes',
+                              'transferStart',
+                              'transferChunk',
+                              'transferComplete',
+                              'transferCancel',
+                              'transfer',
+                              'read',
+                              'readdir',
+                              'files',
+                              'file',
+                              'checkChanges',
+                              'changedFiles',
+                              'lintResults',
+                              'runContainedTest',
+                              'testResult',
+                              'debuggerStart',
+                              'debuggerStep',
+                              'debuggerStatus',
+                              'ensurePackages',
+                              'ping',
+                              'pong',
+                              'hello',
+                              'goodbye',
+                              'hint',
+                              'connect',
+                              'send',
+                              'recv',
+                              'disconnect',
+                              'fileAuthReq',
+                              'fileAuthRes',
+                              'mutliFileAuthRes',
+                              'listObjects',
+                              'listObjectsResp',
+                              'ot',
+                              'otstatus',
+                              'otLinkFile',
+                              'otLinkFileResponse',
+                              'otNewCursor',
+                              'otDeleteCursor',
+                              'otFetchRequest',
+                              'otFetchResponse',
+                              'otTransformSelectionRequest',
+                              'otTransformSelectionResponse',
+                              'flush',
+                              'debug',
+                              'startVCR',
+                              'readVCR',
+                              'VCRLog',
+                              'auth',
+                              'execInfo',
+                              'subscribeFile',
+                              'fileEvent',
+                              'roster',
+                              'join',
+                              'part',
+                              'openFile',
+                              'fileOpened',
+                              'followUser',
+                              'unfollowUser',
+                              'updateSessionTimestamp',
+                              'sessionTimestampUpdated',
+                              'exec',
+                              'packageSearch',
+                              'packageSearchResp',
+                              'packageInfo',
+                              'packageInfoResp',
+                              'packageAdd',
+                              'packageRemove',
+                              'packageInstall',
+                              'packageListSpecfile',
+                              'packageListSpecfileResp',
+                              'packageCacheSave',
+                              'chatMessage',
+                              'chatTyping',
+                              'chatScrollback',
+                              'fsSnapshot',
+                              'fsTakeLock',
+                              'fsReleaseLock',
+                              'hasCap',
+                              'pid1Config',
+                              'metrics',
+                              'bootStatus',
+                              'readMetaRequest',
+                              'readMetaResponse',
+                              'writeMetaRequest',
+                              'writeMetaResponse',
+                              'appendMetaRequest',
+                              'appendMetaResponse',
+                              'audio',
+                              'pprofRequest',
+                              'pprofResponse',
+                              'audio2',
+                              'PTYConfig',
+                              'debugMain',
+                              'debugState',
+                              'debugMainReply',
+                              'debugInput',
+                              'debugOutput',
+                              'debugStop',
+                              'debugLeave',
+                              'debugSessions',
+                              'debugAddBreakpointRequest',
+                              'debugUpdateBreakpointRequest',
+                              'debugRemoveBreakpointRequest',
+                              'debugBreakpointEvent',
+                              'dotReplitGetRequest',
+                              'dotReplitGetResponse',
+                              'startLSP',
                             ])
                           ),
                           set: r.oneOfSetter(a),
@@ -320,307 +320,307 @@
                           return (
                             t || (t = n.create()),
                             null != e.channel &&
-                              Object.hasOwnProperty.call(e, "channel") &&
+                              Object.hasOwnProperty.call(e, 'channel') &&
                               t.uint32(8).int32(e.channel),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(16).int32(e.session),
                             null != e.openChan &&
-                              Object.hasOwnProperty.call(e, "openChan") &&
+                              Object.hasOwnProperty.call(e, 'openChan') &&
                               o.api.OpenChannel.encode(
                                 e.openChan,
                                 t.uint32(26).fork()
                               ).ldelim(),
                             null != e.openChanRes &&
-                              Object.hasOwnProperty.call(e, "openChanRes") &&
+                              Object.hasOwnProperty.call(e, 'openChanRes') &&
                               o.api.OpenChannelRes.encode(
                                 e.openChanRes,
                                 t.uint32(34).fork()
                               ).ldelim(),
                             null != e.closeChan &&
-                              Object.hasOwnProperty.call(e, "closeChan") &&
+                              Object.hasOwnProperty.call(e, 'closeChan') &&
                               o.api.CloseChannel.encode(
                                 e.closeChan,
                                 t.uint32(42).fork()
                               ).ldelim(),
                             null != e.closeChanRes &&
-                              Object.hasOwnProperty.call(e, "closeChanRes") &&
+                              Object.hasOwnProperty.call(e, 'closeChanRes') &&
                               o.api.CloseChannelRes.encode(
                                 e.closeChanRes,
                                 t.uint32(50).fork()
                               ).ldelim(),
                             null != e.containerState &&
-                              Object.hasOwnProperty.call(e, "containerState") &&
+                              Object.hasOwnProperty.call(e, 'containerState') &&
                               o.api.ContainerState.encode(
                                 e.containerState,
                                 t.uint32(74).fork()
                               ).ldelim(),
                             null != e.portOpen &&
-                              Object.hasOwnProperty.call(e, "portOpen") &&
+                              Object.hasOwnProperty.call(e, 'portOpen') &&
                               o.api.PortOpen.encode(
                                 e.portOpen,
                                 t.uint32(82).fork()
                               ).ldelim(),
                             null != e.toast &&
-                              Object.hasOwnProperty.call(e, "toast") &&
+                              Object.hasOwnProperty.call(e, 'toast') &&
                               o.api.Toast.encode(
                                 e.toast,
                                 t.uint32(90).fork()
                               ).ldelim(),
                             null != e.redirect &&
-                              Object.hasOwnProperty.call(e, "redirect") &&
+                              Object.hasOwnProperty.call(e, 'redirect') &&
                               o.api.Redirect.encode(
                                 e.redirect,
                                 t.uint32(98).fork()
                               ).ldelim(),
                             null != e.alwaysOn &&
-                              Object.hasOwnProperty.call(e, "alwaysOn") &&
+                              Object.hasOwnProperty.call(e, 'alwaysOn') &&
                               o.api.AlwaysOn.encode(
                                 e.alwaysOn,
                                 t.uint32(106).fork()
                               ).ldelim(),
                             null != e.runMain &&
-                              Object.hasOwnProperty.call(e, "runMain") &&
+                              Object.hasOwnProperty.call(e, 'runMain') &&
                               o.api.RunMain.encode(
                                 e.runMain,
                                 t.uint32(130).fork()
                               ).ldelim(),
                             null != e.clear &&
-                              Object.hasOwnProperty.call(e, "clear") &&
+                              Object.hasOwnProperty.call(e, 'clear') &&
                               o.api.Clear.encode(
                                 e.clear,
                                 t.uint32(138).fork()
                               ).ldelim(),
                             null != e.eval &&
-                              Object.hasOwnProperty.call(e, "eval") &&
+                              Object.hasOwnProperty.call(e, 'eval') &&
                               t.uint32(162).string(e.eval),
                             null != e.result &&
-                              Object.hasOwnProperty.call(e, "result") &&
+                              Object.hasOwnProperty.call(e, 'result') &&
                               t.uint32(170).string(e.result),
                             null != e.input &&
-                              Object.hasOwnProperty.call(e, "input") &&
+                              Object.hasOwnProperty.call(e, 'input') &&
                               t.uint32(178).string(e.input),
                             null != e.output &&
-                              Object.hasOwnProperty.call(e, "output") &&
+                              Object.hasOwnProperty.call(e, 'output') &&
                               t.uint32(186).string(e.output),
                             null != e.error &&
-                              Object.hasOwnProperty.call(e, "error") &&
+                              Object.hasOwnProperty.call(e, 'error') &&
                               t.uint32(194).string(e.error),
                             null != e.saneTerm &&
-                              Object.hasOwnProperty.call(e, "saneTerm") &&
+                              Object.hasOwnProperty.call(e, 'saneTerm') &&
                               o.api.SaneTerm.encode(
                                 e.saneTerm,
                                 t.uint32(210).fork()
                               ).ldelim(),
                             null != e.resizeTerm &&
-                              Object.hasOwnProperty.call(e, "resizeTerm") &&
+                              Object.hasOwnProperty.call(e, 'resizeTerm') &&
                               o.api.ResizeTerm.encode(
                                 e.resizeTerm,
                                 t.uint32(218).fork()
                               ).ldelim(),
                             null != e.state &&
-                              Object.hasOwnProperty.call(e, "state") &&
+                              Object.hasOwnProperty.call(e, 'state') &&
                               t.uint32(224).int32(e.state),
                             null != e.ok &&
-                              Object.hasOwnProperty.call(e, "ok") &&
+                              Object.hasOwnProperty.call(e, 'ok') &&
                               o.api.OK.encode(
                                 e.ok,
                                 t.uint32(242).fork()
                               ).ldelim(),
                             null != e.persist &&
-                              Object.hasOwnProperty.call(e, "persist") &&
+                              Object.hasOwnProperty.call(e, 'persist') &&
                               o.api.File.encode(
                                 e.persist,
                                 t.uint32(250).fork()
                               ).ldelim(),
                             null != e.write &&
-                              Object.hasOwnProperty.call(e, "write") &&
+                              Object.hasOwnProperty.call(e, 'write') &&
                               o.api.File.encode(
                                 e.write,
                                 t.uint32(258).fork()
                               ).ldelim(),
                             null != e.remove &&
-                              Object.hasOwnProperty.call(e, "remove") &&
+                              Object.hasOwnProperty.call(e, 'remove') &&
                               o.api.File.encode(
                                 e.remove,
                                 t.uint32(266).fork()
                               ).ldelim(),
                             null != e.move &&
-                              Object.hasOwnProperty.call(e, "move") &&
+                              Object.hasOwnProperty.call(e, 'move') &&
                               o.api.Move.encode(
                                 e.move,
                                 t.uint32(274).fork()
                               ).ldelim(),
                             null != e.read &&
-                              Object.hasOwnProperty.call(e, "read") &&
+                              Object.hasOwnProperty.call(e, 'read') &&
                               o.api.File.encode(
                                 e.read,
                                 t.uint32(282).fork()
                               ).ldelim(),
                             null != e.tryRemove &&
-                              Object.hasOwnProperty.call(e, "tryRemove") &&
+                              Object.hasOwnProperty.call(e, 'tryRemove') &&
                               o.api.File.encode(
                                 e.tryRemove,
                                 t.uint32(290).fork()
                               ).ldelim(),
                             null != e.readdir &&
-                              Object.hasOwnProperty.call(e, "readdir") &&
+                              Object.hasOwnProperty.call(e, 'readdir') &&
                               o.api.File.encode(
                                 e.readdir,
                                 t.uint32(298).fork()
                               ).ldelim(),
                             null != e.files &&
-                              Object.hasOwnProperty.call(e, "files") &&
+                              Object.hasOwnProperty.call(e, 'files') &&
                               o.api.Files.encode(
                                 e.files,
                                 t.uint32(306).fork()
                               ).ldelim(),
                             null != e.mkdir &&
-                              Object.hasOwnProperty.call(e, "mkdir") &&
+                              Object.hasOwnProperty.call(e, 'mkdir') &&
                               o.api.File.encode(
                                 e.mkdir,
                                 t.uint32(314).fork()
                               ).ldelim(),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               o.api.File.encode(
                                 e.file,
                                 t.uint32(322).fork()
                               ).ldelim(),
                             null != e.persistMirror &&
-                              Object.hasOwnProperty.call(e, "persistMirror") &&
+                              Object.hasOwnProperty.call(e, 'persistMirror') &&
                               o.api.File.encode(
                                 e.persistMirror,
                                 t.uint32(330).fork()
                               ).ldelim(),
                             null != e.checkChanges &&
-                              Object.hasOwnProperty.call(e, "checkChanges") &&
+                              Object.hasOwnProperty.call(e, 'checkChanges') &&
                               o.api.CheckChanges.encode(
                                 e.checkChanges,
                                 t.uint32(338).fork()
                               ).ldelim(),
                             null != e.changedFiles &&
-                              Object.hasOwnProperty.call(e, "changedFiles") &&
+                              Object.hasOwnProperty.call(e, 'changedFiles') &&
                               o.api.Files.encode(
                                 e.changedFiles,
                                 t.uint32(346).fork()
                               ).ldelim(),
                             null != e.lintResults &&
-                              Object.hasOwnProperty.call(e, "lintResults") &&
+                              Object.hasOwnProperty.call(e, 'lintResults') &&
                               o.api.LintResults.encode(
                                 e.lintResults,
                                 t.uint32(354).fork()
                               ).ldelim(),
                             null != e.protocolError &&
-                              Object.hasOwnProperty.call(e, "protocolError") &&
+                              Object.hasOwnProperty.call(e, 'protocolError') &&
                               o.api.ProtocolError.encode(
                                 e.protocolError,
                                 t.uint32(362).fork()
                               ).ldelim(),
                             null != e.stderr &&
-                              Object.hasOwnProperty.call(e, "stderr") &&
+                              Object.hasOwnProperty.call(e, 'stderr') &&
                               t.uint32(370).string(e.stderr),
                             null != e.log &&
-                              Object.hasOwnProperty.call(e, "log") &&
+                              Object.hasOwnProperty.call(e, 'log') &&
                               t.uint32(378).string(e.log),
                             null != e.runContainedTest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "runContainedTest"
+                                'runContainedTest'
                               ) &&
                               o.api.ContainedTest.encode(
                                 e.runContainedTest,
                                 t.uint32(562).fork()
                               ).ldelim(),
                             null != e.testResult &&
-                              Object.hasOwnProperty.call(e, "testResult") &&
+                              Object.hasOwnProperty.call(e, 'testResult') &&
                               o.api.TestResult.encode(
                                 e.testResult,
                                 t.uint32(570).fork()
                               ).ldelim(),
                             null != e.debuggerStart &&
-                              Object.hasOwnProperty.call(e, "debuggerStart") &&
+                              Object.hasOwnProperty.call(e, 'debuggerStart') &&
                               t.uint32(722).string(e.debuggerStart),
                             null != e.debuggerStep &&
-                              Object.hasOwnProperty.call(e, "debuggerStep") &&
+                              Object.hasOwnProperty.call(e, 'debuggerStep') &&
                               o.api.RunMain.encode(
                                 e.debuggerStep,
                                 t.uint32(730).fork()
                               ).ldelim(),
                             null != e.debuggerStatus &&
-                              Object.hasOwnProperty.call(e, "debuggerStatus") &&
+                              Object.hasOwnProperty.call(e, 'debuggerStatus') &&
                               o.api.DebugStatus.encode(
                                 e.debuggerStatus,
                                 t.uint32(738).fork()
                               ).ldelim(),
                             null != e.ensurePackages &&
-                              Object.hasOwnProperty.call(e, "ensurePackages") &&
+                              Object.hasOwnProperty.call(e, 'ensurePackages') &&
                               o.api.EnsurePackages.encode(
                                 e.ensurePackages,
                                 t.uint32(802).fork()
                               ).ldelim(),
                             null != e.ping &&
-                              Object.hasOwnProperty.call(e, "ping") &&
+                              Object.hasOwnProperty.call(e, 'ping') &&
                               o.api.Ping.encode(
                                 e.ping,
                                 t.uint32(962).fork()
                               ).ldelim(),
                             null != e.pong &&
-                              Object.hasOwnProperty.call(e, "pong") &&
+                              Object.hasOwnProperty.call(e, 'pong') &&
                               o.api.Pong.encode(
                                 e.pong,
                                 t.uint32(970).fork()
                               ).ldelim(),
                             null != e.hello &&
-                              Object.hasOwnProperty.call(e, "hello") &&
+                              Object.hasOwnProperty.call(e, 'hello') &&
                               o.api.Hello.encode(
                                 e.hello,
                                 t.uint32(978).fork()
                               ).ldelim(),
                             null != e.goodbye &&
-                              Object.hasOwnProperty.call(e, "goodbye") &&
+                              Object.hasOwnProperty.call(e, 'goodbye') &&
                               o.api.Goodbye.encode(
                                 e.goodbye,
                                 t.uint32(986).fork()
                               ).ldelim(),
                             null != e.hint &&
-                              Object.hasOwnProperty.call(e, "hint") &&
+                              Object.hasOwnProperty.call(e, 'hint') &&
                               o.api.Hint.encode(
                                 e.hint,
                                 t.uint32(1042).fork()
                               ).ldelim(),
                             null != e.connect &&
-                              Object.hasOwnProperty.call(e, "connect") &&
+                              Object.hasOwnProperty.call(e, 'connect') &&
                               o.api.Connect.encode(
                                 e.connect,
                                 t.uint32(1202).fork()
                               ).ldelim(),
                             null != e.send &&
-                              Object.hasOwnProperty.call(e, "send") &&
+                              Object.hasOwnProperty.call(e, 'send') &&
                               o.api.Send.encode(
                                 e.send,
                                 t.uint32(1210).fork()
                               ).ldelim(),
                             null != e.recv &&
-                              Object.hasOwnProperty.call(e, "recv") &&
+                              Object.hasOwnProperty.call(e, 'recv') &&
                               o.api.Recv.encode(
                                 e.recv,
                                 t.uint32(1218).fork()
                               ).ldelim(),
                             null != e.disconnect &&
-                              Object.hasOwnProperty.call(e, "disconnect") &&
+                              Object.hasOwnProperty.call(e, 'disconnect') &&
                               o.api.Disconnect.encode(
                                 e.disconnect,
                                 t.uint32(1226).fork()
                               ).ldelim(),
                             null != e.fileAuthReq &&
-                              Object.hasOwnProperty.call(e, "fileAuthReq") &&
+                              Object.hasOwnProperty.call(e, 'fileAuthReq') &&
                               o.api.FileAuthReq.encode(
                                 e.fileAuthReq,
                                 t.uint32(1602).fork()
                               ).ldelim(),
                             null != e.fileAuthRes &&
-                              Object.hasOwnProperty.call(e, "fileAuthRes") &&
+                              Object.hasOwnProperty.call(e, 'fileAuthRes') &&
                               o.api.FileAuthRes.encode(
                                 e.fileAuthRes,
                                 t.uint32(1610).fork()
@@ -628,14 +628,14 @@
                             null != e.mutliFileAuthRes &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "mutliFileAuthRes"
+                                'mutliFileAuthRes'
                               ) &&
                               o.api.MultiFileAuthRes.encode(
                                 e.mutliFileAuthRes,
                                 t.uint32(1618).fork()
                               ).ldelim(),
                             null != e.listObjects &&
-                              Object.hasOwnProperty.call(e, "listObjects") &&
+                              Object.hasOwnProperty.call(e, 'listObjects') &&
                               o.api.ListObjects.encode(
                                 e.listObjects,
                                 t.uint32(1642).fork()
@@ -643,44 +643,44 @@
                             null != e.listObjectsResp &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "listObjectsResp"
+                                'listObjectsResp'
                               ) &&
                               o.api.ListObjectsResp.encode(
                                 e.listObjectsResp,
                                 t.uint32(1650).fork()
                               ).ldelim(),
                             null != e.ot &&
-                              Object.hasOwnProperty.call(e, "ot") &&
+                              Object.hasOwnProperty.call(e, 'ot') &&
                               o.api.OTPacket.encode(
                                 e.ot,
                                 t.uint32(1762).fork()
                               ).ldelim(),
                             null != e.otstatus &&
-                              Object.hasOwnProperty.call(e, "otstatus") &&
+                              Object.hasOwnProperty.call(e, 'otstatus') &&
                               o.api.OTStatus.encode(
                                 e.otstatus,
                                 t.uint32(1770).fork()
                               ).ldelim(),
                             null != e.otLinkFile &&
-                              Object.hasOwnProperty.call(e, "otLinkFile") &&
+                              Object.hasOwnProperty.call(e, 'otLinkFile') &&
                               o.api.OTLinkFile.encode(
                                 e.otLinkFile,
                                 t.uint32(1778).fork()
                               ).ldelim(),
                             null != e.otNewCursor &&
-                              Object.hasOwnProperty.call(e, "otNewCursor") &&
+                              Object.hasOwnProperty.call(e, 'otNewCursor') &&
                               o.api.OTCursor.encode(
                                 e.otNewCursor,
                                 t.uint32(1786).fork()
                               ).ldelim(),
                             null != e.otDeleteCursor &&
-                              Object.hasOwnProperty.call(e, "otDeleteCursor") &&
+                              Object.hasOwnProperty.call(e, 'otDeleteCursor') &&
                               o.api.OTCursor.encode(
                                 e.otDeleteCursor,
                                 t.uint32(1794).fork()
                               ).ldelim(),
                             null != e.otFetchRequest &&
-                              Object.hasOwnProperty.call(e, "otFetchRequest") &&
+                              Object.hasOwnProperty.call(e, 'otFetchRequest') &&
                               o.api.OTFetchRequest.encode(
                                 e.otFetchRequest,
                                 t.uint32(1802).fork()
@@ -688,7 +688,7 @@
                             null != e.otFetchResponse &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "otFetchResponse"
+                                'otFetchResponse'
                               ) &&
                               o.api.OTFetchResponse.encode(
                                 e.otFetchResponse,
@@ -697,7 +697,7 @@
                             null != e.otTransformSelectionRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "otTransformSelectionRequest"
+                                'otTransformSelectionRequest'
                               ) &&
                               o.api.OTTransformSelectionRequest.encode(
                                 e.otTransformSelectionRequest,
@@ -706,7 +706,7 @@
                             null != e.otTransformSelectionResponse &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "otTransformSelectionResponse"
+                                'otTransformSelectionResponse'
                               ) &&
                               o.api.OTTransformSelectionResponse.encode(
                                 e.otTransformSelectionResponse,
@@ -715,98 +715,98 @@
                             null != e.otLinkFileResponse &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "otLinkFileResponse"
+                                'otLinkFileResponse'
                               ) &&
                               o.api.OTLinkFileResponse.encode(
                                 e.otLinkFileResponse,
                                 t.uint32(1834).fork()
                               ).ldelim(),
                             null != e.debug &&
-                              Object.hasOwnProperty.call(e, "debug") &&
+                              Object.hasOwnProperty.call(e, 'debug') &&
                               o.api.Debug.encode(
                                 e.debug,
                                 t.uint32(1842).fork()
                               ).ldelim(),
                             null != e.startVCR &&
-                              Object.hasOwnProperty.call(e, "startVCR") &&
+                              Object.hasOwnProperty.call(e, 'startVCR') &&
                               o.api.StartVCR.encode(
                                 e.startVCR,
                                 t.uint32(1850).fork()
                               ).ldelim(),
                             null != e.readVCR &&
-                              Object.hasOwnProperty.call(e, "readVCR") &&
+                              Object.hasOwnProperty.call(e, 'readVCR') &&
                               o.api.ReadVCR.encode(
                                 e.readVCR,
                                 t.uint32(1858).fork()
                               ).ldelim(),
                             null != e.VCRLog &&
-                              Object.hasOwnProperty.call(e, "VCRLog") &&
+                              Object.hasOwnProperty.call(e, 'VCRLog') &&
                               o.api.VCRLog.encode(
                                 e.VCRLog,
                                 t.uint32(1866).fork()
                               ).ldelim(),
                             null != e.auth &&
-                              Object.hasOwnProperty.call(e, "auth") &&
+                              Object.hasOwnProperty.call(e, 'auth') &&
                               o.api.Auth.encode(
                                 e.auth,
                                 t.uint32(1882).fork()
                               ).ldelim(),
                             null != e.execInfo &&
-                              Object.hasOwnProperty.call(e, "execInfo") &&
+                              Object.hasOwnProperty.call(e, 'execInfo') &&
                               o.api.ExecInfo.encode(
                                 e.execInfo,
                                 t.uint32(1922).fork()
                               ).ldelim(),
                             null != e.flush &&
-                              Object.hasOwnProperty.call(e, "flush") &&
+                              Object.hasOwnProperty.call(e, 'flush') &&
                               o.api.Flush.encode(
                                 e.flush,
                                 t.uint32(2010).fork()
                               ).ldelim(),
                             null != e.subscribeFile &&
-                              Object.hasOwnProperty.call(e, "subscribeFile") &&
+                              Object.hasOwnProperty.call(e, 'subscribeFile') &&
                               o.api.SubscribeFile.encode(
                                 e.subscribeFile,
                                 t.uint32(2050).fork()
                               ).ldelim(),
                             null != e.fileEvent &&
-                              Object.hasOwnProperty.call(e, "fileEvent") &&
+                              Object.hasOwnProperty.call(e, 'fileEvent') &&
                               o.api.FileEvent.encode(
                                 e.fileEvent,
                                 t.uint32(2058).fork()
                               ).ldelim(),
                             null != e.roster &&
-                              Object.hasOwnProperty.call(e, "roster") &&
+                              Object.hasOwnProperty.call(e, 'roster') &&
                               o.api.Roster.encode(
                                 e.roster,
                                 t.uint32(2082).fork()
                               ).ldelim(),
                             null != e.join &&
-                              Object.hasOwnProperty.call(e, "join") &&
+                              Object.hasOwnProperty.call(e, 'join') &&
                               o.api.User.encode(
                                 e.join,
                                 t.uint32(2090).fork()
                               ).ldelim(),
                             null != e.part &&
-                              Object.hasOwnProperty.call(e, "part") &&
+                              Object.hasOwnProperty.call(e, 'part') &&
                               o.api.User.encode(
                                 e.part,
                                 t.uint32(2098).fork()
                               ).ldelim(),
                             null != e.openFile &&
-                              Object.hasOwnProperty.call(e, "openFile") &&
+                              Object.hasOwnProperty.call(e, 'openFile') &&
                               o.api.OpenFile.encode(
                                 e.openFile,
                                 t.uint32(2106).fork()
                               ).ldelim(),
                             null != e.fileOpened &&
-                              Object.hasOwnProperty.call(e, "fileOpened") &&
+                              Object.hasOwnProperty.call(e, 'fileOpened') &&
                               o.api.FileOpened.encode(
                                 e.fileOpened,
                                 t.uint32(2114).fork()
                               ).ldelim(),
                             null != e.followUser &&
-                              Object.hasOwnProperty.call(e, "followUser") &&
+                              Object.hasOwnProperty.call(e, 'followUser') &&
                               o.api.FollowUser.encode(
                                 e.followUser,
                                 t.uint32(2122).fork()
@@ -814,7 +814,7 @@
                             null != e.updateSessionTimestamp &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "updateSessionTimestamp"
+                                'updateSessionTimestamp'
                               ) &&
                               o.api.UpdateSessionTimestamp.encode(
                                 e.updateSessionTimestamp,
@@ -823,26 +823,26 @@
                             null != e.sessionTimestampUpdated &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "sessionTimestampUpdated"
+                                'sessionTimestampUpdated'
                               ) &&
                               o.api.SessionTimestampUpdated.encode(
                                 e.sessionTimestampUpdated,
                                 t.uint32(2138).fork()
                               ).ldelim(),
                             null != e.unfollowUser &&
-                              Object.hasOwnProperty.call(e, "unfollowUser") &&
+                              Object.hasOwnProperty.call(e, 'unfollowUser') &&
                               o.api.UnfollowUser.encode(
                                 e.unfollowUser,
                                 t.uint32(2146).fork()
                               ).ldelim(),
                             null != e.exec &&
-                              Object.hasOwnProperty.call(e, "exec") &&
+                              Object.hasOwnProperty.call(e, 'exec') &&
                               o.api.Exec.encode(
                                 e.exec,
                                 t.uint32(2162).fork()
                               ).ldelim(),
                             null != e.packageSearch &&
-                              Object.hasOwnProperty.call(e, "packageSearch") &&
+                              Object.hasOwnProperty.call(e, 'packageSearch') &&
                               o.api.PackageSearch.encode(
                                 e.packageSearch,
                                 t.uint32(2242).fork()
@@ -850,14 +850,14 @@
                             null != e.packageSearchResp &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "packageSearchResp"
+                                'packageSearchResp'
                               ) &&
                               o.api.PackageSearchResp.encode(
                                 e.packageSearchResp,
                                 t.uint32(2250).fork()
                               ).ldelim(),
                             null != e.packageInfo &&
-                              Object.hasOwnProperty.call(e, "packageInfo") &&
+                              Object.hasOwnProperty.call(e, 'packageInfo') &&
                               o.api.PackageInfo.encode(
                                 e.packageInfo,
                                 t.uint32(2258).fork()
@@ -865,26 +865,26 @@
                             null != e.packageInfoResp &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "packageInfoResp"
+                                'packageInfoResp'
                               ) &&
                               o.api.PackageInfoResp.encode(
                                 e.packageInfoResp,
                                 t.uint32(2266).fork()
                               ).ldelim(),
                             null != e.packageAdd &&
-                              Object.hasOwnProperty.call(e, "packageAdd") &&
+                              Object.hasOwnProperty.call(e, 'packageAdd') &&
                               o.api.PackageAdd.encode(
                                 e.packageAdd,
                                 t.uint32(2274).fork()
                               ).ldelim(),
                             null != e.packageRemove &&
-                              Object.hasOwnProperty.call(e, "packageRemove") &&
+                              Object.hasOwnProperty.call(e, 'packageRemove') &&
                               o.api.PackageRemove.encode(
                                 e.packageRemove,
                                 t.uint32(2282).fork()
                               ).ldelim(),
                             null != e.packageInstall &&
-                              Object.hasOwnProperty.call(e, "packageInstall") &&
+                              Object.hasOwnProperty.call(e, 'packageInstall') &&
                               o.api.PackageInstall.encode(
                                 e.packageInstall,
                                 t.uint32(2290).fork()
@@ -892,7 +892,7 @@
                             null != e.packageListSpecfile &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "packageListSpecfile"
+                                'packageListSpecfile'
                               ) &&
                               o.api.PackageListSpecfile.encode(
                                 e.packageListSpecfile,
@@ -901,7 +901,7 @@
                             null != e.packageListSpecfileResp &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "packageListSpecfileResp"
+                                'packageListSpecfileResp'
                               ) &&
                               o.api.PackageListSpecfileResp.encode(
                                 e.packageListSpecfileResp,
@@ -910,38 +910,38 @@
                             null != e.packageCacheSave &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "packageCacheSave"
+                                'packageCacheSave'
                               ) &&
                               o.api.PackageCacheSave.encode(
                                 e.packageCacheSave,
                                 t.uint32(2314).fork()
                               ).ldelim(),
                             null != e.chatMessage &&
-                              Object.hasOwnProperty.call(e, "chatMessage") &&
+                              Object.hasOwnProperty.call(e, 'chatMessage') &&
                               o.api.ChatMessage.encode(
                                 e.chatMessage,
                                 t.uint32(2482).fork()
                               ).ldelim(),
                             null != e.chatTyping &&
-                              Object.hasOwnProperty.call(e, "chatTyping") &&
+                              Object.hasOwnProperty.call(e, 'chatTyping') &&
                               o.api.ChatTyping.encode(
                                 e.chatTyping,
                                 t.uint32(2490).fork()
                               ).ldelim(),
                             null != e.chatScrollback &&
-                              Object.hasOwnProperty.call(e, "chatScrollback") &&
+                              Object.hasOwnProperty.call(e, 'chatScrollback') &&
                               o.api.ChatScrollback.encode(
                                 e.chatScrollback,
                                 t.uint32(2498).fork()
                               ).ldelim(),
                             null != e.transferStart &&
-                              Object.hasOwnProperty.call(e, "transferStart") &&
+                              Object.hasOwnProperty.call(e, 'transferStart') &&
                               o.api.TransferStart.encode(
                                 e.transferStart,
                                 t.uint32(2562).fork()
                               ).ldelim(),
                             null != e.transferChunk &&
-                              Object.hasOwnProperty.call(e, "transferChunk") &&
+                              Object.hasOwnProperty.call(e, 'transferChunk') &&
                               o.api.TransferChunk.encode(
                                 e.transferChunk,
                                 t.uint32(2570).fork()
@@ -949,65 +949,65 @@
                             null != e.transferComplete &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "transferComplete"
+                                'transferComplete'
                               ) &&
                               o.api.TransferComplete.encode(
                                 e.transferComplete,
                                 t.uint32(2578).fork()
                               ).ldelim(),
                             null != e.transferCancel &&
-                              Object.hasOwnProperty.call(e, "transferCancel") &&
+                              Object.hasOwnProperty.call(e, 'transferCancel') &&
                               o.api.Transfer.encode(
                                 e.transferCancel,
                                 t.uint32(2586).fork()
                               ).ldelim(),
                             null != e.transfer &&
-                              Object.hasOwnProperty.call(e, "transfer") &&
+                              Object.hasOwnProperty.call(e, 'transfer') &&
                               o.api.Transfer.encode(
                                 e.transfer,
                                 t.uint32(2594).fork()
                               ).ldelim(),
                             null != e.fsSnapshot &&
-                              Object.hasOwnProperty.call(e, "fsSnapshot") &&
+                              Object.hasOwnProperty.call(e, 'fsSnapshot') &&
                               o.api.FSSnapshot.encode(
                                 e.fsSnapshot,
                                 t.uint32(2642).fork()
                               ).ldelim(),
                             null != e.fsTakeLock &&
-                              Object.hasOwnProperty.call(e, "fsTakeLock") &&
+                              Object.hasOwnProperty.call(e, 'fsTakeLock') &&
                               o.api.FSLock.encode(
                                 e.fsTakeLock,
                                 t.uint32(2650).fork()
                               ).ldelim(),
                             null != e.fsReleaseLock &&
-                              Object.hasOwnProperty.call(e, "fsReleaseLock") &&
+                              Object.hasOwnProperty.call(e, 'fsReleaseLock') &&
                               o.api.FSLock.encode(
                                 e.fsReleaseLock,
                                 t.uint32(2658).fork()
                               ).ldelim(),
                             null != e.hasCap &&
-                              Object.hasOwnProperty.call(e, "hasCap") &&
+                              Object.hasOwnProperty.call(e, 'hasCap') &&
                               t.uint32(2680).bool(e.hasCap),
                             null != e.pid1Config &&
-                              Object.hasOwnProperty.call(e, "pid1Config") &&
+                              Object.hasOwnProperty.call(e, 'pid1Config') &&
                               o.api.Pid1Config.encode(
                                 e.pid1Config,
                                 t.uint32(2722).fork()
                               ).ldelim(),
                             null != e.startLSP &&
-                              Object.hasOwnProperty.call(e, "startLSP") &&
+                              Object.hasOwnProperty.call(e, 'startLSP') &&
                               o.api.StartLSP.encode(
                                 e.startLSP,
                                 t.uint32(2762).fork()
                               ).ldelim(),
                             null != e.metrics &&
-                              Object.hasOwnProperty.call(e, "metrics") &&
+                              Object.hasOwnProperty.call(e, 'metrics') &&
                               o.api.Metrics.encode(
                                 e.metrics,
                                 t.uint32(2802).fork()
                               ).ldelim(),
                             null != e.bootStatus &&
-                              Object.hasOwnProperty.call(e, "bootStatus") &&
+                              Object.hasOwnProperty.call(e, 'bootStatus') &&
                               o.api.BootStatus.encode(
                                 e.bootStatus,
                                 t.uint32(2810).fork()
@@ -1015,7 +1015,7 @@
                             null != e.readMetaRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "readMetaRequest"
+                                'readMetaRequest'
                               ) &&
                               o.api.ReadMetaRequest.encode(
                                 e.readMetaRequest,
@@ -1024,7 +1024,7 @@
                             null != e.writeMetaRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "writeMetaRequest"
+                                'writeMetaRequest'
                               ) &&
                               o.api.WriteMetaRequest.encode(
                                 e.writeMetaRequest,
@@ -1033,98 +1033,98 @@
                             null != e.appendMetaRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "appendMetaRequest"
+                                'appendMetaRequest'
                               ) &&
                               o.api.AppendMetaRequest.encode(
                                 e.appendMetaRequest,
                                 t.uint32(2898).fork()
                               ).ldelim(),
                             null != e.audio &&
-                              Object.hasOwnProperty.call(e, "audio") &&
+                              Object.hasOwnProperty.call(e, 'audio') &&
                               o.api.Audio.encode(
                                 e.audio,
                                 t.uint32(2906).fork()
                               ).ldelim(),
                             null != e.pprofRequest &&
-                              Object.hasOwnProperty.call(e, "pprofRequest") &&
+                              Object.hasOwnProperty.call(e, 'pprofRequest') &&
                               o.api.PprofRequest.encode(
                                 e.pprofRequest,
                                 t.uint32(2914).fork()
                               ).ldelim(),
                             null != e.pprofResponse &&
-                              Object.hasOwnProperty.call(e, "pprofResponse") &&
+                              Object.hasOwnProperty.call(e, 'pprofResponse') &&
                               o.api.PprofResponse.encode(
                                 e.pprofResponse,
                                 t.uint32(2922).fork()
                               ).ldelim(),
                             null != e.audio2 &&
-                              Object.hasOwnProperty.call(e, "audio2") &&
+                              Object.hasOwnProperty.call(e, 'audio2') &&
                               o.api.Audio2.encode(
                                 e.audio2,
                                 t.uint32(2930).fork()
                               ).ldelim(),
                             null != e.PTYConfig &&
-                              Object.hasOwnProperty.call(e, "PTYConfig") &&
+                              Object.hasOwnProperty.call(e, 'PTYConfig') &&
                               o.api.PTYConfig.encode(
                                 e.PTYConfig,
                                 t.uint32(2938).fork()
                               ).ldelim(),
                             null != e.stat &&
-                              Object.hasOwnProperty.call(e, "stat") &&
+                              Object.hasOwnProperty.call(e, 'stat') &&
                               o.api.File.encode(
                                 e.stat,
                                 t.uint32(2946).fork()
                               ).ldelim(),
                             null != e.statRes &&
-                              Object.hasOwnProperty.call(e, "statRes") &&
+                              Object.hasOwnProperty.call(e, 'statRes') &&
                               o.api.StatResult.encode(
                                 e.statRes,
                                 t.uint32(2954).fork()
                               ).ldelim(),
                             null != e.debugMain &&
-                              Object.hasOwnProperty.call(e, "debugMain") &&
+                              Object.hasOwnProperty.call(e, 'debugMain') &&
                               o.api.DebugMain.encode(
                                 e.debugMain,
                                 t.uint32(2962).fork()
                               ).ldelim(),
                             null != e.debugState &&
-                              Object.hasOwnProperty.call(e, "debugState") &&
+                              Object.hasOwnProperty.call(e, 'debugState') &&
                               o.api.DebugState.encode(
                                 e.debugState,
                                 t.uint32(2970).fork()
                               ).ldelim(),
                             null != e.debugMainReply &&
-                              Object.hasOwnProperty.call(e, "debugMainReply") &&
+                              Object.hasOwnProperty.call(e, 'debugMainReply') &&
                               o.api.DebugMainReply.encode(
                                 e.debugMainReply,
                                 t.uint32(2978).fork()
                               ).ldelim(),
                             null != e.debugInput &&
-                              Object.hasOwnProperty.call(e, "debugInput") &&
+                              Object.hasOwnProperty.call(e, 'debugInput') &&
                               o.api.DebugInput.encode(
                                 e.debugInput,
                                 t.uint32(2986).fork()
                               ).ldelim(),
                             null != e.debugOutput &&
-                              Object.hasOwnProperty.call(e, "debugOutput") &&
+                              Object.hasOwnProperty.call(e, 'debugOutput') &&
                               o.api.DebugOutput.encode(
                                 e.debugOutput,
                                 t.uint32(2994).fork()
                               ).ldelim(),
                             null != e.debugStop &&
-                              Object.hasOwnProperty.call(e, "debugStop") &&
+                              Object.hasOwnProperty.call(e, 'debugStop') &&
                               o.api.DebugStop.encode(
                                 e.debugStop,
                                 t.uint32(3002).fork()
                               ).ldelim(),
                             null != e.debugLeave &&
-                              Object.hasOwnProperty.call(e, "debugLeave") &&
+                              Object.hasOwnProperty.call(e, 'debugLeave') &&
                               o.api.DebugLeave.encode(
                                 e.debugLeave,
                                 t.uint32(3010).fork()
                               ).ldelim(),
                             null != e.debugSessions &&
-                              Object.hasOwnProperty.call(e, "debugSessions") &&
+                              Object.hasOwnProperty.call(e, 'debugSessions') &&
                               o.api.DebugSessions.encode(
                                 e.debugSessions,
                                 t.uint32(3018).fork()
@@ -1132,7 +1132,7 @@
                             null != e.dotReplitGetRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "dotReplitGetRequest"
+                                'dotReplitGetRequest'
                               ) &&
                               o.api.DotReplitGetRequest.encode(
                                 e.dotReplitGetRequest,
@@ -1141,7 +1141,7 @@
                             null != e.dotReplitGetResponse &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "dotReplitGetResponse"
+                                'dotReplitGetResponse'
                               ) &&
                               o.api.DotReplitGetResponse.encode(
                                 e.dotReplitGetResponse,
@@ -1150,7 +1150,7 @@
                             null != e.debugAddBreakpointRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "debugAddBreakpointRequest"
+                                'debugAddBreakpointRequest'
                               ) &&
                               o.api.DebugAddBreakpointRequest.encode(
                                 e.debugAddBreakpointRequest,
@@ -1159,7 +1159,7 @@
                             null != e.debugRemoveBreakpointRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "debugRemoveBreakpointRequest"
+                                'debugRemoveBreakpointRequest'
                               ) &&
                               o.api.DebugRemoveBreakpointRequest.encode(
                                 e.debugRemoveBreakpointRequest,
@@ -1168,7 +1168,7 @@
                             null != e.debugBreakpointEvent &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "debugBreakpointEvent"
+                                'debugBreakpointEvent'
                               ) &&
                               o.api.DebugBreakpointEvent.encode(
                                 e.debugBreakpointEvent,
@@ -1177,7 +1177,7 @@
                             null != e.readMetaResponse &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "readMetaResponse"
+                                'readMetaResponse'
                               ) &&
                               o.api.ReadMetaResponse.encode(
                                 e.readMetaResponse,
@@ -1186,7 +1186,7 @@
                             null != e.writeMetaResponse &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "writeMetaResponse"
+                                'writeMetaResponse'
                               ) &&
                               o.api.WriteMetaResponse.encode(
                                 e.writeMetaResponse,
@@ -1195,7 +1195,7 @@
                             null != e.appendMetaResponse &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "appendMetaResponse"
+                                'appendMetaResponse'
                               ) &&
                               o.api.AppendMetaResponse.encode(
                                 e.appendMetaResponse,
@@ -1204,14 +1204,14 @@
                             null != e.debugUpdateBreakpointRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "debugUpdateBreakpointRequest"
+                                'debugUpdateBreakpointRequest'
                               ) &&
                               o.api.DebugUpdateBreakpointRequest.encode(
                                 e.debugUpdateBreakpointRequest,
                                 t.uint32(3098).fork()
                               ).ldelim(),
                             null != e.ref &&
-                              Object.hasOwnProperty.call(e, "ref") &&
+                              Object.hasOwnProperty.call(e, 'ref') &&
                               t.uint32(8002).string(e.ref),
                             t
                           );
@@ -1937,1427 +1937,1427 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.channel &&
-                            e.hasOwnProperty("channel") &&
+                            e.hasOwnProperty('channel') &&
                             !r.isInteger(e.channel)
                           )
-                            return "channel: integer expected";
+                            return 'channel: integer expected';
                           if (
                             null != e.session &&
-                            e.hasOwnProperty("session") &&
+                            e.hasOwnProperty('session') &&
                             !r.isInteger(e.session)
                           )
-                            return "session: integer expected";
+                            return 'session: integer expected';
                           if (
                             null != e.openChan &&
-                            e.hasOwnProperty("openChan") &&
+                            e.hasOwnProperty('openChan') &&
                             ((t.body = 1),
                             (n = o.api.OpenChannel.verify(e.openChan)))
                           )
-                            return "openChan." + n;
+                            return 'openChan.' + n;
                           if (
                             null != e.openChanRes &&
-                            e.hasOwnProperty("openChanRes")
+                            e.hasOwnProperty('openChanRes')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OpenChannelRes.verify(e.openChanRes)))
                             )
-                              return "openChanRes." + n;
+                              return 'openChanRes.' + n;
                           }
                           if (
                             null != e.closeChan &&
-                            e.hasOwnProperty("closeChan")
+                            e.hasOwnProperty('closeChan')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.CloseChannel.verify(e.closeChan)))
                             )
-                              return "closeChan." + n;
+                              return 'closeChan.' + n;
                           }
                           if (
                             null != e.closeChanRes &&
-                            e.hasOwnProperty("closeChanRes")
+                            e.hasOwnProperty('closeChanRes')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.CloseChannelRes.verify(
                                 e.closeChanRes
                               )))
                             )
-                              return "closeChanRes." + n;
+                              return 'closeChanRes.' + n;
                           }
                           if (
                             null != e.containerState &&
-                            e.hasOwnProperty("containerState")
+                            e.hasOwnProperty('containerState')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ContainerState.verify(
                                 e.containerState
                               )))
                             )
-                              return "containerState." + n;
+                              return 'containerState.' + n;
                           }
                           if (
                             null != e.portOpen &&
-                            e.hasOwnProperty("portOpen")
+                            e.hasOwnProperty('portOpen')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PortOpen.verify(e.portOpen)))
                             )
-                              return "portOpen." + n;
+                              return 'portOpen.' + n;
                           }
-                          if (null != e.toast && e.hasOwnProperty("toast")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.toast && e.hasOwnProperty('toast')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.Toast.verify(e.toast)))
                             )
-                              return "toast." + n;
+                              return 'toast.' + n;
                           }
                           if (
                             null != e.protocolError &&
-                            e.hasOwnProperty("protocolError")
+                            e.hasOwnProperty('protocolError')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ProtocolError.verify(e.protocolError)))
                             )
-                              return "protocolError." + n;
+                              return 'protocolError.' + n;
                           }
                           if (
                             null != e.redirect &&
-                            e.hasOwnProperty("redirect")
+                            e.hasOwnProperty('redirect')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Redirect.verify(e.redirect)))
                             )
-                              return "redirect." + n;
+                              return 'redirect.' + n;
                           }
                           if (
                             null != e.alwaysOn &&
-                            e.hasOwnProperty("alwaysOn")
+                            e.hasOwnProperty('alwaysOn')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.AlwaysOn.verify(e.alwaysOn)))
                             )
-                              return "alwaysOn." + n;
+                              return 'alwaysOn.' + n;
                           }
                           if (
                             null != e.runMain &&
-                            e.hasOwnProperty("runMain")
+                            e.hasOwnProperty('runMain')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.RunMain.verify(e.runMain)))
                             )
-                              return "runMain." + n;
+                              return 'runMain.' + n;
                           }
-                          if (null != e.clear && e.hasOwnProperty("clear")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.clear && e.hasOwnProperty('clear')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.Clear.verify(e.clear)))
                             )
-                              return "clear." + n;
+                              return 'clear.' + n;
                           }
-                          if (null != e.eval && e.hasOwnProperty("eval")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.eval && e.hasOwnProperty('eval')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.eval)))
-                              return "eval: string expected";
+                              return 'eval: string expected';
                           }
-                          if (null != e.result && e.hasOwnProperty("result")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.result && e.hasOwnProperty('result')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.result)))
-                              return "result: string expected";
+                              return 'result: string expected';
                           }
-                          if (null != e.input && e.hasOwnProperty("input")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.input && e.hasOwnProperty('input')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.input)))
-                              return "input: string expected";
+                              return 'input: string expected';
                           }
-                          if (null != e.output && e.hasOwnProperty("output")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.output && e.hasOwnProperty('output')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.output)))
-                              return "output: string expected";
+                              return 'output: string expected';
                           }
-                          if (null != e.error && e.hasOwnProperty("error")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.error && e.hasOwnProperty('error')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.error)))
-                              return "error: string expected";
+                              return 'error: string expected';
                           }
-                          if (null != e.stderr && e.hasOwnProperty("stderr")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.stderr && e.hasOwnProperty('stderr')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.stderr)))
-                              return "stderr: string expected";
+                              return 'stderr: string expected';
                           }
-                          if (null != e.log && e.hasOwnProperty("log")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.log && e.hasOwnProperty('log')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.log)))
-                              return "log: string expected";
+                              return 'log: string expected';
                           }
                           if (
                             null != e.saneTerm &&
-                            e.hasOwnProperty("saneTerm")
+                            e.hasOwnProperty('saneTerm')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.SaneTerm.verify(e.saneTerm)))
                             )
-                              return "saneTerm." + n;
+                              return 'saneTerm.' + n;
                           }
                           if (
                             null != e.resizeTerm &&
-                            e.hasOwnProperty("resizeTerm")
+                            e.hasOwnProperty('resizeTerm')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ResizeTerm.verify(e.resizeTerm)))
                             )
-                              return "resizeTerm." + n;
+                              return 'resizeTerm.' + n;
                           }
-                          if (null != e.state && e.hasOwnProperty("state")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.state && e.hasOwnProperty('state')) {
+                            if (1 === t.body) return 'body: multiple values';
                             switch (((t.body = 1), e.state)) {
                               default:
-                                return "state: enum value expected";
+                                return 'state: enum value expected';
                               case 0:
                               case 1:
                             }
                           }
-                          if (null != e.ok && e.hasOwnProperty("ok")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.ok && e.hasOwnProperty('ok')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.OK.verify(e.ok))))
-                              return "ok." + n;
+                              return 'ok.' + n;
                           }
                           if (
                             null != e.persist &&
-                            e.hasOwnProperty("persist")
+                            e.hasOwnProperty('persist')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.File.verify(e.persist)))
                             )
-                              return "persist." + n;
+                              return 'persist.' + n;
                           }
                           if (
                             null != e.persistMirror &&
-                            e.hasOwnProperty("persistMirror")
+                            e.hasOwnProperty('persistMirror')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.File.verify(e.persistMirror)))
                             )
-                              return "persistMirror." + n;
+                              return 'persistMirror.' + n;
                           }
-                          if (null != e.write && e.hasOwnProperty("write")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.write && e.hasOwnProperty('write')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.File.verify(e.write)))
                             )
-                              return "write." + n;
+                              return 'write.' + n;
                           }
-                          if (null != e.remove && e.hasOwnProperty("remove")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.remove && e.hasOwnProperty('remove')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.File.verify(e.remove)))
                             )
-                              return "remove." + n;
+                              return 'remove.' + n;
                           }
-                          if (null != e.move && e.hasOwnProperty("move")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.move && e.hasOwnProperty('move')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Move.verify(e.move))))
-                              return "move." + n;
+                              return 'move.' + n;
                           }
                           if (
                             null != e.tryRemove &&
-                            e.hasOwnProperty("tryRemove")
+                            e.hasOwnProperty('tryRemove')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.File.verify(e.tryRemove)))
                             )
-                              return "tryRemove." + n;
+                              return 'tryRemove.' + n;
                           }
-                          if (null != e.mkdir && e.hasOwnProperty("mkdir")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.mkdir && e.hasOwnProperty('mkdir')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.File.verify(e.mkdir)))
                             )
-                              return "mkdir." + n;
+                              return 'mkdir.' + n;
                           }
-                          if (null != e.stat && e.hasOwnProperty("stat")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.stat && e.hasOwnProperty('stat')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.File.verify(e.stat))))
-                              return "stat." + n;
+                              return 'stat.' + n;
                           }
                           if (
                             null != e.statRes &&
-                            e.hasOwnProperty("statRes")
+                            e.hasOwnProperty('statRes')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.StatResult.verify(e.statRes)))
                             )
-                              return "statRes." + n;
+                              return 'statRes.' + n;
                           }
                           if (
                             null != e.transferStart &&
-                            e.hasOwnProperty("transferStart")
+                            e.hasOwnProperty('transferStart')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.TransferStart.verify(e.transferStart)))
                             )
-                              return "transferStart." + n;
+                              return 'transferStart.' + n;
                           }
                           if (
                             null != e.transferChunk &&
-                            e.hasOwnProperty("transferChunk")
+                            e.hasOwnProperty('transferChunk')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.TransferChunk.verify(e.transferChunk)))
                             )
-                              return "transferChunk." + n;
+                              return 'transferChunk.' + n;
                           }
                           if (
                             null != e.transferComplete &&
-                            e.hasOwnProperty("transferComplete")
+                            e.hasOwnProperty('transferComplete')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.TransferComplete.verify(
                                 e.transferComplete
                               )))
                             )
-                              return "transferComplete." + n;
+                              return 'transferComplete.' + n;
                           }
                           if (
                             null != e.transferCancel &&
-                            e.hasOwnProperty("transferCancel")
+                            e.hasOwnProperty('transferCancel')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Transfer.verify(e.transferCancel)))
                             )
-                              return "transferCancel." + n;
+                              return 'transferCancel.' + n;
                           }
                           if (
                             null != e.transfer &&
-                            e.hasOwnProperty("transfer")
+                            e.hasOwnProperty('transfer')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Transfer.verify(e.transfer)))
                             )
-                              return "transfer." + n;
+                              return 'transfer.' + n;
                           }
-                          if (null != e.read && e.hasOwnProperty("read")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.read && e.hasOwnProperty('read')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.File.verify(e.read))))
-                              return "read." + n;
+                              return 'read.' + n;
                           }
                           if (
                             null != e.readdir &&
-                            e.hasOwnProperty("readdir")
+                            e.hasOwnProperty('readdir')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.File.verify(e.readdir)))
                             )
-                              return "readdir." + n;
+                              return 'readdir.' + n;
                           }
-                          if (null != e.files && e.hasOwnProperty("files")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.files && e.hasOwnProperty('files')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.Files.verify(e.files)))
                             )
-                              return "files." + n;
+                              return 'files.' + n;
                           }
-                          if (null != e.file && e.hasOwnProperty("file")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.file && e.hasOwnProperty('file')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.File.verify(e.file))))
-                              return "file." + n;
+                              return 'file.' + n;
                           }
                           if (
                             null != e.checkChanges &&
-                            e.hasOwnProperty("checkChanges")
+                            e.hasOwnProperty('checkChanges')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.CheckChanges.verify(e.checkChanges)))
                             )
-                              return "checkChanges." + n;
+                              return 'checkChanges.' + n;
                           }
                           if (
                             null != e.changedFiles &&
-                            e.hasOwnProperty("changedFiles")
+                            e.hasOwnProperty('changedFiles')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Files.verify(e.changedFiles)))
                             )
-                              return "changedFiles." + n;
+                              return 'changedFiles.' + n;
                           }
                           if (
                             null != e.lintResults &&
-                            e.hasOwnProperty("lintResults")
+                            e.hasOwnProperty('lintResults')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.LintResults.verify(e.lintResults)))
                             )
-                              return "lintResults." + n;
+                              return 'lintResults.' + n;
                           }
                           if (
                             null != e.runContainedTest &&
-                            e.hasOwnProperty("runContainedTest")
+                            e.hasOwnProperty('runContainedTest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ContainedTest.verify(
                                 e.runContainedTest
                               )))
                             )
-                              return "runContainedTest." + n;
+                              return 'runContainedTest.' + n;
                           }
                           if (
                             null != e.testResult &&
-                            e.hasOwnProperty("testResult")
+                            e.hasOwnProperty('testResult')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.TestResult.verify(e.testResult)))
                             )
-                              return "testResult." + n;
+                              return 'testResult.' + n;
                           }
                           if (
                             null != e.debuggerStart &&
-                            e.hasOwnProperty("debuggerStart")
+                            e.hasOwnProperty('debuggerStart')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), !r.isString(e.debuggerStart)))
-                              return "debuggerStart: string expected";
+                              return 'debuggerStart: string expected';
                           }
                           if (
                             null != e.debuggerStep &&
-                            e.hasOwnProperty("debuggerStep")
+                            e.hasOwnProperty('debuggerStep')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.RunMain.verify(e.debuggerStep)))
                             )
-                              return "debuggerStep." + n;
+                              return 'debuggerStep.' + n;
                           }
                           if (
                             null != e.debuggerStatus &&
-                            e.hasOwnProperty("debuggerStatus")
+                            e.hasOwnProperty('debuggerStatus')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugStatus.verify(e.debuggerStatus)))
                             )
-                              return "debuggerStatus." + n;
+                              return 'debuggerStatus.' + n;
                           }
                           if (
                             null != e.ensurePackages &&
-                            e.hasOwnProperty("ensurePackages")
+                            e.hasOwnProperty('ensurePackages')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.EnsurePackages.verify(
                                 e.ensurePackages
                               )))
                             )
-                              return "ensurePackages." + n;
+                              return 'ensurePackages.' + n;
                           }
-                          if (null != e.ping && e.hasOwnProperty("ping")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.ping && e.hasOwnProperty('ping')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Ping.verify(e.ping))))
-                              return "ping." + n;
+                              return 'ping.' + n;
                           }
-                          if (null != e.pong && e.hasOwnProperty("pong")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.pong && e.hasOwnProperty('pong')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Pong.verify(e.pong))))
-                              return "pong." + n;
+                              return 'pong.' + n;
                           }
-                          if (null != e.hello && e.hasOwnProperty("hello")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.hello && e.hasOwnProperty('hello')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.Hello.verify(e.hello)))
                             )
-                              return "hello." + n;
+                              return 'hello.' + n;
                           }
                           if (
                             null != e.goodbye &&
-                            e.hasOwnProperty("goodbye")
+                            e.hasOwnProperty('goodbye')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Goodbye.verify(e.goodbye)))
                             )
-                              return "goodbye." + n;
+                              return 'goodbye.' + n;
                           }
-                          if (null != e.hint && e.hasOwnProperty("hint")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.hint && e.hasOwnProperty('hint')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Hint.verify(e.hint))))
-                              return "hint." + n;
+                              return 'hint.' + n;
                           }
                           if (
                             null != e.connect &&
-                            e.hasOwnProperty("connect")
+                            e.hasOwnProperty('connect')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Connect.verify(e.connect)))
                             )
-                              return "connect." + n;
+                              return 'connect.' + n;
                           }
-                          if (null != e.send && e.hasOwnProperty("send")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.send && e.hasOwnProperty('send')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Send.verify(e.send))))
-                              return "send." + n;
+                              return 'send.' + n;
                           }
-                          if (null != e.recv && e.hasOwnProperty("recv")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.recv && e.hasOwnProperty('recv')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Recv.verify(e.recv))))
-                              return "recv." + n;
+                              return 'recv.' + n;
                           }
                           if (
                             null != e.disconnect &&
-                            e.hasOwnProperty("disconnect")
+                            e.hasOwnProperty('disconnect')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Disconnect.verify(e.disconnect)))
                             )
-                              return "disconnect." + n;
+                              return 'disconnect.' + n;
                           }
                           if (
                             null != e.fileAuthReq &&
-                            e.hasOwnProperty("fileAuthReq")
+                            e.hasOwnProperty('fileAuthReq')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FileAuthReq.verify(e.fileAuthReq)))
                             )
-                              return "fileAuthReq." + n;
+                              return 'fileAuthReq.' + n;
                           }
                           if (
                             null != e.fileAuthRes &&
-                            e.hasOwnProperty("fileAuthRes")
+                            e.hasOwnProperty('fileAuthRes')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FileAuthRes.verify(e.fileAuthRes)))
                             )
-                              return "fileAuthRes." + n;
+                              return 'fileAuthRes.' + n;
                           }
                           if (
                             null != e.mutliFileAuthRes &&
-                            e.hasOwnProperty("mutliFileAuthRes")
+                            e.hasOwnProperty('mutliFileAuthRes')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.MultiFileAuthRes.verify(
                                 e.mutliFileAuthRes
                               )))
                             )
-                              return "mutliFileAuthRes." + n;
+                              return 'mutliFileAuthRes.' + n;
                           }
                           if (
                             null != e.listObjects &&
-                            e.hasOwnProperty("listObjects")
+                            e.hasOwnProperty('listObjects')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ListObjects.verify(e.listObjects)))
                             )
-                              return "listObjects." + n;
+                              return 'listObjects.' + n;
                           }
                           if (
                             null != e.listObjectsResp &&
-                            e.hasOwnProperty("listObjectsResp")
+                            e.hasOwnProperty('listObjectsResp')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ListObjectsResp.verify(
                                 e.listObjectsResp
                               )))
                             )
-                              return "listObjectsResp." + n;
+                              return 'listObjectsResp.' + n;
                           }
-                          if (null != e.ot && e.hasOwnProperty("ot")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.ot && e.hasOwnProperty('ot')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.OTPacket.verify(e.ot)))
                             )
-                              return "ot." + n;
+                              return 'ot.' + n;
                           }
                           if (
                             null != e.otstatus &&
-                            e.hasOwnProperty("otstatus")
+                            e.hasOwnProperty('otstatus')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTStatus.verify(e.otstatus)))
                             )
-                              return "otstatus." + n;
+                              return 'otstatus.' + n;
                           }
                           if (
                             null != e.otLinkFile &&
-                            e.hasOwnProperty("otLinkFile")
+                            e.hasOwnProperty('otLinkFile')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTLinkFile.verify(e.otLinkFile)))
                             )
-                              return "otLinkFile." + n;
+                              return 'otLinkFile.' + n;
                           }
                           if (
                             null != e.otLinkFileResponse &&
-                            e.hasOwnProperty("otLinkFileResponse")
+                            e.hasOwnProperty('otLinkFileResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTLinkFileResponse.verify(
                                 e.otLinkFileResponse
                               )))
                             )
-                              return "otLinkFileResponse." + n;
+                              return 'otLinkFileResponse.' + n;
                           }
                           if (
                             null != e.otNewCursor &&
-                            e.hasOwnProperty("otNewCursor")
+                            e.hasOwnProperty('otNewCursor')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTCursor.verify(e.otNewCursor)))
                             )
-                              return "otNewCursor." + n;
+                              return 'otNewCursor.' + n;
                           }
                           if (
                             null != e.otDeleteCursor &&
-                            e.hasOwnProperty("otDeleteCursor")
+                            e.hasOwnProperty('otDeleteCursor')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTCursor.verify(e.otDeleteCursor)))
                             )
-                              return "otDeleteCursor." + n;
+                              return 'otDeleteCursor.' + n;
                           }
                           if (
                             null != e.otFetchRequest &&
-                            e.hasOwnProperty("otFetchRequest")
+                            e.hasOwnProperty('otFetchRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTFetchRequest.verify(
                                 e.otFetchRequest
                               )))
                             )
-                              return "otFetchRequest." + n;
+                              return 'otFetchRequest.' + n;
                           }
                           if (
                             null != e.otFetchResponse &&
-                            e.hasOwnProperty("otFetchResponse")
+                            e.hasOwnProperty('otFetchResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTFetchResponse.verify(
                                 e.otFetchResponse
                               )))
                             )
-                              return "otFetchResponse." + n;
+                              return 'otFetchResponse.' + n;
                           }
                           if (
                             null != e.otTransformSelectionRequest &&
-                            e.hasOwnProperty("otTransformSelectionRequest")
+                            e.hasOwnProperty('otTransformSelectionRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTTransformSelectionRequest.verify(
                                 e.otTransformSelectionRequest
                               )))
                             )
-                              return "otTransformSelectionRequest." + n;
+                              return 'otTransformSelectionRequest.' + n;
                           }
                           if (
                             null != e.otTransformSelectionResponse &&
-                            e.hasOwnProperty("otTransformSelectionResponse")
+                            e.hasOwnProperty('otTransformSelectionResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OTTransformSelectionResponse.verify(
                                 e.otTransformSelectionResponse
                               )))
                             )
-                              return "otTransformSelectionResponse." + n;
+                              return 'otTransformSelectionResponse.' + n;
                           }
-                          if (null != e.flush && e.hasOwnProperty("flush")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.flush && e.hasOwnProperty('flush')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.Flush.verify(e.flush)))
                             )
-                              return "flush." + n;
+                              return 'flush.' + n;
                           }
-                          if (null != e.debug && e.hasOwnProperty("debug")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.debug && e.hasOwnProperty('debug')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.Debug.verify(e.debug)))
                             )
-                              return "debug." + n;
+                              return 'debug.' + n;
                           }
                           if (
                             null != e.startVCR &&
-                            e.hasOwnProperty("startVCR")
+                            e.hasOwnProperty('startVCR')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.StartVCR.verify(e.startVCR)))
                             )
-                              return "startVCR." + n;
+                              return 'startVCR.' + n;
                           }
                           if (
                             null != e.readVCR &&
-                            e.hasOwnProperty("readVCR")
+                            e.hasOwnProperty('readVCR')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ReadVCR.verify(e.readVCR)))
                             )
-                              return "readVCR." + n;
+                              return 'readVCR.' + n;
                           }
-                          if (null != e.VCRLog && e.hasOwnProperty("VCRLog")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.VCRLog && e.hasOwnProperty('VCRLog')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.VCRLog.verify(e.VCRLog)))
                             )
-                              return "VCRLog." + n;
+                              return 'VCRLog.' + n;
                           }
-                          if (null != e.auth && e.hasOwnProperty("auth")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.auth && e.hasOwnProperty('auth')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Auth.verify(e.auth))))
-                              return "auth." + n;
+                              return 'auth.' + n;
                           }
                           if (
                             null != e.execInfo &&
-                            e.hasOwnProperty("execInfo")
+                            e.hasOwnProperty('execInfo')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ExecInfo.verify(e.execInfo)))
                             )
-                              return "execInfo." + n;
+                              return 'execInfo.' + n;
                           }
                           if (
                             null != e.subscribeFile &&
-                            e.hasOwnProperty("subscribeFile")
+                            e.hasOwnProperty('subscribeFile')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.SubscribeFile.verify(e.subscribeFile)))
                             )
-                              return "subscribeFile." + n;
+                              return 'subscribeFile.' + n;
                           }
                           if (
                             null != e.fileEvent &&
-                            e.hasOwnProperty("fileEvent")
+                            e.hasOwnProperty('fileEvent')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FileEvent.verify(e.fileEvent)))
                             )
-                              return "fileEvent." + n;
+                              return 'fileEvent.' + n;
                           }
-                          if (null != e.roster && e.hasOwnProperty("roster")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.roster && e.hasOwnProperty('roster')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Roster.verify(e.roster)))
                             )
-                              return "roster." + n;
+                              return 'roster.' + n;
                           }
-                          if (null != e.join && e.hasOwnProperty("join")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.join && e.hasOwnProperty('join')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.User.verify(e.join))))
-                              return "join." + n;
+                              return 'join.' + n;
                           }
-                          if (null != e.part && e.hasOwnProperty("part")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.part && e.hasOwnProperty('part')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.User.verify(e.part))))
-                              return "part." + n;
+                              return 'part.' + n;
                           }
                           if (
                             null != e.openFile &&
-                            e.hasOwnProperty("openFile")
+                            e.hasOwnProperty('openFile')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.OpenFile.verify(e.openFile)))
                             )
-                              return "openFile." + n;
+                              return 'openFile.' + n;
                           }
                           if (
                             null != e.fileOpened &&
-                            e.hasOwnProperty("fileOpened")
+                            e.hasOwnProperty('fileOpened')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FileOpened.verify(e.fileOpened)))
                             )
-                              return "fileOpened." + n;
+                              return 'fileOpened.' + n;
                           }
                           if (
                             null != e.followUser &&
-                            e.hasOwnProperty("followUser")
+                            e.hasOwnProperty('followUser')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FollowUser.verify(e.followUser)))
                             )
-                              return "followUser." + n;
+                              return 'followUser.' + n;
                           }
                           if (
                             null != e.unfollowUser &&
-                            e.hasOwnProperty("unfollowUser")
+                            e.hasOwnProperty('unfollowUser')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.UnfollowUser.verify(e.unfollowUser)))
                             )
-                              return "unfollowUser." + n;
+                              return 'unfollowUser.' + n;
                           }
                           if (
                             null != e.updateSessionTimestamp &&
-                            e.hasOwnProperty("updateSessionTimestamp")
+                            e.hasOwnProperty('updateSessionTimestamp')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.UpdateSessionTimestamp.verify(
                                 e.updateSessionTimestamp
                               )))
                             )
-                              return "updateSessionTimestamp." + n;
+                              return 'updateSessionTimestamp.' + n;
                           }
                           if (
                             null != e.sessionTimestampUpdated &&
-                            e.hasOwnProperty("sessionTimestampUpdated")
+                            e.hasOwnProperty('sessionTimestampUpdated')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.SessionTimestampUpdated.verify(
                                 e.sessionTimestampUpdated
                               )))
                             )
-                              return "sessionTimestampUpdated." + n;
+                              return 'sessionTimestampUpdated.' + n;
                           }
-                          if (null != e.exec && e.hasOwnProperty("exec")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.exec && e.hasOwnProperty('exec')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (((t.body = 1), (n = o.api.Exec.verify(e.exec))))
-                              return "exec." + n;
+                              return 'exec.' + n;
                           }
                           if (
                             null != e.packageSearch &&
-                            e.hasOwnProperty("packageSearch")
+                            e.hasOwnProperty('packageSearch')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageSearch.verify(e.packageSearch)))
                             )
-                              return "packageSearch." + n;
+                              return 'packageSearch.' + n;
                           }
                           if (
                             null != e.packageSearchResp &&
-                            e.hasOwnProperty("packageSearchResp")
+                            e.hasOwnProperty('packageSearchResp')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageSearchResp.verify(
                                 e.packageSearchResp
                               )))
                             )
-                              return "packageSearchResp." + n;
+                              return 'packageSearchResp.' + n;
                           }
                           if (
                             null != e.packageInfo &&
-                            e.hasOwnProperty("packageInfo")
+                            e.hasOwnProperty('packageInfo')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageInfo.verify(e.packageInfo)))
                             )
-                              return "packageInfo." + n;
+                              return 'packageInfo.' + n;
                           }
                           if (
                             null != e.packageInfoResp &&
-                            e.hasOwnProperty("packageInfoResp")
+                            e.hasOwnProperty('packageInfoResp')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageInfoResp.verify(
                                 e.packageInfoResp
                               )))
                             )
-                              return "packageInfoResp." + n;
+                              return 'packageInfoResp.' + n;
                           }
                           if (
                             null != e.packageAdd &&
-                            e.hasOwnProperty("packageAdd")
+                            e.hasOwnProperty('packageAdd')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageAdd.verify(e.packageAdd)))
                             )
-                              return "packageAdd." + n;
+                              return 'packageAdd.' + n;
                           }
                           if (
                             null != e.packageRemove &&
-                            e.hasOwnProperty("packageRemove")
+                            e.hasOwnProperty('packageRemove')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageRemove.verify(e.packageRemove)))
                             )
-                              return "packageRemove." + n;
+                              return 'packageRemove.' + n;
                           }
                           if (
                             null != e.packageInstall &&
-                            e.hasOwnProperty("packageInstall")
+                            e.hasOwnProperty('packageInstall')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageInstall.verify(
                                 e.packageInstall
                               )))
                             )
-                              return "packageInstall." + n;
+                              return 'packageInstall.' + n;
                           }
                           if (
                             null != e.packageListSpecfile &&
-                            e.hasOwnProperty("packageListSpecfile")
+                            e.hasOwnProperty('packageListSpecfile')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageListSpecfile.verify(
                                 e.packageListSpecfile
                               )))
                             )
-                              return "packageListSpecfile." + n;
+                              return 'packageListSpecfile.' + n;
                           }
                           if (
                             null != e.packageListSpecfileResp &&
-                            e.hasOwnProperty("packageListSpecfileResp")
+                            e.hasOwnProperty('packageListSpecfileResp')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageListSpecfileResp.verify(
                                 e.packageListSpecfileResp
                               )))
                             )
-                              return "packageListSpecfileResp." + n;
+                              return 'packageListSpecfileResp.' + n;
                           }
                           if (
                             null != e.packageCacheSave &&
-                            e.hasOwnProperty("packageCacheSave")
+                            e.hasOwnProperty('packageCacheSave')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PackageCacheSave.verify(
                                 e.packageCacheSave
                               )))
                             )
-                              return "packageCacheSave." + n;
+                              return 'packageCacheSave.' + n;
                           }
                           if (
                             null != e.chatMessage &&
-                            e.hasOwnProperty("chatMessage")
+                            e.hasOwnProperty('chatMessage')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ChatMessage.verify(e.chatMessage)))
                             )
-                              return "chatMessage." + n;
+                              return 'chatMessage.' + n;
                           }
                           if (
                             null != e.chatTyping &&
-                            e.hasOwnProperty("chatTyping")
+                            e.hasOwnProperty('chatTyping')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ChatTyping.verify(e.chatTyping)))
                             )
-                              return "chatTyping." + n;
+                              return 'chatTyping.' + n;
                           }
                           if (
                             null != e.chatScrollback &&
-                            e.hasOwnProperty("chatScrollback")
+                            e.hasOwnProperty('chatScrollback')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ChatScrollback.verify(
                                 e.chatScrollback
                               )))
                             )
-                              return "chatScrollback." + n;
+                              return 'chatScrollback.' + n;
                           }
                           if (
                             null != e.fsSnapshot &&
-                            e.hasOwnProperty("fsSnapshot")
+                            e.hasOwnProperty('fsSnapshot')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FSSnapshot.verify(e.fsSnapshot)))
                             )
-                              return "fsSnapshot." + n;
+                              return 'fsSnapshot.' + n;
                           }
                           if (
                             null != e.fsTakeLock &&
-                            e.hasOwnProperty("fsTakeLock")
+                            e.hasOwnProperty('fsTakeLock')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FSLock.verify(e.fsTakeLock)))
                             )
-                              return "fsTakeLock." + n;
+                              return 'fsTakeLock.' + n;
                           }
                           if (
                             null != e.fsReleaseLock &&
-                            e.hasOwnProperty("fsReleaseLock")
+                            e.hasOwnProperty('fsReleaseLock')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.FSLock.verify(e.fsReleaseLock)))
                             )
-                              return "fsReleaseLock." + n;
+                              return 'fsReleaseLock.' + n;
                           }
-                          if (null != e.hasCap && e.hasOwnProperty("hasCap")) {
-                            if (1 === t.body) return "body: multiple values";
-                            if (((t.body = 1), "boolean" !== typeof e.hasCap))
-                              return "hasCap: boolean expected";
+                          if (null != e.hasCap && e.hasOwnProperty('hasCap')) {
+                            if (1 === t.body) return 'body: multiple values';
+                            if (((t.body = 1), 'boolean' !== typeof e.hasCap))
+                              return 'hasCap: boolean expected';
                           }
                           if (
                             null != e.pid1Config &&
-                            e.hasOwnProperty("pid1Config")
+                            e.hasOwnProperty('pid1Config')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Pid1Config.verify(e.pid1Config)))
                             )
-                              return "pid1Config." + n;
+                              return 'pid1Config.' + n;
                           }
                           if (
                             null != e.metrics &&
-                            e.hasOwnProperty("metrics")
+                            e.hasOwnProperty('metrics')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Metrics.verify(e.metrics)))
                             )
-                              return "metrics." + n;
+                              return 'metrics.' + n;
                           }
                           if (
                             null != e.bootStatus &&
-                            e.hasOwnProperty("bootStatus")
+                            e.hasOwnProperty('bootStatus')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.BootStatus.verify(e.bootStatus)))
                             )
-                              return "bootStatus." + n;
+                              return 'bootStatus.' + n;
                           }
                           if (
                             null != e.readMetaRequest &&
-                            e.hasOwnProperty("readMetaRequest")
+                            e.hasOwnProperty('readMetaRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ReadMetaRequest.verify(
                                 e.readMetaRequest
                               )))
                             )
-                              return "readMetaRequest." + n;
+                              return 'readMetaRequest.' + n;
                           }
                           if (
                             null != e.readMetaResponse &&
-                            e.hasOwnProperty("readMetaResponse")
+                            e.hasOwnProperty('readMetaResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.ReadMetaResponse.verify(
                                 e.readMetaResponse
                               )))
                             )
-                              return "readMetaResponse." + n;
+                              return 'readMetaResponse.' + n;
                           }
                           if (
                             null != e.writeMetaRequest &&
-                            e.hasOwnProperty("writeMetaRequest")
+                            e.hasOwnProperty('writeMetaRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.WriteMetaRequest.verify(
                                 e.writeMetaRequest
                               )))
                             )
-                              return "writeMetaRequest." + n;
+                              return 'writeMetaRequest.' + n;
                           }
                           if (
                             null != e.writeMetaResponse &&
-                            e.hasOwnProperty("writeMetaResponse")
+                            e.hasOwnProperty('writeMetaResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.WriteMetaResponse.verify(
                                 e.writeMetaResponse
                               )))
                             )
-                              return "writeMetaResponse." + n;
+                              return 'writeMetaResponse.' + n;
                           }
                           if (
                             null != e.appendMetaRequest &&
-                            e.hasOwnProperty("appendMetaRequest")
+                            e.hasOwnProperty('appendMetaRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.AppendMetaRequest.verify(
                                 e.appendMetaRequest
                               )))
                             )
-                              return "appendMetaRequest." + n;
+                              return 'appendMetaRequest.' + n;
                           }
                           if (
                             null != e.appendMetaResponse &&
-                            e.hasOwnProperty("appendMetaResponse")
+                            e.hasOwnProperty('appendMetaResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.AppendMetaResponse.verify(
                                 e.appendMetaResponse
                               )))
                             )
-                              return "appendMetaResponse." + n;
+                              return 'appendMetaResponse.' + n;
                           }
-                          if (null != e.audio && e.hasOwnProperty("audio")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.audio && e.hasOwnProperty('audio')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1), (n = o.api.Audio.verify(e.audio)))
                             )
-                              return "audio." + n;
+                              return 'audio.' + n;
                           }
                           if (
                             null != e.pprofRequest &&
-                            e.hasOwnProperty("pprofRequest")
+                            e.hasOwnProperty('pprofRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PprofRequest.verify(e.pprofRequest)))
                             )
-                              return "pprofRequest." + n;
+                              return 'pprofRequest.' + n;
                           }
                           if (
                             null != e.pprofResponse &&
-                            e.hasOwnProperty("pprofResponse")
+                            e.hasOwnProperty('pprofResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PprofResponse.verify(e.pprofResponse)))
                             )
-                              return "pprofResponse." + n;
+                              return 'pprofResponse.' + n;
                           }
-                          if (null != e.audio2 && e.hasOwnProperty("audio2")) {
-                            if (1 === t.body) return "body: multiple values";
+                          if (null != e.audio2 && e.hasOwnProperty('audio2')) {
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.Audio2.verify(e.audio2)))
                             )
-                              return "audio2." + n;
+                              return 'audio2.' + n;
                           }
                           if (
                             null != e.PTYConfig &&
-                            e.hasOwnProperty("PTYConfig")
+                            e.hasOwnProperty('PTYConfig')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PTYConfig.verify(e.PTYConfig)))
                             )
-                              return "PTYConfig." + n;
+                              return 'PTYConfig.' + n;
                           }
                           if (
                             null != e.debugMain &&
-                            e.hasOwnProperty("debugMain")
+                            e.hasOwnProperty('debugMain')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugMain.verify(e.debugMain)))
                             )
-                              return "debugMain." + n;
+                              return 'debugMain.' + n;
                           }
                           if (
                             null != e.debugState &&
-                            e.hasOwnProperty("debugState")
+                            e.hasOwnProperty('debugState')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugState.verify(e.debugState)))
                             )
-                              return "debugState." + n;
+                              return 'debugState.' + n;
                           }
                           if (
                             null != e.debugMainReply &&
-                            e.hasOwnProperty("debugMainReply")
+                            e.hasOwnProperty('debugMainReply')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugMainReply.verify(
                                 e.debugMainReply
                               )))
                             )
-                              return "debugMainReply." + n;
+                              return 'debugMainReply.' + n;
                           }
                           if (
                             null != e.debugInput &&
-                            e.hasOwnProperty("debugInput")
+                            e.hasOwnProperty('debugInput')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugInput.verify(e.debugInput)))
                             )
-                              return "debugInput." + n;
+                              return 'debugInput.' + n;
                           }
                           if (
                             null != e.debugOutput &&
-                            e.hasOwnProperty("debugOutput")
+                            e.hasOwnProperty('debugOutput')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugOutput.verify(e.debugOutput)))
                             )
-                              return "debugOutput." + n;
+                              return 'debugOutput.' + n;
                           }
                           if (
                             null != e.debugStop &&
-                            e.hasOwnProperty("debugStop")
+                            e.hasOwnProperty('debugStop')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugStop.verify(e.debugStop)))
                             )
-                              return "debugStop." + n;
+                              return 'debugStop.' + n;
                           }
                           if (
                             null != e.debugLeave &&
-                            e.hasOwnProperty("debugLeave")
+                            e.hasOwnProperty('debugLeave')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugLeave.verify(e.debugLeave)))
                             )
-                              return "debugLeave." + n;
+                              return 'debugLeave.' + n;
                           }
                           if (
                             null != e.debugSessions &&
-                            e.hasOwnProperty("debugSessions")
+                            e.hasOwnProperty('debugSessions')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugSessions.verify(e.debugSessions)))
                             )
-                              return "debugSessions." + n;
+                              return 'debugSessions.' + n;
                           }
                           if (
                             null != e.debugAddBreakpointRequest &&
-                            e.hasOwnProperty("debugAddBreakpointRequest")
+                            e.hasOwnProperty('debugAddBreakpointRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugAddBreakpointRequest.verify(
                                 e.debugAddBreakpointRequest
                               )))
                             )
-                              return "debugAddBreakpointRequest." + n;
+                              return 'debugAddBreakpointRequest.' + n;
                           }
                           if (
                             null != e.debugUpdateBreakpointRequest &&
-                            e.hasOwnProperty("debugUpdateBreakpointRequest")
+                            e.hasOwnProperty('debugUpdateBreakpointRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugUpdateBreakpointRequest.verify(
                                 e.debugUpdateBreakpointRequest
                               )))
                             )
-                              return "debugUpdateBreakpointRequest." + n;
+                              return 'debugUpdateBreakpointRequest.' + n;
                           }
                           if (
                             null != e.debugRemoveBreakpointRequest &&
-                            e.hasOwnProperty("debugRemoveBreakpointRequest")
+                            e.hasOwnProperty('debugRemoveBreakpointRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugRemoveBreakpointRequest.verify(
                                 e.debugRemoveBreakpointRequest
                               )))
                             )
-                              return "debugRemoveBreakpointRequest." + n;
+                              return 'debugRemoveBreakpointRequest.' + n;
                           }
                           if (
                             null != e.debugBreakpointEvent &&
-                            e.hasOwnProperty("debugBreakpointEvent")
+                            e.hasOwnProperty('debugBreakpointEvent')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DebugBreakpointEvent.verify(
                                 e.debugBreakpointEvent
                               )))
                             )
-                              return "debugBreakpointEvent." + n;
+                              return 'debugBreakpointEvent.' + n;
                           }
                           if (
                             null != e.dotReplitGetRequest &&
-                            e.hasOwnProperty("dotReplitGetRequest")
+                            e.hasOwnProperty('dotReplitGetRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DotReplitGetRequest.verify(
                                 e.dotReplitGetRequest
                               )))
                             )
-                              return "dotReplitGetRequest." + n;
+                              return 'dotReplitGetRequest.' + n;
                           }
                           if (
                             null != e.dotReplitGetResponse &&
-                            e.hasOwnProperty("dotReplitGetResponse")
+                            e.hasOwnProperty('dotReplitGetResponse')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.DotReplitGetResponse.verify(
                                 e.dotReplitGetResponse
                               )))
                             )
-                              return "dotReplitGetResponse." + n;
+                              return 'dotReplitGetResponse.' + n;
                           }
                           if (
                             null != e.startLSP &&
-                            e.hasOwnProperty("startLSP")
+                            e.hasOwnProperty('startLSP')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             var n;
                             if (
                               ((t.body = 1),
                               (n = o.api.StartLSP.verify(e.startLSP)))
                             )
-                              return "startLSP." + n;
+                              return 'startLSP.' + n;
                           }
                           return null != e.ref &&
-                            e.hasOwnProperty("ref") &&
+                            e.hasOwnProperty('ref') &&
                             !r.isString(e.ref)
-                            ? "ref: string expected"
+                            ? 'ref: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -3368,98 +3368,98 @@
                             null != e.session && (t.session = 0 | e.session),
                             null != e.openChan)
                           ) {
-                            if ("object" !== typeof e.openChan)
+                            if ('object' !== typeof e.openChan)
                               throw TypeError(
-                                ".api.Command.openChan: object expected"
+                                '.api.Command.openChan: object expected'
                               );
                             t.openChan = o.api.OpenChannel.fromObject(
                               e.openChan
                             );
                           }
                           if (null != e.openChanRes) {
-                            if ("object" !== typeof e.openChanRes)
+                            if ('object' !== typeof e.openChanRes)
                               throw TypeError(
-                                ".api.Command.openChanRes: object expected"
+                                '.api.Command.openChanRes: object expected'
                               );
                             t.openChanRes = o.api.OpenChannelRes.fromObject(
                               e.openChanRes
                             );
                           }
                           if (null != e.closeChan) {
-                            if ("object" !== typeof e.closeChan)
+                            if ('object' !== typeof e.closeChan)
                               throw TypeError(
-                                ".api.Command.closeChan: object expected"
+                                '.api.Command.closeChan: object expected'
                               );
                             t.closeChan = o.api.CloseChannel.fromObject(
                               e.closeChan
                             );
                           }
                           if (null != e.closeChanRes) {
-                            if ("object" !== typeof e.closeChanRes)
+                            if ('object' !== typeof e.closeChanRes)
                               throw TypeError(
-                                ".api.Command.closeChanRes: object expected"
+                                '.api.Command.closeChanRes: object expected'
                               );
                             t.closeChanRes = o.api.CloseChannelRes.fromObject(
                               e.closeChanRes
                             );
                           }
                           if (null != e.containerState) {
-                            if ("object" !== typeof e.containerState)
+                            if ('object' !== typeof e.containerState)
                               throw TypeError(
-                                ".api.Command.containerState: object expected"
+                                '.api.Command.containerState: object expected'
                               );
                             t.containerState = o.api.ContainerState.fromObject(
                               e.containerState
                             );
                           }
                           if (null != e.portOpen) {
-                            if ("object" !== typeof e.portOpen)
+                            if ('object' !== typeof e.portOpen)
                               throw TypeError(
-                                ".api.Command.portOpen: object expected"
+                                '.api.Command.portOpen: object expected'
                               );
                             t.portOpen = o.api.PortOpen.fromObject(e.portOpen);
                           }
                           if (null != e.toast) {
-                            if ("object" !== typeof e.toast)
+                            if ('object' !== typeof e.toast)
                               throw TypeError(
-                                ".api.Command.toast: object expected"
+                                '.api.Command.toast: object expected'
                               );
                             t.toast = o.api.Toast.fromObject(e.toast);
                           }
                           if (null != e.protocolError) {
-                            if ("object" !== typeof e.protocolError)
+                            if ('object' !== typeof e.protocolError)
                               throw TypeError(
-                                ".api.Command.protocolError: object expected"
+                                '.api.Command.protocolError: object expected'
                               );
                             t.protocolError = o.api.ProtocolError.fromObject(
                               e.protocolError
                             );
                           }
                           if (null != e.redirect) {
-                            if ("object" !== typeof e.redirect)
+                            if ('object' !== typeof e.redirect)
                               throw TypeError(
-                                ".api.Command.redirect: object expected"
+                                '.api.Command.redirect: object expected'
                               );
                             t.redirect = o.api.Redirect.fromObject(e.redirect);
                           }
                           if (null != e.alwaysOn) {
-                            if ("object" !== typeof e.alwaysOn)
+                            if ('object' !== typeof e.alwaysOn)
                               throw TypeError(
-                                ".api.Command.alwaysOn: object expected"
+                                '.api.Command.alwaysOn: object expected'
                               );
                             t.alwaysOn = o.api.AlwaysOn.fromObject(e.alwaysOn);
                           }
                           if (null != e.runMain) {
-                            if ("object" !== typeof e.runMain)
+                            if ('object' !== typeof e.runMain)
                               throw TypeError(
-                                ".api.Command.runMain: object expected"
+                                '.api.Command.runMain: object expected'
                               );
                             t.runMain = o.api.RunMain.fromObject(e.runMain);
                           }
                           if (null != e.clear) {
-                            if ("object" !== typeof e.clear)
+                            if ('object' !== typeof e.clear)
                               throw TypeError(
-                                ".api.Command.clear: object expected"
+                                '.api.Command.clear: object expected'
                               );
                             t.clear = o.api.Clear.fromObject(e.clear);
                           }
@@ -3473,124 +3473,124 @@
                             null != e.log && (t.log = String(e.log)),
                             null != e.saneTerm)
                           ) {
-                            if ("object" !== typeof e.saneTerm)
+                            if ('object' !== typeof e.saneTerm)
                               throw TypeError(
-                                ".api.Command.saneTerm: object expected"
+                                '.api.Command.saneTerm: object expected'
                               );
                             t.saneTerm = o.api.SaneTerm.fromObject(e.saneTerm);
                           }
                           if (null != e.resizeTerm) {
-                            if ("object" !== typeof e.resizeTerm)
+                            if ('object' !== typeof e.resizeTerm)
                               throw TypeError(
-                                ".api.Command.resizeTerm: object expected"
+                                '.api.Command.resizeTerm: object expected'
                               );
                             t.resizeTerm = o.api.ResizeTerm.fromObject(
                               e.resizeTerm
                             );
                           }
                           switch (e.state) {
-                            case "Stopped":
+                            case 'Stopped':
                             case 0:
                               t.state = 0;
                               break;
-                            case "Running":
+                            case 'Running':
                             case 1:
                               t.state = 1;
                           }
                           if (null != e.ok) {
-                            if ("object" !== typeof e.ok)
+                            if ('object' !== typeof e.ok)
                               throw TypeError(
-                                ".api.Command.ok: object expected"
+                                '.api.Command.ok: object expected'
                               );
                             t.ok = o.api.OK.fromObject(e.ok);
                           }
                           if (null != e.persist) {
-                            if ("object" !== typeof e.persist)
+                            if ('object' !== typeof e.persist)
                               throw TypeError(
-                                ".api.Command.persist: object expected"
+                                '.api.Command.persist: object expected'
                               );
                             t.persist = o.api.File.fromObject(e.persist);
                           }
                           if (null != e.persistMirror) {
-                            if ("object" !== typeof e.persistMirror)
+                            if ('object' !== typeof e.persistMirror)
                               throw TypeError(
-                                ".api.Command.persistMirror: object expected"
+                                '.api.Command.persistMirror: object expected'
                               );
                             t.persistMirror = o.api.File.fromObject(
                               e.persistMirror
                             );
                           }
                           if (null != e.write) {
-                            if ("object" !== typeof e.write)
+                            if ('object' !== typeof e.write)
                               throw TypeError(
-                                ".api.Command.write: object expected"
+                                '.api.Command.write: object expected'
                               );
                             t.write = o.api.File.fromObject(e.write);
                           }
                           if (null != e.remove) {
-                            if ("object" !== typeof e.remove)
+                            if ('object' !== typeof e.remove)
                               throw TypeError(
-                                ".api.Command.remove: object expected"
+                                '.api.Command.remove: object expected'
                               );
                             t.remove = o.api.File.fromObject(e.remove);
                           }
                           if (null != e.move) {
-                            if ("object" !== typeof e.move)
+                            if ('object' !== typeof e.move)
                               throw TypeError(
-                                ".api.Command.move: object expected"
+                                '.api.Command.move: object expected'
                               );
                             t.move = o.api.Move.fromObject(e.move);
                           }
                           if (null != e.tryRemove) {
-                            if ("object" !== typeof e.tryRemove)
+                            if ('object' !== typeof e.tryRemove)
                               throw TypeError(
-                                ".api.Command.tryRemove: object expected"
+                                '.api.Command.tryRemove: object expected'
                               );
                             t.tryRemove = o.api.File.fromObject(e.tryRemove);
                           }
                           if (null != e.mkdir) {
-                            if ("object" !== typeof e.mkdir)
+                            if ('object' !== typeof e.mkdir)
                               throw TypeError(
-                                ".api.Command.mkdir: object expected"
+                                '.api.Command.mkdir: object expected'
                               );
                             t.mkdir = o.api.File.fromObject(e.mkdir);
                           }
                           if (null != e.stat) {
-                            if ("object" !== typeof e.stat)
+                            if ('object' !== typeof e.stat)
                               throw TypeError(
-                                ".api.Command.stat: object expected"
+                                '.api.Command.stat: object expected'
                               );
                             t.stat = o.api.File.fromObject(e.stat);
                           }
                           if (null != e.statRes) {
-                            if ("object" !== typeof e.statRes)
+                            if ('object' !== typeof e.statRes)
                               throw TypeError(
-                                ".api.Command.statRes: object expected"
+                                '.api.Command.statRes: object expected'
                               );
                             t.statRes = o.api.StatResult.fromObject(e.statRes);
                           }
                           if (null != e.transferStart) {
-                            if ("object" !== typeof e.transferStart)
+                            if ('object' !== typeof e.transferStart)
                               throw TypeError(
-                                ".api.Command.transferStart: object expected"
+                                '.api.Command.transferStart: object expected'
                               );
                             t.transferStart = o.api.TransferStart.fromObject(
                               e.transferStart
                             );
                           }
                           if (null != e.transferChunk) {
-                            if ("object" !== typeof e.transferChunk)
+                            if ('object' !== typeof e.transferChunk)
                               throw TypeError(
-                                ".api.Command.transferChunk: object expected"
+                                '.api.Command.transferChunk: object expected'
                               );
                             t.transferChunk = o.api.TransferChunk.fromObject(
                               e.transferChunk
                             );
                           }
                           if (null != e.transferComplete) {
-                            if ("object" !== typeof e.transferComplete)
+                            if ('object' !== typeof e.transferComplete)
                               throw TypeError(
-                                ".api.Command.transferComplete: object expected"
+                                '.api.Command.transferComplete: object expected'
                               );
                             t.transferComplete =
                               o.api.TransferComplete.fromObject(
@@ -3598,89 +3598,89 @@
                               );
                           }
                           if (null != e.transferCancel) {
-                            if ("object" !== typeof e.transferCancel)
+                            if ('object' !== typeof e.transferCancel)
                               throw TypeError(
-                                ".api.Command.transferCancel: object expected"
+                                '.api.Command.transferCancel: object expected'
                               );
                             t.transferCancel = o.api.Transfer.fromObject(
                               e.transferCancel
                             );
                           }
                           if (null != e.transfer) {
-                            if ("object" !== typeof e.transfer)
+                            if ('object' !== typeof e.transfer)
                               throw TypeError(
-                                ".api.Command.transfer: object expected"
+                                '.api.Command.transfer: object expected'
                               );
                             t.transfer = o.api.Transfer.fromObject(e.transfer);
                           }
                           if (null != e.read) {
-                            if ("object" !== typeof e.read)
+                            if ('object' !== typeof e.read)
                               throw TypeError(
-                                ".api.Command.read: object expected"
+                                '.api.Command.read: object expected'
                               );
                             t.read = o.api.File.fromObject(e.read);
                           }
                           if (null != e.readdir) {
-                            if ("object" !== typeof e.readdir)
+                            if ('object' !== typeof e.readdir)
                               throw TypeError(
-                                ".api.Command.readdir: object expected"
+                                '.api.Command.readdir: object expected'
                               );
                             t.readdir = o.api.File.fromObject(e.readdir);
                           }
                           if (null != e.files) {
-                            if ("object" !== typeof e.files)
+                            if ('object' !== typeof e.files)
                               throw TypeError(
-                                ".api.Command.files: object expected"
+                                '.api.Command.files: object expected'
                               );
                             t.files = o.api.Files.fromObject(e.files);
                           }
                           if (null != e.file) {
-                            if ("object" !== typeof e.file)
+                            if ('object' !== typeof e.file)
                               throw TypeError(
-                                ".api.Command.file: object expected"
+                                '.api.Command.file: object expected'
                               );
                             t.file = o.api.File.fromObject(e.file);
                           }
                           if (null != e.checkChanges) {
-                            if ("object" !== typeof e.checkChanges)
+                            if ('object' !== typeof e.checkChanges)
                               throw TypeError(
-                                ".api.Command.checkChanges: object expected"
+                                '.api.Command.checkChanges: object expected'
                               );
                             t.checkChanges = o.api.CheckChanges.fromObject(
                               e.checkChanges
                             );
                           }
                           if (null != e.changedFiles) {
-                            if ("object" !== typeof e.changedFiles)
+                            if ('object' !== typeof e.changedFiles)
                               throw TypeError(
-                                ".api.Command.changedFiles: object expected"
+                                '.api.Command.changedFiles: object expected'
                               );
                             t.changedFiles = o.api.Files.fromObject(
                               e.changedFiles
                             );
                           }
                           if (null != e.lintResults) {
-                            if ("object" !== typeof e.lintResults)
+                            if ('object' !== typeof e.lintResults)
                               throw TypeError(
-                                ".api.Command.lintResults: object expected"
+                                '.api.Command.lintResults: object expected'
                               );
                             t.lintResults = o.api.LintResults.fromObject(
                               e.lintResults
                             );
                           }
                           if (null != e.runContainedTest) {
-                            if ("object" !== typeof e.runContainedTest)
+                            if ('object' !== typeof e.runContainedTest)
                               throw TypeError(
-                                ".api.Command.runContainedTest: object expected"
+                                '.api.Command.runContainedTest: object expected'
                               );
                             t.runContainedTest = o.api.ContainedTest.fromObject(
                               e.runContainedTest
                             );
                           }
                           if (null != e.testResult) {
-                            if ("object" !== typeof e.testResult)
+                            if ('object' !== typeof e.testResult)
                               throw TypeError(
-                                ".api.Command.testResult: object expected"
+                                '.api.Command.testResult: object expected'
                               );
                             t.testResult = o.api.TestResult.fromObject(
                               e.testResult
@@ -3691,119 +3691,119 @@
                               (t.debuggerStart = String(e.debuggerStart)),
                             null != e.debuggerStep)
                           ) {
-                            if ("object" !== typeof e.debuggerStep)
+                            if ('object' !== typeof e.debuggerStep)
                               throw TypeError(
-                                ".api.Command.debuggerStep: object expected"
+                                '.api.Command.debuggerStep: object expected'
                               );
                             t.debuggerStep = o.api.RunMain.fromObject(
                               e.debuggerStep
                             );
                           }
                           if (null != e.debuggerStatus) {
-                            if ("object" !== typeof e.debuggerStatus)
+                            if ('object' !== typeof e.debuggerStatus)
                               throw TypeError(
-                                ".api.Command.debuggerStatus: object expected"
+                                '.api.Command.debuggerStatus: object expected'
                               );
                             t.debuggerStatus = o.api.DebugStatus.fromObject(
                               e.debuggerStatus
                             );
                           }
                           if (null != e.ensurePackages) {
-                            if ("object" !== typeof e.ensurePackages)
+                            if ('object' !== typeof e.ensurePackages)
                               throw TypeError(
-                                ".api.Command.ensurePackages: object expected"
+                                '.api.Command.ensurePackages: object expected'
                               );
                             t.ensurePackages = o.api.EnsurePackages.fromObject(
                               e.ensurePackages
                             );
                           }
                           if (null != e.ping) {
-                            if ("object" !== typeof e.ping)
+                            if ('object' !== typeof e.ping)
                               throw TypeError(
-                                ".api.Command.ping: object expected"
+                                '.api.Command.ping: object expected'
                               );
                             t.ping = o.api.Ping.fromObject(e.ping);
                           }
                           if (null != e.pong) {
-                            if ("object" !== typeof e.pong)
+                            if ('object' !== typeof e.pong)
                               throw TypeError(
-                                ".api.Command.pong: object expected"
+                                '.api.Command.pong: object expected'
                               );
                             t.pong = o.api.Pong.fromObject(e.pong);
                           }
                           if (null != e.hello) {
-                            if ("object" !== typeof e.hello)
+                            if ('object' !== typeof e.hello)
                               throw TypeError(
-                                ".api.Command.hello: object expected"
+                                '.api.Command.hello: object expected'
                               );
                             t.hello = o.api.Hello.fromObject(e.hello);
                           }
                           if (null != e.goodbye) {
-                            if ("object" !== typeof e.goodbye)
+                            if ('object' !== typeof e.goodbye)
                               throw TypeError(
-                                ".api.Command.goodbye: object expected"
+                                '.api.Command.goodbye: object expected'
                               );
                             t.goodbye = o.api.Goodbye.fromObject(e.goodbye);
                           }
                           if (null != e.hint) {
-                            if ("object" !== typeof e.hint)
+                            if ('object' !== typeof e.hint)
                               throw TypeError(
-                                ".api.Command.hint: object expected"
+                                '.api.Command.hint: object expected'
                               );
                             t.hint = o.api.Hint.fromObject(e.hint);
                           }
                           if (null != e.connect) {
-                            if ("object" !== typeof e.connect)
+                            if ('object' !== typeof e.connect)
                               throw TypeError(
-                                ".api.Command.connect: object expected"
+                                '.api.Command.connect: object expected'
                               );
                             t.connect = o.api.Connect.fromObject(e.connect);
                           }
                           if (null != e.send) {
-                            if ("object" !== typeof e.send)
+                            if ('object' !== typeof e.send)
                               throw TypeError(
-                                ".api.Command.send: object expected"
+                                '.api.Command.send: object expected'
                               );
                             t.send = o.api.Send.fromObject(e.send);
                           }
                           if (null != e.recv) {
-                            if ("object" !== typeof e.recv)
+                            if ('object' !== typeof e.recv)
                               throw TypeError(
-                                ".api.Command.recv: object expected"
+                                '.api.Command.recv: object expected'
                               );
                             t.recv = o.api.Recv.fromObject(e.recv);
                           }
                           if (null != e.disconnect) {
-                            if ("object" !== typeof e.disconnect)
+                            if ('object' !== typeof e.disconnect)
                               throw TypeError(
-                                ".api.Command.disconnect: object expected"
+                                '.api.Command.disconnect: object expected'
                               );
                             t.disconnect = o.api.Disconnect.fromObject(
                               e.disconnect
                             );
                           }
                           if (null != e.fileAuthReq) {
-                            if ("object" !== typeof e.fileAuthReq)
+                            if ('object' !== typeof e.fileAuthReq)
                               throw TypeError(
-                                ".api.Command.fileAuthReq: object expected"
+                                '.api.Command.fileAuthReq: object expected'
                               );
                             t.fileAuthReq = o.api.FileAuthReq.fromObject(
                               e.fileAuthReq
                             );
                           }
                           if (null != e.fileAuthRes) {
-                            if ("object" !== typeof e.fileAuthRes)
+                            if ('object' !== typeof e.fileAuthRes)
                               throw TypeError(
-                                ".api.Command.fileAuthRes: object expected"
+                                '.api.Command.fileAuthRes: object expected'
                               );
                             t.fileAuthRes = o.api.FileAuthRes.fromObject(
                               e.fileAuthRes
                             );
                           }
                           if (null != e.mutliFileAuthRes) {
-                            if ("object" !== typeof e.mutliFileAuthRes)
+                            if ('object' !== typeof e.mutliFileAuthRes)
                               throw TypeError(
-                                ".api.Command.mutliFileAuthRes: object expected"
+                                '.api.Command.mutliFileAuthRes: object expected'
                               );
                             t.mutliFileAuthRes =
                               o.api.MultiFileAuthRes.fromObject(
@@ -3811,18 +3811,18 @@
                               );
                           }
                           if (null != e.listObjects) {
-                            if ("object" !== typeof e.listObjects)
+                            if ('object' !== typeof e.listObjects)
                               throw TypeError(
-                                ".api.Command.listObjects: object expected"
+                                '.api.Command.listObjects: object expected'
                               );
                             t.listObjects = o.api.ListObjects.fromObject(
                               e.listObjects
                             );
                           }
                           if (null != e.listObjectsResp) {
-                            if ("object" !== typeof e.listObjectsResp)
+                            if ('object' !== typeof e.listObjectsResp)
                               throw TypeError(
-                                ".api.Command.listObjectsResp: object expected"
+                                '.api.Command.listObjectsResp: object expected'
                               );
                             t.listObjectsResp =
                               o.api.ListObjectsResp.fromObject(
@@ -3830,32 +3830,32 @@
                               );
                           }
                           if (null != e.ot) {
-                            if ("object" !== typeof e.ot)
+                            if ('object' !== typeof e.ot)
                               throw TypeError(
-                                ".api.Command.ot: object expected"
+                                '.api.Command.ot: object expected'
                               );
                             t.ot = o.api.OTPacket.fromObject(e.ot);
                           }
                           if (null != e.otstatus) {
-                            if ("object" !== typeof e.otstatus)
+                            if ('object' !== typeof e.otstatus)
                               throw TypeError(
-                                ".api.Command.otstatus: object expected"
+                                '.api.Command.otstatus: object expected'
                               );
                             t.otstatus = o.api.OTStatus.fromObject(e.otstatus);
                           }
                           if (null != e.otLinkFile) {
-                            if ("object" !== typeof e.otLinkFile)
+                            if ('object' !== typeof e.otLinkFile)
                               throw TypeError(
-                                ".api.Command.otLinkFile: object expected"
+                                '.api.Command.otLinkFile: object expected'
                               );
                             t.otLinkFile = o.api.OTLinkFile.fromObject(
                               e.otLinkFile
                             );
                           }
                           if (null != e.otLinkFileResponse) {
-                            if ("object" !== typeof e.otLinkFileResponse)
+                            if ('object' !== typeof e.otLinkFileResponse)
                               throw TypeError(
-                                ".api.Command.otLinkFileResponse: object expected"
+                                '.api.Command.otLinkFileResponse: object expected'
                               );
                             t.otLinkFileResponse =
                               o.api.OTLinkFileResponse.fromObject(
@@ -3863,36 +3863,36 @@
                               );
                           }
                           if (null != e.otNewCursor) {
-                            if ("object" !== typeof e.otNewCursor)
+                            if ('object' !== typeof e.otNewCursor)
                               throw TypeError(
-                                ".api.Command.otNewCursor: object expected"
+                                '.api.Command.otNewCursor: object expected'
                               );
                             t.otNewCursor = o.api.OTCursor.fromObject(
                               e.otNewCursor
                             );
                           }
                           if (null != e.otDeleteCursor) {
-                            if ("object" !== typeof e.otDeleteCursor)
+                            if ('object' !== typeof e.otDeleteCursor)
                               throw TypeError(
-                                ".api.Command.otDeleteCursor: object expected"
+                                '.api.Command.otDeleteCursor: object expected'
                               );
                             t.otDeleteCursor = o.api.OTCursor.fromObject(
                               e.otDeleteCursor
                             );
                           }
                           if (null != e.otFetchRequest) {
-                            if ("object" !== typeof e.otFetchRequest)
+                            if ('object' !== typeof e.otFetchRequest)
                               throw TypeError(
-                                ".api.Command.otFetchRequest: object expected"
+                                '.api.Command.otFetchRequest: object expected'
                               );
                             t.otFetchRequest = o.api.OTFetchRequest.fromObject(
                               e.otFetchRequest
                             );
                           }
                           if (null != e.otFetchResponse) {
-                            if ("object" !== typeof e.otFetchResponse)
+                            if ('object' !== typeof e.otFetchResponse)
                               throw TypeError(
-                                ".api.Command.otFetchResponse: object expected"
+                                '.api.Command.otFetchResponse: object expected'
                               );
                             t.otFetchResponse =
                               o.api.OTFetchResponse.fromObject(
@@ -3901,10 +3901,10 @@
                           }
                           if (null != e.otTransformSelectionRequest) {
                             if (
-                              "object" !== typeof e.otTransformSelectionRequest
+                              'object' !== typeof e.otTransformSelectionRequest
                             )
                               throw TypeError(
-                                ".api.Command.otTransformSelectionRequest: object expected"
+                                '.api.Command.otTransformSelectionRequest: object expected'
                               );
                             t.otTransformSelectionRequest =
                               o.api.OTTransformSelectionRequest.fromObject(
@@ -3913,10 +3913,10 @@
                           }
                           if (null != e.otTransformSelectionResponse) {
                             if (
-                              "object" !== typeof e.otTransformSelectionResponse
+                              'object' !== typeof e.otTransformSelectionResponse
                             )
                               throw TypeError(
-                                ".api.Command.otTransformSelectionResponse: object expected"
+                                '.api.Command.otTransformSelectionResponse: object expected'
                               );
                             t.otTransformSelectionResponse =
                               o.api.OTTransformSelectionResponse.fromObject(
@@ -3924,131 +3924,131 @@
                               );
                           }
                           if (null != e.flush) {
-                            if ("object" !== typeof e.flush)
+                            if ('object' !== typeof e.flush)
                               throw TypeError(
-                                ".api.Command.flush: object expected"
+                                '.api.Command.flush: object expected'
                               );
                             t.flush = o.api.Flush.fromObject(e.flush);
                           }
                           if (null != e.debug) {
-                            if ("object" !== typeof e.debug)
+                            if ('object' !== typeof e.debug)
                               throw TypeError(
-                                ".api.Command.debug: object expected"
+                                '.api.Command.debug: object expected'
                               );
                             t.debug = o.api.Debug.fromObject(e.debug);
                           }
                           if (null != e.startVCR) {
-                            if ("object" !== typeof e.startVCR)
+                            if ('object' !== typeof e.startVCR)
                               throw TypeError(
-                                ".api.Command.startVCR: object expected"
+                                '.api.Command.startVCR: object expected'
                               );
                             t.startVCR = o.api.StartVCR.fromObject(e.startVCR);
                           }
                           if (null != e.readVCR) {
-                            if ("object" !== typeof e.readVCR)
+                            if ('object' !== typeof e.readVCR)
                               throw TypeError(
-                                ".api.Command.readVCR: object expected"
+                                '.api.Command.readVCR: object expected'
                               );
                             t.readVCR = o.api.ReadVCR.fromObject(e.readVCR);
                           }
                           if (null != e.VCRLog) {
-                            if ("object" !== typeof e.VCRLog)
+                            if ('object' !== typeof e.VCRLog)
                               throw TypeError(
-                                ".api.Command.VCRLog: object expected"
+                                '.api.Command.VCRLog: object expected'
                               );
                             t.VCRLog = o.api.VCRLog.fromObject(e.VCRLog);
                           }
                           if (null != e.auth) {
-                            if ("object" !== typeof e.auth)
+                            if ('object' !== typeof e.auth)
                               throw TypeError(
-                                ".api.Command.auth: object expected"
+                                '.api.Command.auth: object expected'
                               );
                             t.auth = o.api.Auth.fromObject(e.auth);
                           }
                           if (null != e.execInfo) {
-                            if ("object" !== typeof e.execInfo)
+                            if ('object' !== typeof e.execInfo)
                               throw TypeError(
-                                ".api.Command.execInfo: object expected"
+                                '.api.Command.execInfo: object expected'
                               );
                             t.execInfo = o.api.ExecInfo.fromObject(e.execInfo);
                           }
                           if (null != e.subscribeFile) {
-                            if ("object" !== typeof e.subscribeFile)
+                            if ('object' !== typeof e.subscribeFile)
                               throw TypeError(
-                                ".api.Command.subscribeFile: object expected"
+                                '.api.Command.subscribeFile: object expected'
                               );
                             t.subscribeFile = o.api.SubscribeFile.fromObject(
                               e.subscribeFile
                             );
                           }
                           if (null != e.fileEvent) {
-                            if ("object" !== typeof e.fileEvent)
+                            if ('object' !== typeof e.fileEvent)
                               throw TypeError(
-                                ".api.Command.fileEvent: object expected"
+                                '.api.Command.fileEvent: object expected'
                               );
                             t.fileEvent = o.api.FileEvent.fromObject(
                               e.fileEvent
                             );
                           }
                           if (null != e.roster) {
-                            if ("object" !== typeof e.roster)
+                            if ('object' !== typeof e.roster)
                               throw TypeError(
-                                ".api.Command.roster: object expected"
+                                '.api.Command.roster: object expected'
                               );
                             t.roster = o.api.Roster.fromObject(e.roster);
                           }
                           if (null != e.join) {
-                            if ("object" !== typeof e.join)
+                            if ('object' !== typeof e.join)
                               throw TypeError(
-                                ".api.Command.join: object expected"
+                                '.api.Command.join: object expected'
                               );
                             t.join = o.api.User.fromObject(e.join);
                           }
                           if (null != e.part) {
-                            if ("object" !== typeof e.part)
+                            if ('object' !== typeof e.part)
                               throw TypeError(
-                                ".api.Command.part: object expected"
+                                '.api.Command.part: object expected'
                               );
                             t.part = o.api.User.fromObject(e.part);
                           }
                           if (null != e.openFile) {
-                            if ("object" !== typeof e.openFile)
+                            if ('object' !== typeof e.openFile)
                               throw TypeError(
-                                ".api.Command.openFile: object expected"
+                                '.api.Command.openFile: object expected'
                               );
                             t.openFile = o.api.OpenFile.fromObject(e.openFile);
                           }
                           if (null != e.fileOpened) {
-                            if ("object" !== typeof e.fileOpened)
+                            if ('object' !== typeof e.fileOpened)
                               throw TypeError(
-                                ".api.Command.fileOpened: object expected"
+                                '.api.Command.fileOpened: object expected'
                               );
                             t.fileOpened = o.api.FileOpened.fromObject(
                               e.fileOpened
                             );
                           }
                           if (null != e.followUser) {
-                            if ("object" !== typeof e.followUser)
+                            if ('object' !== typeof e.followUser)
                               throw TypeError(
-                                ".api.Command.followUser: object expected"
+                                '.api.Command.followUser: object expected'
                               );
                             t.followUser = o.api.FollowUser.fromObject(
                               e.followUser
                             );
                           }
                           if (null != e.unfollowUser) {
-                            if ("object" !== typeof e.unfollowUser)
+                            if ('object' !== typeof e.unfollowUser)
                               throw TypeError(
-                                ".api.Command.unfollowUser: object expected"
+                                '.api.Command.unfollowUser: object expected'
                               );
                             t.unfollowUser = o.api.UnfollowUser.fromObject(
                               e.unfollowUser
                             );
                           }
                           if (null != e.updateSessionTimestamp) {
-                            if ("object" !== typeof e.updateSessionTimestamp)
+                            if ('object' !== typeof e.updateSessionTimestamp)
                               throw TypeError(
-                                ".api.Command.updateSessionTimestamp: object expected"
+                                '.api.Command.updateSessionTimestamp: object expected'
                               );
                             t.updateSessionTimestamp =
                               o.api.UpdateSessionTimestamp.fromObject(
@@ -4056,9 +4056,9 @@
                               );
                           }
                           if (null != e.sessionTimestampUpdated) {
-                            if ("object" !== typeof e.sessionTimestampUpdated)
+                            if ('object' !== typeof e.sessionTimestampUpdated)
                               throw TypeError(
-                                ".api.Command.sessionTimestampUpdated: object expected"
+                                '.api.Command.sessionTimestampUpdated: object expected'
                               );
                             t.sessionTimestampUpdated =
                               o.api.SessionTimestampUpdated.fromObject(
@@ -4066,25 +4066,25 @@
                               );
                           }
                           if (null != e.exec) {
-                            if ("object" !== typeof e.exec)
+                            if ('object' !== typeof e.exec)
                               throw TypeError(
-                                ".api.Command.exec: object expected"
+                                '.api.Command.exec: object expected'
                               );
                             t.exec = o.api.Exec.fromObject(e.exec);
                           }
                           if (null != e.packageSearch) {
-                            if ("object" !== typeof e.packageSearch)
+                            if ('object' !== typeof e.packageSearch)
                               throw TypeError(
-                                ".api.Command.packageSearch: object expected"
+                                '.api.Command.packageSearch: object expected'
                               );
                             t.packageSearch = o.api.PackageSearch.fromObject(
                               e.packageSearch
                             );
                           }
                           if (null != e.packageSearchResp) {
-                            if ("object" !== typeof e.packageSearchResp)
+                            if ('object' !== typeof e.packageSearchResp)
                               throw TypeError(
-                                ".api.Command.packageSearchResp: object expected"
+                                '.api.Command.packageSearchResp: object expected'
                               );
                             t.packageSearchResp =
                               o.api.PackageSearchResp.fromObject(
@@ -4092,18 +4092,18 @@
                               );
                           }
                           if (null != e.packageInfo) {
-                            if ("object" !== typeof e.packageInfo)
+                            if ('object' !== typeof e.packageInfo)
                               throw TypeError(
-                                ".api.Command.packageInfo: object expected"
+                                '.api.Command.packageInfo: object expected'
                               );
                             t.packageInfo = o.api.PackageInfo.fromObject(
                               e.packageInfo
                             );
                           }
                           if (null != e.packageInfoResp) {
-                            if ("object" !== typeof e.packageInfoResp)
+                            if ('object' !== typeof e.packageInfoResp)
                               throw TypeError(
-                                ".api.Command.packageInfoResp: object expected"
+                                '.api.Command.packageInfoResp: object expected'
                               );
                             t.packageInfoResp =
                               o.api.PackageInfoResp.fromObject(
@@ -4111,36 +4111,36 @@
                               );
                           }
                           if (null != e.packageAdd) {
-                            if ("object" !== typeof e.packageAdd)
+                            if ('object' !== typeof e.packageAdd)
                               throw TypeError(
-                                ".api.Command.packageAdd: object expected"
+                                '.api.Command.packageAdd: object expected'
                               );
                             t.packageAdd = o.api.PackageAdd.fromObject(
                               e.packageAdd
                             );
                           }
                           if (null != e.packageRemove) {
-                            if ("object" !== typeof e.packageRemove)
+                            if ('object' !== typeof e.packageRemove)
                               throw TypeError(
-                                ".api.Command.packageRemove: object expected"
+                                '.api.Command.packageRemove: object expected'
                               );
                             t.packageRemove = o.api.PackageRemove.fromObject(
                               e.packageRemove
                             );
                           }
                           if (null != e.packageInstall) {
-                            if ("object" !== typeof e.packageInstall)
+                            if ('object' !== typeof e.packageInstall)
                               throw TypeError(
-                                ".api.Command.packageInstall: object expected"
+                                '.api.Command.packageInstall: object expected'
                               );
                             t.packageInstall = o.api.PackageInstall.fromObject(
                               e.packageInstall
                             );
                           }
                           if (null != e.packageListSpecfile) {
-                            if ("object" !== typeof e.packageListSpecfile)
+                            if ('object' !== typeof e.packageListSpecfile)
                               throw TypeError(
-                                ".api.Command.packageListSpecfile: object expected"
+                                '.api.Command.packageListSpecfile: object expected'
                               );
                             t.packageListSpecfile =
                               o.api.PackageListSpecfile.fromObject(
@@ -4148,9 +4148,9 @@
                               );
                           }
                           if (null != e.packageListSpecfileResp) {
-                            if ("object" !== typeof e.packageListSpecfileResp)
+                            if ('object' !== typeof e.packageListSpecfileResp)
                               throw TypeError(
-                                ".api.Command.packageListSpecfileResp: object expected"
+                                '.api.Command.packageListSpecfileResp: object expected'
                               );
                             t.packageListSpecfileResp =
                               o.api.PackageListSpecfileResp.fromObject(
@@ -4158,9 +4158,9 @@
                               );
                           }
                           if (null != e.packageCacheSave) {
-                            if ("object" !== typeof e.packageCacheSave)
+                            if ('object' !== typeof e.packageCacheSave)
                               throw TypeError(
-                                ".api.Command.packageCacheSave: object expected"
+                                '.api.Command.packageCacheSave: object expected'
                               );
                             t.packageCacheSave =
                               o.api.PackageCacheSave.fromObject(
@@ -4168,54 +4168,54 @@
                               );
                           }
                           if (null != e.chatMessage) {
-                            if ("object" !== typeof e.chatMessage)
+                            if ('object' !== typeof e.chatMessage)
                               throw TypeError(
-                                ".api.Command.chatMessage: object expected"
+                                '.api.Command.chatMessage: object expected'
                               );
                             t.chatMessage = o.api.ChatMessage.fromObject(
                               e.chatMessage
                             );
                           }
                           if (null != e.chatTyping) {
-                            if ("object" !== typeof e.chatTyping)
+                            if ('object' !== typeof e.chatTyping)
                               throw TypeError(
-                                ".api.Command.chatTyping: object expected"
+                                '.api.Command.chatTyping: object expected'
                               );
                             t.chatTyping = o.api.ChatTyping.fromObject(
                               e.chatTyping
                             );
                           }
                           if (null != e.chatScrollback) {
-                            if ("object" !== typeof e.chatScrollback)
+                            if ('object' !== typeof e.chatScrollback)
                               throw TypeError(
-                                ".api.Command.chatScrollback: object expected"
+                                '.api.Command.chatScrollback: object expected'
                               );
                             t.chatScrollback = o.api.ChatScrollback.fromObject(
                               e.chatScrollback
                             );
                           }
                           if (null != e.fsSnapshot) {
-                            if ("object" !== typeof e.fsSnapshot)
+                            if ('object' !== typeof e.fsSnapshot)
                               throw TypeError(
-                                ".api.Command.fsSnapshot: object expected"
+                                '.api.Command.fsSnapshot: object expected'
                               );
                             t.fsSnapshot = o.api.FSSnapshot.fromObject(
                               e.fsSnapshot
                             );
                           }
                           if (null != e.fsTakeLock) {
-                            if ("object" !== typeof e.fsTakeLock)
+                            if ('object' !== typeof e.fsTakeLock)
                               throw TypeError(
-                                ".api.Command.fsTakeLock: object expected"
+                                '.api.Command.fsTakeLock: object expected'
                               );
                             t.fsTakeLock = o.api.FSLock.fromObject(
                               e.fsTakeLock
                             );
                           }
                           if (null != e.fsReleaseLock) {
-                            if ("object" !== typeof e.fsReleaseLock)
+                            if ('object' !== typeof e.fsReleaseLock)
                               throw TypeError(
-                                ".api.Command.fsReleaseLock: object expected"
+                                '.api.Command.fsReleaseLock: object expected'
                               );
                             t.fsReleaseLock = o.api.FSLock.fromObject(
                               e.fsReleaseLock
@@ -4225,34 +4225,34 @@
                             (null != e.hasCap && (t.hasCap = Boolean(e.hasCap)),
                             null != e.pid1Config)
                           ) {
-                            if ("object" !== typeof e.pid1Config)
+                            if ('object' !== typeof e.pid1Config)
                               throw TypeError(
-                                ".api.Command.pid1Config: object expected"
+                                '.api.Command.pid1Config: object expected'
                               );
                             t.pid1Config = o.api.Pid1Config.fromObject(
                               e.pid1Config
                             );
                           }
                           if (null != e.metrics) {
-                            if ("object" !== typeof e.metrics)
+                            if ('object' !== typeof e.metrics)
                               throw TypeError(
-                                ".api.Command.metrics: object expected"
+                                '.api.Command.metrics: object expected'
                               );
                             t.metrics = o.api.Metrics.fromObject(e.metrics);
                           }
                           if (null != e.bootStatus) {
-                            if ("object" !== typeof e.bootStatus)
+                            if ('object' !== typeof e.bootStatus)
                               throw TypeError(
-                                ".api.Command.bootStatus: object expected"
+                                '.api.Command.bootStatus: object expected'
                               );
                             t.bootStatus = o.api.BootStatus.fromObject(
                               e.bootStatus
                             );
                           }
                           if (null != e.readMetaRequest) {
-                            if ("object" !== typeof e.readMetaRequest)
+                            if ('object' !== typeof e.readMetaRequest)
                               throw TypeError(
-                                ".api.Command.readMetaRequest: object expected"
+                                '.api.Command.readMetaRequest: object expected'
                               );
                             t.readMetaRequest =
                               o.api.ReadMetaRequest.fromObject(
@@ -4260,9 +4260,9 @@
                               );
                           }
                           if (null != e.readMetaResponse) {
-                            if ("object" !== typeof e.readMetaResponse)
+                            if ('object' !== typeof e.readMetaResponse)
                               throw TypeError(
-                                ".api.Command.readMetaResponse: object expected"
+                                '.api.Command.readMetaResponse: object expected'
                               );
                             t.readMetaResponse =
                               o.api.ReadMetaResponse.fromObject(
@@ -4270,9 +4270,9 @@
                               );
                           }
                           if (null != e.writeMetaRequest) {
-                            if ("object" !== typeof e.writeMetaRequest)
+                            if ('object' !== typeof e.writeMetaRequest)
                               throw TypeError(
-                                ".api.Command.writeMetaRequest: object expected"
+                                '.api.Command.writeMetaRequest: object expected'
                               );
                             t.writeMetaRequest =
                               o.api.WriteMetaRequest.fromObject(
@@ -4280,9 +4280,9 @@
                               );
                           }
                           if (null != e.writeMetaResponse) {
-                            if ("object" !== typeof e.writeMetaResponse)
+                            if ('object' !== typeof e.writeMetaResponse)
                               throw TypeError(
-                                ".api.Command.writeMetaResponse: object expected"
+                                '.api.Command.writeMetaResponse: object expected'
                               );
                             t.writeMetaResponse =
                               o.api.WriteMetaResponse.fromObject(
@@ -4290,9 +4290,9 @@
                               );
                           }
                           if (null != e.appendMetaRequest) {
-                            if ("object" !== typeof e.appendMetaRequest)
+                            if ('object' !== typeof e.appendMetaRequest)
                               throw TypeError(
-                                ".api.Command.appendMetaRequest: object expected"
+                                '.api.Command.appendMetaRequest: object expected'
                               );
                             t.appendMetaRequest =
                               o.api.AppendMetaRequest.fromObject(
@@ -4300,9 +4300,9 @@
                               );
                           }
                           if (null != e.appendMetaResponse) {
-                            if ("object" !== typeof e.appendMetaResponse)
+                            if ('object' !== typeof e.appendMetaResponse)
                               throw TypeError(
-                                ".api.Command.appendMetaResponse: object expected"
+                                '.api.Command.appendMetaResponse: object expected'
                               );
                             t.appendMetaResponse =
                               o.api.AppendMetaResponse.fromObject(
@@ -4310,122 +4310,122 @@
                               );
                           }
                           if (null != e.audio) {
-                            if ("object" !== typeof e.audio)
+                            if ('object' !== typeof e.audio)
                               throw TypeError(
-                                ".api.Command.audio: object expected"
+                                '.api.Command.audio: object expected'
                               );
                             t.audio = o.api.Audio.fromObject(e.audio);
                           }
                           if (null != e.pprofRequest) {
-                            if ("object" !== typeof e.pprofRequest)
+                            if ('object' !== typeof e.pprofRequest)
                               throw TypeError(
-                                ".api.Command.pprofRequest: object expected"
+                                '.api.Command.pprofRequest: object expected'
                               );
                             t.pprofRequest = o.api.PprofRequest.fromObject(
                               e.pprofRequest
                             );
                           }
                           if (null != e.pprofResponse) {
-                            if ("object" !== typeof e.pprofResponse)
+                            if ('object' !== typeof e.pprofResponse)
                               throw TypeError(
-                                ".api.Command.pprofResponse: object expected"
+                                '.api.Command.pprofResponse: object expected'
                               );
                             t.pprofResponse = o.api.PprofResponse.fromObject(
                               e.pprofResponse
                             );
                           }
                           if (null != e.audio2) {
-                            if ("object" !== typeof e.audio2)
+                            if ('object' !== typeof e.audio2)
                               throw TypeError(
-                                ".api.Command.audio2: object expected"
+                                '.api.Command.audio2: object expected'
                               );
                             t.audio2 = o.api.Audio2.fromObject(e.audio2);
                           }
                           if (null != e.PTYConfig) {
-                            if ("object" !== typeof e.PTYConfig)
+                            if ('object' !== typeof e.PTYConfig)
                               throw TypeError(
-                                ".api.Command.PTYConfig: object expected"
+                                '.api.Command.PTYConfig: object expected'
                               );
                             t.PTYConfig = o.api.PTYConfig.fromObject(
                               e.PTYConfig
                             );
                           }
                           if (null != e.debugMain) {
-                            if ("object" !== typeof e.debugMain)
+                            if ('object' !== typeof e.debugMain)
                               throw TypeError(
-                                ".api.Command.debugMain: object expected"
+                                '.api.Command.debugMain: object expected'
                               );
                             t.debugMain = o.api.DebugMain.fromObject(
                               e.debugMain
                             );
                           }
                           if (null != e.debugState) {
-                            if ("object" !== typeof e.debugState)
+                            if ('object' !== typeof e.debugState)
                               throw TypeError(
-                                ".api.Command.debugState: object expected"
+                                '.api.Command.debugState: object expected'
                               );
                             t.debugState = o.api.DebugState.fromObject(
                               e.debugState
                             );
                           }
                           if (null != e.debugMainReply) {
-                            if ("object" !== typeof e.debugMainReply)
+                            if ('object' !== typeof e.debugMainReply)
                               throw TypeError(
-                                ".api.Command.debugMainReply: object expected"
+                                '.api.Command.debugMainReply: object expected'
                               );
                             t.debugMainReply = o.api.DebugMainReply.fromObject(
                               e.debugMainReply
                             );
                           }
                           if (null != e.debugInput) {
-                            if ("object" !== typeof e.debugInput)
+                            if ('object' !== typeof e.debugInput)
                               throw TypeError(
-                                ".api.Command.debugInput: object expected"
+                                '.api.Command.debugInput: object expected'
                               );
                             t.debugInput = o.api.DebugInput.fromObject(
                               e.debugInput
                             );
                           }
                           if (null != e.debugOutput) {
-                            if ("object" !== typeof e.debugOutput)
+                            if ('object' !== typeof e.debugOutput)
                               throw TypeError(
-                                ".api.Command.debugOutput: object expected"
+                                '.api.Command.debugOutput: object expected'
                               );
                             t.debugOutput = o.api.DebugOutput.fromObject(
                               e.debugOutput
                             );
                           }
                           if (null != e.debugStop) {
-                            if ("object" !== typeof e.debugStop)
+                            if ('object' !== typeof e.debugStop)
                               throw TypeError(
-                                ".api.Command.debugStop: object expected"
+                                '.api.Command.debugStop: object expected'
                               );
                             t.debugStop = o.api.DebugStop.fromObject(
                               e.debugStop
                             );
                           }
                           if (null != e.debugLeave) {
-                            if ("object" !== typeof e.debugLeave)
+                            if ('object' !== typeof e.debugLeave)
                               throw TypeError(
-                                ".api.Command.debugLeave: object expected"
+                                '.api.Command.debugLeave: object expected'
                               );
                             t.debugLeave = o.api.DebugLeave.fromObject(
                               e.debugLeave
                             );
                           }
                           if (null != e.debugSessions) {
-                            if ("object" !== typeof e.debugSessions)
+                            if ('object' !== typeof e.debugSessions)
                               throw TypeError(
-                                ".api.Command.debugSessions: object expected"
+                                '.api.Command.debugSessions: object expected'
                               );
                             t.debugSessions = o.api.DebugSessions.fromObject(
                               e.debugSessions
                             );
                           }
                           if (null != e.debugAddBreakpointRequest) {
-                            if ("object" !== typeof e.debugAddBreakpointRequest)
+                            if ('object' !== typeof e.debugAddBreakpointRequest)
                               throw TypeError(
-                                ".api.Command.debugAddBreakpointRequest: object expected"
+                                '.api.Command.debugAddBreakpointRequest: object expected'
                               );
                             t.debugAddBreakpointRequest =
                               o.api.DebugAddBreakpointRequest.fromObject(
@@ -4434,10 +4434,10 @@
                           }
                           if (null != e.debugUpdateBreakpointRequest) {
                             if (
-                              "object" !== typeof e.debugUpdateBreakpointRequest
+                              'object' !== typeof e.debugUpdateBreakpointRequest
                             )
                               throw TypeError(
-                                ".api.Command.debugUpdateBreakpointRequest: object expected"
+                                '.api.Command.debugUpdateBreakpointRequest: object expected'
                               );
                             t.debugUpdateBreakpointRequest =
                               o.api.DebugUpdateBreakpointRequest.fromObject(
@@ -4446,10 +4446,10 @@
                           }
                           if (null != e.debugRemoveBreakpointRequest) {
                             if (
-                              "object" !== typeof e.debugRemoveBreakpointRequest
+                              'object' !== typeof e.debugRemoveBreakpointRequest
                             )
                               throw TypeError(
-                                ".api.Command.debugRemoveBreakpointRequest: object expected"
+                                '.api.Command.debugRemoveBreakpointRequest: object expected'
                               );
                             t.debugRemoveBreakpointRequest =
                               o.api.DebugRemoveBreakpointRequest.fromObject(
@@ -4457,9 +4457,9 @@
                               );
                           }
                           if (null != e.debugBreakpointEvent) {
-                            if ("object" !== typeof e.debugBreakpointEvent)
+                            if ('object' !== typeof e.debugBreakpointEvent)
                               throw TypeError(
-                                ".api.Command.debugBreakpointEvent: object expected"
+                                '.api.Command.debugBreakpointEvent: object expected'
                               );
                             t.debugBreakpointEvent =
                               o.api.DebugBreakpointEvent.fromObject(
@@ -4467,9 +4467,9 @@
                               );
                           }
                           if (null != e.dotReplitGetRequest) {
-                            if ("object" !== typeof e.dotReplitGetRequest)
+                            if ('object' !== typeof e.dotReplitGetRequest)
                               throw TypeError(
-                                ".api.Command.dotReplitGetRequest: object expected"
+                                '.api.Command.dotReplitGetRequest: object expected'
                               );
                             t.dotReplitGetRequest =
                               o.api.DotReplitGetRequest.fromObject(
@@ -4477,9 +4477,9 @@
                               );
                           }
                           if (null != e.dotReplitGetResponse) {
-                            if ("object" !== typeof e.dotReplitGetResponse)
+                            if ('object' !== typeof e.dotReplitGetResponse)
                               throw TypeError(
-                                ".api.Command.dotReplitGetResponse: object expected"
+                                '.api.Command.dotReplitGetResponse: object expected'
                               );
                             t.dotReplitGetResponse =
                               o.api.DotReplitGetResponse.fromObject(
@@ -4487,9 +4487,9 @@
                               );
                           }
                           if (null != e.startLSP) {
-                            if ("object" !== typeof e.startLSP)
+                            if ('object' !== typeof e.startLSP)
                               throw TypeError(
-                                ".api.Command.startLSP: object expected"
+                                '.api.Command.startLSP: object expected'
                               );
                             t.startLSP = o.api.StartLSP.fromObject(e.startLSP);
                           }
@@ -4500,398 +4500,398 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.channel = 0), (n.session = 0), (n.ref = "")),
+                              ((n.channel = 0), (n.session = 0), (n.ref = '')),
                             null != e.channel &&
-                              e.hasOwnProperty("channel") &&
+                              e.hasOwnProperty('channel') &&
                               (n.channel = e.channel),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             null != e.openChan &&
-                              e.hasOwnProperty("openChan") &&
+                              e.hasOwnProperty('openChan') &&
                               ((n.openChan = o.api.OpenChannel.toObject(
                                 e.openChan,
                                 t
                               )),
-                              t.oneofs && (n.body = "openChan")),
+                              t.oneofs && (n.body = 'openChan')),
                             null != e.openChanRes &&
-                              e.hasOwnProperty("openChanRes") &&
+                              e.hasOwnProperty('openChanRes') &&
                               ((n.openChanRes = o.api.OpenChannelRes.toObject(
                                 e.openChanRes,
                                 t
                               )),
-                              t.oneofs && (n.body = "openChanRes")),
+                              t.oneofs && (n.body = 'openChanRes')),
                             null != e.closeChan &&
-                              e.hasOwnProperty("closeChan") &&
+                              e.hasOwnProperty('closeChan') &&
                               ((n.closeChan = o.api.CloseChannel.toObject(
                                 e.closeChan,
                                 t
                               )),
-                              t.oneofs && (n.body = "closeChan")),
+                              t.oneofs && (n.body = 'closeChan')),
                             null != e.closeChanRes &&
-                              e.hasOwnProperty("closeChanRes") &&
+                              e.hasOwnProperty('closeChanRes') &&
                               ((n.closeChanRes = o.api.CloseChannelRes.toObject(
                                 e.closeChanRes,
                                 t
                               )),
-                              t.oneofs && (n.body = "closeChanRes")),
+                              t.oneofs && (n.body = 'closeChanRes')),
                             null != e.containerState &&
-                              e.hasOwnProperty("containerState") &&
+                              e.hasOwnProperty('containerState') &&
                               ((n.containerState =
                                 o.api.ContainerState.toObject(
                                   e.containerState,
                                   t
                                 )),
-                              t.oneofs && (n.body = "containerState")),
+                              t.oneofs && (n.body = 'containerState')),
                             null != e.portOpen &&
-                              e.hasOwnProperty("portOpen") &&
+                              e.hasOwnProperty('portOpen') &&
                               ((n.portOpen = o.api.PortOpen.toObject(
                                 e.portOpen,
                                 t
                               )),
-                              t.oneofs && (n.body = "portOpen")),
+                              t.oneofs && (n.body = 'portOpen')),
                             null != e.toast &&
-                              e.hasOwnProperty("toast") &&
+                              e.hasOwnProperty('toast') &&
                               ((n.toast = o.api.Toast.toObject(e.toast, t)),
-                              t.oneofs && (n.body = "toast")),
+                              t.oneofs && (n.body = 'toast')),
                             null != e.redirect &&
-                              e.hasOwnProperty("redirect") &&
+                              e.hasOwnProperty('redirect') &&
                               ((n.redirect = o.api.Redirect.toObject(
                                 e.redirect,
                                 t
                               )),
-                              t.oneofs && (n.body = "redirect")),
+                              t.oneofs && (n.body = 'redirect')),
                             null != e.alwaysOn &&
-                              e.hasOwnProperty("alwaysOn") &&
+                              e.hasOwnProperty('alwaysOn') &&
                               ((n.alwaysOn = o.api.AlwaysOn.toObject(
                                 e.alwaysOn,
                                 t
                               )),
-                              t.oneofs && (n.body = "alwaysOn")),
+                              t.oneofs && (n.body = 'alwaysOn')),
                             null != e.runMain &&
-                              e.hasOwnProperty("runMain") &&
+                              e.hasOwnProperty('runMain') &&
                               ((n.runMain = o.api.RunMain.toObject(
                                 e.runMain,
                                 t
                               )),
-                              t.oneofs && (n.body = "runMain")),
+                              t.oneofs && (n.body = 'runMain')),
                             null != e.clear &&
-                              e.hasOwnProperty("clear") &&
+                              e.hasOwnProperty('clear') &&
                               ((n.clear = o.api.Clear.toObject(e.clear, t)),
-                              t.oneofs && (n.body = "clear")),
+                              t.oneofs && (n.body = 'clear')),
                             null != e.eval &&
-                              e.hasOwnProperty("eval") &&
+                              e.hasOwnProperty('eval') &&
                               ((n.eval = e.eval),
-                              t.oneofs && (n.body = "eval")),
+                              t.oneofs && (n.body = 'eval')),
                             null != e.result &&
-                              e.hasOwnProperty("result") &&
+                              e.hasOwnProperty('result') &&
                               ((n.result = e.result),
-                              t.oneofs && (n.body = "result")),
+                              t.oneofs && (n.body = 'result')),
                             null != e.input &&
-                              e.hasOwnProperty("input") &&
+                              e.hasOwnProperty('input') &&
                               ((n.input = e.input),
-                              t.oneofs && (n.body = "input")),
+                              t.oneofs && (n.body = 'input')),
                             null != e.output &&
-                              e.hasOwnProperty("output") &&
+                              e.hasOwnProperty('output') &&
                               ((n.output = e.output),
-                              t.oneofs && (n.body = "output")),
+                              t.oneofs && (n.body = 'output')),
                             null != e.error &&
-                              e.hasOwnProperty("error") &&
+                              e.hasOwnProperty('error') &&
                               ((n.error = e.error),
-                              t.oneofs && (n.body = "error")),
+                              t.oneofs && (n.body = 'error')),
                             null != e.saneTerm &&
-                              e.hasOwnProperty("saneTerm") &&
+                              e.hasOwnProperty('saneTerm') &&
                               ((n.saneTerm = o.api.SaneTerm.toObject(
                                 e.saneTerm,
                                 t
                               )),
-                              t.oneofs && (n.body = "saneTerm")),
+                              t.oneofs && (n.body = 'saneTerm')),
                             null != e.resizeTerm &&
-                              e.hasOwnProperty("resizeTerm") &&
+                              e.hasOwnProperty('resizeTerm') &&
                               ((n.resizeTerm = o.api.ResizeTerm.toObject(
                                 e.resizeTerm,
                                 t
                               )),
-                              t.oneofs && (n.body = "resizeTerm")),
+                              t.oneofs && (n.body = 'resizeTerm')),
                             null != e.state &&
-                              e.hasOwnProperty("state") &&
+                              e.hasOwnProperty('state') &&
                               ((n.state =
                                 t.enums === String
                                   ? o.api.State[e.state]
                                   : e.state),
-                              t.oneofs && (n.body = "state")),
+                              t.oneofs && (n.body = 'state')),
                             null != e.ok &&
-                              e.hasOwnProperty("ok") &&
+                              e.hasOwnProperty('ok') &&
                               ((n.ok = o.api.OK.toObject(e.ok, t)),
-                              t.oneofs && (n.body = "ok")),
+                              t.oneofs && (n.body = 'ok')),
                             null != e.persist &&
-                              e.hasOwnProperty("persist") &&
+                              e.hasOwnProperty('persist') &&
                               ((n.persist = o.api.File.toObject(e.persist, t)),
-                              t.oneofs && (n.body = "persist")),
+                              t.oneofs && (n.body = 'persist')),
                             null != e.write &&
-                              e.hasOwnProperty("write") &&
+                              e.hasOwnProperty('write') &&
                               ((n.write = o.api.File.toObject(e.write, t)),
-                              t.oneofs && (n.body = "write")),
+                              t.oneofs && (n.body = 'write')),
                             null != e.remove &&
-                              e.hasOwnProperty("remove") &&
+                              e.hasOwnProperty('remove') &&
                               ((n.remove = o.api.File.toObject(e.remove, t)),
-                              t.oneofs && (n.body = "remove")),
+                              t.oneofs && (n.body = 'remove')),
                             null != e.move &&
-                              e.hasOwnProperty("move") &&
+                              e.hasOwnProperty('move') &&
                               ((n.move = o.api.Move.toObject(e.move, t)),
-                              t.oneofs && (n.body = "move")),
+                              t.oneofs && (n.body = 'move')),
                             null != e.read &&
-                              e.hasOwnProperty("read") &&
+                              e.hasOwnProperty('read') &&
                               ((n.read = o.api.File.toObject(e.read, t)),
-                              t.oneofs && (n.body = "read")),
+                              t.oneofs && (n.body = 'read')),
                             null != e.tryRemove &&
-                              e.hasOwnProperty("tryRemove") &&
+                              e.hasOwnProperty('tryRemove') &&
                               ((n.tryRemove = o.api.File.toObject(
                                 e.tryRemove,
                                 t
                               )),
-                              t.oneofs && (n.body = "tryRemove")),
+                              t.oneofs && (n.body = 'tryRemove')),
                             null != e.readdir &&
-                              e.hasOwnProperty("readdir") &&
+                              e.hasOwnProperty('readdir') &&
                               ((n.readdir = o.api.File.toObject(e.readdir, t)),
-                              t.oneofs && (n.body = "readdir")),
+                              t.oneofs && (n.body = 'readdir')),
                             null != e.files &&
-                              e.hasOwnProperty("files") &&
+                              e.hasOwnProperty('files') &&
                               ((n.files = o.api.Files.toObject(e.files, t)),
-                              t.oneofs && (n.body = "files")),
+                              t.oneofs && (n.body = 'files')),
                             null != e.mkdir &&
-                              e.hasOwnProperty("mkdir") &&
+                              e.hasOwnProperty('mkdir') &&
                               ((n.mkdir = o.api.File.toObject(e.mkdir, t)),
-                              t.oneofs && (n.body = "mkdir")),
+                              t.oneofs && (n.body = 'mkdir')),
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               ((n.file = o.api.File.toObject(e.file, t)),
-                              t.oneofs && (n.body = "file")),
+                              t.oneofs && (n.body = 'file')),
                             null != e.persistMirror &&
-                              e.hasOwnProperty("persistMirror") &&
+                              e.hasOwnProperty('persistMirror') &&
                               ((n.persistMirror = o.api.File.toObject(
                                 e.persistMirror,
                                 t
                               )),
-                              t.oneofs && (n.body = "persistMirror")),
+                              t.oneofs && (n.body = 'persistMirror')),
                             null != e.checkChanges &&
-                              e.hasOwnProperty("checkChanges") &&
+                              e.hasOwnProperty('checkChanges') &&
                               ((n.checkChanges = o.api.CheckChanges.toObject(
                                 e.checkChanges,
                                 t
                               )),
-                              t.oneofs && (n.body = "checkChanges")),
+                              t.oneofs && (n.body = 'checkChanges')),
                             null != e.changedFiles &&
-                              e.hasOwnProperty("changedFiles") &&
+                              e.hasOwnProperty('changedFiles') &&
                               ((n.changedFiles = o.api.Files.toObject(
                                 e.changedFiles,
                                 t
                               )),
-                              t.oneofs && (n.body = "changedFiles")),
+                              t.oneofs && (n.body = 'changedFiles')),
                             null != e.lintResults &&
-                              e.hasOwnProperty("lintResults") &&
+                              e.hasOwnProperty('lintResults') &&
                               ((n.lintResults = o.api.LintResults.toObject(
                                 e.lintResults,
                                 t
                               )),
-                              t.oneofs && (n.body = "lintResults")),
+                              t.oneofs && (n.body = 'lintResults')),
                             null != e.protocolError &&
-                              e.hasOwnProperty("protocolError") &&
+                              e.hasOwnProperty('protocolError') &&
                               ((n.protocolError = o.api.ProtocolError.toObject(
                                 e.protocolError,
                                 t
                               )),
-                              t.oneofs && (n.body = "protocolError")),
+                              t.oneofs && (n.body = 'protocolError')),
                             null != e.stderr &&
-                              e.hasOwnProperty("stderr") &&
+                              e.hasOwnProperty('stderr') &&
                               ((n.stderr = e.stderr),
-                              t.oneofs && (n.body = "stderr")),
+                              t.oneofs && (n.body = 'stderr')),
                             null != e.log &&
-                              e.hasOwnProperty("log") &&
-                              ((n.log = e.log), t.oneofs && (n.body = "log")),
+                              e.hasOwnProperty('log') &&
+                              ((n.log = e.log), t.oneofs && (n.body = 'log')),
                             null != e.runContainedTest &&
-                              e.hasOwnProperty("runContainedTest") &&
+                              e.hasOwnProperty('runContainedTest') &&
                               ((n.runContainedTest =
                                 o.api.ContainedTest.toObject(
                                   e.runContainedTest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "runContainedTest")),
+                              t.oneofs && (n.body = 'runContainedTest')),
                             null != e.testResult &&
-                              e.hasOwnProperty("testResult") &&
+                              e.hasOwnProperty('testResult') &&
                               ((n.testResult = o.api.TestResult.toObject(
                                 e.testResult,
                                 t
                               )),
-                              t.oneofs && (n.body = "testResult")),
+                              t.oneofs && (n.body = 'testResult')),
                             null != e.debuggerStart &&
-                              e.hasOwnProperty("debuggerStart") &&
+                              e.hasOwnProperty('debuggerStart') &&
                               ((n.debuggerStart = e.debuggerStart),
-                              t.oneofs && (n.body = "debuggerStart")),
+                              t.oneofs && (n.body = 'debuggerStart')),
                             null != e.debuggerStep &&
-                              e.hasOwnProperty("debuggerStep") &&
+                              e.hasOwnProperty('debuggerStep') &&
                               ((n.debuggerStep = o.api.RunMain.toObject(
                                 e.debuggerStep,
                                 t
                               )),
-                              t.oneofs && (n.body = "debuggerStep")),
+                              t.oneofs && (n.body = 'debuggerStep')),
                             null != e.debuggerStatus &&
-                              e.hasOwnProperty("debuggerStatus") &&
+                              e.hasOwnProperty('debuggerStatus') &&
                               ((n.debuggerStatus = o.api.DebugStatus.toObject(
                                 e.debuggerStatus,
                                 t
                               )),
-                              t.oneofs && (n.body = "debuggerStatus")),
+                              t.oneofs && (n.body = 'debuggerStatus')),
                             null != e.ensurePackages &&
-                              e.hasOwnProperty("ensurePackages") &&
+                              e.hasOwnProperty('ensurePackages') &&
                               ((n.ensurePackages =
                                 o.api.EnsurePackages.toObject(
                                   e.ensurePackages,
                                   t
                                 )),
-                              t.oneofs && (n.body = "ensurePackages")),
+                              t.oneofs && (n.body = 'ensurePackages')),
                             null != e.ping &&
-                              e.hasOwnProperty("ping") &&
+                              e.hasOwnProperty('ping') &&
                               ((n.ping = o.api.Ping.toObject(e.ping, t)),
-                              t.oneofs && (n.body = "ping")),
+                              t.oneofs && (n.body = 'ping')),
                             null != e.pong &&
-                              e.hasOwnProperty("pong") &&
+                              e.hasOwnProperty('pong') &&
                               ((n.pong = o.api.Pong.toObject(e.pong, t)),
-                              t.oneofs && (n.body = "pong")),
+                              t.oneofs && (n.body = 'pong')),
                             null != e.hello &&
-                              e.hasOwnProperty("hello") &&
+                              e.hasOwnProperty('hello') &&
                               ((n.hello = o.api.Hello.toObject(e.hello, t)),
-                              t.oneofs && (n.body = "hello")),
+                              t.oneofs && (n.body = 'hello')),
                             null != e.goodbye &&
-                              e.hasOwnProperty("goodbye") &&
+                              e.hasOwnProperty('goodbye') &&
                               ((n.goodbye = o.api.Goodbye.toObject(
                                 e.goodbye,
                                 t
                               )),
-                              t.oneofs && (n.body = "goodbye")),
+                              t.oneofs && (n.body = 'goodbye')),
                             null != e.hint &&
-                              e.hasOwnProperty("hint") &&
+                              e.hasOwnProperty('hint') &&
                               ((n.hint = o.api.Hint.toObject(e.hint, t)),
-                              t.oneofs && (n.body = "hint")),
+                              t.oneofs && (n.body = 'hint')),
                             null != e.connect &&
-                              e.hasOwnProperty("connect") &&
+                              e.hasOwnProperty('connect') &&
                               ((n.connect = o.api.Connect.toObject(
                                 e.connect,
                                 t
                               )),
-                              t.oneofs && (n.body = "connect")),
+                              t.oneofs && (n.body = 'connect')),
                             null != e.send &&
-                              e.hasOwnProperty("send") &&
+                              e.hasOwnProperty('send') &&
                               ((n.send = o.api.Send.toObject(e.send, t)),
-                              t.oneofs && (n.body = "send")),
+                              t.oneofs && (n.body = 'send')),
                             null != e.recv &&
-                              e.hasOwnProperty("recv") &&
+                              e.hasOwnProperty('recv') &&
                               ((n.recv = o.api.Recv.toObject(e.recv, t)),
-                              t.oneofs && (n.body = "recv")),
+                              t.oneofs && (n.body = 'recv')),
                             null != e.disconnect &&
-                              e.hasOwnProperty("disconnect") &&
+                              e.hasOwnProperty('disconnect') &&
                               ((n.disconnect = o.api.Disconnect.toObject(
                                 e.disconnect,
                                 t
                               )),
-                              t.oneofs && (n.body = "disconnect")),
+                              t.oneofs && (n.body = 'disconnect')),
                             null != e.fileAuthReq &&
-                              e.hasOwnProperty("fileAuthReq") &&
+                              e.hasOwnProperty('fileAuthReq') &&
                               ((n.fileAuthReq = o.api.FileAuthReq.toObject(
                                 e.fileAuthReq,
                                 t
                               )),
-                              t.oneofs && (n.body = "fileAuthReq")),
+                              t.oneofs && (n.body = 'fileAuthReq')),
                             null != e.fileAuthRes &&
-                              e.hasOwnProperty("fileAuthRes") &&
+                              e.hasOwnProperty('fileAuthRes') &&
                               ((n.fileAuthRes = o.api.FileAuthRes.toObject(
                                 e.fileAuthRes,
                                 t
                               )),
-                              t.oneofs && (n.body = "fileAuthRes")),
+                              t.oneofs && (n.body = 'fileAuthRes')),
                             null != e.mutliFileAuthRes &&
-                              e.hasOwnProperty("mutliFileAuthRes") &&
+                              e.hasOwnProperty('mutliFileAuthRes') &&
                               ((n.mutliFileAuthRes =
                                 o.api.MultiFileAuthRes.toObject(
                                   e.mutliFileAuthRes,
                                   t
                                 )),
-                              t.oneofs && (n.body = "mutliFileAuthRes")),
+                              t.oneofs && (n.body = 'mutliFileAuthRes')),
                             null != e.listObjects &&
-                              e.hasOwnProperty("listObjects") &&
+                              e.hasOwnProperty('listObjects') &&
                               ((n.listObjects = o.api.ListObjects.toObject(
                                 e.listObjects,
                                 t
                               )),
-                              t.oneofs && (n.body = "listObjects")),
+                              t.oneofs && (n.body = 'listObjects')),
                             null != e.listObjectsResp &&
-                              e.hasOwnProperty("listObjectsResp") &&
+                              e.hasOwnProperty('listObjectsResp') &&
                               ((n.listObjectsResp =
                                 o.api.ListObjectsResp.toObject(
                                   e.listObjectsResp,
                                   t
                                 )),
-                              t.oneofs && (n.body = "listObjectsResp")),
+                              t.oneofs && (n.body = 'listObjectsResp')),
                             null != e.ot &&
-                              e.hasOwnProperty("ot") &&
+                              e.hasOwnProperty('ot') &&
                               ((n.ot = o.api.OTPacket.toObject(e.ot, t)),
-                              t.oneofs && (n.body = "ot")),
+                              t.oneofs && (n.body = 'ot')),
                             null != e.otstatus &&
-                              e.hasOwnProperty("otstatus") &&
+                              e.hasOwnProperty('otstatus') &&
                               ((n.otstatus = o.api.OTStatus.toObject(
                                 e.otstatus,
                                 t
                               )),
-                              t.oneofs && (n.body = "otstatus")),
+                              t.oneofs && (n.body = 'otstatus')),
                             null != e.otLinkFile &&
-                              e.hasOwnProperty("otLinkFile") &&
+                              e.hasOwnProperty('otLinkFile') &&
                               ((n.otLinkFile = o.api.OTLinkFile.toObject(
                                 e.otLinkFile,
                                 t
                               )),
-                              t.oneofs && (n.body = "otLinkFile")),
+                              t.oneofs && (n.body = 'otLinkFile')),
                             null != e.otNewCursor &&
-                              e.hasOwnProperty("otNewCursor") &&
+                              e.hasOwnProperty('otNewCursor') &&
                               ((n.otNewCursor = o.api.OTCursor.toObject(
                                 e.otNewCursor,
                                 t
                               )),
-                              t.oneofs && (n.body = "otNewCursor")),
+                              t.oneofs && (n.body = 'otNewCursor')),
                             null != e.otDeleteCursor &&
-                              e.hasOwnProperty("otDeleteCursor") &&
+                              e.hasOwnProperty('otDeleteCursor') &&
                               ((n.otDeleteCursor = o.api.OTCursor.toObject(
                                 e.otDeleteCursor,
                                 t
                               )),
-                              t.oneofs && (n.body = "otDeleteCursor")),
+                              t.oneofs && (n.body = 'otDeleteCursor')),
                             null != e.otFetchRequest &&
-                              e.hasOwnProperty("otFetchRequest") &&
+                              e.hasOwnProperty('otFetchRequest') &&
                               ((n.otFetchRequest =
                                 o.api.OTFetchRequest.toObject(
                                   e.otFetchRequest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "otFetchRequest")),
+                              t.oneofs && (n.body = 'otFetchRequest')),
                             null != e.otFetchResponse &&
-                              e.hasOwnProperty("otFetchResponse") &&
+                              e.hasOwnProperty('otFetchResponse') &&
                               ((n.otFetchResponse =
                                 o.api.OTFetchResponse.toObject(
                                   e.otFetchResponse,
                                   t
                                 )),
-                              t.oneofs && (n.body = "otFetchResponse")),
+                              t.oneofs && (n.body = 'otFetchResponse')),
                             null != e.otTransformSelectionRequest &&
-                              e.hasOwnProperty("otTransformSelectionRequest") &&
+                              e.hasOwnProperty('otTransformSelectionRequest') &&
                               ((n.otTransformSelectionRequest =
                                 o.api.OTTransformSelectionRequest.toObject(
                                   e.otTransformSelectionRequest,
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "otTransformSelectionRequest")),
+                                (n.body = 'otTransformSelectionRequest')),
                             null != e.otTransformSelectionResponse &&
                               e.hasOwnProperty(
-                                "otTransformSelectionResponse"
+                                'otTransformSelectionResponse'
                               ) &&
                               ((n.otTransformSelectionResponse =
                                 o.api.OTTransformSelectionResponse.toObject(
@@ -4899,462 +4899,462 @@
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "otTransformSelectionResponse")),
+                                (n.body = 'otTransformSelectionResponse')),
                             null != e.otLinkFileResponse &&
-                              e.hasOwnProperty("otLinkFileResponse") &&
+                              e.hasOwnProperty('otLinkFileResponse') &&
                               ((n.otLinkFileResponse =
                                 o.api.OTLinkFileResponse.toObject(
                                   e.otLinkFileResponse,
                                   t
                                 )),
-                              t.oneofs && (n.body = "otLinkFileResponse")),
+                              t.oneofs && (n.body = 'otLinkFileResponse')),
                             null != e.debug &&
-                              e.hasOwnProperty("debug") &&
+                              e.hasOwnProperty('debug') &&
                               ((n.debug = o.api.Debug.toObject(e.debug, t)),
-                              t.oneofs && (n.body = "debug")),
+                              t.oneofs && (n.body = 'debug')),
                             null != e.startVCR &&
-                              e.hasOwnProperty("startVCR") &&
+                              e.hasOwnProperty('startVCR') &&
                               ((n.startVCR = o.api.StartVCR.toObject(
                                 e.startVCR,
                                 t
                               )),
-                              t.oneofs && (n.body = "startVCR")),
+                              t.oneofs && (n.body = 'startVCR')),
                             null != e.readVCR &&
-                              e.hasOwnProperty("readVCR") &&
+                              e.hasOwnProperty('readVCR') &&
                               ((n.readVCR = o.api.ReadVCR.toObject(
                                 e.readVCR,
                                 t
                               )),
-                              t.oneofs && (n.body = "readVCR")),
+                              t.oneofs && (n.body = 'readVCR')),
                             null != e.VCRLog &&
-                              e.hasOwnProperty("VCRLog") &&
+                              e.hasOwnProperty('VCRLog') &&
                               ((n.VCRLog = o.api.VCRLog.toObject(e.VCRLog, t)),
-                              t.oneofs && (n.body = "VCRLog")),
+                              t.oneofs && (n.body = 'VCRLog')),
                             null != e.auth &&
-                              e.hasOwnProperty("auth") &&
+                              e.hasOwnProperty('auth') &&
                               ((n.auth = o.api.Auth.toObject(e.auth, t)),
-                              t.oneofs && (n.body = "auth")),
+                              t.oneofs && (n.body = 'auth')),
                             null != e.execInfo &&
-                              e.hasOwnProperty("execInfo") &&
+                              e.hasOwnProperty('execInfo') &&
                               ((n.execInfo = o.api.ExecInfo.toObject(
                                 e.execInfo,
                                 t
                               )),
-                              t.oneofs && (n.body = "execInfo")),
+                              t.oneofs && (n.body = 'execInfo')),
                             null != e.flush &&
-                              e.hasOwnProperty("flush") &&
+                              e.hasOwnProperty('flush') &&
                               ((n.flush = o.api.Flush.toObject(e.flush, t)),
-                              t.oneofs && (n.body = "flush")),
+                              t.oneofs && (n.body = 'flush')),
                             null != e.subscribeFile &&
-                              e.hasOwnProperty("subscribeFile") &&
+                              e.hasOwnProperty('subscribeFile') &&
                               ((n.subscribeFile = o.api.SubscribeFile.toObject(
                                 e.subscribeFile,
                                 t
                               )),
-                              t.oneofs && (n.body = "subscribeFile")),
+                              t.oneofs && (n.body = 'subscribeFile')),
                             null != e.fileEvent &&
-                              e.hasOwnProperty("fileEvent") &&
+                              e.hasOwnProperty('fileEvent') &&
                               ((n.fileEvent = o.api.FileEvent.toObject(
                                 e.fileEvent,
                                 t
                               )),
-                              t.oneofs && (n.body = "fileEvent")),
+                              t.oneofs && (n.body = 'fileEvent')),
                             null != e.roster &&
-                              e.hasOwnProperty("roster") &&
+                              e.hasOwnProperty('roster') &&
                               ((n.roster = o.api.Roster.toObject(e.roster, t)),
-                              t.oneofs && (n.body = "roster")),
+                              t.oneofs && (n.body = 'roster')),
                             null != e.join &&
-                              e.hasOwnProperty("join") &&
+                              e.hasOwnProperty('join') &&
                               ((n.join = o.api.User.toObject(e.join, t)),
-                              t.oneofs && (n.body = "join")),
+                              t.oneofs && (n.body = 'join')),
                             null != e.part &&
-                              e.hasOwnProperty("part") &&
+                              e.hasOwnProperty('part') &&
                               ((n.part = o.api.User.toObject(e.part, t)),
-                              t.oneofs && (n.body = "part")),
+                              t.oneofs && (n.body = 'part')),
                             null != e.openFile &&
-                              e.hasOwnProperty("openFile") &&
+                              e.hasOwnProperty('openFile') &&
                               ((n.openFile = o.api.OpenFile.toObject(
                                 e.openFile,
                                 t
                               )),
-                              t.oneofs && (n.body = "openFile")),
+                              t.oneofs && (n.body = 'openFile')),
                             null != e.fileOpened &&
-                              e.hasOwnProperty("fileOpened") &&
+                              e.hasOwnProperty('fileOpened') &&
                               ((n.fileOpened = o.api.FileOpened.toObject(
                                 e.fileOpened,
                                 t
                               )),
-                              t.oneofs && (n.body = "fileOpened")),
+                              t.oneofs && (n.body = 'fileOpened')),
                             null != e.followUser &&
-                              e.hasOwnProperty("followUser") &&
+                              e.hasOwnProperty('followUser') &&
                               ((n.followUser = o.api.FollowUser.toObject(
                                 e.followUser,
                                 t
                               )),
-                              t.oneofs && (n.body = "followUser")),
+                              t.oneofs && (n.body = 'followUser')),
                             null != e.updateSessionTimestamp &&
-                              e.hasOwnProperty("updateSessionTimestamp") &&
+                              e.hasOwnProperty('updateSessionTimestamp') &&
                               ((n.updateSessionTimestamp =
                                 o.api.UpdateSessionTimestamp.toObject(
                                   e.updateSessionTimestamp,
                                   t
                                 )),
-                              t.oneofs && (n.body = "updateSessionTimestamp")),
+                              t.oneofs && (n.body = 'updateSessionTimestamp')),
                             null != e.sessionTimestampUpdated &&
-                              e.hasOwnProperty("sessionTimestampUpdated") &&
+                              e.hasOwnProperty('sessionTimestampUpdated') &&
                               ((n.sessionTimestampUpdated =
                                 o.api.SessionTimestampUpdated.toObject(
                                   e.sessionTimestampUpdated,
                                   t
                                 )),
-                              t.oneofs && (n.body = "sessionTimestampUpdated")),
+                              t.oneofs && (n.body = 'sessionTimestampUpdated')),
                             null != e.unfollowUser &&
-                              e.hasOwnProperty("unfollowUser") &&
+                              e.hasOwnProperty('unfollowUser') &&
                               ((n.unfollowUser = o.api.UnfollowUser.toObject(
                                 e.unfollowUser,
                                 t
                               )),
-                              t.oneofs && (n.body = "unfollowUser")),
+                              t.oneofs && (n.body = 'unfollowUser')),
                             null != e.exec &&
-                              e.hasOwnProperty("exec") &&
+                              e.hasOwnProperty('exec') &&
                               ((n.exec = o.api.Exec.toObject(e.exec, t)),
-                              t.oneofs && (n.body = "exec")),
+                              t.oneofs && (n.body = 'exec')),
                             null != e.packageSearch &&
-                              e.hasOwnProperty("packageSearch") &&
+                              e.hasOwnProperty('packageSearch') &&
                               ((n.packageSearch = o.api.PackageSearch.toObject(
                                 e.packageSearch,
                                 t
                               )),
-                              t.oneofs && (n.body = "packageSearch")),
+                              t.oneofs && (n.body = 'packageSearch')),
                             null != e.packageSearchResp &&
-                              e.hasOwnProperty("packageSearchResp") &&
+                              e.hasOwnProperty('packageSearchResp') &&
                               ((n.packageSearchResp =
                                 o.api.PackageSearchResp.toObject(
                                   e.packageSearchResp,
                                   t
                                 )),
-                              t.oneofs && (n.body = "packageSearchResp")),
+                              t.oneofs && (n.body = 'packageSearchResp')),
                             null != e.packageInfo &&
-                              e.hasOwnProperty("packageInfo") &&
+                              e.hasOwnProperty('packageInfo') &&
                               ((n.packageInfo = o.api.PackageInfo.toObject(
                                 e.packageInfo,
                                 t
                               )),
-                              t.oneofs && (n.body = "packageInfo")),
+                              t.oneofs && (n.body = 'packageInfo')),
                             null != e.packageInfoResp &&
-                              e.hasOwnProperty("packageInfoResp") &&
+                              e.hasOwnProperty('packageInfoResp') &&
                               ((n.packageInfoResp =
                                 o.api.PackageInfoResp.toObject(
                                   e.packageInfoResp,
                                   t
                                 )),
-                              t.oneofs && (n.body = "packageInfoResp")),
+                              t.oneofs && (n.body = 'packageInfoResp')),
                             null != e.packageAdd &&
-                              e.hasOwnProperty("packageAdd") &&
+                              e.hasOwnProperty('packageAdd') &&
                               ((n.packageAdd = o.api.PackageAdd.toObject(
                                 e.packageAdd,
                                 t
                               )),
-                              t.oneofs && (n.body = "packageAdd")),
+                              t.oneofs && (n.body = 'packageAdd')),
                             null != e.packageRemove &&
-                              e.hasOwnProperty("packageRemove") &&
+                              e.hasOwnProperty('packageRemove') &&
                               ((n.packageRemove = o.api.PackageRemove.toObject(
                                 e.packageRemove,
                                 t
                               )),
-                              t.oneofs && (n.body = "packageRemove")),
+                              t.oneofs && (n.body = 'packageRemove')),
                             null != e.packageInstall &&
-                              e.hasOwnProperty("packageInstall") &&
+                              e.hasOwnProperty('packageInstall') &&
                               ((n.packageInstall =
                                 o.api.PackageInstall.toObject(
                                   e.packageInstall,
                                   t
                                 )),
-                              t.oneofs && (n.body = "packageInstall")),
+                              t.oneofs && (n.body = 'packageInstall')),
                             null != e.packageListSpecfile &&
-                              e.hasOwnProperty("packageListSpecfile") &&
+                              e.hasOwnProperty('packageListSpecfile') &&
                               ((n.packageListSpecfile =
                                 o.api.PackageListSpecfile.toObject(
                                   e.packageListSpecfile,
                                   t
                                 )),
-                              t.oneofs && (n.body = "packageListSpecfile")),
+                              t.oneofs && (n.body = 'packageListSpecfile')),
                             null != e.packageListSpecfileResp &&
-                              e.hasOwnProperty("packageListSpecfileResp") &&
+                              e.hasOwnProperty('packageListSpecfileResp') &&
                               ((n.packageListSpecfileResp =
                                 o.api.PackageListSpecfileResp.toObject(
                                   e.packageListSpecfileResp,
                                   t
                                 )),
-                              t.oneofs && (n.body = "packageListSpecfileResp")),
+                              t.oneofs && (n.body = 'packageListSpecfileResp')),
                             null != e.packageCacheSave &&
-                              e.hasOwnProperty("packageCacheSave") &&
+                              e.hasOwnProperty('packageCacheSave') &&
                               ((n.packageCacheSave =
                                 o.api.PackageCacheSave.toObject(
                                   e.packageCacheSave,
                                   t
                                 )),
-                              t.oneofs && (n.body = "packageCacheSave")),
+                              t.oneofs && (n.body = 'packageCacheSave')),
                             null != e.chatMessage &&
-                              e.hasOwnProperty("chatMessage") &&
+                              e.hasOwnProperty('chatMessage') &&
                               ((n.chatMessage = o.api.ChatMessage.toObject(
                                 e.chatMessage,
                                 t
                               )),
-                              t.oneofs && (n.body = "chatMessage")),
+                              t.oneofs && (n.body = 'chatMessage')),
                             null != e.chatTyping &&
-                              e.hasOwnProperty("chatTyping") &&
+                              e.hasOwnProperty('chatTyping') &&
                               ((n.chatTyping = o.api.ChatTyping.toObject(
                                 e.chatTyping,
                                 t
                               )),
-                              t.oneofs && (n.body = "chatTyping")),
+                              t.oneofs && (n.body = 'chatTyping')),
                             null != e.chatScrollback &&
-                              e.hasOwnProperty("chatScrollback") &&
+                              e.hasOwnProperty('chatScrollback') &&
                               ((n.chatScrollback =
                                 o.api.ChatScrollback.toObject(
                                   e.chatScrollback,
                                   t
                                 )),
-                              t.oneofs && (n.body = "chatScrollback")),
+                              t.oneofs && (n.body = 'chatScrollback')),
                             null != e.transferStart &&
-                              e.hasOwnProperty("transferStart") &&
+                              e.hasOwnProperty('transferStart') &&
                               ((n.transferStart = o.api.TransferStart.toObject(
                                 e.transferStart,
                                 t
                               )),
-                              t.oneofs && (n.body = "transferStart")),
+                              t.oneofs && (n.body = 'transferStart')),
                             null != e.transferChunk &&
-                              e.hasOwnProperty("transferChunk") &&
+                              e.hasOwnProperty('transferChunk') &&
                               ((n.transferChunk = o.api.TransferChunk.toObject(
                                 e.transferChunk,
                                 t
                               )),
-                              t.oneofs && (n.body = "transferChunk")),
+                              t.oneofs && (n.body = 'transferChunk')),
                             null != e.transferComplete &&
-                              e.hasOwnProperty("transferComplete") &&
+                              e.hasOwnProperty('transferComplete') &&
                               ((n.transferComplete =
                                 o.api.TransferComplete.toObject(
                                   e.transferComplete,
                                   t
                                 )),
-                              t.oneofs && (n.body = "transferComplete")),
+                              t.oneofs && (n.body = 'transferComplete')),
                             null != e.transferCancel &&
-                              e.hasOwnProperty("transferCancel") &&
+                              e.hasOwnProperty('transferCancel') &&
                               ((n.transferCancel = o.api.Transfer.toObject(
                                 e.transferCancel,
                                 t
                               )),
-                              t.oneofs && (n.body = "transferCancel")),
+                              t.oneofs && (n.body = 'transferCancel')),
                             null != e.transfer &&
-                              e.hasOwnProperty("transfer") &&
+                              e.hasOwnProperty('transfer') &&
                               ((n.transfer = o.api.Transfer.toObject(
                                 e.transfer,
                                 t
                               )),
-                              t.oneofs && (n.body = "transfer")),
+                              t.oneofs && (n.body = 'transfer')),
                             null != e.fsSnapshot &&
-                              e.hasOwnProperty("fsSnapshot") &&
+                              e.hasOwnProperty('fsSnapshot') &&
                               ((n.fsSnapshot = o.api.FSSnapshot.toObject(
                                 e.fsSnapshot,
                                 t
                               )),
-                              t.oneofs && (n.body = "fsSnapshot")),
+                              t.oneofs && (n.body = 'fsSnapshot')),
                             null != e.fsTakeLock &&
-                              e.hasOwnProperty("fsTakeLock") &&
+                              e.hasOwnProperty('fsTakeLock') &&
                               ((n.fsTakeLock = o.api.FSLock.toObject(
                                 e.fsTakeLock,
                                 t
                               )),
-                              t.oneofs && (n.body = "fsTakeLock")),
+                              t.oneofs && (n.body = 'fsTakeLock')),
                             null != e.fsReleaseLock &&
-                              e.hasOwnProperty("fsReleaseLock") &&
+                              e.hasOwnProperty('fsReleaseLock') &&
                               ((n.fsReleaseLock = o.api.FSLock.toObject(
                                 e.fsReleaseLock,
                                 t
                               )),
-                              t.oneofs && (n.body = "fsReleaseLock")),
+                              t.oneofs && (n.body = 'fsReleaseLock')),
                             null != e.hasCap &&
-                              e.hasOwnProperty("hasCap") &&
+                              e.hasOwnProperty('hasCap') &&
                               ((n.hasCap = e.hasCap),
-                              t.oneofs && (n.body = "hasCap")),
+                              t.oneofs && (n.body = 'hasCap')),
                             null != e.pid1Config &&
-                              e.hasOwnProperty("pid1Config") &&
+                              e.hasOwnProperty('pid1Config') &&
                               ((n.pid1Config = o.api.Pid1Config.toObject(
                                 e.pid1Config,
                                 t
                               )),
-                              t.oneofs && (n.body = "pid1Config")),
+                              t.oneofs && (n.body = 'pid1Config')),
                             null != e.startLSP &&
-                              e.hasOwnProperty("startLSP") &&
+                              e.hasOwnProperty('startLSP') &&
                               ((n.startLSP = o.api.StartLSP.toObject(
                                 e.startLSP,
                                 t
                               )),
-                              t.oneofs && (n.body = "startLSP")),
+                              t.oneofs && (n.body = 'startLSP')),
                             null != e.metrics &&
-                              e.hasOwnProperty("metrics") &&
+                              e.hasOwnProperty('metrics') &&
                               ((n.metrics = o.api.Metrics.toObject(
                                 e.metrics,
                                 t
                               )),
-                              t.oneofs && (n.body = "metrics")),
+                              t.oneofs && (n.body = 'metrics')),
                             null != e.bootStatus &&
-                              e.hasOwnProperty("bootStatus") &&
+                              e.hasOwnProperty('bootStatus') &&
                               ((n.bootStatus = o.api.BootStatus.toObject(
                                 e.bootStatus,
                                 t
                               )),
-                              t.oneofs && (n.body = "bootStatus")),
+                              t.oneofs && (n.body = 'bootStatus')),
                             null != e.readMetaRequest &&
-                              e.hasOwnProperty("readMetaRequest") &&
+                              e.hasOwnProperty('readMetaRequest') &&
                               ((n.readMetaRequest =
                                 o.api.ReadMetaRequest.toObject(
                                   e.readMetaRequest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "readMetaRequest")),
+                              t.oneofs && (n.body = 'readMetaRequest')),
                             null != e.writeMetaRequest &&
-                              e.hasOwnProperty("writeMetaRequest") &&
+                              e.hasOwnProperty('writeMetaRequest') &&
                               ((n.writeMetaRequest =
                                 o.api.WriteMetaRequest.toObject(
                                   e.writeMetaRequest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "writeMetaRequest")),
+                              t.oneofs && (n.body = 'writeMetaRequest')),
                             null != e.appendMetaRequest &&
-                              e.hasOwnProperty("appendMetaRequest") &&
+                              e.hasOwnProperty('appendMetaRequest') &&
                               ((n.appendMetaRequest =
                                 o.api.AppendMetaRequest.toObject(
                                   e.appendMetaRequest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "appendMetaRequest")),
+                              t.oneofs && (n.body = 'appendMetaRequest')),
                             null != e.audio &&
-                              e.hasOwnProperty("audio") &&
+                              e.hasOwnProperty('audio') &&
                               ((n.audio = o.api.Audio.toObject(e.audio, t)),
-                              t.oneofs && (n.body = "audio")),
+                              t.oneofs && (n.body = 'audio')),
                             null != e.pprofRequest &&
-                              e.hasOwnProperty("pprofRequest") &&
+                              e.hasOwnProperty('pprofRequest') &&
                               ((n.pprofRequest = o.api.PprofRequest.toObject(
                                 e.pprofRequest,
                                 t
                               )),
-                              t.oneofs && (n.body = "pprofRequest")),
+                              t.oneofs && (n.body = 'pprofRequest')),
                             null != e.pprofResponse &&
-                              e.hasOwnProperty("pprofResponse") &&
+                              e.hasOwnProperty('pprofResponse') &&
                               ((n.pprofResponse = o.api.PprofResponse.toObject(
                                 e.pprofResponse,
                                 t
                               )),
-                              t.oneofs && (n.body = "pprofResponse")),
+                              t.oneofs && (n.body = 'pprofResponse')),
                             null != e.audio2 &&
-                              e.hasOwnProperty("audio2") &&
+                              e.hasOwnProperty('audio2') &&
                               ((n.audio2 = o.api.Audio2.toObject(e.audio2, t)),
-                              t.oneofs && (n.body = "audio2")),
+                              t.oneofs && (n.body = 'audio2')),
                             null != e.PTYConfig &&
-                              e.hasOwnProperty("PTYConfig") &&
+                              e.hasOwnProperty('PTYConfig') &&
                               ((n.PTYConfig = o.api.PTYConfig.toObject(
                                 e.PTYConfig,
                                 t
                               )),
-                              t.oneofs && (n.body = "PTYConfig")),
+                              t.oneofs && (n.body = 'PTYConfig')),
                             null != e.stat &&
-                              e.hasOwnProperty("stat") &&
+                              e.hasOwnProperty('stat') &&
                               ((n.stat = o.api.File.toObject(e.stat, t)),
-                              t.oneofs && (n.body = "stat")),
+                              t.oneofs && (n.body = 'stat')),
                             null != e.statRes &&
-                              e.hasOwnProperty("statRes") &&
+                              e.hasOwnProperty('statRes') &&
                               ((n.statRes = o.api.StatResult.toObject(
                                 e.statRes,
                                 t
                               )),
-                              t.oneofs && (n.body = "statRes")),
+                              t.oneofs && (n.body = 'statRes')),
                             null != e.debugMain &&
-                              e.hasOwnProperty("debugMain") &&
+                              e.hasOwnProperty('debugMain') &&
                               ((n.debugMain = o.api.DebugMain.toObject(
                                 e.debugMain,
                                 t
                               )),
-                              t.oneofs && (n.body = "debugMain")),
+                              t.oneofs && (n.body = 'debugMain')),
                             null != e.debugState &&
-                              e.hasOwnProperty("debugState") &&
+                              e.hasOwnProperty('debugState') &&
                               ((n.debugState = o.api.DebugState.toObject(
                                 e.debugState,
                                 t
                               )),
-                              t.oneofs && (n.body = "debugState")),
+                              t.oneofs && (n.body = 'debugState')),
                             null != e.debugMainReply &&
-                              e.hasOwnProperty("debugMainReply") &&
+                              e.hasOwnProperty('debugMainReply') &&
                               ((n.debugMainReply =
                                 o.api.DebugMainReply.toObject(
                                   e.debugMainReply,
                                   t
                                 )),
-                              t.oneofs && (n.body = "debugMainReply")),
+                              t.oneofs && (n.body = 'debugMainReply')),
                             null != e.debugInput &&
-                              e.hasOwnProperty("debugInput") &&
+                              e.hasOwnProperty('debugInput') &&
                               ((n.debugInput = o.api.DebugInput.toObject(
                                 e.debugInput,
                                 t
                               )),
-                              t.oneofs && (n.body = "debugInput")),
+                              t.oneofs && (n.body = 'debugInput')),
                             null != e.debugOutput &&
-                              e.hasOwnProperty("debugOutput") &&
+                              e.hasOwnProperty('debugOutput') &&
                               ((n.debugOutput = o.api.DebugOutput.toObject(
                                 e.debugOutput,
                                 t
                               )),
-                              t.oneofs && (n.body = "debugOutput")),
+                              t.oneofs && (n.body = 'debugOutput')),
                             null != e.debugStop &&
-                              e.hasOwnProperty("debugStop") &&
+                              e.hasOwnProperty('debugStop') &&
                               ((n.debugStop = o.api.DebugStop.toObject(
                                 e.debugStop,
                                 t
                               )),
-                              t.oneofs && (n.body = "debugStop")),
+                              t.oneofs && (n.body = 'debugStop')),
                             null != e.debugLeave &&
-                              e.hasOwnProperty("debugLeave") &&
+                              e.hasOwnProperty('debugLeave') &&
                               ((n.debugLeave = o.api.DebugLeave.toObject(
                                 e.debugLeave,
                                 t
                               )),
-                              t.oneofs && (n.body = "debugLeave")),
+                              t.oneofs && (n.body = 'debugLeave')),
                             null != e.debugSessions &&
-                              e.hasOwnProperty("debugSessions") &&
+                              e.hasOwnProperty('debugSessions') &&
                               ((n.debugSessions = o.api.DebugSessions.toObject(
                                 e.debugSessions,
                                 t
                               )),
-                              t.oneofs && (n.body = "debugSessions")),
+                              t.oneofs && (n.body = 'debugSessions')),
                             null != e.dotReplitGetRequest &&
-                              e.hasOwnProperty("dotReplitGetRequest") &&
+                              e.hasOwnProperty('dotReplitGetRequest') &&
                               ((n.dotReplitGetRequest =
                                 o.api.DotReplitGetRequest.toObject(
                                   e.dotReplitGetRequest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "dotReplitGetRequest")),
+                              t.oneofs && (n.body = 'dotReplitGetRequest')),
                             null != e.dotReplitGetResponse &&
-                              e.hasOwnProperty("dotReplitGetResponse") &&
+                              e.hasOwnProperty('dotReplitGetResponse') &&
                               ((n.dotReplitGetResponse =
                                 o.api.DotReplitGetResponse.toObject(
                                   e.dotReplitGetResponse,
                                   t
                                 )),
-                              t.oneofs && (n.body = "dotReplitGetResponse")),
+                              t.oneofs && (n.body = 'dotReplitGetResponse')),
                             null != e.debugAddBreakpointRequest &&
-                              e.hasOwnProperty("debugAddBreakpointRequest") &&
+                              e.hasOwnProperty('debugAddBreakpointRequest') &&
                               ((n.debugAddBreakpointRequest =
                                 o.api.DebugAddBreakpointRequest.toObject(
                                   e.debugAddBreakpointRequest,
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "debugAddBreakpointRequest")),
+                                (n.body = 'debugAddBreakpointRequest')),
                             null != e.debugRemoveBreakpointRequest &&
                               e.hasOwnProperty(
-                                "debugRemoveBreakpointRequest"
+                                'debugRemoveBreakpointRequest'
                               ) &&
                               ((n.debugRemoveBreakpointRequest =
                                 o.api.DebugRemoveBreakpointRequest.toObject(
@@ -5362,42 +5362,42 @@
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "debugRemoveBreakpointRequest")),
+                                (n.body = 'debugRemoveBreakpointRequest')),
                             null != e.debugBreakpointEvent &&
-                              e.hasOwnProperty("debugBreakpointEvent") &&
+                              e.hasOwnProperty('debugBreakpointEvent') &&
                               ((n.debugBreakpointEvent =
                                 o.api.DebugBreakpointEvent.toObject(
                                   e.debugBreakpointEvent,
                                   t
                                 )),
-                              t.oneofs && (n.body = "debugBreakpointEvent")),
+                              t.oneofs && (n.body = 'debugBreakpointEvent')),
                             null != e.readMetaResponse &&
-                              e.hasOwnProperty("readMetaResponse") &&
+                              e.hasOwnProperty('readMetaResponse') &&
                               ((n.readMetaResponse =
                                 o.api.ReadMetaResponse.toObject(
                                   e.readMetaResponse,
                                   t
                                 )),
-                              t.oneofs && (n.body = "readMetaResponse")),
+                              t.oneofs && (n.body = 'readMetaResponse')),
                             null != e.writeMetaResponse &&
-                              e.hasOwnProperty("writeMetaResponse") &&
+                              e.hasOwnProperty('writeMetaResponse') &&
                               ((n.writeMetaResponse =
                                 o.api.WriteMetaResponse.toObject(
                                   e.writeMetaResponse,
                                   t
                                 )),
-                              t.oneofs && (n.body = "writeMetaResponse")),
+                              t.oneofs && (n.body = 'writeMetaResponse')),
                             null != e.appendMetaResponse &&
-                              e.hasOwnProperty("appendMetaResponse") &&
+                              e.hasOwnProperty('appendMetaResponse') &&
                               ((n.appendMetaResponse =
                                 o.api.AppendMetaResponse.toObject(
                                   e.appendMetaResponse,
                                   t
                                 )),
-                              t.oneofs && (n.body = "appendMetaResponse")),
+                              t.oneofs && (n.body = 'appendMetaResponse')),
                             null != e.debugUpdateBreakpointRequest &&
                               e.hasOwnProperty(
-                                "debugUpdateBreakpointRequest"
+                                'debugUpdateBreakpointRequest'
                               ) &&
                               ((n.debugUpdateBreakpointRequest =
                                 o.api.DebugUpdateBreakpointRequest.toObject(
@@ -5405,9 +5405,9 @@
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "debugUpdateBreakpointRequest")),
+                                (n.body = 'debugUpdateBreakpointRequest')),
                             null != e.ref &&
-                              e.hasOwnProperty("ref") &&
+                              e.hasOwnProperty('ref') &&
                               (n.ref = e.ref),
                             n
                           );
@@ -5428,7 +5428,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.language = ""),
+                        (i.prototype.language = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -5436,7 +5436,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.language &&
-                              Object.hasOwnProperty.call(e, "language") &&
+                              Object.hasOwnProperty.call(e, 'language') &&
                               t.uint32(10).string(e.language),
                             t
                           );
@@ -5470,12 +5470,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.language &&
-                              e.hasOwnProperty("language") &&
+                              e.hasOwnProperty('language') &&
                               !r.isString(e.language)
-                            ? "language: string expected"
+                            ? 'language: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -5491,9 +5491,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.language = ""),
+                            t.defaults && (n.language = ''),
                             null != e.language &&
-                              e.hasOwnProperty("language") &&
+                              e.hasOwnProperty('language') &&
                               (n.language = e.language),
                             n
                           );
@@ -5565,14 +5565,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.data && e.hasOwnProperty("data")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.data && e.hasOwnProperty('data')) {
                             if (!Array.isArray(e.data))
-                              return "data: array expected";
+                              return 'data: array expected';
                             for (var t = 0; t < e.data.length; ++t)
                               if (!r.isInteger(e.data[t]))
-                                return "data: integer[] expected";
+                                return 'data: integer[] expected';
                           }
                           return null;
                         }),
@@ -5582,7 +5582,7 @@
                           if (e.data) {
                             if (!Array.isArray(e.data))
                               throw TypeError(
-                                ".api.Audio.data: array expected"
+                                '.api.Audio.data: array expected'
                               );
                             t.data = [];
                             for (var n = 0; n < e.data.length; ++n)
@@ -5638,7 +5638,7 @@
                           }
                           return (
                             null != e.samples &&
-                              Object.hasOwnProperty.call(e, "samples") &&
+                              Object.hasOwnProperty.call(e, 'samples') &&
                               t.uint32(16).int64(e.samples),
                             t
                           );
@@ -5681,23 +5681,23 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.data && e.hasOwnProperty("data")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.data && e.hasOwnProperty('data')) {
                             if (!Array.isArray(e.data))
-                              return "data: array expected";
+                              return 'data: array expected';
                             for (var t = 0; t < e.data.length; ++t)
                               if (!r.isInteger(e.data[t]))
-                                return "data: integer[] expected";
+                                return 'data: integer[] expected';
                           }
                           return null == e.samples ||
-                            !e.hasOwnProperty("samples") ||
+                            !e.hasOwnProperty('samples') ||
                             r.isInteger(e.samples) ||
                             (e.samples &&
                               r.isInteger(e.samples.low) &&
                               r.isInteger(e.samples.high))
                             ? null
-                            : "samples: integer|Long expected";
+                            : 'samples: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.Audio2) return e;
@@ -5705,7 +5705,7 @@
                           if (e.data) {
                             if (!Array.isArray(e.data))
                               throw TypeError(
-                                ".api.Audio2.data: array expected"
+                                '.api.Audio2.data: array expected'
                               );
                             t.data = [];
                             for (var n = 0; n < e.data.length; ++n)
@@ -5717,11 +5717,11 @@
                                 ? ((t.samples = r.Long.fromValue(
                                     e.samples
                                   )).unsigned = !1)
-                                : "string" === typeof e.samples
+                                : 'string' === typeof e.samples
                                 ? (t.samples = parseInt(e.samples, 10))
-                                : "number" === typeof e.samples
+                                : 'number' === typeof e.samples
                                 ? (t.samples = e.samples)
-                                : "object" === typeof e.samples &&
+                                : 'object' === typeof e.samples &&
                                   (t.samples = new r.LongBits(
                                     e.samples.low >>> 0,
                                     e.samples.high >>> 0
@@ -5744,7 +5744,7 @@
                                   : t.longs === Number
                                   ? o.toNumber()
                                   : o;
-                            } else n.samples = t.longs === String ? "0" : 0;
+                            } else n.samples = t.longs === String ? '0' : 0;
                           if (e.data && e.data.length) {
                             n.data = [];
                             for (var i = 0; i < e.data.length; ++i)
@@ -5752,8 +5752,8 @@
                           }
                           return (
                             null != e.samples &&
-                              e.hasOwnProperty("samples") &&
-                              ("number" === typeof e.samples
+                              e.hasOwnProperty('samples') &&
+                              ('number' === typeof e.samples
                                 ? (n.samples =
                                     t.longs === String
                                       ? String(e.samples)
@@ -5802,13 +5802,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.generation &&
-                              Object.hasOwnProperty.call(e, "generation") &&
+                              Object.hasOwnProperty.call(e, 'generation') &&
                               t.uint32(8).int64(e.generation),
                             null != e.metageneration &&
-                              Object.hasOwnProperty.call(e, "metageneration") &&
+                              Object.hasOwnProperty.call(e, 'metageneration') &&
                               t.uint32(16).int64(e.metageneration),
                             null != e.doesNotExist &&
-                              Object.hasOwnProperty.call(e, "doesNotExist") &&
+                              Object.hasOwnProperty.call(e, 'doesNotExist') &&
                               t.uint32(24).bool(e.doesNotExist),
                             t
                           );
@@ -5848,27 +5848,27 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null == e.generation ||
-                              !e.hasOwnProperty("generation") ||
+                              !e.hasOwnProperty('generation') ||
                               r.isInteger(e.generation) ||
                               (e.generation &&
                                 r.isInteger(e.generation.low) &&
                                 r.isInteger(e.generation.high))
                             ? null == e.metageneration ||
-                              !e.hasOwnProperty("metageneration") ||
+                              !e.hasOwnProperty('metageneration') ||
                               r.isInteger(e.metageneration) ||
                               (e.metageneration &&
                                 r.isInteger(e.metageneration.low) &&
                                 r.isInteger(e.metageneration.high))
                               ? null != e.doesNotExist &&
-                                e.hasOwnProperty("doesNotExist") &&
-                                "boolean" !== typeof e.doesNotExist
-                                ? "doesNotExist: boolean expected"
+                                e.hasOwnProperty('doesNotExist') &&
+                                'boolean' !== typeof e.doesNotExist
+                                ? 'doesNotExist: boolean expected'
                                 : null
-                              : "metageneration: integer|Long expected"
-                            : "generation: integer|Long expected";
+                              : 'metageneration: integer|Long expected'
+                            : 'generation: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.Preconditions) return e;
@@ -5879,11 +5879,11 @@
                                 ? ((t.generation = r.Long.fromValue(
                                     e.generation
                                   )).unsigned = !1)
-                                : "string" === typeof e.generation
+                                : 'string' === typeof e.generation
                                 ? (t.generation = parseInt(e.generation, 10))
-                                : "number" === typeof e.generation
+                                : 'number' === typeof e.generation
                                 ? (t.generation = e.generation)
-                                : "object" === typeof e.generation &&
+                                : 'object' === typeof e.generation &&
                                   (t.generation = new r.LongBits(
                                     e.generation.low >>> 0,
                                     e.generation.high >>> 0
@@ -5893,14 +5893,14 @@
                                 ? ((t.metageneration = r.Long.fromValue(
                                     e.metageneration
                                   )).unsigned = !1)
-                                : "string" === typeof e.metageneration
+                                : 'string' === typeof e.metageneration
                                 ? (t.metageneration = parseInt(
                                     e.metageneration,
                                     10
                                   ))
-                                : "number" === typeof e.metageneration
+                                : 'number' === typeof e.metageneration
                                 ? (t.metageneration = e.metageneration)
-                                : "object" === typeof e.metageneration &&
+                                : 'object' === typeof e.metageneration &&
                                   (t.metageneration = new r.LongBits(
                                     e.metageneration.low >>> 0,
                                     e.metageneration.high >>> 0
@@ -5922,7 +5922,7 @@
                                   : t.longs === Number
                                   ? o.toNumber()
                                   : o;
-                            } else n.generation = t.longs === String ? "0" : 0;
+                            } else n.generation = t.longs === String ? '0' : 0;
                             r.Long
                               ? ((o = new r.Long(0, 0, !1)),
                                 (n.metageneration =
@@ -5932,13 +5932,13 @@
                                     ? o.toNumber()
                                     : o))
                               : (n.metageneration =
-                                  t.longs === String ? "0" : 0),
+                                  t.longs === String ? '0' : 0),
                               (n.doesNotExist = !1);
                           }
                           return (
                             null != e.generation &&
-                              e.hasOwnProperty("generation") &&
-                              ("number" === typeof e.generation
+                              e.hasOwnProperty('generation') &&
+                              ('number' === typeof e.generation
                                 ? (n.generation =
                                     t.longs === String
                                       ? String(e.generation)
@@ -5955,8 +5955,8 @@
                                         ).toNumber()
                                       : e.generation)),
                             null != e.metageneration &&
-                              e.hasOwnProperty("metageneration") &&
-                              ("number" === typeof e.metageneration
+                              e.hasOwnProperty('metageneration') &&
+                              ('number' === typeof e.metageneration
                                 ? (n.metageneration =
                                     t.longs === String
                                       ? String(e.metageneration)
@@ -5973,7 +5973,7 @@
                                         ).toNumber()
                                       : e.metageneration)),
                             null != e.doesNotExist &&
-                              e.hasOwnProperty("doesNotExist") &&
+                              e.hasOwnProperty('doesNotExist') &&
                               (n.doesNotExist = e.doesNotExist),
                             n
                           );
@@ -5994,7 +5994,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.key = ""),
+                        (i.prototype.key = ''),
                         (i.prototype.exists = !1),
                         (i.prototype.data = r.newBuffer([])),
                         (i.create = function (e) {
@@ -6004,13 +6004,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.key &&
-                              Object.hasOwnProperty.call(e, "key") &&
+                              Object.hasOwnProperty.call(e, 'key') &&
                               t.uint32(10).string(e.key),
                             null != e.exists &&
-                              Object.hasOwnProperty.call(e, "exists") &&
+                              Object.hasOwnProperty.call(e, 'exists') &&
                               t.uint32(16).bool(e.exists),
                             null != e.data &&
-                              Object.hasOwnProperty.call(e, "data") &&
+                              Object.hasOwnProperty.call(e, 'data') &&
                               t.uint32(26).bytes(e.data),
                             t
                           );
@@ -6050,23 +6050,23 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.key &&
-                              e.hasOwnProperty("key") &&
+                              e.hasOwnProperty('key') &&
                               !r.isString(e.key)
-                            ? "key: string expected"
+                            ? 'key: string expected'
                             : null != e.exists &&
-                              e.hasOwnProperty("exists") &&
-                              "boolean" !== typeof e.exists
-                            ? "exists: boolean expected"
+                              e.hasOwnProperty('exists') &&
+                              'boolean' !== typeof e.exists
+                            ? 'exists: boolean expected'
                             : null != e.data &&
-                              e.hasOwnProperty("data") &&
+                              e.hasOwnProperty('data') &&
                               !(
-                                (e.data && "number" === typeof e.data.length) ||
+                                (e.data && 'number' === typeof e.data.length) ||
                                 r.isString(e.data)
                               )
-                            ? "data: buffer expected"
+                            ? 'data: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -6076,7 +6076,7 @@
                             null != e.key && (t.key = String(e.key)),
                             null != e.exists && (t.exists = Boolean(e.exists)),
                             null != e.data &&
-                              ("string" === typeof e.data
+                              ('string' === typeof e.data
                                 ? r.base64.decode(
                                     e.data,
                                     (t.data = r.newBuffer(
@@ -6093,21 +6093,21 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.key = ""),
+                              ((n.key = ''),
                               (n.exists = !1),
                               t.bytes === String
-                                ? (n.data = "")
+                                ? (n.data = '')
                                 : ((n.data = []),
                                   t.bytes !== Array &&
                                     (n.data = r.newBuffer(n.data)))),
                             null != e.key &&
-                              e.hasOwnProperty("key") &&
+                              e.hasOwnProperty('key') &&
                               (n.key = e.key),
                             null != e.exists &&
-                              e.hasOwnProperty("exists") &&
+                              e.hasOwnProperty('exists') &&
                               (n.exists = e.exists),
                             null != e.data &&
-                              e.hasOwnProperty("data") &&
+                              e.hasOwnProperty('data') &&
                               (n.data =
                                 t.bytes === String
                                   ? r.base64.encode(e.data, 0, e.data.length)
@@ -6133,7 +6133,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.key = ""),
+                        (i.prototype.key = ''),
                         (i.prototype.exists = !1),
                         (i.prototype.data = r.newBuffer([])),
                         (i.prototype.generation = r.Long
@@ -6149,19 +6149,19 @@
                           return (
                             t || (t = n.create()),
                             null != e.key &&
-                              Object.hasOwnProperty.call(e, "key") &&
+                              Object.hasOwnProperty.call(e, 'key') &&
                               t.uint32(10).string(e.key),
                             null != e.exists &&
-                              Object.hasOwnProperty.call(e, "exists") &&
+                              Object.hasOwnProperty.call(e, 'exists') &&
                               t.uint32(16).bool(e.exists),
                             null != e.data &&
-                              Object.hasOwnProperty.call(e, "data") &&
+                              Object.hasOwnProperty.call(e, 'data') &&
                               t.uint32(26).bytes(e.data),
                             null != e.generation &&
-                              Object.hasOwnProperty.call(e, "generation") &&
+                              Object.hasOwnProperty.call(e, 'generation') &&
                               t.uint32(32).int64(e.generation),
                             null != e.metageneration &&
-                              Object.hasOwnProperty.call(e, "metageneration") &&
+                              Object.hasOwnProperty.call(e, 'metageneration') &&
                               t.uint32(40).int64(e.metageneration),
                             t
                           );
@@ -6207,38 +6207,38 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.key &&
-                              e.hasOwnProperty("key") &&
+                              e.hasOwnProperty('key') &&
                               !r.isString(e.key)
-                            ? "key: string expected"
+                            ? 'key: string expected'
                             : null != e.exists &&
-                              e.hasOwnProperty("exists") &&
-                              "boolean" !== typeof e.exists
-                            ? "exists: boolean expected"
+                              e.hasOwnProperty('exists') &&
+                              'boolean' !== typeof e.exists
+                            ? 'exists: boolean expected'
                             : null != e.data &&
-                              e.hasOwnProperty("data") &&
+                              e.hasOwnProperty('data') &&
                               !(
-                                (e.data && "number" === typeof e.data.length) ||
+                                (e.data && 'number' === typeof e.data.length) ||
                                 r.isString(e.data)
                               )
-                            ? "data: buffer expected"
+                            ? 'data: buffer expected'
                             : null == e.generation ||
-                              !e.hasOwnProperty("generation") ||
+                              !e.hasOwnProperty('generation') ||
                               r.isInteger(e.generation) ||
                               (e.generation &&
                                 r.isInteger(e.generation.low) &&
                                 r.isInteger(e.generation.high))
                             ? null == e.metageneration ||
-                              !e.hasOwnProperty("metageneration") ||
+                              !e.hasOwnProperty('metageneration') ||
                               r.isInteger(e.metageneration) ||
                               (e.metageneration &&
                                 r.isInteger(e.metageneration.low) &&
                                 r.isInteger(e.metageneration.high))
                               ? null
-                              : "metageneration: integer|Long expected"
-                            : "generation: integer|Long expected";
+                              : 'metageneration: integer|Long expected'
+                            : 'generation: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.ReadMetaResponse) return e;
@@ -6247,7 +6247,7 @@
                             null != e.key && (t.key = String(e.key)),
                             null != e.exists && (t.exists = Boolean(e.exists)),
                             null != e.data &&
-                              ("string" === typeof e.data
+                              ('string' === typeof e.data
                                 ? r.base64.decode(
                                     e.data,
                                     (t.data = r.newBuffer(
@@ -6261,11 +6261,11 @@
                                 ? ((t.generation = r.Long.fromValue(
                                     e.generation
                                   )).unsigned = !1)
-                                : "string" === typeof e.generation
+                                : 'string' === typeof e.generation
                                 ? (t.generation = parseInt(e.generation, 10))
-                                : "number" === typeof e.generation
+                                : 'number' === typeof e.generation
                                 ? (t.generation = e.generation)
-                                : "object" === typeof e.generation &&
+                                : 'object' === typeof e.generation &&
                                   (t.generation = new r.LongBits(
                                     e.generation.low >>> 0,
                                     e.generation.high >>> 0
@@ -6275,14 +6275,14 @@
                                 ? ((t.metageneration = r.Long.fromValue(
                                     e.metageneration
                                   )).unsigned = !1)
-                                : "string" === typeof e.metageneration
+                                : 'string' === typeof e.metageneration
                                 ? (t.metageneration = parseInt(
                                     e.metageneration,
                                     10
                                   ))
-                                : "number" === typeof e.metageneration
+                                : 'number' === typeof e.metageneration
                                 ? (t.metageneration = e.metageneration)
-                                : "object" === typeof e.metageneration &&
+                                : 'object' === typeof e.metageneration &&
                                   (t.metageneration = new r.LongBits(
                                     e.metageneration.low >>> 0,
                                     e.metageneration.high >>> 0
@@ -6295,10 +6295,10 @@
                           var n = {};
                           if (t.defaults) {
                             if (
-                              ((n.key = ""),
+                              ((n.key = ''),
                               (n.exists = !1),
                               t.bytes === String
-                                ? (n.data = "")
+                                ? (n.data = '')
                                 : ((n.data = []),
                                   t.bytes !== Array &&
                                     (n.data = r.newBuffer(n.data))),
@@ -6311,7 +6311,7 @@
                                   : t.longs === Number
                                   ? o.toNumber()
                                   : o;
-                            } else n.generation = t.longs === String ? "0" : 0;
+                            } else n.generation = t.longs === String ? '0' : 0;
                             r.Long
                               ? ((o = new r.Long(0, 0, !1)),
                                 (n.metageneration =
@@ -6321,17 +6321,17 @@
                                     ? o.toNumber()
                                     : o))
                               : (n.metageneration =
-                                  t.longs === String ? "0" : 0);
+                                  t.longs === String ? '0' : 0);
                           }
                           return (
                             null != e.key &&
-                              e.hasOwnProperty("key") &&
+                              e.hasOwnProperty('key') &&
                               (n.key = e.key),
                             null != e.exists &&
-                              e.hasOwnProperty("exists") &&
+                              e.hasOwnProperty('exists') &&
                               (n.exists = e.exists),
                             null != e.data &&
-                              e.hasOwnProperty("data") &&
+                              e.hasOwnProperty('data') &&
                               (n.data =
                                 t.bytes === String
                                   ? r.base64.encode(e.data, 0, e.data.length)
@@ -6339,8 +6339,8 @@
                                   ? Array.prototype.slice.call(e.data)
                                   : e.data),
                             null != e.generation &&
-                              e.hasOwnProperty("generation") &&
-                              ("number" === typeof e.generation
+                              e.hasOwnProperty('generation') &&
+                              ('number' === typeof e.generation
                                 ? (n.generation =
                                     t.longs === String
                                       ? String(e.generation)
@@ -6357,8 +6357,8 @@
                                         ).toNumber()
                                       : e.generation)),
                             null != e.metageneration &&
-                              e.hasOwnProperty("metageneration") &&
-                              ("number" === typeof e.metageneration
+                              e.hasOwnProperty('metageneration') &&
+                              ('number' === typeof e.metageneration
                                 ? (n.metageneration =
                                     t.longs === String
                                       ? String(e.metageneration)
@@ -6393,7 +6393,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.key = ""),
+                        (i.prototype.key = ''),
                         (i.prototype.data = r.newBuffer([])),
                         (i.prototype.preconditions = null),
                         (i.create = function (e) {
@@ -6403,13 +6403,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.key &&
-                              Object.hasOwnProperty.call(e, "key") &&
+                              Object.hasOwnProperty.call(e, 'key') &&
                               t.uint32(10).string(e.key),
                             null != e.data &&
-                              Object.hasOwnProperty.call(e, "data") &&
+                              Object.hasOwnProperty.call(e, 'data') &&
                               t.uint32(18).bytes(e.data),
                             null != e.preconditions &&
-                              Object.hasOwnProperty.call(e, "preconditions") &&
+                              Object.hasOwnProperty.call(e, 'preconditions') &&
                               o.api.Preconditions.encode(
                                 e.preconditions,
                                 t.uint32(42).fork()
@@ -6455,29 +6455,29 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.key &&
-                            e.hasOwnProperty("key") &&
+                            e.hasOwnProperty('key') &&
                             !r.isString(e.key)
                           )
-                            return "key: string expected";
+                            return 'key: string expected';
                           if (
                             null != e.data &&
-                            e.hasOwnProperty("data") &&
+                            e.hasOwnProperty('data') &&
                             !(
-                              (e.data && "number" === typeof e.data.length) ||
+                              (e.data && 'number' === typeof e.data.length) ||
                               r.isString(e.data)
                             )
                           )
-                            return "data: buffer expected";
+                            return 'data: buffer expected';
                           if (
                             null != e.preconditions &&
-                            e.hasOwnProperty("preconditions")
+                            e.hasOwnProperty('preconditions')
                           ) {
                             var t = o.api.Preconditions.verify(e.preconditions);
-                            if (t) return "preconditions." + t;
+                            if (t) return 'preconditions.' + t;
                           }
                           return null;
                         }),
@@ -6487,7 +6487,7 @@
                           if (
                             (null != e.key && (t.key = String(e.key)),
                             null != e.data &&
-                              ("string" === typeof e.data
+                              ('string' === typeof e.data
                                 ? r.base64.decode(
                                     e.data,
                                     (t.data = r.newBuffer(
@@ -6498,9 +6498,9 @@
                                 : e.data.length && (t.data = e.data)),
                             null != e.preconditions)
                           ) {
-                            if ("object" !== typeof e.preconditions)
+                            if ('object' !== typeof e.preconditions)
                               throw TypeError(
-                                ".api.WriteMetaRequest.preconditions: object expected"
+                                '.api.WriteMetaRequest.preconditions: object expected'
                               );
                             t.preconditions = o.api.Preconditions.fromObject(
                               e.preconditions
@@ -6513,18 +6513,18 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.key = ""),
+                              ((n.key = ''),
                               t.bytes === String
-                                ? (n.data = "")
+                                ? (n.data = '')
                                 : ((n.data = []),
                                   t.bytes !== Array &&
                                     (n.data = r.newBuffer(n.data))),
                               (n.preconditions = null)),
                             null != e.key &&
-                              e.hasOwnProperty("key") &&
+                              e.hasOwnProperty('key') &&
                               (n.key = e.key),
                             null != e.data &&
-                              e.hasOwnProperty("data") &&
+                              e.hasOwnProperty('data') &&
                               (n.data =
                                 t.bytes === String
                                   ? r.base64.encode(e.data, 0, e.data.length)
@@ -6532,7 +6532,7 @@
                                   ? Array.prototype.slice.call(e.data)
                                   : e.data),
                             null != e.preconditions &&
-                              e.hasOwnProperty("preconditions") &&
+                              e.hasOwnProperty('preconditions') &&
                               (n.preconditions = o.api.Preconditions.toObject(
                                 e.preconditions,
                                 t
@@ -6569,10 +6569,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.generation &&
-                              Object.hasOwnProperty.call(e, "generation") &&
+                              Object.hasOwnProperty.call(e, 'generation') &&
                               t.uint32(8).int64(e.generation),
                             null != e.metageneration &&
-                              Object.hasOwnProperty.call(e, "metageneration") &&
+                              Object.hasOwnProperty.call(e, 'metageneration') &&
                               t.uint32(16).int64(e.metageneration),
                             t
                           );
@@ -6609,23 +6609,23 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null == e.generation ||
-                              !e.hasOwnProperty("generation") ||
+                              !e.hasOwnProperty('generation') ||
                               r.isInteger(e.generation) ||
                               (e.generation &&
                                 r.isInteger(e.generation.low) &&
                                 r.isInteger(e.generation.high))
                             ? null == e.metageneration ||
-                              !e.hasOwnProperty("metageneration") ||
+                              !e.hasOwnProperty('metageneration') ||
                               r.isInteger(e.metageneration) ||
                               (e.metageneration &&
                                 r.isInteger(e.metageneration.low) &&
                                 r.isInteger(e.metageneration.high))
                               ? null
-                              : "metageneration: integer|Long expected"
-                            : "generation: integer|Long expected";
+                              : 'metageneration: integer|Long expected'
+                            : 'generation: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.WriteMetaResponse) return e;
@@ -6636,11 +6636,11 @@
                                 ? ((t.generation = r.Long.fromValue(
                                     e.generation
                                   )).unsigned = !1)
-                                : "string" === typeof e.generation
+                                : 'string' === typeof e.generation
                                 ? (t.generation = parseInt(e.generation, 10))
-                                : "number" === typeof e.generation
+                                : 'number' === typeof e.generation
                                 ? (t.generation = e.generation)
-                                : "object" === typeof e.generation &&
+                                : 'object' === typeof e.generation &&
                                   (t.generation = new r.LongBits(
                                     e.generation.low >>> 0,
                                     e.generation.high >>> 0
@@ -6650,14 +6650,14 @@
                                 ? ((t.metageneration = r.Long.fromValue(
                                     e.metageneration
                                   )).unsigned = !1)
-                                : "string" === typeof e.metageneration
+                                : 'string' === typeof e.metageneration
                                 ? (t.metageneration = parseInt(
                                     e.metageneration,
                                     10
                                   ))
-                                : "number" === typeof e.metageneration
+                                : 'number' === typeof e.metageneration
                                 ? (t.metageneration = e.metageneration)
-                                : "object" === typeof e.metageneration &&
+                                : 'object' === typeof e.metageneration &&
                                   (t.metageneration = new r.LongBits(
                                     e.metageneration.low >>> 0,
                                     e.metageneration.high >>> 0
@@ -6677,7 +6677,7 @@
                                   : t.longs === Number
                                   ? o.toNumber()
                                   : o;
-                            } else n.generation = t.longs === String ? "0" : 0;
+                            } else n.generation = t.longs === String ? '0' : 0;
                             r.Long
                               ? ((o = new r.Long(0, 0, !1)),
                                 (n.metageneration =
@@ -6687,12 +6687,12 @@
                                     ? o.toNumber()
                                     : o))
                               : (n.metageneration =
-                                  t.longs === String ? "0" : 0);
+                                  t.longs === String ? '0' : 0);
                           }
                           return (
                             null != e.generation &&
-                              e.hasOwnProperty("generation") &&
-                              ("number" === typeof e.generation
+                              e.hasOwnProperty('generation') &&
+                              ('number' === typeof e.generation
                                 ? (n.generation =
                                     t.longs === String
                                       ? String(e.generation)
@@ -6709,8 +6709,8 @@
                                         ).toNumber()
                                       : e.generation)),
                             null != e.metageneration &&
-                              e.hasOwnProperty("metageneration") &&
-                              ("number" === typeof e.metageneration
+                              e.hasOwnProperty('metageneration') &&
+                              ('number' === typeof e.metageneration
                                 ? (n.metageneration =
                                     t.longs === String
                                       ? String(e.metageneration)
@@ -6745,7 +6745,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.key = ""),
+                        (i.prototype.key = ''),
                         (i.prototype.data = r.newBuffer([])),
                         (i.prototype.preconditions = null),
                         (i.create = function (e) {
@@ -6755,13 +6755,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.key &&
-                              Object.hasOwnProperty.call(e, "key") &&
+                              Object.hasOwnProperty.call(e, 'key') &&
                               t.uint32(10).string(e.key),
                             null != e.data &&
-                              Object.hasOwnProperty.call(e, "data") &&
+                              Object.hasOwnProperty.call(e, 'data') &&
                               t.uint32(18).bytes(e.data),
                             null != e.preconditions &&
-                              Object.hasOwnProperty.call(e, "preconditions") &&
+                              Object.hasOwnProperty.call(e, 'preconditions') &&
                               o.api.Preconditions.encode(
                                 e.preconditions,
                                 t.uint32(42).fork()
@@ -6807,29 +6807,29 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.key &&
-                            e.hasOwnProperty("key") &&
+                            e.hasOwnProperty('key') &&
                             !r.isString(e.key)
                           )
-                            return "key: string expected";
+                            return 'key: string expected';
                           if (
                             null != e.data &&
-                            e.hasOwnProperty("data") &&
+                            e.hasOwnProperty('data') &&
                             !(
-                              (e.data && "number" === typeof e.data.length) ||
+                              (e.data && 'number' === typeof e.data.length) ||
                               r.isString(e.data)
                             )
                           )
-                            return "data: buffer expected";
+                            return 'data: buffer expected';
                           if (
                             null != e.preconditions &&
-                            e.hasOwnProperty("preconditions")
+                            e.hasOwnProperty('preconditions')
                           ) {
                             var t = o.api.Preconditions.verify(e.preconditions);
-                            if (t) return "preconditions." + t;
+                            if (t) return 'preconditions.' + t;
                           }
                           return null;
                         }),
@@ -6839,7 +6839,7 @@
                           if (
                             (null != e.key && (t.key = String(e.key)),
                             null != e.data &&
-                              ("string" === typeof e.data
+                              ('string' === typeof e.data
                                 ? r.base64.decode(
                                     e.data,
                                     (t.data = r.newBuffer(
@@ -6850,9 +6850,9 @@
                                 : e.data.length && (t.data = e.data)),
                             null != e.preconditions)
                           ) {
-                            if ("object" !== typeof e.preconditions)
+                            if ('object' !== typeof e.preconditions)
                               throw TypeError(
-                                ".api.AppendMetaRequest.preconditions: object expected"
+                                '.api.AppendMetaRequest.preconditions: object expected'
                               );
                             t.preconditions = o.api.Preconditions.fromObject(
                               e.preconditions
@@ -6865,18 +6865,18 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.key = ""),
+                              ((n.key = ''),
                               t.bytes === String
-                                ? (n.data = "")
+                                ? (n.data = '')
                                 : ((n.data = []),
                                   t.bytes !== Array &&
                                     (n.data = r.newBuffer(n.data))),
                               (n.preconditions = null)),
                             null != e.key &&
-                              e.hasOwnProperty("key") &&
+                              e.hasOwnProperty('key') &&
                               (n.key = e.key),
                             null != e.data &&
-                              e.hasOwnProperty("data") &&
+                              e.hasOwnProperty('data') &&
                               (n.data =
                                 t.bytes === String
                                   ? r.base64.encode(e.data, 0, e.data.length)
@@ -6884,7 +6884,7 @@
                                   ? Array.prototype.slice.call(e.data)
                                   : e.data),
                             null != e.preconditions &&
-                              e.hasOwnProperty("preconditions") &&
+                              e.hasOwnProperty('preconditions') &&
                               (n.preconditions = o.api.Preconditions.toObject(
                                 e.preconditions,
                                 t
@@ -6921,10 +6921,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.generation &&
-                              Object.hasOwnProperty.call(e, "generation") &&
+                              Object.hasOwnProperty.call(e, 'generation') &&
                               t.uint32(8).int64(e.generation),
                             null != e.metageneration &&
-                              Object.hasOwnProperty.call(e, "metageneration") &&
+                              Object.hasOwnProperty.call(e, 'metageneration') &&
                               t.uint32(16).int64(e.metageneration),
                             t
                           );
@@ -6961,23 +6961,23 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null == e.generation ||
-                              !e.hasOwnProperty("generation") ||
+                              !e.hasOwnProperty('generation') ||
                               r.isInteger(e.generation) ||
                               (e.generation &&
                                 r.isInteger(e.generation.low) &&
                                 r.isInteger(e.generation.high))
                             ? null == e.metageneration ||
-                              !e.hasOwnProperty("metageneration") ||
+                              !e.hasOwnProperty('metageneration') ||
                               r.isInteger(e.metageneration) ||
                               (e.metageneration &&
                                 r.isInteger(e.metageneration.low) &&
                                 r.isInteger(e.metageneration.high))
                               ? null
-                              : "metageneration: integer|Long expected"
-                            : "generation: integer|Long expected";
+                              : 'metageneration: integer|Long expected'
+                            : 'generation: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.AppendMetaResponse) return e;
@@ -6988,11 +6988,11 @@
                                 ? ((t.generation = r.Long.fromValue(
                                     e.generation
                                   )).unsigned = !1)
-                                : "string" === typeof e.generation
+                                : 'string' === typeof e.generation
                                 ? (t.generation = parseInt(e.generation, 10))
-                                : "number" === typeof e.generation
+                                : 'number' === typeof e.generation
                                 ? (t.generation = e.generation)
-                                : "object" === typeof e.generation &&
+                                : 'object' === typeof e.generation &&
                                   (t.generation = new r.LongBits(
                                     e.generation.low >>> 0,
                                     e.generation.high >>> 0
@@ -7002,14 +7002,14 @@
                                 ? ((t.metageneration = r.Long.fromValue(
                                     e.metageneration
                                   )).unsigned = !1)
-                                : "string" === typeof e.metageneration
+                                : 'string' === typeof e.metageneration
                                 ? (t.metageneration = parseInt(
                                     e.metageneration,
                                     10
                                   ))
-                                : "number" === typeof e.metageneration
+                                : 'number' === typeof e.metageneration
                                 ? (t.metageneration = e.metageneration)
-                                : "object" === typeof e.metageneration &&
+                                : 'object' === typeof e.metageneration &&
                                   (t.metageneration = new r.LongBits(
                                     e.metageneration.low >>> 0,
                                     e.metageneration.high >>> 0
@@ -7029,7 +7029,7 @@
                                   : t.longs === Number
                                   ? o.toNumber()
                                   : o;
-                            } else n.generation = t.longs === String ? "0" : 0;
+                            } else n.generation = t.longs === String ? '0' : 0;
                             r.Long
                               ? ((o = new r.Long(0, 0, !1)),
                                 (n.metageneration =
@@ -7039,12 +7039,12 @@
                                     ? o.toNumber()
                                     : o))
                               : (n.metageneration =
-                                  t.longs === String ? "0" : 0);
+                                  t.longs === String ? '0' : 0);
                           }
                           return (
                             null != e.generation &&
-                              e.hasOwnProperty("generation") &&
-                              ("number" === typeof e.generation
+                              e.hasOwnProperty('generation') &&
+                              ('number' === typeof e.generation
                                 ? (n.generation =
                                     t.longs === String
                                       ? String(e.generation)
@@ -7061,8 +7061,8 @@
                                         ).toNumber()
                                       : e.generation)),
                             null != e.metageneration &&
-                              e.hasOwnProperty("metageneration") &&
-                              ("number" === typeof e.metageneration
+                              e.hasOwnProperty('metageneration') &&
+                              ('number' === typeof e.metageneration
                                 ? (n.metageneration =
                                     t.longs === String
                                       ? String(e.metageneration)
@@ -7107,13 +7107,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.stage &&
-                              Object.hasOwnProperty.call(e, "stage") &&
+                              Object.hasOwnProperty.call(e, 'stage') &&
                               t.uint32(8).int32(e.stage),
                             null != e.progress &&
-                              Object.hasOwnProperty.call(e, "progress") &&
+                              Object.hasOwnProperty.call(e, 'progress') &&
                               t.uint32(16).uint32(e.progress),
                             null != e.total &&
-                              Object.hasOwnProperty.call(e, "total") &&
+                              Object.hasOwnProperty.call(e, 'total') &&
                               t.uint32(24).uint32(e.total),
                             t
                           );
@@ -7153,12 +7153,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.stage && e.hasOwnProperty("stage"))
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.stage && e.hasOwnProperty('stage'))
                             switch (e.stage) {
                               default:
-                                return "stage: enum value expected";
+                                return 'stage: enum value expected';
                               case 0:
                               case 3:
                               case 4:
@@ -7168,44 +7168,44 @@
                               case 8:
                             }
                           return null != e.progress &&
-                            e.hasOwnProperty("progress") &&
+                            e.hasOwnProperty('progress') &&
                             !r.isInteger(e.progress)
-                            ? "progress: integer expected"
+                            ? 'progress: integer expected'
                             : null != e.total &&
-                              e.hasOwnProperty("total") &&
+                              e.hasOwnProperty('total') &&
                               !r.isInteger(e.total)
-                            ? "total: integer expected"
+                            ? 'total: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.BootStatus) return e;
                           var t = new o.api.BootStatus();
                           switch (e.stage) {
-                            case "HANDSHAKE":
+                            case 'HANDSHAKE':
                             case 0:
                               t.stage = 0;
                               break;
-                            case "ACQUIRING":
+                            case 'ACQUIRING':
                             case 3:
                               t.stage = 3;
                               break;
-                            case "COMPLETE":
+                            case 'COMPLETE':
                             case 4:
                               t.stage = 4;
                               break;
-                            case "PROXY":
+                            case 'PROXY':
                             case 5:
                               t.stage = 5;
                               break;
-                            case "PULL_FILES":
+                            case 'PULL_FILES':
                             case 6:
                               t.stage = 6;
                               break;
-                            case "LOAD_BLOCK":
+                            case 'LOAD_BLOCK':
                             case 7:
                               t.stage = 7;
                               break;
-                            case "RETRY":
+                            case 'RETRY':
                             case 8:
                               t.stage = 8;
                           }
@@ -7221,20 +7221,20 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.stage = t.enums === String ? "HANDSHAKE" : 0),
+                              ((n.stage = t.enums === String ? 'HANDSHAKE' : 0),
                               (n.progress = 0),
                               (n.total = 0)),
                             null != e.stage &&
-                              e.hasOwnProperty("stage") &&
+                              e.hasOwnProperty('stage') &&
                               (n.stage =
                                 t.enums === String
                                   ? o.api.BootStatus.Stage[e.stage]
                                   : e.stage),
                             null != e.progress &&
-                              e.hasOwnProperty("progress") &&
+                              e.hasOwnProperty('progress') &&
                               (n.progress = e.progress),
                             null != e.total &&
-                              e.hasOwnProperty("total") &&
+                              e.hasOwnProperty('total') &&
                               (n.total = e.total),
                             n
                           );
@@ -7249,13 +7249,13 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "HANDSHAKE")] = 0),
-                            (t[(e[3] = "ACQUIRING")] = 3),
-                            (t[(e[4] = "COMPLETE")] = 4),
-                            (t[(e[5] = "PROXY")] = 5),
-                            (t[(e[6] = "PULL_FILES")] = 6),
-                            (t[(e[7] = "LOAD_BLOCK")] = 7),
-                            (t[(e[8] = "RETRY")] = 8),
+                            (t[(e[0] = 'HANDSHAKE')] = 0),
+                            (t[(e[3] = 'ACQUIRING')] = 3),
+                            (t[(e[4] = 'COMPLETE')] = 4),
+                            (t[(e[5] = 'PROXY')] = 5),
+                            (t[(e[6] = 'PULL_FILES')] = 6),
+                            (t[(e[7] = 'LOAD_BLOCK')] = 7),
+                            (t[(e[8] = 'RETRY')] = 8),
                             t
                           );
                         })()),
@@ -7269,8 +7269,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.cwd = ""),
-                        (i.prototype.language = ""),
+                        (i.prototype.cwd = ''),
+                        (i.prototype.language = ''),
                         (i.prototype.env = r.emptyObject),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -7279,13 +7279,13 @@
                           if (
                             (t || (t = n.create()),
                             null != e.cwd &&
-                              Object.hasOwnProperty.call(e, "cwd") &&
+                              Object.hasOwnProperty.call(e, 'cwd') &&
                               t.uint32(10).string(e.cwd),
                             null != e.language &&
-                              Object.hasOwnProperty.call(e, "language") &&
+                              Object.hasOwnProperty.call(e, 'language') &&
                               t.uint32(18).string(e.language),
                             null != e.env &&
-                              Object.hasOwnProperty.call(e, "env"))
+                              Object.hasOwnProperty.call(e, 'env'))
                           )
                             for (
                               var r = Object.keys(e.env), o = 0;
@@ -7325,7 +7325,7 @@
                               case 3:
                                 l.env === r.emptyObject && (l.env = {});
                                 var c = e.uint32() + e.pos;
-                                for (i = "", a = ""; e.pos < c; ) {
+                                for (i = '', a = ''; e.pos < c; ) {
                                   var p = e.uint32();
                                   switch (p >>> 3) {
                                     case 1:
@@ -7353,30 +7353,30 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.cwd &&
-                            e.hasOwnProperty("cwd") &&
+                            e.hasOwnProperty('cwd') &&
                             !r.isString(e.cwd)
                           )
-                            return "cwd: string expected";
+                            return 'cwd: string expected';
                           if (
                             null != e.language &&
-                            e.hasOwnProperty("language") &&
+                            e.hasOwnProperty('language') &&
                             !r.isString(e.language)
                           )
-                            return "language: string expected";
-                          if (null != e.env && e.hasOwnProperty("env")) {
+                            return 'language: string expected';
+                          if (null != e.env && e.hasOwnProperty('env')) {
                             if (!r.isObject(e.env))
-                              return "env: object expected";
+                              return 'env: object expected';
                             for (
                               var t = Object.keys(e.env), n = 0;
                               n < t.length;
                               ++n
                             )
                               if (!r.isString(e.env[t[n]]))
-                                return "env: string{k:string} expected";
+                                return 'env: string{k:string} expected';
                           }
                           return null;
                         }),
@@ -7389,9 +7389,9 @@
                               (t.language = String(e.language)),
                             e.env)
                           ) {
-                            if ("object" !== typeof e.env)
+                            if ('object' !== typeof e.env)
                               throw TypeError(
-                                ".api.Pid1Config.env: object expected"
+                                '.api.Pid1Config.env: object expected'
                               );
                             t.env = {};
                             for (
@@ -7409,12 +7409,12 @@
                             r = {};
                           if (
                             ((t.objects || t.defaults) && (r.env = {}),
-                            t.defaults && ((r.cwd = ""), (r.language = "")),
+                            t.defaults && ((r.cwd = ''), (r.language = '')),
                             null != e.cwd &&
-                              e.hasOwnProperty("cwd") &&
+                              e.hasOwnProperty('cwd') &&
                               (r.cwd = e.cwd),
                             null != e.language &&
-                              e.hasOwnProperty("language") &&
+                              e.hasOwnProperty('language') &&
                               (r.language = e.language),
                             e.env && (n = Object.keys(e.env)).length)
                           ) {
@@ -7440,7 +7440,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.name = ""),
+                        (i.prototype.name = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -7448,7 +7448,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.name &&
-                              Object.hasOwnProperty.call(e, "name") &&
+                              Object.hasOwnProperty.call(e, 'name') &&
                               t.uint32(10).string(e.name),
                             t
                           );
@@ -7482,12 +7482,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.name &&
-                              e.hasOwnProperty("name") &&
+                              e.hasOwnProperty('name') &&
                               !r.isString(e.name)
-                            ? "name: string expected"
+                            ? 'name: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -7499,9 +7499,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.name = ""),
+                            t.defaults && (n.name = ''),
                             null != e.name &&
-                              e.hasOwnProperty("name") &&
+                              e.hasOwnProperty('name') &&
                               (n.name = e.name),
                             n
                           );
@@ -7551,8 +7551,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -7627,14 +7627,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.files && e.hasOwnProperty("files")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.files && e.hasOwnProperty('files')) {
                             if (!Array.isArray(e.files))
-                              return "files: array expected";
+                              return 'files: array expected';
                             for (var t = 0; t < e.files.length; ++t) {
                               var n = o.api.File.verify(e.files[t]);
-                              if (n) return "files." + n;
+                              if (n) return 'files.' + n;
                             }
                           }
                           return null;
@@ -7645,13 +7645,13 @@
                           if (e.files) {
                             if (!Array.isArray(e.files))
                               throw TypeError(
-                                ".api.SubscribeFile.files: array expected"
+                                '.api.SubscribeFile.files: array expected'
                               );
                             t.files = [];
                             for (var n = 0; n < e.files.length; ++n) {
-                              if ("object" !== typeof e.files[n])
+                              if ('object' !== typeof e.files[n])
                                 throw TypeError(
-                                  ".api.SubscribeFile.files: object expected"
+                                  '.api.SubscribeFile.files: object expected'
                                 );
                               t.files[n] = o.api.File.fromObject(e.files[n]);
                             }
@@ -7697,16 +7697,16 @@
                           return (
                             t || (t = n.create()),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               o.api.File.encode(
                                 e.file,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.op &&
-                              Object.hasOwnProperty.call(e, "op") &&
+                              Object.hasOwnProperty.call(e, 'op') &&
                               t.uint32(16).int32(e.op),
                             null != e.dest &&
-                              Object.hasOwnProperty.call(e, "dest") &&
+                              Object.hasOwnProperty.call(e, 'dest') &&
                               o.api.File.encode(
                                 e.dest,
                                 t.uint32(26).fork()
@@ -7749,25 +7749,25 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t;
                           if (
                             null != e.file &&
-                            e.hasOwnProperty("file") &&
+                            e.hasOwnProperty('file') &&
                             (t = o.api.File.verify(e.file))
                           )
-                            return "file." + t;
+                            return 'file.' + t;
                           if (
                             null != e.dest &&
-                            e.hasOwnProperty("dest") &&
+                            e.hasOwnProperty('dest') &&
                             (t = o.api.File.verify(e.dest))
                           )
-                            return "dest." + t;
-                          if (null != e.op && e.hasOwnProperty("op"))
+                            return 'dest.' + t;
+                          if (null != e.op && e.hasOwnProperty('op'))
                             switch (e.op) {
                               default:
-                                return "op: enum value expected";
+                                return 'op: enum value expected';
                               case 0:
                               case 1:
                               case 2:
@@ -7779,33 +7779,33 @@
                           if (e instanceof o.api.FileEvent) return e;
                           var t = new o.api.FileEvent();
                           if (null != e.file) {
-                            if ("object" !== typeof e.file)
+                            if ('object' !== typeof e.file)
                               throw TypeError(
-                                ".api.FileEvent.file: object expected"
+                                '.api.FileEvent.file: object expected'
                               );
                             t.file = o.api.File.fromObject(e.file);
                           }
                           if (null != e.dest) {
-                            if ("object" !== typeof e.dest)
+                            if ('object' !== typeof e.dest)
                               throw TypeError(
-                                ".api.FileEvent.dest: object expected"
+                                '.api.FileEvent.dest: object expected'
                               );
                             t.dest = o.api.File.fromObject(e.dest);
                           }
                           switch (e.op) {
-                            case "Create":
+                            case 'Create':
                             case 0:
                               t.op = 0;
                               break;
-                            case "Move":
+                            case 'Move':
                             case 1:
                               t.op = 1;
                               break;
-                            case "Remove":
+                            case 'Remove':
                             case 2:
                               t.op = 2;
                               break;
-                            case "Modify":
+                            case 'Modify':
                             case 3:
                               t.op = 3;
                           }
@@ -7817,19 +7817,19 @@
                           return (
                             t.defaults &&
                               ((n.file = null),
-                              (n.op = t.enums === String ? "Create" : 0),
+                              (n.op = t.enums === String ? 'Create' : 0),
                               (n.dest = null)),
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               (n.file = o.api.File.toObject(e.file, t)),
                             null != e.op &&
-                              e.hasOwnProperty("op") &&
+                              e.hasOwnProperty('op') &&
                               (n.op =
                                 t.enums === String
                                   ? o.api.FileEvent.Op[e.op]
                                   : e.op),
                             null != e.dest &&
-                              e.hasOwnProperty("dest") &&
+                              e.hasOwnProperty('dest') &&
                               (n.dest = o.api.File.toObject(e.dest, t)),
                             n
                           );
@@ -7844,10 +7844,10 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "Create")] = 0),
-                            (t[(e[1] = "Move")] = 1),
-                            (t[(e[2] = "Remove")] = 2),
-                            (t[(e[3] = "Modify")] = 3),
+                            (t[(e[0] = 'Create')] = 0),
+                            (t[(e[1] = 'Move')] = 1),
+                            (t[(e[2] = 'Remove')] = 2),
+                            (t[(e[3] = 'Modify')] = 3),
                             t
                           );
                         })()),
@@ -7890,8 +7890,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -7928,7 +7928,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               o.api.File.encode(
                                 e.file,
                                 t.uint32(10).fork()
@@ -7936,13 +7936,13 @@
                             null != e.highConsistency &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "highConsistency"
+                                'highConsistency'
                               ) &&
                               t.uint32(16).bool(e.highConsistency),
                             null != e.OBSOLETEUseModTime &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "OBSOLETEUseModTime"
+                                'OBSOLETEUseModTime'
                               ) &&
                               t.uint32(24).bool(e.OBSOLETEUseModTime),
                             t
@@ -7983,29 +7983,29 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.file && e.hasOwnProperty("file")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.file && e.hasOwnProperty('file')) {
                             var t = o.api.File.verify(e.file);
-                            if (t) return "file." + t;
+                            if (t) return 'file.' + t;
                           }
                           return null != e.highConsistency &&
-                            e.hasOwnProperty("highConsistency") &&
-                            "boolean" !== typeof e.highConsistency
-                            ? "highConsistency: boolean expected"
+                            e.hasOwnProperty('highConsistency') &&
+                            'boolean' !== typeof e.highConsistency
+                            ? 'highConsistency: boolean expected'
                             : null != e.OBSOLETEUseModTime &&
-                              e.hasOwnProperty("OBSOLETEUseModTime") &&
-                              "boolean" !== typeof e.OBSOLETEUseModTime
-                            ? "OBSOLETEUseModTime: boolean expected"
+                              e.hasOwnProperty('OBSOLETEUseModTime') &&
+                              'boolean' !== typeof e.OBSOLETEUseModTime
+                            ? 'OBSOLETEUseModTime: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
                           if (e instanceof o.api.OTLinkFile) return e;
                           var t = new o.api.OTLinkFile();
                           if (null != e.file) {
-                            if ("object" !== typeof e.file)
+                            if ('object' !== typeof e.file)
                               throw TypeError(
-                                ".api.OTLinkFile.file: object expected"
+                                '.api.OTLinkFile.file: object expected'
                               );
                             t.file = o.api.File.fromObject(e.file);
                           }
@@ -8028,13 +8028,13 @@
                               (n.highConsistency = !1),
                               (n.OBSOLETEUseModTime = !1)),
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               (n.file = o.api.File.toObject(e.file, t)),
                             null != e.highConsistency &&
-                              e.hasOwnProperty("highConsistency") &&
+                              e.hasOwnProperty('highConsistency') &&
                               (n.highConsistency = e.highConsistency),
                             null != e.OBSOLETEUseModTime &&
-                              e.hasOwnProperty("OBSOLETEUseModTime") &&
+                              e.hasOwnProperty('OBSOLETEUseModTime') &&
                               (n.OBSOLETEUseModTime = e.OBSOLETEUseModTime),
                             n
                           );
@@ -8064,10 +8064,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.version &&
-                              Object.hasOwnProperty.call(e, "version") &&
+                              Object.hasOwnProperty.call(e, 'version') &&
                               t.uint32(8).uint32(e.version),
                             null != e.linkedFile &&
-                              Object.hasOwnProperty.call(e, "linkedFile") &&
+                              Object.hasOwnProperty.call(e, 'linkedFile') &&
                               o.api.File.encode(
                                 e.linkedFile,
                                 t.uint32(18).fork()
@@ -8107,20 +8107,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.version &&
-                            e.hasOwnProperty("version") &&
+                            e.hasOwnProperty('version') &&
                             !r.isInteger(e.version)
                           )
-                            return "version: integer expected";
+                            return 'version: integer expected';
                           if (
                             null != e.linkedFile &&
-                            e.hasOwnProperty("linkedFile")
+                            e.hasOwnProperty('linkedFile')
                           ) {
                             var t = o.api.File.verify(e.linkedFile);
-                            if (t) return "linkedFile." + t;
+                            if (t) return 'linkedFile.' + t;
                           }
                           return null;
                         }),
@@ -8131,9 +8131,9 @@
                             (null != e.version && (t.version = e.version >>> 0),
                             null != e.linkedFile)
                           ) {
-                            if ("object" !== typeof e.linkedFile)
+                            if ('object' !== typeof e.linkedFile)
                               throw TypeError(
-                                ".api.OTLinkFileResponse.linkedFile: object expected"
+                                '.api.OTLinkFileResponse.linkedFile: object expected'
                               );
                             t.linkedFile = o.api.File.fromObject(e.linkedFile);
                           }
@@ -8146,10 +8146,10 @@
                             t.defaults &&
                               ((n.version = 0), (n.linkedFile = null)),
                             null != e.version &&
-                              e.hasOwnProperty("version") &&
+                              e.hasOwnProperty('version') &&
                               (n.version = e.version),
                             null != e.linkedFile &&
-                              e.hasOwnProperty("linkedFile") &&
+                              e.hasOwnProperty('linkedFile') &&
                               (n.linkedFile = o.api.File.toObject(
                                 e.linkedFile,
                                 t
@@ -8173,8 +8173,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.token = ""),
-                        (i.prototype.containerID = ""),
+                        (i.prototype.token = ''),
+                        (i.prototype.containerID = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -8182,10 +8182,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.token &&
-                              Object.hasOwnProperty.call(e, "token") &&
+                              Object.hasOwnProperty.call(e, 'token') &&
                               t.uint32(10).string(e.token),
                             null != e.containerID &&
-                              Object.hasOwnProperty.call(e, "containerID") &&
+                              Object.hasOwnProperty.call(e, 'containerID') &&
                               t.uint32(18).string(e.containerID),
                             t
                           );
@@ -8222,16 +8222,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.token &&
-                              e.hasOwnProperty("token") &&
+                              e.hasOwnProperty('token') &&
                               !r.isString(e.token)
-                            ? "token: string expected"
+                            ? 'token: string expected'
                             : null != e.containerID &&
-                              e.hasOwnProperty("containerID") &&
+                              e.hasOwnProperty('containerID') &&
                               !r.isString(e.containerID)
-                            ? "containerID: string expected"
+                            ? 'containerID: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -8249,12 +8249,12 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.token = ""), (n.containerID = "")),
+                              ((n.token = ''), (n.containerID = '')),
                             null != e.token &&
-                              e.hasOwnProperty("token") &&
+                              e.hasOwnProperty('token') &&
                               (n.token = e.token),
                             null != e.containerID &&
-                              e.hasOwnProperty("containerID") &&
+                              e.hasOwnProperty('containerID') &&
                               (n.containerID = e.containerID),
                             n
                           );
@@ -8280,8 +8280,8 @@
                           : 0),
                         (i.prototype.direction = 0),
                         (i.prototype.command = null),
-                        (i.prototype.uid = ""),
-                        (i.prototype.replid = ""),
+                        (i.prototype.uid = ''),
+                        (i.prototype.replid = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -8289,22 +8289,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.timestamp &&
-                              Object.hasOwnProperty.call(e, "timestamp") &&
+                              Object.hasOwnProperty.call(e, 'timestamp') &&
                               t.uint32(8).uint64(e.timestamp),
                             null != e.direction &&
-                              Object.hasOwnProperty.call(e, "direction") &&
+                              Object.hasOwnProperty.call(e, 'direction') &&
                               t.uint32(16).int32(e.direction),
                             null != e.command &&
-                              Object.hasOwnProperty.call(e, "command") &&
+                              Object.hasOwnProperty.call(e, 'command') &&
                               o.api.Command.encode(
                                 e.command,
                                 t.uint32(26).fork()
                               ).ldelim(),
                             null != e.uid &&
-                              Object.hasOwnProperty.call(e, "uid") &&
+                              Object.hasOwnProperty.call(e, 'uid') &&
                               t.uint32(34).string(e.uid),
                             null != e.replid &&
-                              Object.hasOwnProperty.call(e, "replid") &&
+                              Object.hasOwnProperty.call(e, 'replid') &&
                               t.uint32(42).string(e.replid),
                             t
                           );
@@ -8350,11 +8350,11 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.timestamp &&
-                            e.hasOwnProperty("timestamp") &&
+                            e.hasOwnProperty('timestamp') &&
                             !r.isInteger(e.timestamp) &&
                             !(
                               e.timestamp &&
@@ -8362,32 +8362,32 @@
                               r.isInteger(e.timestamp.high)
                             )
                           )
-                            return "timestamp: integer|Long expected";
+                            return 'timestamp: integer|Long expected';
                           if (
                             null != e.direction &&
-                            e.hasOwnProperty("direction")
+                            e.hasOwnProperty('direction')
                           )
                             switch (e.direction) {
                               default:
-                                return "direction: enum value expected";
+                                return 'direction: enum value expected';
                               case 0:
                               case 1:
                             }
                           if (
                             null != e.command &&
-                            e.hasOwnProperty("command")
+                            e.hasOwnProperty('command')
                           ) {
                             var t = o.api.Command.verify(e.command);
-                            if (t) return "command." + t;
+                            if (t) return 'command.' + t;
                           }
                           return null != e.uid &&
-                            e.hasOwnProperty("uid") &&
+                            e.hasOwnProperty('uid') &&
                             !r.isString(e.uid)
-                            ? "uid: string expected"
+                            ? 'uid: string expected'
                             : null != e.replid &&
-                              e.hasOwnProperty("replid") &&
+                              e.hasOwnProperty('replid') &&
                               !r.isString(e.replid)
-                            ? "replid: string expected"
+                            ? 'replid: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -8399,29 +8399,29 @@
                                 ? ((t.timestamp = r.Long.fromValue(
                                     e.timestamp
                                   )).unsigned = !0)
-                                : "string" === typeof e.timestamp
+                                : 'string' === typeof e.timestamp
                                 ? (t.timestamp = parseInt(e.timestamp, 10))
-                                : "number" === typeof e.timestamp
+                                : 'number' === typeof e.timestamp
                                 ? (t.timestamp = e.timestamp)
-                                : "object" === typeof e.timestamp &&
+                                : 'object' === typeof e.timestamp &&
                                   (t.timestamp = new r.LongBits(
                                     e.timestamp.low >>> 0,
                                     e.timestamp.high >>> 0
                                   ).toNumber(!0))),
                             e.direction)
                           ) {
-                            case "IN":
+                            case 'IN':
                             case 0:
                               t.direction = 0;
                               break;
-                            case "OUT":
+                            case 'OUT':
                             case 1:
                               t.direction = 1;
                           }
                           if (null != e.command) {
-                            if ("object" !== typeof e.command)
+                            if ('object' !== typeof e.command)
                               throw TypeError(
-                                ".api.VCREntry.command: object expected"
+                                '.api.VCREntry.command: object expected'
                               );
                             t.command = o.api.Command.fromObject(e.command);
                           }
@@ -8443,16 +8443,16 @@
                                   : t.longs === Number
                                   ? i.toNumber()
                                   : i;
-                            } else n.timestamp = t.longs === String ? "0" : 0;
-                            (n.direction = t.enums === String ? "IN" : 0),
+                            } else n.timestamp = t.longs === String ? '0' : 0;
+                            (n.direction = t.enums === String ? 'IN' : 0),
                               (n.command = null),
-                              (n.uid = ""),
-                              (n.replid = "");
+                              (n.uid = ''),
+                              (n.replid = '');
                           }
                           return (
                             null != e.timestamp &&
-                              e.hasOwnProperty("timestamp") &&
-                              ("number" === typeof e.timestamp
+                              e.hasOwnProperty('timestamp') &&
+                              ('number' === typeof e.timestamp
                                 ? (n.timestamp =
                                     t.longs === String
                                       ? String(e.timestamp)
@@ -8469,22 +8469,22 @@
                                         ).toNumber(!0)
                                       : e.timestamp)),
                             null != e.direction &&
-                              e.hasOwnProperty("direction") &&
+                              e.hasOwnProperty('direction') &&
                               (n.direction =
                                 t.enums === String
                                   ? o.api.VCREntry.Direction[e.direction]
                                   : e.direction),
                             null != e.command &&
-                              e.hasOwnProperty("command") &&
+                              e.hasOwnProperty('command') &&
                               (n.command = o.api.Command.toObject(
                                 e.command,
                                 t
                               )),
                             null != e.uid &&
-                              e.hasOwnProperty("uid") &&
+                              e.hasOwnProperty('uid') &&
                               (n.uid = e.uid),
                             null != e.replid &&
-                              e.hasOwnProperty("replid") &&
+                              e.hasOwnProperty('replid') &&
                               (n.replid = e.replid),
                             n
                           );
@@ -8499,7 +8499,7 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "IN")] = 0), (t[(e[1] = "OUT")] = 1), t
+                            (t[(e[0] = 'IN')] = 0), (t[(e[1] = 'OUT')] = 1), t
                           );
                         })()),
                         i
@@ -8541,8 +8541,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -8598,8 +8598,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -8643,7 +8643,7 @@
                               ).ldelim();
                           return (
                             null != e.logfile &&
-                              Object.hasOwnProperty.call(e, "logfile") &&
+                              Object.hasOwnProperty.call(e, 'logfile') &&
                               o.api.File.encode(
                                 e.logfile,
                                 t.uint32(18).fork()
@@ -8686,20 +8686,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.log && e.hasOwnProperty("log")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.log && e.hasOwnProperty('log')) {
                             if (!Array.isArray(e.log))
-                              return "log: array expected";
+                              return 'log: array expected';
                             for (var t = 0; t < e.log.length; ++t)
                               if ((n = o.api.VCREntry.verify(e.log[t])))
-                                return "log." + n;
+                                return 'log.' + n;
                           }
                           var n;
                           return null != e.logfile &&
-                            e.hasOwnProperty("logfile") &&
+                            e.hasOwnProperty('logfile') &&
                             (n = o.api.File.verify(e.logfile))
-                            ? "logfile." + n
+                            ? 'logfile.' + n
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -8708,21 +8708,21 @@
                           if (e.log) {
                             if (!Array.isArray(e.log))
                               throw TypeError(
-                                ".api.VCRLog.log: array expected"
+                                '.api.VCRLog.log: array expected'
                               );
                             t.log = [];
                             for (var n = 0; n < e.log.length; ++n) {
-                              if ("object" !== typeof e.log[n])
+                              if ('object' !== typeof e.log[n])
                                 throw TypeError(
-                                  ".api.VCRLog.log: object expected"
+                                  '.api.VCRLog.log: object expected'
                                 );
                               t.log[n] = o.api.VCREntry.fromObject(e.log[n]);
                             }
                           }
                           if (null != e.logfile) {
-                            if ("object" !== typeof e.logfile)
+                            if ('object' !== typeof e.logfile)
                               throw TypeError(
-                                ".api.VCRLog.logfile: object expected"
+                                '.api.VCRLog.logfile: object expected'
                               );
                             t.logfile = o.api.File.fromObject(e.logfile);
                           }
@@ -8742,7 +8742,7 @@
                           }
                           return (
                             null != e.logfile &&
-                              e.hasOwnProperty("logfile") &&
+                              e.hasOwnProperty('logfile') &&
                               (n.logfile = o.api.File.toObject(e.logfile, t)),
                             n
                           );
@@ -8764,7 +8764,7 @@
                       }
                       return (
                         (i.prototype.command = r.emptyArray),
-                        (i.prototype.reason = ""),
+                        (i.prototype.reason = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -8777,7 +8777,7 @@
                               t.uint32(10).string(e.command[r]);
                           return (
                             null != e.reason &&
-                              Object.hasOwnProperty.call(e, "reason") &&
+                              Object.hasOwnProperty.call(e, 'reason') &&
                               t.uint32(18).string(e.reason),
                             t
                           );
@@ -8816,22 +8816,22 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.command &&
-                            e.hasOwnProperty("command")
+                            e.hasOwnProperty('command')
                           ) {
                             if (!Array.isArray(e.command))
-                              return "command: array expected";
+                              return 'command: array expected';
                             for (var t = 0; t < e.command.length; ++t)
                               if (!r.isString(e.command[t]))
-                                return "command: string[] expected";
+                                return 'command: string[] expected';
                           }
                           return null != e.reason &&
-                            e.hasOwnProperty("reason") &&
+                            e.hasOwnProperty('reason') &&
                             !r.isString(e.reason)
-                            ? "reason: string expected"
+                            ? 'reason: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -8840,7 +8840,7 @@
                           if (e.command) {
                             if (!Array.isArray(e.command))
                               throw TypeError(
-                                ".api.ExecInfo.command: array expected"
+                                '.api.ExecInfo.command: array expected'
                               );
                             t.command = [];
                             for (var n = 0; n < e.command.length; ++n)
@@ -8855,7 +8855,7 @@
                           var n = {};
                           if (
                             ((t.arrays || t.defaults) && (n.command = []),
-                            t.defaults && (n.reason = ""),
+                            t.defaults && (n.reason = ''),
                             e.command && e.command.length)
                           ) {
                             n.command = [];
@@ -8864,7 +8864,7 @@
                           }
                           return (
                             null != e.reason &&
-                              e.hasOwnProperty("reason") &&
+                              e.hasOwnProperty('reason') &&
                               (n.reason = e.reason),
                             n
                           );
@@ -8885,7 +8885,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.text = ""),
+                        (i.prototype.text = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -8893,7 +8893,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.text &&
-                              Object.hasOwnProperty.call(e, "text") &&
+                              Object.hasOwnProperty.call(e, 'text') &&
                               t.uint32(10).string(e.text),
                             t
                           );
@@ -8927,12 +8927,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               !r.isString(e.text)
-                            ? "text: string expected"
+                            ? 'text: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -8944,9 +8944,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.text = ""),
+                            t.defaults && (n.text = ''),
                             null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               (n.text = e.text),
                             n
                           );
@@ -8964,10 +8964,10 @@
                       var e = {},
                         t = Object.create(e);
                       return (
-                        (t[(e[0] = "GET")] = 0),
-                        (t[(e[1] = "HEAD")] = 1),
-                        (t[(e[2] = "PUT")] = 2),
-                        (t[(e[3] = "DELETE")] = 3),
+                        (t[(e[0] = 'GET')] = 0),
+                        (t[(e[1] = 'HEAD')] = 1),
+                        (t[(e[2] = 'PUT')] = 2),
+                        (t[(e[3] = 'DELETE')] = 3),
                         t
                       );
                     })()),
@@ -8987,13 +8987,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               o.api.File.encode(
                                 e.file,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.method &&
-                              Object.hasOwnProperty.call(e, "method") &&
+                              Object.hasOwnProperty.call(e, 'method') &&
                               t.uint32(16).int32(e.method),
                             t
                           );
@@ -9030,16 +9030,16 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.file && e.hasOwnProperty("file")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.file && e.hasOwnProperty('file')) {
                             var t = o.api.File.verify(e.file);
-                            if (t) return "file." + t;
+                            if (t) return 'file.' + t;
                           }
-                          if (null != e.method && e.hasOwnProperty("method"))
+                          if (null != e.method && e.hasOwnProperty('method'))
                             switch (e.method) {
                               default:
-                                return "method: enum value expected";
+                                return 'method: enum value expected';
                               case 0:
                               case 1:
                               case 2:
@@ -9051,26 +9051,26 @@
                           if (e instanceof o.api.FileAuthReq) return e;
                           var t = new o.api.FileAuthReq();
                           if (null != e.file) {
-                            if ("object" !== typeof e.file)
+                            if ('object' !== typeof e.file)
                               throw TypeError(
-                                ".api.FileAuthReq.file: object expected"
+                                '.api.FileAuthReq.file: object expected'
                               );
                             t.file = o.api.File.fromObject(e.file);
                           }
                           switch (e.method) {
-                            case "GET":
+                            case 'GET':
                             case 0:
                               t.method = 0;
                               break;
-                            case "HEAD":
+                            case 'HEAD':
                             case 1:
                               t.method = 1;
                               break;
-                            case "PUT":
+                            case 'PUT':
                             case 2:
                               t.method = 2;
                               break;
-                            case "DELETE":
+                            case 'DELETE':
                             case 3:
                               t.method = 3;
                           }
@@ -9082,12 +9082,12 @@
                           return (
                             t.defaults &&
                               ((n.file = null),
-                              (n.method = t.enums === String ? "GET" : 0)),
+                              (n.method = t.enums === String ? 'GET' : 0)),
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               (n.file = o.api.File.toObject(e.file, t)),
                             null != e.method &&
-                              e.hasOwnProperty("method") &&
+                              e.hasOwnProperty('method') &&
                               (n.method =
                                 t.enums === String
                                   ? o.api.FileAuthMethod[e.method]
@@ -9121,19 +9121,19 @@
                           return (
                             t || (t = n.create()),
                             null != e.put &&
-                              Object.hasOwnProperty.call(e, "put") &&
+                              Object.hasOwnProperty.call(e, 'put') &&
                               o.api.FileAuthRes.encode(
                                 e.put,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.del &&
-                              Object.hasOwnProperty.call(e, "del") &&
+                              Object.hasOwnProperty.call(e, 'del') &&
                               o.api.FileAuthRes.encode(
                                 e.del,
                                 t.uint32(18).fork()
                               ).ldelim(),
                             null != e.get &&
-                              Object.hasOwnProperty.call(e, "get") &&
+                              Object.hasOwnProperty.call(e, 'get') &&
                               o.api.FileAuthRes.encode(
                                 e.get,
                                 t.uint32(26).fork()
@@ -9176,20 +9176,20 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.put &&
-                              e.hasOwnProperty("put") &&
+                              e.hasOwnProperty('put') &&
                               (t = o.api.FileAuthRes.verify(e.put))
-                            ? "put." + t
+                            ? 'put.' + t
                             : null != e.del &&
-                              e.hasOwnProperty("del") &&
+                              e.hasOwnProperty('del') &&
                               (t = o.api.FileAuthRes.verify(e.del))
-                            ? "del." + t
+                            ? 'del.' + t
                             : null != e.get &&
-                              e.hasOwnProperty("get") &&
+                              e.hasOwnProperty('get') &&
                               (t = o.api.FileAuthRes.verify(e.get))
-                            ? "get." + t
+                            ? 'get.' + t
                             : null;
                           var t;
                         }),
@@ -9197,23 +9197,23 @@
                           if (e instanceof o.api.MultiFileAuthRes) return e;
                           var t = new o.api.MultiFileAuthRes();
                           if (null != e.put) {
-                            if ("object" !== typeof e.put)
+                            if ('object' !== typeof e.put)
                               throw TypeError(
-                                ".api.MultiFileAuthRes.put: object expected"
+                                '.api.MultiFileAuthRes.put: object expected'
                               );
                             t.put = o.api.FileAuthRes.fromObject(e.put);
                           }
                           if (null != e.del) {
-                            if ("object" !== typeof e.del)
+                            if ('object' !== typeof e.del)
                               throw TypeError(
-                                ".api.MultiFileAuthRes.del: object expected"
+                                '.api.MultiFileAuthRes.del: object expected'
                               );
                             t.del = o.api.FileAuthRes.fromObject(e.del);
                           }
                           if (null != e.get) {
-                            if ("object" !== typeof e.get)
+                            if ('object' !== typeof e.get)
                               throw TypeError(
-                                ".api.MultiFileAuthRes.get: object expected"
+                                '.api.MultiFileAuthRes.get: object expected'
                               );
                             t.get = o.api.FileAuthRes.fromObject(e.get);
                           }
@@ -9226,13 +9226,13 @@
                             t.defaults &&
                               ((n.put = null), (n.del = null), (n.get = null)),
                             null != e.put &&
-                              e.hasOwnProperty("put") &&
+                              e.hasOwnProperty('put') &&
                               (n.put = o.api.FileAuthRes.toObject(e.put, t)),
                             null != e.del &&
-                              e.hasOwnProperty("del") &&
+                              e.hasOwnProperty('del') &&
                               (n.del = o.api.FileAuthRes.toObject(e.del, t)),
                             null != e.get &&
-                              e.hasOwnProperty("get") &&
+                              e.hasOwnProperty('get') &&
                               (n.get = o.api.FileAuthRes.toObject(e.get, t)),
                             n
                           );
@@ -9254,12 +9254,12 @@
                       }
                       return (
                         (i.prototype.file = null),
-                        (i.prototype.url = ""),
+                        (i.prototype.url = ''),
                         (i.prototype.method = 0),
                         (i.prototype.expire = r.Long
                           ? r.Long.fromBits(0, 0, !1)
                           : 0),
-                        (i.prototype.error = ""),
+                        (i.prototype.error = ''),
                         (i.prototype.replError = !1),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -9268,25 +9268,25 @@
                           return (
                             t || (t = n.create()),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               o.api.File.encode(
                                 e.file,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.url &&
-                              Object.hasOwnProperty.call(e, "url") &&
+                              Object.hasOwnProperty.call(e, 'url') &&
                               t.uint32(18).string(e.url),
                             null != e.method &&
-                              Object.hasOwnProperty.call(e, "method") &&
+                              Object.hasOwnProperty.call(e, 'method') &&
                               t.uint32(24).int32(e.method),
                             null != e.expire &&
-                              Object.hasOwnProperty.call(e, "expire") &&
+                              Object.hasOwnProperty.call(e, 'expire') &&
                               t.uint32(32).int64(e.expire),
                             null != e.error &&
-                              Object.hasOwnProperty.call(e, "error") &&
+                              Object.hasOwnProperty.call(e, 'error') &&
                               t.uint32(42).string(e.error),
                             null != e.replError &&
-                              Object.hasOwnProperty.call(e, "replError") &&
+                              Object.hasOwnProperty.call(e, 'replError') &&
                               t.uint32(56).bool(e.replError),
                             t
                           );
@@ -9335,70 +9335,70 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.file && e.hasOwnProperty("file")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.file && e.hasOwnProperty('file')) {
                             var t = o.api.File.verify(e.file);
-                            if (t) return "file." + t;
+                            if (t) return 'file.' + t;
                           }
                           if (
                             null != e.url &&
-                            e.hasOwnProperty("url") &&
+                            e.hasOwnProperty('url') &&
                             !r.isString(e.url)
                           )
-                            return "url: string expected";
-                          if (null != e.method && e.hasOwnProperty("method"))
+                            return 'url: string expected';
+                          if (null != e.method && e.hasOwnProperty('method'))
                             switch (e.method) {
                               default:
-                                return "method: enum value expected";
+                                return 'method: enum value expected';
                               case 0:
                               case 1:
                               case 2:
                               case 3:
                             }
                           return null == e.expire ||
-                            !e.hasOwnProperty("expire") ||
+                            !e.hasOwnProperty('expire') ||
                             r.isInteger(e.expire) ||
                             (e.expire &&
                               r.isInteger(e.expire.low) &&
                               r.isInteger(e.expire.high))
                             ? null != e.error &&
-                              e.hasOwnProperty("error") &&
+                              e.hasOwnProperty('error') &&
                               !r.isString(e.error)
-                              ? "error: string expected"
+                              ? 'error: string expected'
                               : null != e.replError &&
-                                e.hasOwnProperty("replError") &&
-                                "boolean" !== typeof e.replError
-                              ? "replError: boolean expected"
+                                e.hasOwnProperty('replError') &&
+                                'boolean' !== typeof e.replError
+                              ? 'replError: boolean expected'
                               : null
-                            : "expire: integer|Long expected";
+                            : 'expire: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.FileAuthRes) return e;
                           var t = new o.api.FileAuthRes();
                           if (null != e.file) {
-                            if ("object" !== typeof e.file)
+                            if ('object' !== typeof e.file)
                               throw TypeError(
-                                ".api.FileAuthRes.file: object expected"
+                                '.api.FileAuthRes.file: object expected'
                               );
                             t.file = o.api.File.fromObject(e.file);
                           }
                           switch (
                             (null != e.url && (t.url = String(e.url)), e.method)
                           ) {
-                            case "GET":
+                            case 'GET':
                             case 0:
                               t.method = 0;
                               break;
-                            case "HEAD":
+                            case 'HEAD':
                             case 1:
                               t.method = 1;
                               break;
-                            case "PUT":
+                            case 'PUT':
                             case 2:
                               t.method = 2;
                               break;
-                            case "DELETE":
+                            case 'DELETE':
                             case 3:
                               t.method = 3;
                           }
@@ -9408,11 +9408,11 @@
                                 ? ((t.expire = r.Long.fromValue(
                                     e.expire
                                   )).unsigned = !1)
-                                : "string" === typeof e.expire
+                                : 'string' === typeof e.expire
                                 ? (t.expire = parseInt(e.expire, 10))
-                                : "number" === typeof e.expire
+                                : 'number' === typeof e.expire
                                 ? (t.expire = e.expire)
-                                : "object" === typeof e.expire &&
+                                : 'object' === typeof e.expire &&
                                   (t.expire = new r.LongBits(
                                     e.expire.low >>> 0,
                                     e.expire.high >>> 0
@@ -9429,8 +9429,8 @@
                           if (t.defaults) {
                             if (
                               ((n.file = null),
-                              (n.url = ""),
-                              (n.method = t.enums === String ? "GET" : 0),
+                              (n.url = ''),
+                              (n.method = t.enums === String ? 'GET' : 0),
                               r.Long)
                             ) {
                               var i = new r.Long(0, 0, !1);
@@ -9440,25 +9440,25 @@
                                   : t.longs === Number
                                   ? i.toNumber()
                                   : i;
-                            } else n.expire = t.longs === String ? "0" : 0;
-                            (n.error = ""), (n.replError = !1);
+                            } else n.expire = t.longs === String ? '0' : 0;
+                            (n.error = ''), (n.replError = !1);
                           }
                           return (
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               (n.file = o.api.File.toObject(e.file, t)),
                             null != e.url &&
-                              e.hasOwnProperty("url") &&
+                              e.hasOwnProperty('url') &&
                               (n.url = e.url),
                             null != e.method &&
-                              e.hasOwnProperty("method") &&
+                              e.hasOwnProperty('method') &&
                               (n.method =
                                 t.enums === String
                                   ? o.api.FileAuthMethod[e.method]
                                   : e.method),
                             null != e.expire &&
-                              e.hasOwnProperty("expire") &&
-                              ("number" === typeof e.expire
+                              e.hasOwnProperty('expire') &&
+                              ('number' === typeof e.expire
                                 ? (n.expire =
                                     t.longs === String
                                       ? String(e.expire)
@@ -9473,10 +9473,10 @@
                                         ).toNumber()
                                       : e.expire)),
                             null != e.error &&
-                              e.hasOwnProperty("error") &&
+                              e.hasOwnProperty('error') &&
                               (n.error = e.error),
                             null != e.replError &&
-                              e.hasOwnProperty("replError") &&
+                              e.hasOwnProperty('replError') &&
                               (n.replError = e.replError),
                             n
                           );
@@ -9497,7 +9497,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.prefix = ""),
+                        (i.prototype.prefix = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -9505,7 +9505,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.prefix &&
-                              Object.hasOwnProperty.call(e, "prefix") &&
+                              Object.hasOwnProperty.call(e, 'prefix') &&
                               t.uint32(10).string(e.prefix),
                             t
                           );
@@ -9539,12 +9539,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.prefix &&
-                              e.hasOwnProperty("prefix") &&
+                              e.hasOwnProperty('prefix') &&
                               !r.isString(e.prefix)
-                            ? "prefix: string expected"
+                            ? 'prefix: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -9558,9 +9558,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.prefix = ""),
+                            t.defaults && (n.prefix = ''),
                             null != e.prefix &&
-                              e.hasOwnProperty("prefix") &&
+                              e.hasOwnProperty('prefix') &&
                               (n.prefix = e.prefix),
                             n
                           );
@@ -9625,17 +9625,17 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.objects &&
-                            e.hasOwnProperty("objects")
+                            e.hasOwnProperty('objects')
                           ) {
                             if (!Array.isArray(e.objects))
-                              return "objects: array expected";
+                              return 'objects: array expected';
                             for (var t = 0; t < e.objects.length; ++t)
                               if (!r.isString(e.objects[t]))
-                                return "objects: string[] expected";
+                                return 'objects: string[] expected';
                           }
                           return null;
                         }),
@@ -9645,7 +9645,7 @@
                           if (e.objects) {
                             if (!Array.isArray(e.objects))
                               throw TypeError(
-                                ".api.ListObjectsResp.objects: array expected"
+                                '.api.ListObjectsResp.objects: array expected'
                               );
                             t.objects = [];
                             for (var n = 0; n < e.objects.length; ++n)
@@ -9682,7 +9682,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.error = ""),
+                        (i.prototype.error = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -9690,7 +9690,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.error &&
-                              Object.hasOwnProperty.call(e, "error") &&
+                              Object.hasOwnProperty.call(e, 'error') &&
                               t.uint32(10).string(e.error),
                             t
                           );
@@ -9724,12 +9724,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.error &&
-                              e.hasOwnProperty("error") &&
+                              e.hasOwnProperty('error') &&
                               !r.isString(e.error)
-                            ? "error: string expected"
+                            ? 'error: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -9743,9 +9743,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.error = ""),
+                            t.defaults && (n.error = ''),
                             null != e.error &&
-                              e.hasOwnProperty("error") &&
+                              e.hasOwnProperty('error') &&
                               (n.error = e.error),
                             n
                           );
@@ -9774,7 +9774,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.buff &&
-                              Object.hasOwnProperty.call(e, "buff") &&
+                              Object.hasOwnProperty.call(e, 'buff') &&
                               t.uint32(10).bytes(e.buff),
                             t
                           );
@@ -9808,15 +9808,15 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.buff &&
-                              e.hasOwnProperty("buff") &&
+                              e.hasOwnProperty('buff') &&
                               !(
-                                (e.buff && "number" === typeof e.buff.length) ||
+                                (e.buff && 'number' === typeof e.buff.length) ||
                                 r.isString(e.buff)
                               )
-                            ? "buff: buffer expected"
+                            ? 'buff: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -9824,7 +9824,7 @@
                           var t = new o.api.Send();
                           return (
                             null != e.buff &&
-                              ("string" === typeof e.buff
+                              ('string' === typeof e.buff
                                 ? r.base64.decode(
                                     e.buff,
                                     (t.buff = r.newBuffer(
@@ -9842,12 +9842,12 @@
                           return (
                             t.defaults &&
                               (t.bytes === String
-                                ? (n.buff = "")
+                                ? (n.buff = '')
                                 : ((n.buff = []),
                                   t.bytes !== Array &&
                                     (n.buff = r.newBuffer(n.buff)))),
                             null != e.buff &&
-                              e.hasOwnProperty("buff") &&
+                              e.hasOwnProperty('buff') &&
                               (n.buff =
                                 t.bytes === String
                                   ? r.base64.encode(e.buff, 0, e.buff.length)
@@ -9881,7 +9881,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.buff &&
-                              Object.hasOwnProperty.call(e, "buff") &&
+                              Object.hasOwnProperty.call(e, 'buff') &&
                               t.uint32(10).bytes(e.buff),
                             t
                           );
@@ -9915,15 +9915,15 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.buff &&
-                              e.hasOwnProperty("buff") &&
+                              e.hasOwnProperty('buff') &&
                               !(
-                                (e.buff && "number" === typeof e.buff.length) ||
+                                (e.buff && 'number' === typeof e.buff.length) ||
                                 r.isString(e.buff)
                               )
-                            ? "buff: buffer expected"
+                            ? 'buff: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -9931,7 +9931,7 @@
                           var t = new o.api.Recv();
                           return (
                             null != e.buff &&
-                              ("string" === typeof e.buff
+                              ('string' === typeof e.buff
                                 ? r.base64.decode(
                                     e.buff,
                                     (t.buff = r.newBuffer(
@@ -9949,12 +9949,12 @@
                           return (
                             t.defaults &&
                               (t.bytes === String
-                                ? (n.buff = "")
+                                ? (n.buff = '')
                                 : ((n.buff = []),
                                   t.bytes !== Array &&
                                     (n.buff = r.newBuffer(n.buff)))),
                             null != e.buff &&
-                              e.hasOwnProperty("buff") &&
+                              e.hasOwnProperty('buff') &&
                               (n.buff =
                                 t.bytes === String
                                   ? r.base64.encode(e.buff, 0, e.buff.length)
@@ -9980,8 +9980,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.proto = ""),
-                        (i.prototype.addr = ""),
+                        (i.prototype.proto = ''),
+                        (i.prototype.addr = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -9989,10 +9989,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.proto &&
-                              Object.hasOwnProperty.call(e, "proto") &&
+                              Object.hasOwnProperty.call(e, 'proto') &&
                               t.uint32(10).string(e.proto),
                             null != e.addr &&
-                              Object.hasOwnProperty.call(e, "addr") &&
+                              Object.hasOwnProperty.call(e, 'addr') &&
                               t.uint32(18).string(e.addr),
                             t
                           );
@@ -10029,16 +10029,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.proto &&
-                              e.hasOwnProperty("proto") &&
+                              e.hasOwnProperty('proto') &&
                               !r.isString(e.proto)
-                            ? "proto: string expected"
+                            ? 'proto: string expected'
                             : null != e.addr &&
-                              e.hasOwnProperty("addr") &&
+                              e.hasOwnProperty('addr') &&
                               !r.isString(e.addr)
-                            ? "addr: string expected"
+                            ? 'addr: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -10054,12 +10054,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.proto = ""), (n.addr = "")),
+                            t.defaults && ((n.proto = ''), (n.addr = '')),
                             null != e.proto &&
-                              e.hasOwnProperty("proto") &&
+                              e.hasOwnProperty('proto') &&
                               (n.proto = e.proto),
                             null != e.addr &&
-                              e.hasOwnProperty("addr") &&
+                              e.hasOwnProperty('addr') &&
                               (n.addr = e.addr),
                             n
                           );
@@ -10080,7 +10080,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.text = ""),
+                        (i.prototype.text = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -10088,7 +10088,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.text &&
-                              Object.hasOwnProperty.call(e, "text") &&
+                              Object.hasOwnProperty.call(e, 'text') &&
                               t.uint32(10).string(e.text),
                             t
                           );
@@ -10122,12 +10122,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               !r.isString(e.text)
-                            ? "text: string expected"
+                            ? 'text: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -10139,9 +10139,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.text = ""),
+                            t.defaults && (n.text = ''),
                             null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               (n.text = e.text),
                             n
                           );
@@ -10191,8 +10191,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -10246,8 +10246,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -10273,8 +10273,8 @@
                       }
                       return (
                         (i.prototype.userid = 0),
-                        (i.prototype.username = ""),
-                        (i.prototype.token = ""),
+                        (i.prototype.username = ''),
+                        (i.prototype.token = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -10282,13 +10282,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.userid &&
-                              Object.hasOwnProperty.call(e, "userid") &&
+                              Object.hasOwnProperty.call(e, 'userid') &&
                               t.uint32(8).uint32(e.userid),
                             null != e.username &&
-                              Object.hasOwnProperty.call(e, "username") &&
+                              Object.hasOwnProperty.call(e, 'username') &&
                               t.uint32(18).string(e.username),
                             null != e.token &&
-                              Object.hasOwnProperty.call(e, "token") &&
+                              Object.hasOwnProperty.call(e, 'token') &&
                               t.uint32(26).string(e.token),
                             t
                           );
@@ -10328,20 +10328,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.userid &&
-                              e.hasOwnProperty("userid") &&
+                              e.hasOwnProperty('userid') &&
                               !r.isInteger(e.userid)
-                            ? "userid: integer expected"
+                            ? 'userid: integer expected'
                             : null != e.username &&
-                              e.hasOwnProperty("username") &&
+                              e.hasOwnProperty('username') &&
                               !r.isString(e.username)
-                            ? "username: string expected"
+                            ? 'username: string expected'
                             : null != e.token &&
-                              e.hasOwnProperty("token") &&
+                              e.hasOwnProperty('token') &&
                               !r.isString(e.token)
-                            ? "token: string expected"
+                            ? 'token: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -10361,16 +10361,16 @@
                           return (
                             t.defaults &&
                               ((n.userid = 0),
-                              (n.username = ""),
-                              (n.token = "")),
+                              (n.username = ''),
+                              (n.token = '')),
                             null != e.userid &&
-                              e.hasOwnProperty("userid") &&
+                              e.hasOwnProperty('userid') &&
                               (n.userid = e.userid),
                             null != e.username &&
-                              e.hasOwnProperty("username") &&
+                              e.hasOwnProperty('username') &&
                               (n.username = e.username),
                             null != e.token &&
-                              e.hasOwnProperty("token") &&
+                              e.hasOwnProperty('token') &&
                               (n.token = e.token),
                             n
                           );
@@ -10420,8 +10420,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -10445,8 +10445,8 @@
                       var e = {},
                         t = Object.create(e);
                       return (
-                        (t[(e[0] = "Stopped")] = 0),
-                        (t[(e[1] = "Running")] = 1),
+                        (t[(e[0] = 'Stopped')] = 0),
+                        (t[(e[1] = 'Running')] = 1),
                         t
                       );
                     })()),
@@ -10486,8 +10486,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -10523,10 +10523,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.install &&
-                              Object.hasOwnProperty.call(e, "install") &&
+                              Object.hasOwnProperty.call(e, 'install') &&
                               t.uint32(8).bool(e.install),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               o.api.File.encode(
                                 e.file,
                                 t.uint32(18).fork()
@@ -10566,17 +10566,17 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.install &&
-                            e.hasOwnProperty("install") &&
-                            "boolean" !== typeof e.install
+                            e.hasOwnProperty('install') &&
+                            'boolean' !== typeof e.install
                           )
-                            return "install: boolean expected";
-                          if (null != e.file && e.hasOwnProperty("file")) {
+                            return 'install: boolean expected';
+                          if (null != e.file && e.hasOwnProperty('file')) {
                             var t = o.api.File.verify(e.file);
-                            if (t) return "file." + t;
+                            if (t) return 'file.' + t;
                           }
                           return null;
                         }),
@@ -10588,9 +10588,9 @@
                               (t.install = Boolean(e.install)),
                             null != e.file)
                           ) {
-                            if ("object" !== typeof e.file)
+                            if ('object' !== typeof e.file)
                               throw TypeError(
-                                ".api.EnsurePackages.file: object expected"
+                                '.api.EnsurePackages.file: object expected'
                               );
                             t.file = o.api.File.fromObject(e.file);
                           }
@@ -10602,10 +10602,10 @@
                           return (
                             t.defaults && ((n.install = !1), (n.file = null)),
                             null != e.install &&
-                              e.hasOwnProperty("install") &&
+                              e.hasOwnProperty('install') &&
                               (n.install = e.install),
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               (n.file = o.api.File.toObject(e.file, t)),
                             n
                           );
@@ -10655,8 +10655,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -10692,7 +10692,7 @@
                           if (
                             (t || (t = n.create()),
                             null != e.done &&
-                              Object.hasOwnProperty.call(e, "done") &&
+                              Object.hasOwnProperty.call(e, 'done') &&
                               t.uint32(8).bool(e.done),
                             null != e.stack && e.stack.length)
                           )
@@ -10738,20 +10738,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.done &&
-                            e.hasOwnProperty("done") &&
-                            "boolean" !== typeof e.done
+                            e.hasOwnProperty('done') &&
+                            'boolean' !== typeof e.done
                           )
-                            return "done: boolean expected";
-                          if (null != e.stack && e.hasOwnProperty("stack")) {
+                            return 'done: boolean expected';
+                          if (null != e.stack && e.hasOwnProperty('stack')) {
                             if (!Array.isArray(e.stack))
-                              return "stack: array expected";
+                              return 'stack: array expected';
                             for (var t = 0; t < e.stack.length; ++t) {
                               var n = o.api.StackFrame.verify(e.stack[t]);
-                              if (n) return "stack." + n;
+                              if (n) return 'stack.' + n;
                             }
                           }
                           return null;
@@ -10765,13 +10765,13 @@
                           ) {
                             if (!Array.isArray(e.stack))
                               throw TypeError(
-                                ".api.DebugStatus.stack: array expected"
+                                '.api.DebugStatus.stack: array expected'
                               );
                             t.stack = [];
                             for (var n = 0; n < e.stack.length; ++n) {
-                              if ("object" !== typeof e.stack[n])
+                              if ('object' !== typeof e.stack[n])
                                 throw TypeError(
-                                  ".api.DebugStatus.stack: object expected"
+                                  '.api.DebugStatus.stack: object expected'
                                 );
                               t.stack[n] = o.api.StackFrame.fromObject(
                                 e.stack[n]
@@ -10787,7 +10787,7 @@
                             ((t.arrays || t.defaults) && (n.stack = []),
                             t.defaults && (n.done = !1),
                             null != e.done &&
-                              e.hasOwnProperty("done") &&
+                              e.hasOwnProperty('done') &&
                               (n.done = e.done),
                             e.stack && e.stack.length)
                           ) {
@@ -10816,7 +10816,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.function = ""),
+                        (i.prototype.function = ''),
                         (i.prototype.line = 0),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -10825,10 +10825,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.function &&
-                              Object.hasOwnProperty.call(e, "function") &&
+                              Object.hasOwnProperty.call(e, 'function') &&
                               t.uint32(10).string(e.function),
                             null != e.line &&
-                              Object.hasOwnProperty.call(e, "line") &&
+                              Object.hasOwnProperty.call(e, 'line') &&
                               t.uint32(16).uint32(e.line),
                             t
                           );
@@ -10865,16 +10865,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.function &&
-                              e.hasOwnProperty("function") &&
+                              e.hasOwnProperty('function') &&
                               !r.isString(e.function)
-                            ? "function: string expected"
+                            ? 'function: string expected'
                             : null != e.line &&
-                              e.hasOwnProperty("line") &&
+                              e.hasOwnProperty('line') &&
                               !r.isInteger(e.line)
-                            ? "line: integer expected"
+                            ? 'line: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -10891,12 +10891,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.function = ""), (n.line = 0)),
+                            t.defaults && ((n.function = ''), (n.line = 0)),
                             null != e.function &&
-                              e.hasOwnProperty("function") &&
+                              e.hasOwnProperty('function') &&
                               (n.function = e.function),
                             null != e.line &&
-                              e.hasOwnProperty("line") &&
+                              e.hasOwnProperty('line') &&
                               (n.line = e.line),
                             n
                           );
@@ -10926,7 +10926,7 @@
                           if (
                             (t || (t = n.create()),
                             null != e.suite &&
-                              Object.hasOwnProperty.call(e, "suite") &&
+                              Object.hasOwnProperty.call(e, 'suite') &&
                               o.api.File.encode(
                                 e.suite,
                                 t.uint32(10).fork()
@@ -10976,24 +10976,24 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.suite &&
-                            e.hasOwnProperty("suite") &&
+                            e.hasOwnProperty('suite') &&
                             (n = o.api.File.verify(e.suite))
                           )
-                            return "suite." + n;
+                            return 'suite.' + n;
                           if (
                             null != e.project &&
-                            e.hasOwnProperty("project")
+                            e.hasOwnProperty('project')
                           ) {
                             if (!Array.isArray(e.project))
-                              return "project: array expected";
+                              return 'project: array expected';
                             for (var t = 0; t < e.project.length; ++t) {
                               var n;
                               if ((n = o.api.File.verify(e.project[t])))
-                                return "project." + n;
+                                return 'project.' + n;
                             }
                           }
                           return null;
@@ -11002,22 +11002,22 @@
                           if (e instanceof o.api.ContainedTest) return e;
                           var t = new o.api.ContainedTest();
                           if (null != e.suite) {
-                            if ("object" !== typeof e.suite)
+                            if ('object' !== typeof e.suite)
                               throw TypeError(
-                                ".api.ContainedTest.suite: object expected"
+                                '.api.ContainedTest.suite: object expected'
                               );
                             t.suite = o.api.File.fromObject(e.suite);
                           }
                           if (e.project) {
                             if (!Array.isArray(e.project))
                               throw TypeError(
-                                ".api.ContainedTest.project: array expected"
+                                '.api.ContainedTest.project: array expected'
                               );
                             t.project = [];
                             for (var n = 0; n < e.project.length; ++n) {
-                              if ("object" !== typeof e.project[n])
+                              if ('object' !== typeof e.project[n])
                                 throw TypeError(
-                                  ".api.ContainedTest.project: object expected"
+                                  '.api.ContainedTest.project: object expected'
                                 );
                               t.project[n] = o.api.File.fromObject(
                                 e.project[n]
@@ -11033,7 +11033,7 @@
                             ((t.arrays || t.defaults) && (n.project = []),
                             t.defaults && (n.suite = null),
                             null != e.suite &&
-                              e.hasOwnProperty("suite") &&
+                              e.hasOwnProperty('suite') &&
                               (n.suite = o.api.File.toObject(e.suite, t)),
                             e.project && e.project.length)
                           ) {
@@ -11063,7 +11063,7 @@
                       }
                       return (
                         (i.prototype.passed = !1),
-                        (i.prototype.stderr = ""),
+                        (i.prototype.stderr = ''),
                         (i.prototype.fails = r.emptyArray),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -11072,10 +11072,10 @@
                           if (
                             (t || (t = n.create()),
                             null != e.passed &&
-                              Object.hasOwnProperty.call(e, "passed") &&
+                              Object.hasOwnProperty.call(e, 'passed') &&
                               t.uint32(8).bool(e.passed),
                             null != e.stderr &&
-                              Object.hasOwnProperty.call(e, "stderr") &&
+                              Object.hasOwnProperty.call(e, 'stderr') &&
                               t.uint32(18).string(e.stderr),
                             null != e.fails && e.fails.length)
                           )
@@ -11124,26 +11124,26 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.passed &&
-                            e.hasOwnProperty("passed") &&
-                            "boolean" !== typeof e.passed
+                            e.hasOwnProperty('passed') &&
+                            'boolean' !== typeof e.passed
                           )
-                            return "passed: boolean expected";
+                            return 'passed: boolean expected';
                           if (
                             null != e.stderr &&
-                            e.hasOwnProperty("stderr") &&
+                            e.hasOwnProperty('stderr') &&
                             !r.isString(e.stderr)
                           )
-                            return "stderr: string expected";
-                          if (null != e.fails && e.hasOwnProperty("fails")) {
+                            return 'stderr: string expected';
+                          if (null != e.fails && e.hasOwnProperty('fails')) {
                             if (!Array.isArray(e.fails))
-                              return "fails: array expected";
+                              return 'fails: array expected';
                             for (var t = 0; t < e.fails.length; ++t) {
                               var n = o.api.TestFailure.verify(e.fails[t]);
-                              if (n) return "fails." + n;
+                              if (n) return 'fails.' + n;
                             }
                           }
                           return null;
@@ -11158,13 +11158,13 @@
                           ) {
                             if (!Array.isArray(e.fails))
                               throw TypeError(
-                                ".api.TestResult.fails: array expected"
+                                '.api.TestResult.fails: array expected'
                               );
                             t.fails = [];
                             for (var n = 0; n < e.fails.length; ++n) {
-                              if ("object" !== typeof e.fails[n])
+                              if ('object' !== typeof e.fails[n])
                                 throw TypeError(
-                                  ".api.TestResult.fails: object expected"
+                                  '.api.TestResult.fails: object expected'
                                 );
                               t.fails[n] = o.api.TestFailure.fromObject(
                                 e.fails[n]
@@ -11178,12 +11178,12 @@
                           var n = {};
                           if (
                             ((t.arrays || t.defaults) && (n.fails = []),
-                            t.defaults && ((n.passed = !1), (n.stderr = "")),
+                            t.defaults && ((n.passed = !1), (n.stderr = '')),
                             null != e.passed &&
-                              e.hasOwnProperty("passed") &&
+                              e.hasOwnProperty('passed') &&
                               (n.passed = e.passed),
                             null != e.stderr &&
-                              e.hasOwnProperty("stderr") &&
+                              e.hasOwnProperty('stderr') &&
                               (n.stderr = e.stderr),
                             e.fails && e.fails.length)
                           ) {
@@ -11212,8 +11212,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.name = ""),
-                        (i.prototype.trace = ""),
+                        (i.prototype.name = ''),
+                        (i.prototype.trace = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -11221,10 +11221,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.name &&
-                              Object.hasOwnProperty.call(e, "name") &&
+                              Object.hasOwnProperty.call(e, 'name') &&
                               t.uint32(10).string(e.name),
                             null != e.trace &&
-                              Object.hasOwnProperty.call(e, "trace") &&
+                              Object.hasOwnProperty.call(e, 'trace') &&
                               t.uint32(18).string(e.trace),
                             t
                           );
@@ -11261,16 +11261,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.name &&
-                              e.hasOwnProperty("name") &&
+                              e.hasOwnProperty('name') &&
                               !r.isString(e.name)
-                            ? "name: string expected"
+                            ? 'name: string expected'
                             : null != e.trace &&
-                              e.hasOwnProperty("trace") &&
+                              e.hasOwnProperty('trace') &&
                               !r.isString(e.trace)
-                            ? "trace: string expected"
+                            ? 'trace: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -11286,12 +11286,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.name = ""), (n.trace = "")),
+                            t.defaults && ((n.name = ''), (n.trace = '')),
                             null != e.name &&
-                              e.hasOwnProperty("name") &&
+                              e.hasOwnProperty('name') &&
                               (n.name = e.name),
                             null != e.trace &&
-                              e.hasOwnProperty("trace") &&
+                              e.hasOwnProperty('trace') &&
                               (n.trace = e.trace),
                             n
                           );
@@ -11321,10 +11321,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.rows &&
-                              Object.hasOwnProperty.call(e, "rows") &&
+                              Object.hasOwnProperty.call(e, 'rows') &&
                               t.uint32(8).uint32(e.rows),
                             null != e.cols &&
-                              Object.hasOwnProperty.call(e, "cols") &&
+                              Object.hasOwnProperty.call(e, 'cols') &&
                               t.uint32(16).uint32(e.cols),
                             t
                           );
@@ -11361,16 +11361,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.rows &&
-                              e.hasOwnProperty("rows") &&
+                              e.hasOwnProperty('rows') &&
                               !r.isInteger(e.rows)
-                            ? "rows: integer expected"
+                            ? 'rows: integer expected'
                             : null != e.cols &&
-                              e.hasOwnProperty("cols") &&
+                              e.hasOwnProperty('cols') &&
                               !r.isInteger(e.cols)
-                            ? "cols: integer expected"
+                            ? 'cols: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -11388,10 +11388,10 @@
                           return (
                             t.defaults && ((n.rows = 0), (n.cols = 0)),
                             null != e.rows &&
-                              e.hasOwnProperty("rows") &&
+                              e.hasOwnProperty('rows') &&
                               (n.rows = e.rows),
                             null != e.cols &&
-                              e.hasOwnProperty("cols") &&
+                              e.hasOwnProperty('cols') &&
                               (n.cols = e.cols),
                             n
                           );
@@ -11441,8 +11441,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -11518,17 +11518,17 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.results &&
-                            e.hasOwnProperty("results")
+                            e.hasOwnProperty('results')
                           ) {
                             if (!Array.isArray(e.results))
-                              return "results: array expected";
+                              return 'results: array expected';
                             for (var t = 0; t < e.results.length; ++t) {
                               var n = o.api.LintResult.verify(e.results[t]);
-                              if (n) return "results." + n;
+                              if (n) return 'results.' + n;
                             }
                           }
                           return null;
@@ -11539,13 +11539,13 @@
                           if (e.results) {
                             if (!Array.isArray(e.results))
                               throw TypeError(
-                                ".api.LintResults.results: array expected"
+                                '.api.LintResults.results: array expected'
                               );
                             t.results = [];
                             for (var n = 0; n < e.results.length; ++n) {
-                              if ("object" !== typeof e.results[n])
+                              if ('object' !== typeof e.results[n])
                                 throw TypeError(
-                                  ".api.LintResults.results: object expected"
+                                  '.api.LintResults.results: object expected'
                                 );
                               t.results[n] = o.api.LintResult.fromObject(
                                 e.results[n]
@@ -11586,10 +11586,10 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.text = ""),
+                        (i.prototype.text = ''),
                         (i.prototype.row = 0),
                         (i.prototype.column = 0),
-                        (i.prototype.type = ""),
+                        (i.prototype.type = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -11597,16 +11597,16 @@
                           return (
                             t || (t = n.create()),
                             null != e.text &&
-                              Object.hasOwnProperty.call(e, "text") &&
+                              Object.hasOwnProperty.call(e, 'text') &&
                               t.uint32(10).string(e.text),
                             null != e.row &&
-                              Object.hasOwnProperty.call(e, "row") &&
+                              Object.hasOwnProperty.call(e, 'row') &&
                               t.uint32(16).int32(e.row),
                             null != e.column &&
-                              Object.hasOwnProperty.call(e, "column") &&
+                              Object.hasOwnProperty.call(e, 'column') &&
                               t.uint32(24).int32(e.column),
                             null != e.type &&
-                              Object.hasOwnProperty.call(e, "type") &&
+                              Object.hasOwnProperty.call(e, 'type') &&
                               t.uint32(34).string(e.type),
                             t
                           );
@@ -11649,24 +11649,24 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               !r.isString(e.text)
-                            ? "text: string expected"
+                            ? 'text: string expected'
                             : null != e.row &&
-                              e.hasOwnProperty("row") &&
+                              e.hasOwnProperty('row') &&
                               !r.isInteger(e.row)
-                            ? "row: integer expected"
+                            ? 'row: integer expected'
                             : null != e.column &&
-                              e.hasOwnProperty("column") &&
+                              e.hasOwnProperty('column') &&
                               !r.isInteger(e.column)
-                            ? "column: integer expected"
+                            ? 'column: integer expected'
                             : null != e.type &&
-                              e.hasOwnProperty("type") &&
+                              e.hasOwnProperty('type') &&
                               !r.isString(e.type)
-                            ? "type: string expected"
+                            ? 'type: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -11685,21 +11685,21 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.text = ""),
+                              ((n.text = ''),
                               (n.row = 0),
                               (n.column = 0),
-                              (n.type = "")),
+                              (n.type = '')),
                             null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               (n.text = e.text),
                             null != e.row &&
-                              e.hasOwnProperty("row") &&
+                              e.hasOwnProperty('row') &&
                               (n.row = e.row),
                             null != e.column &&
-                              e.hasOwnProperty("column") &&
+                              e.hasOwnProperty('column') &&
                               (n.column = e.column),
                             null != e.type &&
-                              e.hasOwnProperty("type") &&
+                              e.hasOwnProperty('type') &&
                               (n.type = e.type),
                             n
                           );
@@ -11749,8 +11749,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -11775,8 +11775,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.oldPath = ""),
-                        (i.prototype.newPath = ""),
+                        (i.prototype.oldPath = ''),
+                        (i.prototype.newPath = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -11784,10 +11784,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.oldPath &&
-                              Object.hasOwnProperty.call(e, "oldPath") &&
+                              Object.hasOwnProperty.call(e, 'oldPath') &&
                               t.uint32(10).string(e.oldPath),
                             null != e.newPath &&
-                              Object.hasOwnProperty.call(e, "newPath") &&
+                              Object.hasOwnProperty.call(e, 'newPath') &&
                               t.uint32(18).string(e.newPath),
                             t
                           );
@@ -11824,16 +11824,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.oldPath &&
-                              e.hasOwnProperty("oldPath") &&
+                              e.hasOwnProperty('oldPath') &&
                               !r.isString(e.oldPath)
-                            ? "oldPath: string expected"
+                            ? 'oldPath: string expected'
                             : null != e.newPath &&
-                              e.hasOwnProperty("newPath") &&
+                              e.hasOwnProperty('newPath') &&
                               !r.isString(e.newPath)
-                            ? "newPath: string expected"
+                            ? 'newPath: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -11851,12 +11851,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.oldPath = ""), (n.newPath = "")),
+                            t.defaults && ((n.oldPath = ''), (n.newPath = '')),
                             null != e.oldPath &&
-                              e.hasOwnProperty("oldPath") &&
+                              e.hasOwnProperty('oldPath') &&
                               (n.oldPath = e.oldPath),
                             null != e.newPath &&
-                              e.hasOwnProperty("newPath") &&
+                              e.hasOwnProperty('newPath') &&
                               (n.newPath = e.newPath),
                             n
                           );
@@ -11925,14 +11925,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.files && e.hasOwnProperty("files")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.files && e.hasOwnProperty('files')) {
                             if (!Array.isArray(e.files))
-                              return "files: array expected";
+                              return 'files: array expected';
                             for (var t = 0; t < e.files.length; ++t) {
                               var n = o.api.File.verify(e.files[t]);
-                              if (n) return "files." + n;
+                              if (n) return 'files.' + n;
                             }
                           }
                           return null;
@@ -11943,13 +11943,13 @@
                           if (e.files) {
                             if (!Array.isArray(e.files))
                               throw TypeError(
-                                ".api.Files.files: array expected"
+                                '.api.Files.files: array expected'
                               );
                             t.files = [];
                             for (var n = 0; n < e.files.length; ++n) {
-                              if ("object" !== typeof e.files[n])
+                              if ('object' !== typeof e.files[n])
                                 throw TypeError(
-                                  ".api.Files.files: object expected"
+                                  '.api.Files.files: object expected'
                                 );
                               t.files[n] = o.api.File.fromObject(e.files[n]);
                             }
@@ -11990,7 +11990,7 @@
                         (i.prototype.size = r.Long
                           ? r.Long.fromBits(0, 0, !1)
                           : 0),
-                        (i.prototype.fileMode = ""),
+                        (i.prototype.fileMode = ''),
                         (i.prototype.modTime = r.Long
                           ? r.Long.fromBits(0, 0, !1)
                           : 0),
@@ -12001,19 +12001,19 @@
                           return (
                             t || (t = n.create()),
                             null != e.exists &&
-                              Object.hasOwnProperty.call(e, "exists") &&
+                              Object.hasOwnProperty.call(e, 'exists') &&
                               t.uint32(8).bool(e.exists),
                             null != e.type &&
-                              Object.hasOwnProperty.call(e, "type") &&
+                              Object.hasOwnProperty.call(e, 'type') &&
                               t.uint32(16).int32(e.type),
                             null != e.size &&
-                              Object.hasOwnProperty.call(e, "size") &&
+                              Object.hasOwnProperty.call(e, 'size') &&
                               t.uint32(24).int64(e.size),
                             null != e.fileMode &&
-                              Object.hasOwnProperty.call(e, "fileMode") &&
+                              Object.hasOwnProperty.call(e, 'fileMode') &&
                               t.uint32(34).string(e.fileMode),
                             null != e.modTime &&
-                              Object.hasOwnProperty.call(e, "modTime") &&
+                              Object.hasOwnProperty.call(e, 'modTime') &&
                               t.uint32(40).int64(e.modTime),
                             t
                           );
@@ -12059,40 +12059,40 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.exists &&
-                            e.hasOwnProperty("exists") &&
-                            "boolean" !== typeof e.exists
+                            e.hasOwnProperty('exists') &&
+                            'boolean' !== typeof e.exists
                           )
-                            return "exists: boolean expected";
-                          if (null != e.type && e.hasOwnProperty("type"))
+                            return 'exists: boolean expected';
+                          if (null != e.type && e.hasOwnProperty('type'))
                             switch (e.type) {
                               default:
-                                return "type: enum value expected";
+                                return 'type: enum value expected';
                               case 0:
                               case 1:
                             }
                           return null == e.size ||
-                            !e.hasOwnProperty("size") ||
+                            !e.hasOwnProperty('size') ||
                             r.isInteger(e.size) ||
                             (e.size &&
                               r.isInteger(e.size.low) &&
                               r.isInteger(e.size.high))
                             ? null != e.fileMode &&
-                              e.hasOwnProperty("fileMode") &&
+                              e.hasOwnProperty('fileMode') &&
                               !r.isString(e.fileMode)
-                              ? "fileMode: string expected"
+                              ? 'fileMode: string expected'
                               : null == e.modTime ||
-                                !e.hasOwnProperty("modTime") ||
+                                !e.hasOwnProperty('modTime') ||
                                 r.isInteger(e.modTime) ||
                                 (e.modTime &&
                                   r.isInteger(e.modTime.low) &&
                                   r.isInteger(e.modTime.high))
                               ? null
-                              : "modTime: integer|Long expected"
-                            : "size: integer|Long expected";
+                              : 'modTime: integer|Long expected'
+                            : 'size: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.StatResult) return e;
@@ -12101,11 +12101,11 @@
                             (null != e.exists && (t.exists = Boolean(e.exists)),
                             e.type)
                           ) {
-                            case "REGULAR":
+                            case 'REGULAR':
                             case 0:
                               t.type = 0;
                               break;
-                            case "DIRECTORY":
+                            case 'DIRECTORY':
                             case 1:
                               t.type = 1;
                           }
@@ -12115,11 +12115,11 @@
                                 ? ((t.size = r.Long.fromValue(
                                     e.size
                                   )).unsigned = !1)
-                                : "string" === typeof e.size
+                                : 'string' === typeof e.size
                                 ? (t.size = parseInt(e.size, 10))
-                                : "number" === typeof e.size
+                                : 'number' === typeof e.size
                                 ? (t.size = e.size)
-                                : "object" === typeof e.size &&
+                                : 'object' === typeof e.size &&
                                   (t.size = new r.LongBits(
                                     e.size.low >>> 0,
                                     e.size.high >>> 0
@@ -12131,11 +12131,11 @@
                                 ? ((t.modTime = r.Long.fromValue(
                                     e.modTime
                                   )).unsigned = !1)
-                                : "string" === typeof e.modTime
+                                : 'string' === typeof e.modTime
                                 ? (t.modTime = parseInt(e.modTime, 10))
-                                : "number" === typeof e.modTime
+                                : 'number' === typeof e.modTime
                                 ? (t.modTime = e.modTime)
-                                : "object" === typeof e.modTime &&
+                                : 'object' === typeof e.modTime &&
                                   (t.modTime = new r.LongBits(
                                     e.modTime.low >>> 0,
                                     e.modTime.high >>> 0
@@ -12149,7 +12149,7 @@
                           if (t.defaults) {
                             if (
                               ((n.exists = !1),
-                              (n.type = t.enums === String ? "REGULAR" : 0),
+                              (n.type = t.enums === String ? 'REGULAR' : 0),
                               r.Long)
                             ) {
                               var i = new r.Long(0, 0, !1);
@@ -12159,8 +12159,8 @@
                                   : t.longs === Number
                                   ? i.toNumber()
                                   : i;
-                            } else n.size = t.longs === String ? "0" : 0;
-                            (n.fileMode = ""),
+                            } else n.size = t.longs === String ? '0' : 0;
+                            (n.fileMode = ''),
                               r.Long
                                 ? ((i = new r.Long(0, 0, !1)),
                                   (n.modTime =
@@ -12169,21 +12169,21 @@
                                       : t.longs === Number
                                       ? i.toNumber()
                                       : i))
-                                : (n.modTime = t.longs === String ? "0" : 0);
+                                : (n.modTime = t.longs === String ? '0' : 0);
                           }
                           return (
                             null != e.exists &&
-                              e.hasOwnProperty("exists") &&
+                              e.hasOwnProperty('exists') &&
                               (n.exists = e.exists),
                             null != e.type &&
-                              e.hasOwnProperty("type") &&
+                              e.hasOwnProperty('type') &&
                               (n.type =
                                 t.enums === String
                                   ? o.api.File.Type[e.type]
                                   : e.type),
                             null != e.size &&
-                              e.hasOwnProperty("size") &&
-                              ("number" === typeof e.size
+                              e.hasOwnProperty('size') &&
+                              ('number' === typeof e.size
                                 ? (n.size =
                                     t.longs === String
                                       ? String(e.size)
@@ -12198,11 +12198,11 @@
                                         ).toNumber()
                                       : e.size)),
                             null != e.fileMode &&
-                              e.hasOwnProperty("fileMode") &&
+                              e.hasOwnProperty('fileMode') &&
                               (n.fileMode = e.fileMode),
                             null != e.modTime &&
-                              e.hasOwnProperty("modTime") &&
-                              ("number" === typeof e.modTime
+                              e.hasOwnProperty('modTime') &&
+                              ('number' === typeof e.modTime
                                 ? (n.modTime =
                                     t.longs === String
                                       ? String(e.modTime)
@@ -12237,7 +12237,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.path = ""),
+                        (i.prototype.path = ''),
                         (i.prototype.type = 0),
                         (i.prototype.content = r.newBuffer([])),
                         (i.create = function (e) {
@@ -12247,13 +12247,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.path &&
-                              Object.hasOwnProperty.call(e, "path") &&
+                              Object.hasOwnProperty.call(e, 'path') &&
                               t.uint32(10).string(e.path),
                             null != e.type &&
-                              Object.hasOwnProperty.call(e, "type") &&
+                              Object.hasOwnProperty.call(e, 'type') &&
                               t.uint32(16).int32(e.type),
                             null != e.content &&
-                              Object.hasOwnProperty.call(e, "content") &&
+                              Object.hasOwnProperty.call(e, 'content') &&
                               t.uint32(26).bytes(e.content),
                             t
                           );
@@ -12293,29 +12293,29 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.path &&
-                            e.hasOwnProperty("path") &&
+                            e.hasOwnProperty('path') &&
                             !r.isString(e.path)
                           )
-                            return "path: string expected";
-                          if (null != e.type && e.hasOwnProperty("type"))
+                            return 'path: string expected';
+                          if (null != e.type && e.hasOwnProperty('type'))
                             switch (e.type) {
                               default:
-                                return "type: enum value expected";
+                                return 'type: enum value expected';
                               case 0:
                               case 1:
                             }
                           return null != e.content &&
-                            e.hasOwnProperty("content") &&
+                            e.hasOwnProperty('content') &&
                             !(
                               (e.content &&
-                                "number" === typeof e.content.length) ||
+                                'number' === typeof e.content.length) ||
                               r.isString(e.content)
                             )
-                            ? "content: buffer expected"
+                            ? 'content: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -12325,17 +12325,17 @@
                             (null != e.path && (t.path = String(e.path)),
                             e.type)
                           ) {
-                            case "REGULAR":
+                            case 'REGULAR':
                             case 0:
                               t.type = 0;
                               break;
-                            case "DIRECTORY":
+                            case 'DIRECTORY':
                             case 1:
                               t.type = 1;
                           }
                           return (
                             null != e.content &&
-                              ("string" === typeof e.content
+                              ('string' === typeof e.content
                                 ? r.base64.decode(
                                     e.content,
                                     (t.content = r.newBuffer(
@@ -12352,24 +12352,24 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.path = ""),
-                              (n.type = t.enums === String ? "REGULAR" : 0),
+                              ((n.path = ''),
+                              (n.type = t.enums === String ? 'REGULAR' : 0),
                               t.bytes === String
-                                ? (n.content = "")
+                                ? (n.content = '')
                                 : ((n.content = []),
                                   t.bytes !== Array &&
                                     (n.content = r.newBuffer(n.content)))),
                             null != e.path &&
-                              e.hasOwnProperty("path") &&
+                              e.hasOwnProperty('path') &&
                               (n.path = e.path),
                             null != e.type &&
-                              e.hasOwnProperty("type") &&
+                              e.hasOwnProperty('type') &&
                               (n.type =
                                 t.enums === String
                                   ? o.api.File.Type[e.type]
                                   : e.type),
                             null != e.content &&
-                              e.hasOwnProperty("content") &&
+                              e.hasOwnProperty('content') &&
                               (n.content =
                                 t.bytes === String
                                   ? r.base64.encode(
@@ -12393,8 +12393,8 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "REGULAR")] = 0),
-                            (t[(e[1] = "DIRECTORY")] = 1),
+                            (t[(e[0] = 'REGULAR')] = 0),
+                            (t[(e[1] = 'DIRECTORY')] = 1),
                             t
                           );
                         })()),
@@ -12408,7 +12408,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.id = ""),
+                        (i.prototype.id = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -12416,7 +12416,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(10).string(e.id),
                             t
                           );
@@ -12450,12 +12450,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               !r.isString(e.id)
-                            ? "id: string expected"
+                            ? 'id: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -12467,9 +12467,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.id = ""),
+                            t.defaults && (n.id = ''),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             n
                           );
@@ -12490,7 +12490,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.path = ""),
+                        (i.prototype.path = ''),
                         (i.prototype.size = r.Long
                           ? r.Long.fromBits(0, 0, !1)
                           : 0),
@@ -12501,10 +12501,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.path &&
-                              Object.hasOwnProperty.call(e, "path") &&
+                              Object.hasOwnProperty.call(e, 'path') &&
                               t.uint32(10).string(e.path),
                             null != e.size &&
-                              Object.hasOwnProperty.call(e, "size") &&
+                              Object.hasOwnProperty.call(e, 'size') &&
                               t.uint32(16).int64(e.size),
                             t
                           );
@@ -12541,20 +12541,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.path &&
-                              e.hasOwnProperty("path") &&
+                              e.hasOwnProperty('path') &&
                               !r.isString(e.path)
-                            ? "path: string expected"
+                            ? 'path: string expected'
                             : null == e.size ||
-                              !e.hasOwnProperty("size") ||
+                              !e.hasOwnProperty('size') ||
                               r.isInteger(e.size) ||
                               (e.size &&
                                 r.isInteger(e.size.low) &&
                                 r.isInteger(e.size.high))
                             ? null
-                            : "size: integer|Long expected";
+                            : 'size: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.TransferStart) return e;
@@ -12566,11 +12566,11 @@
                                 ? ((t.size = r.Long.fromValue(
                                     e.size
                                   )).unsigned = !1)
-                                : "string" === typeof e.size
+                                : 'string' === typeof e.size
                                 ? (t.size = parseInt(e.size, 10))
-                                : "number" === typeof e.size
+                                : 'number' === typeof e.size
                                 ? (t.size = e.size)
-                                : "object" === typeof e.size &&
+                                : 'object' === typeof e.size &&
                                   (t.size = new r.LongBits(
                                     e.size.low >>> 0,
                                     e.size.high >>> 0
@@ -12582,7 +12582,7 @@
                           t || (t = {});
                           var n = {};
                           if (t.defaults)
-                            if (((n.path = ""), r.Long)) {
+                            if (((n.path = ''), r.Long)) {
                               var o = new r.Long(0, 0, !1);
                               n.size =
                                 t.longs === String
@@ -12590,14 +12590,14 @@
                                   : t.longs === Number
                                   ? o.toNumber()
                                   : o;
-                            } else n.size = t.longs === String ? "0" : 0;
+                            } else n.size = t.longs === String ? '0' : 0;
                           return (
                             null != e.path &&
-                              e.hasOwnProperty("path") &&
+                              e.hasOwnProperty('path') &&
                               (n.path = e.path),
                             null != e.size &&
-                              e.hasOwnProperty("size") &&
-                              ("number" === typeof e.size
+                              e.hasOwnProperty('size') &&
+                              ('number' === typeof e.size
                                 ? (n.size =
                                     t.longs === String
                                       ? String(e.size)
@@ -12630,7 +12630,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.id = ""),
+                        (i.prototype.id = ''),
                         (i.prototype.content = r.newBuffer([])),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -12639,10 +12639,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(10).string(e.id),
                             null != e.content &&
-                              Object.hasOwnProperty.call(e, "content") &&
+                              Object.hasOwnProperty.call(e, 'content') &&
                               t.uint32(18).bytes(e.content),
                             t
                           );
@@ -12679,20 +12679,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               !r.isString(e.id)
-                            ? "id: string expected"
+                            ? 'id: string expected'
                             : null != e.content &&
-                              e.hasOwnProperty("content") &&
+                              e.hasOwnProperty('content') &&
                               !(
                                 (e.content &&
-                                  "number" === typeof e.content.length) ||
+                                  'number' === typeof e.content.length) ||
                                 r.isString(e.content)
                               )
-                            ? "content: buffer expected"
+                            ? 'content: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -12701,7 +12701,7 @@
                           return (
                             null != e.id && (t.id = String(e.id)),
                             null != e.content &&
-                              ("string" === typeof e.content
+                              ('string' === typeof e.content
                                 ? r.base64.decode(
                                     e.content,
                                     (t.content = r.newBuffer(
@@ -12718,17 +12718,17 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.id = ""),
+                              ((n.id = ''),
                               t.bytes === String
-                                ? (n.content = "")
+                                ? (n.content = '')
                                 : ((n.content = []),
                                   t.bytes !== Array &&
                                     (n.content = r.newBuffer(n.content)))),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.content &&
-                              e.hasOwnProperty("content") &&
+                              e.hasOwnProperty('content') &&
                               (n.content =
                                 t.bytes === String
                                   ? r.base64.encode(
@@ -12758,7 +12758,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.id = ""),
+                        (i.prototype.id = ''),
                         (i.prototype.crc32 = 0),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -12767,10 +12767,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(10).string(e.id),
                             null != e.crc32 &&
-                              Object.hasOwnProperty.call(e, "crc32") &&
+                              Object.hasOwnProperty.call(e, 'crc32') &&
                               t.uint32(16).uint32(e.crc32),
                             t
                           );
@@ -12807,16 +12807,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               !r.isString(e.id)
-                            ? "id: string expected"
+                            ? 'id: string expected'
                             : null != e.crc32 &&
-                              e.hasOwnProperty("crc32") &&
+                              e.hasOwnProperty('crc32') &&
                               !r.isInteger(e.crc32)
-                            ? "crc32: integer expected"
+                            ? 'crc32: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -12832,12 +12832,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.id = ""), (n.crc32 = 0)),
+                            t.defaults && ((n.id = ''), (n.crc32 = 0)),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.crc32 &&
-                              e.hasOwnProperty("crc32") &&
+                              e.hasOwnProperty('crc32') &&
                               (n.crc32 = e.crc32),
                             n
                           );
@@ -12887,8 +12887,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -12915,7 +12915,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.text = ""),
+                        (i.prototype.text = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -12923,7 +12923,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.text &&
-                              Object.hasOwnProperty.call(e, "text") &&
+                              Object.hasOwnProperty.call(e, 'text') &&
                               t.uint32(10).string(e.text),
                             t
                           );
@@ -12957,12 +12957,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               !r.isString(e.text)
-                            ? "text: string expected"
+                            ? 'text: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -12974,9 +12974,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.text = ""),
+                            t.defaults && (n.text = ''),
                             null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               (n.text = e.text),
                             n
                           );
@@ -12997,7 +12997,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.text = ""),
+                        (i.prototype.text = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -13005,7 +13005,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.text &&
-                              Object.hasOwnProperty.call(e, "text") &&
+                              Object.hasOwnProperty.call(e, 'text') &&
                               t.uint32(10).string(e.text),
                             t
                           );
@@ -13039,12 +13039,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               !r.isString(e.text)
-                            ? "text: string expected"
+                            ? 'text: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -13056,9 +13056,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.text = ""),
+                            t.defaults && (n.text = ''),
                             null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               (n.text = e.text),
                             n
                           );
@@ -13079,7 +13079,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.url = ""),
+                        (i.prototype.url = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -13087,7 +13087,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.url &&
-                              Object.hasOwnProperty.call(e, "url") &&
+                              Object.hasOwnProperty.call(e, 'url') &&
                               t.uint32(10).string(e.url),
                             t
                           );
@@ -13121,12 +13121,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.url &&
-                              e.hasOwnProperty("url") &&
+                              e.hasOwnProperty('url') &&
                               !r.isString(e.url)
-                            ? "url: string expected"
+                            ? 'url: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -13138,9 +13138,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.url = ""),
+                            t.defaults && (n.url = ''),
                             null != e.url &&
-                              e.hasOwnProperty("url") &&
+                              e.hasOwnProperty('url') &&
                               (n.url = e.url),
                             n
                           );
@@ -13169,7 +13169,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.enable &&
-                              Object.hasOwnProperty.call(e, "enable") &&
+                              Object.hasOwnProperty.call(e, 'enable') &&
                               t.uint32(8).bool(e.enable),
                             t
                           );
@@ -13203,12 +13203,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.enable &&
-                              e.hasOwnProperty("enable") &&
-                              "boolean" !== typeof e.enable
-                            ? "enable: boolean expected"
+                              e.hasOwnProperty('enable') &&
+                              'boolean' !== typeof e.enable
+                            ? 'enable: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -13225,7 +13225,7 @@
                           return (
                             t.defaults && (n.enable = !1),
                             null != e.enable &&
-                              e.hasOwnProperty("enable") &&
+                              e.hasOwnProperty('enable') &&
                               (n.enable = e.enable),
                             n
                           );
@@ -13254,7 +13254,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.runMode &&
-                              Object.hasOwnProperty.call(e, "runMode") &&
+                              Object.hasOwnProperty.call(e, 'runMode') &&
                               t.uint32(8).int32(e.runMode),
                             t
                           );
@@ -13288,12 +13288,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.runMode && e.hasOwnProperty("runMode"))
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.runMode && e.hasOwnProperty('runMode'))
                             switch (e.runMode) {
                               default:
-                                return "runMode: enum value expected";
+                                return 'runMode: enum value expected';
                               case 0:
                               case 1:
                             }
@@ -13303,11 +13303,11 @@
                           if (e instanceof o.api.RunMain) return e;
                           var t = new o.api.RunMain();
                           switch (e.runMode) {
-                            case "RUN":
+                            case 'RUN':
                             case 0:
                               t.runMode = 0;
                               break;
-                            case "RECORD":
+                            case 'RECORD':
                             case 1:
                               t.runMode = 1;
                           }
@@ -13318,9 +13318,9 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              (n.runMode = t.enums === String ? "RUN" : 0),
+                              (n.runMode = t.enums === String ? 'RUN' : 0),
                             null != e.runMode &&
-                              e.hasOwnProperty("runMode") &&
+                              e.hasOwnProperty('runMode') &&
                               (n.runMode =
                                 t.enums === String
                                   ? o.api.RunMain.RunMode[e.runMode]
@@ -13338,8 +13338,8 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "RUN")] = 0),
-                            (t[(e[1] = "RECORD")] = 1),
+                            (t[(e[0] = 'RUN')] = 0),
+                            (t[(e[1] = 'RECORD')] = 1),
                             t
                           );
                         })()),
@@ -13353,8 +13353,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.service = ""),
-                        (i.prototype.name = ""),
+                        (i.prototype.service = ''),
+                        (i.prototype.name = ''),
                         (i.prototype.action = 0),
                         (i.prototype.id = 0),
                         (i.create = function (e) {
@@ -13364,16 +13364,16 @@
                           return (
                             t || (t = n.create()),
                             null != e.service &&
-                              Object.hasOwnProperty.call(e, "service") &&
+                              Object.hasOwnProperty.call(e, 'service') &&
                               t.uint32(10).string(e.service),
                             null != e.name &&
-                              Object.hasOwnProperty.call(e, "name") &&
+                              Object.hasOwnProperty.call(e, 'name') &&
                               t.uint32(18).string(e.name),
                             null != e.action &&
-                              Object.hasOwnProperty.call(e, "action") &&
+                              Object.hasOwnProperty.call(e, 'action') &&
                               t.uint32(24).int32(e.action),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(32).int32(e.id),
                             t
                           );
@@ -13416,32 +13416,32 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.service &&
-                            e.hasOwnProperty("service") &&
+                            e.hasOwnProperty('service') &&
                             !r.isString(e.service)
                           )
-                            return "service: string expected";
+                            return 'service: string expected';
                           if (
                             null != e.name &&
-                            e.hasOwnProperty("name") &&
+                            e.hasOwnProperty('name') &&
                             !r.isString(e.name)
                           )
-                            return "name: string expected";
-                          if (null != e.action && e.hasOwnProperty("action"))
+                            return 'name: string expected';
+                          if (null != e.action && e.hasOwnProperty('action'))
                             switch (e.action) {
                               default:
-                                return "action: enum value expected";
+                                return 'action: enum value expected';
                               case 0:
                               case 1:
                               case 2:
                             }
                           return null != e.id &&
-                            e.hasOwnProperty("id") &&
+                            e.hasOwnProperty('id') &&
                             !r.isInteger(e.id)
-                            ? "id: integer expected"
+                            ? 'id: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -13453,15 +13453,15 @@
                             null != e.name && (t.name = String(e.name)),
                             e.action)
                           ) {
-                            case "CREATE":
+                            case 'CREATE':
                             case 0:
                               t.action = 0;
                               break;
-                            case "ATTACH":
+                            case 'ATTACH':
                             case 1:
                               t.action = 1;
                               break;
-                            case "ATTACH_OR_CREATE":
+                            case 'ATTACH_OR_CREATE':
                             case 2:
                               t.action = 2;
                           }
@@ -13472,24 +13472,24 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.service = ""),
-                              (n.name = ""),
-                              (n.action = t.enums === String ? "CREATE" : 0),
+                              ((n.service = ''),
+                              (n.name = ''),
+                              (n.action = t.enums === String ? 'CREATE' : 0),
                               (n.id = 0)),
                             null != e.service &&
-                              e.hasOwnProperty("service") &&
+                              e.hasOwnProperty('service') &&
                               (n.service = e.service),
                             null != e.name &&
-                              e.hasOwnProperty("name") &&
+                              e.hasOwnProperty('name') &&
                               (n.name = e.name),
                             null != e.action &&
-                              e.hasOwnProperty("action") &&
+                              e.hasOwnProperty('action') &&
                               (n.action =
                                 t.enums === String
                                   ? o.api.OpenChannel.Action[e.action]
                                   : e.action),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             n
                           );
@@ -13504,9 +13504,9 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "CREATE")] = 0),
-                            (t[(e[1] = "ATTACH")] = 1),
-                            (t[(e[2] = "ATTACH_OR_CREATE")] = 2),
+                            (t[(e[0] = 'CREATE')] = 0),
+                            (t[(e[1] = 'ATTACH')] = 1),
+                            (t[(e[2] = 'ATTACH_OR_CREATE')] = 2),
                             t
                           );
                         })()),
@@ -13522,7 +13522,7 @@
                       return (
                         (i.prototype.id = 0),
                         (i.prototype.state = 0),
-                        (i.prototype.error = ""),
+                        (i.prototype.error = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -13530,13 +13530,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(8).int32(e.id),
                             null != e.state &&
-                              Object.hasOwnProperty.call(e, "state") &&
+                              Object.hasOwnProperty.call(e, 'state') &&
                               t.uint32(16).int32(e.state),
                             null != e.error &&
-                              Object.hasOwnProperty.call(e, "error") &&
+                              Object.hasOwnProperty.call(e, 'error') &&
                               t.uint32(26).string(e.error),
                             t
                           );
@@ -13576,26 +13576,26 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.id &&
-                            e.hasOwnProperty("id") &&
+                            e.hasOwnProperty('id') &&
                             !r.isInteger(e.id)
                           )
-                            return "id: integer expected";
-                          if (null != e.state && e.hasOwnProperty("state"))
+                            return 'id: integer expected';
+                          if (null != e.state && e.hasOwnProperty('state'))
                             switch (e.state) {
                               default:
-                                return "state: enum value expected";
+                                return 'state: enum value expected';
                               case 0:
                               case 1:
                               case 2:
                             }
                           return null != e.error &&
-                            e.hasOwnProperty("error") &&
+                            e.hasOwnProperty('error') &&
                             !r.isString(e.error)
-                            ? "error: string expected"
+                            ? 'error: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -13604,15 +13604,15 @@
                           switch (
                             (null != e.id && (t.id = 0 | e.id), e.state)
                           ) {
-                            case "CREATED":
+                            case 'CREATED':
                             case 0:
                               t.state = 0;
                               break;
-                            case "ATTACHED":
+                            case 'ATTACHED':
                             case 1:
                               t.state = 1;
                               break;
-                            case "ERROR":
+                            case 'ERROR':
                             case 2:
                               t.state = 2;
                           }
@@ -13626,19 +13626,19 @@
                           return (
                             t.defaults &&
                               ((n.id = 0),
-                              (n.state = t.enums === String ? "CREATED" : 0),
-                              (n.error = "")),
+                              (n.state = t.enums === String ? 'CREATED' : 0),
+                              (n.error = '')),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.state &&
-                              e.hasOwnProperty("state") &&
+                              e.hasOwnProperty('state') &&
                               (n.state =
                                 t.enums === String
                                   ? o.api.OpenChannelRes.State[e.state]
                                   : e.state),
                             null != e.error &&
-                              e.hasOwnProperty("error") &&
+                              e.hasOwnProperty('error') &&
                               (n.error = e.error),
                             n
                           );
@@ -13653,9 +13653,9 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "CREATED")] = 0),
-                            (t[(e[1] = "ATTACHED")] = 1),
-                            (t[(e[2] = "ERROR")] = 2),
+                            (t[(e[0] = 'CREATED')] = 0),
+                            (t[(e[1] = 'ATTACHED')] = 1),
+                            (t[(e[2] = 'ERROR')] = 2),
                             t
                           );
                         })()),
@@ -13678,10 +13678,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(8).int32(e.id),
                             null != e.action &&
-                              Object.hasOwnProperty.call(e, "action") &&
+                              Object.hasOwnProperty.call(e, 'action') &&
                               t.uint32(16).int32(e.action),
                             t
                           );
@@ -13718,18 +13718,18 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.id &&
-                            e.hasOwnProperty("id") &&
+                            e.hasOwnProperty('id') &&
                             !r.isInteger(e.id)
                           )
-                            return "id: integer expected";
-                          if (null != e.action && e.hasOwnProperty("action"))
+                            return 'id: integer expected';
+                          if (null != e.action && e.hasOwnProperty('action'))
                             switch (e.action) {
                               default:
-                                return "action: enum value expected";
+                                return 'action: enum value expected';
                               case 0:
                               case 1:
                               case 2:
@@ -13742,15 +13742,15 @@
                           switch (
                             (null != e.id && (t.id = 0 | e.id), e.action)
                           ) {
-                            case "DISCONNECT":
+                            case 'DISCONNECT':
                             case 0:
                               t.action = 0;
                               break;
-                            case "TRY_CLOSE":
+                            case 'TRY_CLOSE':
                             case 1:
                               t.action = 1;
                               break;
-                            case "CLOSE":
+                            case 'CLOSE':
                             case 2:
                               t.action = 2;
                           }
@@ -13763,12 +13763,12 @@
                             t.defaults &&
                               ((n.id = 0),
                               (n.action =
-                                t.enums === String ? "DISCONNECT" : 0)),
+                                t.enums === String ? 'DISCONNECT' : 0)),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.action &&
-                              e.hasOwnProperty("action") &&
+                              e.hasOwnProperty('action') &&
                               (n.action =
                                 t.enums === String
                                   ? o.api.CloseChannel.Action[e.action]
@@ -13786,9 +13786,9 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "DISCONNECT")] = 0),
-                            (t[(e[1] = "TRY_CLOSE")] = 1),
-                            (t[(e[2] = "CLOSE")] = 2),
+                            (t[(e[0] = 'DISCONNECT')] = 0),
+                            (t[(e[1] = 'TRY_CLOSE')] = 1),
+                            (t[(e[2] = 'CLOSE')] = 2),
                             t
                           );
                         })()),
@@ -13811,10 +13811,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(8).int32(e.id),
                             null != e.status &&
-                              Object.hasOwnProperty.call(e, "status") &&
+                              Object.hasOwnProperty.call(e, 'status') &&
                               t.uint32(16).int32(e.status),
                             t
                           );
@@ -13851,18 +13851,18 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.id &&
-                            e.hasOwnProperty("id") &&
+                            e.hasOwnProperty('id') &&
                             !r.isInteger(e.id)
                           )
-                            return "id: integer expected";
-                          if (null != e.status && e.hasOwnProperty("status"))
+                            return 'id: integer expected';
+                          if (null != e.status && e.hasOwnProperty('status'))
                             switch (e.status) {
                               default:
-                                return "status: enum value expected";
+                                return 'status: enum value expected';
                               case 0:
                               case 1:
                               case 2:
@@ -13875,15 +13875,15 @@
                           switch (
                             (null != e.id && (t.id = 0 | e.id), e.status)
                           ) {
-                            case "DISCONNECT":
+                            case 'DISCONNECT':
                             case 0:
                               t.status = 0;
                               break;
-                            case "CLOSE":
+                            case 'CLOSE':
                             case 1:
                               t.status = 1;
                               break;
-                            case "NOTHING":
+                            case 'NOTHING':
                             case 2:
                               t.status = 2;
                           }
@@ -13896,12 +13896,12 @@
                             t.defaults &&
                               ((n.id = 0),
                               (n.status =
-                                t.enums === String ? "DISCONNECT" : 0)),
+                                t.enums === String ? 'DISCONNECT' : 0)),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.status &&
-                              e.hasOwnProperty("status") &&
+                              e.hasOwnProperty('status') &&
                               (n.status =
                                 t.enums === String
                                   ? o.api.CloseChannelRes.Status[e.status]
@@ -13919,9 +13919,9 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "DISCONNECT")] = 0),
-                            (t[(e[1] = "CLOSE")] = 1),
-                            (t[(e[2] = "NOTHING")] = 2),
+                            (t[(e[0] = 'DISCONNECT')] = 0),
+                            (t[(e[1] = 'CLOSE')] = 1),
+                            (t[(e[2] = 'NOTHING')] = 2),
                             t
                           );
                         })()),
@@ -13943,7 +13943,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.state &&
-                              Object.hasOwnProperty.call(e, "state") &&
+                              Object.hasOwnProperty.call(e, 'state') &&
                               t.uint32(8).int32(e.state),
                             t
                           );
@@ -13977,12 +13977,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.state && e.hasOwnProperty("state"))
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.state && e.hasOwnProperty('state'))
                             switch (e.state) {
                               default:
-                                return "state: enum value expected";
+                                return 'state: enum value expected';
                               case 0:
                               case 1:
                             }
@@ -13992,11 +13992,11 @@
                           if (e instanceof o.api.ContainerState) return e;
                           var t = new o.api.ContainerState();
                           switch (e.state) {
-                            case "SLEEP":
+                            case 'SLEEP':
                             case 0:
                               t.state = 0;
                               break;
-                            case "READY":
+                            case 'READY':
                             case 1:
                               t.state = 1;
                           }
@@ -14007,9 +14007,9 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              (n.state = t.enums === String ? "SLEEP" : 0),
+                              (n.state = t.enums === String ? 'SLEEP' : 0),
                             null != e.state &&
-                              e.hasOwnProperty("state") &&
+                              e.hasOwnProperty('state') &&
                               (n.state =
                                 t.enums === String
                                   ? o.api.ContainerState.State[e.state]
@@ -14027,8 +14027,8 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "SLEEP")] = 0),
-                            (t[(e[1] = "READY")] = 1),
+                            (t[(e[0] = 'SLEEP')] = 0),
+                            (t[(e[1] = 'READY')] = 1),
                             t
                           );
                         })()),
@@ -14044,7 +14044,7 @@
                       return (
                         (i.prototype.forwarded = !1),
                         (i.prototype.port = 0),
-                        (i.prototype.address = ""),
+                        (i.prototype.address = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -14052,13 +14052,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.forwarded &&
-                              Object.hasOwnProperty.call(e, "forwarded") &&
+                              Object.hasOwnProperty.call(e, 'forwarded') &&
                               t.uint32(8).bool(e.forwarded),
                             null != e.port &&
-                              Object.hasOwnProperty.call(e, "port") &&
+                              Object.hasOwnProperty.call(e, 'port') &&
                               t.uint32(16).uint32(e.port),
                             null != e.address &&
-                              Object.hasOwnProperty.call(e, "address") &&
+                              Object.hasOwnProperty.call(e, 'address') &&
                               t.uint32(26).string(e.address),
                             t
                           );
@@ -14098,20 +14098,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.forwarded &&
-                              e.hasOwnProperty("forwarded") &&
-                              "boolean" !== typeof e.forwarded
-                            ? "forwarded: boolean expected"
+                              e.hasOwnProperty('forwarded') &&
+                              'boolean' !== typeof e.forwarded
+                            ? 'forwarded: boolean expected'
                             : null != e.port &&
-                              e.hasOwnProperty("port") &&
+                              e.hasOwnProperty('port') &&
                               !r.isInteger(e.port)
-                            ? "port: integer expected"
+                            ? 'port: integer expected'
                             : null != e.address &&
-                              e.hasOwnProperty("address") &&
+                              e.hasOwnProperty('address') &&
                               !r.isString(e.address)
-                            ? "address: string expected"
+                            ? 'address: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -14133,15 +14133,15 @@
                             t.defaults &&
                               ((n.forwarded = !1),
                               (n.port = 0),
-                              (n.address = "")),
+                              (n.address = '')),
                             null != e.forwarded &&
-                              e.hasOwnProperty("forwarded") &&
+                              e.hasOwnProperty('forwarded') &&
                               (n.forwarded = e.forwarded),
                             null != e.port &&
-                              e.hasOwnProperty("port") &&
+                              e.hasOwnProperty('port') &&
                               (n.port = e.port),
                             null != e.address &&
-                              e.hasOwnProperty("address") &&
+                              e.hasOwnProperty('address') &&
                               (n.address = e.address),
                             n
                           );
@@ -14171,10 +14171,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.versionFrom &&
-                              Object.hasOwnProperty.call(e, "versionFrom") &&
+                              Object.hasOwnProperty.call(e, 'versionFrom') &&
                               t.uint32(8).uint32(e.versionFrom),
                             null != e.versionTo &&
-                              Object.hasOwnProperty.call(e, "versionTo") &&
+                              Object.hasOwnProperty.call(e, 'versionTo') &&
                               t.uint32(16).uint32(e.versionTo),
                             t
                           );
@@ -14211,16 +14211,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.versionFrom &&
-                              e.hasOwnProperty("versionFrom") &&
+                              e.hasOwnProperty('versionFrom') &&
                               !r.isInteger(e.versionFrom)
-                            ? "versionFrom: integer expected"
+                            ? 'versionFrom: integer expected'
                             : null != e.versionTo &&
-                              e.hasOwnProperty("versionTo") &&
+                              e.hasOwnProperty('versionTo') &&
                               !r.isInteger(e.versionTo)
-                            ? "versionTo: integer expected"
+                            ? 'versionTo: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -14241,10 +14241,10 @@
                             t.defaults &&
                               ((n.versionFrom = 0), (n.versionTo = 0)),
                             null != e.versionFrom &&
-                              e.hasOwnProperty("versionFrom") &&
+                              e.hasOwnProperty('versionFrom') &&
                               (n.versionFrom = e.versionFrom),
                             null != e.versionTo &&
-                              e.hasOwnProperty("versionTo") &&
+                              e.hasOwnProperty('versionTo') &&
                               (n.versionTo = e.versionTo),
                             n
                           );
@@ -14314,17 +14314,17 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.packets &&
-                            e.hasOwnProperty("packets")
+                            e.hasOwnProperty('packets')
                           ) {
                             if (!Array.isArray(e.packets))
-                              return "packets: array expected";
+                              return 'packets: array expected';
                             for (var t = 0; t < e.packets.length; ++t) {
                               var n = o.api.OTPacket.verify(e.packets[t]);
-                              if (n) return "packets." + n;
+                              if (n) return 'packets.' + n;
                             }
                           }
                           return null;
@@ -14335,13 +14335,13 @@
                           if (e.packets) {
                             if (!Array.isArray(e.packets))
                               throw TypeError(
-                                ".api.OTFetchResponse.packets: array expected"
+                                '.api.OTFetchResponse.packets: array expected'
                               );
                             t.packets = [];
                             for (var n = 0; n < e.packets.length; ++n) {
-                              if ("object" !== typeof e.packets[n])
+                              if ('object' !== typeof e.packets[n])
                                 throw TypeError(
-                                  ".api.OTFetchResponse.packets: object expected"
+                                  '.api.OTFetchResponse.packets: object expected'
                                 );
                               t.packets[n] = o.api.OTPacket.fromObject(
                                 e.packets[n]
@@ -14393,16 +14393,16 @@
                           return (
                             t || (t = n.create()),
                             null != e.indexStart &&
-                              Object.hasOwnProperty.call(e, "indexStart") &&
+                              Object.hasOwnProperty.call(e, 'indexStart') &&
                               t.uint32(8).uint32(e.indexStart),
                             null != e.indexEnd &&
-                              Object.hasOwnProperty.call(e, "indexEnd") &&
+                              Object.hasOwnProperty.call(e, 'indexEnd') &&
                               t.uint32(16).uint32(e.indexEnd),
                             null != e.versionFrom &&
-                              Object.hasOwnProperty.call(e, "versionFrom") &&
+                              Object.hasOwnProperty.call(e, 'versionFrom') &&
                               t.uint32(24).uint32(e.versionFrom),
                             null != e.versionTo &&
-                              Object.hasOwnProperty.call(e, "versionTo") &&
+                              Object.hasOwnProperty.call(e, 'versionTo') &&
                               t.uint32(32).uint32(e.versionTo),
                             t
                           );
@@ -14445,24 +14445,24 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.indexStart &&
-                              e.hasOwnProperty("indexStart") &&
+                              e.hasOwnProperty('indexStart') &&
                               !r.isInteger(e.indexStart)
-                            ? "indexStart: integer expected"
+                            ? 'indexStart: integer expected'
                             : null != e.indexEnd &&
-                              e.hasOwnProperty("indexEnd") &&
+                              e.hasOwnProperty('indexEnd') &&
                               !r.isInteger(e.indexEnd)
-                            ? "indexEnd: integer expected"
+                            ? 'indexEnd: integer expected'
                             : null != e.versionFrom &&
-                              e.hasOwnProperty("versionFrom") &&
+                              e.hasOwnProperty('versionFrom') &&
                               !r.isInteger(e.versionFrom)
-                            ? "versionFrom: integer expected"
+                            ? 'versionFrom: integer expected'
                             : null != e.versionTo &&
-                              e.hasOwnProperty("versionTo") &&
+                              e.hasOwnProperty('versionTo') &&
                               !r.isInteger(e.versionTo)
-                            ? "versionTo: integer expected"
+                            ? 'versionTo: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -14491,16 +14491,16 @@
                               (n.versionFrom = 0),
                               (n.versionTo = 0)),
                             null != e.indexStart &&
-                              e.hasOwnProperty("indexStart") &&
+                              e.hasOwnProperty('indexStart') &&
                               (n.indexStart = e.indexStart),
                             null != e.indexEnd &&
-                              e.hasOwnProperty("indexEnd") &&
+                              e.hasOwnProperty('indexEnd') &&
                               (n.indexEnd = e.indexEnd),
                             null != e.versionFrom &&
-                              e.hasOwnProperty("versionFrom") &&
+                              e.hasOwnProperty('versionFrom') &&
                               (n.versionFrom = e.versionFrom),
                             null != e.versionTo &&
-                              e.hasOwnProperty("versionTo") &&
+                              e.hasOwnProperty('versionTo') &&
                               (n.versionTo = e.versionTo),
                             n
                           );
@@ -14531,13 +14531,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.indexStart &&
-                              Object.hasOwnProperty.call(e, "indexStart") &&
+                              Object.hasOwnProperty.call(e, 'indexStart') &&
                               t.uint32(8).uint32(e.indexStart),
                             null != e.indexEnd &&
-                              Object.hasOwnProperty.call(e, "indexEnd") &&
+                              Object.hasOwnProperty.call(e, 'indexEnd') &&
                               t.uint32(16).uint32(e.indexEnd),
                             null != e.version &&
-                              Object.hasOwnProperty.call(e, "version") &&
+                              Object.hasOwnProperty.call(e, 'version') &&
                               t.uint32(24).uint32(e.version),
                             t
                           );
@@ -14577,20 +14577,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.indexStart &&
-                              e.hasOwnProperty("indexStart") &&
+                              e.hasOwnProperty('indexStart') &&
                               !r.isInteger(e.indexStart)
-                            ? "indexStart: integer expected"
+                            ? 'indexStart: integer expected'
                             : null != e.indexEnd &&
-                              e.hasOwnProperty("indexEnd") &&
+                              e.hasOwnProperty('indexEnd') &&
                               !r.isInteger(e.indexEnd)
-                            ? "indexEnd: integer expected"
+                            ? 'indexEnd: integer expected'
                             : null != e.version &&
-                              e.hasOwnProperty("version") &&
+                              e.hasOwnProperty('version') &&
                               !r.isInteger(e.version)
-                            ? "version: integer expected"
+                            ? 'version: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -14615,13 +14615,13 @@
                               (n.indexEnd = 0),
                               (n.version = 0)),
                             null != e.indexStart &&
-                              e.hasOwnProperty("indexStart") &&
+                              e.hasOwnProperty('indexStart') &&
                               (n.indexStart = e.indexStart),
                             null != e.indexEnd &&
-                              e.hasOwnProperty("indexEnd") &&
+                              e.hasOwnProperty('indexEnd') &&
                               (n.indexEnd = e.indexEnd),
                             null != e.version &&
-                              e.hasOwnProperty("version") &&
+                              e.hasOwnProperty('version') &&
                               (n.version = e.version),
                             n
                           );
@@ -14655,7 +14655,7 @@
                           if (
                             (t || (t = n.create()),
                             null != e.spookyVersion &&
-                              Object.hasOwnProperty.call(e, "spookyVersion") &&
+                              Object.hasOwnProperty.call(e, 'spookyVersion') &&
                               t.uint32(8).uint32(e.spookyVersion),
                             null != e.ops && e.ops.length)
                           )
@@ -14666,19 +14666,19 @@
                               ).ldelim();
                           return (
                             null != e.crc32 &&
-                              Object.hasOwnProperty.call(e, "crc32") &&
+                              Object.hasOwnProperty.call(e, 'crc32') &&
                               t.uint32(24).uint32(e.crc32),
                             null != e.committed &&
-                              Object.hasOwnProperty.call(e, "committed") &&
+                              Object.hasOwnProperty.call(e, 'committed') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.committed,
                                 t.uint32(34).fork()
                               ).ldelim(),
                             null != e.version &&
-                              Object.hasOwnProperty.call(e, "version") &&
+                              Object.hasOwnProperty.call(e, 'version') &&
                               t.uint32(40).uint32(e.version),
                             null != e.nonce &&
-                              Object.hasOwnProperty.call(e, "nonce") &&
+                              Object.hasOwnProperty.call(e, 'nonce') &&
                               t.uint32(48).uint32(e.nonce),
                             t
                           );
@@ -14737,43 +14737,43 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.spookyVersion &&
-                            e.hasOwnProperty("spookyVersion") &&
+                            e.hasOwnProperty('spookyVersion') &&
                             !r.isInteger(e.spookyVersion)
                           )
-                            return "spookyVersion: integer expected";
+                            return 'spookyVersion: integer expected';
                           if (
                             null != e.version &&
-                            e.hasOwnProperty("version") &&
+                            e.hasOwnProperty('version') &&
                             !r.isInteger(e.version)
                           )
-                            return "version: integer expected";
-                          if (null != e.ops && e.hasOwnProperty("ops")) {
+                            return 'version: integer expected';
+                          if (null != e.ops && e.hasOwnProperty('ops')) {
                             if (!Array.isArray(e.ops))
-                              return "ops: array expected";
+                              return 'ops: array expected';
                             for (var t = 0; t < e.ops.length; ++t)
                               if (
                                 (n = o.api.OTRuneTransformOp.verify(e.ops[t]))
                               )
-                                return "ops." + n;
+                                return 'ops.' + n;
                           }
                           return null != e.crc32 &&
-                            e.hasOwnProperty("crc32") &&
+                            e.hasOwnProperty('crc32') &&
                             !r.isInteger(e.crc32)
-                            ? "crc32: integer expected"
+                            ? 'crc32: integer expected'
                             : null != e.committed &&
-                              e.hasOwnProperty("committed") &&
+                              e.hasOwnProperty('committed') &&
                               (n = o.google.protobuf.Timestamp.verify(
                                 e.committed
                               ))
-                            ? "committed." + n
+                            ? 'committed.' + n
                             : null != e.nonce &&
-                              e.hasOwnProperty("nonce") &&
+                              e.hasOwnProperty('nonce') &&
                               !r.isInteger(e.nonce)
-                            ? "nonce: integer expected"
+                            ? 'nonce: integer expected'
                             : null;
                           var n;
                         }),
@@ -14788,13 +14788,13 @@
                           ) {
                             if (!Array.isArray(e.ops))
                               throw TypeError(
-                                ".api.OTPacket.ops: array expected"
+                                '.api.OTPacket.ops: array expected'
                               );
                             t.ops = [];
                             for (var n = 0; n < e.ops.length; ++n) {
-                              if ("object" !== typeof e.ops[n])
+                              if ('object' !== typeof e.ops[n])
                                 throw TypeError(
-                                  ".api.OTPacket.ops: object expected"
+                                  '.api.OTPacket.ops: object expected'
                                 );
                               t.ops[n] = o.api.OTRuneTransformOp.fromObject(
                                 e.ops[n]
@@ -14805,9 +14805,9 @@
                             (null != e.crc32 && (t.crc32 = e.crc32 >>> 0),
                             null != e.committed)
                           ) {
-                            if ("object" !== typeof e.committed)
+                            if ('object' !== typeof e.committed)
                               throw TypeError(
-                                ".api.OTPacket.committed: object expected"
+                                '.api.OTPacket.committed: object expected'
                               );
                             t.committed =
                               o.google.protobuf.Timestamp.fromObject(
@@ -14830,7 +14830,7 @@
                               (n.version = 0),
                               (n.nonce = 0)),
                             null != e.spookyVersion &&
-                              e.hasOwnProperty("spookyVersion") &&
+                              e.hasOwnProperty('spookyVersion') &&
                               (n.spookyVersion = e.spookyVersion),
                             e.ops && e.ops.length)
                           ) {
@@ -14843,20 +14843,20 @@
                           }
                           return (
                             null != e.crc32 &&
-                              e.hasOwnProperty("crc32") &&
+                              e.hasOwnProperty('crc32') &&
                               (n.crc32 = e.crc32),
                             null != e.committed &&
-                              e.hasOwnProperty("committed") &&
+                              e.hasOwnProperty('committed') &&
                               (n.committed =
                                 o.google.protobuf.Timestamp.toObject(
                                   e.committed,
                                   t
                                 )),
                             null != e.version &&
-                              e.hasOwnProperty("version") &&
+                              e.hasOwnProperty('version') &&
                               (n.version = e.version),
                             null != e.nonce &&
-                              e.hasOwnProperty("nonce") &&
+                              e.hasOwnProperty('nonce') &&
                               (n.nonce = e.nonce),
                             n
                           );
@@ -14881,9 +14881,9 @@
                         (i.prototype.skip = null),
                         (i.prototype.delete = null),
                         (i.prototype.insert = null),
-                        Object.defineProperty(i.prototype, "op", {
+                        Object.defineProperty(i.prototype, 'op', {
                           get: r.oneOfGetter(
-                            (a = ["skip", "delete", "insert"])
+                            (a = ['skip', 'delete', 'insert'])
                           ),
                           set: r.oneOfSetter(a),
                         }),
@@ -14894,13 +14894,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.skip &&
-                              Object.hasOwnProperty.call(e, "skip") &&
+                              Object.hasOwnProperty.call(e, 'skip') &&
                               t.uint32(8).uint32(e.skip),
                             null != e.delete &&
-                              Object.hasOwnProperty.call(e, "delete") &&
+                              Object.hasOwnProperty.call(e, 'delete') &&
                               t.uint32(16).uint32(e.delete),
                             null != e.insert &&
-                              Object.hasOwnProperty.call(e, "insert") &&
+                              Object.hasOwnProperty.call(e, 'insert') &&
                               t.uint32(26).string(e.insert),
                             t
                           );
@@ -14940,24 +14940,24 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.skip &&
-                            e.hasOwnProperty("skip") &&
+                            e.hasOwnProperty('skip') &&
                             ((t.op = 1), !r.isInteger(e.skip))
                           )
-                            return "skip: integer expected";
-                          if (null != e.delete && e.hasOwnProperty("delete")) {
-                            if (1 === t.op) return "op: multiple values";
+                            return 'skip: integer expected';
+                          if (null != e.delete && e.hasOwnProperty('delete')) {
+                            if (1 === t.op) return 'op: multiple values';
                             if (((t.op = 1), !r.isInteger(e.delete)))
-                              return "delete: integer expected";
+                              return 'delete: integer expected';
                           }
-                          if (null != e.insert && e.hasOwnProperty("insert")) {
-                            if (1 === t.op) return "op: multiple values";
+                          if (null != e.insert && e.hasOwnProperty('insert')) {
+                            if (1 === t.op) return 'op: multiple values';
                             if (((t.op = 1), !r.isString(e.insert)))
-                              return "insert: string expected";
+                              return 'insert: string expected';
                           }
                           return null;
                         }),
@@ -14976,16 +14976,16 @@
                           var n = {};
                           return (
                             null != e.skip &&
-                              e.hasOwnProperty("skip") &&
-                              ((n.skip = e.skip), t.oneofs && (n.op = "skip")),
+                              e.hasOwnProperty('skip') &&
+                              ((n.skip = e.skip), t.oneofs && (n.op = 'skip')),
                             null != e.delete &&
-                              e.hasOwnProperty("delete") &&
+                              e.hasOwnProperty('delete') &&
                               ((n.delete = e.delete),
-                              t.oneofs && (n.op = "delete")),
+                              t.oneofs && (n.op = 'delete')),
                             null != e.insert &&
-                              e.hasOwnProperty("insert") &&
+                              e.hasOwnProperty('insert') &&
                               ((n.insert = e.insert),
-                              t.oneofs && (n.op = "insert")),
+                              t.oneofs && (n.op = 'insert')),
                             n
                           );
                         }),
@@ -15005,7 +15005,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.contents = ""),
+                        (i.prototype.contents = ''),
                         (i.prototype.version = 0),
                         (i.prototype.linkedFile = null),
                         (i.prototype.cursors = r.emptyArray),
@@ -15016,13 +15016,13 @@
                           if (
                             (t || (t = n.create()),
                             null != e.contents &&
-                              Object.hasOwnProperty.call(e, "contents") &&
+                              Object.hasOwnProperty.call(e, 'contents') &&
                               t.uint32(10).string(e.contents),
                             null != e.version &&
-                              Object.hasOwnProperty.call(e, "version") &&
+                              Object.hasOwnProperty.call(e, 'version') &&
                               t.uint32(16).uint32(e.version),
                             null != e.linkedFile &&
-                              Object.hasOwnProperty.call(e, "linkedFile") &&
+                              Object.hasOwnProperty.call(e, 'linkedFile') &&
                               o.api.File.encode(
                                 e.linkedFile,
                                 t.uint32(26).fork()
@@ -15078,36 +15078,36 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.contents &&
-                            e.hasOwnProperty("contents") &&
+                            e.hasOwnProperty('contents') &&
                             !r.isString(e.contents)
                           )
-                            return "contents: string expected";
+                            return 'contents: string expected';
                           if (
                             null != e.version &&
-                            e.hasOwnProperty("version") &&
+                            e.hasOwnProperty('version') &&
                             !r.isInteger(e.version)
                           )
-                            return "version: integer expected";
+                            return 'version: integer expected';
                           if (
                             null != e.linkedFile &&
-                            e.hasOwnProperty("linkedFile") &&
+                            e.hasOwnProperty('linkedFile') &&
                             (n = o.api.File.verify(e.linkedFile))
                           )
-                            return "linkedFile." + n;
+                            return 'linkedFile.' + n;
                           if (
                             null != e.cursors &&
-                            e.hasOwnProperty("cursors")
+                            e.hasOwnProperty('cursors')
                           ) {
                             if (!Array.isArray(e.cursors))
-                              return "cursors: array expected";
+                              return 'cursors: array expected';
                             for (var t = 0; t < e.cursors.length; ++t) {
                               var n;
                               if ((n = o.api.OTCursor.verify(e.cursors[t])))
-                                return "cursors." + n;
+                                return 'cursors.' + n;
                             }
                           }
                           return null;
@@ -15121,22 +15121,22 @@
                             null != e.version && (t.version = e.version >>> 0),
                             null != e.linkedFile)
                           ) {
-                            if ("object" !== typeof e.linkedFile)
+                            if ('object' !== typeof e.linkedFile)
                               throw TypeError(
-                                ".api.OTStatus.linkedFile: object expected"
+                                '.api.OTStatus.linkedFile: object expected'
                               );
                             t.linkedFile = o.api.File.fromObject(e.linkedFile);
                           }
                           if (e.cursors) {
                             if (!Array.isArray(e.cursors))
                               throw TypeError(
-                                ".api.OTStatus.cursors: array expected"
+                                '.api.OTStatus.cursors: array expected'
                               );
                             t.cursors = [];
                             for (var n = 0; n < e.cursors.length; ++n) {
-                              if ("object" !== typeof e.cursors[n])
+                              if ('object' !== typeof e.cursors[n])
                                 throw TypeError(
-                                  ".api.OTStatus.cursors: object expected"
+                                  '.api.OTStatus.cursors: object expected'
                                 );
                               t.cursors[n] = o.api.OTCursor.fromObject(
                                 e.cursors[n]
@@ -15151,17 +15151,17 @@
                           if (
                             ((t.arrays || t.defaults) && (n.cursors = []),
                             t.defaults &&
-                              ((n.contents = ""),
+                              ((n.contents = ''),
                               (n.version = 0),
                               (n.linkedFile = null)),
                             null != e.contents &&
-                              e.hasOwnProperty("contents") &&
+                              e.hasOwnProperty('contents') &&
                               (n.contents = e.contents),
                             null != e.version &&
-                              e.hasOwnProperty("version") &&
+                              e.hasOwnProperty('version') &&
                               (n.version = e.version),
                             null != e.linkedFile &&
-                              e.hasOwnProperty("linkedFile") &&
+                              e.hasOwnProperty('linkedFile') &&
                               (n.linkedFile = o.api.File.toObject(
                                 e.linkedFile,
                                 t
@@ -15197,7 +15197,7 @@
                         (i.prototype.selectionStart = 0),
                         (i.prototype.selectionEnd = 0),
                         (i.prototype.user = null),
-                        (i.prototype.id = ""),
+                        (i.prototype.id = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -15205,22 +15205,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.position &&
-                              Object.hasOwnProperty.call(e, "position") &&
+                              Object.hasOwnProperty.call(e, 'position') &&
                               t.uint32(8).uint32(e.position),
                             null != e.selectionStart &&
-                              Object.hasOwnProperty.call(e, "selectionStart") &&
+                              Object.hasOwnProperty.call(e, 'selectionStart') &&
                               t.uint32(16).uint32(e.selectionStart),
                             null != e.selectionEnd &&
-                              Object.hasOwnProperty.call(e, "selectionEnd") &&
+                              Object.hasOwnProperty.call(e, 'selectionEnd') &&
                               t.uint32(24).uint32(e.selectionEnd),
                             null != e.user &&
-                              Object.hasOwnProperty.call(e, "user") &&
+                              Object.hasOwnProperty.call(e, 'user') &&
                               o.api.User.encode(
                                 e.user,
                                 t.uint32(34).fork()
                               ).ldelim(),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(42).string(e.id),
                             t
                           );
@@ -15266,34 +15266,34 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.position &&
-                            e.hasOwnProperty("position") &&
+                            e.hasOwnProperty('position') &&
                             !r.isInteger(e.position)
                           )
-                            return "position: integer expected";
+                            return 'position: integer expected';
                           if (
                             null != e.selectionStart &&
-                            e.hasOwnProperty("selectionStart") &&
+                            e.hasOwnProperty('selectionStart') &&
                             !r.isInteger(e.selectionStart)
                           )
-                            return "selectionStart: integer expected";
+                            return 'selectionStart: integer expected';
                           if (
                             null != e.selectionEnd &&
-                            e.hasOwnProperty("selectionEnd") &&
+                            e.hasOwnProperty('selectionEnd') &&
                             !r.isInteger(e.selectionEnd)
                           )
-                            return "selectionEnd: integer expected";
-                          if (null != e.user && e.hasOwnProperty("user")) {
+                            return 'selectionEnd: integer expected';
+                          if (null != e.user && e.hasOwnProperty('user')) {
                             var t = o.api.User.verify(e.user);
-                            if (t) return "user." + t;
+                            if (t) return 'user.' + t;
                           }
                           return null != e.id &&
-                            e.hasOwnProperty("id") &&
+                            e.hasOwnProperty('id') &&
                             !r.isString(e.id)
-                            ? "id: string expected"
+                            ? 'id: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -15308,9 +15308,9 @@
                               (t.selectionEnd = e.selectionEnd >>> 0),
                             null != e.user)
                           ) {
-                            if ("object" !== typeof e.user)
+                            if ('object' !== typeof e.user)
                               throw TypeError(
-                                ".api.OTCursor.user: object expected"
+                                '.api.OTCursor.user: object expected'
                               );
                             t.user = o.api.User.fromObject(e.user);
                           }
@@ -15325,21 +15325,21 @@
                               (n.selectionStart = 0),
                               (n.selectionEnd = 0),
                               (n.user = null),
-                              (n.id = "")),
+                              (n.id = '')),
                             null != e.position &&
-                              e.hasOwnProperty("position") &&
+                              e.hasOwnProperty('position') &&
                               (n.position = e.position),
                             null != e.selectionStart &&
-                              e.hasOwnProperty("selectionStart") &&
+                              e.hasOwnProperty('selectionStart') &&
                               (n.selectionStart = e.selectionStart),
                             null != e.selectionEnd &&
-                              e.hasOwnProperty("selectionEnd") &&
+                              e.hasOwnProperty('selectionEnd') &&
                               (n.selectionEnd = e.selectionEnd),
                             null != e.user &&
-                              e.hasOwnProperty("user") &&
+                              e.hasOwnProperty('user') &&
                               (n.user = o.api.User.toObject(e.user, t)),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             n
                           );
@@ -15360,8 +15360,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.username = ""),
-                        (i.prototype.text = ""),
+                        (i.prototype.username = ''),
+                        (i.prototype.text = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -15369,10 +15369,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.username &&
-                              Object.hasOwnProperty.call(e, "username") &&
+                              Object.hasOwnProperty.call(e, 'username') &&
                               t.uint32(10).string(e.username),
                             null != e.text &&
-                              Object.hasOwnProperty.call(e, "text") &&
+                              Object.hasOwnProperty.call(e, 'text') &&
                               t.uint32(18).string(e.text),
                             t
                           );
@@ -15409,16 +15409,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.username &&
-                              e.hasOwnProperty("username") &&
+                              e.hasOwnProperty('username') &&
                               !r.isString(e.username)
-                            ? "username: string expected"
+                            ? 'username: string expected'
                             : null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               !r.isString(e.text)
-                            ? "text: string expected"
+                            ? 'text: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -15435,12 +15435,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.username = ""), (n.text = "")),
+                            t.defaults && ((n.username = ''), (n.text = '')),
                             null != e.username &&
-                              e.hasOwnProperty("username") &&
+                              e.hasOwnProperty('username') &&
                               (n.username = e.username),
                             null != e.text &&
-                              e.hasOwnProperty("text") &&
+                              e.hasOwnProperty('text') &&
                               (n.text = e.text),
                             n
                           );
@@ -15461,7 +15461,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.username = ""),
+                        (i.prototype.username = ''),
                         (i.prototype.typing = !1),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -15470,10 +15470,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.username &&
-                              Object.hasOwnProperty.call(e, "username") &&
+                              Object.hasOwnProperty.call(e, 'username') &&
                               t.uint32(10).string(e.username),
                             null != e.typing &&
-                              Object.hasOwnProperty.call(e, "typing") &&
+                              Object.hasOwnProperty.call(e, 'typing') &&
                               t.uint32(16).bool(e.typing),
                             t
                           );
@@ -15510,16 +15510,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.username &&
-                              e.hasOwnProperty("username") &&
+                              e.hasOwnProperty('username') &&
                               !r.isString(e.username)
-                            ? "username: string expected"
+                            ? 'username: string expected'
                             : null != e.typing &&
-                              e.hasOwnProperty("typing") &&
-                              "boolean" !== typeof e.typing
-                            ? "typing: boolean expected"
+                              e.hasOwnProperty('typing') &&
+                              'boolean' !== typeof e.typing
+                            ? 'typing: boolean expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -15536,12 +15536,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.username = ""), (n.typing = !1)),
+                            t.defaults && ((n.username = ''), (n.typing = !1)),
                             null != e.username &&
-                              e.hasOwnProperty("username") &&
+                              e.hasOwnProperty('username') &&
                               (n.username = e.username),
                             null != e.typing &&
-                              e.hasOwnProperty("typing") &&
+                              e.hasOwnProperty('typing') &&
                               (n.typing = e.typing),
                             n
                           );
@@ -15563,7 +15563,7 @@
                       }
                       return (
                         (i.prototype.id = 0),
-                        (i.prototype.name = ""),
+                        (i.prototype.name = ''),
                         (i.prototype.roles = r.emptyArray),
                         (i.prototype.session = 0),
                         (i.create = function (e) {
@@ -15573,10 +15573,10 @@
                           if (
                             (t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(8).uint32(e.id),
                             null != e.name &&
-                              Object.hasOwnProperty.call(e, "name") &&
+                              Object.hasOwnProperty.call(e, 'name') &&
                               t.uint32(18).string(e.name),
                             null != e.roles && e.roles.length)
                           )
@@ -15584,7 +15584,7 @@
                               t.uint32(26).string(e.roles[r]);
                           return (
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(32).int32(e.session),
                             t
                           );
@@ -15628,31 +15628,31 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.id &&
-                            e.hasOwnProperty("id") &&
+                            e.hasOwnProperty('id') &&
                             !r.isInteger(e.id)
                           )
-                            return "id: integer expected";
+                            return 'id: integer expected';
                           if (
                             null != e.name &&
-                            e.hasOwnProperty("name") &&
+                            e.hasOwnProperty('name') &&
                             !r.isString(e.name)
                           )
-                            return "name: string expected";
-                          if (null != e.roles && e.hasOwnProperty("roles")) {
+                            return 'name: string expected';
+                          if (null != e.roles && e.hasOwnProperty('roles')) {
                             if (!Array.isArray(e.roles))
-                              return "roles: array expected";
+                              return 'roles: array expected';
                             for (var t = 0; t < e.roles.length; ++t)
                               if (!r.isString(e.roles[t]))
-                                return "roles: string[] expected";
+                                return 'roles: string[] expected';
                           }
                           return null != e.session &&
-                            e.hasOwnProperty("session") &&
+                            e.hasOwnProperty('session') &&
                             !r.isInteger(e.session)
-                            ? "session: integer expected"
+                            ? 'session: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -15665,7 +15665,7 @@
                           ) {
                             if (!Array.isArray(e.roles))
                               throw TypeError(
-                                ".api.User.roles: array expected"
+                                '.api.User.roles: array expected'
                               );
                             t.roles = [];
                             for (var n = 0; n < e.roles.length; ++n)
@@ -15681,12 +15681,12 @@
                           if (
                             ((t.arrays || t.defaults) && (n.roles = []),
                             t.defaults &&
-                              ((n.id = 0), (n.name = ""), (n.session = 0)),
+                              ((n.id = 0), (n.name = ''), (n.session = 0)),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.name &&
-                              e.hasOwnProperty("name") &&
+                              e.hasOwnProperty('name') &&
                               (n.name = e.name),
                             e.roles && e.roles.length)
                           ) {
@@ -15696,7 +15696,7 @@
                           }
                           return (
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             n
                           );
@@ -15776,22 +15776,22 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.user && e.hasOwnProperty("user")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.user && e.hasOwnProperty('user')) {
                             if (!Array.isArray(e.user))
-                              return "user: array expected";
+                              return 'user: array expected';
                             for (var t = 0; t < e.user.length; ++t)
                               if ((n = o.api.User.verify(e.user[t])))
-                                return "user." + n;
+                                return 'user.' + n;
                           }
-                          if (null != e.files && e.hasOwnProperty("files")) {
+                          if (null != e.files && e.hasOwnProperty('files')) {
                             if (!Array.isArray(e.files))
-                              return "files: array expected";
+                              return 'files: array expected';
                             for (t = 0; t < e.files.length; ++t) {
                               var n;
                               if ((n = o.api.FileOpened.verify(e.files[t])))
-                                return "files." + n;
+                                return 'files.' + n;
                             }
                           }
                           return null;
@@ -15802,13 +15802,13 @@
                           if (e.user) {
                             if (!Array.isArray(e.user))
                               throw TypeError(
-                                ".api.Roster.user: array expected"
+                                '.api.Roster.user: array expected'
                               );
                             t.user = [];
                             for (var n = 0; n < e.user.length; ++n) {
-                              if ("object" !== typeof e.user[n])
+                              if ('object' !== typeof e.user[n])
                                 throw TypeError(
-                                  ".api.Roster.user: object expected"
+                                  '.api.Roster.user: object expected'
                                 );
                               t.user[n] = o.api.User.fromObject(e.user[n]);
                             }
@@ -15816,12 +15816,12 @@
                           if (e.files) {
                             if (!Array.isArray(e.files))
                               throw TypeError(
-                                ".api.Roster.files: array expected"
+                                '.api.Roster.files: array expected'
                               );
                             for (t.files = [], n = 0; n < e.files.length; ++n) {
-                              if ("object" !== typeof e.files[n])
+                              if ('object' !== typeof e.files[n])
                                 throw TypeError(
-                                  ".api.Roster.files: object expected"
+                                  '.api.Roster.files: object expected'
                                 );
                               t.files[n] = o.api.FileOpened.fromObject(
                                 e.files[n]
@@ -15866,7 +15866,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.file = ""),
+                        (i.prototype.file = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -15874,7 +15874,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               t.uint32(10).string(e.file),
                             t
                           );
@@ -15908,12 +15908,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               !r.isString(e.file)
-                            ? "file: string expected"
+                            ? 'file: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -15925,9 +15925,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.file = ""),
+                            t.defaults && (n.file = ''),
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               (n.file = e.file),
                             n
                           );
@@ -15949,7 +15949,7 @@
                       }
                       return (
                         (i.prototype.userId = 0),
-                        (i.prototype.file = ""),
+                        (i.prototype.file = ''),
                         (i.prototype.session = 0),
                         (i.prototype.timestamp = null),
                         (i.create = function (e) {
@@ -15959,16 +15959,16 @@
                           return (
                             t || (t = n.create()),
                             null != e.userId &&
-                              Object.hasOwnProperty.call(e, "userId") &&
+                              Object.hasOwnProperty.call(e, 'userId') &&
                               t.uint32(8).uint32(e.userId),
                             null != e.file &&
-                              Object.hasOwnProperty.call(e, "file") &&
+                              Object.hasOwnProperty.call(e, 'file') &&
                               t.uint32(18).string(e.file),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(24).int32(e.session),
                             null != e.timestamp &&
-                              Object.hasOwnProperty.call(e, "timestamp") &&
+                              Object.hasOwnProperty.call(e, 'timestamp') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.timestamp,
                                 t.uint32(34).fork()
@@ -16018,34 +16018,34 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.userId &&
-                            e.hasOwnProperty("userId") &&
+                            e.hasOwnProperty('userId') &&
                             !r.isInteger(e.userId)
                           )
-                            return "userId: integer expected";
+                            return 'userId: integer expected';
                           if (
                             null != e.file &&
-                            e.hasOwnProperty("file") &&
+                            e.hasOwnProperty('file') &&
                             !r.isString(e.file)
                           )
-                            return "file: string expected";
+                            return 'file: string expected';
                           if (
                             null != e.session &&
-                            e.hasOwnProperty("session") &&
+                            e.hasOwnProperty('session') &&
                             !r.isInteger(e.session)
                           )
-                            return "session: integer expected";
+                            return 'session: integer expected';
                           if (
                             null != e.timestamp &&
-                            e.hasOwnProperty("timestamp")
+                            e.hasOwnProperty('timestamp')
                           ) {
                             var t = o.google.protobuf.Timestamp.verify(
                               e.timestamp
                             );
-                            if (t) return "timestamp." + t;
+                            if (t) return 'timestamp.' + t;
                           }
                           return null;
                         }),
@@ -16058,9 +16058,9 @@
                             null != e.session && (t.session = 0 | e.session),
                             null != e.timestamp)
                           ) {
-                            if ("object" !== typeof e.timestamp)
+                            if ('object' !== typeof e.timestamp)
                               throw TypeError(
-                                ".api.FileOpened.timestamp: object expected"
+                                '.api.FileOpened.timestamp: object expected'
                               );
                             t.timestamp =
                               o.google.protobuf.Timestamp.fromObject(
@@ -16075,20 +16075,20 @@
                           return (
                             t.defaults &&
                               ((n.userId = 0),
-                              (n.file = ""),
+                              (n.file = ''),
                               (n.session = 0),
                               (n.timestamp = null)),
                             null != e.userId &&
-                              e.hasOwnProperty("userId") &&
+                              e.hasOwnProperty('userId') &&
                               (n.userId = e.userId),
                             null != e.file &&
-                              e.hasOwnProperty("file") &&
+                              e.hasOwnProperty('file') &&
                               (n.file = e.file),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             null != e.timestamp &&
-                              e.hasOwnProperty("timestamp") &&
+                              e.hasOwnProperty('timestamp') &&
                               (n.timestamp =
                                 o.google.protobuf.Timestamp.toObject(
                                   e.timestamp,
@@ -16142,8 +16142,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -16179,10 +16179,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(8).int32(e.session),
                             null != e.timestamp &&
-                              Object.hasOwnProperty.call(e, "timestamp") &&
+                              Object.hasOwnProperty.call(e, 'timestamp') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.timestamp,
                                 t.uint32(18).fork()
@@ -16226,22 +16226,22 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.session &&
-                            e.hasOwnProperty("session") &&
+                            e.hasOwnProperty('session') &&
                             !r.isInteger(e.session)
                           )
-                            return "session: integer expected";
+                            return 'session: integer expected';
                           if (
                             null != e.timestamp &&
-                            e.hasOwnProperty("timestamp")
+                            e.hasOwnProperty('timestamp')
                           ) {
                             var t = o.google.protobuf.Timestamp.verify(
                               e.timestamp
                             );
-                            if (t) return "timestamp." + t;
+                            if (t) return 'timestamp.' + t;
                           }
                           return null;
                         }),
@@ -16253,9 +16253,9 @@
                             (null != e.session && (t.session = 0 | e.session),
                             null != e.timestamp)
                           ) {
-                            if ("object" !== typeof e.timestamp)
+                            if ('object' !== typeof e.timestamp)
                               throw TypeError(
-                                ".api.SessionTimestampUpdated.timestamp: object expected"
+                                '.api.SessionTimestampUpdated.timestamp: object expected'
                               );
                             t.timestamp =
                               o.google.protobuf.Timestamp.fromObject(
@@ -16271,10 +16271,10 @@
                             t.defaults &&
                               ((n.session = 0), (n.timestamp = null)),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             null != e.timestamp &&
-                              e.hasOwnProperty("timestamp") &&
+                              e.hasOwnProperty('timestamp') &&
                               (n.timestamp =
                                 o.google.protobuf.Timestamp.toObject(
                                   e.timestamp,
@@ -16307,7 +16307,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(8).int32(e.session),
                             t
                           );
@@ -16341,12 +16341,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               !r.isInteger(e.session)
-                            ? "session: integer expected"
+                            ? 'session: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -16362,7 +16362,7 @@
                           return (
                             t.defaults && (n.session = 0),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             n
                           );
@@ -16391,7 +16391,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(8).int32(e.session),
                             t
                           );
@@ -16425,12 +16425,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               !r.isInteger(e.session)
-                            ? "session: integer expected"
+                            ? 'session: integer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -16446,7 +16446,7 @@
                           return (
                             t.defaults && (n.session = 0),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             n
                           );
@@ -16485,7 +16485,7 @@
                               t.uint32(10).string(e.args[r]);
                           if (
                             null != e.env &&
-                            Object.hasOwnProperty.call(e, "env")
+                            Object.hasOwnProperty.call(e, 'env')
                           ) {
                             var o = Object.keys(e.env);
                             for (r = 0; r < o.length; ++r)
@@ -16499,16 +16499,16 @@
                           }
                           return (
                             null != e.blocking &&
-                              Object.hasOwnProperty.call(e, "blocking") &&
+                              Object.hasOwnProperty.call(e, 'blocking') &&
                               t.uint32(24).bool(e.blocking),
                             null != e.splitStderr &&
-                              Object.hasOwnProperty.call(e, "splitStderr") &&
+                              Object.hasOwnProperty.call(e, 'splitStderr') &&
                               t.uint32(32).bool(e.splitStderr),
                             null != e.splitLogs &&
-                              Object.hasOwnProperty.call(e, "splitLogs") &&
+                              Object.hasOwnProperty.call(e, 'splitLogs') &&
                               t.uint32(40).bool(e.splitLogs),
                             null != e.lifecycle &&
-                              Object.hasOwnProperty.call(e, "lifecycle") &&
+                              Object.hasOwnProperty.call(e, 'lifecycle') &&
                               t.uint32(48).int32(e.lifecycle),
                             t
                           );
@@ -16535,7 +16535,7 @@
                               case 2:
                                 l.env === r.emptyObject && (l.env = {});
                                 var c = e.uint32() + e.pos;
-                                for (i = "", a = ""; e.pos < c; ) {
+                                for (i = '', a = ''; e.pos < c; ) {
                                   var p = e.uint32();
                                   switch (p >>> 3) {
                                     case 1:
@@ -16575,48 +16575,48 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.args && e.hasOwnProperty("args")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.args && e.hasOwnProperty('args')) {
                             if (!Array.isArray(e.args))
-                              return "args: array expected";
+                              return 'args: array expected';
                             for (var t = 0; t < e.args.length; ++t)
                               if (!r.isString(e.args[t]))
-                                return "args: string[] expected";
+                                return 'args: string[] expected';
                           }
-                          if (null != e.env && e.hasOwnProperty("env")) {
+                          if (null != e.env && e.hasOwnProperty('env')) {
                             if (!r.isObject(e.env))
-                              return "env: object expected";
+                              return 'env: object expected';
                             var n = Object.keys(e.env);
                             for (t = 0; t < n.length; ++t)
                               if (!r.isString(e.env[n[t]]))
-                                return "env: string{k:string} expected";
+                                return 'env: string{k:string} expected';
                           }
                           if (
                             null != e.blocking &&
-                            e.hasOwnProperty("blocking") &&
-                            "boolean" !== typeof e.blocking
+                            e.hasOwnProperty('blocking') &&
+                            'boolean' !== typeof e.blocking
                           )
-                            return "blocking: boolean expected";
+                            return 'blocking: boolean expected';
                           if (
                             null != e.lifecycle &&
-                            e.hasOwnProperty("lifecycle")
+                            e.hasOwnProperty('lifecycle')
                           )
                             switch (e.lifecycle) {
                               default:
-                                return "lifecycle: enum value expected";
+                                return 'lifecycle: enum value expected';
                               case 0:
                               case 1:
                               case 2:
                             }
                           return null != e.splitStderr &&
-                            e.hasOwnProperty("splitStderr") &&
-                            "boolean" !== typeof e.splitStderr
-                            ? "splitStderr: boolean expected"
+                            e.hasOwnProperty('splitStderr') &&
+                            'boolean' !== typeof e.splitStderr
+                            ? 'splitStderr: boolean expected'
                             : null != e.splitLogs &&
-                              e.hasOwnProperty("splitLogs") &&
-                              "boolean" !== typeof e.splitLogs
-                            ? "splitLogs: boolean expected"
+                              e.hasOwnProperty('splitLogs') &&
+                              'boolean' !== typeof e.splitLogs
+                            ? 'splitLogs: boolean expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -16624,14 +16624,14 @@
                           var t = new o.api.Exec();
                           if (e.args) {
                             if (!Array.isArray(e.args))
-                              throw TypeError(".api.Exec.args: array expected");
+                              throw TypeError('.api.Exec.args: array expected');
                             t.args = [];
                             for (var n = 0; n < e.args.length; ++n)
                               t.args[n] = String(e.args[n]);
                           }
                           if (e.env) {
-                            if ("object" !== typeof e.env)
-                              throw TypeError(".api.Exec.env: object expected");
+                            if ('object' !== typeof e.env)
+                              throw TypeError('.api.Exec.env: object expected');
                             t.env = {};
                             var r = Object.keys(e.env);
                             for (n = 0; n < r.length; ++n)
@@ -16642,15 +16642,15 @@
                               (t.blocking = Boolean(e.blocking)),
                             e.lifecycle)
                           ) {
-                            case "NON_BLOCKING":
+                            case 'NON_BLOCKING':
                             case 0:
                               t.lifecycle = 0;
                               break;
-                            case "BLOCKING":
+                            case 'BLOCKING':
                             case 1:
                               t.lifecycle = 1;
                               break;
-                            case "STDIN":
+                            case 'STDIN':
                             case 2:
                               t.lifecycle = 2;
                           }
@@ -16674,7 +16674,7 @@
                               (r.splitStderr = !1),
                               (r.splitLogs = !1),
                               (r.lifecycle =
-                                t.enums === String ? "NON_BLOCKING" : 0)),
+                                t.enums === String ? 'NON_BLOCKING' : 0)),
                             e.args && e.args.length)
                           ) {
                             r.args = [];
@@ -16686,16 +16686,16 @@
                               r.env[n[i]] = e.env[n[i]];
                           return (
                             null != e.blocking &&
-                              e.hasOwnProperty("blocking") &&
+                              e.hasOwnProperty('blocking') &&
                               (r.blocking = e.blocking),
                             null != e.splitStderr &&
-                              e.hasOwnProperty("splitStderr") &&
+                              e.hasOwnProperty('splitStderr') &&
                               (r.splitStderr = e.splitStderr),
                             null != e.splitLogs &&
-                              e.hasOwnProperty("splitLogs") &&
+                              e.hasOwnProperty('splitLogs') &&
                               (r.splitLogs = e.splitLogs),
                             null != e.lifecycle &&
-                              e.hasOwnProperty("lifecycle") &&
+                              e.hasOwnProperty('lifecycle') &&
                               (r.lifecycle =
                                 t.enums === String
                                   ? o.api.Exec.Lifecycle[e.lifecycle]
@@ -16713,9 +16713,9 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "NON_BLOCKING")] = 0),
-                            (t[(e[1] = "BLOCKING")] = 1),
-                            (t[(e[2] = "STDIN")] = 2),
+                            (t[(e[0] = 'NON_BLOCKING')] = 0),
+                            (t[(e[1] = 'BLOCKING')] = 1),
+                            (t[(e[2] = 'STDIN')] = 2),
                             t
                           );
                         })()),
@@ -16729,16 +16729,16 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.name = ""),
-                        (i.prototype.spec = ""),
-                        (i.prototype.description = ""),
-                        (i.prototype.version = ""),
-                        (i.prototype.homepageURL = ""),
-                        (i.prototype.documentationURL = ""),
-                        (i.prototype.sourceCodeURL = ""),
-                        (i.prototype.bugTrackerURL = ""),
-                        (i.prototype.author = ""),
-                        (i.prototype.license = ""),
+                        (i.prototype.name = ''),
+                        (i.prototype.spec = ''),
+                        (i.prototype.description = ''),
+                        (i.prototype.version = ''),
+                        (i.prototype.homepageURL = ''),
+                        (i.prototype.documentationURL = ''),
+                        (i.prototype.sourceCodeURL = ''),
+                        (i.prototype.bugTrackerURL = ''),
+                        (i.prototype.author = ''),
+                        (i.prototype.license = ''),
                         (i.prototype.dependencies = r.emptyArray),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -16747,37 +16747,37 @@
                           if (
                             (t || (t = n.create()),
                             null != e.name &&
-                              Object.hasOwnProperty.call(e, "name") &&
+                              Object.hasOwnProperty.call(e, 'name') &&
                               t.uint32(10).string(e.name),
                             null != e.spec &&
-                              Object.hasOwnProperty.call(e, "spec") &&
+                              Object.hasOwnProperty.call(e, 'spec') &&
                               t.uint32(18).string(e.spec),
                             null != e.description &&
-                              Object.hasOwnProperty.call(e, "description") &&
+                              Object.hasOwnProperty.call(e, 'description') &&
                               t.uint32(82).string(e.description),
                             null != e.version &&
-                              Object.hasOwnProperty.call(e, "version") &&
+                              Object.hasOwnProperty.call(e, 'version') &&
                               t.uint32(90).string(e.version),
                             null != e.homepageURL &&
-                              Object.hasOwnProperty.call(e, "homepageURL") &&
+                              Object.hasOwnProperty.call(e, 'homepageURL') &&
                               t.uint32(98).string(e.homepageURL),
                             null != e.documentationURL &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "documentationURL"
+                                'documentationURL'
                               ) &&
                               t.uint32(106).string(e.documentationURL),
                             null != e.sourceCodeURL &&
-                              Object.hasOwnProperty.call(e, "sourceCodeURL") &&
+                              Object.hasOwnProperty.call(e, 'sourceCodeURL') &&
                               t.uint32(114).string(e.sourceCodeURL),
                             null != e.bugTrackerURL &&
-                              Object.hasOwnProperty.call(e, "bugTrackerURL") &&
+                              Object.hasOwnProperty.call(e, 'bugTrackerURL') &&
                               t.uint32(122).string(e.bugTrackerURL),
                             null != e.author &&
-                              Object.hasOwnProperty.call(e, "author") &&
+                              Object.hasOwnProperty.call(e, 'author') &&
                               t.uint32(130).string(e.author),
                             null != e.license &&
-                              Object.hasOwnProperty.call(e, "license") &&
+                              Object.hasOwnProperty.call(e, 'license') &&
                               t.uint32(138).string(e.license),
                             null != e.dependencies && e.dependencies.length)
                           )
@@ -16851,77 +16851,77 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.name &&
-                            e.hasOwnProperty("name") &&
+                            e.hasOwnProperty('name') &&
                             !r.isString(e.name)
                           )
-                            return "name: string expected";
+                            return 'name: string expected';
                           if (
                             null != e.spec &&
-                            e.hasOwnProperty("spec") &&
+                            e.hasOwnProperty('spec') &&
                             !r.isString(e.spec)
                           )
-                            return "spec: string expected";
+                            return 'spec: string expected';
                           if (
                             null != e.description &&
-                            e.hasOwnProperty("description") &&
+                            e.hasOwnProperty('description') &&
                             !r.isString(e.description)
                           )
-                            return "description: string expected";
+                            return 'description: string expected';
                           if (
                             null != e.version &&
-                            e.hasOwnProperty("version") &&
+                            e.hasOwnProperty('version') &&
                             !r.isString(e.version)
                           )
-                            return "version: string expected";
+                            return 'version: string expected';
                           if (
                             null != e.homepageURL &&
-                            e.hasOwnProperty("homepageURL") &&
+                            e.hasOwnProperty('homepageURL') &&
                             !r.isString(e.homepageURL)
                           )
-                            return "homepageURL: string expected";
+                            return 'homepageURL: string expected';
                           if (
                             null != e.documentationURL &&
-                            e.hasOwnProperty("documentationURL") &&
+                            e.hasOwnProperty('documentationURL') &&
                             !r.isString(e.documentationURL)
                           )
-                            return "documentationURL: string expected";
+                            return 'documentationURL: string expected';
                           if (
                             null != e.sourceCodeURL &&
-                            e.hasOwnProperty("sourceCodeURL") &&
+                            e.hasOwnProperty('sourceCodeURL') &&
                             !r.isString(e.sourceCodeURL)
                           )
-                            return "sourceCodeURL: string expected";
+                            return 'sourceCodeURL: string expected';
                           if (
                             null != e.bugTrackerURL &&
-                            e.hasOwnProperty("bugTrackerURL") &&
+                            e.hasOwnProperty('bugTrackerURL') &&
                             !r.isString(e.bugTrackerURL)
                           )
-                            return "bugTrackerURL: string expected";
+                            return 'bugTrackerURL: string expected';
                           if (
                             null != e.author &&
-                            e.hasOwnProperty("author") &&
+                            e.hasOwnProperty('author') &&
                             !r.isString(e.author)
                           )
-                            return "author: string expected";
+                            return 'author: string expected';
                           if (
                             null != e.license &&
-                            e.hasOwnProperty("license") &&
+                            e.hasOwnProperty('license') &&
                             !r.isString(e.license)
                           )
-                            return "license: string expected";
+                            return 'license: string expected';
                           if (
                             null != e.dependencies &&
-                            e.hasOwnProperty("dependencies")
+                            e.hasOwnProperty('dependencies')
                           ) {
                             if (!Array.isArray(e.dependencies))
-                              return "dependencies: array expected";
+                              return 'dependencies: array expected';
                             for (var t = 0; t < e.dependencies.length; ++t) {
                               var n = o.api.Package.verify(e.dependencies[t]);
-                              if (n) return "dependencies." + n;
+                              if (n) return 'dependencies.' + n;
                             }
                           }
                           return null;
@@ -16951,13 +16951,13 @@
                           ) {
                             if (!Array.isArray(e.dependencies))
                               throw TypeError(
-                                ".api.Package.dependencies: array expected"
+                                '.api.Package.dependencies: array expected'
                               );
                             t.dependencies = [];
                             for (var n = 0; n < e.dependencies.length; ++n) {
-                              if ("object" !== typeof e.dependencies[n])
+                              if ('object' !== typeof e.dependencies[n])
                                 throw TypeError(
-                                  ".api.Package.dependencies: object expected"
+                                  '.api.Package.dependencies: object expected'
                                 );
                               t.dependencies[n] = o.api.Package.fromObject(
                                 e.dependencies[n]
@@ -16972,45 +16972,45 @@
                           if (
                             ((t.arrays || t.defaults) && (n.dependencies = []),
                             t.defaults &&
-                              ((n.name = ""),
-                              (n.spec = ""),
-                              (n.description = ""),
-                              (n.version = ""),
-                              (n.homepageURL = ""),
-                              (n.documentationURL = ""),
-                              (n.sourceCodeURL = ""),
-                              (n.bugTrackerURL = ""),
-                              (n.author = ""),
-                              (n.license = "")),
+                              ((n.name = ''),
+                              (n.spec = ''),
+                              (n.description = ''),
+                              (n.version = ''),
+                              (n.homepageURL = ''),
+                              (n.documentationURL = ''),
+                              (n.sourceCodeURL = ''),
+                              (n.bugTrackerURL = ''),
+                              (n.author = ''),
+                              (n.license = '')),
                             null != e.name &&
-                              e.hasOwnProperty("name") &&
+                              e.hasOwnProperty('name') &&
                               (n.name = e.name),
                             null != e.spec &&
-                              e.hasOwnProperty("spec") &&
+                              e.hasOwnProperty('spec') &&
                               (n.spec = e.spec),
                             null != e.description &&
-                              e.hasOwnProperty("description") &&
+                              e.hasOwnProperty('description') &&
                               (n.description = e.description),
                             null != e.version &&
-                              e.hasOwnProperty("version") &&
+                              e.hasOwnProperty('version') &&
                               (n.version = e.version),
                             null != e.homepageURL &&
-                              e.hasOwnProperty("homepageURL") &&
+                              e.hasOwnProperty('homepageURL') &&
                               (n.homepageURL = e.homepageURL),
                             null != e.documentationURL &&
-                              e.hasOwnProperty("documentationURL") &&
+                              e.hasOwnProperty('documentationURL') &&
                               (n.documentationURL = e.documentationURL),
                             null != e.sourceCodeURL &&
-                              e.hasOwnProperty("sourceCodeURL") &&
+                              e.hasOwnProperty('sourceCodeURL') &&
                               (n.sourceCodeURL = e.sourceCodeURL),
                             null != e.bugTrackerURL &&
-                              e.hasOwnProperty("bugTrackerURL") &&
+                              e.hasOwnProperty('bugTrackerURL') &&
                               (n.bugTrackerURL = e.bugTrackerURL),
                             null != e.author &&
-                              e.hasOwnProperty("author") &&
+                              e.hasOwnProperty('author') &&
                               (n.author = e.author),
                             null != e.license &&
-                              e.hasOwnProperty("license") &&
+                              e.hasOwnProperty('license') &&
                               (n.license = e.license),
                             e.dependencies && e.dependencies.length)
                           ) {
@@ -17039,7 +17039,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.query = ""),
+                        (i.prototype.query = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -17047,7 +17047,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.query &&
-                              Object.hasOwnProperty.call(e, "query") &&
+                              Object.hasOwnProperty.call(e, 'query') &&
                               t.uint32(10).string(e.query),
                             t
                           );
@@ -17081,12 +17081,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.query &&
-                              e.hasOwnProperty("query") &&
+                              e.hasOwnProperty('query') &&
                               !r.isString(e.query)
-                            ? "query: string expected"
+                            ? 'query: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -17100,9 +17100,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.query = ""),
+                            t.defaults && (n.query = ''),
                             null != e.query &&
-                              e.hasOwnProperty("query") &&
+                              e.hasOwnProperty('query') &&
                               (n.query = e.query),
                             n
                           );
@@ -17172,17 +17172,17 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.results &&
-                            e.hasOwnProperty("results")
+                            e.hasOwnProperty('results')
                           ) {
                             if (!Array.isArray(e.results))
-                              return "results: array expected";
+                              return 'results: array expected';
                             for (var t = 0; t < e.results.length; ++t) {
                               var n = o.api.Package.verify(e.results[t]);
-                              if (n) return "results." + n;
+                              if (n) return 'results.' + n;
                             }
                           }
                           return null;
@@ -17193,13 +17193,13 @@
                           if (e.results) {
                             if (!Array.isArray(e.results))
                               throw TypeError(
-                                ".api.PackageSearchResp.results: array expected"
+                                '.api.PackageSearchResp.results: array expected'
                               );
                             t.results = [];
                             for (var n = 0; n < e.results.length; ++n) {
-                              if ("object" !== typeof e.results[n])
+                              if ('object' !== typeof e.results[n])
                                 throw TypeError(
-                                  ".api.PackageSearchResp.results: object expected"
+                                  '.api.PackageSearchResp.results: object expected'
                                 );
                               t.results[n] = o.api.Package.fromObject(
                                 e.results[n]
@@ -17248,7 +17248,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.pkg &&
-                              Object.hasOwnProperty.call(e, "pkg") &&
+                              Object.hasOwnProperty.call(e, 'pkg') &&
                               o.api.Package.encode(
                                 e.pkg,
                                 t.uint32(10).fork()
@@ -17285,11 +17285,11 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.pkg && e.hasOwnProperty("pkg")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.pkg && e.hasOwnProperty('pkg')) {
                             var t = o.api.Package.verify(e.pkg);
-                            if (t) return "pkg." + t;
+                            if (t) return 'pkg.' + t;
                           }
                           return null;
                         }),
@@ -17297,9 +17297,9 @@
                           if (e instanceof o.api.PackageInfo) return e;
                           var t = new o.api.PackageInfo();
                           if (null != e.pkg) {
-                            if ("object" !== typeof e.pkg)
+                            if ('object' !== typeof e.pkg)
                               throw TypeError(
-                                ".api.PackageInfo.pkg: object expected"
+                                '.api.PackageInfo.pkg: object expected'
                               );
                             t.pkg = o.api.Package.fromObject(e.pkg);
                           }
@@ -17311,7 +17311,7 @@
                           return (
                             t.defaults && (n.pkg = null),
                             null != e.pkg &&
-                              e.hasOwnProperty("pkg") &&
+                              e.hasOwnProperty('pkg') &&
                               (n.pkg = o.api.Package.toObject(e.pkg, t)),
                             n
                           );
@@ -17340,7 +17340,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.pkg &&
-                              Object.hasOwnProperty.call(e, "pkg") &&
+                              Object.hasOwnProperty.call(e, 'pkg') &&
                               o.api.Package.encode(
                                 e.pkg,
                                 t.uint32(10).fork()
@@ -17377,11 +17377,11 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.pkg && e.hasOwnProperty("pkg")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.pkg && e.hasOwnProperty('pkg')) {
                             var t = o.api.Package.verify(e.pkg);
-                            if (t) return "pkg." + t;
+                            if (t) return 'pkg.' + t;
                           }
                           return null;
                         }),
@@ -17389,9 +17389,9 @@
                           if (e instanceof o.api.PackageInfoResp) return e;
                           var t = new o.api.PackageInfoResp();
                           if (null != e.pkg) {
-                            if ("object" !== typeof e.pkg)
+                            if ('object' !== typeof e.pkg)
                               throw TypeError(
-                                ".api.PackageInfoResp.pkg: object expected"
+                                '.api.PackageInfoResp.pkg: object expected'
                               );
                             t.pkg = o.api.Package.fromObject(e.pkg);
                           }
@@ -17403,7 +17403,7 @@
                           return (
                             t.defaults && (n.pkg = null),
                             null != e.pkg &&
-                              e.hasOwnProperty("pkg") &&
+                              e.hasOwnProperty('pkg') &&
                               (n.pkg = o.api.Package.toObject(e.pkg, t)),
                             n
                           );
@@ -17472,14 +17472,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.pkgs && e.hasOwnProperty("pkgs")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.pkgs && e.hasOwnProperty('pkgs')) {
                             if (!Array.isArray(e.pkgs))
-                              return "pkgs: array expected";
+                              return 'pkgs: array expected';
                             for (var t = 0; t < e.pkgs.length; ++t) {
                               var n = o.api.Package.verify(e.pkgs[t]);
-                              if (n) return "pkgs." + n;
+                              if (n) return 'pkgs.' + n;
                             }
                           }
                           return null;
@@ -17490,13 +17490,13 @@
                           if (e.pkgs) {
                             if (!Array.isArray(e.pkgs))
                               throw TypeError(
-                                ".api.PackageAdd.pkgs: array expected"
+                                '.api.PackageAdd.pkgs: array expected'
                               );
                             t.pkgs = [];
                             for (var n = 0; n < e.pkgs.length; ++n) {
-                              if ("object" !== typeof e.pkgs[n])
+                              if ('object' !== typeof e.pkgs[n])
                                 throw TypeError(
-                                  ".api.PackageAdd.pkgs: object expected"
+                                  '.api.PackageAdd.pkgs: object expected'
                                 );
                               t.pkgs[n] = o.api.Package.fromObject(e.pkgs[n]);
                             }
@@ -17580,14 +17580,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.pkgs && e.hasOwnProperty("pkgs")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.pkgs && e.hasOwnProperty('pkgs')) {
                             if (!Array.isArray(e.pkgs))
-                              return "pkgs: array expected";
+                              return 'pkgs: array expected';
                             for (var t = 0; t < e.pkgs.length; ++t) {
                               var n = o.api.Package.verify(e.pkgs[t]);
-                              if (n) return "pkgs." + n;
+                              if (n) return 'pkgs.' + n;
                             }
                           }
                           return null;
@@ -17598,13 +17598,13 @@
                           if (e.pkgs) {
                             if (!Array.isArray(e.pkgs))
                               throw TypeError(
-                                ".api.PackageRemove.pkgs: array expected"
+                                '.api.PackageRemove.pkgs: array expected'
                               );
                             t.pkgs = [];
                             for (var n = 0; n < e.pkgs.length; ++n) {
-                              if ("object" !== typeof e.pkgs[n])
+                              if ('object' !== typeof e.pkgs[n])
                                 throw TypeError(
-                                  ".api.PackageRemove.pkgs: object expected"
+                                  '.api.PackageRemove.pkgs: object expected'
                                 );
                               t.pkgs[n] = o.api.Package.fromObject(e.pkgs[n]);
                             }
@@ -17669,8 +17669,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -17726,8 +17726,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -17802,14 +17802,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
-                          if (null != e.pkgs && e.hasOwnProperty("pkgs")) {
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
+                          if (null != e.pkgs && e.hasOwnProperty('pkgs')) {
                             if (!Array.isArray(e.pkgs))
-                              return "pkgs: array expected";
+                              return 'pkgs: array expected';
                             for (var t = 0; t < e.pkgs.length; ++t) {
                               var n = o.api.Package.verify(e.pkgs[t]);
-                              if (n) return "pkgs." + n;
+                              if (n) return 'pkgs.' + n;
                             }
                           }
                           return null;
@@ -17821,13 +17821,13 @@
                           if (e.pkgs) {
                             if (!Array.isArray(e.pkgs))
                               throw TypeError(
-                                ".api.PackageListSpecfileResp.pkgs: array expected"
+                                '.api.PackageListSpecfileResp.pkgs: array expected'
                               );
                             t.pkgs = [];
                             for (var n = 0; n < e.pkgs.length; ++n) {
-                              if ("object" !== typeof e.pkgs[n])
+                              if ('object' !== typeof e.pkgs[n])
                                 throw TypeError(
-                                  ".api.PackageListSpecfileResp.pkgs: object expected"
+                                  '.api.PackageListSpecfileResp.pkgs: object expected'
                                 );
                               t.pkgs[n] = o.api.Package.fromObject(e.pkgs[n]);
                             }
@@ -17892,8 +17892,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -17969,17 +17969,17 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.scrollback &&
-                            e.hasOwnProperty("scrollback")
+                            e.hasOwnProperty('scrollback')
                           ) {
                             if (!Array.isArray(e.scrollback))
-                              return "scrollback: array expected";
+                              return 'scrollback: array expected';
                             for (var t = 0; t < e.scrollback.length; ++t) {
                               var n = o.api.ChatMessage.verify(e.scrollback[t]);
-                              if (n) return "scrollback." + n;
+                              if (n) return 'scrollback.' + n;
                             }
                           }
                           return null;
@@ -17990,13 +17990,13 @@
                           if (e.scrollback) {
                             if (!Array.isArray(e.scrollback))
                               throw TypeError(
-                                ".api.ChatScrollback.scrollback: array expected"
+                                '.api.ChatScrollback.scrollback: array expected'
                               );
                             t.scrollback = [];
                             for (var n = 0; n < e.scrollback.length; ++n) {
-                              if ("object" !== typeof e.scrollback[n])
+                              if ('object' !== typeof e.scrollback[n])
                                 throw TypeError(
-                                  ".api.ChatScrollback.scrollback: object expected"
+                                  '.api.ChatScrollback.scrollback: object expected'
                                 );
                               t.scrollback[n] = o.api.ChatMessage.fromObject(
                                 e.scrollback[n]
@@ -18087,14 +18087,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.prometheusMetricFamilies &&
-                            e.hasOwnProperty("prometheusMetricFamilies")
+                            e.hasOwnProperty('prometheusMetricFamilies')
                           ) {
                             if (!Array.isArray(e.prometheusMetricFamilies))
-                              return "prometheusMetricFamilies: array expected";
+                              return 'prometheusMetricFamilies: array expected';
                             for (
                               var t = 0;
                               t < e.prometheusMetricFamilies.length;
@@ -18103,13 +18103,13 @@
                               if (
                                 !(
                                   (e.prometheusMetricFamilies[t] &&
-                                    "number" ===
+                                    'number' ===
                                       typeof e.prometheusMetricFamilies[t]
                                         .length) ||
                                   r.isString(e.prometheusMetricFamilies[t])
                                 )
                               )
-                                return "prometheusMetricFamilies: buffer[] expected";
+                                return 'prometheusMetricFamilies: buffer[] expected';
                           }
                           return null;
                         }),
@@ -18119,7 +18119,7 @@
                           if (e.prometheusMetricFamilies) {
                             if (!Array.isArray(e.prometheusMetricFamilies))
                               throw TypeError(
-                                ".api.Metrics.prometheusMetricFamilies: array expected"
+                                '.api.Metrics.prometheusMetricFamilies: array expected'
                               );
                             t.prometheusMetricFamilies = [];
                             for (
@@ -18127,7 +18127,7 @@
                               n < e.prometheusMetricFamilies.length;
                               ++n
                             )
-                              "string" === typeof e.prometheusMetricFamilies[n]
+                              'string' === typeof e.prometheusMetricFamilies[n]
                                 ? r.base64.decode(
                                     e.prometheusMetricFamilies[n],
                                     (t.prometheusMetricFamilies[n] =
@@ -18191,20 +18191,20 @@
                       }
                       var a;
                       return (
-                        (i.prototype.id = ""),
+                        (i.prototype.id = ''),
                         (i.prototype.pprofCpuProfileRequest = null),
                         (i.prototype.pprofHeapProfileRequest = null),
                         (i.prototype.pprofAllocsProfileRequest = null),
                         (i.prototype.pprofBlockProfileRequest = null),
                         (i.prototype.pprofMutexProfileRequest = null),
-                        Object.defineProperty(i.prototype, "body", {
+                        Object.defineProperty(i.prototype, 'body', {
                           get: r.oneOfGetter(
                             (a = [
-                              "pprofCpuProfileRequest",
-                              "pprofHeapProfileRequest",
-                              "pprofAllocsProfileRequest",
-                              "pprofBlockProfileRequest",
-                              "pprofMutexProfileRequest",
+                              'pprofCpuProfileRequest',
+                              'pprofHeapProfileRequest',
+                              'pprofAllocsProfileRequest',
+                              'pprofBlockProfileRequest',
+                              'pprofMutexProfileRequest',
                             ])
                           ),
                           set: r.oneOfSetter(a),
@@ -18216,12 +18216,12 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(10).string(e.id),
                             null != e.pprofCpuProfileRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "pprofCpuProfileRequest"
+                                'pprofCpuProfileRequest'
                               ) &&
                               o.api.PprofCpuProfileRequest.encode(
                                 e.pprofCpuProfileRequest,
@@ -18230,7 +18230,7 @@
                             null != e.pprofHeapProfileRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "pprofHeapProfileRequest"
+                                'pprofHeapProfileRequest'
                               ) &&
                               o.api.PprofHeapProfileRequest.encode(
                                 e.pprofHeapProfileRequest,
@@ -18239,7 +18239,7 @@
                             null != e.pprofAllocsProfileRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "pprofAllocsProfileRequest"
+                                'pprofAllocsProfileRequest'
                               ) &&
                               o.api.PprofAllocsProfileRequest.encode(
                                 e.pprofAllocsProfileRequest,
@@ -18248,7 +18248,7 @@
                             null != e.pprofBlockProfileRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "pprofBlockProfileRequest"
+                                'pprofBlockProfileRequest'
                               ) &&
                               o.api.PprofBlockProfileRequest.encode(
                                 e.pprofBlockProfileRequest,
@@ -18257,7 +18257,7 @@
                             null != e.pprofMutexProfileRequest &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "pprofMutexProfileRequest"
+                                'pprofMutexProfileRequest'
                               ) &&
                               o.api.PprofMutexProfileRequest.encode(
                                 e.pprofMutexProfileRequest,
@@ -18330,68 +18330,68 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.id &&
-                            e.hasOwnProperty("id") &&
+                            e.hasOwnProperty('id') &&
                             !r.isString(e.id)
                           )
-                            return "id: string expected";
+                            return 'id: string expected';
                           if (
                             null != e.pprofCpuProfileRequest &&
-                            e.hasOwnProperty("pprofCpuProfileRequest") &&
+                            e.hasOwnProperty('pprofCpuProfileRequest') &&
                             ((t.body = 1),
                             (n = o.api.PprofCpuProfileRequest.verify(
                               e.pprofCpuProfileRequest
                             )))
                           )
-                            return "pprofCpuProfileRequest." + n;
+                            return 'pprofCpuProfileRequest.' + n;
                           if (
                             null != e.pprofHeapProfileRequest &&
-                            e.hasOwnProperty("pprofHeapProfileRequest")
+                            e.hasOwnProperty('pprofHeapProfileRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PprofHeapProfileRequest.verify(
                                 e.pprofHeapProfileRequest
                               )))
                             )
-                              return "pprofHeapProfileRequest." + n;
+                              return 'pprofHeapProfileRequest.' + n;
                           }
                           if (
                             null != e.pprofAllocsProfileRequest &&
-                            e.hasOwnProperty("pprofAllocsProfileRequest")
+                            e.hasOwnProperty('pprofAllocsProfileRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PprofAllocsProfileRequest.verify(
                                 e.pprofAllocsProfileRequest
                               )))
                             )
-                              return "pprofAllocsProfileRequest." + n;
+                              return 'pprofAllocsProfileRequest.' + n;
                           }
                           if (
                             null != e.pprofBlockProfileRequest &&
-                            e.hasOwnProperty("pprofBlockProfileRequest")
+                            e.hasOwnProperty('pprofBlockProfileRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             if (
                               ((t.body = 1),
                               (n = o.api.PprofBlockProfileRequest.verify(
                                 e.pprofBlockProfileRequest
                               )))
                             )
-                              return "pprofBlockProfileRequest." + n;
+                              return 'pprofBlockProfileRequest.' + n;
                           }
                           if (
                             null != e.pprofMutexProfileRequest &&
-                            e.hasOwnProperty("pprofMutexProfileRequest")
+                            e.hasOwnProperty('pprofMutexProfileRequest')
                           ) {
-                            if (1 === t.body) return "body: multiple values";
+                            if (1 === t.body) return 'body: multiple values';
                             var n;
                             if (
                               ((t.body = 1),
@@ -18399,7 +18399,7 @@
                                 e.pprofMutexProfileRequest
                               )))
                             )
-                              return "pprofMutexProfileRequest." + n;
+                              return 'pprofMutexProfileRequest.' + n;
                           }
                           return null;
                         }),
@@ -18410,9 +18410,9 @@
                             (null != e.id && (t.id = String(e.id)),
                             null != e.pprofCpuProfileRequest)
                           ) {
-                            if ("object" !== typeof e.pprofCpuProfileRequest)
+                            if ('object' !== typeof e.pprofCpuProfileRequest)
                               throw TypeError(
-                                ".api.PprofRequest.pprofCpuProfileRequest: object expected"
+                                '.api.PprofRequest.pprofCpuProfileRequest: object expected'
                               );
                             t.pprofCpuProfileRequest =
                               o.api.PprofCpuProfileRequest.fromObject(
@@ -18420,9 +18420,9 @@
                               );
                           }
                           if (null != e.pprofHeapProfileRequest) {
-                            if ("object" !== typeof e.pprofHeapProfileRequest)
+                            if ('object' !== typeof e.pprofHeapProfileRequest)
                               throw TypeError(
-                                ".api.PprofRequest.pprofHeapProfileRequest: object expected"
+                                '.api.PprofRequest.pprofHeapProfileRequest: object expected'
                               );
                             t.pprofHeapProfileRequest =
                               o.api.PprofHeapProfileRequest.fromObject(
@@ -18430,9 +18430,9 @@
                               );
                           }
                           if (null != e.pprofAllocsProfileRequest) {
-                            if ("object" !== typeof e.pprofAllocsProfileRequest)
+                            if ('object' !== typeof e.pprofAllocsProfileRequest)
                               throw TypeError(
-                                ".api.PprofRequest.pprofAllocsProfileRequest: object expected"
+                                '.api.PprofRequest.pprofAllocsProfileRequest: object expected'
                               );
                             t.pprofAllocsProfileRequest =
                               o.api.PprofAllocsProfileRequest.fromObject(
@@ -18440,9 +18440,9 @@
                               );
                           }
                           if (null != e.pprofBlockProfileRequest) {
-                            if ("object" !== typeof e.pprofBlockProfileRequest)
+                            if ('object' !== typeof e.pprofBlockProfileRequest)
                               throw TypeError(
-                                ".api.PprofRequest.pprofBlockProfileRequest: object expected"
+                                '.api.PprofRequest.pprofBlockProfileRequest: object expected'
                               );
                             t.pprofBlockProfileRequest =
                               o.api.PprofBlockProfileRequest.fromObject(
@@ -18450,9 +18450,9 @@
                               );
                           }
                           if (null != e.pprofMutexProfileRequest) {
-                            if ("object" !== typeof e.pprofMutexProfileRequest)
+                            if ('object' !== typeof e.pprofMutexProfileRequest)
                               throw TypeError(
-                                ".api.PprofRequest.pprofMutexProfileRequest: object expected"
+                                '.api.PprofRequest.pprofMutexProfileRequest: object expected'
                               );
                             t.pprofMutexProfileRequest =
                               o.api.PprofMutexProfileRequest.fromObject(
@@ -18465,53 +18465,53 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.id = ""),
+                            t.defaults && (n.id = ''),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.pprofCpuProfileRequest &&
-                              e.hasOwnProperty("pprofCpuProfileRequest") &&
+                              e.hasOwnProperty('pprofCpuProfileRequest') &&
                               ((n.pprofCpuProfileRequest =
                                 o.api.PprofCpuProfileRequest.toObject(
                                   e.pprofCpuProfileRequest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "pprofCpuProfileRequest")),
+                              t.oneofs && (n.body = 'pprofCpuProfileRequest')),
                             null != e.pprofHeapProfileRequest &&
-                              e.hasOwnProperty("pprofHeapProfileRequest") &&
+                              e.hasOwnProperty('pprofHeapProfileRequest') &&
                               ((n.pprofHeapProfileRequest =
                                 o.api.PprofHeapProfileRequest.toObject(
                                   e.pprofHeapProfileRequest,
                                   t
                                 )),
-                              t.oneofs && (n.body = "pprofHeapProfileRequest")),
+                              t.oneofs && (n.body = 'pprofHeapProfileRequest')),
                             null != e.pprofAllocsProfileRequest &&
-                              e.hasOwnProperty("pprofAllocsProfileRequest") &&
+                              e.hasOwnProperty('pprofAllocsProfileRequest') &&
                               ((n.pprofAllocsProfileRequest =
                                 o.api.PprofAllocsProfileRequest.toObject(
                                   e.pprofAllocsProfileRequest,
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "pprofAllocsProfileRequest")),
+                                (n.body = 'pprofAllocsProfileRequest')),
                             null != e.pprofBlockProfileRequest &&
-                              e.hasOwnProperty("pprofBlockProfileRequest") &&
+                              e.hasOwnProperty('pprofBlockProfileRequest') &&
                               ((n.pprofBlockProfileRequest =
                                 o.api.PprofBlockProfileRequest.toObject(
                                   e.pprofBlockProfileRequest,
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "pprofBlockProfileRequest")),
+                                (n.body = 'pprofBlockProfileRequest')),
                             null != e.pprofMutexProfileRequest &&
-                              e.hasOwnProperty("pprofMutexProfileRequest") &&
+                              e.hasOwnProperty('pprofMutexProfileRequest') &&
                               ((n.pprofMutexProfileRequest =
                                 o.api.PprofMutexProfileRequest.toObject(
                                   e.pprofMutexProfileRequest,
                                   t
                                 )),
                               t.oneofs &&
-                                (n.body = "pprofMutexProfileRequest")),
+                                (n.body = 'pprofMutexProfileRequest')),
                             n
                           );
                         }),
@@ -18539,7 +18539,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.debug &&
-                              Object.hasOwnProperty.call(e, "debug") &&
+                              Object.hasOwnProperty.call(e, 'debug') &&
                               t.uint32(8).bool(e.debug),
                             t
                           );
@@ -18573,12 +18573,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.debug &&
-                              e.hasOwnProperty("debug") &&
-                              "boolean" !== typeof e.debug
-                            ? "debug: boolean expected"
+                              e.hasOwnProperty('debug') &&
+                              'boolean' !== typeof e.debug
+                            ? 'debug: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -18595,7 +18595,7 @@
                           return (
                             t.defaults && (n.debug = !1),
                             null != e.debug &&
-                              e.hasOwnProperty("debug") &&
+                              e.hasOwnProperty('debug') &&
                               (n.debug = e.debug),
                             n
                           );
@@ -18624,7 +18624,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.debug &&
-                              Object.hasOwnProperty.call(e, "debug") &&
+                              Object.hasOwnProperty.call(e, 'debug') &&
                               t.uint32(8).bool(e.debug),
                             t
                           );
@@ -18658,12 +18658,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.debug &&
-                              e.hasOwnProperty("debug") &&
-                              "boolean" !== typeof e.debug
-                            ? "debug: boolean expected"
+                              e.hasOwnProperty('debug') &&
+                              'boolean' !== typeof e.debug
+                            ? 'debug: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -18680,7 +18680,7 @@
                           return (
                             t.defaults && (n.debug = !1),
                             null != e.debug &&
-                              e.hasOwnProperty("debug") &&
+                              e.hasOwnProperty('debug') &&
                               (n.debug = e.debug),
                             n
                           );
@@ -18711,7 +18711,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.seconds &&
-                              Object.hasOwnProperty.call(e, "seconds") &&
+                              Object.hasOwnProperty.call(e, 'seconds') &&
                               t.uint32(8).int64(e.seconds),
                             t
                           );
@@ -18745,16 +18745,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null == e.seconds ||
-                              !e.hasOwnProperty("seconds") ||
+                              !e.hasOwnProperty('seconds') ||
                               r.isInteger(e.seconds) ||
                               (e.seconds &&
                                 r.isInteger(e.seconds.low) &&
                                 r.isInteger(e.seconds.high))
                             ? null
-                            : "seconds: integer|Long expected";
+                            : 'seconds: integer|Long expected';
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.PprofCpuProfileRequest)
@@ -18766,11 +18766,11 @@
                                 ? ((t.seconds = r.Long.fromValue(
                                     e.seconds
                                   )).unsigned = !1)
-                                : "string" === typeof e.seconds
+                                : 'string' === typeof e.seconds
                                 ? (t.seconds = parseInt(e.seconds, 10))
-                                : "number" === typeof e.seconds
+                                : 'number' === typeof e.seconds
                                 ? (t.seconds = e.seconds)
-                                : "object" === typeof e.seconds &&
+                                : 'object' === typeof e.seconds &&
                                   (t.seconds = new r.LongBits(
                                     e.seconds.low >>> 0,
                                     e.seconds.high >>> 0
@@ -18790,11 +18790,11 @@
                                   : t.longs === Number
                                   ? o.toNumber()
                                   : o;
-                            } else n.seconds = t.longs === String ? "0" : 0;
+                            } else n.seconds = t.longs === String ? '0' : 0;
                           return (
                             null != e.seconds &&
-                              e.hasOwnProperty("seconds") &&
-                              ("number" === typeof e.seconds
+                              e.hasOwnProperty('seconds') &&
+                              ('number' === typeof e.seconds
                                 ? (n.seconds =
                                     t.longs === String
                                       ? String(e.seconds)
@@ -18838,10 +18838,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.gc &&
-                              Object.hasOwnProperty.call(e, "gc") &&
+                              Object.hasOwnProperty.call(e, 'gc') &&
                               t.uint32(8).bool(e.gc),
                             null != e.debug &&
-                              Object.hasOwnProperty.call(e, "debug") &&
+                              Object.hasOwnProperty.call(e, 'debug') &&
                               t.uint32(16).bool(e.debug),
                             t
                           );
@@ -18878,16 +18878,16 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.gc &&
-                              e.hasOwnProperty("gc") &&
-                              "boolean" !== typeof e.gc
-                            ? "gc: boolean expected"
+                              e.hasOwnProperty('gc') &&
+                              'boolean' !== typeof e.gc
+                            ? 'gc: boolean expected'
                             : null != e.debug &&
-                              e.hasOwnProperty("debug") &&
-                              "boolean" !== typeof e.debug
-                            ? "debug: boolean expected"
+                              e.hasOwnProperty('debug') &&
+                              'boolean' !== typeof e.debug
+                            ? 'debug: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -18906,10 +18906,10 @@
                           return (
                             t.defaults && ((n.gc = !1), (n.debug = !1)),
                             null != e.gc &&
-                              e.hasOwnProperty("gc") &&
+                              e.hasOwnProperty('gc') &&
                               (n.gc = e.gc),
                             null != e.debug &&
-                              e.hasOwnProperty("debug") &&
+                              e.hasOwnProperty('debug') &&
                               (n.debug = e.debug),
                             n
                           );
@@ -18938,7 +18938,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.debug &&
-                              Object.hasOwnProperty.call(e, "debug") &&
+                              Object.hasOwnProperty.call(e, 'debug') &&
                               t.uint32(8).bool(e.debug),
                             t
                           );
@@ -18972,12 +18972,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.debug &&
-                              e.hasOwnProperty("debug") &&
-                              "boolean" !== typeof e.debug
-                            ? "debug: boolean expected"
+                              e.hasOwnProperty('debug') &&
+                              'boolean' !== typeof e.debug
+                            ? 'debug: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -18994,7 +18994,7 @@
                           return (
                             t.defaults && (n.debug = !1),
                             null != e.debug &&
-                              e.hasOwnProperty("debug") &&
+                              e.hasOwnProperty('debug') &&
                               (n.debug = e.debug),
                             n
                           );
@@ -19015,7 +19015,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.id = ""),
+                        (i.prototype.id = ''),
                         (i.prototype.profile = r.newBuffer([])),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -19024,10 +19024,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(10).string(e.id),
                             null != e.profile &&
-                              Object.hasOwnProperty.call(e, "profile") &&
+                              Object.hasOwnProperty.call(e, 'profile') &&
                               t.uint32(18).bytes(e.profile),
                             t
                           );
@@ -19064,20 +19064,20 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               !r.isString(e.id)
-                            ? "id: string expected"
+                            ? 'id: string expected'
                             : null != e.profile &&
-                              e.hasOwnProperty("profile") &&
+                              e.hasOwnProperty('profile') &&
                               !(
                                 (e.profile &&
-                                  "number" === typeof e.profile.length) ||
+                                  'number' === typeof e.profile.length) ||
                                 r.isString(e.profile)
                               )
-                            ? "profile: buffer expected"
+                            ? 'profile: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -19086,7 +19086,7 @@
                           return (
                             null != e.id && (t.id = String(e.id)),
                             null != e.profile &&
-                              ("string" === typeof e.profile
+                              ('string' === typeof e.profile
                                 ? r.base64.decode(
                                     e.profile,
                                     (t.profile = r.newBuffer(
@@ -19103,17 +19103,17 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.id = ""),
+                              ((n.id = ''),
                               t.bytes === String
-                                ? (n.profile = "")
+                                ? (n.profile = '')
                                 : ((n.profile = []),
                                   t.bytes !== Array &&
                                     (n.profile = r.newBuffer(n.profile)))),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.profile &&
-                              e.hasOwnProperty("profile") &&
+                              e.hasOwnProperty('profile') &&
                               (n.profile =
                                 t.bytes === String
                                   ? r.base64.encode(
@@ -19151,7 +19151,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.pipeMode &&
-                              Object.hasOwnProperty.call(e, "pipeMode") &&
+                              Object.hasOwnProperty.call(e, 'pipeMode') &&
                               t.uint32(8).bool(e.pipeMode),
                             t
                           );
@@ -19185,12 +19185,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.pipeMode &&
-                              e.hasOwnProperty("pipeMode") &&
-                              "boolean" !== typeof e.pipeMode
-                            ? "pipeMode: boolean expected"
+                              e.hasOwnProperty('pipeMode') &&
+                              'boolean' !== typeof e.pipeMode
+                            ? 'pipeMode: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -19208,7 +19208,7 @@
                           return (
                             t.defaults && (n.pipeMode = !1),
                             null != e.pipeMode &&
-                              e.hasOwnProperty("pipeMode") &&
+                              e.hasOwnProperty('pipeMode') &&
                               (n.pipeMode = e.pipeMode),
                             n
                           );
@@ -19229,7 +19229,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.session = ""),
+                        (i.prototype.session = ''),
                         (i.prototype.readOnly = !1),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -19238,10 +19238,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(10).string(e.session),
                             null != e.readOnly &&
-                              Object.hasOwnProperty.call(e, "readOnly") &&
+                              Object.hasOwnProperty.call(e, 'readOnly') &&
                               t.uint32(16).bool(e.readOnly),
                             t
                           );
@@ -19278,16 +19278,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               !r.isString(e.session)
-                            ? "session: string expected"
+                            ? 'session: string expected'
                             : null != e.readOnly &&
-                              e.hasOwnProperty("readOnly") &&
-                              "boolean" !== typeof e.readOnly
-                            ? "readOnly: boolean expected"
+                              e.hasOwnProperty('readOnly') &&
+                              'boolean' !== typeof e.readOnly
+                            ? 'readOnly: boolean expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -19305,12 +19305,12 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && ((n.session = ""), (n.readOnly = !1)),
+                            t.defaults && ((n.session = ''), (n.readOnly = !1)),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             null != e.readOnly &&
-                              e.hasOwnProperty("readOnly") &&
+                              e.hasOwnProperty('readOnly') &&
                               (n.readOnly = e.readOnly),
                             n
                           );
@@ -19340,10 +19340,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.joined &&
-                              Object.hasOwnProperty.call(e, "joined") &&
+                              Object.hasOwnProperty.call(e, 'joined') &&
                               t.uint32(8).bool(e.joined),
                             null != e.protocol &&
-                              Object.hasOwnProperty.call(e, "protocol") &&
+                              Object.hasOwnProperty.call(e, 'protocol') &&
                               t.uint32(16).int32(e.protocol),
                             t
                           );
@@ -19380,21 +19380,21 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.joined &&
-                            e.hasOwnProperty("joined") &&
-                            "boolean" !== typeof e.joined
+                            e.hasOwnProperty('joined') &&
+                            'boolean' !== typeof e.joined
                           )
-                            return "joined: boolean expected";
+                            return 'joined: boolean expected';
                           if (
                             null != e.protocol &&
-                            e.hasOwnProperty("protocol")
+                            e.hasOwnProperty('protocol')
                           )
                             switch (e.protocol) {
                               default:
-                                return "protocol: enum value expected";
+                                return 'protocol: enum value expected';
                               case 0:
                             }
                           return null;
@@ -19406,7 +19406,7 @@
                             (null != e.joined && (t.joined = Boolean(e.joined)),
                             e.protocol)
                           ) {
-                            case "DAP":
+                            case 'DAP':
                             case 0:
                               t.protocol = 0;
                           }
@@ -19418,12 +19418,12 @@
                           return (
                             t.defaults &&
                               ((n.joined = !1),
-                              (n.protocol = t.enums === String ? "DAP" : 0)),
+                              (n.protocol = t.enums === String ? 'DAP' : 0)),
                             null != e.joined &&
-                              e.hasOwnProperty("joined") &&
+                              e.hasOwnProperty('joined') &&
                               (n.joined = e.joined),
                             null != e.protocol &&
-                              e.hasOwnProperty("protocol") &&
+                              e.hasOwnProperty('protocol') &&
                               (n.protocol =
                                 t.enums === String
                                   ? o.api.DebugMainReply.Protocol[e.protocol]
@@ -19440,7 +19440,7 @@
                         (r.Protocol = (function () {
                           var e = {},
                             t = Object.create(e);
-                          return (t[(e[0] = "DAP")] = 0), t;
+                          return (t[(e[0] = 'DAP')] = 0), t;
                         })()),
                         r
                       );
@@ -19452,7 +19452,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.session = ""),
+                        (i.prototype.session = ''),
                         (i.prototype.state = 0),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -19461,10 +19461,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(10).string(e.session),
                             null != e.state &&
-                              Object.hasOwnProperty.call(e, "state") &&
+                              Object.hasOwnProperty.call(e, 'state') &&
                               t.uint32(16).int32(e.state),
                             t
                           );
@@ -19501,18 +19501,18 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.session &&
-                            e.hasOwnProperty("session") &&
+                            e.hasOwnProperty('session') &&
                             !r.isString(e.session)
                           )
-                            return "session: string expected";
-                          if (null != e.state && e.hasOwnProperty("state"))
+                            return 'session: string expected';
+                          if (null != e.state && e.hasOwnProperty('state'))
                             switch (e.state) {
                               default:
-                                return "state: enum value expected";
+                                return 'state: enum value expected';
                               case 0:
                               case 1:
                             }
@@ -19526,11 +19526,11 @@
                               (t.session = String(e.session)),
                             e.state)
                           ) {
-                            case "Stopped":
+                            case 'Stopped':
                             case 0:
                               t.state = 0;
                               break;
-                            case "Running":
+                            case 'Running':
                             case 1:
                               t.state = 1;
                           }
@@ -19541,13 +19541,13 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.session = ""),
-                              (n.state = t.enums === String ? "Stopped" : 0)),
+                              ((n.session = ''),
+                              (n.state = t.enums === String ? 'Stopped' : 0)),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             null != e.state &&
-                              e.hasOwnProperty("state") &&
+                              e.hasOwnProperty('state') &&
                               (n.state =
                                 t.enums === String
                                   ? o.api.State[e.state]
@@ -19572,11 +19572,11 @@
                       }
                       var a;
                       return (
-                        (i.prototype.session = ""),
+                        (i.prototype.session = ''),
                         (i.prototype.input = null),
                         (i.prototype.adapterInput = null),
-                        Object.defineProperty(i.prototype, "stream", {
-                          get: r.oneOfGetter((a = ["input", "adapterInput"])),
+                        Object.defineProperty(i.prototype, 'stream', {
+                          get: r.oneOfGetter((a = ['input', 'adapterInput'])),
                           set: r.oneOfSetter(a),
                         }),
                         (i.create = function (e) {
@@ -19586,13 +19586,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(10).string(e.session),
                             null != e.input &&
-                              Object.hasOwnProperty.call(e, "input") &&
+                              Object.hasOwnProperty.call(e, 'input') &&
                               t.uint32(18).string(e.input),
                             null != e.adapterInput &&
-                              Object.hasOwnProperty.call(e, "adapterInput") &&
+                              Object.hasOwnProperty.call(e, 'adapterInput') &&
                               t.uint32(26).string(e.adapterInput),
                             t
                           );
@@ -19632,29 +19632,29 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.session &&
-                            e.hasOwnProperty("session") &&
+                            e.hasOwnProperty('session') &&
                             !r.isString(e.session)
                           )
-                            return "session: string expected";
+                            return 'session: string expected';
                           if (
                             null != e.input &&
-                            e.hasOwnProperty("input") &&
+                            e.hasOwnProperty('input') &&
                             ((t.stream = 1), !r.isString(e.input))
                           )
-                            return "input: string expected";
+                            return 'input: string expected';
                           if (
                             null != e.adapterInput &&
-                            e.hasOwnProperty("adapterInput")
+                            e.hasOwnProperty('adapterInput')
                           ) {
                             if (1 === t.stream)
-                              return "stream: multiple values";
+                              return 'stream: multiple values';
                             if (((t.stream = 1), !r.isString(e.adapterInput)))
-                              return "adapterInput: string expected";
+                              return 'adapterInput: string expected';
                           }
                           return null;
                         }),
@@ -19674,18 +19674,18 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.session = ""),
+                            t.defaults && (n.session = ''),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             null != e.input &&
-                              e.hasOwnProperty("input") &&
+                              e.hasOwnProperty('input') &&
                               ((n.input = e.input),
-                              t.oneofs && (n.stream = "input")),
+                              t.oneofs && (n.stream = 'input')),
                             null != e.adapterInput &&
-                              e.hasOwnProperty("adapterInput") &&
+                              e.hasOwnProperty('adapterInput') &&
                               ((n.adapterInput = e.adapterInput),
-                              t.oneofs && (n.stream = "adapterInput")),
+                              t.oneofs && (n.stream = 'adapterInput')),
                             n
                           );
                         }),
@@ -19706,11 +19706,11 @@
                       }
                       var a;
                       return (
-                        (i.prototype.session = ""),
+                        (i.prototype.session = ''),
                         (i.prototype.output = null),
                         (i.prototype.adapterOutput = null),
-                        Object.defineProperty(i.prototype, "stream", {
-                          get: r.oneOfGetter((a = ["output", "adapterOutput"])),
+                        Object.defineProperty(i.prototype, 'stream', {
+                          get: r.oneOfGetter((a = ['output', 'adapterOutput'])),
                           set: r.oneOfSetter(a),
                         }),
                         (i.create = function (e) {
@@ -19720,13 +19720,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(10).string(e.session),
                             null != e.output &&
-                              Object.hasOwnProperty.call(e, "output") &&
+                              Object.hasOwnProperty.call(e, 'output') &&
                               t.uint32(18).string(e.output),
                             null != e.adapterOutput &&
-                              Object.hasOwnProperty.call(e, "adapterOutput") &&
+                              Object.hasOwnProperty.call(e, 'adapterOutput') &&
                               t.uint32(26).string(e.adapterOutput),
                             t
                           );
@@ -19766,29 +19766,29 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.session &&
-                            e.hasOwnProperty("session") &&
+                            e.hasOwnProperty('session') &&
                             !r.isString(e.session)
                           )
-                            return "session: string expected";
+                            return 'session: string expected';
                           if (
                             null != e.output &&
-                            e.hasOwnProperty("output") &&
+                            e.hasOwnProperty('output') &&
                             ((t.stream = 1), !r.isString(e.output))
                           )
-                            return "output: string expected";
+                            return 'output: string expected';
                           if (
                             null != e.adapterOutput &&
-                            e.hasOwnProperty("adapterOutput")
+                            e.hasOwnProperty('adapterOutput')
                           ) {
                             if (1 === t.stream)
-                              return "stream: multiple values";
+                              return 'stream: multiple values';
                             if (((t.stream = 1), !r.isString(e.adapterOutput)))
-                              return "adapterOutput: string expected";
+                              return 'adapterOutput: string expected';
                           }
                           return null;
                         }),
@@ -19808,18 +19808,18 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.session = ""),
+                            t.defaults && (n.session = ''),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             null != e.output &&
-                              e.hasOwnProperty("output") &&
+                              e.hasOwnProperty('output') &&
                               ((n.output = e.output),
-                              t.oneofs && (n.stream = "output")),
+                              t.oneofs && (n.stream = 'output')),
                             null != e.adapterOutput &&
-                              e.hasOwnProperty("adapterOutput") &&
+                              e.hasOwnProperty('adapterOutput') &&
                               ((n.adapterOutput = e.adapterOutput),
-                              t.oneofs && (n.stream = "adapterOutput")),
+                              t.oneofs && (n.stream = 'adapterOutput')),
                             n
                           );
                         }),
@@ -19839,7 +19839,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.session = ""),
+                        (i.prototype.session = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -19847,7 +19847,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(10).string(e.session),
                             t
                           );
@@ -19881,12 +19881,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               !r.isString(e.session)
-                            ? "session: string expected"
+                            ? 'session: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -19902,9 +19902,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.session = ""),
+                            t.defaults && (n.session = ''),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             n
                           );
@@ -19925,7 +19925,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.session = ""),
+                        (i.prototype.session = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -19933,7 +19933,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.session &&
-                              Object.hasOwnProperty.call(e, "session") &&
+                              Object.hasOwnProperty.call(e, 'session') &&
                               t.uint32(10).string(e.session),
                             t
                           );
@@ -19967,12 +19967,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               !r.isString(e.session)
-                            ? "session: string expected"
+                            ? 'session: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -19988,9 +19988,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.session = ""),
+                            t.defaults && (n.session = ''),
                             null != e.session &&
-                              e.hasOwnProperty("session") &&
+                              e.hasOwnProperty('session') &&
                               (n.session = e.session),
                             n
                           );
@@ -20019,7 +20019,7 @@
                           if (
                             (t || (t = n.create()),
                             null != e.sessions &&
-                              Object.hasOwnProperty.call(e, "sessions"))
+                              Object.hasOwnProperty.call(e, 'sessions'))
                           )
                             for (
                               var r = Object.keys(e.sessions), o = 0;
@@ -20054,7 +20054,7 @@
                                 l.sessions === r.emptyObject &&
                                   (l.sessions = {});
                                 var c = e.uint32() + e.pos;
-                                for (i = "", a = 0; e.pos < c; ) {
+                                for (i = '', a = 0; e.pos < c; ) {
                                   var p = e.uint32();
                                   switch (p >>> 3) {
                                     case 1:
@@ -20082,14 +20082,14 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.sessions &&
-                            e.hasOwnProperty("sessions")
+                            e.hasOwnProperty('sessions')
                           ) {
                             if (!r.isObject(e.sessions))
-                              return "sessions: object expected";
+                              return 'sessions: object expected';
                             for (
                               var t = Object.keys(e.sessions), n = 0;
                               n < t.length;
@@ -20097,7 +20097,7 @@
                             )
                               switch (e.sessions[t[n]]) {
                                 default:
-                                  return "sessions: enum value{k:string} expected";
+                                  return 'sessions: enum value{k:string} expected';
                                 case 0:
                                 case 1:
                               }
@@ -20108,9 +20108,9 @@
                           if (e instanceof o.api.DebugSessions) return e;
                           var t = new o.api.DebugSessions();
                           if (e.sessions) {
-                            if ("object" !== typeof e.sessions)
+                            if ('object' !== typeof e.sessions)
                               throw TypeError(
-                                ".api.DebugSessions.sessions: object expected"
+                                '.api.DebugSessions.sessions: object expected'
                               );
                             t.sessions = {};
                             for (
@@ -20119,11 +20119,11 @@
                               ++r
                             )
                               switch (e.sessions[n[r]]) {
-                                case "Stopped":
+                                case 'Stopped':
                                 case 0:
                                   t.sessions[n[r]] = 0;
                                   break;
-                                case "Running":
+                                case 'Running':
                                 case 1:
                                   t.sessions[n[r]] = 1;
                               }
@@ -20192,8 +20192,8 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -20228,7 +20228,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.dotReplit &&
-                              Object.hasOwnProperty.call(e, "dotReplit") &&
+                              Object.hasOwnProperty.call(e, 'dotReplit') &&
                               o.api.DotReplit.encode(
                                 e.dotReplit,
                                 t.uint32(10).fork()
@@ -20268,14 +20268,14 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.dotReplit &&
-                            e.hasOwnProperty("dotReplit")
+                            e.hasOwnProperty('dotReplit')
                           ) {
                             var t = o.api.DotReplit.verify(e.dotReplit);
-                            if (t) return "dotReplit." + t;
+                            if (t) return 'dotReplit.' + t;
                           }
                           return null;
                         }),
@@ -20283,9 +20283,9 @@
                           if (e instanceof o.api.DotReplitGetResponse) return e;
                           var t = new o.api.DotReplitGetResponse();
                           if (null != e.dotReplit) {
-                            if ("object" !== typeof e.dotReplit)
+                            if ('object' !== typeof e.dotReplit)
                               throw TypeError(
-                                ".api.DotReplitGetResponse.dotReplit: object expected"
+                                '.api.DotReplitGetResponse.dotReplit: object expected'
                               );
                             t.dotReplit = o.api.DotReplit.fromObject(
                               e.dotReplit
@@ -20299,7 +20299,7 @@
                           return (
                             t.defaults && (n.dotReplit = null),
                             null != e.dotReplit &&
-                              e.hasOwnProperty("dotReplit") &&
+                              e.hasOwnProperty('dotReplit') &&
                               (n.dotReplit = o.api.DotReplit.toObject(
                                 e.dotReplit,
                                 t
@@ -20323,12 +20323,12 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.path = ""),
+                        (i.prototype.path = ''),
                         (i.prototype.otVersion = 0),
                         (i.prototype.otIndex = 0),
                         (i.prototype.sessionLocal = !1),
                         (i.prototype.line = 0),
-                        (i.prototype.logMessage = ""),
+                        (i.prototype.logMessage = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -20336,22 +20336,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.path &&
-                              Object.hasOwnProperty.call(e, "path") &&
+                              Object.hasOwnProperty.call(e, 'path') &&
                               t.uint32(10).string(e.path),
                             null != e.otVersion &&
-                              Object.hasOwnProperty.call(e, "otVersion") &&
+                              Object.hasOwnProperty.call(e, 'otVersion') &&
                               t.uint32(16).uint32(e.otVersion),
                             null != e.otIndex &&
-                              Object.hasOwnProperty.call(e, "otIndex") &&
+                              Object.hasOwnProperty.call(e, 'otIndex') &&
                               t.uint32(24).uint32(e.otIndex),
                             null != e.line &&
-                              Object.hasOwnProperty.call(e, "line") &&
+                              Object.hasOwnProperty.call(e, 'line') &&
                               t.uint32(32).int32(e.line),
                             null != e.logMessage &&
-                              Object.hasOwnProperty.call(e, "logMessage") &&
+                              Object.hasOwnProperty.call(e, 'logMessage') &&
                               t.uint32(42).string(e.logMessage),
                             null != e.sessionLocal &&
-                              Object.hasOwnProperty.call(e, "sessionLocal") &&
+                              Object.hasOwnProperty.call(e, 'sessionLocal') &&
                               t.uint32(48).bool(e.sessionLocal),
                             t
                           );
@@ -20400,32 +20400,32 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.path &&
-                              e.hasOwnProperty("path") &&
+                              e.hasOwnProperty('path') &&
                               !r.isString(e.path)
-                            ? "path: string expected"
+                            ? 'path: string expected'
                             : null != e.otVersion &&
-                              e.hasOwnProperty("otVersion") &&
+                              e.hasOwnProperty('otVersion') &&
                               !r.isInteger(e.otVersion)
-                            ? "otVersion: integer expected"
+                            ? 'otVersion: integer expected'
                             : null != e.otIndex &&
-                              e.hasOwnProperty("otIndex") &&
+                              e.hasOwnProperty('otIndex') &&
                               !r.isInteger(e.otIndex)
-                            ? "otIndex: integer expected"
+                            ? 'otIndex: integer expected'
                             : null != e.sessionLocal &&
-                              e.hasOwnProperty("sessionLocal") &&
-                              "boolean" !== typeof e.sessionLocal
-                            ? "sessionLocal: boolean expected"
+                              e.hasOwnProperty('sessionLocal') &&
+                              'boolean' !== typeof e.sessionLocal
+                            ? 'sessionLocal: boolean expected'
                             : null != e.line &&
-                              e.hasOwnProperty("line") &&
+                              e.hasOwnProperty('line') &&
                               !r.isInteger(e.line)
-                            ? "line: integer expected"
+                            ? 'line: integer expected'
                             : null != e.logMessage &&
-                              e.hasOwnProperty("logMessage") &&
+                              e.hasOwnProperty('logMessage') &&
                               !r.isString(e.logMessage)
-                            ? "logMessage: string expected"
+                            ? 'logMessage: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -20450,29 +20450,29 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.path = ""),
+                              ((n.path = ''),
                               (n.otVersion = 0),
                               (n.otIndex = 0),
                               (n.line = 0),
-                              (n.logMessage = ""),
+                              (n.logMessage = ''),
                               (n.sessionLocal = !1)),
                             null != e.path &&
-                              e.hasOwnProperty("path") &&
+                              e.hasOwnProperty('path') &&
                               (n.path = e.path),
                             null != e.otVersion &&
-                              e.hasOwnProperty("otVersion") &&
+                              e.hasOwnProperty('otVersion') &&
                               (n.otVersion = e.otVersion),
                             null != e.otIndex &&
-                              e.hasOwnProperty("otIndex") &&
+                              e.hasOwnProperty('otIndex') &&
                               (n.otIndex = e.otIndex),
                             null != e.line &&
-                              e.hasOwnProperty("line") &&
+                              e.hasOwnProperty('line') &&
                               (n.line = e.line),
                             null != e.logMessage &&
-                              e.hasOwnProperty("logMessage") &&
+                              e.hasOwnProperty('logMessage') &&
                               (n.logMessage = e.logMessage),
                             null != e.sessionLocal &&
-                              e.hasOwnProperty("sessionLocal") &&
+                              e.hasOwnProperty('sessionLocal') &&
                               (n.sessionLocal = e.sessionLocal),
                             n
                           );
@@ -20493,8 +20493,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.breakpointId = ""),
-                        (i.prototype.logMessage = ""),
+                        (i.prototype.breakpointId = ''),
+                        (i.prototype.logMessage = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -20502,10 +20502,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.breakpointId &&
-                              Object.hasOwnProperty.call(e, "breakpointId") &&
+                              Object.hasOwnProperty.call(e, 'breakpointId') &&
                               t.uint32(10).string(e.breakpointId),
                             null != e.logMessage &&
-                              Object.hasOwnProperty.call(e, "logMessage") &&
+                              Object.hasOwnProperty.call(e, 'logMessage') &&
                               t.uint32(18).string(e.logMessage),
                             t
                           );
@@ -20542,16 +20542,16 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.breakpointId &&
-                              e.hasOwnProperty("breakpointId") &&
+                              e.hasOwnProperty('breakpointId') &&
                               !r.isString(e.breakpointId)
-                            ? "breakpointId: string expected"
+                            ? 'breakpointId: string expected'
                             : null != e.logMessage &&
-                              e.hasOwnProperty("logMessage") &&
+                              e.hasOwnProperty('logMessage') &&
                               !r.isString(e.logMessage)
-                            ? "logMessage: string expected"
+                            ? 'logMessage: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -20571,12 +20571,12 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.breakpointId = ""), (n.logMessage = "")),
+                              ((n.breakpointId = ''), (n.logMessage = '')),
                             null != e.breakpointId &&
-                              e.hasOwnProperty("breakpointId") &&
+                              e.hasOwnProperty('breakpointId') &&
                               (n.breakpointId = e.breakpointId),
                             null != e.logMessage &&
-                              e.hasOwnProperty("logMessage") &&
+                              e.hasOwnProperty('logMessage') &&
                               (n.logMessage = e.logMessage),
                             n
                           );
@@ -20597,7 +20597,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.breakpointId = ""),
+                        (i.prototype.breakpointId = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -20605,7 +20605,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.breakpointId &&
-                              Object.hasOwnProperty.call(e, "breakpointId") &&
+                              Object.hasOwnProperty.call(e, 'breakpointId') &&
                               t.uint32(18).string(e.breakpointId),
                             t
                           );
@@ -20639,12 +20639,12 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.breakpointId &&
-                              e.hasOwnProperty("breakpointId") &&
+                              e.hasOwnProperty('breakpointId') &&
                               !r.isString(e.breakpointId)
-                            ? "breakpointId: string expected"
+                            ? 'breakpointId: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -20661,9 +20661,9 @@
                           t || (t = {});
                           var n = {};
                           return (
-                            t.defaults && (n.breakpointId = ""),
+                            t.defaults && (n.breakpointId = ''),
                             null != e.breakpointId &&
-                              e.hasOwnProperty("breakpointId") &&
+                              e.hasOwnProperty('breakpointId') &&
                               (n.breakpointId = e.breakpointId),
                             n
                           );
@@ -20684,8 +20684,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.path = ""),
-                        (i.prototype.absolutePath = ""),
+                        (i.prototype.path = ''),
+                        (i.prototype.absolutePath = ''),
                         (i.prototype.breakpoints = r.emptyArray),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -20694,7 +20694,7 @@
                           if (
                             (t || (t = n.create()),
                             null != e.path &&
-                              Object.hasOwnProperty.call(e, "path") &&
+                              Object.hasOwnProperty.call(e, 'path') &&
                               t.uint32(10).string(e.path),
                             null != e.breakpoints && e.breakpoints.length)
                           )
@@ -20705,7 +20705,7 @@
                               ).ldelim();
                           return (
                             null != e.absolutePath &&
-                              Object.hasOwnProperty.call(e, "absolutePath") &&
+                              Object.hasOwnProperty.call(e, 'absolutePath') &&
                               t.uint32(26).string(e.absolutePath),
                             t
                           );
@@ -20749,31 +20749,31 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.path &&
-                            e.hasOwnProperty("path") &&
+                            e.hasOwnProperty('path') &&
                             !r.isString(e.path)
                           )
-                            return "path: string expected";
+                            return 'path: string expected';
                           if (
                             null != e.absolutePath &&
-                            e.hasOwnProperty("absolutePath") &&
+                            e.hasOwnProperty('absolutePath') &&
                             !r.isString(e.absolutePath)
                           )
-                            return "absolutePath: string expected";
+                            return 'absolutePath: string expected';
                           if (
                             null != e.breakpoints &&
-                            e.hasOwnProperty("breakpoints")
+                            e.hasOwnProperty('breakpoints')
                           ) {
                             if (!Array.isArray(e.breakpoints))
-                              return "breakpoints: array expected";
+                              return 'breakpoints: array expected';
                             for (var t = 0; t < e.breakpoints.length; ++t) {
                               var n = o.api.DebugBreakpoint.verify(
                                 e.breakpoints[t]
                               );
-                              if (n) return "breakpoints." + n;
+                              if (n) return 'breakpoints.' + n;
                             }
                           }
                           return null;
@@ -20789,13 +20789,13 @@
                           ) {
                             if (!Array.isArray(e.breakpoints))
                               throw TypeError(
-                                ".api.DebugBreakpointEvent.breakpoints: array expected"
+                                '.api.DebugBreakpointEvent.breakpoints: array expected'
                               );
                             t.breakpoints = [];
                             for (var n = 0; n < e.breakpoints.length; ++n) {
-                              if ("object" !== typeof e.breakpoints[n])
+                              if ('object' !== typeof e.breakpoints[n])
                                 throw TypeError(
-                                  ".api.DebugBreakpointEvent.breakpoints: object expected"
+                                  '.api.DebugBreakpointEvent.breakpoints: object expected'
                                 );
                               t.breakpoints[n] =
                                 o.api.DebugBreakpoint.fromObject(
@@ -20811,9 +20811,9 @@
                           if (
                             ((t.arrays || t.defaults) && (n.breakpoints = []),
                             t.defaults &&
-                              ((n.path = ""), (n.absolutePath = "")),
+                              ((n.path = ''), (n.absolutePath = '')),
                             null != e.path &&
-                              e.hasOwnProperty("path") &&
+                              e.hasOwnProperty('path') &&
                               (n.path = e.path),
                             e.breakpoints && e.breakpoints.length)
                           ) {
@@ -20826,7 +20826,7 @@
                           }
                           return (
                             null != e.absolutePath &&
-                              e.hasOwnProperty("absolutePath") &&
+                              e.hasOwnProperty('absolutePath') &&
                               (n.absolutePath = e.absolutePath),
                             n
                           );
@@ -20847,12 +20847,12 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.breakpointId = ""),
+                        (i.prototype.breakpointId = ''),
                         (i.prototype.line = 0),
                         (i.prototype.otVersion = 0),
                         (i.prototype.otIndex = 0),
                         (i.prototype.sessionLocal = !1),
-                        (i.prototype.logMessage = ""),
+                        (i.prototype.logMessage = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -20860,22 +20860,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.breakpointId &&
-                              Object.hasOwnProperty.call(e, "breakpointId") &&
+                              Object.hasOwnProperty.call(e, 'breakpointId') &&
                               t.uint32(10).string(e.breakpointId),
                             null != e.line &&
-                              Object.hasOwnProperty.call(e, "line") &&
+                              Object.hasOwnProperty.call(e, 'line') &&
                               t.uint32(16).int32(e.line),
                             null != e.otVersion &&
-                              Object.hasOwnProperty.call(e, "otVersion") &&
+                              Object.hasOwnProperty.call(e, 'otVersion') &&
                               t.uint32(24).uint32(e.otVersion),
                             null != e.otIndex &&
-                              Object.hasOwnProperty.call(e, "otIndex") &&
+                              Object.hasOwnProperty.call(e, 'otIndex') &&
                               t.uint32(32).uint32(e.otIndex),
                             null != e.logMessage &&
-                              Object.hasOwnProperty.call(e, "logMessage") &&
+                              Object.hasOwnProperty.call(e, 'logMessage') &&
                               t.uint32(42).string(e.logMessage),
                             null != e.sessionLocal &&
-                              Object.hasOwnProperty.call(e, "sessionLocal") &&
+                              Object.hasOwnProperty.call(e, 'sessionLocal') &&
                               t.uint32(48).bool(e.sessionLocal),
                             t
                           );
@@ -20924,32 +20924,32 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.breakpointId &&
-                              e.hasOwnProperty("breakpointId") &&
+                              e.hasOwnProperty('breakpointId') &&
                               !r.isString(e.breakpointId)
-                            ? "breakpointId: string expected"
+                            ? 'breakpointId: string expected'
                             : null != e.line &&
-                              e.hasOwnProperty("line") &&
+                              e.hasOwnProperty('line') &&
                               !r.isInteger(e.line)
-                            ? "line: integer expected"
+                            ? 'line: integer expected'
                             : null != e.otVersion &&
-                              e.hasOwnProperty("otVersion") &&
+                              e.hasOwnProperty('otVersion') &&
                               !r.isInteger(e.otVersion)
-                            ? "otVersion: integer expected"
+                            ? 'otVersion: integer expected'
                             : null != e.otIndex &&
-                              e.hasOwnProperty("otIndex") &&
+                              e.hasOwnProperty('otIndex') &&
                               !r.isInteger(e.otIndex)
-                            ? "otIndex: integer expected"
+                            ? 'otIndex: integer expected'
                             : null != e.sessionLocal &&
-                              e.hasOwnProperty("sessionLocal") &&
-                              "boolean" !== typeof e.sessionLocal
-                            ? "sessionLocal: boolean expected"
+                              e.hasOwnProperty('sessionLocal') &&
+                              'boolean' !== typeof e.sessionLocal
+                            ? 'sessionLocal: boolean expected'
                             : null != e.logMessage &&
-                              e.hasOwnProperty("logMessage") &&
+                              e.hasOwnProperty('logMessage') &&
                               !r.isString(e.logMessage)
-                            ? "logMessage: string expected"
+                            ? 'logMessage: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -20974,29 +20974,29 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.breakpointId = ""),
+                              ((n.breakpointId = ''),
                               (n.line = 0),
                               (n.otVersion = 0),
                               (n.otIndex = 0),
-                              (n.logMessage = ""),
+                              (n.logMessage = ''),
                               (n.sessionLocal = !1)),
                             null != e.breakpointId &&
-                              e.hasOwnProperty("breakpointId") &&
+                              e.hasOwnProperty('breakpointId') &&
                               (n.breakpointId = e.breakpointId),
                             null != e.line &&
-                              e.hasOwnProperty("line") &&
+                              e.hasOwnProperty('line') &&
                               (n.line = e.line),
                             null != e.otVersion &&
-                              e.hasOwnProperty("otVersion") &&
+                              e.hasOwnProperty('otVersion') &&
                               (n.otVersion = e.otVersion),
                             null != e.otIndex &&
-                              e.hasOwnProperty("otIndex") &&
+                              e.hasOwnProperty('otIndex') &&
                               (n.otIndex = e.otIndex),
                             null != e.logMessage &&
-                              e.hasOwnProperty("logMessage") &&
+                              e.hasOwnProperty('logMessage') &&
                               (n.logMessage = e.logMessage),
                             null != e.sessionLocal &&
-                              e.hasOwnProperty("sessionLocal") &&
+                              e.hasOwnProperty('sessionLocal') &&
                               (n.sessionLocal = e.sessionLocal),
                             n
                           );
@@ -21020,11 +21020,11 @@
                         (i.prototype.run = null),
                         (i.prototype.compile = null),
                         (i.prototype.debugger = null),
-                        (i.prototype.language = ""),
+                        (i.prototype.language = ''),
                         (i.prototype.onBoot = null),
                         (i.prototype.packager = null),
                         (i.prototype.interpreter = null),
-                        (i.prototype.entrypoint = ""),
+                        (i.prototype.entrypoint = ''),
                         (i.prototype.languages = r.emptyObject),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -21033,49 +21033,49 @@
                           if (
                             (t || (t = n.create()),
                             null != e.run &&
-                              Object.hasOwnProperty.call(e, "run") &&
+                              Object.hasOwnProperty.call(e, 'run') &&
                               o.api.Exec.encode(
                                 e.run,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.compile &&
-                              Object.hasOwnProperty.call(e, "compile") &&
+                              Object.hasOwnProperty.call(e, 'compile') &&
                               o.api.Exec.encode(
                                 e.compile,
                                 t.uint32(18).fork()
                               ).ldelim(),
                             null != e.debugger &&
-                              Object.hasOwnProperty.call(e, "debugger") &&
+                              Object.hasOwnProperty.call(e, 'debugger') &&
                               o.api.DebuggerConfig.encode(
                                 e.debugger,
                                 t.uint32(26).fork()
                               ).ldelim(),
                             null != e.language &&
-                              Object.hasOwnProperty.call(e, "language") &&
+                              Object.hasOwnProperty.call(e, 'language') &&
                               t.uint32(34).string(e.language),
                             null != e.onBoot &&
-                              Object.hasOwnProperty.call(e, "onBoot") &&
+                              Object.hasOwnProperty.call(e, 'onBoot') &&
                               o.api.Exec.encode(
                                 e.onBoot,
                                 t.uint32(42).fork()
                               ).ldelim(),
                             null != e.packager &&
-                              Object.hasOwnProperty.call(e, "packager") &&
+                              Object.hasOwnProperty.call(e, 'packager') &&
                               o.api.DotReplitPackager.encode(
                                 e.packager,
                                 t.uint32(50).fork()
                               ).ldelim(),
                             null != e.interpreter &&
-                              Object.hasOwnProperty.call(e, "interpreter") &&
+                              Object.hasOwnProperty.call(e, 'interpreter') &&
                               o.api.DotReplitInterp.encode(
                                 e.interpreter,
                                 t.uint32(58).fork()
                               ).ldelim(),
                             null != e.entrypoint &&
-                              Object.hasOwnProperty.call(e, "entrypoint") &&
+                              Object.hasOwnProperty.call(e, 'entrypoint') &&
                               t.uint32(66).string(e.entrypoint),
                             null != e.languages &&
-                              Object.hasOwnProperty.call(e, "languages"))
+                              Object.hasOwnProperty.call(e, 'languages'))
                           )
                             for (
                               var r = Object.keys(e.languages), i = 0;
@@ -21143,7 +21143,7 @@
                                 l.languages === r.emptyObject &&
                                   (l.languages = {});
                                 var c = e.uint32() + e.pos;
-                                for (i = "", a = null; e.pos < c; ) {
+                                for (i = '', a = null; e.pos < c; ) {
                                   var p = e.uint32();
                                   switch (p >>> 3) {
                                     case 1:
@@ -21174,62 +21174,62 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.run &&
-                            e.hasOwnProperty("run") &&
+                            e.hasOwnProperty('run') &&
                             (i = o.api.Exec.verify(e.run))
                           )
-                            return "run." + i;
+                            return 'run.' + i;
                           if (
                             null != e.compile &&
-                            e.hasOwnProperty("compile") &&
+                            e.hasOwnProperty('compile') &&
                             (i = o.api.Exec.verify(e.compile))
                           )
-                            return "compile." + i;
+                            return 'compile.' + i;
                           if (
                             null != e.debugger &&
-                            e.hasOwnProperty("debugger") &&
+                            e.hasOwnProperty('debugger') &&
                             (i = o.api.DebuggerConfig.verify(e.debugger))
                           )
-                            return "debugger." + i;
+                            return 'debugger.' + i;
                           if (
                             null != e.language &&
-                            e.hasOwnProperty("language") &&
+                            e.hasOwnProperty('language') &&
                             !r.isString(e.language)
                           )
-                            return "language: string expected";
+                            return 'language: string expected';
                           if (
                             null != e.onBoot &&
-                            e.hasOwnProperty("onBoot") &&
+                            e.hasOwnProperty('onBoot') &&
                             (i = o.api.Exec.verify(e.onBoot))
                           )
-                            return "onBoot." + i;
+                            return 'onBoot.' + i;
                           if (
                             null != e.packager &&
-                            e.hasOwnProperty("packager") &&
+                            e.hasOwnProperty('packager') &&
                             (i = o.api.DotReplitPackager.verify(e.packager))
                           )
-                            return "packager." + i;
+                            return 'packager.' + i;
                           if (
                             null != e.interpreter &&
-                            e.hasOwnProperty("interpreter") &&
+                            e.hasOwnProperty('interpreter') &&
                             (i = o.api.DotReplitInterp.verify(e.interpreter))
                           )
-                            return "interpreter." + i;
+                            return 'interpreter.' + i;
                           if (
                             null != e.entrypoint &&
-                            e.hasOwnProperty("entrypoint") &&
+                            e.hasOwnProperty('entrypoint') &&
                             !r.isString(e.entrypoint)
                           )
-                            return "entrypoint: string expected";
+                            return 'entrypoint: string expected';
                           if (
                             null != e.languages &&
-                            e.hasOwnProperty("languages")
+                            e.hasOwnProperty('languages')
                           ) {
                             if (!r.isObject(e.languages))
-                              return "languages: object expected";
+                              return 'languages: object expected';
                             for (
                               var t = Object.keys(e.languages), n = 0;
                               n < t.length;
@@ -21241,7 +21241,7 @@
                                   e.languages[t[n]]
                                 ))
                               )
-                                return "languages." + i;
+                                return 'languages.' + i;
                             }
                           }
                           return null;
@@ -21250,23 +21250,23 @@
                           if (e instanceof o.api.DotReplit) return e;
                           var t = new o.api.DotReplit();
                           if (null != e.run) {
-                            if ("object" !== typeof e.run)
+                            if ('object' !== typeof e.run)
                               throw TypeError(
-                                ".api.DotReplit.run: object expected"
+                                '.api.DotReplit.run: object expected'
                               );
                             t.run = o.api.Exec.fromObject(e.run);
                           }
                           if (null != e.compile) {
-                            if ("object" !== typeof e.compile)
+                            if ('object' !== typeof e.compile)
                               throw TypeError(
-                                ".api.DotReplit.compile: object expected"
+                                '.api.DotReplit.compile: object expected'
                               );
                             t.compile = o.api.Exec.fromObject(e.compile);
                           }
                           if (null != e.debugger) {
-                            if ("object" !== typeof e.debugger)
+                            if ('object' !== typeof e.debugger)
                               throw TypeError(
-                                ".api.DotReplit.debugger: object expected"
+                                '.api.DotReplit.debugger: object expected'
                               );
                             t.debugger = o.api.DebuggerConfig.fromObject(
                               e.debugger
@@ -21277,25 +21277,25 @@
                               (t.language = String(e.language)),
                             null != e.onBoot)
                           ) {
-                            if ("object" !== typeof e.onBoot)
+                            if ('object' !== typeof e.onBoot)
                               throw TypeError(
-                                ".api.DotReplit.onBoot: object expected"
+                                '.api.DotReplit.onBoot: object expected'
                               );
                             t.onBoot = o.api.Exec.fromObject(e.onBoot);
                           }
                           if (null != e.packager) {
-                            if ("object" !== typeof e.packager)
+                            if ('object' !== typeof e.packager)
                               throw TypeError(
-                                ".api.DotReplit.packager: object expected"
+                                '.api.DotReplit.packager: object expected'
                               );
                             t.packager = o.api.DotReplitPackager.fromObject(
                               e.packager
                             );
                           }
                           if (null != e.interpreter) {
-                            if ("object" !== typeof e.interpreter)
+                            if ('object' !== typeof e.interpreter)
                               throw TypeError(
-                                ".api.DotReplit.interpreter: object expected"
+                                '.api.DotReplit.interpreter: object expected'
                               );
                             t.interpreter = o.api.DotReplitInterp.fromObject(
                               e.interpreter
@@ -21306,9 +21306,9 @@
                               (t.entrypoint = String(e.entrypoint)),
                             e.languages)
                           ) {
-                            if ("object" !== typeof e.languages)
+                            if ('object' !== typeof e.languages)
                               throw TypeError(
-                                ".api.DotReplit.languages: object expected"
+                                '.api.DotReplit.languages: object expected'
                               );
                             t.languages = {};
                             for (
@@ -21316,9 +21316,9 @@
                               r < n.length;
                               ++r
                             ) {
-                              if ("object" !== typeof e.languages[n[r]])
+                              if ('object' !== typeof e.languages[n[r]])
                                 throw TypeError(
-                                  ".api.DotReplit.languages: object expected"
+                                  '.api.DotReplit.languages: object expected'
                                 );
                               t.languages[n[r]] =
                                 o.api.DotReplitLanguage.fromObject(
@@ -21338,43 +21338,43 @@
                               ((r.run = null),
                               (r.compile = null),
                               (r.debugger = null),
-                              (r.language = ""),
+                              (r.language = ''),
                               (r.onBoot = null),
                               (r.packager = null),
                               (r.interpreter = null),
-                              (r.entrypoint = "")),
+                              (r.entrypoint = '')),
                             null != e.run &&
-                              e.hasOwnProperty("run") &&
+                              e.hasOwnProperty('run') &&
                               (r.run = o.api.Exec.toObject(e.run, t)),
                             null != e.compile &&
-                              e.hasOwnProperty("compile") &&
+                              e.hasOwnProperty('compile') &&
                               (r.compile = o.api.Exec.toObject(e.compile, t)),
                             null != e.debugger &&
-                              e.hasOwnProperty("debugger") &&
+                              e.hasOwnProperty('debugger') &&
                               (r.debugger = o.api.DebuggerConfig.toObject(
                                 e.debugger,
                                 t
                               )),
                             null != e.language &&
-                              e.hasOwnProperty("language") &&
+                              e.hasOwnProperty('language') &&
                               (r.language = e.language),
                             null != e.onBoot &&
-                              e.hasOwnProperty("onBoot") &&
+                              e.hasOwnProperty('onBoot') &&
                               (r.onBoot = o.api.Exec.toObject(e.onBoot, t)),
                             null != e.packager &&
-                              e.hasOwnProperty("packager") &&
+                              e.hasOwnProperty('packager') &&
                               (r.packager = o.api.DotReplitPackager.toObject(
                                 e.packager,
                                 t
                               )),
                             null != e.interpreter &&
-                              e.hasOwnProperty("interpreter") &&
+                              e.hasOwnProperty('interpreter') &&
                               (r.interpreter = o.api.DotReplitInterp.toObject(
                                 e.interpreter,
                                 t
                               )),
                             null != e.entrypoint &&
-                              e.hasOwnProperty("entrypoint") &&
+                              e.hasOwnProperty('entrypoint') &&
                               (r.entrypoint = e.entrypoint),
                             e.languages &&
                               (n = Object.keys(e.languages)).length)
@@ -21414,13 +21414,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.command &&
-                              Object.hasOwnProperty.call(e, "command") &&
+                              Object.hasOwnProperty.call(e, 'command') &&
                               o.api.Exec.encode(
                                 e.command,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.prompt &&
-                              Object.hasOwnProperty.call(e, "prompt") &&
+                              Object.hasOwnProperty.call(e, 'prompt') &&
                               t.uint32(18).bytes(e.prompt),
                             t
                           );
@@ -21457,38 +21457,38 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.command &&
-                            e.hasOwnProperty("command")
+                            e.hasOwnProperty('command')
                           ) {
                             var t = o.api.Exec.verify(e.command);
-                            if (t) return "command." + t;
+                            if (t) return 'command.' + t;
                           }
                           return null != e.prompt &&
-                            e.hasOwnProperty("prompt") &&
+                            e.hasOwnProperty('prompt') &&
                             !(
                               (e.prompt &&
-                                "number" === typeof e.prompt.length) ||
+                                'number' === typeof e.prompt.length) ||
                               r.isString(e.prompt)
                             )
-                            ? "prompt: buffer expected"
+                            ? 'prompt: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.DotReplitInterp) return e;
                           var t = new o.api.DotReplitInterp();
                           if (null != e.command) {
-                            if ("object" !== typeof e.command)
+                            if ('object' !== typeof e.command)
                               throw TypeError(
-                                ".api.DotReplitInterp.command: object expected"
+                                '.api.DotReplitInterp.command: object expected'
                               );
                             t.command = o.api.Exec.fromObject(e.command);
                           }
                           return (
                             null != e.prompt &&
-                              ("string" === typeof e.prompt
+                              ('string' === typeof e.prompt
                                 ? r.base64.decode(
                                     e.prompt,
                                     (t.prompt = r.newBuffer(
@@ -21507,15 +21507,15 @@
                             t.defaults &&
                               ((n.command = null),
                               t.bytes === String
-                                ? (n.prompt = "")
+                                ? (n.prompt = '')
                                 : ((n.prompt = []),
                                   t.bytes !== Array &&
                                     (n.prompt = r.newBuffer(n.prompt)))),
                             null != e.command &&
-                              e.hasOwnProperty("command") &&
+                              e.hasOwnProperty('command') &&
                               (n.command = o.api.Exec.toObject(e.command, t)),
                             null != e.prompt &&
-                              e.hasOwnProperty("prompt") &&
+                              e.hasOwnProperty('prompt') &&
                               (n.prompt =
                                 t.bytes === String
                                   ? r.base64.encode(
@@ -21545,8 +21545,8 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.pattern = ""),
-                        (i.prototype.syntax = ""),
+                        (i.prototype.pattern = ''),
+                        (i.prototype.syntax = ''),
                         (i.prototype.languageServer = null),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -21555,13 +21555,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.pattern &&
-                              Object.hasOwnProperty.call(e, "pattern") &&
+                              Object.hasOwnProperty.call(e, 'pattern') &&
                               t.uint32(10).string(e.pattern),
                             null != e.syntax &&
-                              Object.hasOwnProperty.call(e, "syntax") &&
+                              Object.hasOwnProperty.call(e, 'syntax') &&
                               t.uint32(18).string(e.syntax),
                             null != e.languageServer &&
-                              Object.hasOwnProperty.call(e, "languageServer") &&
+                              Object.hasOwnProperty.call(e, 'languageServer') &&
                               o.api.LanguageServerConfig.encode(
                                 e.languageServer,
                                 t.uint32(26).fork()
@@ -21608,28 +21608,28 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.pattern &&
-                            e.hasOwnProperty("pattern") &&
+                            e.hasOwnProperty('pattern') &&
                             !r.isString(e.pattern)
                           )
-                            return "pattern: string expected";
+                            return 'pattern: string expected';
                           if (
                             null != e.syntax &&
-                            e.hasOwnProperty("syntax") &&
+                            e.hasOwnProperty('syntax') &&
                             !r.isString(e.syntax)
                           )
-                            return "syntax: string expected";
+                            return 'syntax: string expected';
                           if (
                             null != e.languageServer &&
-                            e.hasOwnProperty("languageServer")
+                            e.hasOwnProperty('languageServer')
                           ) {
                             var t = o.api.LanguageServerConfig.verify(
                               e.languageServer
                             );
-                            if (t) return "languageServer." + t;
+                            if (t) return 'languageServer.' + t;
                           }
                           return null;
                         }),
@@ -21642,9 +21642,9 @@
                             null != e.syntax && (t.syntax = String(e.syntax)),
                             null != e.languageServer)
                           ) {
-                            if ("object" !== typeof e.languageServer)
+                            if ('object' !== typeof e.languageServer)
                               throw TypeError(
-                                ".api.DotReplitLanguage.languageServer: object expected"
+                                '.api.DotReplitLanguage.languageServer: object expected'
                               );
                             t.languageServer =
                               o.api.LanguageServerConfig.fromObject(
@@ -21658,17 +21658,17 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.pattern = ""),
-                              (n.syntax = ""),
+                              ((n.pattern = ''),
+                              (n.syntax = ''),
                               (n.languageServer = null)),
                             null != e.pattern &&
-                              e.hasOwnProperty("pattern") &&
+                              e.hasOwnProperty('pattern') &&
                               (n.pattern = e.pattern),
                             null != e.syntax &&
-                              e.hasOwnProperty("syntax") &&
+                              e.hasOwnProperty('syntax') &&
                               (n.syntax = e.syntax),
                             null != e.languageServer &&
-                              e.hasOwnProperty("languageServer") &&
+                              e.hasOwnProperty('languageServer') &&
                               (n.languageServer =
                                 o.api.LanguageServerConfig.toObject(
                                   e.languageServer,
@@ -21701,7 +21701,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.startCommand &&
-                              Object.hasOwnProperty.call(e, "startCommand") &&
+                              Object.hasOwnProperty.call(e, 'startCommand') &&
                               o.api.Exec.encode(
                                 e.startCommand,
                                 t.uint32(10).fork()
@@ -21741,14 +21741,14 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.startCommand &&
-                            e.hasOwnProperty("startCommand")
+                            e.hasOwnProperty('startCommand')
                           ) {
                             var t = o.api.Exec.verify(e.startCommand);
-                            if (t) return "startCommand." + t;
+                            if (t) return 'startCommand.' + t;
                           }
                           return null;
                         }),
@@ -21756,9 +21756,9 @@
                           if (e instanceof o.api.LanguageServerConfig) return e;
                           var t = new o.api.LanguageServerConfig();
                           if (null != e.startCommand) {
-                            if ("object" !== typeof e.startCommand)
+                            if ('object' !== typeof e.startCommand)
                               throw TypeError(
-                                ".api.LanguageServerConfig.startCommand: object expected"
+                                '.api.LanguageServerConfig.startCommand: object expected'
                               );
                             t.startCommand = o.api.Exec.fromObject(
                               e.startCommand
@@ -21772,7 +21772,7 @@
                           return (
                             t.defaults && (n.startCommand = null),
                             null != e.startCommand &&
-                              e.hasOwnProperty("startCommand") &&
+                              e.hasOwnProperty('startCommand') &&
                               (n.startCommand = o.api.Exec.toObject(
                                 e.startCommand,
                                 t
@@ -21802,7 +21802,7 @@
                       }
                       return (
                         (i.prototype.afterInstall = null),
-                        (i.prototype.language = ""),
+                        (i.prototype.language = ''),
                         (i.prototype.features = null),
                         (i.prototype.env = r.emptyObject),
                         (i.prototype.ignoredPaths = r.emptyArray),
@@ -21814,7 +21814,7 @@
                           if (
                             (t || (t = n.create()),
                             null != e.afterInstall &&
-                              Object.hasOwnProperty.call(e, "afterInstall") &&
+                              Object.hasOwnProperty.call(e, 'afterInstall') &&
                               o.api.Exec.encode(
                                 e.afterInstall,
                                 t.uint32(10).fork()
@@ -21831,16 +21831,16 @@
                               t.uint32(26).string(e.ignoredPackages[r]);
                           if (
                             (null != e.language &&
-                              Object.hasOwnProperty.call(e, "language") &&
+                              Object.hasOwnProperty.call(e, 'language') &&
                               t.uint32(34).string(e.language),
                             null != e.features &&
-                              Object.hasOwnProperty.call(e, "features") &&
+                              Object.hasOwnProperty.call(e, 'features') &&
                               o.api.DotReplitPackagerFeatures.encode(
                                 e.features,
                                 t.uint32(42).fork()
                               ).ldelim(),
                             null != e.env &&
-                              Object.hasOwnProperty.call(e, "env"))
+                              Object.hasOwnProperty.call(e, 'env'))
                           ) {
                             var i = Object.keys(e.env);
                             for (r = 0; r < i.length; ++r)
@@ -21888,7 +21888,7 @@
                               case 6:
                                 l.env === r.emptyObject && (l.env = {});
                                 var c = e.uint32() + e.pos;
-                                for (i = "", a = ""; e.pos < c; ) {
+                                for (i = '', a = ''; e.pos < c; ) {
                                   var p = e.uint32();
                                   switch (p >>> 3) {
                                     case 1:
@@ -21927,59 +21927,59 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t;
                           if (
                             null != e.afterInstall &&
-                            e.hasOwnProperty("afterInstall") &&
+                            e.hasOwnProperty('afterInstall') &&
                             (t = o.api.Exec.verify(e.afterInstall))
                           )
-                            return "afterInstall." + t;
+                            return 'afterInstall.' + t;
                           if (
                             null != e.language &&
-                            e.hasOwnProperty("language") &&
+                            e.hasOwnProperty('language') &&
                             !r.isString(e.language)
                           )
-                            return "language: string expected";
+                            return 'language: string expected';
                           if (
                             null != e.features &&
-                            e.hasOwnProperty("features") &&
+                            e.hasOwnProperty('features') &&
                             (t = o.api.DotReplitPackagerFeatures.verify(
                               e.features
                             ))
                           )
-                            return "features." + t;
-                          if (null != e.env && e.hasOwnProperty("env")) {
+                            return 'features.' + t;
+                          if (null != e.env && e.hasOwnProperty('env')) {
                             if (!r.isObject(e.env))
-                              return "env: object expected";
+                              return 'env: object expected';
                             for (
                               var n = Object.keys(e.env), i = 0;
                               i < n.length;
                               ++i
                             )
                               if (!r.isString(e.env[n[i]]))
-                                return "env: string{k:string} expected";
+                                return 'env: string{k:string} expected';
                           }
                           if (
                             null != e.ignoredPaths &&
-                            e.hasOwnProperty("ignoredPaths")
+                            e.hasOwnProperty('ignoredPaths')
                           ) {
                             if (!Array.isArray(e.ignoredPaths))
-                              return "ignoredPaths: array expected";
+                              return 'ignoredPaths: array expected';
                             for (i = 0; i < e.ignoredPaths.length; ++i)
                               if (!r.isString(e.ignoredPaths[i]))
-                                return "ignoredPaths: string[] expected";
+                                return 'ignoredPaths: string[] expected';
                           }
                           if (
                             null != e.ignoredPackages &&
-                            e.hasOwnProperty("ignoredPackages")
+                            e.hasOwnProperty('ignoredPackages')
                           ) {
                             if (!Array.isArray(e.ignoredPackages))
-                              return "ignoredPackages: array expected";
+                              return 'ignoredPackages: array expected';
                             for (i = 0; i < e.ignoredPackages.length; ++i)
                               if (!r.isString(e.ignoredPackages[i]))
-                                return "ignoredPackages: string[] expected";
+                                return 'ignoredPackages: string[] expected';
                           }
                           return null;
                         }),
@@ -21987,9 +21987,9 @@
                           if (e instanceof o.api.DotReplitPackager) return e;
                           var t = new o.api.DotReplitPackager();
                           if (null != e.afterInstall) {
-                            if ("object" !== typeof e.afterInstall)
+                            if ('object' !== typeof e.afterInstall)
                               throw TypeError(
-                                ".api.DotReplitPackager.afterInstall: object expected"
+                                '.api.DotReplitPackager.afterInstall: object expected'
                               );
                             t.afterInstall = o.api.Exec.fromObject(
                               e.afterInstall
@@ -22000,9 +22000,9 @@
                               (t.language = String(e.language)),
                             null != e.features)
                           ) {
-                            if ("object" !== typeof e.features)
+                            if ('object' !== typeof e.features)
                               throw TypeError(
-                                ".api.DotReplitPackager.features: object expected"
+                                '.api.DotReplitPackager.features: object expected'
                               );
                             t.features =
                               o.api.DotReplitPackagerFeatures.fromObject(
@@ -22010,9 +22010,9 @@
                               );
                           }
                           if (e.env) {
-                            if ("object" !== typeof e.env)
+                            if ('object' !== typeof e.env)
                               throw TypeError(
-                                ".api.DotReplitPackager.env: object expected"
+                                '.api.DotReplitPackager.env: object expected'
                               );
                             t.env = {};
                             for (
@@ -22025,7 +22025,7 @@
                           if (e.ignoredPaths) {
                             if (!Array.isArray(e.ignoredPaths))
                               throw TypeError(
-                                ".api.DotReplitPackager.ignoredPaths: array expected"
+                                '.api.DotReplitPackager.ignoredPaths: array expected'
                               );
                             for (
                               t.ignoredPaths = [], r = 0;
@@ -22037,7 +22037,7 @@
                           if (e.ignoredPackages) {
                             if (!Array.isArray(e.ignoredPackages))
                               throw TypeError(
-                                ".api.DotReplitPackager.ignoredPackages: array expected"
+                                '.api.DotReplitPackager.ignoredPackages: array expected'
                               );
                             for (
                               t.ignoredPackages = [], r = 0;
@@ -22060,10 +22060,10 @@
                             (t.objects || t.defaults) && (r.env = {}),
                             t.defaults &&
                               ((r.afterInstall = null),
-                              (r.language = ""),
+                              (r.language = ''),
                               (r.features = null)),
                             null != e.afterInstall &&
-                              e.hasOwnProperty("afterInstall") &&
+                              e.hasOwnProperty('afterInstall') &&
                               (r.afterInstall = o.api.Exec.toObject(
                                 e.afterInstall,
                                 t
@@ -22083,10 +22083,10 @@
                               r.ignoredPackages[i] = e.ignoredPackages[i];
                           if (
                             (null != e.language &&
-                              e.hasOwnProperty("language") &&
+                              e.hasOwnProperty('language') &&
                               (r.language = e.language),
                             null != e.features &&
-                              e.hasOwnProperty("features") &&
+                              e.hasOwnProperty('features') &&
                               (r.features =
                                 o.api.DotReplitPackagerFeatures.toObject(
                                   e.features,
@@ -22123,10 +22123,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.packageSearch &&
-                              Object.hasOwnProperty.call(e, "packageSearch") &&
+                              Object.hasOwnProperty.call(e, 'packageSearch') &&
                               t.uint32(8).bool(e.packageSearch),
                             null != e.guessImports &&
-                              Object.hasOwnProperty.call(e, "guessImports") &&
+                              Object.hasOwnProperty.call(e, 'guessImports') &&
                               t.uint32(16).bool(e.guessImports),
                             t
                           );
@@ -22163,16 +22163,16 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.packageSearch &&
-                              e.hasOwnProperty("packageSearch") &&
-                              "boolean" !== typeof e.packageSearch
-                            ? "packageSearch: boolean expected"
+                              e.hasOwnProperty('packageSearch') &&
+                              'boolean' !== typeof e.packageSearch
+                            ? 'packageSearch: boolean expected'
                             : null != e.guessImports &&
-                              e.hasOwnProperty("guessImports") &&
-                              "boolean" !== typeof e.guessImports
-                            ? "guessImports: boolean expected"
+                              e.hasOwnProperty('guessImports') &&
+                              'boolean' !== typeof e.guessImports
+                            ? 'guessImports: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -22194,10 +22194,10 @@
                             t.defaults &&
                               ((n.packageSearch = !1), (n.guessImports = !1)),
                             null != e.packageSearch &&
-                              e.hasOwnProperty("packageSearch") &&
+                              e.hasOwnProperty('packageSearch') &&
                               (n.packageSearch = e.packageSearch),
                             null != e.guessImports &&
-                              e.hasOwnProperty("guessImports") &&
+                              e.hasOwnProperty('guessImports') &&
                               (n.guessImports = e.guessImports),
                             n
                           );
@@ -22226,7 +22226,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.support &&
-                              Object.hasOwnProperty.call(e, "support") &&
+                              Object.hasOwnProperty.call(e, 'support') &&
                               t.uint32(8).bool(e.support),
                             t
                           );
@@ -22260,12 +22260,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.support &&
-                              e.hasOwnProperty("support") &&
-                              "boolean" !== typeof e.support
-                            ? "support: boolean expected"
+                              e.hasOwnProperty('support') &&
+                              'boolean' !== typeof e.support
+                            ? 'support: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -22283,7 +22283,7 @@
                           return (
                             t.defaults && (n.support = !1),
                             null != e.support &&
-                              e.hasOwnProperty("support") &&
+                              e.hasOwnProperty('support') &&
                               (n.support = e.support),
                             n
                           );
@@ -22304,12 +22304,12 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.id = ""),
-                        (i.prototype.language = ""),
-                        (i.prototype.bucket = ""),
-                        (i.prototype.slug = ""),
-                        (i.prototype.user = ""),
-                        (i.prototype.sourceRepl = ""),
+                        (i.prototype.id = ''),
+                        (i.prototype.language = ''),
+                        (i.prototype.bucket = ''),
+                        (i.prototype.slug = ''),
+                        (i.prototype.user = ''),
+                        (i.prototype.sourceRepl = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -22317,22 +22317,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(10).string(e.id),
                             null != e.language &&
-                              Object.hasOwnProperty.call(e, "language") &&
+                              Object.hasOwnProperty.call(e, 'language') &&
                               t.uint32(18).string(e.language),
                             null != e.bucket &&
-                              Object.hasOwnProperty.call(e, "bucket") &&
+                              Object.hasOwnProperty.call(e, 'bucket') &&
                               t.uint32(26).string(e.bucket),
                             null != e.slug &&
-                              Object.hasOwnProperty.call(e, "slug") &&
+                              Object.hasOwnProperty.call(e, 'slug') &&
                               t.uint32(34).string(e.slug),
                             null != e.user &&
-                              Object.hasOwnProperty.call(e, "user") &&
+                              Object.hasOwnProperty.call(e, 'user') &&
                               t.uint32(42).string(e.user),
                             null != e.sourceRepl &&
-                              Object.hasOwnProperty.call(e, "sourceRepl") &&
+                              Object.hasOwnProperty.call(e, 'sourceRepl') &&
                               t.uint32(50).string(e.sourceRepl),
                             t
                           );
@@ -22381,32 +22381,32 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               !r.isString(e.id)
-                            ? "id: string expected"
+                            ? 'id: string expected'
                             : null != e.language &&
-                              e.hasOwnProperty("language") &&
+                              e.hasOwnProperty('language') &&
                               !r.isString(e.language)
-                            ? "language: string expected"
+                            ? 'language: string expected'
                             : null != e.bucket &&
-                              e.hasOwnProperty("bucket") &&
+                              e.hasOwnProperty('bucket') &&
                               !r.isString(e.bucket)
-                            ? "bucket: string expected"
+                            ? 'bucket: string expected'
                             : null != e.slug &&
-                              e.hasOwnProperty("slug") &&
+                              e.hasOwnProperty('slug') &&
                               !r.isString(e.slug)
-                            ? "slug: string expected"
+                            ? 'slug: string expected'
                             : null != e.user &&
-                              e.hasOwnProperty("user") &&
+                              e.hasOwnProperty('user') &&
                               !r.isString(e.user)
-                            ? "user: string expected"
+                            ? 'user: string expected'
                             : null != e.sourceRepl &&
-                              e.hasOwnProperty("sourceRepl") &&
+                              e.hasOwnProperty('sourceRepl') &&
                               !r.isString(e.sourceRepl)
-                            ? "sourceRepl: string expected"
+                            ? 'sourceRepl: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -22429,29 +22429,29 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.id = ""),
-                              (n.language = ""),
-                              (n.bucket = ""),
-                              (n.slug = ""),
-                              (n.user = ""),
-                              (n.sourceRepl = "")),
+                              ((n.id = ''),
+                              (n.language = ''),
+                              (n.bucket = ''),
+                              (n.slug = ''),
+                              (n.user = ''),
+                              (n.sourceRepl = '')),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.language &&
-                              e.hasOwnProperty("language") &&
+                              e.hasOwnProperty('language') &&
                               (n.language = e.language),
                             null != e.bucket &&
-                              e.hasOwnProperty("bucket") &&
+                              e.hasOwnProperty('bucket') &&
                               (n.bucket = e.bucket),
                             null != e.slug &&
-                              e.hasOwnProperty("slug") &&
+                              e.hasOwnProperty('slug') &&
                               (n.slug = e.slug),
                             null != e.user &&
-                              e.hasOwnProperty("user") &&
+                              e.hasOwnProperty('user') &&
                               (n.user = e.user),
                             null != e.sourceRepl &&
-                              e.hasOwnProperty("sourceRepl") &&
+                              e.hasOwnProperty('sourceRepl') &&
                               (n.sourceRepl = e.sourceRepl),
                             n
                           );
@@ -22489,22 +22489,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.net &&
-                              Object.hasOwnProperty.call(e, "net") &&
+                              Object.hasOwnProperty.call(e, 'net') &&
                               t.uint32(8).bool(e.net),
                             null != e.memory &&
-                              Object.hasOwnProperty.call(e, "memory") &&
+                              Object.hasOwnProperty.call(e, 'memory') &&
                               t.uint32(16).int64(e.memory),
                             null != e.threads &&
-                              Object.hasOwnProperty.call(e, "threads") &&
+                              Object.hasOwnProperty.call(e, 'threads') &&
                               t.uint32(25).double(e.threads),
                             null != e.shares &&
-                              Object.hasOwnProperty.call(e, "shares") &&
+                              Object.hasOwnProperty.call(e, 'shares') &&
                               t.uint32(33).double(e.shares),
                             null != e.disk &&
-                              Object.hasOwnProperty.call(e, "disk") &&
+                              Object.hasOwnProperty.call(e, 'disk') &&
                               t.uint32(40).int64(e.disk),
                             null != e.cache &&
-                              Object.hasOwnProperty.call(e, "cache") &&
+                              Object.hasOwnProperty.call(e, 'cache') &&
                               t.uint32(48).int32(e.cache),
                             t
                           );
@@ -22553,17 +22553,17 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.net &&
-                            e.hasOwnProperty("net") &&
-                            "boolean" !== typeof e.net
+                            e.hasOwnProperty('net') &&
+                            'boolean' !== typeof e.net
                           )
-                            return "net: boolean expected";
+                            return 'net: boolean expected';
                           if (
                             null != e.memory &&
-                            e.hasOwnProperty("memory") &&
+                            e.hasOwnProperty('memory') &&
                             !r.isInteger(e.memory) &&
                             !(
                               e.memory &&
@@ -22571,22 +22571,22 @@
                               r.isInteger(e.memory.high)
                             )
                           )
-                            return "memory: integer|Long expected";
+                            return 'memory: integer|Long expected';
                           if (
                             null != e.threads &&
-                            e.hasOwnProperty("threads") &&
-                            "number" !== typeof e.threads
+                            e.hasOwnProperty('threads') &&
+                            'number' !== typeof e.threads
                           )
-                            return "threads: number expected";
+                            return 'threads: number expected';
                           if (
                             null != e.shares &&
-                            e.hasOwnProperty("shares") &&
-                            "number" !== typeof e.shares
+                            e.hasOwnProperty('shares') &&
+                            'number' !== typeof e.shares
                           )
-                            return "shares: number expected";
+                            return 'shares: number expected';
                           if (
                             null != e.disk &&
-                            e.hasOwnProperty("disk") &&
+                            e.hasOwnProperty('disk') &&
                             !r.isInteger(e.disk) &&
                             !(
                               e.disk &&
@@ -22594,11 +22594,11 @@
                               r.isInteger(e.disk.high)
                             )
                           )
-                            return "disk: integer|Long expected";
-                          if (null != e.cache && e.hasOwnProperty("cache"))
+                            return 'disk: integer|Long expected';
+                          if (null != e.cache && e.hasOwnProperty('cache'))
                             switch (e.cache) {
                               default:
-                                return "cache: enum value expected";
+                                return 'cache: enum value expected';
                               case 0:
                               case 1:
                               case 2:
@@ -22615,11 +22615,11 @@
                                 ? ((t.memory = r.Long.fromValue(
                                     e.memory
                                   )).unsigned = !1)
-                                : "string" === typeof e.memory
+                                : 'string' === typeof e.memory
                                 ? (t.memory = parseInt(e.memory, 10))
-                                : "number" === typeof e.memory
+                                : 'number' === typeof e.memory
                                 ? (t.memory = e.memory)
-                                : "object" === typeof e.memory &&
+                                : 'object' === typeof e.memory &&
                                   (t.memory = new r.LongBits(
                                     e.memory.low >>> 0,
                                     e.memory.high >>> 0
@@ -22632,26 +22632,26 @@
                                 ? ((t.disk = r.Long.fromValue(
                                     e.disk
                                   )).unsigned = !1)
-                                : "string" === typeof e.disk
+                                : 'string' === typeof e.disk
                                 ? (t.disk = parseInt(e.disk, 10))
-                                : "number" === typeof e.disk
+                                : 'number' === typeof e.disk
                                 ? (t.disk = e.disk)
-                                : "object" === typeof e.disk &&
+                                : 'object' === typeof e.disk &&
                                   (t.disk = new r.LongBits(
                                     e.disk.low >>> 0,
                                     e.disk.high >>> 0
                                   ).toNumber())),
                             e.cache)
                           ) {
-                            case "NONE":
+                            case 'NONE':
                             case 0:
                               t.cache = 0;
                               break;
-                            case "USER":
+                            case 'USER':
                             case 1:
                               t.cache = 1;
                               break;
-                            case "REPL":
+                            case 'REPL':
                             case 2:
                               t.cache = 2;
                           }
@@ -22669,7 +22669,7 @@
                                   : t.longs === Number
                                   ? i.toNumber()
                                   : i;
-                            } else n.memory = t.longs === String ? "0" : 0;
+                            } else n.memory = t.longs === String ? '0' : 0;
                             (n.threads = 0),
                               (n.shares = 0),
                               r.Long
@@ -22680,16 +22680,16 @@
                                       : t.longs === Number
                                       ? i.toNumber()
                                       : i))
-                                : (n.disk = t.longs === String ? "0" : 0),
-                              (n.cache = t.enums === String ? "NONE" : 0);
+                                : (n.disk = t.longs === String ? '0' : 0),
+                              (n.cache = t.enums === String ? 'NONE' : 0);
                           }
                           return (
                             null != e.net &&
-                              e.hasOwnProperty("net") &&
+                              e.hasOwnProperty('net') &&
                               (n.net = e.net),
                             null != e.memory &&
-                              e.hasOwnProperty("memory") &&
-                              ("number" === typeof e.memory
+                              e.hasOwnProperty('memory') &&
+                              ('number' === typeof e.memory
                                 ? (n.memory =
                                     t.longs === String
                                       ? String(e.memory)
@@ -22704,20 +22704,20 @@
                                         ).toNumber()
                                       : e.memory)),
                             null != e.threads &&
-                              e.hasOwnProperty("threads") &&
+                              e.hasOwnProperty('threads') &&
                               (n.threads =
                                 t.json && !isFinite(e.threads)
                                   ? String(e.threads)
                                   : e.threads),
                             null != e.shares &&
-                              e.hasOwnProperty("shares") &&
+                              e.hasOwnProperty('shares') &&
                               (n.shares =
                                 t.json && !isFinite(e.shares)
                                   ? String(e.shares)
                                   : e.shares),
                             null != e.disk &&
-                              e.hasOwnProperty("disk") &&
-                              ("number" === typeof e.disk
+                              e.hasOwnProperty('disk') &&
+                              ('number' === typeof e.disk
                                 ? (n.disk =
                                     t.longs === String
                                       ? String(e.disk)
@@ -22732,7 +22732,7 @@
                                         ).toNumber()
                                       : e.disk)),
                             null != e.cache &&
-                              e.hasOwnProperty("cache") &&
+                              e.hasOwnProperty('cache') &&
                               (n.cache =
                                 t.enums === String
                                   ? o.api.ResourceLimits.Cachability[e.cache]
@@ -22750,9 +22750,9 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "NONE")] = 0),
-                            (t[(e[1] = "USER")] = 1),
-                            (t[(e[2] = "REPL")] = 2),
+                            (t[(e[0] = 'NONE')] = 0),
+                            (t[(e[1] = 'USER')] = 1),
+                            (t[(e[2] = 'REPL')] = 2),
                             t
                           );
                         })()),
@@ -22774,7 +22774,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.toggleAlwaysOn &&
-                              Object.hasOwnProperty.call(e, "toggleAlwaysOn") &&
+                              Object.hasOwnProperty.call(e, 'toggleAlwaysOn') &&
                               t.uint32(8).bool(e.toggleAlwaysOn),
                             t
                           );
@@ -22808,12 +22808,12 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.toggleAlwaysOn &&
-                              e.hasOwnProperty("toggleAlwaysOn") &&
-                              "boolean" !== typeof e.toggleAlwaysOn
-                            ? "toggleAlwaysOn: boolean expected"
+                              e.hasOwnProperty('toggleAlwaysOn') &&
+                              'boolean' !== typeof e.toggleAlwaysOn
+                            ? 'toggleAlwaysOn: boolean expected'
                             : null;
                         }),
                         (r.fromObject = function (e) {
@@ -22831,7 +22831,7 @@
                           return (
                             t.defaults && (n.toggleAlwaysOn = !1),
                             null != e.toggleAlwaysOn &&
-                              e.hasOwnProperty("toggleAlwaysOn") &&
+                              e.hasOwnProperty('toggleAlwaysOn') &&
                               (n.toggleAlwaysOn = e.toggleAlwaysOn),
                             n
                           );
@@ -22855,8 +22855,8 @@
                       return (
                         (i.prototype.iat = null),
                         (i.prototype.exp = null),
-                        (i.prototype.salt = ""),
-                        (i.prototype.cluster = ""),
+                        (i.prototype.salt = ''),
+                        (i.prototype.cluster = ''),
                         (i.prototype.persistence = 0),
                         (i.prototype.repl = null),
                         (i.prototype.id = null),
@@ -22866,8 +22866,8 @@
                         (i.prototype.presenced = null),
                         (i.prototype.flags = r.emptyArray),
                         (i.prototype.permissions = null),
-                        Object.defineProperty(i.prototype, "metadata", {
-                          get: r.oneOfGetter((a = ["repl", "id", "classroom"])),
+                        Object.defineProperty(i.prototype, 'metadata', {
+                          get: r.oneOfGetter((a = ['repl', 'id', 'classroom'])),
                           set: r.oneOfSetter(a),
                         }),
                         (i.create = function (e) {
@@ -22877,55 +22877,55 @@
                           if (
                             (t || (t = n.create()),
                             null != e.iat &&
-                              Object.hasOwnProperty.call(e, "iat") &&
+                              Object.hasOwnProperty.call(e, 'iat') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.iat,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.exp &&
-                              Object.hasOwnProperty.call(e, "exp") &&
+                              Object.hasOwnProperty.call(e, 'exp') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.exp,
                                 t.uint32(18).fork()
                               ).ldelim(),
                             null != e.salt &&
-                              Object.hasOwnProperty.call(e, "salt") &&
+                              Object.hasOwnProperty.call(e, 'salt') &&
                               t.uint32(26).string(e.salt),
                             null != e.cluster &&
-                              Object.hasOwnProperty.call(e, "cluster") &&
+                              Object.hasOwnProperty.call(e, 'cluster') &&
                               t.uint32(34).string(e.cluster),
                             null != e.persistence &&
-                              Object.hasOwnProperty.call(e, "persistence") &&
+                              Object.hasOwnProperty.call(e, 'persistence') &&
                               t.uint32(48).int32(e.persistence),
                             null != e.repl &&
-                              Object.hasOwnProperty.call(e, "repl") &&
+                              Object.hasOwnProperty.call(e, 'repl') &&
                               o.api.Repl.encode(
                                 e.repl,
                                 t.uint32(58).fork()
                               ).ldelim(),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               o.api.ReplToken.ReplID.encode(
                                 e.id,
                                 t.uint32(66).fork()
                               ).ldelim(),
                             null != e.classroom &&
-                              Object.hasOwnProperty.call(e, "classroom") &&
+                              Object.hasOwnProperty.call(e, 'classroom') &&
                               o.api.ReplToken.ClassroomMetadata.encode(
                                 e.classroom,
                                 t.uint32(74).fork()
                               ).ldelim(),
                             null != e.resourceLimits &&
-                              Object.hasOwnProperty.call(e, "resourceLimits") &&
+                              Object.hasOwnProperty.call(e, 'resourceLimits') &&
                               o.api.ResourceLimits.encode(
                                 e.resourceLimits,
                                 t.uint32(82).fork()
                               ).ldelim(),
                             null != e.format &&
-                              Object.hasOwnProperty.call(e, "format") &&
+                              Object.hasOwnProperty.call(e, 'format') &&
                               t.uint32(96).int32(e.format),
                             null != e.presenced &&
-                              Object.hasOwnProperty.call(e, "presenced") &&
+                              Object.hasOwnProperty.call(e, 'presenced') &&
                               o.api.ReplToken.Presenced.encode(
                                 e.presenced,
                                 t.uint32(106).fork()
@@ -22936,7 +22936,7 @@
                               t.uint32(114).string(e.flags[r]);
                           return (
                             null != e.permissions &&
-                              Object.hasOwnProperty.call(e, "permissions") &&
+                              Object.hasOwnProperty.call(e, 'permissions') &&
                               o.api.Permissions.encode(
                                 e.permissions,
                                 t.uint32(122).fork()
@@ -23032,65 +23032,65 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.iat &&
-                            e.hasOwnProperty("iat") &&
+                            e.hasOwnProperty('iat') &&
                             (n = o.google.protobuf.Timestamp.verify(e.iat))
                           )
-                            return "iat." + n;
+                            return 'iat.' + n;
                           if (
                             null != e.exp &&
-                            e.hasOwnProperty("exp") &&
+                            e.hasOwnProperty('exp') &&
                             (n = o.google.protobuf.Timestamp.verify(e.exp))
                           )
-                            return "exp." + n;
+                            return 'exp.' + n;
                           if (
                             null != e.salt &&
-                            e.hasOwnProperty("salt") &&
+                            e.hasOwnProperty('salt') &&
                             !r.isString(e.salt)
                           )
-                            return "salt: string expected";
+                            return 'salt: string expected';
                           if (
                             null != e.cluster &&
-                            e.hasOwnProperty("cluster") &&
+                            e.hasOwnProperty('cluster') &&
                             !r.isString(e.cluster)
                           )
-                            return "cluster: string expected";
+                            return 'cluster: string expected';
                           if (
                             null != e.persistence &&
-                            e.hasOwnProperty("persistence")
+                            e.hasOwnProperty('persistence')
                           )
                             switch (e.persistence) {
                               default:
-                                return "persistence: enum value expected";
+                                return 'persistence: enum value expected';
                               case 0:
                               case 1:
                               case 2:
                             }
                           if (
                             null != e.repl &&
-                            e.hasOwnProperty("repl") &&
+                            e.hasOwnProperty('repl') &&
                             ((t.metadata = 1), (n = o.api.Repl.verify(e.repl)))
                           )
-                            return "repl." + n;
-                          if (null != e.id && e.hasOwnProperty("id")) {
+                            return 'repl.' + n;
+                          if (null != e.id && e.hasOwnProperty('id')) {
                             if (1 === t.metadata)
-                              return "metadata: multiple values";
+                              return 'metadata: multiple values';
                             if (
                               ((t.metadata = 1),
                               (n = o.api.ReplToken.ReplID.verify(e.id)))
                             )
-                              return "id." + n;
+                              return 'id.' + n;
                           }
                           if (
                             null != e.classroom &&
-                            e.hasOwnProperty("classroom")
+                            e.hasOwnProperty('classroom')
                           ) {
                             if (1 === t.metadata)
-                              return "metadata: multiple values";
+                              return 'metadata: multiple values';
                             var n;
                             if (
                               ((t.metadata = 1),
@@ -23098,56 +23098,56 @@
                                 e.classroom
                               )))
                             )
-                              return "classroom." + n;
+                              return 'classroom.' + n;
                           }
                           if (
                             null != e.resourceLimits &&
-                            e.hasOwnProperty("resourceLimits") &&
+                            e.hasOwnProperty('resourceLimits') &&
                             (n = o.api.ResourceLimits.verify(e.resourceLimits))
                           )
-                            return "resourceLimits." + n;
-                          if (null != e.format && e.hasOwnProperty("format"))
+                            return 'resourceLimits.' + n;
+                          if (null != e.format && e.hasOwnProperty('format'))
                             switch (e.format) {
                               default:
-                                return "format: enum value expected";
+                                return 'format: enum value expected';
                               case 0:
                               case 1:
                             }
                           if (
                             null != e.presenced &&
-                            e.hasOwnProperty("presenced") &&
+                            e.hasOwnProperty('presenced') &&
                             (n = o.api.ReplToken.Presenced.verify(e.presenced))
                           )
-                            return "presenced." + n;
-                          if (null != e.flags && e.hasOwnProperty("flags")) {
+                            return 'presenced.' + n;
+                          if (null != e.flags && e.hasOwnProperty('flags')) {
                             if (!Array.isArray(e.flags))
-                              return "flags: array expected";
+                              return 'flags: array expected';
                             for (var i = 0; i < e.flags.length; ++i)
                               if (!r.isString(e.flags[i]))
-                                return "flags: string[] expected";
+                                return 'flags: string[] expected';
                           }
                           return null != e.permissions &&
-                            e.hasOwnProperty("permissions") &&
+                            e.hasOwnProperty('permissions') &&
                             (n = o.api.Permissions.verify(e.permissions))
-                            ? "permissions." + n
+                            ? 'permissions.' + n
                             : null;
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.ReplToken) return e;
                           var t = new o.api.ReplToken();
                           if (null != e.iat) {
-                            if ("object" !== typeof e.iat)
+                            if ('object' !== typeof e.iat)
                               throw TypeError(
-                                ".api.ReplToken.iat: object expected"
+                                '.api.ReplToken.iat: object expected'
                               );
                             t.iat = o.google.protobuf.Timestamp.fromObject(
                               e.iat
                             );
                           }
                           if (null != e.exp) {
-                            if ("object" !== typeof e.exp)
+                            if ('object' !== typeof e.exp)
                               throw TypeError(
-                                ".api.ReplToken.exp: object expected"
+                                '.api.ReplToken.exp: object expected'
                               );
                             t.exp = o.google.protobuf.Timestamp.fromObject(
                               e.exp
@@ -23159,36 +23159,36 @@
                               (t.cluster = String(e.cluster)),
                             e.persistence)
                           ) {
-                            case "PERSISTENT":
+                            case 'PERSISTENT':
                             case 0:
                               t.persistence = 0;
                               break;
-                            case "EPHEMERAL":
+                            case 'EPHEMERAL':
                             case 1:
                               t.persistence = 1;
                               break;
-                            case "NONE":
+                            case 'NONE':
                             case 2:
                               t.persistence = 2;
                           }
                           if (null != e.repl) {
-                            if ("object" !== typeof e.repl)
+                            if ('object' !== typeof e.repl)
                               throw TypeError(
-                                ".api.ReplToken.repl: object expected"
+                                '.api.ReplToken.repl: object expected'
                               );
                             t.repl = o.api.Repl.fromObject(e.repl);
                           }
                           if (null != e.id) {
-                            if ("object" !== typeof e.id)
+                            if ('object' !== typeof e.id)
                               throw TypeError(
-                                ".api.ReplToken.id: object expected"
+                                '.api.ReplToken.id: object expected'
                               );
                             t.id = o.api.ReplToken.ReplID.fromObject(e.id);
                           }
                           if (null != e.classroom) {
-                            if ("object" !== typeof e.classroom)
+                            if ('object' !== typeof e.classroom)
                               throw TypeError(
-                                ".api.ReplToken.classroom: object expected"
+                                '.api.ReplToken.classroom: object expected'
                               );
                             t.classroom =
                               o.api.ReplToken.ClassroomMetadata.fromObject(
@@ -23196,27 +23196,27 @@
                               );
                           }
                           if (null != e.resourceLimits) {
-                            if ("object" !== typeof e.resourceLimits)
+                            if ('object' !== typeof e.resourceLimits)
                               throw TypeError(
-                                ".api.ReplToken.resourceLimits: object expected"
+                                '.api.ReplToken.resourceLimits: object expected'
                               );
                             t.resourceLimits = o.api.ResourceLimits.fromObject(
                               e.resourceLimits
                             );
                           }
                           switch (e.format) {
-                            case "PROTOBUF":
+                            case 'PROTOBUF':
                             case 0:
                               t.format = 0;
                               break;
-                            case "JSON":
+                            case 'JSON':
                             case 1:
                               t.format = 1;
                           }
                           if (null != e.presenced) {
-                            if ("object" !== typeof e.presenced)
+                            if ('object' !== typeof e.presenced)
                               throw TypeError(
-                                ".api.ReplToken.presenced: object expected"
+                                '.api.ReplToken.presenced: object expected'
                               );
                             t.presenced = o.api.ReplToken.Presenced.fromObject(
                               e.presenced
@@ -23225,16 +23225,16 @@
                           if (e.flags) {
                             if (!Array.isArray(e.flags))
                               throw TypeError(
-                                ".api.ReplToken.flags: array expected"
+                                '.api.ReplToken.flags: array expected'
                               );
                             t.flags = [];
                             for (var n = 0; n < e.flags.length; ++n)
                               t.flags[n] = String(e.flags[n]);
                           }
                           if (null != e.permissions) {
-                            if ("object" !== typeof e.permissions)
+                            if ('object' !== typeof e.permissions)
                               throw TypeError(
-                                ".api.ReplToken.permissions: object expected"
+                                '.api.ReplToken.permissions: object expected'
                               );
                             t.permissions = o.api.Permissions.fromObject(
                               e.permissions
@@ -23250,71 +23250,71 @@
                             t.defaults &&
                               ((n.iat = null),
                               (n.exp = null),
-                              (n.salt = ""),
-                              (n.cluster = ""),
+                              (n.salt = ''),
+                              (n.cluster = ''),
                               (n.persistence =
-                                t.enums === String ? "PERSISTENT" : 0),
+                                t.enums === String ? 'PERSISTENT' : 0),
                               (n.resourceLimits = null),
-                              (n.format = t.enums === String ? "PROTOBUF" : 0),
+                              (n.format = t.enums === String ? 'PROTOBUF' : 0),
                               (n.presenced = null),
                               (n.permissions = null)),
                             null != e.iat &&
-                              e.hasOwnProperty("iat") &&
+                              e.hasOwnProperty('iat') &&
                               (n.iat = o.google.protobuf.Timestamp.toObject(
                                 e.iat,
                                 t
                               )),
                             null != e.exp &&
-                              e.hasOwnProperty("exp") &&
+                              e.hasOwnProperty('exp') &&
                               (n.exp = o.google.protobuf.Timestamp.toObject(
                                 e.exp,
                                 t
                               )),
                             null != e.salt &&
-                              e.hasOwnProperty("salt") &&
+                              e.hasOwnProperty('salt') &&
                               (n.salt = e.salt),
                             null != e.cluster &&
-                              e.hasOwnProperty("cluster") &&
+                              e.hasOwnProperty('cluster') &&
                               (n.cluster = e.cluster),
                             null != e.persistence &&
-                              e.hasOwnProperty("persistence") &&
+                              e.hasOwnProperty('persistence') &&
                               (n.persistence =
                                 t.enums === String
                                   ? o.api.ReplToken.Persistence[e.persistence]
                                   : e.persistence),
                             null != e.repl &&
-                              e.hasOwnProperty("repl") &&
+                              e.hasOwnProperty('repl') &&
                               ((n.repl = o.api.Repl.toObject(e.repl, t)),
-                              t.oneofs && (n.metadata = "repl")),
+                              t.oneofs && (n.metadata = 'repl')),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               ((n.id = o.api.ReplToken.ReplID.toObject(
                                 e.id,
                                 t
                               )),
-                              t.oneofs && (n.metadata = "id")),
+                              t.oneofs && (n.metadata = 'id')),
                             null != e.classroom &&
-                              e.hasOwnProperty("classroom") &&
+                              e.hasOwnProperty('classroom') &&
                               ((n.classroom =
                                 o.api.ReplToken.ClassroomMetadata.toObject(
                                   e.classroom,
                                   t
                                 )),
-                              t.oneofs && (n.metadata = "classroom")),
+                              t.oneofs && (n.metadata = 'classroom')),
                             null != e.resourceLimits &&
-                              e.hasOwnProperty("resourceLimits") &&
+                              e.hasOwnProperty('resourceLimits') &&
                               (n.resourceLimits = o.api.ResourceLimits.toObject(
                                 e.resourceLimits,
                                 t
                               )),
                             null != e.format &&
-                              e.hasOwnProperty("format") &&
+                              e.hasOwnProperty('format') &&
                               (n.format =
                                 t.enums === String
                                   ? o.api.ReplToken.WireFormat[e.format]
                                   : e.format),
                             null != e.presenced &&
-                              e.hasOwnProperty("presenced") &&
+                              e.hasOwnProperty('presenced') &&
                               (n.presenced = o.api.ReplToken.Presenced.toObject(
                                 e.presenced,
                                 t
@@ -23327,7 +23327,7 @@
                           }
                           return (
                             null != e.permissions &&
-                              e.hasOwnProperty("permissions") &&
+                              e.hasOwnProperty('permissions') &&
                               (n.permissions = o.api.Permissions.toObject(
                                 e.permissions,
                                 t
@@ -23345,9 +23345,9 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "PERSISTENT")] = 0),
-                            (t[(e[1] = "EPHEMERAL")] = 1),
-                            (t[(e[2] = "NONE")] = 2),
+                            (t[(e[0] = 'PERSISTENT')] = 0),
+                            (t[(e[1] = 'EPHEMERAL')] = 1),
+                            (t[(e[2] = 'NONE')] = 2),
                             t
                           );
                         })()),
@@ -23362,8 +23362,8 @@
                                 null != e[t[n]] && (this[t[n]] = e[t[n]]);
                           }
                           return (
-                            (i.prototype.id = ""),
-                            (i.prototype.language = ""),
+                            (i.prototype.id = ''),
+                            (i.prototype.language = ''),
                             (i.create = function (e) {
                               return i.fromObject(e);
                             }),
@@ -23371,10 +23371,10 @@
                               return (
                                 t || (t = n.create()),
                                 null != e.id &&
-                                  Object.hasOwnProperty.call(e, "id") &&
+                                  Object.hasOwnProperty.call(e, 'id') &&
                                   t.uint32(10).string(e.id),
                                 null != e.language &&
-                                  Object.hasOwnProperty.call(e, "language") &&
+                                  Object.hasOwnProperty.call(e, 'language') &&
                                   t.uint32(18).string(e.language),
                                 t
                               );
@@ -23411,16 +23411,16 @@
                               );
                             }),
                             (i.verify = function (e) {
-                              return "object" !== typeof e || null === e
-                                ? "object expected"
+                              return 'object' !== typeof e || null === e
+                                ? 'object expected'
                                 : null != e.id &&
-                                  e.hasOwnProperty("id") &&
+                                  e.hasOwnProperty('id') &&
                                   !r.isString(e.id)
-                                ? "id: string expected"
+                                ? 'id: string expected'
                                 : null != e.language &&
-                                  e.hasOwnProperty("language") &&
+                                  e.hasOwnProperty('language') &&
                                   !r.isString(e.language)
-                                ? "language: string expected"
+                                ? 'language: string expected'
                                 : null;
                             }),
                             (i.fromObject = function (e) {
@@ -23440,12 +23440,12 @@
                               t || (t = {});
                               var n = {};
                               return (
-                                t.defaults && ((n.id = ""), (n.language = "")),
+                                t.defaults && ((n.id = ''), (n.language = '')),
                                 null != e.id &&
-                                  e.hasOwnProperty("id") &&
+                                  e.hasOwnProperty('id') &&
                                   (n.id = e.id),
                                 null != e.language &&
-                                  e.hasOwnProperty("language") &&
+                                  e.hasOwnProperty('language') &&
                                   (n.language = e.language),
                                 n
                               );
@@ -23470,8 +23470,8 @@
                                 null != e[t[n]] && (this[t[n]] = e[t[n]]);
                           }
                           return (
-                            (i.prototype.id = ""),
-                            (i.prototype.sourceRepl = ""),
+                            (i.prototype.id = ''),
+                            (i.prototype.sourceRepl = ''),
                             (i.create = function (e) {
                               return i.fromObject(e);
                             }),
@@ -23479,10 +23479,10 @@
                               return (
                                 t || (t = n.create()),
                                 null != e.id &&
-                                  Object.hasOwnProperty.call(e, "id") &&
+                                  Object.hasOwnProperty.call(e, 'id') &&
                                   t.uint32(10).string(e.id),
                                 null != e.sourceRepl &&
-                                  Object.hasOwnProperty.call(e, "sourceRepl") &&
+                                  Object.hasOwnProperty.call(e, 'sourceRepl') &&
                                   t.uint32(18).string(e.sourceRepl),
                                 t
                               );
@@ -23519,16 +23519,16 @@
                               );
                             }),
                             (i.verify = function (e) {
-                              return "object" !== typeof e || null === e
-                                ? "object expected"
+                              return 'object' !== typeof e || null === e
+                                ? 'object expected'
                                 : null != e.id &&
-                                  e.hasOwnProperty("id") &&
+                                  e.hasOwnProperty('id') &&
                                   !r.isString(e.id)
-                                ? "id: string expected"
+                                ? 'id: string expected'
                                 : null != e.sourceRepl &&
-                                  e.hasOwnProperty("sourceRepl") &&
+                                  e.hasOwnProperty('sourceRepl') &&
                                   !r.isString(e.sourceRepl)
-                                ? "sourceRepl: string expected"
+                                ? 'sourceRepl: string expected'
                                 : null;
                             }),
                             (i.fromObject = function (e) {
@@ -23546,12 +23546,12 @@
                               var n = {};
                               return (
                                 t.defaults &&
-                                  ((n.id = ""), (n.sourceRepl = "")),
+                                  ((n.id = ''), (n.sourceRepl = '')),
                                 null != e.id &&
-                                  e.hasOwnProperty("id") &&
+                                  e.hasOwnProperty('id') &&
                                   (n.id = e.id),
                                 null != e.sourceRepl &&
-                                  e.hasOwnProperty("sourceRepl") &&
+                                  e.hasOwnProperty('sourceRepl') &&
                                   (n.sourceRepl = e.sourceRepl),
                                 n
                               );
@@ -23569,8 +23569,8 @@
                           var e = {},
                             t = Object.create(e);
                           return (
-                            (t[(e[0] = "PROTOBUF")] = 0),
-                            (t[(e[1] = "JSON")] = 1),
+                            (t[(e[0] = 'PROTOBUF')] = 0),
+                            (t[(e[1] = 'JSON')] = 1),
                             t
                           );
                         })()),
@@ -23586,7 +23586,7 @@
                           }
                           return (
                             (i.prototype.bearerID = 0),
-                            (i.prototype.bearerName = ""),
+                            (i.prototype.bearerName = ''),
                             (i.create = function (e) {
                               return i.fromObject(e);
                             }),
@@ -23594,10 +23594,10 @@
                               return (
                                 t || (t = n.create()),
                                 null != e.bearerID &&
-                                  Object.hasOwnProperty.call(e, "bearerID") &&
+                                  Object.hasOwnProperty.call(e, 'bearerID') &&
                                   t.uint32(8).uint32(e.bearerID),
                                 null != e.bearerName &&
-                                  Object.hasOwnProperty.call(e, "bearerName") &&
+                                  Object.hasOwnProperty.call(e, 'bearerName') &&
                                   t.uint32(18).string(e.bearerName),
                                 t
                               );
@@ -23634,16 +23634,16 @@
                               );
                             }),
                             (i.verify = function (e) {
-                              return "object" !== typeof e || null === e
-                                ? "object expected"
+                              return 'object' !== typeof e || null === e
+                                ? 'object expected'
                                 : null != e.bearerID &&
-                                  e.hasOwnProperty("bearerID") &&
+                                  e.hasOwnProperty('bearerID') &&
                                   !r.isInteger(e.bearerID)
-                                ? "bearerID: integer expected"
+                                ? 'bearerID: integer expected'
                                 : null != e.bearerName &&
-                                  e.hasOwnProperty("bearerName") &&
+                                  e.hasOwnProperty('bearerName') &&
                                   !r.isString(e.bearerName)
-                                ? "bearerName: string expected"
+                                ? 'bearerName: string expected'
                                 : null;
                             }),
                             (i.fromObject = function (e) {
@@ -23663,12 +23663,12 @@
                               var n = {};
                               return (
                                 t.defaults &&
-                                  ((n.bearerID = 0), (n.bearerName = "")),
+                                  ((n.bearerID = 0), (n.bearerName = '')),
                                 null != e.bearerID &&
-                                  e.hasOwnProperty("bearerID") &&
+                                  e.hasOwnProperty('bearerID') &&
                                   (n.bearerID = e.bearerID),
                                 null != e.bearerName &&
-                                  e.hasOwnProperty("bearerName") &&
+                                  e.hasOwnProperty('bearerName') &&
                                   (n.bearerName = e.bearerName),
                                 n
                               );
@@ -23692,7 +23692,7 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.domain = ""),
+                        (i.prototype.domain = ''),
                         (i.prototype.cert = r.newBuffer([])),
                         (i.create = function (e) {
                           return i.fromObject(e);
@@ -23701,10 +23701,10 @@
                           return (
                             t || (t = n.create()),
                             null != e.domain &&
-                              Object.hasOwnProperty.call(e, "domain") &&
+                              Object.hasOwnProperty.call(e, 'domain') &&
                               t.uint32(10).string(e.domain),
                             null != e.cert &&
-                              Object.hasOwnProperty.call(e, "cert") &&
+                              Object.hasOwnProperty.call(e, 'cert') &&
                               t.uint32(18).bytes(e.cert),
                             t
                           );
@@ -23741,19 +23741,19 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.domain &&
-                              e.hasOwnProperty("domain") &&
+                              e.hasOwnProperty('domain') &&
                               !r.isString(e.domain)
-                            ? "domain: string expected"
+                            ? 'domain: string expected'
                             : null != e.cert &&
-                              e.hasOwnProperty("cert") &&
+                              e.hasOwnProperty('cert') &&
                               !(
-                                (e.cert && "number" === typeof e.cert.length) ||
+                                (e.cert && 'number' === typeof e.cert.length) ||
                                 r.isString(e.cert)
                               )
-                            ? "cert: buffer expected"
+                            ? 'cert: buffer expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -23762,7 +23762,7 @@
                           return (
                             null != e.domain && (t.domain = String(e.domain)),
                             null != e.cert &&
-                              ("string" === typeof e.cert
+                              ('string' === typeof e.cert
                                 ? r.base64.decode(
                                     e.cert,
                                     (t.cert = r.newBuffer(
@@ -23779,17 +23779,17 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.domain = ""),
+                              ((n.domain = ''),
                               t.bytes === String
-                                ? (n.cert = "")
+                                ? (n.cert = '')
                                 : ((n.cert = []),
                                   t.bytes !== Array &&
                                     (n.cert = r.newBuffer(n.cert)))),
                             null != e.domain &&
-                              e.hasOwnProperty("domain") &&
+                              e.hasOwnProperty('domain') &&
                               (n.domain = e.domain),
                             null != e.cert &&
-                              e.hasOwnProperty("cert") &&
+                              e.hasOwnProperty('cert') &&
                               (n.cert =
                                 t.bytes === String
                                   ? r.base64.encode(e.cert, 0, e.cert.length)
@@ -23831,19 +23831,19 @@
                           if (
                             (t || (t = n.create()),
                             null != e.repl &&
-                              Object.hasOwnProperty.call(e, "repl") &&
+                              Object.hasOwnProperty.call(e, 'repl') &&
                               o.api.Repl.encode(
                                 e.repl,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.replLimits &&
-                              Object.hasOwnProperty.call(e, "replLimits") &&
+                              Object.hasOwnProperty.call(e, 'replLimits') &&
                               o.api.ResourceLimits.encode(
                                 e.replLimits,
                                 t.uint32(18).fork()
                               ).ldelim(),
                             null != e.userLimits &&
-                              Object.hasOwnProperty.call(e, "userLimits") &&
+                              Object.hasOwnProperty.call(e, 'userLimits') &&
                               o.api.ResourceLimits.encode(
                                 e.userLimits,
                                 t.uint32(26).fork()
@@ -23913,42 +23913,42 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.repl &&
-                            e.hasOwnProperty("repl") &&
+                            e.hasOwnProperty('repl') &&
                             (n = o.api.Repl.verify(e.repl))
                           )
-                            return "repl." + n;
+                            return 'repl.' + n;
                           if (
                             null != e.replLimits &&
-                            e.hasOwnProperty("replLimits") &&
+                            e.hasOwnProperty('replLimits') &&
                             (n = o.api.ResourceLimits.verify(e.replLimits))
                           )
-                            return "replLimits." + n;
+                            return 'replLimits.' + n;
                           if (
                             null != e.userLimits &&
-                            e.hasOwnProperty("userLimits") &&
+                            e.hasOwnProperty('userLimits') &&
                             (n = o.api.ResourceLimits.verify(e.userLimits))
                           )
-                            return "userLimits." + n;
+                            return 'userLimits.' + n;
                           if (
                             null != e.customDomains &&
-                            e.hasOwnProperty("customDomains")
+                            e.hasOwnProperty('customDomains')
                           ) {
                             if (!Array.isArray(e.customDomains))
-                              return "customDomains: array expected";
+                              return 'customDomains: array expected';
                             for (var t = 0; t < e.customDomains.length; ++t)
                               if (!r.isString(e.customDomains[t]))
-                                return "customDomains: string[] expected";
+                                return 'customDomains: string[] expected';
                           }
                           if (
                             null != e.certificates &&
-                            e.hasOwnProperty("certificates")
+                            e.hasOwnProperty('certificates')
                           ) {
                             if (!Array.isArray(e.certificates))
-                              return "certificates: array expected";
+                              return 'certificates: array expected';
                             for (t = 0; t < e.certificates.length; ++t) {
                               var n;
                               if (
@@ -23956,7 +23956,7 @@
                                   e.certificates[t]
                                 ))
                               )
-                                return "certificates." + n;
+                                return 'certificates.' + n;
                             }
                           }
                           return null;
@@ -23965,25 +23965,25 @@
                           if (e instanceof o.api.ReplTransfer) return e;
                           var t = new o.api.ReplTransfer();
                           if (null != e.repl) {
-                            if ("object" !== typeof e.repl)
+                            if ('object' !== typeof e.repl)
                               throw TypeError(
-                                ".api.ReplTransfer.repl: object expected"
+                                '.api.ReplTransfer.repl: object expected'
                               );
                             t.repl = o.api.Repl.fromObject(e.repl);
                           }
                           if (null != e.replLimits) {
-                            if ("object" !== typeof e.replLimits)
+                            if ('object' !== typeof e.replLimits)
                               throw TypeError(
-                                ".api.ReplTransfer.replLimits: object expected"
+                                '.api.ReplTransfer.replLimits: object expected'
                               );
                             t.replLimits = o.api.ResourceLimits.fromObject(
                               e.replLimits
                             );
                           }
                           if (null != e.userLimits) {
-                            if ("object" !== typeof e.userLimits)
+                            if ('object' !== typeof e.userLimits)
                               throw TypeError(
-                                ".api.ReplTransfer.userLimits: object expected"
+                                '.api.ReplTransfer.userLimits: object expected'
                               );
                             t.userLimits = o.api.ResourceLimits.fromObject(
                               e.userLimits
@@ -23992,7 +23992,7 @@
                           if (e.customDomains) {
                             if (!Array.isArray(e.customDomains))
                               throw TypeError(
-                                ".api.ReplTransfer.customDomains: array expected"
+                                '.api.ReplTransfer.customDomains: array expected'
                               );
                             t.customDomains = [];
                             for (var n = 0; n < e.customDomains.length; ++n)
@@ -24001,16 +24001,16 @@
                           if (e.certificates) {
                             if (!Array.isArray(e.certificates))
                               throw TypeError(
-                                ".api.ReplTransfer.certificates: array expected"
+                                '.api.ReplTransfer.certificates: array expected'
                               );
                             for (
                               t.certificates = [], n = 0;
                               n < e.certificates.length;
                               ++n
                             ) {
-                              if ("object" !== typeof e.certificates[n])
+                              if ('object' !== typeof e.certificates[n])
                                 throw TypeError(
-                                  ".api.ReplTransfer.certificates: object expected"
+                                  '.api.ReplTransfer.certificates: object expected'
                                 );
                               t.certificates[n] =
                                 o.api.TLSCertificate.fromObject(
@@ -24031,16 +24031,16 @@
                               (n.replLimits = null),
                               (n.userLimits = null)),
                             null != e.repl &&
-                              e.hasOwnProperty("repl") &&
+                              e.hasOwnProperty('repl') &&
                               (n.repl = o.api.Repl.toObject(e.repl, t)),
                             null != e.replLimits &&
-                              e.hasOwnProperty("replLimits") &&
+                              e.hasOwnProperty('replLimits') &&
                               (n.replLimits = o.api.ResourceLimits.toObject(
                                 e.replLimits,
                                 t
                               )),
                             null != e.userLimits &&
-                              e.hasOwnProperty("userLimits") &&
+                              e.hasOwnProperty('userLimits') &&
                               (n.userLimits = o.api.ResourceLimits.toObject(
                                 e.userLimits,
                                 t
@@ -24087,7 +24087,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.replTransfer &&
-                              Object.hasOwnProperty.call(e, "replTransfer") &&
+                              Object.hasOwnProperty.call(e, 'replTransfer') &&
                               o.api.ReplTransfer.encode(
                                 e.replTransfer,
                                 t.uint32(10).fork()
@@ -24127,14 +24127,14 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.replTransfer &&
-                            e.hasOwnProperty("replTransfer")
+                            e.hasOwnProperty('replTransfer')
                           ) {
                             var t = o.api.ReplTransfer.verify(e.replTransfer);
-                            if (t) return "replTransfer." + t;
+                            if (t) return 'replTransfer.' + t;
                           }
                           return null;
                         }),
@@ -24142,9 +24142,9 @@
                           if (e instanceof o.api.AllowReplRequest) return e;
                           var t = new o.api.AllowReplRequest();
                           if (null != e.replTransfer) {
-                            if ("object" !== typeof e.replTransfer)
+                            if ('object' !== typeof e.replTransfer)
                               throw TypeError(
-                                ".api.AllowReplRequest.replTransfer: object expected"
+                                '.api.AllowReplRequest.replTransfer: object expected'
                               );
                             t.replTransfer = o.api.ReplTransfer.fromObject(
                               e.replTransfer
@@ -24158,7 +24158,7 @@
                           return (
                             t.defaults && (n.replTransfer = null),
                             null != e.replTransfer &&
-                              e.hasOwnProperty("replTransfer") &&
+                              e.hasOwnProperty('replTransfer') &&
                               (n.replTransfer = o.api.ReplTransfer.toObject(
                                 e.replTransfer,
                                 t
@@ -24182,12 +24182,12 @@
                             null != e[t[n]] && (this[t[n]] = e[t[n]]);
                       }
                       return (
-                        (i.prototype.id = ""),
-                        (i.prototype.conmanURL = ""),
-                        (i.prototype.gurl = ""),
-                        (i.prototype.proxyHost = ""),
-                        (i.prototype.proxy = ""),
-                        (i.prototype.proxyIP = ""),
+                        (i.prototype.id = ''),
+                        (i.prototype.conmanURL = ''),
+                        (i.prototype.gurl = ''),
+                        (i.prototype.proxyHost = ''),
+                        (i.prototype.proxy = ''),
+                        (i.prototype.proxyIP = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -24195,22 +24195,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.id &&
-                              Object.hasOwnProperty.call(e, "id") &&
+                              Object.hasOwnProperty.call(e, 'id') &&
                               t.uint32(10).string(e.id),
                             null != e.conmanURL &&
-                              Object.hasOwnProperty.call(e, "conmanURL") &&
+                              Object.hasOwnProperty.call(e, 'conmanURL') &&
                               t.uint32(18).string(e.conmanURL),
                             null != e.gurl &&
-                              Object.hasOwnProperty.call(e, "gurl") &&
+                              Object.hasOwnProperty.call(e, 'gurl') &&
                               t.uint32(26).string(e.gurl),
                             null != e.proxyHost &&
-                              Object.hasOwnProperty.call(e, "proxyHost") &&
+                              Object.hasOwnProperty.call(e, 'proxyHost') &&
                               t.uint32(34).string(e.proxyHost),
                             null != e.proxy &&
-                              Object.hasOwnProperty.call(e, "proxy") &&
+                              Object.hasOwnProperty.call(e, 'proxy') &&
                               t.uint32(42).string(e.proxy),
                             null != e.proxyIP &&
-                              Object.hasOwnProperty.call(e, "proxyIP") &&
+                              Object.hasOwnProperty.call(e, 'proxyIP') &&
                               t.uint32(50).string(e.proxyIP),
                             t
                           );
@@ -24259,32 +24259,32 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          return "object" !== typeof e || null === e
-                            ? "object expected"
+                          return 'object' !== typeof e || null === e
+                            ? 'object expected'
                             : null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               !r.isString(e.id)
-                            ? "id: string expected"
+                            ? 'id: string expected'
                             : null != e.conmanURL &&
-                              e.hasOwnProperty("conmanURL") &&
+                              e.hasOwnProperty('conmanURL') &&
                               !r.isString(e.conmanURL)
-                            ? "conmanURL: string expected"
+                            ? 'conmanURL: string expected'
                             : null != e.gurl &&
-                              e.hasOwnProperty("gurl") &&
+                              e.hasOwnProperty('gurl') &&
                               !r.isString(e.gurl)
-                            ? "gurl: string expected"
+                            ? 'gurl: string expected'
                             : null != e.proxyHost &&
-                              e.hasOwnProperty("proxyHost") &&
+                              e.hasOwnProperty('proxyHost') &&
                               !r.isString(e.proxyHost)
-                            ? "proxyHost: string expected"
+                            ? 'proxyHost: string expected'
                             : null != e.proxy &&
-                              e.hasOwnProperty("proxy") &&
+                              e.hasOwnProperty('proxy') &&
                               !r.isString(e.proxy)
-                            ? "proxy: string expected"
+                            ? 'proxy: string expected'
                             : null != e.proxyIP &&
-                              e.hasOwnProperty("proxyIP") &&
+                              e.hasOwnProperty('proxyIP') &&
                               !r.isString(e.proxyIP)
-                            ? "proxyIP: string expected"
+                            ? 'proxyIP: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
@@ -24308,29 +24308,29 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.id = ""),
-                              (n.conmanURL = ""),
-                              (n.gurl = ""),
-                              (n.proxyHost = ""),
-                              (n.proxy = ""),
-                              (n.proxyIP = "")),
+                              ((n.id = ''),
+                              (n.conmanURL = ''),
+                              (n.gurl = ''),
+                              (n.proxyHost = ''),
+                              (n.proxy = ''),
+                              (n.proxyIP = '')),
                             null != e.id &&
-                              e.hasOwnProperty("id") &&
+                              e.hasOwnProperty('id') &&
                               (n.id = e.id),
                             null != e.conmanURL &&
-                              e.hasOwnProperty("conmanURL") &&
+                              e.hasOwnProperty('conmanURL') &&
                               (n.conmanURL = e.conmanURL),
                             null != e.gurl &&
-                              e.hasOwnProperty("gurl") &&
+                              e.hasOwnProperty('gurl') &&
                               (n.gurl = e.gurl),
                             null != e.proxyHost &&
-                              e.hasOwnProperty("proxyHost") &&
+                              e.hasOwnProperty('proxyHost') &&
                               (n.proxyHost = e.proxyHost),
                             null != e.proxy &&
-                              e.hasOwnProperty("proxy") &&
+                              e.hasOwnProperty('proxy') &&
                               (n.proxy = e.proxy),
                             null != e.proxyIP &&
-                              e.hasOwnProperty("proxyIP") &&
+                              e.hasOwnProperty('proxyIP') &&
                               (n.proxyIP = e.proxyIP),
                             n
                           );
@@ -24352,9 +24352,9 @@
                       }
                       return (
                         (i.prototype.clusterMetadata = null),
-                        (i.prototype.token = ""),
-                        (i.prototype.user = ""),
-                        (i.prototype.slug = ""),
+                        (i.prototype.token = ''),
+                        (i.prototype.user = ''),
+                        (i.prototype.slug = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -24364,20 +24364,20 @@
                             null != e.clusterMetadata &&
                               Object.hasOwnProperty.call(
                                 e,
-                                "clusterMetadata"
+                                'clusterMetadata'
                               ) &&
                               o.api.ClusterMetadata.encode(
                                 e.clusterMetadata,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.token &&
-                              Object.hasOwnProperty.call(e, "token") &&
+                              Object.hasOwnProperty.call(e, 'token') &&
                               t.uint32(18).string(e.token),
                             null != e.user &&
-                              Object.hasOwnProperty.call(e, "user") &&
+                              Object.hasOwnProperty.call(e, 'user') &&
                               t.uint32(26).string(e.user),
                             null != e.slug &&
-                              Object.hasOwnProperty.call(e, "slug") &&
+                              Object.hasOwnProperty.call(e, 'slug') &&
                               t.uint32(34).string(e.slug),
                             t
                           );
@@ -24421,38 +24421,38 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.clusterMetadata &&
-                            e.hasOwnProperty("clusterMetadata")
+                            e.hasOwnProperty('clusterMetadata')
                           ) {
                             var t = o.api.ClusterMetadata.verify(
                               e.clusterMetadata
                             );
-                            if (t) return "clusterMetadata." + t;
+                            if (t) return 'clusterMetadata.' + t;
                           }
                           return null != e.token &&
-                            e.hasOwnProperty("token") &&
+                            e.hasOwnProperty('token') &&
                             !r.isString(e.token)
-                            ? "token: string expected"
+                            ? 'token: string expected'
                             : null != e.user &&
-                              e.hasOwnProperty("user") &&
+                              e.hasOwnProperty('user') &&
                               !r.isString(e.user)
-                            ? "user: string expected"
+                            ? 'user: string expected'
                             : null != e.slug &&
-                              e.hasOwnProperty("slug") &&
+                              e.hasOwnProperty('slug') &&
                               !r.isString(e.slug)
-                            ? "slug: string expected"
+                            ? 'slug: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.EvictReplRequest) return e;
                           var t = new o.api.EvictReplRequest();
                           if (null != e.clusterMetadata) {
-                            if ("object" !== typeof e.clusterMetadata)
+                            if ('object' !== typeof e.clusterMetadata)
                               throw TypeError(
-                                ".api.EvictReplRequest.clusterMetadata: object expected"
+                                '.api.EvictReplRequest.clusterMetadata: object expected'
                               );
                             t.clusterMetadata =
                               o.api.ClusterMetadata.fromObject(
@@ -24472,24 +24472,24 @@
                           return (
                             t.defaults &&
                               ((n.clusterMetadata = null),
-                              (n.token = ""),
-                              (n.user = ""),
-                              (n.slug = "")),
+                              (n.token = ''),
+                              (n.user = ''),
+                              (n.slug = '')),
                             null != e.clusterMetadata &&
-                              e.hasOwnProperty("clusterMetadata") &&
+                              e.hasOwnProperty('clusterMetadata') &&
                               (n.clusterMetadata =
                                 o.api.ClusterMetadata.toObject(
                                   e.clusterMetadata,
                                   t
                                 )),
                             null != e.token &&
-                              e.hasOwnProperty("token") &&
+                              e.hasOwnProperty('token') &&
                               (n.token = e.token),
                             null != e.user &&
-                              e.hasOwnProperty("user") &&
+                              e.hasOwnProperty('user') &&
                               (n.user = e.user),
                             null != e.slug &&
-                              e.hasOwnProperty("slug") &&
+                              e.hasOwnProperty('slug') &&
                               (n.slug = e.slug),
                             n
                           );
@@ -24518,7 +24518,7 @@
                           return (
                             t || (t = n.create()),
                             null != e.replTransfer &&
-                              Object.hasOwnProperty.call(e, "replTransfer") &&
+                              Object.hasOwnProperty.call(e, 'replTransfer') &&
                               o.api.ReplTransfer.encode(
                                 e.replTransfer,
                                 t.uint32(10).fork()
@@ -24558,14 +24558,14 @@
                           );
                         }),
                         (r.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.replTransfer &&
-                            e.hasOwnProperty("replTransfer")
+                            e.hasOwnProperty('replTransfer')
                           ) {
                             var t = o.api.ReplTransfer.verify(e.replTransfer);
-                            if (t) return "replTransfer." + t;
+                            if (t) return 'replTransfer.' + t;
                           }
                           return null;
                         }),
@@ -24573,9 +24573,9 @@
                           if (e instanceof o.api.EvictReplResponse) return e;
                           var t = new o.api.EvictReplResponse();
                           if (null != e.replTransfer) {
-                            if ("object" !== typeof e.replTransfer)
+                            if ('object' !== typeof e.replTransfer)
                               throw TypeError(
-                                ".api.EvictReplResponse.replTransfer: object expected"
+                                '.api.EvictReplResponse.replTransfer: object expected'
                               );
                             t.replTransfer = o.api.ReplTransfer.fromObject(
                               e.replTransfer
@@ -24589,7 +24589,7 @@
                           return (
                             t.defaults && (n.replTransfer = null),
                             null != e.replTransfer &&
-                              e.hasOwnProperty("replTransfer") &&
+                              e.hasOwnProperty('replTransfer') &&
                               (n.replTransfer = o.api.ReplTransfer.toObject(
                                 e.replTransfer,
                                 t
@@ -24610,8 +24610,8 @@
                       var e = {},
                         t = Object.create(e);
                       return (
-                        (t[(e[0] = "BARE_REPL_TOKEN")] = 0),
-                        (t[(e[1] = "TYPE_AWARE_TOKEN")] = 1),
+                        (t[(e[0] = 'BARE_REPL_TOKEN')] = 0),
+                        (t[(e[1] = 'TYPE_AWARE_TOKEN')] = 1),
                         t
                       );
                     })()),
@@ -24626,8 +24626,8 @@
                         (i.prototype.keyId = null),
                         (i.prototype.signedCert = null),
                         (i.prototype.version = 0),
-                        Object.defineProperty(i.prototype, "cert", {
-                          get: r.oneOfGetter((a = ["keyId", "signedCert"])),
+                        Object.defineProperty(i.prototype, 'cert', {
+                          get: r.oneOfGetter((a = ['keyId', 'signedCert'])),
                           set: r.oneOfSetter(a),
                         }),
                         (i.create = function (e) {
@@ -24637,13 +24637,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.keyId &&
-                              Object.hasOwnProperty.call(e, "keyId") &&
+                              Object.hasOwnProperty.call(e, 'keyId') &&
                               t.uint32(10).string(e.keyId),
                             null != e.signedCert &&
-                              Object.hasOwnProperty.call(e, "signedCert") &&
+                              Object.hasOwnProperty.call(e, 'signedCert') &&
                               t.uint32(18).string(e.signedCert),
                             null != e.version &&
-                              Object.hasOwnProperty.call(e, "version") &&
+                              Object.hasOwnProperty.call(e, 'version') &&
                               t.uint32(24).int32(e.version),
                             t
                           );
@@ -24683,27 +24683,27 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.keyId &&
-                            e.hasOwnProperty("keyId") &&
+                            e.hasOwnProperty('keyId') &&
                             ((t.cert = 1), !r.isString(e.keyId))
                           )
-                            return "keyId: string expected";
+                            return 'keyId: string expected';
                           if (
                             null != e.signedCert &&
-                            e.hasOwnProperty("signedCert")
+                            e.hasOwnProperty('signedCert')
                           ) {
-                            if (1 === t.cert) return "cert: multiple values";
+                            if (1 === t.cert) return 'cert: multiple values';
                             if (((t.cert = 1), !r.isString(e.signedCert)))
-                              return "signedCert: string expected";
+                              return 'signedCert: string expected';
                           }
-                          if (null != e.version && e.hasOwnProperty("version"))
+                          if (null != e.version && e.hasOwnProperty('version'))
                             switch (e.version) {
                               default:
-                                return "version: enum value expected";
+                                return 'version: enum value expected';
                               case 0:
                               case 1:
                             }
@@ -24719,11 +24719,11 @@
                               (t.signedCert = String(e.signedCert)),
                             e.version)
                           ) {
-                            case "BARE_REPL_TOKEN":
+                            case 'BARE_REPL_TOKEN':
                             case 0:
                               t.version = 0;
                               break;
-                            case "TYPE_AWARE_TOKEN":
+                            case 'TYPE_AWARE_TOKEN':
                             case 1:
                               t.version = 1;
                           }
@@ -24735,17 +24735,17 @@
                           return (
                             t.defaults &&
                               (n.version =
-                                t.enums === String ? "BARE_REPL_TOKEN" : 0),
+                                t.enums === String ? 'BARE_REPL_TOKEN' : 0),
                             null != e.keyId &&
-                              e.hasOwnProperty("keyId") &&
+                              e.hasOwnProperty('keyId') &&
                               ((n.keyId = e.keyId),
-                              t.oneofs && (n.cert = "keyId")),
+                              t.oneofs && (n.cert = 'keyId')),
                             null != e.signedCert &&
-                              e.hasOwnProperty("signedCert") &&
+                              e.hasOwnProperty('signedCert') &&
                               ((n.signedCert = e.signedCert),
-                              t.oneofs && (n.cert = "signedCert")),
+                              t.oneofs && (n.cert = 'signedCert')),
                             null != e.version &&
-                              e.hasOwnProperty("version") &&
+                              e.hasOwnProperty('version') &&
                               (n.version =
                                 t.enums === String
                                   ? o.api.TokenVersion[e.version]
@@ -24766,8 +24766,8 @@
                       var e = {},
                         t = Object.create(e);
                       return (
-                        (t[(e[0] = "MINT_GOVAL_TOKEN")] = 0),
-                        (t[(e[1] = "SIGN_INTERMEDIATE_CERT")] = 1),
+                        (t[(e[0] = 'MINT_GOVAL_TOKEN')] = 0),
+                        (t[(e[1] = 'SIGN_INTERMEDIATE_CERT')] = 1),
                         t
                       );
                     })()),
@@ -24782,8 +24782,8 @@
                         (i.prototype.replid = null),
                         (i.prototype.user = null),
                         (i.prototype.flag = null),
-                        Object.defineProperty(i.prototype, "claim", {
-                          get: r.oneOfGetter((a = ["replid", "user", "flag"])),
+                        Object.defineProperty(i.prototype, 'claim', {
+                          get: r.oneOfGetter((a = ['replid', 'user', 'flag'])),
                           set: r.oneOfSetter(a),
                         }),
                         (i.create = function (e) {
@@ -24793,13 +24793,13 @@
                           return (
                             t || (t = n.create()),
                             null != e.replid &&
-                              Object.hasOwnProperty.call(e, "replid") &&
+                              Object.hasOwnProperty.call(e, 'replid') &&
                               t.uint32(10).string(e.replid),
                             null != e.user &&
-                              Object.hasOwnProperty.call(e, "user") &&
+                              Object.hasOwnProperty.call(e, 'user') &&
                               t.uint32(18).string(e.user),
                             null != e.flag &&
-                              Object.hasOwnProperty.call(e, "flag") &&
+                              Object.hasOwnProperty.call(e, 'flag') &&
                               t.uint32(24).int32(e.flag),
                             t
                           );
@@ -24839,25 +24839,25 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t = {};
                           if (
                             null != e.replid &&
-                            e.hasOwnProperty("replid") &&
+                            e.hasOwnProperty('replid') &&
                             ((t.claim = 1), !r.isString(e.replid))
                           )
-                            return "replid: string expected";
-                          if (null != e.user && e.hasOwnProperty("user")) {
-                            if (1 === t.claim) return "claim: multiple values";
+                            return 'replid: string expected';
+                          if (null != e.user && e.hasOwnProperty('user')) {
+                            if (1 === t.claim) return 'claim: multiple values';
                             if (((t.claim = 1), !r.isString(e.user)))
-                              return "user: string expected";
+                              return 'user: string expected';
                           }
-                          if (null != e.flag && e.hasOwnProperty("flag")) {
-                            if (1 === t.claim) return "claim: multiple values";
+                          if (null != e.flag && e.hasOwnProperty('flag')) {
+                            if (1 === t.claim) return 'claim: multiple values';
                             switch (((t.claim = 1), e.flag)) {
                               default:
-                                return "flag: enum value expected";
+                                return 'flag: enum value expected';
                               case 0:
                               case 1:
                             }
@@ -24872,11 +24872,11 @@
                             null != e.user && (t.user = String(e.user)),
                             e.flag)
                           ) {
-                            case "MINT_GOVAL_TOKEN":
+                            case 'MINT_GOVAL_TOKEN':
                             case 0:
                               t.flag = 0;
                               break;
-                            case "SIGN_INTERMEDIATE_CERT":
+                            case 'SIGN_INTERMEDIATE_CERT':
                             case 1:
                               t.flag = 1;
                           }
@@ -24887,20 +24887,20 @@
                           var n = {};
                           return (
                             null != e.replid &&
-                              e.hasOwnProperty("replid") &&
+                              e.hasOwnProperty('replid') &&
                               ((n.replid = e.replid),
-                              t.oneofs && (n.claim = "replid")),
+                              t.oneofs && (n.claim = 'replid')),
                             null != e.user &&
-                              e.hasOwnProperty("user") &&
+                              e.hasOwnProperty('user') &&
                               ((n.user = e.user),
-                              t.oneofs && (n.claim = "user")),
+                              t.oneofs && (n.claim = 'user')),
                             null != e.flag &&
-                              e.hasOwnProperty("flag") &&
+                              e.hasOwnProperty('flag') &&
                               ((n.flag =
                                 t.enums === String
                                   ? o.api.FlagClaim[e.flag]
                                   : e.flag),
-                              t.oneofs && (n.claim = "flag")),
+                              t.oneofs && (n.claim = 'flag')),
                             n
                           );
                         }),
@@ -24923,7 +24923,7 @@
                         (i.prototype.iat = null),
                         (i.prototype.exp = null),
                         (i.prototype.claims = r.emptyArray),
-                        (i.prototype.publicKey = ""),
+                        (i.prototype.publicKey = ''),
                         (i.create = function (e) {
                           return i.fromObject(e);
                         }),
@@ -24931,13 +24931,13 @@
                           if (
                             (t || (t = n.create()),
                             null != e.iat &&
-                              Object.hasOwnProperty.call(e, "iat") &&
+                              Object.hasOwnProperty.call(e, 'iat') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.iat,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.exp &&
-                              Object.hasOwnProperty.call(e, "exp") &&
+                              Object.hasOwnProperty.call(e, 'exp') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.exp,
                                 t.uint32(18).fork()
@@ -24951,7 +24951,7 @@
                               ).ldelim();
                           return (
                             null != e.publicKey &&
-                              Object.hasOwnProperty.call(e, "publicKey") &&
+                              Object.hasOwnProperty.call(e, 'publicKey') &&
                               t.uint32(34).string(e.publicKey),
                             t
                           );
@@ -25004,53 +25004,53 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           if (
                             null != e.iat &&
-                            e.hasOwnProperty("iat") &&
+                            e.hasOwnProperty('iat') &&
                             (n = o.google.protobuf.Timestamp.verify(e.iat))
                           )
-                            return "iat." + n;
+                            return 'iat.' + n;
                           if (
                             null != e.exp &&
-                            e.hasOwnProperty("exp") &&
+                            e.hasOwnProperty('exp') &&
                             (n = o.google.protobuf.Timestamp.verify(e.exp))
                           )
-                            return "exp." + n;
-                          if (null != e.claims && e.hasOwnProperty("claims")) {
+                            return 'exp.' + n;
+                          if (null != e.claims && e.hasOwnProperty('claims')) {
                             if (!Array.isArray(e.claims))
-                              return "claims: array expected";
+                              return 'claims: array expected';
                             for (var t = 0; t < e.claims.length; ++t) {
                               var n;
                               if (
                                 (n = o.api.CertificateClaim.verify(e.claims[t]))
                               )
-                                return "claims." + n;
+                                return 'claims.' + n;
                             }
                           }
                           return null != e.publicKey &&
-                            e.hasOwnProperty("publicKey") &&
+                            e.hasOwnProperty('publicKey') &&
                             !r.isString(e.publicKey)
-                            ? "publicKey: string expected"
+                            ? 'publicKey: string expected'
                             : null;
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.GovalCert) return e;
                           var t = new o.api.GovalCert();
                           if (null != e.iat) {
-                            if ("object" !== typeof e.iat)
+                            if ('object' !== typeof e.iat)
                               throw TypeError(
-                                ".api.GovalCert.iat: object expected"
+                                '.api.GovalCert.iat: object expected'
                               );
                             t.iat = o.google.protobuf.Timestamp.fromObject(
                               e.iat
                             );
                           }
                           if (null != e.exp) {
-                            if ("object" !== typeof e.exp)
+                            if ('object' !== typeof e.exp)
                               throw TypeError(
-                                ".api.GovalCert.exp: object expected"
+                                '.api.GovalCert.exp: object expected'
                               );
                             t.exp = o.google.protobuf.Timestamp.fromObject(
                               e.exp
@@ -25059,13 +25059,13 @@
                           if (e.claims) {
                             if (!Array.isArray(e.claims))
                               throw TypeError(
-                                ".api.GovalCert.claims: array expected"
+                                '.api.GovalCert.claims: array expected'
                               );
                             t.claims = [];
                             for (var n = 0; n < e.claims.length; ++n) {
-                              if ("object" !== typeof e.claims[n])
+                              if ('object' !== typeof e.claims[n])
                                 throw TypeError(
-                                  ".api.GovalCert.claims: object expected"
+                                  '.api.GovalCert.claims: object expected'
                                 );
                               t.claims[n] = o.api.CertificateClaim.fromObject(
                                 e.claims[n]
@@ -25086,15 +25086,15 @@
                             t.defaults &&
                               ((n.iat = null),
                               (n.exp = null),
-                              (n.publicKey = "")),
+                              (n.publicKey = '')),
                             null != e.iat &&
-                              e.hasOwnProperty("iat") &&
+                              e.hasOwnProperty('iat') &&
                               (n.iat = o.google.protobuf.Timestamp.toObject(
                                 e.iat,
                                 t
                               )),
                             null != e.exp &&
-                              e.hasOwnProperty("exp") &&
+                              e.hasOwnProperty('exp') &&
                               (n.exp = o.google.protobuf.Timestamp.toObject(
                                 e.exp,
                                 t
@@ -25110,7 +25110,7 @@
                           }
                           return (
                             null != e.publicKey &&
-                              e.hasOwnProperty("publicKey") &&
+                              e.hasOwnProperty('publicKey') &&
                               (n.publicKey = e.publicKey),
                             n
                           );
@@ -25134,10 +25134,10 @@
                       return (
                         (i.prototype.iat = null),
                         (i.prototype.exp = null),
-                        (i.prototype.replid = ""),
+                        (i.prototype.replid = ''),
                         (i.prototype.replToken = null),
-                        Object.defineProperty(i.prototype, "Token", {
-                          get: r.oneOfGetter((a = ["replToken"])),
+                        Object.defineProperty(i.prototype, 'Token', {
+                          get: r.oneOfGetter((a = ['replToken'])),
                           set: r.oneOfSetter(a),
                         }),
                         (i.create = function (e) {
@@ -25147,22 +25147,22 @@
                           return (
                             t || (t = n.create()),
                             null != e.iat &&
-                              Object.hasOwnProperty.call(e, "iat") &&
+                              Object.hasOwnProperty.call(e, 'iat') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.iat,
                                 t.uint32(10).fork()
                               ).ldelim(),
                             null != e.exp &&
-                              Object.hasOwnProperty.call(e, "exp") &&
+                              Object.hasOwnProperty.call(e, 'exp') &&
                               o.google.protobuf.Timestamp.encode(
                                 e.exp,
                                 t.uint32(18).fork()
                               ).ldelim(),
                             null != e.replid &&
-                              Object.hasOwnProperty.call(e, "replid") &&
+                              Object.hasOwnProperty.call(e, 'replid') &&
                               t.uint32(26).string(e.replid),
                             null != e.replToken &&
-                              Object.hasOwnProperty.call(e, "replToken") &&
+                              Object.hasOwnProperty.call(e, 'replToken') &&
                               o.api.ReplToken.encode(
                                 e.replToken,
                                 t.uint32(34).fork()
@@ -25217,45 +25217,45 @@
                           );
                         }),
                         (i.verify = function (e) {
-                          if ("object" !== typeof e || null === e)
-                            return "object expected";
+                          if ('object' !== typeof e || null === e)
+                            return 'object expected';
                           var t,
                             n = {};
                           return null != e.iat &&
-                            e.hasOwnProperty("iat") &&
+                            e.hasOwnProperty('iat') &&
                             (t = o.google.protobuf.Timestamp.verify(e.iat))
-                            ? "iat." + t
+                            ? 'iat.' + t
                             : null != e.exp &&
-                              e.hasOwnProperty("exp") &&
+                              e.hasOwnProperty('exp') &&
                               (t = o.google.protobuf.Timestamp.verify(e.exp))
-                            ? "exp." + t
+                            ? 'exp.' + t
                             : null != e.replid &&
-                              e.hasOwnProperty("replid") &&
+                              e.hasOwnProperty('replid') &&
                               !r.isString(e.replid)
-                            ? "replid: string expected"
+                            ? 'replid: string expected'
                             : null != e.replToken &&
-                              e.hasOwnProperty("replToken") &&
+                              e.hasOwnProperty('replToken') &&
                               ((n.Token = 1),
                               (t = o.api.ReplToken.verify(e.replToken)))
-                            ? "replToken." + t
+                            ? 'replToken.' + t
                             : null;
                         }),
                         (i.fromObject = function (e) {
                           if (e instanceof o.api.GovalToken) return e;
                           var t = new o.api.GovalToken();
                           if (null != e.iat) {
-                            if ("object" !== typeof e.iat)
+                            if ('object' !== typeof e.iat)
                               throw TypeError(
-                                ".api.GovalToken.iat: object expected"
+                                '.api.GovalToken.iat: object expected'
                               );
                             t.iat = o.google.protobuf.Timestamp.fromObject(
                               e.iat
                             );
                           }
                           if (null != e.exp) {
-                            if ("object" !== typeof e.exp)
+                            if ('object' !== typeof e.exp)
                               throw TypeError(
-                                ".api.GovalToken.exp: object expected"
+                                '.api.GovalToken.exp: object expected'
                               );
                             t.exp = o.google.protobuf.Timestamp.fromObject(
                               e.exp
@@ -25265,9 +25265,9 @@
                             (null != e.replid && (t.replid = String(e.replid)),
                             null != e.replToken)
                           ) {
-                            if ("object" !== typeof e.replToken)
+                            if ('object' !== typeof e.replToken)
                               throw TypeError(
-                                ".api.GovalToken.replToken: object expected"
+                                '.api.GovalToken.replToken: object expected'
                               );
                             t.replToken = o.api.ReplToken.fromObject(
                               e.replToken
@@ -25280,29 +25280,29 @@
                           var n = {};
                           return (
                             t.defaults &&
-                              ((n.iat = null), (n.exp = null), (n.replid = "")),
+                              ((n.iat = null), (n.exp = null), (n.replid = '')),
                             null != e.iat &&
-                              e.hasOwnProperty("iat") &&
+                              e.hasOwnProperty('iat') &&
                               (n.iat = o.google.protobuf.Timestamp.toObject(
                                 e.iat,
                                 t
                               )),
                             null != e.exp &&
-                              e.hasOwnProperty("exp") &&
+                              e.hasOwnProperty('exp') &&
                               (n.exp = o.google.protobuf.Timestamp.toObject(
                                 e.exp,
                                 t
                               )),
                             null != e.replid &&
-                              e.hasOwnProperty("replid") &&
+                              e.hasOwnProperty('replid') &&
                               (n.replid = e.replid),
                             null != e.replToken &&
-                              e.hasOwnProperty("replToken") &&
+                              e.hasOwnProperty('replToken') &&
                               ((n.replToken = o.api.ReplToken.toObject(
                                 e.replToken,
                                 t
                               )),
-                              t.oneofs && (n.Token = "replToken")),
+                              t.oneofs && (n.Token = 'replToken')),
                             n
                           );
                         }),
@@ -25346,10 +25346,10 @@
                               return (
                                 t || (t = n.create()),
                                 null != e.seconds &&
-                                  Object.hasOwnProperty.call(e, "seconds") &&
+                                  Object.hasOwnProperty.call(e, 'seconds') &&
                                   t.uint32(8).int64(e.seconds),
                                 null != e.nanos &&
-                                  Object.hasOwnProperty.call(e, "nanos") &&
+                                  Object.hasOwnProperty.call(e, 'nanos') &&
                                   t.uint32(16).int32(e.nanos),
                                 t
                               );
@@ -25386,20 +25386,20 @@
                               );
                             }),
                             (i.verify = function (e) {
-                              return "object" !== typeof e || null === e
-                                ? "object expected"
+                              return 'object' !== typeof e || null === e
+                                ? 'object expected'
                                 : null == e.seconds ||
-                                  !e.hasOwnProperty("seconds") ||
+                                  !e.hasOwnProperty('seconds') ||
                                   r.isInteger(e.seconds) ||
                                   (e.seconds &&
                                     r.isInteger(e.seconds.low) &&
                                     r.isInteger(e.seconds.high))
                                 ? null != e.nanos &&
-                                  e.hasOwnProperty("nanos") &&
+                                  e.hasOwnProperty('nanos') &&
                                   !r.isInteger(e.nanos)
-                                  ? "nanos: integer expected"
+                                  ? 'nanos: integer expected'
                                   : null
-                                : "seconds: integer|Long expected";
+                                : 'seconds: integer|Long expected';
                             }),
                             (i.fromObject = function (e) {
                               if (e instanceof o.google.protobuf.Timestamp)
@@ -25411,11 +25411,11 @@
                                     ? ((t.seconds = r.Long.fromValue(
                                         e.seconds
                                       )).unsigned = !1)
-                                    : "string" === typeof e.seconds
+                                    : 'string' === typeof e.seconds
                                     ? (t.seconds = parseInt(e.seconds, 10))
-                                    : "number" === typeof e.seconds
+                                    : 'number' === typeof e.seconds
                                     ? (t.seconds = e.seconds)
-                                    : "object" === typeof e.seconds &&
+                                    : 'object' === typeof e.seconds &&
                                       (t.seconds = new r.LongBits(
                                         e.seconds.low >>> 0,
                                         e.seconds.high >>> 0
@@ -25436,13 +25436,13 @@
                                       : t.longs === Number
                                       ? o.toNumber()
                                       : o;
-                                } else n.seconds = t.longs === String ? "0" : 0;
+                                } else n.seconds = t.longs === String ? '0' : 0;
                                 n.nanos = 0;
                               }
                               return (
                                 null != e.seconds &&
-                                  e.hasOwnProperty("seconds") &&
-                                  ("number" === typeof e.seconds
+                                  e.hasOwnProperty('seconds') &&
+                                  ('number' === typeof e.seconds
                                     ? (n.seconds =
                                         t.longs === String
                                           ? String(e.seconds)
@@ -25459,7 +25459,7 @@
                                             ).toNumber()
                                           : e.seconds)),
                                 null != e.nanos &&
-                                  e.hasOwnProperty("nanos") &&
+                                  e.hasOwnProperty('nanos') &&
                                   (n.nanos = e.nanos),
                                 n
                               );

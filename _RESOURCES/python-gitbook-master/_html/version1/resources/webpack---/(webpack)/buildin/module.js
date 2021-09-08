@@ -4,13 +4,13 @@ module.exports = function (module) {
     module.paths = [];
     // module.parent = undefined by default
     if (!module.children) module.children = [];
-    Object.defineProperty(module, "loaded", {
+    Object.defineProperty(module, 'loaded', {
       enumerable: true,
       get: function () {
         return module.l;
       },
     });
-    Object.defineProperty(module, "id", {
+    Object.defineProperty(module, 'id', {
       enumerable: true,
       get: function () {
         return module.i;

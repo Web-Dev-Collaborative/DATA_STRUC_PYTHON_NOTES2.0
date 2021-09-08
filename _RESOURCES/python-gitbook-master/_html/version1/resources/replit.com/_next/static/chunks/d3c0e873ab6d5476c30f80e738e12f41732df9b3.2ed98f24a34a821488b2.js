@@ -1,28 +1,28 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [22],
   {
-    "1FcE": function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+    '1FcE': function (e, t, n) {
+      'use strict';
+      n.d(t, 'a', function () {
         return re;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return c;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return oe;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return u;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return ne;
         });
-      var i = n("4eob"),
-        r = n("uZp5"),
-        o = n("AtEE"),
-        s = n("fK0Z"),
-        a = n("yqQ+");
+      var i = n('4eob'),
+        r = n('uZp5'),
+        o = n('AtEE'),
+        s = n('fK0Z'),
+        a = n('yqQ+');
       class l {
         constructor(e, t, n) {
           (this.state = e),
@@ -59,22 +59,22 @@
           return null == this.abortListeners;
         }
         addEventListener(e, t) {
-          "abort" == e && this.abortListeners && this.abortListeners.push(t);
+          'abort' == e && this.abortListeners && this.abortListeners.push(t);
         }
       }
 
       function h(e) {
-        let t = Object.keys(e).join(""),
+        let t = Object.keys(e).join(''),
           n = /\w/.test(t);
         return (
-          n && (t = t.replace(/\w/g, "")),
-          `[${n ? "\\w" : ""}${t.replace(/[^\w\s]/g, "\\$&")}]`
+          n && (t = t.replace(/\w/g, '')),
+          `[${n ? '\\w' : ''}${t.replace(/[^\w\s]/g, '\\$&')}]`
         );
       }
 
       function c(e) {
         let t = e.map((e) =>
-            "string" == typeof e
+            'string' == typeof e
               ? {
                   label: e,
                 }
@@ -89,8 +89,8 @@
                   t[r[0]] = !0;
                   for (let e = 1; e < r.length; e++) n[r[e]] = !0;
                 }
-                let i = h(t) + h(n) + "*$";
-                return [new RegExp("^" + i), new RegExp(i)];
+                let i = h(t) + h(n) + '*$';
+                return [new RegExp('^' + i), new RegExp(i)];
               })(t);
         return (e) => {
           let r = e.matchBefore(i);
@@ -128,16 +128,16 @@
       function p(e, t) {
         var n;
         let { source: i } = e,
-          r = t && "^" != i[0],
-          o = "$" != i[i.length - 1];
+          r = t && '^' != i[0],
+          o = '$' != i[i.length - 1];
         return r || o
           ? new RegExp(
-              `${r ? "^" : ""}(?:${i})${o ? "$" : ""}`,
+              `${r ? '^' : ''}(?:${i})${o ? '$' : ''}`,
               null !== (n = e.flags) && void 0 !== n
                 ? n
                 : e.ignoreCase
-                ? "i"
-                : ""
+                ? 'i'
+                : ''
             )
           : e;
       }
@@ -145,7 +145,7 @@
       function m(e, t) {
         let n = t.completion.apply || t.completion.label,
           i = t.source;
-        "string" == typeof n
+        'string' == typeof n
           ? e.dispatch({
               changes: {
                 from: i.from,
@@ -155,7 +155,7 @@
               selection: {
                 anchor: i.from + n.length,
               },
-              userEvent: "input.complete",
+              userEvent: 'input.complete',
             })
           : n(e, t.completion, i.from, i.to);
       }
@@ -281,7 +281,7 @@
               override: null,
               maxRenderedOptions: 100,
               defaultKeymap: !0,
-              optionClass: () => "",
+              optionClass: () => '',
               icons: !0,
               addToOptions: [],
             },
@@ -290,139 +290,139 @@
               icons: (e, t) => e && t,
               optionClass: (e, t) => (n) =>
                 (function (e, t) {
-                  return e ? (t ? e + " " + t : e) : t;
+                  return e ? (t ? e + ' ' + t : e) : t;
                 })(e(n), t(n)),
               addToOptions: (e, t) => e.concat(t),
             }
           ),
       });
       const w = o.d.baseTheme({
-        ".cm-tooltip.cm-tooltip-autocomplete": {
-          "& > ul": {
-            fontFamily: "monospace",
-            whiteSpace: "nowrap",
-            overflow: "auto",
-            maxWidth_fallback: "700px",
-            maxWidth: "min(700px, 95vw)",
-            maxHeight: "10em",
-            listStyle: "none",
+        '.cm-tooltip.cm-tooltip-autocomplete': {
+          '& > ul': {
+            fontFamily: 'monospace',
+            whiteSpace: 'nowrap',
+            overflow: 'auto',
+            maxWidth_fallback: '700px',
+            maxWidth: 'min(700px, 95vw)',
+            maxHeight: '10em',
+            listStyle: 'none',
             margin: 0,
             padding: 0,
-            "& > li": {
-              cursor: "pointer",
-              padding: "1px 1em 1px 3px",
+            '& > li': {
+              cursor: 'pointer',
+              padding: '1px 1em 1px 3px',
               lineHeight: 1.2,
             },
-            "& > li[aria-selected]": {
-              background_fallback: "#bdf",
-              backgroundColor: "Highlight",
-              color_fallback: "white",
-              color: "HighlightText",
+            '& > li[aria-selected]': {
+              background_fallback: '#bdf',
+              backgroundColor: 'Highlight',
+              color_fallback: 'white',
+              color: 'HighlightText',
             },
           },
         },
-        ".cm-completionListIncompleteTop:before, .cm-completionListIncompleteBottom:after":
+        '.cm-completionListIncompleteTop:before, .cm-completionListIncompleteBottom:after':
           {
             content: '"\xb7\xb7\xb7"',
             opacity: 0.5,
-            display: "block",
-            textAlign: "center",
+            display: 'block',
+            textAlign: 'center',
           },
-        ".cm-tooltip.cm-completionInfo": {
-          position: "absolute",
-          padding: "3px 9px",
-          width: "max-content",
-          maxWidth: "300px",
+        '.cm-tooltip.cm-completionInfo': {
+          position: 'absolute',
+          padding: '3px 9px',
+          width: 'max-content',
+          maxWidth: '300px',
         },
-        ".cm-completionInfo.cm-completionInfo-left": {
-          right: "100%",
+        '.cm-completionInfo.cm-completionInfo-left': {
+          right: '100%',
         },
-        ".cm-completionInfo.cm-completionInfo-right": {
-          left: "100%",
+        '.cm-completionInfo.cm-completionInfo-right': {
+          left: '100%',
         },
-        "&light .cm-snippetField": {
-          backgroundColor: "#00000022",
+        '&light .cm-snippetField': {
+          backgroundColor: '#00000022',
         },
-        "&dark .cm-snippetField": {
-          backgroundColor: "#ffffff22",
+        '&dark .cm-snippetField': {
+          backgroundColor: '#ffffff22',
         },
-        ".cm-snippetFieldPosition": {
-          verticalAlign: "text-top",
+        '.cm-snippetFieldPosition': {
+          verticalAlign: 'text-top',
           width: 0,
-          height: "1.15em",
-          margin: "0 -0.7px -.7em",
-          borderLeft: "1.4px dotted #888",
+          height: '1.15em',
+          margin: '0 -0.7px -.7em',
+          borderLeft: '1.4px dotted #888',
         },
-        ".cm-completionMatchedText": {
-          textDecoration: "underline",
+        '.cm-completionMatchedText': {
+          textDecoration: 'underline',
         },
-        ".cm-completionDetail": {
-          marginLeft: "0.5em",
-          fontStyle: "italic",
+        '.cm-completionDetail': {
+          marginLeft: '0.5em',
+          fontStyle: 'italic',
         },
-        ".cm-completionIcon": {
-          fontSize: "90%",
-          width: ".8em",
-          display: "inline-block",
-          textAlign: "center",
-          paddingRight: ".6em",
-          opacity: "0.6",
+        '.cm-completionIcon': {
+          fontSize: '90%',
+          width: '.8em',
+          display: 'inline-block',
+          textAlign: 'center',
+          paddingRight: '.6em',
+          opacity: '0.6',
         },
-        ".cm-completionIcon-function, .cm-completionIcon-method": {
-          "&:after": {
+        '.cm-completionIcon-function, .cm-completionIcon-method': {
+          '&:after': {
             content: "'\u0192'",
           },
         },
-        ".cm-completionIcon-class": {
-          "&:after": {
+        '.cm-completionIcon-class': {
+          '&:after': {
             content: "'\u25cb'",
           },
         },
-        ".cm-completionIcon-interface": {
-          "&:after": {
+        '.cm-completionIcon-interface': {
+          '&:after': {
             content: "'\u25cc'",
           },
         },
-        ".cm-completionIcon-variable": {
-          "&:after": {
+        '.cm-completionIcon-variable': {
+          '&:after': {
             content: "'\ud835\udc65'",
           },
         },
-        ".cm-completionIcon-constant": {
-          "&:after": {
+        '.cm-completionIcon-constant': {
+          '&:after': {
             content: "'\ud835\udc36'",
           },
         },
-        ".cm-completionIcon-type": {
-          "&:after": {
+        '.cm-completionIcon-type': {
+          '&:after': {
             content: "'\ud835\udc61'",
           },
         },
-        ".cm-completionIcon-enum": {
-          "&:after": {
+        '.cm-completionIcon-enum': {
+          '&:after': {
             content: "'\u222a'",
           },
         },
-        ".cm-completionIcon-property": {
-          "&:after": {
+        '.cm-completionIcon-property': {
+          '&:after': {
             content: "'\u25a1'",
           },
         },
-        ".cm-completionIcon-keyword": {
-          "&:after": {
+        '.cm-completionIcon-keyword': {
+          '&:after': {
             content: "'\ud83d\udd11\ufe0e'",
           },
         },
-        ".cm-completionIcon-namespace": {
-          "&:after": {
+        '.cm-completionIcon-namespace': {
+          '&:after': {
             content: "'\u25a2'",
           },
         },
-        ".cm-completionIcon-text": {
-          "&:after": {
+        '.cm-completionIcon-text': {
+          '&:after': {
             content: "'abc'",
-            fontSize: "50%",
-            verticalAlign: "middle",
+            fontSize: '50%',
+            verticalAlign: 'middle',
           },
         },
       });
@@ -465,16 +465,16 @@
               e.icons &&
                 t.push({
                   render(e) {
-                    let t = document.createElement("div");
+                    let t = document.createElement('div');
                     return (
-                      t.classList.add("cm-completionIcon"),
+                      t.classList.add('cm-completionIcon'),
                       e.type &&
                         t.classList.add(
                           ...e.type
                             .split(/\s+/g)
-                            .map((e) => "cm-completionIcon-" + e)
+                            .map((e) => 'cm-completionIcon-' + e)
                         ),
-                      t.setAttribute("aria-hidden", "true"),
+                      t.setAttribute('aria-hidden', 'true'),
                       t
                     );
                   },
@@ -483,8 +483,8 @@
               t.push(
                 {
                   render(e, t, n) {
-                    let i = document.createElement("span");
-                    i.className = "cm-completionLabel";
+                    let i = document.createElement('span');
+                    i.className = 'cm-completionLabel';
                     let { label: r } = e,
                       o = 0;
                     for (let s = 1; s < n.length; ) {
@@ -492,9 +492,9 @@
                         t = n[s++];
                       e > o &&
                         i.appendChild(document.createTextNode(r.slice(o, e)));
-                      let a = i.appendChild(document.createElement("span"));
+                      let a = i.appendChild(document.createElement('span'));
                       a.appendChild(document.createTextNode(r.slice(e, t))),
-                        (a.className = "cm-completionMatchedText"),
+                        (a.className = 'cm-completionMatchedText'),
                         (o = t);
                     }
                     return (
@@ -508,9 +508,9 @@
                 {
                   render(e) {
                     if (!e.detail) return null;
-                    let t = document.createElement("span");
+                    let t = document.createElement('span');
                     return (
-                      (t.className = "cm-completionDetail"),
+                      (t.className = 'cm-completionDetail'),
                       (t.textContent = e.detail),
                       t
                     );
@@ -523,12 +523,12 @@
           })(o)),
             (this.optionClass = o.optionClass),
             (this.range = y(i.length, r, o.maxRenderedOptions)),
-            (this.dom = document.createElement("div")),
-            (this.dom.className = "cm-tooltip-autocomplete"),
-            this.dom.addEventListener("mousedown", (t) => {
+            (this.dom = document.createElement('div')),
+            (this.dom.className = 'cm-tooltip-autocomplete'),
+            this.dom.addEventListener('mousedown', (t) => {
               for (let n, r = t.target; r && r != this.dom; r = r.parentNode)
                 if (
-                  "LI" == r.nodeName &&
+                  'LI' == r.nodeName &&
                   (n = /-(\d+)$/.exec(r.id)) &&
                   +n[1] < i.length
                 )
@@ -537,7 +537,7 @@
             (this.list = this.dom.appendChild(
               this.createListBox(i, n.id, this.range)
             )),
-            this.list.addEventListener("scroll", () => {
+            this.list.addEventListener('scroll', () => {
               this.info && this.view.requestMeasure(this.placeInfo);
             });
         }
@@ -565,7 +565,7 @@
               (this.list = this.dom.appendChild(
                 this.createListBox(t.options, e.id, this.range)
               )),
-              this.list.addEventListener("scroll", () => {
+              this.list.addEventListener('scroll', () => {
                 this.info && this.view.requestMeasure(this.placeInfo);
               })),
             this.updateSelectedOption(t.selected))
@@ -575,16 +575,16 @@
             e.completion.info &&
               ((this.info = this.dom.appendChild(
                 (function (e, t) {
-                  let n = document.createElement("div");
-                  n.className = "cm-tooltip cm-completionInfo";
+                  let n = document.createElement('div');
+                  n.className = 'cm-tooltip cm-completionInfo';
                   let { info: i } = e.completion;
-                  if ("string" == typeof i) n.textContent = i;
+                  if ('string' == typeof i) n.textContent = i;
                   else {
                     let r = i(e.completion);
                     r.then
                       ? r.then(
                           (e) => n.appendChild(e),
-                          (e) => Object(o.l)(t.state, e, "completion info")
+                          (e) => Object(o.l)(t.state, e, 'completion info')
                         )
                       : n.appendChild(r);
                   }
@@ -602,10 +602,10 @@
             n = n.nextSibling, i++
           )
             i == e
-              ? n.hasAttribute("aria-selected") ||
-                (n.setAttribute("aria-selected", "true"), (t = n))
-              : n.hasAttribute("aria-selected") &&
-                n.removeAttribute("aria-selected");
+              ? n.hasAttribute('aria-selected') ||
+                (n.setAttribute('aria-selected', 'true'), (t = n))
+              : n.hasAttribute('aria-selected') &&
+                n.removeAttribute('aria-selected');
           return (
             t &&
               (function (e, t) {
@@ -619,7 +619,7 @@
           );
         }
         measureInfo() {
-          let e = this.dom.querySelector("[aria-selected]");
+          let e = this.dom.querySelector('[aria-selected]');
           if (!e) return null;
           let t = this.dom.getBoundingClientRect(),
             n = e.getBoundingClientRect().top - t.top;
@@ -640,17 +640,17 @@
         positionInfo(e) {
           this.info &&
             e &&
-            ((this.info.style.top = e.top + "px"),
-            this.info.classList.toggle("cm-completionInfo-left", e.left),
-            this.info.classList.toggle("cm-completionInfo-right", !e.left));
+            ((this.info.style.top = e.top + 'px'),
+            this.info.classList.toggle('cm-completionInfo-left', e.left),
+            this.info.classList.toggle('cm-completionInfo-right', !e.left));
         }
         createListBox(e, t, n) {
-          const i = document.createElement("ul");
-          (i.id = t), i.setAttribute("role", "listbox");
+          const i = document.createElement('ul');
+          (i.id = t), i.setAttribute('role', 'listbox');
           for (let r = n.from; r < n.to; r++) {
             let { completion: n, match: o } = e[r];
-            const s = i.appendChild(document.createElement("li"));
-            (s.id = t + "-" + r), s.setAttribute("role", "option");
+            const s = i.appendChild(document.createElement('li'));
+            (s.id = t + '-' + r), s.setAttribute('role', 'option');
             let a = this.optionClass(n);
             a && (s.className = a);
             for (let e of this.optionContent) {
@@ -659,9 +659,9 @@
             }
           }
           return (
-            n.from && i.classList.add("cm-completionListIncompleteTop"),
+            n.from && i.classList.add('cm-completionListIncompleteTop'),
             n.to < e.length &&
-              i.classList.add("cm-completionListIncompleteBottom"),
+              i.classList.add('cm-completionListIncompleteBottom'),
             i
           );
         }
@@ -760,7 +760,7 @@
         static start() {
           return new A(
             M,
-            "cm-ac-" + Math.floor(2e6 * Math.random()).toString(36),
+            'cm-ac-' + Math.floor(2e6 * Math.random()).toString(36),
             null
           );
         }
@@ -768,7 +768,7 @@
           let { state: t } = e,
             n = t.facet(x),
             i = (
-              n.override || t.languageDataAt("autocomplete", d(t)).map(v)
+              n.override || t.languageDataAt('autocomplete', d(t)).map(v)
             ).map((t) =>
               (
                 this.active.find((e) => e.source == t) ||
@@ -816,16 +816,16 @@
         }
       }
       const O = {
-        "aria-autocomplete": "list",
-        "aria-expanded": "false",
+        'aria-autocomplete': 'list',
+        'aria-expanded': 'false',
       };
 
       function j(e, t) {
         return {
-          "aria-autocomplete": "list",
-          "aria-expanded": "true",
-          "aria-activedescendant": e + "-" + t,
-          "aria-controls": e,
+          'aria-autocomplete': 'list',
+          'aria-expanded': 'true',
+          'aria-activedescendant': e + '-' + t,
+          'aria-controls': e,
         };
       }
       const M = [];
@@ -836,10 +836,10 @@
       }
 
       function I(e) {
-        return e.isUserEvent("input.type")
-          ? "input"
-          : e.isUserEvent("delete.backward")
-          ? "delete"
+        return e.isUserEvent('input.type')
+          ? 'input'
+          : e.isUserEvent('delete.backward')
+          ? 'delete'
           : null;
       }
       class L {
@@ -865,7 +865,7 @@
           return i;
         }
         handleUserEvent(e, t, n) {
-          return "delete" != t && n.activateOnTyping
+          return 'delete' != t && n.activateOnTyping
             ? new L(this.source, 1)
             : this.map(e.changes);
         }
@@ -898,7 +898,7 @@
           if ((this.explicitPos > -1 ? o < i : o <= i) || o > r)
             return new L(
               this.source,
-              "input" == t && n.activateOnTyping ? 1 : 0
+              'input' == t && n.activateOnTyping ? 1 : 0
             );
           let s =
             this.explicitPos < 0 ? -1 : e.changes.mapPos(this.explicitPos);
@@ -939,14 +939,14 @@
           ],
         });
 
-      function q(e, t = "option") {
+      function q(e, t = 'option') {
         return (n) => {
           let i = n.state.field(B, !1);
           if (!i || !i.open || Date.now() - i.open.timestamp < 75) return !1;
           let r,
             o = 1;
-          "page" == t &&
-            (r = n.dom.querySelector(".cm-tooltip-autocomplete")) &&
+          'page' == t &&
+            (r = n.dom.querySelector('.cm-tooltip-autocomplete')) &&
             (o = Math.max(
               2,
               Math.floor(r.offsetHeight / r.firstChild.offsetHeight)
@@ -955,8 +955,8 @@
             { length: a } = i.open.options;
           return (
             s < 0
-              ? (s = "page" == t ? 0 : a - 1)
-              : s >= a && (s = "page" == t ? a - 1 : 0),
+              ? (s = 'page' == t ? 0 : a - 1)
+              : s >= a && (s = 'page' == t ? a - 1 : 0),
             n.dispatch({
               effects: N.of(s),
             }),
@@ -1019,7 +1019,7 @@
               0 != this.composing)
             )
               for (let r of e.transactions)
-                "input" == I(r)
+                'input' == I(r)
                   ? (this.composing = 2)
                   : 2 == this.composing && r.selection && (this.composing = 3);
           }
@@ -1205,8 +1205,8 @@
       let U = o.b.widget({
           widget: new (class extends o.g {
             toDOM() {
-              let e = document.createElement("span");
-              return (e.className = "cm-snippetFieldPosition"), e;
+              let e = document.createElement('span');
+              return (e.className = 'cm-snippetFieldPosition'), e;
             }
             ignoreEvent() {
               return !1;
@@ -1214,7 +1214,7 @@
           })(),
         }),
         H = o.b.mark({
-          class: "cm-snippetField",
+          class: 'cm-snippetField',
         });
       class J {
         constructor(e, t) {
@@ -1308,12 +1308,12 @@
       }
       const Z = [
           {
-            key: "Tab",
+            key: 'Tab',
             run: X(1),
             shift: X(-1),
           },
           {
-            key: "Escape",
+            key: 'Escape',
             run: ({ state: e, dispatch: t }) =>
               !!e.field(Q, !1) &&
               (t(
@@ -1368,7 +1368,7 @@
       }
       const oe = [
           {
-            key: "Ctrl-Space",
+            key: 'Ctrl-Space',
             run: (e) =>
               !!e.state.field(B, !1) &&
               (e.dispatch({
@@ -1377,7 +1377,7 @@
               !0),
           },
           {
-            key: "Escape",
+            key: 'Escape',
             run: (e) => {
               let t = e.state.field(B, !1);
               return (
@@ -1390,23 +1390,23 @@
             },
           },
           {
-            key: "ArrowDown",
+            key: 'ArrowDown',
             run: q(!0),
           },
           {
-            key: "ArrowUp",
+            key: 'ArrowUp',
             run: q(!1),
           },
           {
-            key: "PageDown",
-            run: q(!0, "page"),
+            key: 'PageDown',
+            run: q(!0, 'page'),
           },
           {
-            key: "PageUp",
-            run: q(!1, "page"),
+            key: 'PageUp',
+            run: q(!1, 'page'),
           },
           {
-            key: "Enter",
+            key: 'Enter',
             run: (e) => {
               let t = e.state.field(B, !1);
               return (
@@ -1420,58 +1420,58 @@
           o.k.computeN([x], (e) => (e.facet(x).defaultKeymap ? [oe] : []))
         );
     },
-    "4eob": function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+    '4eob': function (e, t, n) {
+      'use strict';
+      n.d(t, 'a', function () {
         return _;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return s;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return a;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return ee;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return T;
         }),
-        n.d(t, "f", function () {
+        n.d(t, 'f', function () {
           return m;
         }),
-        n.d(t, "g", function () {
+        n.d(t, 'g', function () {
           return re;
         }),
-        n.d(t, "h", function () {
+        n.d(t, 'h', function () {
           return x;
         }),
-        n.d(t, "i", function () {
+        n.d(t, 'i', function () {
           return o;
         }),
-        n.d(t, "j", function () {
+        n.d(t, 'j', function () {
           return I;
         }),
-        n.d(t, "k", function () {
+        n.d(t, 'k', function () {
           return J;
         }),
-        n.d(t, "l", function () {
+        n.d(t, 'l', function () {
           return A;
         }),
-        n.d(t, "m", function () {
+        n.d(t, 'm', function () {
           return $;
         }),
-        n.d(t, "n", function () {
+        n.d(t, 'n', function () {
           return oe;
         });
-      var i = n("uZp5");
+      var i = n('uZp5');
       const r = /\r\n?|\n/;
       var o = (function (e) {
         return (
-          (e[(e.Simple = 0)] = "Simple"),
-          (e[(e.TrackDel = 1)] = "TrackDel"),
-          (e[(e.TrackBefore = 2)] = "TrackBefore"),
-          (e[(e.TrackAfter = 3)] = "TrackAfter"),
+          (e[(e.Simple = 0)] = 'Simple'),
+          (e[(e.TrackDel = 1)] = 'TrackDel'),
+          (e[(e.TrackBefore = 2)] = 'TrackBefore'),
+          (e[(e.TrackAfter = 3)] = 'TrackAfter'),
           e
         );
       })(o || (o = {}));
@@ -1559,17 +1559,17 @@
           for (let n = 0, i = 0; n < this.sections.length && i <= t; ) {
             let r = i + this.sections[n++];
             if (this.sections[n++] >= 0 && i <= t && r >= e)
-              return !(i < e && r > t) || "cover";
+              return !(i < e && r > t) || 'cover';
             i = r;
           }
           return !1;
         }
         toString() {
-          let e = "";
+          let e = '';
           for (let t = 0; t < this.sections.length; ) {
             let n = this.sections[t++],
               i = this.sections[t++];
-            e += (e ? " " : "") + n + (i >= 0 ? ":" + i : "");
+            e += (e ? ' ' : '') + n + (i >= 0 ? ':' + i : '');
           }
           return e;
         }
@@ -1580,9 +1580,9 @@
           if (
             !Array.isArray(e) ||
             e.length % 2 ||
-            e.some((e) => "number" != typeof e)
+            e.some((e) => 'number' != typeof e)
           )
-            throw new RangeError("Invalid JSON representation of ChangeDesc");
+            throw new RangeError('Invalid JSON representation of ChangeDesc');
           return new s(e);
         }
       }
@@ -1593,7 +1593,7 @@
         apply(e) {
           if (this.length != e.length)
             throw new RangeError(
-              "Applying change set to a document with the wrong length"
+              'Applying change set to a document with the wrong length'
             );
           return (
             c(this, (t, n, i, r, o) => (e = e.replace(i, i + (n - t), o)), !1),
@@ -1701,7 +1701,7 @@
                     `Invalid change range ${e} to ${a} (in doc of length ${t})`
                   );
                 let p = u
-                    ? "string" == typeof u
+                    ? 'string' == typeof u
                       ? i.a.of(u.split(n || r))
                       : u
                     : i.a.empty,
@@ -1723,20 +1723,20 @@
         }
         static fromJSON(e) {
           if (!Array.isArray(e))
-            throw new RangeError("Invalid JSON representation of ChangeSet");
+            throw new RangeError('Invalid JSON representation of ChangeSet');
           let t = [],
             n = [];
           for (let r = 0; r < e.length; r++) {
             let o = e[r];
-            if ("number" == typeof o) t.push(o, -1);
+            if ('number' == typeof o) t.push(o, -1);
             else {
               if (
                 !Array.isArray(o) ||
-                "number" != typeof o[0] ||
-                o.some((e, t) => t && "string" != typeof e)
+                'number' != typeof o[0] ||
+                o.some((e, t) => t && 'string' != typeof e)
               )
                 throw new RangeError(
-                  "Invalid JSON representation of ChangeSet"
+                  'Invalid JSON representation of ChangeSet'
                 );
               if (1 == o.length) t.push(o[0], 0);
               else {
@@ -1817,7 +1817,7 @@
           } else {
             if (!(c.ins >= 0)) {
               if (c.done && u.done) return o ? new a(r, o) : new s(r);
-              throw new Error("Mismatched change set lengths");
+              throw new Error('Mismatched change set lengths');
             }
             {
               let e = 0,
@@ -1847,7 +1847,7 @@
           if (0 == o.ins) l(i, o.len, 0, u), o.next();
           else if (0 != c.len || c.done) {
             if (o.done || c.done)
-              throw new Error("Mismatched change set lengths");
+              throw new Error('Mismatched change set lengths');
             {
               let e = Math.min(o.len2, c.len),
                 t = i.length;
@@ -1954,9 +1954,9 @@
           };
         }
         static fromJSON(e) {
-          if (!e || "number" != typeof e.anchor || "number" != typeof e.head)
+          if (!e || 'number' != typeof e.anchor || 'number' != typeof e.head)
             throw new RangeError(
-              "Invalid JSON representation for SelectionRange"
+              'Invalid JSON representation for SelectionRange'
             );
           return m.range(e.anchor, e.head);
         }
@@ -2006,11 +2006,11 @@
           if (
             !e ||
             !Array.isArray(e.ranges) ||
-            "number" != typeof e.main ||
+            'number' != typeof e.main ||
             e.main >= e.ranges.length
           )
             throw new RangeError(
-              "Invalid JSON representation for EditorSelection"
+              'Invalid JSON representation for EditorSelection'
             );
           return new m(
             e.ranges.map((e) => p.fromJSON(e)),
@@ -2022,7 +2022,7 @@
         }
         static create(e, t = 0) {
           if (0 == e.length)
-            throw new RangeError("A selection needs at least one range");
+            throw new RangeError('A selection needs at least one range');
           for (let n = 0, i = 0; i < e.length; i++) {
             let r = e[i];
             if (r.empty ? r.from <= n : r.from < n) return g(e.slice(), t);
@@ -2068,7 +2068,7 @@
       function v(e, t) {
         for (let n of e.ranges)
           if (n.to > t)
-            throw new RangeError("Selection points outside of document");
+            throw new RangeError('Selection points outside of document');
       }
       let b = 0;
       class x {
@@ -2129,9 +2129,9 @@
             a = !1,
             l = [];
           for (let h of this.dependencies)
-            "doc" == h
+            'doc' == h
               ? (s = !0)
-              : "selection" == h
+              : 'selection' == h
               ? (a = !0)
               : 0 == (1 & (null !== (t = e[h.id]) && void 0 !== t ? t : 1)) &&
                 l.push(e[h.id]);
@@ -2328,7 +2328,7 @@
               else if (e instanceof P) {
                 if (n.has(e.compartment))
                   throw new RangeError(
-                    "Duplicate use of compartment in extensions"
+                    'Duplicate use of compartment in extensions'
                   );
                 let i = t.get(e.compartment) || e.inner;
                 n.set(e.compartment, i), o(i, s);
@@ -2391,7 +2391,7 @@
         let n = t >> 1,
           i = e.status[n];
         if (4 == i)
-          throw new Error("Cyclic dependency between fields and/or facets");
+          throw new Error('Cyclic dependency between fields and/or facets');
         if (2 & i) return i;
         e.status[n] = 4;
         let r = e.config.dynamicSlots[n](e, e.applying);
@@ -2506,7 +2506,7 @@
             (t == e ||
               (t.length > e.length &&
                 t.slice(0, e.length) == e &&
-                "." == t[e.length]))
+                '.' == t[e.length]))
           );
         }
       }
@@ -2666,9 +2666,9 @@
       }
       var ee = (function (e) {
         return (
-          (e[(e.Word = 0)] = "Word"),
-          (e[(e.Space = 1)] = "Space"),
-          (e[(e.Other = 2)] = "Other"),
+          (e[(e.Word = 0)] = 'Word'),
+          (e[(e.Space = 1)] = 'Space'),
+          (e[(e.Other = 2)] = 'Other'),
           e
         );
       })(ee || (ee = {}));
@@ -2676,7 +2676,7 @@
         /[\u00df\u0587\u0590-\u05f4\u0600-\u06ff\u3040-\u309f\u30a0-\u30ff\u3400-\u4db5\u4e00-\u9fcc\uac00-\ud7af]/;
       let ne;
       try {
-        ne = new RegExp("[\\p{Alphabetic}\\p{Number}_]", "u");
+        ne = new RegExp('[\\p{Alphabetic}\\p{Number}_]', 'u');
       } catch (se) {}
 
       function ie(e) {
@@ -2689,7 +2689,7 @@
                 let n = e[t];
                 if (
                   /\w/.test(n) ||
-                  (n > "\x80" &&
+                  (n > '\x80' &&
                     (n.toUpperCase() != n.toLowerCase() || te.test(n)))
                 )
                   return !0;
@@ -2730,7 +2730,7 @@
         field(e, t = !0) {
           let n = this.config.address[e.id];
           if (null != n) return R(this, n), N(this, n);
-          if (t) throw new RangeError("Field is not present in this state");
+          if (t) throw new RangeError('Field is not present in this state');
         }
         update(...e) {
           return Y(this, e, !0);
@@ -2753,7 +2753,7 @@
         }
         replaceSelection(e) {
           return (
-            "string" == typeof e && (e = this.toText(e)),
+            'string' == typeof e && (e = this.toText(e)),
             this.changeByRange((t) => ({
               changes: {
                 from: t.from,
@@ -2814,8 +2814,8 @@
           return t;
         }
         static fromJSON(e, t = {}, n) {
-          if (!e || "string" != typeof e.doc)
-            throw new RangeError("Invalid JSON representation for EditorState");
+          if (!e || 'string' != typeof e.doc)
+            throw new RangeError('Invalid JSON representation for EditorState');
           let i = [];
           if (n)
             for (let r in n) {
@@ -2835,7 +2835,7 @@
               e.doc instanceof i.a
                 ? e.doc
                 : i.a.of(
-                    (e.doc || "").split(t.staticFacet(re.lineSeparator) || r)
+                    (e.doc || '').split(t.staticFacet(re.lineSeparator) || r)
                   ),
             o = e.selection
               ? e.selection instanceof m
@@ -2852,7 +2852,7 @@
           return this.facet(re.tabSize);
         }
         get lineBreak() {
-          return this.facet(re.lineSeparator) || "\n";
+          return this.facet(re.lineSeparator) || '\n';
         }
         phrase(e) {
           for (let t of this.facet(re.phrases))
@@ -2867,7 +2867,7 @@
           return i;
         }
         charCategorizer(e) {
-          return ie(this.languageDataAt("wordChars", e).join(""));
+          return ie(this.languageDataAt('wordChars', e).join(''));
         }
         wordAt(e) {
           let { text: t, from: n, length: r } = this.doc.lineAt(e),
@@ -2898,7 +2898,7 @@
             else if (o === t || void 0 === t);
             else {
               if (!Object.hasOwnProperty.call(n, e))
-                throw new Error("Config merge conflict for field " + e);
+                throw new Error('Config merge conflict for field ' + e);
               i[e] = n[e](o, t);
             }
           }
@@ -2917,70 +2917,70 @@
         (re.transactionExtender = W),
         (T.reconfigure = J.define());
     },
-    "8v8i": function (e, t, n) {
-      "use strict";
+    '8v8i': function (e, t, n) {
+      'use strict';
       var i, r, o, s, a, l;
-      n.d(t, "a", function () {
+      n.d(t, 'a', function () {
         return i;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return r;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return o;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return s;
         }),
-        n.d(t, "f", function () {
+        n.d(t, 'f', function () {
           return a;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return l;
         }),
         (function (e) {
-          (e.Create = "CREATE"),
-            (e.Move = "MOVE"),
-            (e.Delete = "DELETE"),
-            (e.Modify = "MODIFY");
+          (e.Create = 'CREATE'),
+            (e.Move = 'MOVE'),
+            (e.Delete = 'DELETE'),
+            (e.Modify = 'MODIFY');
         })(i || (i = {})),
         (function (e) {
-          (e.Local = "LOCAL"), (e.Container = "CONTAINER");
+          (e.Local = 'LOCAL'), (e.Container = 'CONTAINER');
         })(r || (r = {})),
         (function (e) {
-          (e.File = "FILE"), (e.Directory = "DIRECTORY");
+          (e.File = 'FILE'), (e.Directory = 'DIRECTORY');
         })(o || (o = {})),
         (function (e) {
-          (e.NotFound = "NOT_FOUND"),
-            (e.AlreadyExists = "ALREADY_EXIST"),
-            (e.NotDirectory = "NOT_DIRECTORY"),
-            (e.IsDirectory = "IS_DIRECTORY");
+          (e.NotFound = 'NOT_FOUND'),
+            (e.AlreadyExists = 'ALREADY_EXIST'),
+            (e.NotDirectory = 'NOT_DIRECTORY'),
+            (e.IsDirectory = 'IS_DIRECTORY');
         })(s || (s = {})),
         (function (e) {
-          (e.Syncing = "SYNCING"), (e.Clean = "CLEAN");
+          (e.Syncing = 'SYNCING'), (e.Clean = 'CLEAN');
         })(a || (a = {})),
         (function (e) {
-          (e.Dirty = "DIRTY"), (e.Syncing = "SYNCING"), (e.Clean = "CLEAN");
+          (e.Dirty = 'DIRTY'), (e.Syncing = 'SYNCING'), (e.Clean = 'CLEAN');
         })(l || (l = {}));
     },
     KV2Y: function (e, t, n) {
-      "use strict";
+      'use strict';
 
       function i() {
         var e = arguments[0];
-        "string" == typeof e && (e = document.createElement(e));
+        'string' == typeof e && (e = document.createElement(e));
         var t = 1,
           n = arguments[1];
         if (
           n &&
-          "object" == typeof n &&
+          'object' == typeof n &&
           null == n.nodeType &&
           !Array.isArray(n)
         ) {
           for (var i in n)
             if (Object.prototype.hasOwnProperty.call(n, i)) {
               var o = n[i];
-              "string" == typeof o
+              'string' == typeof o
                 ? e.setAttribute(i, o)
                 : null != o && (e[i] = o);
             }
@@ -2991,39 +2991,39 @@
       }
 
       function r(e, t) {
-        if ("string" == typeof t) e.appendChild(document.createTextNode(t));
+        if ('string' == typeof t) e.appendChild(document.createTextNode(t));
         else if (null == t);
         else if (null != t.nodeType) e.appendChild(t);
         else {
           if (!Array.isArray(t))
-            throw new RangeError("Unsupported child node: " + t);
+            throw new RangeError('Unsupported child node: ' + t);
           for (var n = 0; n < t.length; n++) r(e, t[n]);
         }
       }
-      n.d(t, "a", function () {
+      n.d(t, 'a', function () {
         return i;
       });
     },
     L4B9: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return se;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return re;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return ie;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return ae;
         });
-      var i = n("4eob"),
-        r = n("uZp5"),
-        o = n("AtEE"),
-        s = n("WYGy"),
-        a = n("yqQ+"),
-        l = n("lmln");
+      var i = n('4eob'),
+        r = n('uZp5'),
+        o = n('AtEE'),
+        s = n('WYGy'),
+        a = n('yqQ+'),
+        l = n('lmln');
 
       function h(e, t) {
         return i.f.create(e.ranges.map(t), e.mainIndex);
@@ -3033,7 +3033,7 @@
         return e.update({
           selection: t,
           scrollIntoView: !0,
-          userEvent: "select",
+          userEvent: 'select',
         });
       }
 
@@ -3206,12 +3206,12 @@
         );
 
       function J({ state: e, dispatch: t }, n) {
-        let r = "delete.selection",
+        let r = 'delete.selection',
           o = e.changeByRange((e) => {
             let { from: t, to: o } = e;
             if (t == o) {
               let e = n(t);
-              e < t ? (r = "delete.backward") : e > t && (r = "delete.forward"),
+              e < t ? (r = 'delete.backward') : e > t && (r = 'delete.forward'),
                 (t = Math.min(t, e)),
                 (o = Math.max(o, e));
             }
@@ -3250,10 +3250,10 @@
               n < h.from + 200 &&
               !/[^ \t]/.test((i = h.text.slice(0, n - h.from)))
             ) {
-              if ("\t" == i[i.length - 1]) return n - 1;
+              if ('\t' == i[i.length - 1]) return n - 1;
               let e =
                 Object(r.d)(i, l.tabSize) % Object(a.n)(l) || Object(a.n)(l);
-              for (let t = 0; t < e && " " == i[i.length - 1 - t]; t++) n--;
+              for (let t = 0; t < e && ' ' == i[i.length - 1 - t]; t++) n--;
               s = n;
             } else
               (s = Object(r.e)(h.text, n - h.from, t) + h.from),
@@ -3289,7 +3289,7 @@
                 ),
                 c = a(h);
               if (null != e && c != e) break;
-              (" " == h && i == n) || (e = c), (i = l);
+              (' ' == h && i == n) || (e = c), (i = l);
             }
             return i;
           }),
@@ -3369,7 +3369,7 @@
               changes: r,
               scrollIntoView: !0,
               selection: i.f.create(o, e.selection.mainIndex),
-              userEvent: "move.line",
+              userEvent: 'move.line',
             })
           ),
           !0)
@@ -3393,7 +3393,7 @@
             e.update({
               changes: i,
               scrollIntoView: !0,
-              userEvent: "input.copyline",
+              userEvent: 'input.copyline',
             })
           ),
           !0
@@ -3444,7 +3444,7 @@
             r.changes.empty ||
               t(
                 e.update(r, {
-                  userEvent: "indent",
+                  userEvent: 'indent',
                 })
               ),
             !0
@@ -3460,7 +3460,7 @@
                 });
               }),
               {
-                userEvent: "input.indent",
+                userEvent: 'input.indent',
               }
             )
           ),
@@ -3490,7 +3490,7 @@
                 });
               }),
               {
-                userEvent: "delete.dedent",
+                userEvent: 'delete.dedent',
               }
             )
           ),
@@ -3498,37 +3498,37 @@
         ),
         se = [
           {
-            key: "Alt-ArrowLeft",
-            mac: "Ctrl-ArrowLeft",
+            key: 'Alt-ArrowLeft',
+            mac: 'Ctrl-ArrowLeft',
             run: (e) => u(e, (t) => b(e.state, t, e.textDirection != o.c.LTR)),
             shift: (e) =>
               E(e, (t) => b(e.state, t, e.textDirection != o.c.LTR)),
           },
           {
-            key: "Alt-ArrowRight",
-            mac: "Ctrl-ArrowRight",
+            key: 'Alt-ArrowRight',
+            mac: 'Ctrl-ArrowRight',
             run: (e) => u(e, (t) => b(e.state, t, e.textDirection == o.c.LTR)),
             shift: (e) =>
               E(e, (t) => b(e.state, t, e.textDirection == o.c.LTR)),
           },
           {
-            key: "Alt-ArrowUp",
+            key: 'Alt-ArrowUp',
             run: ({ state: e, dispatch: t }) => ee(e, t, !1),
           },
           {
-            key: "Shift-Alt-ArrowUp",
+            key: 'Shift-Alt-ArrowUp',
             run: ({ state: e, dispatch: t }) => te(e, t, !1),
           },
           {
-            key: "Alt-ArrowDown",
+            key: 'Alt-ArrowDown',
             run: ({ state: e, dispatch: t }) => ee(e, t, !0),
           },
           {
-            key: "Shift-Alt-ArrowDown",
+            key: 'Shift-Alt-ArrowDown',
             run: ({ state: e, dispatch: t }) => te(e, t, !0),
           },
           {
-            key: "Escape",
+            key: 'Escape',
             run: ({ state: e, dispatch: t }) => {
               let n = e.selection,
                 r = null;
@@ -3541,8 +3541,8 @@
             },
           },
           {
-            key: "Alt-l",
-            mac: "Ctrl-l",
+            key: 'Alt-l',
+            mac: 'Ctrl-l',
             run: ({ state: e, dispatch: t }) => {
               let n = Z(e).map(({ from: t, to: n }) =>
                 i.f.range(t, Math.min(n + 1, e.doc.length))
@@ -3551,7 +3551,7 @@
                 t(
                   e.update({
                     selection: i.f.create(n),
-                    userEvent: "select",
+                    userEvent: 'select',
                   })
                 ),
                 !0
@@ -3559,7 +3559,7 @@
             },
           },
           {
-            key: "Mod-i",
+            key: 'Mod-i',
             run: ({ state: e, dispatch: t }) => {
               let n = h(e.selection, (t) => {
                 var n;
@@ -3581,19 +3581,19 @@
             preventDefault: !0,
           },
           {
-            key: "Mod-[",
+            key: 'Mod-[',
             run: oe,
           },
           {
-            key: "Mod-]",
+            key: 'Mod-]',
             run: re,
           },
           {
-            key: "Mod-Alt-\\",
+            key: 'Mod-Alt-\\',
             run: ie,
           },
           {
-            key: "Shift-Mod-k",
+            key: 'Shift-Mod-k',
             run: (e) => {
               let { state: t } = e,
                 n = t.changes(
@@ -3613,116 +3613,116 @@
                   changes: n,
                   selection: i,
                   scrollIntoView: !0,
-                  userEvent: "delete.line",
+                  userEvent: 'delete.line',
                 }),
                 !0
               );
             },
           },
           {
-            key: "Shift-Mod-\\",
+            key: 'Shift-Mod-\\',
             run: ({ state: e, dispatch: t }) => M(e, t, !1),
           },
         ].concat(
           [
             {
-              key: "ArrowLeft",
+              key: 'ArrowLeft',
               run: p,
               shift: L,
               preventDefault: !0,
             },
             {
-              key: "Mod-ArrowLeft",
-              mac: "Alt-ArrowLeft",
+              key: 'Mod-ArrowLeft',
+              mac: 'Alt-ArrowLeft',
               run: (e) => g(e, e.textDirection != o.c.LTR),
               shift: (e) => P(e, e.textDirection != o.c.LTR),
             },
             {
-              mac: "Cmd-ArrowLeft",
+              mac: 'Cmd-ArrowLeft',
               run: j,
               shift: V,
             },
             {
-              key: "ArrowRight",
+              key: 'ArrowRight',
               run: m,
               shift: T,
               preventDefault: !0,
             },
             {
-              key: "Mod-ArrowRight",
-              mac: "Alt-ArrowRight",
+              key: 'Mod-ArrowRight',
+              mac: 'Alt-ArrowRight',
               run: (e) => g(e, e.textDirection == o.c.LTR),
               shift: (e) => P(e, e.textDirection == o.c.LTR),
             },
             {
-              mac: "Cmd-ArrowRight",
+              mac: 'Cmd-ArrowRight',
               run: O,
               shift: F,
             },
             {
-              key: "ArrowUp",
+              key: 'ArrowUp',
               run: w,
               shift: R,
               preventDefault: !0,
             },
             {
-              mac: "Cmd-ArrowUp",
+              mac: 'Cmd-ArrowUp',
               run: W,
               shift: U,
             },
             {
-              mac: "Ctrl-ArrowUp",
+              mac: 'Ctrl-ArrowUp',
               run: S,
               shift: q,
             },
             {
-              key: "ArrowDown",
+              key: 'ArrowDown',
               run: y,
               shift: N,
               preventDefault: !0,
             },
             {
-              mac: "Cmd-ArrowDown",
+              mac: 'Cmd-ArrowDown',
               run: _,
               shift: H,
             },
             {
-              mac: "Ctrl-ArrowDown",
+              mac: 'Ctrl-ArrowDown',
               run: C,
               shift: z,
             },
             {
-              key: "PageUp",
+              key: 'PageUp',
               run: S,
               shift: q,
             },
             {
-              key: "PageDown",
+              key: 'PageDown',
               run: C,
               shift: z,
             },
             {
-              key: "Home",
+              key: 'Home',
               run: j,
               shift: V,
             },
             {
-              key: "Mod-Home",
+              key: 'Mod-Home',
               run: W,
               shift: U,
             },
             {
-              key: "End",
+              key: 'End',
               run: O,
               shift: F,
             },
             {
-              key: "Mod-End",
+              key: 'Mod-End',
               run: _,
               shift: H,
             },
             {
-              key: "Enter",
+              key: 'Enter',
               run: ({ state: e, dispatch: t }) => {
                 let n = e.changeByRange(({ from: t, to: n }) => {
                   let o =
@@ -3765,7 +3765,7 @@
                       t < c.from + 100 &&
                       !/\S/.test(c.text.slice(0, t)) &&
                       (t = c.from);
-                  let u = ["", Object(a.s)(e, h)];
+                  let u = ['', Object(a.s)(e, h)];
                   return (
                     o && u.push(Object(a.s)(e, s.lineIndent(c.from, -1))),
                     {
@@ -3782,7 +3782,7 @@
                   t(
                     e.update(n, {
                       scrollIntoView: !0,
-                      userEvent: "input",
+                      userEvent: 'input',
                     })
                   ),
                   !0
@@ -3790,7 +3790,7 @@
               },
             },
             {
-              key: "Mod-a",
+              key: 'Mod-a',
               run: ({ state: e, dispatch: t }) => (
                 t(
                   e.update({
@@ -3798,34 +3798,34 @@
                       anchor: 0,
                       head: e.doc.length,
                     },
-                    userEvent: "select",
+                    userEvent: 'select',
                   })
                 ),
                 !0
               ),
             },
             {
-              key: "Backspace",
+              key: 'Backspace',
               run: G,
               shift: G,
             },
             {
-              key: "Delete",
+              key: 'Delete',
               run: Q,
               shift: Q,
             },
             {
-              key: "Mod-Backspace",
-              mac: "Alt-Backspace",
+              key: 'Mod-Backspace',
+              mac: 'Alt-Backspace',
               run: Y,
             },
             {
-              key: "Mod-Delete",
-              mac: "Alt-Delete",
+              key: 'Mod-Delete',
+              mac: 'Alt-Delete',
               run: (e) => K(e, !0),
             },
             {
-              mac: "Mod-Backspace",
+              mac: 'Mod-Backspace',
               run: (e) =>
                 J(e, (t) => {
                   let n = e.visualLineAt(t).from;
@@ -3833,70 +3833,70 @@
                 }),
             },
             {
-              mac: "Mod-Delete",
+              mac: 'Mod-Delete',
               run: X,
             },
           ].concat(
             [
               {
-                key: "Ctrl-b",
+                key: 'Ctrl-b',
                 run: p,
                 shift: L,
                 preventDefault: !0,
               },
               {
-                key: "Ctrl-f",
+                key: 'Ctrl-f',
                 run: m,
                 shift: T,
               },
               {
-                key: "Ctrl-p",
+                key: 'Ctrl-p',
                 run: w,
                 shift: R,
               },
               {
-                key: "Ctrl-n",
+                key: 'Ctrl-n',
                 run: y,
                 shift: N,
               },
               {
-                key: "Ctrl-a",
+                key: 'Ctrl-a',
                 run: (e) =>
                   u(e, (t) => i.f.cursor(e.visualLineAt(t.head).from, 1)),
                 shift: (e) =>
                   E(e, (t) => i.f.cursor(e.visualLineAt(t.head).from)),
               },
               {
-                key: "Ctrl-e",
+                key: 'Ctrl-e',
                 run: (e) =>
                   u(e, (t) => i.f.cursor(e.visualLineAt(t.head).to, -1)),
                 shift: (e) =>
                   E(e, (t) => i.f.cursor(e.visualLineAt(t.head).to)),
               },
               {
-                key: "Ctrl-d",
+                key: 'Ctrl-d',
                 run: Q,
               },
               {
-                key: "Ctrl-h",
+                key: 'Ctrl-h',
                 run: G,
               },
               {
-                key: "Ctrl-k",
+                key: 'Ctrl-k',
                 run: X,
               },
               {
-                key: "Ctrl-Alt-h",
+                key: 'Ctrl-Alt-h',
                 run: Y,
               },
               {
-                key: "Ctrl-o",
+                key: 'Ctrl-o',
                 run: ({ state: e, dispatch: t }) => {
                   let n = e.changeByRange((e) => ({
                     changes: {
                       from: e.from,
                       to: e.to,
-                      insert: r.a.of(["", ""]),
+                      insert: r.a.of(['', '']),
                     },
                     range: i.f.cursor(e.from),
                   }));
@@ -3904,7 +3904,7 @@
                     t(
                       e.update(n, {
                         scrollIntoView: !0,
-                        userEvent: "input",
+                        userEvent: 'input',
                       })
                     ),
                     !0
@@ -3912,7 +3912,7 @@
                 },
               },
               {
-                key: "Ctrl-t",
+                key: 'Ctrl-t',
                 run: ({ state: e, dispatch: t }) => {
                   let n = e.changeByRange((t) => {
                     if (!t.empty || 0 == t.from || t.from == e.doc.length)
@@ -3943,7 +3943,7 @@
                     (t(
                       e.update(n, {
                         scrollIntoView: !0,
-                        userEvent: "move.character",
+                        userEvent: 'move.character',
                       })
                     ),
                     !0)
@@ -3951,19 +3951,19 @@
                 },
               },
               {
-                key: "Alt-<",
+                key: 'Alt-<',
                 run: W,
               },
               {
-                key: "Alt->",
+                key: 'Alt->',
                 run: _,
               },
               {
-                key: "Ctrl-v",
+                key: 'Ctrl-v',
                 run: C,
               },
               {
-                key: "Alt-v",
+                key: 'Alt-v',
                 run: S,
               },
             ].map((e) => ({
@@ -3974,24 +3974,24 @@
           )
         ),
         ae = {
-          key: "Tab",
+          key: 'Tab',
           run: re,
           shift: oe,
         };
     },
     QpUv: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return w;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return f;
         });
-      var i = n("AtEE"),
-        r = n("4eob"),
-        o = n("fK0Z"),
-        s = n("cmz6"),
-        a = n("KV2Y");
+      var i = n('AtEE'),
+        r = n('4eob'),
+        o = n('fK0Z'),
+        s = n('cmz6'),
+        a = n('KV2Y');
       class l {
         constructor(e, t, n) {
           (this.from = e), (this.to = t), (this.diagnostic = n);
@@ -4008,7 +4008,7 @@
                 ? i.b
                     .mark({
                       attributes: {
-                        class: "cm-lintRange cm-lintRange-" + e.severity,
+                        class: 'cm-lintRange cm-lintRange-' + e.severity,
                       },
                       diagnostic: e,
                     })
@@ -4093,7 +4093,7 @@
           ],
         }),
         v = i.b.mark({
-          class: "cm-lintRange cm-lintRange-active",
+          class: 'cm-lintRange cm-lintRange-active',
         });
 
       function b(e, t, n) {
@@ -4121,9 +4121,9 @@
                 above: e.state.doc.lineAt(o).to < s,
                 create: () => ({
                   dom: Object(a.a)(
-                    "ul",
+                    'ul',
                     {
-                      class: "cm-tooltip-lint",
+                      class: 'cm-tooltip-lint',
                     },
                     r.map((t) => k(e, t, !1))
                   ),
@@ -4144,7 +4144,7 @@
         },
         w = [
           {
-            key: "Mod-Shift-m",
+            key: 'Mod-Shift-m',
             run: (e) => {
               let t = e.state.field(g, !1);
               (t && t.panel) ||
@@ -4152,11 +4152,11 @@
                   effects: u(e.state, [p.of(!0)], () => h.init([], A.open)),
                 });
               let n = Object(s.a)(e, A.open);
-              return n && n.dom.querySelector(".cm-panel-lint ul").focus(), !0;
+              return n && n.dom.querySelector('.cm-panel-lint ul').focus(), !0;
             },
           },
           {
-            key: "F8",
+            key: 'F8',
             run: (e) => {
               let t = e.state.field(g, !1);
               if (!t) return !1;
@@ -4195,7 +4195,7 @@
                 continue e;
               }
             }
-            t.push("");
+            t.push('');
           }
         return t;
       }
@@ -4204,14 +4204,14 @@
         var i;
         let r = n ? y(t.actions) : [];
         return Object(a.a)(
-          "li",
+          'li',
           {
-            class: "cm-diagnostic cm-diagnostic-" + t.severity,
+            class: 'cm-diagnostic cm-diagnostic-' + t.severity,
           },
           Object(a.a)(
-            "span",
+            'span',
             {
-              class: "cm-diagnosticText",
+              class: 'cm-diagnosticText',
             },
             t.message
           ),
@@ -4230,17 +4230,17 @@
                       ? s
                       : [
                           s.slice(0, l),
-                          Object(a.a)("u", s.slice(l, l + 1)),
+                          Object(a.a)('u', s.slice(l, l + 1)),
                           s.slice(l + 1),
                         ];
                 return Object(a.a)(
-                  "button",
+                  'button',
                   {
-                    class: "cm-diagnosticAction",
+                    class: 'cm-diagnosticAction',
                     onclick: o,
                     onmousedown: o,
-                    "aria-label": ` Action: ${s}${
-                      l < 0 ? "" : ` (access key "${r[i]})"`
+                    'aria-label': ` Action: ${s}${
+                      l < 0 ? '' : ` (access key "${r[i]})"`
                     }.`,
                   },
                   h
@@ -4248,9 +4248,9 @@
               }),
           t.source &&
             Object(a.a)(
-              "div",
+              'div',
               {
-                class: "cm-diagnosticSource",
+                class: 'cm-diagnosticSource',
               },
               t.source
             )
@@ -4264,8 +4264,8 @@
           return e.diagnostic == this.diagnostic;
         }
         toDOM() {
-          return Object(a.a)("span", {
-            class: "cm-lintPoint cm-lintPoint-" + this.diagnostic.severity,
+          return Object(a.a)('span', {
+            class: 'cm-lintPoint cm-lintPoint-' + this.diagnostic.severity,
           });
         }
       }
@@ -4273,19 +4273,19 @@
         constructor(e, t) {
           (this.diagnostic = t),
             (this.id =
-              "item_" + Math.floor(4294967295 * Math.random()).toString(16)),
+              'item_' + Math.floor(4294967295 * Math.random()).toString(16)),
             (this.dom = k(e, t, !0)),
             (this.dom.id = this.id),
-            this.dom.setAttribute("role", "option");
+            this.dom.setAttribute('role', 'option');
         }
       }
       class A {
         constructor(e) {
           (this.view = e), (this.items = []);
-          (this.list = Object(a.a)("ul", {
+          (this.list = Object(a.a)('ul', {
             tabIndex: 0,
-            role: "listbox",
-            "aria-label": this.view.state.phrase("Diagnostics"),
+            role: 'listbox',
+            'aria-label': this.view.state.phrase('Diagnostics'),
             onkeydown: (t) => {
               if (27 == t.keyCode) x(this.view), this.view.focus();
               else if (38 == t.keyCode || 33 == t.keyCode)
@@ -4328,19 +4328,19 @@
             },
           })),
             (this.dom = Object(a.a)(
-              "div",
+              'div',
               {
-                class: "cm-panel-lint",
+                class: 'cm-panel-lint',
               },
               this.list,
               Object(a.a)(
-                "button",
+                'button',
                 {
-                  name: "close",
-                  "aria-label": this.view.state.phrase("close"),
+                  name: 'close',
+                  'aria-label': this.view.state.phrase('close'),
                   onclick: () => x(this.view),
                 },
-                "\xd7"
+                '\xd7'
               )
             )),
             this.update();
@@ -4373,10 +4373,10 @@
                 : ((a = this.items[l]),
                   l > n && (this.items.splice(n, l - n), (i = !0))),
                 t && a.diagnostic == t.diagnostic
-                  ? a.dom.hasAttribute("aria-selected") ||
-                    (a.dom.setAttribute("aria-selected", "true"), (r = a))
-                  : a.dom.hasAttribute("aria-selected") &&
-                    a.dom.removeAttribute("aria-selected"),
+                  ? a.dom.hasAttribute('aria-selected') ||
+                    (a.dom.setAttribute('aria-selected', 'true'), (r = a))
+                  : a.dom.hasAttribute('aria-selected') &&
+                    a.dom.removeAttribute('aria-selected'),
                 n++;
             });
             n < this.items.length &&
@@ -4389,13 +4389,13 @@
               new C(this.view, {
                 from: -1,
                 to: -1,
-                severity: "info",
-                message: this.view.state.phrase("No diagnostics"),
+                severity: 'info',
+                message: this.view.state.phrase('No diagnostics'),
               })
             ),
             (i = !0)),
             r
-              ? (this.list.setAttribute("aria-activedescendant", r.id),
+              ? (this.list.setAttribute('aria-activedescendant', r.id),
                 this.view.requestMeasure({
                   key: this,
                   read: () => ({
@@ -4410,7 +4410,7 @@
                   },
                 }))
               : this.selectedIndex < 0 &&
-                this.list.removeAttribute("aria-activedescendant"),
+                this.list.removeAttribute('aria-activedescendant'),
             i && this.sync();
         }
         sync() {
@@ -4449,112 +4449,112 @@
       }
 
       function O(e) {
-        if ("function" != typeof btoa) return "none";
+        if ('function' != typeof btoa) return 'none';
         return `url('data:image/svg+xml;base64,${btoa(
           `<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">\n    <path d="m0 3 l2 -2 l1 0 l2 2 l1 0" stroke="${e}" fill="none" stroke-width=".7"/>\n  </svg>`
         )}')`;
       }
       const j = i.d.baseTheme({
-        ".cm-diagnostic": {
-          padding: "3px 6px 3px 8px",
-          marginLeft: "-1px",
-          display: "block",
-          whiteSpace: "pre-wrap",
+        '.cm-diagnostic': {
+          padding: '3px 6px 3px 8px',
+          marginLeft: '-1px',
+          display: 'block',
+          whiteSpace: 'pre-wrap',
         },
-        ".cm-diagnostic-error": {
-          borderLeft: "5px solid #d11",
+        '.cm-diagnostic-error': {
+          borderLeft: '5px solid #d11',
         },
-        ".cm-diagnostic-warning": {
-          borderLeft: "5px solid orange",
+        '.cm-diagnostic-warning': {
+          borderLeft: '5px solid orange',
         },
-        ".cm-diagnostic-info": {
-          borderLeft: "5px solid #999",
+        '.cm-diagnostic-info': {
+          borderLeft: '5px solid #999',
         },
-        ".cm-diagnosticAction": {
-          font: "inherit",
-          border: "none",
-          padding: "2px 4px",
-          backgroundColor: "#444",
-          color: "white",
-          borderRadius: "3px",
-          marginLeft: "8px",
+        '.cm-diagnosticAction': {
+          font: 'inherit',
+          border: 'none',
+          padding: '2px 4px',
+          backgroundColor: '#444',
+          color: 'white',
+          borderRadius: '3px',
+          marginLeft: '8px',
         },
-        ".cm-diagnosticSource": {
-          fontSize: "70%",
+        '.cm-diagnosticSource': {
+          fontSize: '70%',
           opacity: 0.7,
         },
-        ".cm-lintRange": {
-          backgroundPosition: "left bottom",
-          backgroundRepeat: "repeat-x",
+        '.cm-lintRange': {
+          backgroundPosition: 'left bottom',
+          backgroundRepeat: 'repeat-x',
         },
-        ".cm-lintRange-error": {
-          backgroundImage: O("#d11"),
+        '.cm-lintRange-error': {
+          backgroundImage: O('#d11'),
         },
-        ".cm-lintRange-warning": {
-          backgroundImage: O("orange"),
+        '.cm-lintRange-warning': {
+          backgroundImage: O('orange'),
         },
-        ".cm-lintRange-info": {
-          backgroundImage: O("#999"),
+        '.cm-lintRange-info': {
+          backgroundImage: O('#999'),
         },
-        ".cm-lintRange-active": {
-          backgroundColor: "#ffdd9980",
+        '.cm-lintRange-active': {
+          backgroundColor: '#ffdd9980',
         },
-        ".cm-tooltip-lint": {
+        '.cm-tooltip-lint': {
           padding: 0,
           margin: 0,
         },
-        ".cm-lintPoint": {
-          position: "relative",
-          "&:after": {
+        '.cm-lintPoint': {
+          position: 'relative',
+          '&:after': {
             content: '""',
-            position: "absolute",
+            position: 'absolute',
             bottom: 0,
-            left: "-2px",
-            borderLeft: "3px solid transparent",
-            borderRight: "3px solid transparent",
-            borderBottom: "4px solid #d11",
+            left: '-2px',
+            borderLeft: '3px solid transparent',
+            borderRight: '3px solid transparent',
+            borderBottom: '4px solid #d11',
           },
         },
-        ".cm-lintPoint-warning": {
-          "&:after": {
-            borderBottomColor: "orange",
+        '.cm-lintPoint-warning': {
+          '&:after': {
+            borderBottomColor: 'orange',
           },
         },
-        ".cm-lintPoint-info": {
-          "&:after": {
-            borderBottomColor: "#999",
+        '.cm-lintPoint-info': {
+          '&:after': {
+            borderBottomColor: '#999',
           },
         },
-        ".cm-panel.cm-panel-lint": {
-          position: "relative",
-          "& ul": {
-            maxHeight: "100px",
-            overflowY: "auto",
-            "& [aria-selected]": {
-              backgroundColor: "#ddd",
-              "& u": {
-                textDecoration: "underline",
+        '.cm-panel.cm-panel-lint': {
+          position: 'relative',
+          '& ul': {
+            maxHeight: '100px',
+            overflowY: 'auto',
+            '& [aria-selected]': {
+              backgroundColor: '#ddd',
+              '& u': {
+                textDecoration: 'underline',
               },
             },
-            "&:focus [aria-selected]": {
-              background_fallback: "#bdf",
-              backgroundColor: "Highlight",
-              color_fallback: "white",
-              color: "HighlightText",
+            '&:focus [aria-selected]': {
+              background_fallback: '#bdf',
+              backgroundColor: 'Highlight',
+              color_fallback: 'white',
+              color: 'HighlightText',
             },
-            "& u": {
-              textDecoration: "none",
+            '& u': {
+              textDecoration: 'none',
             },
             padding: 0,
             margin: 0,
           },
-          "& [name=close]": {
-            position: "absolute",
-            top: "0",
-            right: "2px",
-            background: "inherit",
-            border: "none",
-            font: "inherit",
+          '& [name=close]': {
+            position: 'absolute',
+            top: '0',
+            right: '2px',
+            background: 'inherit',
+            border: 'none',
+            font: 'inherit',
             padding: 0,
             margin: 0,
           },
@@ -4562,26 +4562,26 @@
       });
     },
     WYGy: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return d;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return m;
         });
-      var i = n("4eob"),
-        r = n("yqQ+"),
-        o = n("AtEE"),
-        s = n("lmln");
+      var i = n('4eob'),
+        r = n('yqQ+'),
+        o = n('AtEE'),
+        s = n('lmln');
       const a = o.d.baseTheme({
-          ".cm-matchingBracket": {
-            color: "#0b0",
+          '.cm-matchingBracket': {
+            color: '#0b0',
           },
-          ".cm-nonmatchingBracket": {
-            color: "#a22",
+          '.cm-nonmatchingBracket': {
+            color: '#a22',
           },
         }),
-        l = "()[]{}",
+        l = '()[]{}',
         h = i.h.define({
           combine: (e) =>
             Object(i.n)(e, {
@@ -4591,10 +4591,10 @@
             }),
         }),
         c = o.b.mark({
-          class: "cm-matchingBracket",
+          class: 'cm-matchingBracket',
         }),
         u = o.b.mark({
-          class: "cm-nonmatchingBracket",
+          class: 'cm-nonmatchingBracket',
         }),
         f = [
           i.l.define({
@@ -4729,24 +4729,24 @@
       }
     },
     Wzyh: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return h;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return A;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return b;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return d;
         });
-      var i = n("4eob"),
-        r = n("AtEE"),
-        o = n("yqQ+"),
-        s = n("h5Ab"),
-        a = n("wG49");
+      var i = n('4eob'),
+        r = n('AtEE'),
+        o = n('yqQ+'),
+        s = n('h5Ab'),
+        a = n('wG49');
 
       function l(e, t) {
         let n = t.mapPos(e.from, 1),
@@ -4844,14 +4844,14 @@
           o = e.state.doc.lineAt(t.to).number;
         return r.d.announce.of(
           `${e.state.phrase(
-            n ? "Folded lines" : "Unfolded lines"
-          )} ${i} ${e.state.phrase("to")} ${o}.`
+            n ? 'Folded lines' : 'Unfolded lines'
+          )} ${i} ${e.state.phrase('to')} ${o}.`
         );
       }
       const b = [
           {
-            key: "Ctrl-Shift-[",
-            mac: "Cmd-Alt-[",
+            key: 'Ctrl-Shift-[',
+            mac: 'Cmd-Alt-[',
             run: (e) => {
               for (let t of u(e)) {
                 let n = Object(o.m)(e.state, t.from, t.to);
@@ -4867,8 +4867,8 @@
             },
           },
           {
-            key: "Ctrl-Shift-]",
-            mac: "Cmd-Alt-]",
+            key: 'Ctrl-Shift-]',
+            mac: 'Cmd-Alt-]',
             run: (e) => {
               if (!e.state.field(f, !1)) return !1;
               let t = [];
@@ -4886,7 +4886,7 @@
             },
           },
           {
-            key: "Ctrl-Alt-[",
+            key: 'Ctrl-Alt-[',
             run: (e) => {
               let { state: t } = e,
                 n = [];
@@ -4906,7 +4906,7 @@
             },
           },
           {
-            key: "Ctrl-Alt-]",
+            key: 'Ctrl-Alt-]',
             run: (e) => {
               let t = e.state.field(f, !1);
               if (!t || !t.size) return !1;
@@ -4930,7 +4930,7 @@
         ],
         x = {
           placeholderDOM: null,
-          placeholderText: "\u2026",
+          placeholderText: '\u2026',
         },
         w = i.h.define({
           combine: (e) => Object(i.n)(e, x),
@@ -4949,12 +4949,12 @@
               let { state: t } = e,
                 n = t.facet(w);
               if (n.placeholderDOM) return n.placeholderDOM();
-              let i = document.createElement("span");
+              let i = document.createElement('span');
               return (
                 (i.textContent = n.placeholderText),
-                i.setAttribute("aria-label", t.phrase("folded code")),
-                (i.title = t.phrase("unfold")),
-                (i.className = "cm-foldPlaceholder"),
+                i.setAttribute('aria-label', t.phrase('folded code')),
+                (i.title = t.phrase('unfold')),
+                (i.className = 'cm-foldPlaceholder'),
                 (i.onclick = (t) => {
                   let n = e.visualLineAt(e.posAtDOM(t.target)),
                     i = p(e.state, n.from, n.to);
@@ -4970,8 +4970,8 @@
           })(),
         }),
         S = {
-          openText: "\u2304",
-          closedText: "\u203a",
+          openText: '\u2304',
+          closedText: '\u203a',
           markerDOM: null,
         };
       class C extends s.a {
@@ -4983,12 +4983,12 @@
         }
         toDOM(e) {
           if (this.config.markerDOM) return this.config.markerDOM(this.open);
-          let t = document.createElement("span");
+          let t = document.createElement('span');
           return (
             (t.textContent = this.open
               ? this.config.openText
               : this.config.closedText),
-            (t.title = e.state.phrase(this.open ? "Fold line" : "Unfold line")),
+            (t.title = e.state.phrase(this.open ? 'Fold line' : 'Unfold line')),
             t
           );
         }
@@ -5030,7 +5030,7 @@
         return [
           l,
           Object(s.b)({
-            class: "cm-foldGutter",
+            class: 'cm-foldGutter',
             markers(e) {
               var t;
               return (
@@ -5065,31 +5065,31 @@
         ];
       }
       const O = r.d.baseTheme({
-        ".cm-foldPlaceholder": {
-          backgroundColor: "#eee",
-          border: "1px solid #ddd",
-          color: "#888",
-          borderRadius: ".2em",
-          margin: "0 1px",
-          padding: "0 1px",
-          cursor: "pointer",
+        '.cm-foldPlaceholder': {
+          backgroundColor: '#eee',
+          border: '1px solid #ddd',
+          color: '#888',
+          borderRadius: '.2em',
+          margin: '0 1px',
+          padding: '0 1px',
+          cursor: 'pointer',
         },
-        ".cm-foldGutter .cm-gutterElement": {
-          padding: "0 1px",
-          cursor: "pointer",
+        '.cm-foldGutter .cm-gutterElement': {
+          padding: '0 1px',
+          cursor: 'pointer',
         },
       });
     },
     cmz6: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return s;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return u;
         });
-      var i = n("AtEE"),
-        r = n("4eob");
+      var i = n('AtEE'),
+        r = n('4eob');
       const o = r.h.define({
         combine(e) {
           let t, n;
@@ -5119,7 +5119,7 @@
               this.top.sync(this.panels.filter((e) => e.top)),
               this.bottom.sync(this.panels.filter((e) => !e.top));
             for (let n of this.panels)
-              n.dom.classList.add("cm-panel"), n.mount && n.mount();
+              n.dom.classList.add('cm-panel'), n.mount && n.mount();
           }
           update(e) {
             let t = e.state.facet(o);
@@ -5152,7 +5152,7 @@
                 this.top.sync(r),
                 this.bottom.sync(o);
               for (let e of s)
-                e.dom.classList.add("cm-panel"), e.mount && e.mount();
+                e.dom.classList.add('cm-panel'), e.mount && e.mount();
             } else for (let i of this.panels) i.update && i.update(e);
           }
           destroy() {
@@ -5172,7 +5172,7 @@
             (this.top = t),
             (this.container = n),
             (this.dom = void 0),
-            (this.classes = ""),
+            (this.classes = ''),
             (this.panels = []),
             this.syncClasses();
         }
@@ -5183,11 +5183,11 @@
           if (0 == this.panels.length)
             return void (this.dom && (this.dom.remove(), (this.dom = void 0)));
           if (!this.dom) {
-            (this.dom = document.createElement("div")),
+            (this.dom = document.createElement('div')),
               (this.dom.className = this.top
-                ? "cm-panels cm-panels-top"
-                : "cm-panels cm-panels-bottom"),
-              (this.dom.style[this.top ? "top" : "bottom"] = "0");
+                ? 'cm-panels cm-panels-top'
+                : 'cm-panels cm-panels-bottom'),
+              (this.dom.style[this.top ? 'top' : 'bottom'] = '0');
             let e = this.container || this.view.dom;
             e.insertBefore(this.dom, this.top ? e.firstChild : null);
           }
@@ -5218,9 +5218,9 @@
         }
         syncClasses() {
           if (this.container && this.classes != this.view.themeClasses) {
-            for (let e of this.classes.split(" "))
+            for (let e of this.classes.split(' '))
               e && this.container.classList.remove(e);
-            for (let e of (this.classes = this.view.themeClasses).split(" "))
+            for (let e of (this.classes = this.view.themeClasses).split(' '))
               e && this.container.classList.add(e);
           }
         }
@@ -5231,275 +5231,275 @@
         return e.remove(), t;
       }
       const c = i.d.baseTheme({
-          ".cm-panels": {
-            boxSizing: "border-box",
-            position: "sticky",
+          '.cm-panels': {
+            boxSizing: 'border-box',
+            position: 'sticky',
             left: 0,
             right: 0,
           },
-          "&light .cm-panels": {
-            backgroundColor: "#f5f5f5",
-            color: "black",
+          '&light .cm-panels': {
+            backgroundColor: '#f5f5f5',
+            color: 'black',
           },
-          "&light .cm-panels-top": {
-            borderBottom: "1px solid #ddd",
+          '&light .cm-panels-top': {
+            borderBottom: '1px solid #ddd',
           },
-          "&light .cm-panels-bottom": {
-            borderTop: "1px solid #ddd",
+          '&light .cm-panels-bottom': {
+            borderTop: '1px solid #ddd',
           },
-          "&dark .cm-panels": {
-            backgroundColor: "#333338",
-            color: "white",
+          '&dark .cm-panels': {
+            backgroundColor: '#333338',
+            color: 'white',
           },
         }),
         u = r.h.define({
           enables: [a, c],
         });
     },
-    "dI/k": function (e, t, n) {
-      "use strict";
-      n.d(t, "f", function () {
+    'dI/k': function (e, t, n) {
+      'use strict';
+      n.d(t, 'f', function () {
         return o;
       }),
-        n.d(t, "j", function () {
+        n.d(t, 'j', function () {
           return s;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return a;
         }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return h;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return f;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return c;
         }),
-        n.d(t, "a", function () {
+        n.d(t, 'a', function () {
           return u;
         }),
-        n.d(t, "h", function () {
+        n.d(t, 'h', function () {
           return l;
         }),
-        n.d(t, "g", function () {
+        n.d(t, 'g', function () {
           return d;
         }),
-        n.d(t, "i", function () {
+        n.d(t, 'i', function () {
           return p;
         });
-      var i = n("tpqs"),
+      var i = n('tpqs'),
         r = {
-          pdf: "application/pdf",
-          "3gpp": "video/3gpp",
-          adp: "audio/adpcm",
-          au: "audio/basic",
-          snd: "audio/basic",
-          mid: "audio/midi",
-          midi: "audio/midi",
-          kar: "audio/midi",
-          rmi: "audio/midi",
-          mp3: "audio/mpeg",
-          m4a: "audio/mp4",
-          mp4a: "audio/mp4",
-          mpga: "audio/mpeg",
-          mp2: "audio/mpeg",
-          mp2a: "audio/mpeg",
-          m2a: "audio/mpeg",
-          m3a: "audio/mpeg",
-          oga: "audio/ogg",
-          ogg: "audio/ogg",
-          spx: "audio/ogg",
-          s3m: "audio/s3m",
-          sil: "audio/silk",
-          uva: "audio/vnd.dece.audio",
-          uvva: "audio/vnd.dece.audio",
-          eol: "audio/vnd.digital-winds",
-          dra: "audio/vnd.dra",
-          dts: "audio/vnd.dts",
-          dtshd: "audio/vnd.dts.hd",
-          lvp: "audio/vnd.lucent.voice",
-          pya: "audio/vnd.ms-playready.media.pya",
-          ecelp4800: "audio/vnd.nuera.ecelp4800",
-          ecelp7470: "audio/vnd.nuera.ecelp7470",
-          ecelp9600: "audio/vnd.nuera.ecelp9600",
-          rip: "audio/vnd.rip",
-          wav: "audio/wave",
-          weba: "audio/webm",
-          aac: "audio/x-aac",
-          aif: "audio/x-aiff",
-          aiff: "audio/x-aiff",
-          aifc: "audio/x-aiff",
-          caf: "audio/x-caf",
-          flac: "audio/x-flac",
-          mka: "audio/x-matroska",
-          m3u: "audio/x-mpegurl",
-          wax: "audio/x-ms-wax",
-          wma: "audio/x-ms-wma",
-          ram: "audio/x-pn-realaudio",
-          ra: "audio/x-pn-realaudio",
-          rmp: "audio/x-pn-realaudio-plugin",
-          xm: "audio/xm",
-          exr: "image/aces",
-          apng: "image/apng",
-          bmp: "image/bmp",
-          cgm: "image/cgm",
-          drle: "image/dicom-rle",
-          emf: "image/emf",
-          fits: "image/fits",
-          g3: "image/g3fax",
-          gif: "image/gif",
-          heic: "image/heic",
-          heics: "image/heic-sequence",
-          heif: "image/heif",
-          heifs: "image/heif-sequence",
-          hej2: "image/hej2k",
-          hsj2: "image/hsj2",
-          ief: "image/ief",
-          jls: "image/jls",
-          jp2: "image/jp2",
-          jpg2: "image/jp2",
-          jpeg: "image/jpeg",
-          jpg: "image/jpeg",
-          jpe: "image/jpeg",
-          jph: "image/jph",
-          jhc: "image/jphc",
-          jpm: "image/jpm",
-          jpx: "image/jpx",
-          jpf: "image/jpx",
-          jxr: "image/jxr",
-          jxra: "image/jxra",
-          jxrs: "image/jxrs",
-          jxs: "image/jxs",
-          jxsc: "image/jxsc",
-          jxsi: "image/jxsi",
-          jxss: "image/jxss",
-          ktx: "image/ktx",
-          png: "image/png",
-          btif: "image/prs.btif",
-          pti: "image/prs.pti",
-          sgi: "image/sgi",
-          svg: "image/svg+xml",
-          svgz: "image/svg+xml",
-          t38: "image/t38",
-          tif: "image/tiff",
-          tiff: "image/tiff",
-          tfx: "image/tiff-fx",
-          psd: "image/vnd.adobe.photoshop",
-          azv: "image/vnd.airzip.accelerator.azv",
-          uvi: "image/vnd.dece.graphic",
-          uvvi: "image/vnd.dece.graphic",
-          uvg: "image/vnd.dece.graphic",
-          uvvg: "image/vnd.dece.graphic",
-          djvu: "image/vnd.djvu",
-          djv: "image/vnd.djvu",
-          sub: "image/vnd.dvb.subtitle",
-          dwg: "image/vnd.dwg",
-          dxf: "image/vnd.dxf",
-          fbs: "image/vnd.fastbidsheet",
-          fpx: "image/vnd.fpx",
-          fst: "image/vnd.fst",
-          mmr: "image/vnd.fujixerox.edmics-mmr",
-          rlc: "image/vnd.fujixerox.edmics-rlc",
-          ico: "image/vnd.microsoft.icon",
-          dds: "image/vnd.ms-dds",
-          mdi: "image/vnd.ms-modi",
-          wdp: "image/vnd.ms-photo",
-          npx: "image/vnd.net-fpx",
-          tap: "image/vnd.tencent.tap",
-          vtf: "image/vnd.valve.source.texture",
-          wbmp: "image/vnd.wap.wbmp",
-          xif: "image/vnd.xiff",
-          pcx: "image/vnd.zbrush.pcx",
-          webp: "image/webp",
-          wmf: "image/wmf",
-          "3ds": "image/x-3ds",
-          ras: "image/x-cmu-raster",
-          cmx: "image/x-cmx",
-          fh: "image/x-freehand",
-          fhc: "image/x-freehand",
-          fh4: "image/x-freehand",
-          fh5: "image/x-freehand",
-          fh7: "image/x-freehand",
-          jng: "image/x-jng",
-          sid: "image/x-mrsid-image",
-          pic: "image/x-pict",
-          pct: "image/x-pict",
-          pnm: "image/x-portable-anymap",
-          pbm: "image/x-portable-bitmap",
-          pgm: "image/x-portable-graymap",
-          ppm: "image/x-portable-pixmap",
-          rgb: "image/x-rgb",
-          tga: "image/x-tga",
-          xbm: "image/x-xbitmap",
-          xpm: "image/x-xpixmap",
-          xwd: "image/x-xwindowdump",
-          "3gp": "video/3gpp",
-          "3g2": "video/3gpp2",
-          h261: "video/h261",
-          h263: "video/h263",
-          h264: "video/h264",
-          jpgv: "video/jpeg",
-          jpgm: "video/jpm",
-          mj2: "video/mj2",
-          mjp2: "video/mj2",
-          ts: "video/mp2t",
-          mp4: "video/mp4",
-          mp4v: "video/mp4",
-          mpg4: "video/mp4",
-          mpeg: "video/mpeg",
-          mpg: "video/mpeg",
-          mpe: "video/mpeg",
-          m1v: "video/mpeg",
-          m2v: "video/mpeg",
-          ogv: "video/ogg",
-          qt: "video/quicktime",
-          mov: "video/quicktime",
-          uvh: "video/vnd.dece.hd",
-          uvvh: "video/vnd.dece.hd",
-          uvm: "video/vnd.dece.mobile",
-          uvvm: "video/vnd.dece.mobile",
-          uvp: "video/vnd.dece.pd",
-          uvvp: "video/vnd.dece.pd",
-          uvs: "video/vnd.dece.sd",
-          uvvs: "video/vnd.dece.sd",
-          uvv: "video/vnd.dece.video",
-          uvvv: "video/vnd.dece.video",
-          dvb: "video/vnd.dvb.file",
-          fvt: "video/vnd.fvt",
-          mxu: "video/vnd.mpegurl",
-          m4u: "video/vnd.mpegurl",
-          pyv: "video/vnd.ms-playready.media.pyv",
-          uvu: "video/vnd.uvvu.mp4",
-          uvvu: "video/vnd.uvvu.mp4",
-          viv: "video/vnd.vivo",
-          webm: "video/webm",
-          f4v: "video/x-f4v",
-          fli: "video/x-fli",
-          flv: "video/x-flv",
-          m4v: "video/x-m4v",
-          mkv: "video/x-matroska",
-          mk3d: "video/x-matroska",
-          mks: "video/x-matroska",
-          mng: "video/x-mng",
-          asf: "video/x-ms-asf",
-          asx: "video/x-ms-asf",
-          vob: "video/x-ms-vob",
-          wm: "video/x-ms-wm",
-          wmv: "video/x-ms-wmv",
-          wmx: "video/x-ms-wmx",
-          wvx: "video/x-ms-wvx",
-          avi: "video/x-msvideo",
-          movie: "video/x-sgi-movie",
-          smv: "video/x-smv",
+          pdf: 'application/pdf',
+          '3gpp': 'video/3gpp',
+          adp: 'audio/adpcm',
+          au: 'audio/basic',
+          snd: 'audio/basic',
+          mid: 'audio/midi',
+          midi: 'audio/midi',
+          kar: 'audio/midi',
+          rmi: 'audio/midi',
+          mp3: 'audio/mpeg',
+          m4a: 'audio/mp4',
+          mp4a: 'audio/mp4',
+          mpga: 'audio/mpeg',
+          mp2: 'audio/mpeg',
+          mp2a: 'audio/mpeg',
+          m2a: 'audio/mpeg',
+          m3a: 'audio/mpeg',
+          oga: 'audio/ogg',
+          ogg: 'audio/ogg',
+          spx: 'audio/ogg',
+          s3m: 'audio/s3m',
+          sil: 'audio/silk',
+          uva: 'audio/vnd.dece.audio',
+          uvva: 'audio/vnd.dece.audio',
+          eol: 'audio/vnd.digital-winds',
+          dra: 'audio/vnd.dra',
+          dts: 'audio/vnd.dts',
+          dtshd: 'audio/vnd.dts.hd',
+          lvp: 'audio/vnd.lucent.voice',
+          pya: 'audio/vnd.ms-playready.media.pya',
+          ecelp4800: 'audio/vnd.nuera.ecelp4800',
+          ecelp7470: 'audio/vnd.nuera.ecelp7470',
+          ecelp9600: 'audio/vnd.nuera.ecelp9600',
+          rip: 'audio/vnd.rip',
+          wav: 'audio/wave',
+          weba: 'audio/webm',
+          aac: 'audio/x-aac',
+          aif: 'audio/x-aiff',
+          aiff: 'audio/x-aiff',
+          aifc: 'audio/x-aiff',
+          caf: 'audio/x-caf',
+          flac: 'audio/x-flac',
+          mka: 'audio/x-matroska',
+          m3u: 'audio/x-mpegurl',
+          wax: 'audio/x-ms-wax',
+          wma: 'audio/x-ms-wma',
+          ram: 'audio/x-pn-realaudio',
+          ra: 'audio/x-pn-realaudio',
+          rmp: 'audio/x-pn-realaudio-plugin',
+          xm: 'audio/xm',
+          exr: 'image/aces',
+          apng: 'image/apng',
+          bmp: 'image/bmp',
+          cgm: 'image/cgm',
+          drle: 'image/dicom-rle',
+          emf: 'image/emf',
+          fits: 'image/fits',
+          g3: 'image/g3fax',
+          gif: 'image/gif',
+          heic: 'image/heic',
+          heics: 'image/heic-sequence',
+          heif: 'image/heif',
+          heifs: 'image/heif-sequence',
+          hej2: 'image/hej2k',
+          hsj2: 'image/hsj2',
+          ief: 'image/ief',
+          jls: 'image/jls',
+          jp2: 'image/jp2',
+          jpg2: 'image/jp2',
+          jpeg: 'image/jpeg',
+          jpg: 'image/jpeg',
+          jpe: 'image/jpeg',
+          jph: 'image/jph',
+          jhc: 'image/jphc',
+          jpm: 'image/jpm',
+          jpx: 'image/jpx',
+          jpf: 'image/jpx',
+          jxr: 'image/jxr',
+          jxra: 'image/jxra',
+          jxrs: 'image/jxrs',
+          jxs: 'image/jxs',
+          jxsc: 'image/jxsc',
+          jxsi: 'image/jxsi',
+          jxss: 'image/jxss',
+          ktx: 'image/ktx',
+          png: 'image/png',
+          btif: 'image/prs.btif',
+          pti: 'image/prs.pti',
+          sgi: 'image/sgi',
+          svg: 'image/svg+xml',
+          svgz: 'image/svg+xml',
+          t38: 'image/t38',
+          tif: 'image/tiff',
+          tiff: 'image/tiff',
+          tfx: 'image/tiff-fx',
+          psd: 'image/vnd.adobe.photoshop',
+          azv: 'image/vnd.airzip.accelerator.azv',
+          uvi: 'image/vnd.dece.graphic',
+          uvvi: 'image/vnd.dece.graphic',
+          uvg: 'image/vnd.dece.graphic',
+          uvvg: 'image/vnd.dece.graphic',
+          djvu: 'image/vnd.djvu',
+          djv: 'image/vnd.djvu',
+          sub: 'image/vnd.dvb.subtitle',
+          dwg: 'image/vnd.dwg',
+          dxf: 'image/vnd.dxf',
+          fbs: 'image/vnd.fastbidsheet',
+          fpx: 'image/vnd.fpx',
+          fst: 'image/vnd.fst',
+          mmr: 'image/vnd.fujixerox.edmics-mmr',
+          rlc: 'image/vnd.fujixerox.edmics-rlc',
+          ico: 'image/vnd.microsoft.icon',
+          dds: 'image/vnd.ms-dds',
+          mdi: 'image/vnd.ms-modi',
+          wdp: 'image/vnd.ms-photo',
+          npx: 'image/vnd.net-fpx',
+          tap: 'image/vnd.tencent.tap',
+          vtf: 'image/vnd.valve.source.texture',
+          wbmp: 'image/vnd.wap.wbmp',
+          xif: 'image/vnd.xiff',
+          pcx: 'image/vnd.zbrush.pcx',
+          webp: 'image/webp',
+          wmf: 'image/wmf',
+          '3ds': 'image/x-3ds',
+          ras: 'image/x-cmu-raster',
+          cmx: 'image/x-cmx',
+          fh: 'image/x-freehand',
+          fhc: 'image/x-freehand',
+          fh4: 'image/x-freehand',
+          fh5: 'image/x-freehand',
+          fh7: 'image/x-freehand',
+          jng: 'image/x-jng',
+          sid: 'image/x-mrsid-image',
+          pic: 'image/x-pict',
+          pct: 'image/x-pict',
+          pnm: 'image/x-portable-anymap',
+          pbm: 'image/x-portable-bitmap',
+          pgm: 'image/x-portable-graymap',
+          ppm: 'image/x-portable-pixmap',
+          rgb: 'image/x-rgb',
+          tga: 'image/x-tga',
+          xbm: 'image/x-xbitmap',
+          xpm: 'image/x-xpixmap',
+          xwd: 'image/x-xwindowdump',
+          '3gp': 'video/3gpp',
+          '3g2': 'video/3gpp2',
+          h261: 'video/h261',
+          h263: 'video/h263',
+          h264: 'video/h264',
+          jpgv: 'video/jpeg',
+          jpgm: 'video/jpm',
+          mj2: 'video/mj2',
+          mjp2: 'video/mj2',
+          ts: 'video/mp2t',
+          mp4: 'video/mp4',
+          mp4v: 'video/mp4',
+          mpg4: 'video/mp4',
+          mpeg: 'video/mpeg',
+          mpg: 'video/mpeg',
+          mpe: 'video/mpeg',
+          m1v: 'video/mpeg',
+          m2v: 'video/mpeg',
+          ogv: 'video/ogg',
+          qt: 'video/quicktime',
+          mov: 'video/quicktime',
+          uvh: 'video/vnd.dece.hd',
+          uvvh: 'video/vnd.dece.hd',
+          uvm: 'video/vnd.dece.mobile',
+          uvvm: 'video/vnd.dece.mobile',
+          uvp: 'video/vnd.dece.pd',
+          uvvp: 'video/vnd.dece.pd',
+          uvs: 'video/vnd.dece.sd',
+          uvvs: 'video/vnd.dece.sd',
+          uvv: 'video/vnd.dece.video',
+          uvvv: 'video/vnd.dece.video',
+          dvb: 'video/vnd.dvb.file',
+          fvt: 'video/vnd.fvt',
+          mxu: 'video/vnd.mpegurl',
+          m4u: 'video/vnd.mpegurl',
+          pyv: 'video/vnd.ms-playready.media.pyv',
+          uvu: 'video/vnd.uvvu.mp4',
+          uvvu: 'video/vnd.uvvu.mp4',
+          viv: 'video/vnd.vivo',
+          webm: 'video/webm',
+          f4v: 'video/x-f4v',
+          fli: 'video/x-fli',
+          flv: 'video/x-flv',
+          m4v: 'video/x-m4v',
+          mkv: 'video/x-matroska',
+          mk3d: 'video/x-matroska',
+          mks: 'video/x-matroska',
+          mng: 'video/x-mng',
+          asf: 'video/x-ms-asf',
+          asx: 'video/x-ms-asf',
+          vob: 'video/x-ms-vob',
+          wm: 'video/x-ms-wm',
+          wmv: 'video/x-ms-wmv',
+          wmx: 'video/x-ms-wmx',
+          wvx: 'video/x-ms-wvx',
+          avi: 'video/x-msvideo',
+          movie: 'video/x-sgi-movie',
+          smv: 'video/x-smv',
         };
 
       function o(e) {
-        return e.split("/")[0];
+        return e.split('/')[0];
       }
 
       function s(e) {
-        return e.split("/").slice(1).join("/");
+        return e.split('/').slice(1).join('/');
       }
 
       function a(e) {
@@ -5507,7 +5507,7 @@
       }
 
       function l(e) {
-        return !e.endsWith(".ts") && !!a(e);
+        return !e.endsWith('.ts') && !!a(e);
       }
 
       function h(e) {
@@ -5515,42 +5515,42 @@
       }
 
       function c(e) {
-        return e.split("/").pop();
+        return e.split('/').pop();
       }
 
       function u(e) {
-        return c(e).split(".")[0];
+        return c(e).split('.')[0];
       }
 
       function f(e) {
-        return e.split("/").slice(0, -1).join("/");
+        return e.split('/').slice(0, -1).join('/');
       }
 
       function d(e) {
-        return e.endsWith(".draw");
+        return e.endsWith('.draw');
       }
 
       function p(e) {
-        return e.endsWith(".pedit") || e.endsWith(".kbmsprite");
+        return e.endsWith('.pedit') || e.endsWith('.kbmsprite');
       }
     },
     fK0Z: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return g;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return u;
         });
-      var i = n("AtEE"),
-        r = n("4eob");
+      var i = n('AtEE'),
+        r = n('4eob');
       const o =
-          "undefined" != typeof navigator &&
+          'undefined' != typeof navigator &&
           !/Edge\/(\d+)/.exec(navigator.userAgent) &&
           /Apple Computer/.test(navigator.vendor) &&
           (/Mobile\/\w+/.test(navigator.userAgent) ||
             navigator.maxTouchPoints > 2),
-        s = "-10000px";
+        s = '-10000px';
       class a {
         constructor(e, t, n) {
           (this.facet = t),
@@ -5596,7 +5596,7 @@
         }
       }
       const l = r.h.define({
-          combine: (e) => (o ? "absolute" : e.length ? e[0] : "fixed"),
+          combine: (e) => (o ? 'absolute' : e.length ? e[0] : 'fixed'),
         }),
         h = i.f.fromClass(
           class {
@@ -5625,7 +5625,7 @@
             createTooltip(e) {
               let t = e.create(this.view);
               return (
-                t.dom.classList.add("cm-tooltip"),
+                t.dom.classList.add('cm-tooltip'),
                 (t.dom.style.position = this.position),
                 (t.dom.style.top = s),
                 this.view.dom.appendChild(t.dom),
@@ -5688,18 +5688,18 @@
                     e.top < m + f &&
                     e.bottom > m &&
                     (m = p ? e.top - f : e.bottom);
-                "absolute" == this.position
-                  ? ((l.style.top = m - t.top + "px"),
-                    (l.style.left = d - t.left + "px"))
-                  : ((l.style.top = m + "px"), (l.style.left = d + "px")),
+                'absolute' == this.position
+                  ? ((l.style.top = m - t.top + 'px'),
+                    (l.style.left = d - t.left + 'px'))
+                  : ((l.style.top = m + 'px'), (l.style.left = d + 'px')),
                   n.push({
                     left: d,
                     top: m,
                     right: g,
                     bottom: m + f,
                   }),
-                  l.classList.toggle("cm-tooltip-above", p),
-                  l.classList.toggle("cm-tooltip-below", !p),
+                  l.classList.toggle('cm-tooltip-above', p),
+                  l.classList.toggle('cm-tooltip-below', !p),
                   a.positioned && a.positioned();
               }
             }
@@ -5722,19 +5722,19 @@
           }
         ),
         c = i.d.baseTheme({
-          ".cm-tooltip": {
+          '.cm-tooltip': {
             zIndex: 100,
           },
-          "&light .cm-tooltip": {
-            border: "1px solid #ddd",
-            backgroundColor: "#f5f5f5",
+          '&light .cm-tooltip': {
+            border: '1px solid #ddd',
+            backgroundColor: '#f5f5f5',
           },
-          "&light .cm-tooltip-section:not(:first-child)": {
-            borderTop: "1px solid #ddd",
+          '&light .cm-tooltip-section:not(:first-child)': {
+            borderTop: '1px solid #ddd',
           },
-          "&dark .cm-tooltip": {
-            backgroundColor: "#333338",
-            color: "white",
+          '&dark .cm-tooltip': {
+            backgroundColor: '#333338',
+            color: 'white',
           },
         }),
         u = r.h.define({
@@ -5745,8 +5745,8 @@
         constructor(e) {
           (this.view = e),
             (this.mounted = !1),
-            (this.dom = document.createElement("div")),
-            this.dom.classList.add("cm-tooltip-hover"),
+            (this.dom = document.createElement('div')),
+            this.dom.classList.add('cm-tooltip-hover'),
             (this.manager = new a(e, f, (e) => this.createHostedView(e)));
         }
         static create(e) {
@@ -5755,7 +5755,7 @@
         createHostedView(e) {
           let t = e.create(this.view);
           return (
-            t.dom.classList.add("cm-tooltip-section"),
+            t.dom.classList.add('cm-tooltip-section'),
             this.dom.appendChild(t.dom),
             this.mounted && t.mount && t.mount(this.view),
             t
@@ -5800,11 +5800,11 @@
             (this.pending = null),
             (this.checkHover = this.checkHover.bind(this)),
             e.dom.addEventListener(
-              "mouseleave",
+              'mouseleave',
               (this.mouseleave = this.mouseleave.bind(this))
             ),
             e.dom.addEventListener(
-              "mousemove",
+              'mousemove',
               (this.mousemove = this.mousemove.bind(this))
             );
         }
@@ -5866,7 +5866,7 @@
                       effects: this.setHover.of(t),
                     }));
               },
-              (e) => Object(i.l)(this.view.state, e, "hover tooltip")
+              (e) => Object(i.l)(this.view.state, e, 'hover tooltip')
             );
           } else
             l &&
@@ -5885,7 +5885,7 @@
             (n &&
               !(function (e) {
                 for (let t = e; t; t = t.parentNode)
-                  if (1 == t.nodeType && t.classList.contains("cm-tooltip"))
+                  if (1 == t.nodeType && t.classList.contains('cm-tooltip'))
                     return !0;
                 return !1;
               })(e.target)) ||
@@ -5939,8 +5939,8 @@
         }
         destroy() {
           clearTimeout(this.hoverTimeout),
-            this.view.dom.removeEventListener("mouseleave", this.mouseleave),
-            this.view.dom.removeEventListener("mousemove", this.mousemove);
+            this.view.dom.removeEventListener('mouseleave', this.mouseleave),
+            this.view.dom.removeEventListener('mousemove', this.mousemove);
         }
       }
 
@@ -5971,19 +5971,19 @@
       }
     },
     h5Ab: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return s;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return c;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return A;
         });
-      var i = n("AtEE"),
-        r = n("wG49"),
-        o = n("4eob");
+      var i = n('AtEE'),
+        r = n('wG49'),
+        o = n('4eob');
       class s extends r.c {
         compare(e) {
           return this == e || (this.constructor == e.constructor && this.eq(e));
@@ -5992,16 +5992,16 @@
           return !1;
         }
       }
-      (s.prototype.elementClass = ""),
+      (s.prototype.elementClass = ''),
         (s.prototype.toDOM = void 0),
         (s.prototype.mapMode = o.i.TrackBefore),
         (s.prototype.startSide = s.prototype.endSide = -1),
         (s.prototype.point = !0);
       const a = o.h.define(),
         l = {
-          class: "",
+          class: '',
           renderEmptyElements: !1,
-          elementStyle: "",
+          elementStyle: '',
           markers: () => r.a.empty,
           lineMarker: () => null,
           initialSpacer: null,
@@ -6014,44 +6014,44 @@
         return [d(), h.of(Object.assign(Object.assign({}, l), e))];
       }
       const u = i.d.baseTheme({
-          ".cm-gutters": {
-            display: "flex",
-            height: "100%",
-            boxSizing: "border-box",
+          '.cm-gutters': {
+            display: 'flex',
+            height: '100%',
+            boxSizing: 'border-box',
             left: 0,
             zIndex: 200,
           },
-          "&light .cm-gutters": {
-            backgroundColor: "#f5f5f5",
-            color: "#999",
-            borderRight: "1px solid #ddd",
+          '&light .cm-gutters': {
+            backgroundColor: '#f5f5f5',
+            color: '#999',
+            borderRight: '1px solid #ddd',
           },
-          "&dark .cm-gutters": {
-            backgroundColor: "#333338",
-            color: "#ccc",
+          '&dark .cm-gutters': {
+            backgroundColor: '#333338',
+            color: '#ccc',
           },
-          ".cm-gutter": {
-            display: "flex !important",
-            flexDirection: "column",
+          '.cm-gutter': {
+            display: 'flex !important',
+            flexDirection: 'column',
             flexShrink: 0,
-            boxSizing: "border-box",
-            height: "100%",
-            overflow: "hidden",
+            boxSizing: 'border-box',
+            height: '100%',
+            overflow: 'hidden',
           },
-          ".cm-gutterElement": {
-            boxSizing: "border-box",
+          '.cm-gutterElement': {
+            boxSizing: 'border-box',
           },
-          ".cm-lineNumbers .cm-gutterElement": {
-            padding: "0 3px 0 5px",
-            minWidth: "20px",
-            textAlign: "right",
-            whiteSpace: "nowrap",
+          '.cm-lineNumbers .cm-gutterElement': {
+            padding: '0 3px 0 5px',
+            minWidth: '20px',
+            textAlign: 'right',
+            whiteSpace: 'nowrap',
           },
-          "&light .cm-activeLineGutter": {
-            backgroundColor: "#e2f2ff",
+          '&light .cm-activeLineGutter': {
+            backgroundColor: '#e2f2ff',
           },
-          "&dark .cm-activeLineGutter": {
-            backgroundColor: "#222227",
+          '&dark .cm-activeLineGutter': {
+            backgroundColor: '#222227',
           },
         }),
         f = o.h.define({
@@ -6066,13 +6066,13 @@
         class {
           constructor(e) {
             (this.view = e),
-              (this.dom = document.createElement("div")),
-              (this.dom.className = "cm-gutters"),
-              this.dom.setAttribute("aria-hidden", "true"),
+              (this.dom = document.createElement('div')),
+              (this.dom.className = 'cm-gutters'),
+              this.dom.setAttribute('aria-hidden', 'true'),
               (this.gutters = e.state.facet(h).map((t) => new b(e, t)));
             for (let t of this.gutters) this.dom.appendChild(t.dom);
             (this.fixed = !e.state.facet(f)),
-              this.fixed && (this.dom.style.position = "sticky"),
+              this.fixed && (this.dom.style.position = 'sticky'),
               e.scrollDOM.insertBefore(this.dom, e.contentDOM),
               this.syncGutters();
           }
@@ -6098,10 +6098,10 @@
               }
             }, 0);
             for (let i of n) i.finish();
-            (this.dom.style.minHeight = this.view.contentHeight + "px"),
+            (this.dom.style.minHeight = this.view.contentHeight + 'px'),
               this.view.state.facet(f) != !this.fixed &&
                 ((this.fixed = !this.fixed),
-                (this.dom.style.position = this.fixed ? "sticky" : ""));
+                (this.dom.style.position = this.fixed ? 'sticky' : ''));
           }
           updateGutters(e) {
             let t = e.startState.facet(h),
@@ -6203,9 +6203,9 @@
             (this.config = t),
             (this.elements = []),
             (this.spacer = null),
-            (this.dom = document.createElement("div")),
+            (this.dom = document.createElement('div')),
             (this.dom.className =
-              "cm-gutter" + (this.config.class ? " " + this.config.class : ""));
+              'cm-gutter' + (this.config.class ? ' ' + this.config.class : ''));
           for (let n in t.domEventHandlers)
             this.dom.addEventListener(n, (i) => {
               let r = e.visualLineAtHeight(
@@ -6219,7 +6219,7 @@
               ((this.spacer = new x(e, 0, 0, [t.initialSpacer(e)])),
               this.dom.appendChild(this.spacer.dom),
               (this.spacer.dom.style.cssText +=
-                "visibility: hidden; pointer-events: none"));
+                'visibility: hidden; pointer-events: none'));
         }
         update(e) {
           let t = this.markers;
@@ -6239,24 +6239,24 @@
         constructor(e, t, n, i) {
           (this.height = -1),
             (this.above = 0),
-            (this.dom = document.createElement("div")),
+            (this.dom = document.createElement('div')),
             this.update(e, t, n, i);
         }
         update(e, t, n, i) {
           if (
             (this.height != t &&
-              (this.dom.style.height = (this.height = t) + "px"),
+              (this.dom.style.height = (this.height = t) + 'px'),
             this.above != n &&
-              (this.dom.style.marginTop = (this.above = n) ? n + "px" : ""),
+              (this.dom.style.marginTop = (this.above = n) ? n + 'px' : ''),
             this.markers != i)
           ) {
             this.markers = i;
             for (let e; (e = this.dom.lastChild); ) e.remove();
-            let t = "cm-gutterElement";
+            let t = 'cm-gutterElement';
             for (let n of i) {
               n.toDOM && this.dom.appendChild(n.toDOM(e));
               let i = n.elementClass;
-              i && (t += " " + i);
+              i && (t += ' ' + i);
             }
             this.dom.className = t;
           }
@@ -6300,7 +6300,7 @@
         return e.state.facet(y).formatNumber(t, e.state);
       }
       const C = c({
-        class: "cm-lineNumbers",
+        class: 'cm-lineNumbers',
         markers: (e) => e.state.facet(w),
         lineMarker: (e, t, n) =>
           n.some((e) => e.toDOM)
@@ -6324,18 +6324,18 @@
       }
     },
     ljhz: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return c;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return u;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return O;
         });
-      var i = n("4eob"),
-        r = n("AtEE");
+      var i = n('4eob'),
+        r = n('AtEE');
       const o = i.a.define(),
         s = i.a.define(),
         a = i.h.define(),
@@ -6371,7 +6371,7 @@
             }
             let a = t.annotation(s);
             if (
-              (("full" != a && "before" != a) || (e = e.isolate()),
+              (('full' != a && 'before' != a) || (e = e.isolate()),
               !1 === t.annotation(i.m.addToHistory))
             )
               return t.changes.empty ? e : e.addMapping(t.changes.desc);
@@ -6388,7 +6388,7 @@
                     u,
                     n.newGroupDelay
                   )),
-              ("full" != a && "after" != a) || (e = e.isolate()),
+              ('full' != a && 'after' != a) || (e = e.isolate()),
               e
             );
           },
@@ -6406,9 +6406,9 @@
           l.of(e),
           r.d.domEventHandlers({
             beforeinput: (e, t) =>
-              "historyUndo" == e.inputType
+              'historyUndo' == e.inputType
                 ? d(t)
-                : "historyRedo" == e.inputType && p(t),
+                : 'historyRedo' == e.inputType && p(t),
           }),
         ];
       }
@@ -6590,7 +6590,7 @@
                     i
                   );
                 })(s.changes, e.changes)) ||
-                "input.type.compose" == n)
+                'input.type.compose' == n)
                 ? b(
                     o,
                     o.length - 1,
@@ -6644,7 +6644,7 @@
                 side: e,
                 rest: k(i),
               }),
-              userEvent: 0 == e ? "select.undo" : "select.redo",
+              userEvent: 0 == e ? 'select.undo' : 'select.redo',
             });
           if (r.changes) {
             let n = 1 == i.length ? w : i.slice(0, i.length - 1);
@@ -6659,7 +6659,7 @@
                   rest: n,
                 }),
                 filter: !1,
-                userEvent: 0 == e ? "undo" : "redo",
+                userEvent: 0 == e ? 'undo' : 'redo',
               })
             );
           }
@@ -6669,53 +6669,53 @@
       A.empty = new A(w, w);
       const O = [
         {
-          key: "Mod-z",
+          key: 'Mod-z',
           run: d,
           preventDefault: !0,
         },
         {
-          key: "Mod-y",
-          mac: "Mod-Shift-z",
+          key: 'Mod-y',
+          mac: 'Mod-Shift-z',
           run: p,
           preventDefault: !0,
         },
         {
-          key: "Mod-u",
+          key: 'Mod-u',
           run: m,
           preventDefault: !0,
         },
         {
-          key: "Alt-u",
-          mac: "Mod-Shift-u",
+          key: 'Alt-u',
+          mac: 'Mod-Shift-u',
           run: g,
           preventDefault: !0,
         },
       ];
     },
     lmln: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return i;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return s;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return c;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return h;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return O;
         }),
-        n.d(t, "f", function () {
+        n.d(t, 'f', function () {
           return f;
         }),
-        n.d(t, "g", function () {
+        n.d(t, 'g', function () {
           return A;
         }),
-        n.d(t, "h", function () {
+        n.d(t, 'h', function () {
           return M;
         });
       const i = 1024;
@@ -6741,7 +6741,7 @@
           if (this.perNode)
             throw new RangeError("Can't add per-node props to node types");
           return (
-            "function" != typeof e && (e = h.match(e)),
+            'function' != typeof e && (e = h.match(e)),
             (t) => {
               let n = e(t);
               return void 0 === n ? null : [this, n];
@@ -6750,13 +6750,13 @@
         }
       }
       (s.closedBy = new s({
-        deserialize: (e) => e.split(" "),
+        deserialize: (e) => e.split(' '),
       })),
         (s.openedBy = new s({
-          deserialize: (e) => e.split(" "),
+          deserialize: (e) => e.split(' '),
         })),
         (s.group = new s({
-          deserialize: (e) => e.split(" "),
+          deserialize: (e) => e.split(' '),
         })),
         (s.contextHash = new s({
           perNode: !0,
@@ -6784,7 +6784,7 @@
               (e.skipped ? 2 : 0) |
               (e.error ? 4 : 0) |
               (null == e.name ? 8 : 0),
-            i = new h(e.name || "", t, e.id, n);
+            i = new h(e.name || '', t, e.id, n);
           if (e.props)
             for (let r of e.props)
               if ((Array.isArray(r) || (r = r(i)), r)) {
@@ -6812,7 +6812,7 @@
           return (8 & this.flags) > 0;
         }
         is(e) {
-          if ("string" == typeof e) {
+          if ('string' == typeof e) {
             if (this.name == e) return !0;
             let t = this.prop(s.group);
             return !!t && t.indexOf(e) > -1;
@@ -6821,7 +6821,7 @@
         }
         static match(e) {
           let t = Object.create(null);
-          for (let n in e) for (let i of n.split(" ")) t[i] = e[n];
+          for (let n in e) for (let i of n.split(' ')) t[i] = e[n];
           return (e) => {
             for (let n = e.prop(s.group), i = -1; i < (n ? n.length : 0); i++) {
               let r = t[i < 0 ? e.name : n[i]];
@@ -6830,14 +6830,14 @@
           };
         }
       }
-      h.none = new h("", Object.create(null), 0, 8);
+      h.none = new h('', Object.create(null), 0, 8);
       class c {
         constructor(e) {
           this.types = e;
           for (let t = 0; t < e.length; t++)
             if (e[t].id != t)
               throw new RangeError(
-                "Node type ids should correspond to array positions when creating a node set"
+                'Node type ids should correspond to array positions when creating a node set'
               );
         }
         extend(...e) {
@@ -6866,21 +6866,21 @@
           ) {
             this.props = Object.create(null);
             for (let [e, t] of r)
-              this.props["number" == typeof e ? e : e.id] = t;
+              this.props['number' == typeof e ? e : e.id] = t;
           }
         }
         toString() {
           let e = this.prop(s.mounted);
           if (e && !e.overlay) return e.tree.toString();
-          let t = "";
+          let t = '';
           for (let n of this.children) {
             let e = n.toString();
-            e && (t && (t += ","), (t += e));
+            e && (t && (t += ','), (t += e));
           }
           return this.type.name
             ? (/\W/.test(this.type.name) && !this.type.isError
                 ? JSON.stringify(this.type.name)
-                : this.type.name) + (t.length ? "(" + t + ")" : "")
+                : this.type.name) + (t.length ? '(' + t + ')' : '')
             : t;
         }
         cursor(e, t = 0) {
@@ -7160,7 +7160,7 @@
           let e = [];
           for (let t = 0; t < this.buffer.length; )
             e.push(this.childString(t)), (t = this.buffer[t + 3]);
-          return e.join(",");
+          return e.join(',');
         }
         childString(e) {
           let t = this.buffer[e],
@@ -7174,7 +7174,7 @@
             return r;
           let o = [];
           for (; e < n; ) o.push(this.childString(e)), (e = this.buffer[e + 3]);
-          return r + "(" + o.join(",") + ")";
+          return r + '(' + o.join(',') + ')';
         }
         findChild(e, t, n, i, r) {
           let { buffer: o } = this,
@@ -7800,7 +7800,7 @@
       class O {
         startParse(e, t, n) {
           return (
-            "string" == typeof e && (e = new j(e)),
+            'string' == typeof e && (e = new j(e)),
             (n = n
               ? n.length
                 ? n.map((e) => new o(e.from, e.to))
@@ -7932,7 +7932,7 @@
             ) {
               n.tree || P(n);
               let r = e.findMounts(n.from, t.parser);
-              if ("function" == typeof t.overlay)
+              if ('function' == typeof t.overlay)
                 i = new I(
                   t.parser,
                   t.overlay,
@@ -8191,108 +8191,108 @@
       }
     },
     nqdA: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return i;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return d;
         });
       for (
         var i = {
-            8: "Backspace",
-            9: "Tab",
-            10: "Enter",
-            12: "NumLock",
-            13: "Enter",
-            16: "Shift",
-            17: "Control",
-            18: "Alt",
-            20: "CapsLock",
-            27: "Escape",
-            32: " ",
-            33: "PageUp",
-            34: "PageDown",
-            35: "End",
-            36: "Home",
-            37: "ArrowLeft",
-            38: "ArrowUp",
-            39: "ArrowRight",
-            40: "ArrowDown",
-            44: "PrintScreen",
-            45: "Insert",
-            46: "Delete",
-            59: ";",
-            61: "=",
-            91: "Meta",
-            92: "Meta",
-            106: "*",
-            107: "+",
-            108: ",",
-            109: "-",
-            110: ".",
-            111: "/",
-            144: "NumLock",
-            145: "ScrollLock",
-            160: "Shift",
-            161: "Shift",
-            162: "Control",
-            163: "Control",
-            164: "Alt",
-            165: "Alt",
-            173: "-",
-            186: ";",
-            187: "=",
-            188: ",",
-            189: "-",
-            190: ".",
-            191: "/",
-            192: "`",
-            219: "[",
-            220: "\\",
-            221: "]",
+            8: 'Backspace',
+            9: 'Tab',
+            10: 'Enter',
+            12: 'NumLock',
+            13: 'Enter',
+            16: 'Shift',
+            17: 'Control',
+            18: 'Alt',
+            20: 'CapsLock',
+            27: 'Escape',
+            32: ' ',
+            33: 'PageUp',
+            34: 'PageDown',
+            35: 'End',
+            36: 'Home',
+            37: 'ArrowLeft',
+            38: 'ArrowUp',
+            39: 'ArrowRight',
+            40: 'ArrowDown',
+            44: 'PrintScreen',
+            45: 'Insert',
+            46: 'Delete',
+            59: ';',
+            61: '=',
+            91: 'Meta',
+            92: 'Meta',
+            106: '*',
+            107: '+',
+            108: ',',
+            109: '-',
+            110: '.',
+            111: '/',
+            144: 'NumLock',
+            145: 'ScrollLock',
+            160: 'Shift',
+            161: 'Shift',
+            162: 'Control',
+            163: 'Control',
+            164: 'Alt',
+            165: 'Alt',
+            173: '-',
+            186: ';',
+            187: '=',
+            188: ',',
+            189: '-',
+            190: '.',
+            191: '/',
+            192: '`',
+            219: '[',
+            220: '\\',
+            221: ']',
             222: "'",
-            229: "q",
+            229: 'q',
           },
           r = {
-            48: ")",
-            49: "!",
-            50: "@",
-            51: "#",
-            52: "$",
-            53: "%",
-            54: "^",
-            55: "&",
-            56: "*",
-            57: "(",
-            59: ":",
-            61: "+",
-            173: "_",
-            186: ":",
-            187: "+",
-            188: "<",
-            189: "_",
-            190: ">",
-            191: "?",
-            192: "~",
-            219: "{",
-            220: "|",
-            221: "}",
+            48: ')',
+            49: '!',
+            50: '@',
+            51: '#',
+            52: '$',
+            53: '%',
+            54: '^',
+            55: '&',
+            56: '*',
+            57: '(',
+            59: ':',
+            61: '+',
+            173: '_',
+            186: ':',
+            187: '+',
+            188: '<',
+            189: '_',
+            190: '>',
+            191: '?',
+            192: '~',
+            219: '{',
+            220: '|',
+            221: '}',
             222: '"',
-            229: "Q",
+            229: 'Q',
           },
           o =
-            "undefined" != typeof navigator &&
+            'undefined' != typeof navigator &&
             /Chrome\/(\d+)/.exec(navigator.userAgent),
           s =
-            "undefined" != typeof navigator &&
+            'undefined' != typeof navigator &&
             /Apple Computer/.test(navigator.vendor),
           a =
-            "undefined" != typeof navigator &&
+            'undefined' != typeof navigator &&
             /Gecko\/\d+/.test(navigator.userAgent),
-          l = "undefined" != typeof navigator && /Mac/.test(navigator.platform),
+          l = 'undefined' != typeof navigator && /Mac/.test(navigator.platform),
           h =
-            "undefined" != typeof navigator &&
+            'undefined' != typeof navigator &&
             /MSIE \d|Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(
               navigator.userAgent
             ),
@@ -8302,7 +8302,7 @@
         u++
       )
         i[48 + u] = i[96 + u] = String(u);
-      for (u = 1; u <= 24; u++) i[u + 111] = "F" + u;
+      for (u = 1; u <= 24; u++) i[u + 111] = 'F' + u;
       for (u = 65; u <= 90; u++)
         (i[u] = String.fromCharCode(u + 32)), (r[u] = String.fromCharCode(u));
       for (var f in i) r.hasOwnProperty(f) || (r[f] = i[f]);
@@ -8316,33 +8316,33 @@
             e.key) ||
           (e.shiftKey ? r : i)[e.keyCode] ||
           e.key ||
-          "Unidentified";
+          'Unidentified';
         return (
-          "Esc" == t && (t = "Escape"),
-          "Del" == t && (t = "Delete"),
-          "Left" == t && (t = "ArrowLeft"),
-          "Up" == t && (t = "ArrowUp"),
-          "Right" == t && (t = "ArrowRight"),
-          "Down" == t && (t = "ArrowDown"),
+          'Esc' == t && (t = 'Escape'),
+          'Del' == t && (t = 'Delete'),
+          'Left' == t && (t = 'ArrowLeft'),
+          'Up' == t && (t = 'ArrowUp'),
+          'Right' == t && (t = 'ArrowRight'),
+          'Down' == t && (t = 'ArrowDown'),
           t
         );
       }
     },
     rknV: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return s;
       });
       const i =
-          "undefined" == typeof Symbol ? "__\u037c" : Symbol.for("\u037c"),
+          'undefined' == typeof Symbol ? '__\u037c' : Symbol.for('\u037c'),
         r =
-          "undefined" == typeof Symbol
-            ? "__styleSet" + Math.floor(1e8 * Math.random())
-            : Symbol("styleSet"),
+          'undefined' == typeof Symbol
+            ? '__styleSet' + Math.floor(1e8 * Math.random())
+            : Symbol('styleSet'),
         o =
-          "undefined" != typeof globalThis
+          'undefined' != typeof globalThis
             ? globalThis
-            : "undefined" != typeof window
+            : 'undefined' != typeof window
             ? window
             : {};
       class s {
@@ -8357,8 +8357,8 @@
           function r(e, t, o, s) {
             let a = [],
               l = /^@(\w+)\b/.exec(e[0]),
-              h = l && "keyframes" == l[1];
-            if (l && null == t) return o.push(e[0] + ";");
+              h = l && 'keyframes' == l[1];
+            if (l && null == t) return o.push(e[0] + ';');
             for (let n in t) {
               let s = t[n];
               if (/&/.test(n))
@@ -8370,41 +8370,41 @@
                   s,
                   o
                 );
-              else if (s && "object" == typeof s) {
+              else if (s && 'object' == typeof s) {
                 if (!l)
                   throw new RangeError(
-                    "The value of a property (" +
+                    'The value of a property (' +
                       n +
-                      ") should be a primitive value."
+                      ') should be a primitive value.'
                   );
                 r(i(n), s, a, h);
               } else
                 null != s &&
                   a.push(
                     n
-                      .replace(/_.*/, "")
-                      .replace(/[A-Z]/g, (e) => "-" + e.toLowerCase()) +
-                      ": " +
+                      .replace(/_.*/, '')
+                      .replace(/[A-Z]/g, (e) => '-' + e.toLowerCase()) +
+                      ': ' +
                       s +
-                      ";"
+                      ';'
                   );
             }
             (a.length || h) &&
               o.push(
-                (!n || l || s ? e : e.map(n)).join(", ") +
-                  " {" +
-                  a.join(" ") +
-                  "}"
+                (!n || l || s ? e : e.map(n)).join(', ') +
+                  ' {' +
+                  a.join(' ') +
+                  '}'
               );
           }
           for (let o in e) r(i(o), e[o], this.rules);
         }
         getRules() {
-          return this.rules.join("\n");
+          return this.rules.join('\n');
         }
         static newName() {
           let e = o[i] || 1;
-          return (o[i] = e + 1), "\u037c" + e.toString(36);
+          return (o[i] = e + 1), '\u037c' + e.toString(36);
         }
         static mount(e, t) {
           (e[r] || new l(e)).mount(Array.isArray(t) ? t : [t]);
@@ -8416,7 +8416,7 @@
           if (
             !e.head &&
             e.adoptedStyleSheets &&
-            "undefined" != typeof CSSStyleSheet
+            'undefined' != typeof CSSStyleSheet
           ) {
             if (a)
               return (
@@ -8429,7 +8429,7 @@
               )),
               (a = this);
           } else {
-            this.styleTag = (e.ownerDocument || e).createElement("style");
+            this.styleTag = (e.ownerDocument || e).createElement('style');
             let t = e.head || e;
             t.insertBefore(this.styleTag, t.firstChild);
           }
@@ -8455,40 +8455,40 @@
             }
           }
           if (!t) {
-            let e = "";
+            let e = '';
             for (let t = 0; t < this.modules.length; t++)
-              e += this.modules[t].getRules() + "\n";
+              e += this.modules[t].getRules() + '\n';
             this.styleTag.textContent = e;
           }
         }
       }
     },
     uZp5: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return g;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return u;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return d;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return p;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return s;
         }),
-        n.d(t, "f", function () {
+        n.d(t, 'f', function () {
           return m;
         }),
-        n.d(t, "g", function () {
+        n.d(t, 'g', function () {
           return f;
         });
       let i =
-        "lc,34,7n,7,7b,19,,,,2,,2,,,20,b,1c,l,g,,2t,7,2,6,2,2,,4,z,,u,r,2j,b,1m,9,9,,o,4,,9,,3,,5,17,3,3b,f,,w,1j,,,,4,8,4,,3,7,a,2,t,,1m,,,,2,4,8,,9,,a,2,q,,2,2,1l,,4,2,4,2,2,3,3,,u,2,3,,b,2,1l,,4,5,,2,4,,k,2,m,6,,,1m,,,2,,4,8,,7,3,a,2,u,,1n,,,,c,,9,,14,,3,,1l,3,5,3,,4,7,2,b,2,t,,1m,,2,,2,,3,,5,2,7,2,b,2,s,2,1l,2,,,2,4,8,,9,,a,2,t,,20,,4,,2,3,,,8,,29,,2,7,c,8,2q,,2,9,b,6,22,2,r,,,,,,1j,e,,5,,2,5,b,,10,9,,2u,4,,6,,2,2,2,p,2,4,3,g,4,d,,2,2,6,,f,,jj,3,qa,3,t,3,t,2,u,2,1s,2,,7,8,,2,b,9,,19,3,3b,2,y,,3a,3,4,2,9,,6,3,63,2,2,,1m,,,7,,,,,2,8,6,a,2,,1c,h,1r,4,1c,7,,,5,,14,9,c,2,w,4,2,2,,3,1k,,,2,3,,,3,1m,8,2,2,48,3,,d,,7,4,,6,,3,2,5i,1m,,5,ek,,5f,x,2da,3,3x,,2o,w,fe,6,2x,2,n9w,4,,a,w,2,28,2,7k,,3,,4,,p,2,5,,47,2,q,i,d,,12,8,p,b,1a,3,1c,,2,4,2,2,13,,1v,6,2,2,2,2,c,,8,,1b,,1f,,,3,2,2,5,2,,,16,2,8,,6m,,2,,4,,fn4,,kh,g,g,g,a6,2,gt,,6a,,45,5,1ae,3,,2,5,4,14,3,4,,4l,2,fx,4,ar,2,49,b,4w,,1i,f,1k,3,1d,4,2,2,1x,3,10,5,,8,1q,,c,2,1g,9,a,4,2,,2n,3,2,,,2,6,,4g,,3,8,l,2,1l,2,,,,,m,,e,7,3,5,5f,8,2,3,,,n,,29,,2,6,,,2,,,2,,2,6j,,2,4,6,2,,2,r,2,2d,8,2,,,2,2y,,,,2,6,,,2t,3,2,4,,5,77,9,,2,6t,,a,2,,,4,,40,4,2,2,4,,w,a,14,6,2,4,8,,9,6,2,3,1a,d,,2,ba,7,,6,,,2a,m,2,7,,2,,2,3e,6,3,,,2,,7,,,20,2,3,,,,9n,2,f0b,5,1n,7,t4,,1r,4,29,,f5k,2,43q,,,3,4,5,8,8,2,7,u,4,44,3,1iz,1j,4,1e,8,,e,,m,5,,f,11s,7,,h,2,7,,2,,5,79,7,c5,4,15s,7,31,7,240,5,gx7k,2o,3k,6o"
-          .split(",")
+        'lc,34,7n,7,7b,19,,,,2,,2,,,20,b,1c,l,g,,2t,7,2,6,2,2,,4,z,,u,r,2j,b,1m,9,9,,o,4,,9,,3,,5,17,3,3b,f,,w,1j,,,,4,8,4,,3,7,a,2,t,,1m,,,,2,4,8,,9,,a,2,q,,2,2,1l,,4,2,4,2,2,3,3,,u,2,3,,b,2,1l,,4,5,,2,4,,k,2,m,6,,,1m,,,2,,4,8,,7,3,a,2,u,,1n,,,,c,,9,,14,,3,,1l,3,5,3,,4,7,2,b,2,t,,1m,,2,,2,,3,,5,2,7,2,b,2,s,2,1l,2,,,2,4,8,,9,,a,2,t,,20,,4,,2,3,,,8,,29,,2,7,c,8,2q,,2,9,b,6,22,2,r,,,,,,1j,e,,5,,2,5,b,,10,9,,2u,4,,6,,2,2,2,p,2,4,3,g,4,d,,2,2,6,,f,,jj,3,qa,3,t,3,t,2,u,2,1s,2,,7,8,,2,b,9,,19,3,3b,2,y,,3a,3,4,2,9,,6,3,63,2,2,,1m,,,7,,,,,2,8,6,a,2,,1c,h,1r,4,1c,7,,,5,,14,9,c,2,w,4,2,2,,3,1k,,,2,3,,,3,1m,8,2,2,48,3,,d,,7,4,,6,,3,2,5i,1m,,5,ek,,5f,x,2da,3,3x,,2o,w,fe,6,2x,2,n9w,4,,a,w,2,28,2,7k,,3,,4,,p,2,5,,47,2,q,i,d,,12,8,p,b,1a,3,1c,,2,4,2,2,13,,1v,6,2,2,2,2,c,,8,,1b,,1f,,,3,2,2,5,2,,,16,2,8,,6m,,2,,4,,fn4,,kh,g,g,g,a6,2,gt,,6a,,45,5,1ae,3,,2,5,4,14,3,4,,4l,2,fx,4,ar,2,49,b,4w,,1i,f,1k,3,1d,4,2,2,1x,3,10,5,,8,1q,,c,2,1g,9,a,4,2,,2n,3,2,,,2,6,,4g,,3,8,l,2,1l,2,,,,,m,,e,7,3,5,5f,8,2,3,,,n,,29,,2,6,,,2,,,2,,2,6j,,2,4,6,2,,2,r,2,2d,8,2,,,2,2y,,,,2,6,,,2t,3,2,4,,5,77,9,,2,6t,,a,2,,,4,,40,4,2,2,4,,w,a,14,6,2,4,8,,9,6,2,3,1a,d,,2,ba,7,,6,,,2a,m,2,7,,2,,2,3e,6,3,,,2,,7,,,20,2,3,,,,9n,2,f0b,5,1n,7,t4,,1r,4,29,,f5k,2,43q,,,3,4,5,8,8,2,7,u,4,44,3,1iz,1j,4,1e,8,,e,,m,5,,f,11s,7,,h,2,7,,2,,5,79,7,c5,4,15s,7,31,7,240,5,gx7k,2o,3k,6o'
+          .split(',')
           .map((e) => (e ? parseInt(e, 36) : 1));
       for (let A = 1; A < i.length; A++) i[A] += i[A - 1];
 
@@ -8662,7 +8662,7 @@
         }
         static of(e) {
           if (0 == e.length)
-            throw new RangeError("A document must have at least one line");
+            throw new RangeError('A document must have at least one line');
           return 1 != e.length || e[0]
             ? e.length <= 32
               ? new v(e)
@@ -8670,7 +8670,7 @@
             : g.empty;
         }
       }
-      "undefined" != typeof Symbol &&
+      'undefined' != typeof Symbol &&
         (g.prototype[Symbol.iterator] = function () {
           return this.iter();
         });
@@ -8723,8 +8723,8 @@
             r = this.length + n.length - (t - e);
           return i.length <= 32 ? new v(i, r) : b.from(v.split(i, []), r);
         }
-        sliceString(e, t = this.length, n = "\n") {
-          let i = "";
+        sliceString(e, t = this.length, n = '\n') {
+          let i = '';
           for (let r = 0, o = 0; r <= t && o < this.text.length; o++) {
             let s = this.text[o],
               a = r + s.length;
@@ -8792,8 +8792,8 @@
             }
           return super.replace(e, t, n);
         }
-        sliceString(e, t = this.length, n = "\n") {
-          let i = "";
+        sliceString(e, t = this.length, n = '\n') {
+          let i = '';
           for (let r = 0, o = 0; r < this.children.length && o <= t; r++) {
             let s = this.children[r],
               a = o + s.length;
@@ -8869,15 +8869,15 @@
       }
 
       function w(e, t, n) {
-        return x(e, [""], t, n);
+        return x(e, [''], t, n);
       }
-      g.empty = new v([""], 0);
+      g.empty = new v([''], 0);
       class y {
         constructor(e, t = 1) {
           (this.dir = t),
             (this.done = !1),
             (this.lineBreak = !1),
-            (this.value = ""),
+            (this.value = ''),
             (this.nodes = [e]),
             (this.offsets = [
               t > 0
@@ -8893,13 +8893,13 @@
               o = r >> 1,
               s = i instanceof v ? i.text.length : i.children.length;
             if (o == (t > 0 ? s : 0)) {
-              if (0 == n) return (this.done = !0), (this.value = ""), this;
+              if (0 == n) return (this.done = !0), (this.value = ''), this;
               t > 0 && this.offsets[n - 1]++,
                 this.nodes.pop(),
                 this.offsets.pop();
             } else if ((1 & r) == (t > 0 ? 0 : 1)) {
               if (((this.offsets[n] += t), 0 == e))
-                return (this.lineBreak = !0), (this.value = "\n"), this;
+                return (this.lineBreak = !0), (this.value = '\n'), this;
               e--;
             } else if (i instanceof v) {
               let r = i.text[o + (t < 0 ? -1 : 0)];
@@ -8934,7 +8934,7 @@
       }
       class k {
         constructor(e, t, n) {
-          (this.value = ""),
+          (this.value = ''),
             (this.done = !1),
             (this.cursor = new y(e, t > n ? -1 : 1)),
             (this.pos = t > n ? e.length : 0),
@@ -8943,7 +8943,7 @@
         }
         nextInner(e, t) {
           if (t < 0 ? this.pos <= this.from : this.pos >= this.to)
-            return (this.value = ""), (this.done = !0), this;
+            return (this.value = ''), (this.done = !0), this;
           (this.done = !1),
             (e += Math.max(
               0,
@@ -8972,24 +8972,24 @@
           );
         }
         get lineBreak() {
-          return this.cursor.lineBreak && "" != this.value;
+          return this.cursor.lineBreak && '' != this.value;
         }
       }
       class S {
         constructor(e) {
           (this.inner = e),
             (this.afterBreak = !0),
-            (this.value = ""),
+            (this.value = ''),
             (this.done = !1);
         }
         next(e = 0) {
           let { done: t, lineBreak: n, value: i } = this.inner.next(e);
           return (
             t
-              ? ((this.done = !0), (this.value = ""))
+              ? ((this.done = !0), (this.value = ''))
               : n
               ? this.afterBreak
-                ? (this.value = "")
+                ? (this.value = '')
                 : ((this.afterBreak = !0), this.next())
               : ((this.value = i), (this.afterBreak = !1)),
             this
@@ -9009,25 +9009,25 @@
       }
     },
     ubVE: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return w;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return W;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return p;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return V;
         });
-      var i = n("lmln"),
-        r = n("rknV"),
-        o = n("AtEE"),
-        s = n("4eob"),
-        a = n("yqQ+"),
-        l = n("wG49");
+      var i = n('lmln'),
+        r = n('rknV'),
+        o = n('AtEE'),
+        s = n('4eob'),
+        a = n('yqQ+'),
+        l = n('wG49');
       let h = 0;
       class c {
         constructor(e, t, n) {
@@ -9035,7 +9035,7 @@
         }
         static define(e) {
           if (null === e || void 0 === e ? void 0 : e.base)
-            throw new Error("Can not derive from a modified tag");
+            throw new Error('Can not derive from a modified tag');
           let t = new c([], null, []);
           if ((t.set.push(t), e)) for (let n of e.set) t.set.push(n);
           return t;
@@ -9089,21 +9089,21 @@
         for (let n in e) {
           let i = e[n];
           Array.isArray(i) || (i = [i]);
-          for (let e of n.split(" "))
+          for (let e of n.split(' '))
             if (e) {
               let n = [],
                 r = 2,
                 o = e;
               for (let t = 0; ; ) {
-                if ("..." == o && t > 0 && t + 3 == e.length) {
+                if ('...' == o && t > 0 && t + 3 == e.length) {
                   r = 1;
                   break;
                 }
                 let i = /^"(?:[^"\\]|\\.)*?"|[^\/!]+/.exec(o);
-                if (!i) throw new RangeError("Invalid path: " + e);
+                if (!i) throw new RangeError('Invalid path: ' + e);
                 if (
                   (n.push(
-                    "*" == i[0]
+                    '*' == i[0]
                       ? null
                       : '"' == i[0][0]
                       ? JSON.parse(i[0])
@@ -9114,16 +9114,16 @@
                 )
                   break;
                 let s = e[t++];
-                if (t == e.length && "!" == s) {
+                if (t == e.length && '!' == s) {
                   r = 0;
                   break;
                 }
-                if ("/" != s) throw new RangeError("Invalid path: " + e);
+                if ('/' != s) throw new RangeError('Invalid path: ' + e);
                 o = e.slice(t);
               }
               let s = n.length - 1,
                 a = n[s];
-              if (!a) throw new RangeError("Invalid path: " + e);
+              if (!a) throw new RangeError('Invalid path: ' + e);
               let l = new x(i, r, s > 0 ? n.slice(0, s) : null);
               t[a] = l.sort(t[a]);
             }
@@ -9160,11 +9160,11 @@
 
           function i(e) {
             let t = r.a.newName();
-            return ((n || (n = Object.create(null)))["." + t] = e), t;
+            return ((n || (n = Object.create(null)))['.' + t] = e), t;
           }
           (this.map = Object.create(null)),
             (this.all =
-              "string" == typeof t.all ? t.all : t.all ? i(t.all) : null);
+              'string' == typeof t.all ? t.all : t.all ? i(t.all) : null);
           for (let r of e) {
             let e =
                 (r.class ||
@@ -9172,7 +9172,7 @@
                     Object.assign({}, r, {
                       tag: null,
                     })
-                  )) + (this.all ? " " + this.all : ""),
+                  )) + (this.all ? ' ' + this.all : ''),
               t = r.tag;
             if (Array.isArray(t)) for (let n of t) this.map[n.id] = e;
             else this.map[t.id] = e;
@@ -9202,7 +9202,7 @@
             let o = null;
             for (let t of e) {
               let e = t.match(n, i);
-              e && (o = o ? o + " " + e : e);
+              e && (o = o ? o + ' ' + e : e);
             }
             return t && (t[n.id] = o), o;
           };
@@ -9252,10 +9252,10 @@
             decorations: (e) => e.decorations,
           })
         ),
-        S = [""];
+        S = [''];
       class C {
         constructor(e, t, n) {
-          (this.at = e), (this.style = t), (this.span = n), (this.class = "");
+          (this.at = e), (this.style = t), (this.span = n), (this.class = '');
         }
         startSpan(e, t) {
           t != this.class &&
@@ -9276,10 +9276,10 @@
               for (let e of u.tags) {
                 let t = this.style(e, s);
                 t &&
-                  (c && (c += " "),
+                  (c && (c += ' '),
                   (c += t),
                   1 == u.mode
-                    ? (r += (r ? " " : "") + t)
+                    ? (r += (r ? ' ' : '') + t)
                     : 0 == u.mode && (f = !0));
               }
               break;
@@ -9331,7 +9331,7 @@
 
       function A(e, t, n, i, r) {
         let o = new C(t, i, r);
-        o.highlightRange(e.cursor(), t, n, "", 0, e.type), o.flush(n);
+        o.highlightRange(e.cursor(), t, n, '', 0, e.type), o.flush(n);
       }
 
       function O(e, t, n) {
@@ -9442,80 +9442,80 @@
         W = w.define([
           {
             tag: V.link,
-            textDecoration: "underline",
+            textDecoration: 'underline',
           },
           {
             tag: V.heading,
-            textDecoration: "underline",
-            fontWeight: "bold",
+            textDecoration: 'underline',
+            fontWeight: 'bold',
           },
           {
             tag: V.emphasis,
-            fontStyle: "italic",
+            fontStyle: 'italic',
           },
           {
             tag: V.strong,
-            fontWeight: "bold",
+            fontWeight: 'bold',
           },
           {
             tag: V.strikethrough,
-            textDecoration: "line-through",
+            textDecoration: 'line-through',
           },
           {
             tag: V.keyword,
-            color: "#708",
+            color: '#708',
           },
           {
             tag: [V.atom, V.bool, V.url, V.contentSeparator, V.labelName],
-            color: "#219",
+            color: '#219',
           },
           {
             tag: [V.literal, V.inserted],
-            color: "#164",
+            color: '#164',
           },
           {
             tag: [V.string, V.deleted],
-            color: "#a11",
+            color: '#a11',
           },
           {
             tag: [V.regexp, V.escape, V.special(V.string)],
-            color: "#e40",
+            color: '#e40',
           },
           {
             tag: V.definition(V.variableName),
-            color: "#00f",
+            color: '#00f',
           },
           {
             tag: V.local(V.variableName),
-            color: "#30a",
+            color: '#30a',
           },
           {
             tag: [V.typeName, V.namespace],
-            color: "#085",
+            color: '#085',
           },
           {
             tag: V.className,
-            color: "#167",
+            color: '#167',
           },
           {
             tag: [V.special(V.variableName), V.macroName],
-            color: "#256",
+            color: '#256',
           },
           {
             tag: V.definition(V.propertyName),
-            color: "#00c",
+            color: '#00c',
           },
           {
             tag: V.comment,
-            color: "#940",
+            color: '#940',
           },
           {
             tag: V.meta,
-            color: "#7a757a",
+            color: '#7a757a',
           },
           {
             tag: V.invalid,
-            color: "#f00",
+            color: '#f00',
           },
         ]);
       V.link,
@@ -9550,45 +9550,45 @@
         V.punctuation;
     },
     vyFI: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return kt;
       });
-      var i = n("z7pX"),
-        r = n("vJKn"),
+      var i = n('z7pX'),
+        r = n('vJKn'),
         o = n.n(r),
-        s = n("rg98"),
-        a = n("xvhg"),
-        l = n("q1tI"),
-        h = n("tpqs"),
-        c = n("AtEE"),
-        u = n("4eob"),
-        f = n("H+61"),
-        d = n("UlJF"),
-        p = n("7LId"),
-        m = n("VIvw"),
-        g = n("iHvq"),
-        v = n("yqQ+"),
-        b = n("wG49");
+        s = n('rg98'),
+        a = n('xvhg'),
+        l = n('q1tI'),
+        h = n('tpqs'),
+        c = n('AtEE'),
+        u = n('4eob'),
+        f = n('H+61'),
+        d = n('UlJF'),
+        p = n('7LId'),
+        m = n('VIvw'),
+        g = n('iHvq'),
+        v = n('yqQ+'),
+        b = n('wG49');
 
       function x(e, t) {
         var n;
-        if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
+        if ('undefined' === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
             (n = (function (e, t) {
               if (!e) return;
-              if ("string" === typeof e) return w(e, t);
+              if ('string' === typeof e) return w(e, t);
               var n = Object.prototype.toString.call(e).slice(8, -1);
-              "Object" === n && e.constructor && (n = e.constructor.name);
-              if ("Map" === n || "Set" === n) return Array.from(e);
+              'Object' === n && e.constructor && (n = e.constructor.name);
+              if ('Map' === n || 'Set' === n) return Array.from(e);
               if (
-                "Arguments" === n ||
+                'Arguments' === n ||
                 /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
               )
                 return w(e, t);
             })(e)) ||
-            (t && e && "number" === typeof e.length)
+            (t && e && 'number' === typeof e.length)
           ) {
             n && (e = n);
             var i = 0,
@@ -9612,7 +9612,7 @@
             };
           }
           throw new TypeError(
-            "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+            'Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
           );
         }
         var o,
@@ -9647,9 +9647,9 @@
 
       function y(e) {
         var t = (function () {
-          if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
+          if ('undefined' === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
-          if ("function" === typeof Proxy) return !0;
+          if ('function' === typeof Proxy) return !0;
           try {
             return (
               Date.prototype.toString.call(
@@ -9672,8 +9672,8 @@
         };
       }
       var k = c.b.mark({
-          class: "cm-indentation-marker",
-          tagName: "span",
+          class: 'cm-indentation-marker',
+          tagName: 'span',
         }),
         S = (function (e) {
           Object(p.a)(n, e);
@@ -9691,7 +9691,7 @@
           return (
             Object(d.a)(n, [
               {
-                key: "eq",
+                key: 'eq',
                 value: function (e) {
                   return (
                     this.numIndent === e.numIndent &&
@@ -9700,17 +9700,17 @@
                 },
               },
               {
-                key: "toDOM",
+                key: 'toDOM',
                 value: function (e) {
                   var t = Object(v.n)(e.state),
-                    n = document.createElement("span");
-                  (n.style.top = "0"),
-                    (n.style.left = "4px"),
-                    (n.style.position = "absolute");
+                    n = document.createElement('span');
+                  (n.style.top = '0'),
+                    (n.style.left = '4px'),
+                    (n.style.position = 'absolute');
                   for (var i = 0; i < this.numIndent; i++) {
-                    var r = document.createElement("span");
-                    (r.className = "cm-indentation-marker"),
-                      (r.innerHTML = "".concat(" ".repeat(t))),
+                    var r = document.createElement('span');
+                    (r.className = 'cm-indentation-marker'),
+                      (r.innerHTML = ''.concat(' '.repeat(t))),
                       n.appendChild(r);
                   }
                   return n;
@@ -9723,10 +9723,10 @@
 
       function C(e, t, n) {
         for (var i = 0, r = 0, o = null, s = 0; s < e.length; s++) {
-          if (" " !== e[s] && "\t" !== e[s])
+          if (' ' !== e[s] && '\t' !== e[s])
             return r % t === 0 && 0 !== s && i++, i;
-          ("\t" === o || r % t === 0) && (i++, n && n(s)),
-            " " === e[s] ? r++ : (r = 0),
+          ('\t' === o || r % t === 0) && (i++, n && n(s)),
+            ' ' === e[s] ? r++ : (r = 0),
             (o = e[s]);
         }
         return i;
@@ -9777,7 +9777,7 @@
                       g = c.b.widget({
                         widget: new S(m, i),
                       });
-                    return n.add(t.from, t.from, g), (h = t.to + 1), "continue";
+                    return n.add(t.from, t.from, g), (h = t.to + 1), 'continue';
                   }
                   (u = C(r, i, function (e) {
                     var i = t.from + e;
@@ -9797,24 +9797,24 @@
         return n.finish();
       }
       var M = c.d.baseTheme({
-        ".cm-line": {
-          position: "relative",
+        '.cm-line': {
+          position: 'relative',
         },
-        ".cm-indentation-marker": {
-          display: "inline-block",
+        '.cm-indentation-marker': {
+          display: 'inline-block',
         },
-        "&light .cm-indentation-marker": {
+        '&light .cm-indentation-marker': {
           background:
             'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") left repeat-y',
         },
-        "&dark .cm-indentation-marker": {
+        '&dark .cm-indentation-marker': {
           background:
-            "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYHB3d/8PAAOIAdULw8qMAAAAAElFTkSuQmCC) left repeat-y",
+            'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYHB3d/8PAAOIAdULw8qMAAAAAElFTkSuQmCC) left repeat-y',
         },
       });
 
       function E(e, t, n) {
-        var i = [u.g.tabSize.of(e), v.t.of(t ? " ".repeat(e) : "\t")];
+        var i = [u.g.tabSize.of(e), v.t.of(t ? ' '.repeat(e) : '\t')];
         return n
           ? [
               c.f.define(
@@ -9837,9 +9837,9 @@
             ].concat(i)
           : i;
       }
-      var I = n("cpVT"),
-        L = n("ubVE"),
-        T = n("0bU4");
+      var I = n('cpVT'),
+        L = n('ubVE'),
+        T = n('0bU4');
 
       function P(e, t) {
         var n = Object.keys(e);
@@ -9873,133 +9873,133 @@
         }
         return e;
       }
-      var R = "var(--deprecated-color-background-1)",
-        N = "var(--deprecated-color-foreground-1)",
+      var R = 'var(--deprecated-color-background-1)',
+        N = 'var(--deprecated-color-foreground-1)',
         B = function (e, t) {
           return {
-            "&": {
+            '&': {
               backgroundColor: R,
               color: N,
-              "&.cm-focused": {
-                outline: "0 none",
+              '&.cm-focused': {
+                outline: '0 none',
               },
-              fontSize: "".concat(e, "px"),
+              fontSize: ''.concat(e, 'px'),
             },
-            ".cm-content": {
-              fontFamily: "var(--deprecated-font-family-monospace)",
-              paddingBottom: "".concat(t ? "400px" : "0px"),
+            '.cm-content': {
+              fontFamily: 'var(--deprecated-font-family-monospace)',
+              paddingBottom: ''.concat(t ? '400px' : '0px'),
             },
-            ".cm-scroller": {
-              overflow: "auto",
-              fontFamily: "var(--deprecated-font-family-monospace)",
-              fontSize: "".concat(e, "px"),
+            '.cm-scroller': {
+              overflow: 'auto',
+              fontFamily: 'var(--deprecated-font-family-monospace)',
+              fontSize: ''.concat(e, 'px'),
             },
-            ".cm-gutters": {
+            '.cm-gutters': {
               backgroundColor: R,
-              color: "var(--deprecated-color-foreground-3)",
-              border: "none",
-              paddingRight: "var(--deprecated-spacing-half)",
-              minWidth: "50px",
-              display: "flex",
-              justifyContent: "flex-end",
+              color: 'var(--deprecated-color-foreground-3)',
+              border: 'none',
+              paddingRight: 'var(--deprecated-spacing-half)',
+              minWidth: '50px',
+              display: 'flex',
+              justifyContent: 'flex-end',
             },
-            ".cm-selectionBackground": {
-              background: "var(--deprecated-color-primary-transparent-2)",
+            '.cm-selectionBackground': {
+              background: 'var(--deprecated-color-primary-transparent-2)',
             },
-            "&.cm-focused .cm-selectionBackgroundFocused": {
-              background: "var(--deprecated-color-primary-transparent-1)",
+            '&.cm-focused .cm-selectionBackgroundFocused': {
+              background: 'var(--deprecated-color-primary-transparent-1)',
             },
-            ".cm-cursor": {
-              borderLeftColor: "var(--deprecated-color-primary-2)",
+            '.cm-cursor': {
+              borderLeftColor: 'var(--deprecated-color-primary-2)',
             },
-            ".cm-cursorFocused": {
-              borderLeftColor: "var(--deprecated-color-primary-1)",
+            '.cm-cursorFocused': {
+              borderLeftColor: 'var(--deprecated-color-primary-1)',
             },
-            ".cm-activeLine": {
-              backgroundColor: "var(--deprecated-color-primary-transparent-3)",
+            '.cm-activeLine': {
+              backgroundColor: 'var(--deprecated-color-primary-transparent-3)',
             },
-            ".cm-specialChar": {
-              color: "var(--deprecated-color-negative-1)",
+            '.cm-specialChar': {
+              color: 'var(--deprecated-color-negative-1)',
             },
-            ".cm-placeholder": {
-              color: "var(--deprecated-color-foreground-2)",
-              display: "inline-block",
+            '.cm-placeholder': {
+              color: 'var(--deprecated-color-foreground-2)',
+              display: 'inline-block',
             },
-            ".cm-textfield": {
-              border: "1px solid var(--deprecated-color-border)",
+            '.cm-textfield': {
+              border: '1px solid var(--deprecated-color-border)',
               backgroundColor: R,
             },
-            ".cm-foldPlaceholder": {
-              padding: "0 var(--deprecated-spacing-half)",
-              borderRadius: "var(--deprecated-border-radius-1)",
-              backgroundColor: "var(--deprecated-color-background-3)",
-              border: "none",
-              color: "var(--deprecated-color-foreground-2)",
+            '.cm-foldPlaceholder': {
+              padding: '0 var(--deprecated-spacing-half)',
+              borderRadius: 'var(--deprecated-border-radius-1)',
+              backgroundColor: 'var(--deprecated-color-background-3)',
+              border: 'none',
+              color: 'var(--deprecated-color-foreground-2)',
             },
-            ".cm-panels": {
-              backgroundColor: "var(--deprecated-color-background-3)",
+            '.cm-panels': {
+              backgroundColor: 'var(--deprecated-color-background-3)',
               color: N,
             },
-            ".cm-panels.top": {
-              borderBottom: "2px solid var(--deprecated-color-border)",
+            '.cm-panels.top': {
+              borderBottom: '2px solid var(--deprecated-color-border)',
             },
-            ".cm-panels.bottom": {
-              borderTop: "2px solid var(--deprecated-color-border)",
+            '.cm-panels.bottom': {
+              borderTop: '2px solid var(--deprecated-color-border)',
             },
-            ".cm-searchMatch": {
-              backgroundColor: "var(--deprecated-color-primary-transparent-2)",
+            '.cm-searchMatch': {
+              backgroundColor: 'var(--deprecated-color-primary-transparent-2)',
             },
-            ".cm-searchMatch.selected": {
-              backgroundColor: "var(--deprecated-color-primary-transparent-1)",
+            '.cm-searchMatch.selected': {
+              backgroundColor: 'var(--deprecated-color-primary-transparent-1)',
             },
-            ".cm-matchingBracket, .cm-nonmatchingBracket": {
-              color: "inherit",
-              boxShadow: "inset 0 0 0 1px " + T.f.outlineDefault,
+            '.cm-matchingBracket, .cm-nonmatchingBracket': {
+              color: 'inherit',
+              boxShadow: 'inset 0 0 0 1px ' + T.f.outlineDefault,
             },
-            ".cm-tooltip": {
-              backgroundColor: "var(--deprecated-color-background-1)",
-              color: "var(--deprecated-color-foreground-1)",
-              boxShadow: "var(--deprecated-shadow-1)",
-              border: "1px solid var(--deprecated-color-border)",
-              borderRadius: "var(--deprecated-border-radius-1)",
-              padding: "var(--deprecated-spacing-half)",
+            '.cm-tooltip': {
+              backgroundColor: 'var(--deprecated-color-background-1)',
+              color: 'var(--deprecated-color-foreground-1)',
+              boxShadow: 'var(--deprecated-shadow-1)',
+              border: '1px solid var(--deprecated-color-border)',
+              borderRadius: 'var(--deprecated-border-radius-1)',
+              padding: 'var(--deprecated-spacing-half)',
             },
-            ".cm-tooltip.multiplayer-tooltip": {
-              backgroundColor: "transparent",
-              boxShadow: "none",
-              border: "0 none",
-              padding: "0px",
+            '.cm-tooltip.multiplayer-tooltip': {
+              backgroundColor: 'transparent',
+              boxShadow: 'none',
+              border: '0 none',
+              padding: '0px',
             },
-            ".cm-tooltip .multiplayer-cursor": {
-              top: "calc(100% - 1px)",
-              left: "-1px",
-              width: "2px",
-              borderRadius: "var(--deprecated-border-radius-1)",
-              pointerEvents: "none",
-              position: "absolute",
-              color: "transparent",
+            '.cm-tooltip .multiplayer-cursor': {
+              top: 'calc(100% - 1px)',
+              left: '-1px',
+              width: '2px',
+              borderRadius: 'var(--deprecated-border-radius-1)',
+              pointerEvents: 'none',
+              position: 'absolute',
+              color: 'transparent',
             },
-            ".cm-tooltip .multiplayer-label": {
-              boxShadow: "var(--deprecated-shadow-1)",
-              padding: "1px",
-              position: "relative",
-              left: "-1px",
-              borderRadius: "var(--deprecated-border-radius-1)",
-              borderBottomLeftRadius: "0px",
-              animation: "fadeOut 2s ease-in forwards",
+            '.cm-tooltip .multiplayer-label': {
+              boxShadow: 'var(--deprecated-shadow-1)',
+              padding: '1px',
+              position: 'relative',
+              left: '-1px',
+              borderRadius: 'var(--deprecated-border-radius-1)',
+              borderBottomLeftRadius: '0px',
+              animation: 'fadeOut 2s ease-in forwards',
             },
-            "@keyframes fadeOut": {
-              "0%": {
+            '@keyframes fadeOut': {
+              '0%': {
                 opacity: 1,
               },
-              "100%": {
+              '100%': {
                 opacity: 0,
               },
             },
-            ".cm-tooltip.autocomplete": {
-              "& > ul > li[aria-selected]": {
-                backgroundColor: "var(--deprecated-color-primary-1)",
-                color: "var(--white)",
+            '.cm-tooltip.autocomplete': {
+              '& > ul > li[aria-selected]': {
+                backgroundColor: 'var(--deprecated-color-primary-1)',
+                color: 'var(--white)',
               },
             },
           };
@@ -10009,7 +10009,7 @@
         var t = e.theme,
           n = e.fontSize,
           i = e.hasExtraPadding;
-        return "replitDark" === t
+        return 'replitDark' === t
           ? (function (e) {
               return {
                 base: c.d.theme(D({}, B(e.fontSize, e.hasExtraPadding)), {
@@ -10018,23 +10018,23 @@
                 highlight: L.a.define([
                   {
                     tag: L.d.link,
-                    textDecoration: "underline",
+                    textDecoration: 'underline',
                   },
                   {
                     tag: L.d.heading,
-                    fontWeight: "bold",
+                    fontWeight: 'bold',
                   },
                   {
                     tag: L.d.emphasis,
-                    fontStyle: "italic",
+                    fontStyle: 'italic',
                   },
                   {
                     tag: L.d.strong,
-                    fontWeight: "bold",
+                    fontWeight: 'bold',
                   },
                   {
                     tag: [L.d.keyword, L.d.operator],
-                    color: "#569cd6",
+                    color: '#569cd6',
                   },
                   {
                     tag: [
@@ -10044,31 +10044,31 @@
                       L.d.contentSeparator,
                       L.d.labelName,
                     ],
-                    color: "#70b6f0",
+                    color: '#70b6f0',
                   },
                   {
                     tag: [L.d.literal, L.d.inserted, L.d.number],
-                    color: "#b5cea8",
+                    color: '#b5cea8',
                   },
                   {
                     tag: [L.d.string, L.d.deleted],
-                    color: "#ce9178",
+                    color: '#ce9178',
                   },
                   {
                     tag: [L.d.regexp, L.d.escape, L.d.special(L.d.string)],
-                    color: "#d16969",
+                    color: '#d16969',
                   },
                   {
                     tag: L.d.definition(L.d.variableName),
-                    color: "var(--deprecated-color-foreground-1)",
+                    color: 'var(--deprecated-color-foreground-1)',
                   },
                   {
                     tag: L.d.local(L.d.variableName),
-                    color: "#74b0df",
+                    color: '#74b0df',
                   },
                   {
                     tag: [L.d.typeName, L.d.namespace],
-                    color: "#dcdcaa",
+                    color: '#dcdcaa',
                   },
                   {
                     tag: [
@@ -10077,23 +10077,23 @@
                       L.d.special(L.d.variableName),
                       L.d.macroName,
                     ],
-                    color: "#dcdcaa",
+                    color: '#dcdcaa',
                   },
                   {
                     tag: L.d.definition(L.d.propertyName),
-                    color: "#9cdcfe",
+                    color: '#9cdcfe',
                   },
                   {
                     tag: L.d.comment,
-                    color: "var(--deprecated-color-foreground-2)",
+                    color: 'var(--deprecated-color-foreground-2)',
                   },
                   {
                     tag: L.d.meta,
-                    color: "#74b0df",
+                    color: '#74b0df',
                   },
                   {
                     tag: L.d.invalid,
-                    color: "#ff69b4",
+                    color: '#ff69b4',
                   },
                 ]),
               };
@@ -10109,23 +10109,23 @@
                 highlight: L.a.define([
                   {
                     tag: L.d.link,
-                    textDecoration: "underline",
+                    textDecoration: 'underline',
                   },
                   {
                     tag: L.d.heading,
-                    fontWeight: "bold",
+                    fontWeight: 'bold',
                   },
                   {
                     tag: L.d.emphasis,
-                    fontStyle: "italic",
+                    fontStyle: 'italic',
                   },
                   {
                     tag: L.d.strong,
-                    fontWeight: "bold",
+                    fontWeight: 'bold',
                   },
                   {
                     tag: [L.d.keyword, L.d.operator],
-                    color: "#0072BD",
+                    color: '#0072BD',
                   },
                   {
                     tag: [
@@ -10135,31 +10135,31 @@
                       L.d.contentSeparator,
                       L.d.labelName,
                     ],
-                    color: "#0072BD",
+                    color: '#0072BD',
                   },
                   {
                     tag: [L.d.literal, L.d.inserted, L.d.number],
-                    color: "#09885a",
+                    color: '#09885a',
                   },
                   {
                     tag: [L.d.string, L.d.deleted],
-                    color: "#a31515",
+                    color: '#a31515',
                   },
                   {
                     tag: [L.d.regexp, L.d.escape, L.d.special(L.d.string)],
-                    color: "#227e80",
+                    color: '#227e80',
                   },
                   {
                     tag: L.d.definition(L.d.variableName),
-                    color: "var(--deprecated-color-foreground-1)",
+                    color: 'var(--deprecated-color-foreground-1)',
                   },
                   {
                     tag: L.d.local(L.d.variableName),
-                    color: "#001188",
+                    color: '#001188',
                   },
                   {
                     tag: [L.d.typeName, L.d.namespace],
-                    color: "#7b2cb3",
+                    color: '#7b2cb3',
                   },
                   {
                     tag: [
@@ -10168,23 +10168,23 @@
                       L.d.special(L.d.variableName),
                       L.d.macroName,
                     ],
-                    color: "#7b2cb3",
+                    color: '#7b2cb3',
                   },
                   {
                     tag: L.d.definition(L.d.propertyName),
-                    color: "#984e9c",
+                    color: '#984e9c',
                   },
                   {
                     tag: L.d.comment,
-                    color: "#aaaaaa",
+                    color: '#aaaaaa',
                   },
                   {
                     tag: L.d.meta,
-                    color: "#00808",
+                    color: '#00808',
                   },
                   {
                     tag: L.d.invalid,
-                    color: "#ff69b4",
+                    color: '#ff69b4',
                   },
                 ]),
               };
@@ -10197,13 +10197,13 @@
       function z(e) {
         return n
           .e(272)
-          .then(n.bind(null, "GSh6"))
+          .then(n.bind(null, 'GSh6'))
           .then((t) => new v.e(t.StreamLanguage.define(e)));
       }
 
       function F(e) {
         return Promise.all([n.e(8), n.e(187)])
-          .then(n.bind(null, "kd5f"))
+          .then(n.bind(null, 'kd5f'))
           .then((t) =>
             t.sql({
               dialect: t[e],
@@ -10212,77 +10212,77 @@
       }
       const V = [
         v.d.of({
-          name: "C",
-          extensions: ["c", "h", "ino"],
+          name: 'C',
+          extensions: ['c', 'h', 'ino'],
           load: () =>
             Promise.all([n.e(8), n.e(64)])
-              .then(n.bind(null, "Svhn"))
+              .then(n.bind(null, 'Svhn'))
               .then((e) => e.cpp()),
         }),
         v.d.of({
-          name: "C++",
-          alias: ["cpp"],
-          extensions: ["cpp", "c++", "cc", "cxx", "hpp", "h++", "hh", "hxx"],
+          name: 'C++',
+          alias: ['cpp'],
+          extensions: ['cpp', 'c++', 'cc', 'cxx', 'hpp', 'h++', 'hh', 'hxx'],
           load: () =>
             Promise.all([n.e(8), n.e(64)])
-              .then(n.bind(null, "Svhn"))
+              .then(n.bind(null, 'Svhn'))
               .then((e) => e.cpp()),
         }),
         v.d.of({
-          name: "CQL",
-          alias: ["cassandra"],
-          extensions: ["cql"],
-          load: () => F("Cassandra"),
+          name: 'CQL',
+          alias: ['cassandra'],
+          extensions: ['cql'],
+          load: () => F('Cassandra'),
         }),
         v.d.of({
-          name: "CSS",
-          extensions: ["css"],
+          name: 'CSS',
+          extensions: ['css'],
           load: () =>
             Promise.all([n.e(8), n.e(19)])
-              .then(n.bind(null, "Bxk6"))
+              .then(n.bind(null, 'Bxk6'))
               .then((e) => e.css()),
         }),
         v.d.of({
-          name: "HTML",
-          alias: ["xhtml"],
-          extensions: ["html", "htm", "handlebars", "hbs"],
+          name: 'HTML',
+          alias: ['xhtml'],
+          extensions: ['html', 'htm', 'handlebars', 'hbs'],
           load: () =>
             Promise.all([n.e(8), n.e(19), n.e(18)])
-              .then(n.bind(null, "PQU8"))
+              .then(n.bind(null, 'PQU8'))
               .then((e) => e.html()),
         }),
         v.d.of({
-          name: "Java",
-          extensions: ["java"],
+          name: 'Java',
+          extensions: ['java'],
           load: () =>
             Promise.all([n.e(8), n.e(183)])
-              .then(n.bind(null, "7GUI"))
+              .then(n.bind(null, '7GUI'))
               .then((e) => e.java()),
         }),
         v.d.of({
-          name: "JavaScript",
-          alias: ["ecmascript", "js", "node"],
-          extensions: ["js", "mjs", "cjs"],
+          name: 'JavaScript',
+          alias: ['ecmascript', 'js', 'node'],
+          extensions: ['js', 'mjs', 'cjs'],
           load: () =>
             Promise.all([n.e(8), n.e(19)])
-              .then(n.bind(null, "tzg4"))
+              .then(n.bind(null, 'tzg4'))
               .then((e) => e.javascript()),
         }),
         v.d.of({
-          name: "JSON",
-          alias: ["json5"],
-          extensions: ["json", "map"],
+          name: 'JSON',
+          alias: ['json5'],
+          extensions: ['json', 'map'],
           load: () =>
             Promise.all([n.e(8), n.e(184)])
-              .then(n.bind(null, "Uo6K"))
+              .then(n.bind(null, 'Uo6K'))
               .then((e) => e.json()),
         }),
         v.d.of({
-          name: "JSX",
-          extensions: ["jsx"],
+          name: 'JSX',
+          extensions: ['jsx'],
           load: () =>
             Promise.all([n.e(8), n.e(19)])
-              .then(n.bind(null, "tzg4"))
+              .then(n.bind(null, 'tzg4'))
               .then((e) =>
                 e.javascript({
                   jsx: !0,
@@ -10290,66 +10290,66 @@
               ),
         }),
         v.d.of({
-          name: "MariaDB SQL",
-          load: () => F("MariaSQL"),
+          name: 'MariaDB SQL',
+          load: () => F('MariaSQL'),
         }),
         v.d.of({
-          name: "Markdown",
-          extensions: ["md", "markdown", "mkd"],
+          name: 'Markdown',
+          extensions: ['md', 'markdown', 'mkd'],
           load: () =>
             Promise.all([n.e(8), n.e(19), n.e(18), n.e(46)])
-              .then(n.bind(null, "S0tx"))
+              .then(n.bind(null, 'S0tx'))
               .then((e) => e.markdown()),
         }),
         v.d.of({
-          name: "MS SQL",
-          load: () => F("MSSQL"),
+          name: 'MS SQL',
+          load: () => F('MSSQL'),
         }),
         v.d.of({
-          name: "MySQL",
-          load: () => F("MySQL"),
+          name: 'MySQL',
+          load: () => F('MySQL'),
         }),
         v.d.of({
-          name: "PLSQL",
-          extensions: ["pls"],
-          load: () => F("PLSQL"),
+          name: 'PLSQL',
+          extensions: ['pls'],
+          load: () => F('PLSQL'),
         }),
         v.d.of({
-          name: "PostgreSQL",
-          load: () => F("PostgreSQL"),
+          name: 'PostgreSQL',
+          load: () => F('PostgreSQL'),
         }),
         v.d.of({
-          name: "Python",
-          extensions: ["BUILD", "bzl", "py", "pyw"],
+          name: 'Python',
+          extensions: ['BUILD', 'bzl', 'py', 'pyw'],
           filename: /^(BUCK|BUILD)$/,
           load: () =>
             Promise.all([n.e(8), n.e(185)])
-              .then(n.bind(null, "pAYy"))
+              .then(n.bind(null, 'pAYy'))
               .then((e) => e.python()),
         }),
         v.d.of({
-          name: "Rust",
-          extensions: ["rs"],
+          name: 'Rust',
+          extensions: ['rs'],
           load: () =>
             Promise.all([n.e(8), n.e(186)])
-              .then(n.bind(null, "ALsg"))
+              .then(n.bind(null, 'ALsg'))
               .then((e) => e.rust()),
         }),
         v.d.of({
-          name: "SQL",
-          extensions: ["sql"],
-          load: () => F("StandardSQL"),
+          name: 'SQL',
+          extensions: ['sql'],
+          load: () => F('StandardSQL'),
         }),
         v.d.of({
-          name: "SQLite",
-          load: () => F("SQLite"),
+          name: 'SQLite',
+          load: () => F('SQLite'),
         }),
         v.d.of({
-          name: "TSX",
-          extensions: ["tsx"],
+          name: 'TSX',
+          extensions: ['tsx'],
           load: () =>
             Promise.all([n.e(8), n.e(19)])
-              .then(n.bind(null, "tzg4"))
+              .then(n.bind(null, 'tzg4'))
               .then((e) =>
                 e.javascript({
                   jsx: !0,
@@ -10358,12 +10358,12 @@
               ),
         }),
         v.d.of({
-          name: "TypeScript",
-          alias: ["ts"],
-          extensions: ["ts"],
+          name: 'TypeScript',
+          alias: ['ts'],
+          extensions: ['ts'],
           load: () =>
             Promise.all([n.e(8), n.e(19)])
-              .then(n.bind(null, "tzg4"))
+              .then(n.bind(null, 'tzg4'))
               .then((e) =>
                 e.javascript({
                   typescript: !0,
@@ -10371,1084 +10371,1084 @@
               ),
         }),
         v.d.of({
-          name: "XML",
-          alias: ["rss", "wsdl", "xsd"],
-          extensions: ["xml", "xsl", "xsd", "svg"],
+          name: 'XML',
+          alias: ['rss', 'wsdl', 'xsd'],
+          extensions: ['xml', 'xsl', 'xsd', 'svg'],
           load: () =>
             Promise.all([n.e(8), n.e(188)])
-              .then(n.bind(null, "Kccl"))
+              .then(n.bind(null, 'Kccl'))
               .then((e) => e.xml()),
         }),
         v.d.of({
-          name: "APL",
-          extensions: ["dyalog", "apl"],
+          name: 'APL',
+          extensions: ['dyalog', 'apl'],
           load: () =>
             n
               .e(189)
-              .then(n.bind(null, "g9VL"))
+              .then(n.bind(null, 'g9VL'))
               .then((e) => z(e.apl)),
         }),
         v.d.of({
-          name: "PGP",
-          alias: ["asciiarmor"],
-          extensions: ["asc", "pgp", "sig"],
+          name: 'PGP',
+          alias: ['asciiarmor'],
+          extensions: ['asc', 'pgp', 'sig'],
           load: () =>
             n
               .e(190)
-              .then(n.bind(null, "96P/"))
+              .then(n.bind(null, '96P/'))
               .then((e) => z(e.asciiArmor)),
         }),
         v.d.of({
-          name: "ASN.1",
-          extensions: ["asn", "asn1"],
+          name: 'ASN.1',
+          extensions: ['asn', 'asn1'],
           load: () =>
             n
               .e(191)
-              .then(n.bind(null, "wBE/"))
+              .then(n.bind(null, 'wBE/'))
               .then((e) => z(e.asn1({}))),
         }),
         v.d.of({
-          name: "Asterisk",
+          name: 'Asterisk',
           filename: /^extensions\.conf$/i,
           load: () =>
             n
               .e(192)
-              .then(n.bind(null, "qy5e"))
+              .then(n.bind(null, 'qy5e'))
               .then((e) => z(e.asterisk)),
         }),
         v.d.of({
-          name: "Brainfuck",
-          extensions: ["b", "bf"],
+          name: 'Brainfuck',
+          extensions: ['b', 'bf'],
           load: () =>
             n
               .e(193)
-              .then(n.bind(null, "M3ys"))
+              .then(n.bind(null, 'M3ys'))
               .then((e) => z(e.brainfuck)),
         }),
         v.d.of({
-          name: "Cobol",
-          extensions: ["cob", "cpy"],
+          name: 'Cobol',
+          extensions: ['cob', 'cpy'],
           load: () =>
             n
               .e(195)
-              .then(n.bind(null, "jV/Y"))
+              .then(n.bind(null, 'jV/Y'))
               .then((e) => z(e.cobol)),
         }),
         v.d.of({
-          name: "C#",
-          alias: ["csharp", "cs"],
-          extensions: ["cs"],
+          name: 'C#',
+          alias: ['csharp', 'cs'],
+          extensions: ['cs'],
           load: () =>
             n
               .e(30)
-              .then(n.bind(null, "SR4r"))
+              .then(n.bind(null, 'SR4r'))
               .then((e) => z(e.csharp)),
         }),
         v.d.of({
-          name: "Clojure",
-          extensions: ["clj", "cljc", "cljx"],
+          name: 'Clojure',
+          extensions: ['clj', 'cljc', 'cljx'],
           load: () =>
             n
               .e(47)
-              .then(n.bind(null, "cSPx"))
+              .then(n.bind(null, 'cSPx'))
               .then((e) => z(e.clojure)),
         }),
         v.d.of({
-          name: "ClojureScript",
-          extensions: ["cljs"],
+          name: 'ClojureScript',
+          extensions: ['cljs'],
           load: () =>
             n
               .e(47)
-              .then(n.bind(null, "cSPx"))
+              .then(n.bind(null, 'cSPx'))
               .then((e) => z(e.clojure)),
         }),
         v.d.of({
-          name: "Closure Stylesheets (GSS)",
-          extensions: ["gss"],
+          name: 'Closure Stylesheets (GSS)',
+          extensions: ['gss'],
           load: () =>
             n
               .e(48)
-              .then(n.bind(null, "OIku"))
+              .then(n.bind(null, 'OIku'))
               .then((e) => z(e.gss)),
         }),
         v.d.of({
-          name: "CMake",
-          extensions: ["cmake", "cmake.in"],
+          name: 'CMake',
+          extensions: ['cmake', 'cmake.in'],
           filename: /^CMakeLists\.txt$/,
           load: () =>
             n
               .e(194)
-              .then(n.bind(null, "RHrG"))
+              .then(n.bind(null, 'RHrG'))
               .then((e) => z(e.cmake)),
         }),
         v.d.of({
-          name: "CoffeeScript",
-          alias: ["coffee", "coffee-script"],
-          extensions: ["coffee"],
+          name: 'CoffeeScript',
+          alias: ['coffee', 'coffee-script'],
+          extensions: ['coffee'],
           load: () =>
             n
               .e(196)
-              .then(n.bind(null, "mpcK"))
+              .then(n.bind(null, 'mpcK'))
               .then((e) => z(e.coffeeScript)),
         }),
         v.d.of({
-          name: "Common Lisp",
-          alias: ["lisp"],
-          extensions: ["cl", "lisp", "el"],
+          name: 'Common Lisp',
+          alias: ['lisp'],
+          extensions: ['cl', 'lisp', 'el'],
           load: () =>
             n
               .e(197)
-              .then(n.bind(null, "IIfy"))
+              .then(n.bind(null, 'IIfy'))
               .then((e) => z(e.commonLisp)),
         }),
         v.d.of({
-          name: "Cypher",
-          extensions: ["cyp", "cypher"],
+          name: 'Cypher',
+          extensions: ['cyp', 'cypher'],
           load: () =>
             n
               .e(199)
-              .then(n.bind(null, "Z15M"))
+              .then(n.bind(null, 'Z15M'))
               .then((e) => z(e.cypher)),
         }),
         v.d.of({
-          name: "Cython",
-          extensions: ["pyx", "pxd", "pxi"],
+          name: 'Cython',
+          extensions: ['pyx', 'pxd', 'pxi'],
           load: () =>
             n
               .e(240)
-              .then(n.bind(null, "8PrD"))
+              .then(n.bind(null, '8PrD'))
               .then((e) => z(e.cython)),
         }),
         v.d.of({
-          name: "Crystal",
-          extensions: ["cr"],
+          name: 'Crystal',
+          extensions: ['cr'],
           load: () =>
             n
               .e(198)
-              .then(n.bind(null, "Yidh"))
+              .then(n.bind(null, 'Yidh'))
               .then((e) => z(e.crystal)),
         }),
         v.d.of({
-          name: "D",
-          extensions: ["d"],
+          name: 'D',
+          extensions: ['d'],
           load: () =>
             n
               .e(200)
-              .then(n.bind(null, "nwm4"))
+              .then(n.bind(null, 'nwm4'))
               .then((e) => z(e.d)),
         }),
         v.d.of({
-          name: "Dart",
-          extensions: ["dart"],
+          name: 'Dart',
+          extensions: ['dart'],
           load: () =>
             n
               .e(30)
-              .then(n.bind(null, "SR4r"))
+              .then(n.bind(null, 'SR4r'))
               .then((e) => z(e.dart)),
         }),
         v.d.of({
-          name: "diff",
-          extensions: ["diff", "patch"],
+          name: 'diff',
+          extensions: ['diff', 'patch'],
           load: () =>
             n
               .e(201)
-              .then(n.bind(null, "hTkR"))
+              .then(n.bind(null, 'hTkR'))
               .then((e) => z(e.diff)),
         }),
         v.d.of({
-          name: "Dockerfile",
+          name: 'Dockerfile',
           filename: /^Dockerfile$/,
           load: () =>
             n
               .e(177)
-              .then(n.bind(null, "Wzah"))
+              .then(n.bind(null, 'Wzah'))
               .then((e) => z(e.dockerFile)),
         }),
         v.d.of({
-          name: "DTD",
-          extensions: ["dtd"],
+          name: 'DTD',
+          extensions: ['dtd'],
           load: () =>
             n
               .e(202)
-              .then(n.bind(null, "RfdW"))
+              .then(n.bind(null, 'RfdW'))
               .then((e) => z(e.dtd)),
         }),
         v.d.of({
-          name: "Dylan",
-          extensions: ["dylan", "dyl", "intr"],
+          name: 'Dylan',
+          extensions: ['dylan', 'dyl', 'intr'],
           load: () =>
             n
               .e(203)
-              .then(n.bind(null, "67s+"))
+              .then(n.bind(null, '67s+'))
               .then((e) => z(e.dylan)),
         }),
         v.d.of({
-          name: "EBNF",
+          name: 'EBNF',
           load: () =>
             n
               .e(204)
-              .then(n.bind(null, "vIuv"))
+              .then(n.bind(null, 'vIuv'))
               .then((e) => z(e.ebnf)),
         }),
         v.d.of({
-          name: "ECL",
-          extensions: ["ecl"],
+          name: 'ECL',
+          extensions: ['ecl'],
           load: () =>
             n
               .e(205)
-              .then(n.bind(null, "EvdV"))
+              .then(n.bind(null, 'EvdV'))
               .then((e) => z(e.ecl)),
         }),
         v.d.of({
-          name: "edn",
-          extensions: ["edn"],
+          name: 'edn',
+          extensions: ['edn'],
           load: () =>
             n
               .e(47)
-              .then(n.bind(null, "cSPx"))
+              .then(n.bind(null, 'cSPx'))
               .then((e) => z(e.clojure)),
         }),
         v.d.of({
-          name: "Eiffel",
-          extensions: ["e"],
+          name: 'Eiffel',
+          extensions: ['e'],
           load: () =>
             n
               .e(206)
-              .then(n.bind(null, "+CMO"))
+              .then(n.bind(null, '+CMO'))
               .then((e) => z(e.eiffel)),
         }),
         v.d.of({
-          name: "Elm",
-          extensions: ["elm"],
+          name: 'Elm',
+          extensions: ['elm'],
           load: () =>
             n
               .e(207)
-              .then(n.bind(null, "Eu0O"))
+              .then(n.bind(null, 'Eu0O'))
               .then((e) => z(e.elm)),
         }),
         v.d.of({
-          name: "Erlang",
-          extensions: ["erl"],
+          name: 'Erlang',
+          extensions: ['erl'],
           load: () =>
             n
               .e(208)
-              .then(n.bind(null, "+L+n"))
+              .then(n.bind(null, '+L+n'))
               .then((e) => z(e.erlang)),
         }),
         v.d.of({
-          name: "Esper",
+          name: 'Esper',
           load: () =>
             n
               .e(51)
-              .then(n.bind(null, "oOL1"))
+              .then(n.bind(null, 'oOL1'))
               .then((e) => z(e.esper)),
         }),
         v.d.of({
-          name: "Factor",
-          extensions: ["factor"],
+          name: 'Factor',
+          extensions: ['factor'],
           load: () =>
             n
               .e(178)
-              .then(n.bind(null, "lhRg"))
+              .then(n.bind(null, 'lhRg'))
               .then((e) => z(e.factor)),
         }),
         v.d.of({
-          name: "FCL",
+          name: 'FCL',
           load: () =>
             n
               .e(209)
-              .then(n.bind(null, "au/F"))
+              .then(n.bind(null, 'au/F'))
               .then((e) => z(e.fcl)),
         }),
         v.d.of({
-          name: "Forth",
-          extensions: ["forth", "fth", "4th"],
+          name: 'Forth',
+          extensions: ['forth', 'fth', '4th'],
           load: () =>
             n
               .e(210)
-              .then(n.bind(null, "/Lqz"))
+              .then(n.bind(null, '/Lqz'))
               .then((e) => z(e.forth)),
         }),
         v.d.of({
-          name: "Fortran",
-          extensions: ["f", "for", "f77", "f90", "f95"],
+          name: 'Fortran',
+          extensions: ['f', 'for', 'f77', 'f90', 'f95'],
           load: () =>
             n
               .e(211)
-              .then(n.bind(null, "YzgE"))
+              .then(n.bind(null, 'YzgE'))
               .then((e) => z(e.fortran)),
         }),
         v.d.of({
-          name: "F#",
-          alias: ["fsharp"],
-          extensions: ["fs"],
+          name: 'F#',
+          alias: ['fsharp'],
+          extensions: ['fs'],
           load: () =>
             n
               .e(49)
-              .then(n.bind(null, "oLAf"))
+              .then(n.bind(null, 'oLAf'))
               .then((e) => z(e.fSharp)),
         }),
         v.d.of({
-          name: "Gas",
-          extensions: ["s"],
+          name: 'Gas',
+          extensions: ['s'],
           load: () =>
             n
               .e(212)
-              .then(n.bind(null, "ZPlC"))
+              .then(n.bind(null, 'ZPlC'))
               .then((e) => z(e.gas)),
         }),
         v.d.of({
-          name: "Gherkin",
-          extensions: ["feature"],
+          name: 'Gherkin',
+          extensions: ['feature'],
           load: () =>
             n
               .e(213)
-              .then(n.bind(null, "FozL"))
+              .then(n.bind(null, 'FozL'))
               .then((e) => z(e.gherkin)),
         }),
         v.d.of({
-          name: "Go",
-          extensions: ["go"],
+          name: 'Go',
+          extensions: ['go'],
           load: () =>
             n
               .e(214)
-              .then(n.bind(null, "griq"))
+              .then(n.bind(null, 'griq'))
               .then((e) => z(e.go)),
         }),
         v.d.of({
-          name: "Groovy",
-          extensions: ["groovy", "gradle"],
+          name: 'Groovy',
+          extensions: ['groovy', 'gradle'],
           filename: /^Jenkinsfile$/,
           load: () =>
             n
               .e(215)
-              .then(n.bind(null, "Np2s"))
+              .then(n.bind(null, 'Np2s'))
               .then((e) => z(e.groovy)),
         }),
         v.d.of({
-          name: "Haskell",
-          extensions: ["hs"],
+          name: 'Haskell',
+          extensions: ['hs'],
           load: () =>
             n
               .e(216)
-              .then(n.bind(null, "nxWY"))
+              .then(n.bind(null, 'nxWY'))
               .then((e) => z(e.haskell)),
         }),
         v.d.of({
-          name: "Haxe",
-          extensions: ["hx"],
+          name: 'Haxe',
+          extensions: ['hx'],
           load: () =>
             n
               .e(65)
-              .then(n.bind(null, "pUO9"))
+              .then(n.bind(null, 'pUO9'))
               .then((e) => z(e.haxe)),
         }),
         v.d.of({
-          name: "HXML",
-          extensions: ["hxml"],
+          name: 'HXML',
+          extensions: ['hxml'],
           load: () =>
             n
               .e(65)
-              .then(n.bind(null, "pUO9"))
+              .then(n.bind(null, 'pUO9'))
               .then((e) => z(e.hxml)),
         }),
         v.d.of({
-          name: "HTTP",
+          name: 'HTTP',
           load: () =>
             n
               .e(217)
-              .then(n.bind(null, "+Tez"))
+              .then(n.bind(null, '+Tez'))
               .then((e) => z(e.http)),
         }),
         v.d.of({
-          name: "IDL",
-          extensions: ["pro"],
+          name: 'IDL',
+          extensions: ['pro'],
           load: () =>
             n
               .e(218)
-              .then(n.bind(null, "MXbv"))
+              .then(n.bind(null, 'MXbv'))
               .then((e) => z(e.idl)),
         }),
         v.d.of({
-          name: "JSON-LD",
-          alias: ["jsonld"],
-          extensions: ["jsonld"],
+          name: 'JSON-LD',
+          alias: ['jsonld'],
+          extensions: ['jsonld'],
           load: () =>
             n
               .e(219)
-              .then(n.bind(null, "tsaj"))
+              .then(n.bind(null, 'tsaj'))
               .then((e) => z(e.jsonld)),
         }),
         v.d.of({
-          name: "Jinja2",
-          extensions: ["j2", "jinja", "jinja2"],
+          name: 'Jinja2',
+          extensions: ['j2', 'jinja', 'jinja2'],
           load: () =>
             n
               .e(220)
-              .then(n.bind(null, "cCsL"))
+              .then(n.bind(null, 'cCsL'))
               .then((e) => z(e.jinja2)),
         }),
         v.d.of({
-          name: "Julia",
-          extensions: ["jl"],
+          name: 'Julia',
+          extensions: ['jl'],
           load: () =>
             n
               .e(221)
-              .then(n.bind(null, "I2Bw"))
+              .then(n.bind(null, 'I2Bw'))
               .then((e) => z(e.julia)),
         }),
         v.d.of({
-          name: "Kotlin",
-          extensions: ["kt"],
+          name: 'Kotlin',
+          extensions: ['kt'],
           load: () =>
             n
               .e(30)
-              .then(n.bind(null, "SR4r"))
+              .then(n.bind(null, 'SR4r'))
               .then((e) => z(e.kotlin)),
         }),
         v.d.of({
-          name: "LESS",
-          extensions: ["less"],
+          name: 'LESS',
+          extensions: ['less'],
           load: () =>
             n
               .e(48)
-              .then(n.bind(null, "OIku"))
+              .then(n.bind(null, 'OIku'))
               .then((e) => z(e.less)),
         }),
         v.d.of({
-          name: "LiveScript",
-          alias: ["ls"],
-          extensions: ["ls"],
+          name: 'LiveScript',
+          alias: ['ls'],
+          extensions: ['ls'],
           load: () =>
             n
               .e(222)
-              .then(n.bind(null, "RYTb"))
+              .then(n.bind(null, 'RYTb'))
               .then((e) => z(e.liveScript)),
         }),
         v.d.of({
-          name: "Lua",
-          extensions: ["lua"],
+          name: 'Lua',
+          extensions: ['lua'],
           load: () =>
             n
               .e(223)
-              .then(n.bind(null, "uvw6"))
+              .then(n.bind(null, 'uvw6'))
               .then((e) => z(e.lua)),
         }),
         v.d.of({
-          name: "mIRC",
+          name: 'mIRC',
           load: () =>
             n
               .e(226)
-              .then(n.bind(null, "F4Vt"))
+              .then(n.bind(null, 'F4Vt'))
               .then((e) => z(e.mirc)),
         }),
         v.d.of({
-          name: "Mathematica",
-          extensions: ["m", "nb", "wl", "wls"],
+          name: 'Mathematica',
+          extensions: ['m', 'nb', 'wl', 'wls'],
           load: () =>
             n
               .e(224)
-              .then(n.bind(null, "PzU8"))
+              .then(n.bind(null, 'PzU8'))
               .then((e) => z(e.mathematica)),
         }),
         v.d.of({
-          name: "Modelica",
-          extensions: ["mo"],
+          name: 'Modelica',
+          extensions: ['mo'],
           load: () =>
             n
               .e(227)
-              .then(n.bind(null, "3/kI"))
+              .then(n.bind(null, '3/kI'))
               .then((e) => z(e.modelica)),
         }),
         v.d.of({
-          name: "MUMPS",
-          extensions: ["mps"],
+          name: 'MUMPS',
+          extensions: ['mps'],
           load: () =>
             n
               .e(228)
-              .then(n.bind(null, "ULPp"))
+              .then(n.bind(null, 'ULPp'))
               .then((e) => z(e.mumps)),
         }),
         v.d.of({
-          name: "mbox",
-          extensions: ["mbox"],
+          name: 'mbox',
+          extensions: ['mbox'],
           load: () =>
             n
               .e(225)
-              .then(n.bind(null, "Q18N"))
+              .then(n.bind(null, 'Q18N'))
               .then((e) => z(e.mbox)),
         }),
         v.d.of({
-          name: "Nginx",
+          name: 'Nginx',
           filename: /nginx.*\.conf$/i,
           load: () =>
             n
               .e(229)
-              .then(n.bind(null, "ICq2"))
+              .then(n.bind(null, 'ICq2'))
               .then((e) => z(e.nginx)),
         }),
         v.d.of({
-          name: "NSIS",
-          extensions: ["nsh", "nsi"],
+          name: 'NSIS',
+          extensions: ['nsh', 'nsi'],
           load: () =>
             n
               .e(179)
-              .then(n.bind(null, "8u88"))
+              .then(n.bind(null, '8u88'))
               .then((e) => z(e.nsis)),
         }),
         v.d.of({
-          name: "NTriples",
-          extensions: ["nt", "nq"],
+          name: 'NTriples',
+          extensions: ['nt', 'nq'],
           load: () =>
             n
               .e(230)
-              .then(n.bind(null, "lBKo"))
+              .then(n.bind(null, 'lBKo'))
               .then((e) => z(e.ntriples)),
         }),
         v.d.of({
-          name: "Objective-C",
-          alias: ["objective-c", "objc"],
-          extensions: ["m"],
+          name: 'Objective-C',
+          alias: ['objective-c', 'objc'],
+          extensions: ['m'],
           load: () =>
             n
               .e(30)
-              .then(n.bind(null, "SR4r"))
+              .then(n.bind(null, 'SR4r'))
               .then((e) => z(e.objectiveC)),
         }),
         v.d.of({
-          name: "Objective-C++",
-          alias: ["objective-c++", "objc++"],
-          extensions: ["mm"],
+          name: 'Objective-C++',
+          alias: ['objective-c++', 'objc++'],
+          extensions: ['mm'],
           load: () =>
             n
               .e(30)
-              .then(n.bind(null, "SR4r"))
+              .then(n.bind(null, 'SR4r'))
               .then((e) => z(e.objectiveCpp)),
         }),
         v.d.of({
-          name: "OCaml",
-          extensions: ["ml", "mli", "mll", "mly"],
+          name: 'OCaml',
+          extensions: ['ml', 'mli', 'mll', 'mly'],
           load: () =>
             n
               .e(49)
-              .then(n.bind(null, "oLAf"))
+              .then(n.bind(null, 'oLAf'))
               .then((e) => z(e.oCaml)),
         }),
         v.d.of({
-          name: "Octave",
-          extensions: ["m"],
+          name: 'Octave',
+          extensions: ['m'],
           load: () =>
             n
               .e(231)
-              .then(n.bind(null, "yWou"))
+              .then(n.bind(null, 'yWou'))
               .then((e) => z(e.octave)),
         }),
         v.d.of({
-          name: "Oz",
-          extensions: ["oz"],
+          name: 'Oz',
+          extensions: ['oz'],
           load: () =>
             n
               .e(232)
-              .then(n.bind(null, "nFh2"))
+              .then(n.bind(null, 'nFh2'))
               .then((e) => z(e.oz)),
         }),
         v.d.of({
-          name: "Pascal",
-          extensions: ["p", "pas"],
+          name: 'Pascal',
+          extensions: ['p', 'pas'],
           load: () =>
             n
               .e(233)
-              .then(n.bind(null, "qxHX"))
+              .then(n.bind(null, 'qxHX'))
               .then((e) => z(e.pascal)),
         }),
         v.d.of({
-          name: "Perl",
-          extensions: ["pl", "pm"],
+          name: 'Perl',
+          extensions: ['pl', 'pm'],
           load: () =>
             n
               .e(234)
-              .then(n.bind(null, "uZCc"))
+              .then(n.bind(null, 'uZCc'))
               .then((e) => z(e.perl)),
         }),
         v.d.of({
-          name: "Pig",
-          extensions: ["pig"],
+          name: 'Pig',
+          extensions: ['pig'],
           load: () =>
             n
               .e(235)
-              .then(n.bind(null, "Azj+"))
+              .then(n.bind(null, 'Azj+'))
               .then((e) => z(e.pig)),
         }),
         v.d.of({
-          name: "PowerShell",
-          extensions: ["ps1", "psd1", "psm1"],
+          name: 'PowerShell',
+          extensions: ['ps1', 'psd1', 'psm1'],
           load: () =>
             n
               .e(236)
-              .then(n.bind(null, "hwb1"))
+              .then(n.bind(null, 'hwb1'))
               .then((e) => z(e.powerShell)),
         }),
         v.d.of({
-          name: "Properties files",
-          alias: ["ini", "properties"],
-          extensions: ["properties", "ini", "in"],
+          name: 'Properties files',
+          alias: ['ini', 'properties'],
+          extensions: ['properties', 'ini', 'in'],
           load: () =>
             n
               .e(237)
-              .then(n.bind(null, "IAoW"))
+              .then(n.bind(null, 'IAoW'))
               .then((e) => z(e.properties)),
         }),
         v.d.of({
-          name: "ProtoBuf",
-          extensions: ["proto"],
+          name: 'ProtoBuf',
+          extensions: ['proto'],
           load: () =>
             n
               .e(238)
-              .then(n.bind(null, "IzQd"))
+              .then(n.bind(null, 'IzQd'))
               .then((e) => z(e.protobuf)),
         }),
         v.d.of({
-          name: "Puppet",
-          extensions: ["pp"],
+          name: 'Puppet',
+          extensions: ['pp'],
           load: () =>
             n
               .e(239)
-              .then(n.bind(null, "0DmX"))
+              .then(n.bind(null, '0DmX'))
               .then((e) => z(e.puppet)),
         }),
         v.d.of({
-          name: "Q",
-          extensions: ["q"],
+          name: 'Q',
+          extensions: ['q'],
           load: () =>
             n
               .e(241)
-              .then(n.bind(null, "65TJ"))
+              .then(n.bind(null, '65TJ'))
               .then((e) => z(e.q)),
         }),
         v.d.of({
-          name: "R",
-          alias: ["rscript"],
-          extensions: ["r", "R"],
+          name: 'R',
+          alias: ['rscript'],
+          extensions: ['r', 'R'],
           load: () =>
             n
               .e(242)
-              .then(n.bind(null, "j/lf"))
+              .then(n.bind(null, 'j/lf'))
               .then((e) => z(e.r)),
         }),
         v.d.of({
-          name: "RPM Changes",
+          name: 'RPM Changes',
           load: () =>
             n
               .e(66)
-              .then(n.bind(null, "8U6X"))
+              .then(n.bind(null, '8U6X'))
               .then((e) => z(e.rpmChanges)),
         }),
         v.d.of({
-          name: "RPM Spec",
-          extensions: ["spec"],
+          name: 'RPM Spec',
+          extensions: ['spec'],
           load: () =>
             n
               .e(66)
-              .then(n.bind(null, "8U6X"))
+              .then(n.bind(null, '8U6X'))
               .then((e) => z(e.rpmSpec)),
         }),
         v.d.of({
-          name: "Ruby",
-          alias: ["jruby", "macruby", "rake", "rb", "rbx"],
-          extensions: ["rb"],
+          name: 'Ruby',
+          alias: ['jruby', 'macruby', 'rake', 'rb', 'rbx'],
+          extensions: ['rb'],
           load: () =>
             n
               .e(243)
-              .then(n.bind(null, "DkjX"))
+              .then(n.bind(null, 'DkjX'))
               .then((e) => z(e.ruby)),
         }),
         v.d.of({
-          name: "SAS",
-          extensions: ["sas"],
+          name: 'SAS',
+          extensions: ['sas'],
           load: () =>
             n
               .e(244)
-              .then(n.bind(null, "kGTw"))
+              .then(n.bind(null, 'kGTw'))
               .then((e) => z(e.sas)),
         }),
         v.d.of({
-          name: "Scala",
-          extensions: ["scala"],
+          name: 'Scala',
+          extensions: ['scala'],
           load: () =>
             n
               .e(30)
-              .then(n.bind(null, "SR4r"))
+              .then(n.bind(null, 'SR4r'))
               .then((e) => z(e.scala)),
         }),
         v.d.of({
-          name: "Scheme",
-          extensions: ["scm", "ss"],
+          name: 'Scheme',
+          extensions: ['scm', 'ss'],
           load: () =>
             n
               .e(245)
-              .then(n.bind(null, "t0Vk"))
+              .then(n.bind(null, 't0Vk'))
               .then((e) => z(e.scheme)),
         }),
         v.d.of({
-          name: "SCSS",
-          extensions: ["scss"],
+          name: 'SCSS',
+          extensions: ['scss'],
           load: () =>
             n
               .e(48)
-              .then(n.bind(null, "OIku"))
+              .then(n.bind(null, 'OIku'))
               .then((e) => z(e.sCSS)),
         }),
         v.d.of({
-          name: "Shell",
-          alias: ["bash", "sh", "zsh"],
-          extensions: ["sh", "ksh", "bash"],
+          name: 'Shell',
+          alias: ['bash', 'sh', 'zsh'],
+          extensions: ['sh', 'ksh', 'bash'],
           filename: /^PKGBUILD$/,
           load: () =>
             n
               .e(246)
-              .then(n.bind(null, "rllI"))
+              .then(n.bind(null, 'rllI'))
               .then((e) => z(e.shell)),
         }),
         v.d.of({
-          name: "Sieve",
-          extensions: ["siv", "sieve"],
+          name: 'Sieve',
+          extensions: ['siv', 'sieve'],
           load: () =>
             n
               .e(247)
-              .then(n.bind(null, "goX1"))
+              .then(n.bind(null, 'goX1'))
               .then((e) => z(e.sieve)),
         }),
         v.d.of({
-          name: "Smalltalk",
-          extensions: ["st"],
+          name: 'Smalltalk',
+          extensions: ['st'],
           load: () =>
             n
               .e(248)
-              .then(n.bind(null, "/iFA"))
+              .then(n.bind(null, '/iFA'))
               .then((e) => z(e.smalltalk)),
         }),
         v.d.of({
-          name: "Solr",
+          name: 'Solr',
           load: () =>
             n
               .e(249)
-              .then(n.bind(null, "A4kd"))
+              .then(n.bind(null, 'A4kd'))
               .then((e) => z(e.solr)),
         }),
         v.d.of({
-          name: "SML",
-          extensions: ["sml", "sig", "fun", "smackspec"],
+          name: 'SML',
+          extensions: ['sml', 'sig', 'fun', 'smackspec'],
           load: () =>
             n
               .e(49)
-              .then(n.bind(null, "oLAf"))
+              .then(n.bind(null, 'oLAf'))
               .then((e) => z(e.sml)),
         }),
         v.d.of({
-          name: "SPARQL",
-          alias: ["sparul"],
-          extensions: ["rq", "sparql"],
+          name: 'SPARQL',
+          alias: ['sparul'],
+          extensions: ['rq', 'sparql'],
           load: () =>
             n
               .e(250)
-              .then(n.bind(null, "tRWl"))
+              .then(n.bind(null, 'tRWl'))
               .then((e) => z(e.sparql)),
         }),
         v.d.of({
-          name: "Spreadsheet",
-          alias: ["excel", "formula"],
+          name: 'Spreadsheet',
+          alias: ['excel', 'formula'],
           load: () =>
             n
               .e(251)
-              .then(n.bind(null, "NwTP"))
+              .then(n.bind(null, 'NwTP'))
               .then((e) => z(e.spreadsheet)),
         }),
         v.d.of({
-          name: "SQL",
-          extensions: ["sql"],
+          name: 'SQL',
+          extensions: ['sql'],
           load: () =>
             n
               .e(51)
-              .then(n.bind(null, "oOL1"))
+              .then(n.bind(null, 'oOL1'))
               .then((e) => z(e.standardSQL)),
         }),
         v.d.of({
-          name: "SQLite",
+          name: 'SQLite',
           load: () =>
             n
               .e(51)
-              .then(n.bind(null, "oOL1"))
+              .then(n.bind(null, 'oOL1'))
               .then((e) => z(e.sqlite)),
         }),
         v.d.of({
-          name: "Squirrel",
-          extensions: ["nut"],
+          name: 'Squirrel',
+          extensions: ['nut'],
           load: () =>
             n
               .e(30)
-              .then(n.bind(null, "SR4r"))
+              .then(n.bind(null, 'SR4r'))
               .then((e) => z(e.squirrel)),
         }),
         v.d.of({
-          name: "Stylus",
-          extensions: ["styl"],
+          name: 'Stylus',
+          extensions: ['styl'],
           load: () =>
             n
               .e(252)
-              .then(n.bind(null, "Ipt9"))
+              .then(n.bind(null, 'Ipt9'))
               .then((e) => z(e.stylus)),
         }),
         v.d.of({
-          name: "Swift",
-          extensions: ["swift"],
+          name: 'Swift',
+          extensions: ['swift'],
           load: () =>
             n
               .e(253)
-              .then(n.bind(null, "csCD"))
+              .then(n.bind(null, 'csCD'))
               .then((e) => z(e.swift)),
         }),
         v.d.of({
-          name: "sTeX",
+          name: 'sTeX',
           load: () =>
             n
               .e(67)
-              .then(n.bind(null, "5DRb"))
+              .then(n.bind(null, '5DRb'))
               .then((e) => z(e.stex)),
         }),
         v.d.of({
-          name: "LaTeX",
-          alias: ["tex"],
-          extensions: ["text", "ltx", "tex"],
+          name: 'LaTeX',
+          alias: ['tex'],
+          extensions: ['text', 'ltx', 'tex'],
           load: () =>
             n
               .e(67)
-              .then(n.bind(null, "5DRb"))
+              .then(n.bind(null, '5DRb'))
               .then((e) => z(e.stex)),
         }),
         v.d.of({
-          name: "SystemVerilog",
-          extensions: ["v", "sv", "svh"],
+          name: 'SystemVerilog',
+          extensions: ['v', 'sv', 'svh'],
           load: () =>
             n
               .e(68)
-              .then(n.bind(null, "/UVJ"))
+              .then(n.bind(null, '/UVJ'))
               .then((e) => z(e.verilog)),
         }),
         v.d.of({
-          name: "Tcl",
-          extensions: ["tcl"],
+          name: 'Tcl',
+          extensions: ['tcl'],
           load: () =>
             n
               .e(254)
-              .then(n.bind(null, "lEgO"))
+              .then(n.bind(null, 'lEgO'))
               .then((e) => z(e.tcl)),
         }),
         v.d.of({
-          name: "Textile",
-          extensions: ["textile"],
+          name: 'Textile',
+          extensions: ['textile'],
           load: () =>
             n
               .e(255)
-              .then(n.bind(null, "3whL"))
+              .then(n.bind(null, '3whL'))
               .then((e) => z(e.textile)),
         }),
         v.d.of({
-          name: "TiddlyWiki",
+          name: 'TiddlyWiki',
           load: () =>
             n
               .e(256)
-              .then(n.bind(null, "SNaM"))
+              .then(n.bind(null, 'SNaM'))
               .then((e) => z(e.tiddlyWiki)),
         }),
         v.d.of({
-          name: "Tiki wiki",
+          name: 'Tiki wiki',
           load: () =>
             n
               .e(257)
-              .then(n.bind(null, "UpF4"))
+              .then(n.bind(null, 'UpF4'))
               .then((e) => z(e.tiki)),
         }),
         v.d.of({
-          name: "TOML",
-          extensions: ["toml"],
+          name: 'TOML',
+          extensions: ['toml'],
           load: () =>
             n
               .e(258)
-              .then(n.bind(null, "w4+J"))
+              .then(n.bind(null, 'w4+J'))
               .then((e) => z(e.toml)),
         }),
         v.d.of({
-          name: "troff",
-          extensions: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          name: 'troff',
+          extensions: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
           load: () =>
             n
               .e(259)
-              .then(n.bind(null, "jIa3"))
+              .then(n.bind(null, 'jIa3'))
               .then((e) => z(e.troff)),
         }),
         v.d.of({
-          name: "TTCN",
-          extensions: ["ttcn", "ttcn3", "ttcnpp"],
+          name: 'TTCN',
+          extensions: ['ttcn', 'ttcn3', 'ttcnpp'],
           load: () =>
             n
               .e(261)
-              .then(n.bind(null, "OAZt"))
+              .then(n.bind(null, 'OAZt'))
               .then((e) => z(e.ttcn)),
         }),
         v.d.of({
-          name: "TTCN_CFG",
-          extensions: ["cfg"],
+          name: 'TTCN_CFG',
+          extensions: ['cfg'],
           load: () =>
             n
               .e(260)
-              .then(n.bind(null, "b5NJ"))
+              .then(n.bind(null, 'b5NJ'))
               .then((e) => z(e.ttcnCfg)),
         }),
         v.d.of({
-          name: "Turtle",
-          extensions: ["ttl"],
+          name: 'Turtle',
+          extensions: ['ttl'],
           load: () =>
             n
               .e(262)
-              .then(n.bind(null, "MeIH"))
+              .then(n.bind(null, 'MeIH'))
               .then((e) => z(e.turtle)),
         }),
         v.d.of({
-          name: "Web IDL",
-          extensions: ["webidl"],
+          name: 'Web IDL',
+          extensions: ['webidl'],
           load: () =>
             n
               .e(267)
-              .then(n.bind(null, "7CpF"))
+              .then(n.bind(null, '7CpF'))
               .then((e) => z(e.webIDL)),
         }),
         v.d.of({
-          name: "VB.NET",
-          extensions: ["vb"],
+          name: 'VB.NET',
+          extensions: ['vb'],
           load: () =>
             n
               .e(263)
-              .then(n.bind(null, "iFd0"))
+              .then(n.bind(null, 'iFd0'))
               .then((e) => z(e.vb)),
         }),
         v.d.of({
-          name: "VBScript",
-          extensions: ["vbs"],
+          name: 'VBScript',
+          extensions: ['vbs'],
           load: () =>
             n
               .e(264)
-              .then(n.bind(null, "dzOX"))
+              .then(n.bind(null, 'dzOX'))
               .then((e) => z(e.vbScript)),
         }),
         v.d.of({
-          name: "Velocity",
-          extensions: ["vtl"],
+          name: 'Velocity',
+          extensions: ['vtl'],
           load: () =>
             n
               .e(265)
-              .then(n.bind(null, "KcTb"))
+              .then(n.bind(null, 'KcTb'))
               .then((e) => z(e.velocity)),
         }),
         v.d.of({
-          name: "Verilog",
-          extensions: ["v"],
+          name: 'Verilog',
+          extensions: ['v'],
           load: () =>
             n
               .e(68)
-              .then(n.bind(null, "/UVJ"))
+              .then(n.bind(null, '/UVJ'))
               .then((e) => z(e.verilog)),
         }),
         v.d.of({
-          name: "VHDL",
-          extensions: ["vhd", "vhdl"],
+          name: 'VHDL',
+          extensions: ['vhd', 'vhdl'],
           load: () =>
             n
               .e(266)
-              .then(n.bind(null, "Ptms"))
+              .then(n.bind(null, 'Ptms'))
               .then((e) => z(e.vhdl)),
         }),
         v.d.of({
-          name: "XQuery",
-          extensions: ["xy", "xquery"],
+          name: 'XQuery',
+          extensions: ['xy', 'xquery'],
           load: () =>
             n
               .e(268)
-              .then(n.bind(null, "m+MU"))
+              .then(n.bind(null, 'm+MU'))
               .then((e) => z(e.xQuery)),
         }),
         v.d.of({
-          name: "Yacas",
-          extensions: ["ys"],
+          name: 'Yacas',
+          extensions: ['ys'],
           load: () =>
             n
               .e(269)
-              .then(n.bind(null, "K/14"))
+              .then(n.bind(null, 'K/14'))
               .then((e) => z(e.yacas)),
         }),
         v.d.of({
-          name: "YAML",
-          alias: ["yml"],
-          extensions: ["yaml", "yml"],
+          name: 'YAML',
+          alias: ['yml'],
+          extensions: ['yaml', 'yml'],
           load: () =>
             n
               .e(270)
-              .then(n.bind(null, "m9fM"))
+              .then(n.bind(null, 'm9fM'))
               .then((e) => z(e.yaml)),
         }),
         v.d.of({
-          name: "Z80",
-          extensions: ["z80"],
+          name: 'Z80',
+          extensions: ['z80'],
           load: () =>
             n
               .e(271)
-              .then(n.bind(null, "5HJn"))
+              .then(n.bind(null, '5HJn'))
               .then((e) => z(e.z80)),
         }),
         v.d.of({
-          name: "mscgen",
-          extensions: ["mscgen", "mscin", "msc"],
+          name: 'mscgen',
+          extensions: ['mscgen', 'mscin', 'msc'],
           load: () =>
             n
               .e(50)
-              .then(n.bind(null, "leU/"))
+              .then(n.bind(null, 'leU/'))
               .then((e) => z(e.mscgen)),
         }),
         v.d.of({
-          name: "xu",
-          extensions: ["xu"],
+          name: 'xu',
+          extensions: ['xu'],
           load: () =>
             n
               .e(50)
-              .then(n.bind(null, "leU/"))
+              .then(n.bind(null, 'leU/'))
               .then((e) => z(e.xu)),
         }),
         v.d.of({
-          name: "msgenny",
-          extensions: ["msgenny"],
+          name: 'msgenny',
+          extensions: ['msgenny'],
           load: () =>
             n
               .e(50)
-              .then(n.bind(null, "leU/"))
+              .then(n.bind(null, 'leU/'))
               .then((e) => z(e.msgenny)),
         }),
         v.d.of({
-          name: "WebAssembly",
-          extensions: ["wat", "wast"],
+          name: 'WebAssembly',
+          extensions: ['wat', 'wast'],
           load: () =>
             n
               .e(180)
-              .then(n.bind(null, "fTjj"))
+              .then(n.bind(null, 'fTjj'))
               .then((e) => z(e.wast)),
         }),
       ];
-      var W = n("h5Ab"),
-        _ = n("Wzyh"),
-        U = n("ljhz"),
-        H = n("WYGy"),
-        J = n("uZp5");
+      var W = n('h5Ab'),
+        _ = n('Wzyh'),
+        U = n('ljhz'),
+        H = n('WYGy'),
+        J = n('uZp5');
       const $ = {
-          brackets: ["(", "[", "{", "'", '"'],
-          before: ")]}'\":;>",
+          brackets: ['(', '[', '{', "'", '"'],
+          before: ')]}\'":;>',
         },
         G = u.k.define({
           map(e, t) {
@@ -11488,7 +11488,7 @@
       function X() {
         return [c.d.inputHandler.of(ne), Y];
       }
-      const Z = "()[]{}<>";
+      const Z = '()[]{}<>';
 
       function ee(e) {
         for (let t = 0; t < Z.length; t += 2)
@@ -11497,7 +11497,7 @@
       }
 
       function te(e, t) {
-        return e.languageDataAt("closeBrackets", t)[0] || $;
+        return e.languageDataAt('closeBrackets', t)[0] || $;
       }
 
       function ne(e, t, n, i) {
@@ -11527,7 +11527,7 @@
       }
       const ie = [
         {
-          key: "Backspace",
+          key: 'Backspace',
           run: ({ state: e, dispatch: t }) => {
             let n = te(e, e.selection.main.head).brackets || $.brackets,
               i = null,
@@ -11547,7 +11547,7 @@
                           to: t.head + r.length,
                         },
                         range: u.f.cursor(t.head - r.length),
-                        userEvent: "delete.backward",
+                        userEvent: 'delete.backward',
                       };
                 }
                 return {
@@ -11618,7 +11618,7 @@
           ? null
           : e.update(o, {
               scrollIntoView: !0,
-              userEvent: "input.type",
+              userEvent: 'input.type',
             });
       }
 
@@ -11710,7 +11710,7 @@
           ? null
           : e.update(r, {
               scrollIntoView: !0,
-              userEvent: "input.type",
+              userEvent: 'input.type',
             });
       }
 
@@ -11718,7 +11718,7 @@
         let n = Object(v.w)(e).resolveInner(t + 1);
         return n.parent && n.from == t;
       }
-      var ce = n("1FcE");
+      var ce = n('1FcE');
       const ue = 2e3;
 
       function fe(e, t) {
@@ -11810,11 +11810,11 @@
           ((e) => e.altKey && 0 == e.button);
         return c.d.mouseSelectionStyle.of((e, n) => (t(n) ? de(e, n) : null));
       }
-      var me = n("cmz6"),
-        ge = n("KV2Y");
+      var me = n('cmz6'),
+        ge = n('KV2Y');
       const ve =
-        "function" == typeof String.prototype.normalize
-          ? (e) => e.normalize("NFKD")
+        'function' == typeof String.prototype.normalize
+          ? (e) => e.normalize('NFKD')
           : (e) => e;
       class be {
         constructor(e, t, n = 0, i = e.length, r) {
@@ -11824,7 +11824,7 @@
           }),
             (this.done = !1),
             (this.matches = []),
-            (this.buffer = ""),
+            (this.buffer = ''),
             (this.bufferPos = 0),
             (this.iter = e.iterRange(n, i)),
             (this.bufferStart = n),
@@ -11893,14 +11893,14 @@
       const xe = {
           from: -1,
           to: -1,
-          match: /.*/.exec(""),
+          match: /.*/.exec(''),
         },
-        we = "gm" + (null == /x/.unicode ? "" : "u");
+        we = 'gm' + (null == /x/.unicode ? '' : 'u');
       class ye {
         constructor(e, t, n, i = 0, r = e.length) {
           if (
             ((this.to = r),
-            (this.curLine = ""),
+            (this.curLine = ''),
             (this.done = !1),
             (this.value = xe),
             /\\[sWDnr]|\n|\r|\[\^/.test(t))
@@ -11909,7 +11909,7 @@
           (this.re = new RegExp(
             t,
             we +
-              ((null === n || void 0 === n ? void 0 : n.ignoreCase) ? "i" : "")
+              ((null === n || void 0 === n ? void 0 : n.ignoreCase) ? 'i' : '')
           )),
             (this.iter = e.iter());
           let o = e.lineAt(i);
@@ -11920,7 +11920,7 @@
         getLine(e) {
           this.iter.next(e),
             this.iter.lineBreak
-              ? (this.curLine = "")
+              ? (this.curLine = '')
               : ((this.curLine = this.iter.value),
                 this.curLineStart + this.curLine.length > this.to &&
                   (this.curLine = this.curLine.slice(
@@ -11931,7 +11931,7 @@
         }
         nextLine() {
           (this.curLineStart = this.curLineStart + this.curLine.length + 1),
-            this.curLineStart > this.to ? (this.curLine = "") : this.getLine(0);
+            this.curLineStart > this.to ? (this.curLine = '') : this.getLine(0);
         }
         next() {
           for (let e = this.matchPos - this.curLineStart; ; ) {
@@ -11997,8 +11997,8 @@
               t,
               we +
                 ((null === n || void 0 === n ? void 0 : n.ignoreCase)
-                  ? "i"
-                  : "")
+                  ? 'i'
+                  : '')
             )),
             (this.flat = Se.get(e, i, this.chunkEnd(i + 5e3)));
         }
@@ -12044,9 +12044,9 @@
       }
 
       function Ae(e) {
-        let t = Object(ge.a)("input", {
-          class: "cm-textfield",
-          name: "line",
+        let t = Object(ge.a)('input', {
+          class: 'cm-textfield',
+          name: 'line',
         });
 
         function n() {
@@ -12059,9 +12059,9 @@
             c = s ? +s : r.number;
           if (s && l) {
             let e = c / 100;
-            o && (e = e * ("-" == o ? -1 : 1) + r.number / i.doc.lines),
+            o && (e = e * ('-' == o ? -1 : 1) + r.number / i.doc.lines),
               (c = Math.round(i.doc.lines * e));
-          } else s && o && (c = c * ("-" == o ? -1 : 1) + r.number);
+          } else s && o && (c = c * ('-' == o ? -1 : 1) + r.number);
           let f = i.doc.line(Math.max(1, Math.min(i.doc.lines, c)));
           e.dispatch({
             effects: Oe.of(!1),
@@ -12072,9 +12072,9 @@
         }
         return {
           dom: Object(ge.a)(
-            "form",
+            'form',
             {
-              class: "cm-gotoLine",
+              class: 'cm-gotoLine',
               onkeydown: (t) => {
                 27 == t.keyCode
                   ? (t.preventDefault(),
@@ -12088,15 +12088,15 @@
                 e.preventDefault(), n();
               },
             },
-            Object(ge.a)("label", e.state.phrase("Go to line"), ": ", t),
-            " ",
+            Object(ge.a)('label', e.state.phrase('Go to line'), ': ', t),
+            ' ',
             Object(ge.a)(
-              "button",
+              'button',
               {
-                class: "cm-button",
-                type: "submit",
+                class: 'cm-button',
+                type: 'submit',
               },
-              e.state.phrase("go")
+              e.state.phrase('go')
             )
           ),
           pos: -10,
@@ -12112,10 +12112,10 @@
           provide: (e) => me.b.from(e, (e) => (e ? Ae : null)),
         }),
         Me = c.d.baseTheme({
-          ".cm-panel.cm-gotoLine": {
-            padding: "2px 6px 4px",
-            "& label": {
-              fontSize: "80%",
+          '.cm-panel.cm-gotoLine': {
+            padding: '2px 6px 4px',
+            '& label': {
+              fontSize: '80%',
             },
           },
         }),
@@ -12138,10 +12138,10 @@
         return e && t.push(Ie.of(e)), t;
       }
       const Te = c.b.mark({
-          class: "cm-selectionMatch",
+          class: 'cm-selectionMatch',
         }),
         Pe = c.b.mark({
-          class: "cm-selectionMatch cm-selectionMatch-main",
+          class: 'cm-selectionMatch cm-selectionMatch-main',
         }),
         De = c.f.fromClass(
           class {
@@ -12197,11 +12197,11 @@
           }
         ),
         Re = c.d.baseTheme({
-          ".cm-selectionMatch": {
-            backgroundColor: "#99ff7780",
+          '.cm-selectionMatch': {
+            backgroundColor: '#99ff7780',
           },
-          ".cm-searchMatch .cm-selectionMatch": {
-            backgroundColor: "transparent",
+          '.cm-searchMatch .cm-selectionMatch': {
+            backgroundColor: 'transparent',
           },
         });
       const Ne = u.h.define({
@@ -12226,7 +12226,7 @@
         constructor(e, t, n) {
           super(e, t, n),
             (this.unquoted = e.replace(/\\([nrt\\])/g, (e, t) =>
-              "n" == t ? "\n" : "r" == t ? "\r" : "t" == t ? "\t" : "\\"
+              'n' == t ? '\n' : 'r' == t ? '\r' : 't' == t ? '\t' : '\\'
             ));
         }
         cursor(e, t = 0, n = e.length) {
@@ -12336,11 +12336,11 @@
         }
         getReplacement(e) {
           return this.replace.replace(/\$([$&\d+])/g, (t, n) =>
-            "$" == n
-              ? "$"
-              : "&" == n
+            '$' == n
+              ? '$'
+              : '&' == n
               ? e.match[0]
-              : "0" != n && +n < e.match.length
+              : '0' != n && +n < e.match.length
               ? e.match[n]
               : t
           );
@@ -12382,10 +12382,10 @@
         }
       }
       const Ue = c.b.mark({
-          class: "cm-searchMatch",
+          class: 'cm-searchMatch',
         }),
         He = c.b.mark({
-          class: "cm-searchMatch cm-searchMatch-selected",
+          class: 'cm-searchMatch cm-searchMatch-selected',
         }),
         Je = c.f.fromClass(
           class {
@@ -12539,7 +12539,7 @@
             },
           }),
           mount() {
-            this.dom.querySelector("[name=search]").select();
+            this.dom.querySelector('[name=search]').select();
           },
           pos: 80,
           top: e.state.facet(Ne).top,
@@ -12548,12 +12548,12 @@
 
       function et(e, t) {
         let n = e.selection.main,
-          i = n.empty || n.to > n.from + 100 ? "" : e.sliceDoc(n.from, n.to);
+          i = n.empty || n.to > n.from + 100 ? '' : e.sliceDoc(n.from, n.to);
         return t && !i
           ? t
           : new qe(
-              i.replace(/\n/g, "\\n"),
-              "",
+              i.replace(/\n/g, '\\n'),
+              '',
               (null === t || void 0 === t ? void 0 : t.caseInsensitive) || !1
             );
       }
@@ -12562,7 +12562,7 @@
           if (t && t.panel) {
             let t = Object(me.a)(e, Ze);
             if (!t) return !1;
-            t.dom.querySelector("[name=search]").focus();
+            t.dom.querySelector('[name=search]').focus();
           } else
             e.dispatch({
               effects: [
@@ -12586,29 +12586,29 @@
         },
         it = [
           {
-            key: "Mod-f",
+            key: 'Mod-f',
             run: tt,
-            scope: "editor search-panel",
+            scope: 'editor search-panel',
           },
           {
-            key: "F3",
+            key: 'F3',
             run: Ge,
             shift: Qe,
-            scope: "editor search-panel",
+            scope: 'editor search-panel',
           },
           {
-            key: "Mod-g",
+            key: 'Mod-g',
             run: Ge,
             shift: Qe,
-            scope: "editor search-panel",
+            scope: 'editor search-panel',
           },
           {
-            key: "Escape",
+            key: 'Escape',
             run: nt,
-            scope: "editor search-panel",
+            scope: 'editor search-panel',
           },
           {
-            key: "Mod-Shift-l",
+            key: 'Mod-Shift-l',
             run: ({ state: e, dispatch: t }) => {
               let n = e.selection;
               if (n.ranges.length > 1 || n.main.empty) return !1;
@@ -12631,7 +12631,7 @@
             },
           },
           {
-            key: "Alt-g",
+            key: 'Alt-g',
             run: (e) => {
               let t = Object(me.a)(e, Ae);
               if (!t) {
@@ -12643,11 +12643,11 @@
                   }),
                   (t = Object(me.a)(e, Ae));
               }
-              return t && t.dom.querySelector("input").focus(), !0;
+              return t && t.dom.querySelector('input').focus(), !0;
             },
           },
           {
-            key: "Mod-d",
+            key: 'Mod-d',
             run: ({ state: e, dispatch: t }) => {
               let { ranges: n } = e.selection;
               if (n.some((e) => e.from === e.to))
@@ -12708,33 +12708,33 @@
         function t(t) {
           return e.view.state.phrase(t);
         }
-        let n = Object(ge.a)("input", {
+        let n = Object(ge.a)('input', {
             value: e.query.search,
-            placeholder: t("Find"),
-            "aria-label": t("Find"),
-            class: "cm-textfield",
-            name: "search",
+            placeholder: t('Find'),
+            'aria-label': t('Find'),
+            class: 'cm-textfield',
+            name: 'search',
             onchange: s,
             onkeyup: s,
           }),
-          i = Object(ge.a)("input", {
+          i = Object(ge.a)('input', {
             value: e.query.replace,
-            placeholder: t("Replace"),
-            "aria-label": t("Replace"),
-            class: "cm-textfield",
-            name: "replace",
+            placeholder: t('Replace'),
+            'aria-label': t('Replace'),
+            class: 'cm-textfield',
+            name: 'replace',
             onchange: s,
             onkeyup: s,
           }),
-          r = Object(ge.a)("input", {
-            type: "checkbox",
-            name: "case",
+          r = Object(ge.a)('input', {
+            type: 'checkbox',
+            name: 'case',
             checked: !e.query.caseInsensitive,
             onchange: s,
           }),
-          o = Object(ge.a)("input", {
-            type: "checkbox",
-            name: "re",
+          o = Object(ge.a)('input', {
+            type: 'checkbox',
+            name: 're',
             checked: e.query instanceof ze,
             onchange: s,
           });
@@ -12747,9 +12747,9 @@
 
         function a(e, t, n) {
           return Object(ge.a)(
-            "button",
+            'button',
             {
-              class: "cm-button",
+              class: 'cm-button',
               name: e,
               onclick: t,
             },
@@ -12757,10 +12757,10 @@
           );
         }
         return Object(ge.a)(
-          "div",
+          'div',
           {
             onkeydown: function (t) {
-              Object(c.m)(e.view, t, "search-panel")
+              Object(c.m)(e.view, t, 'search-panel')
                 ? t.preventDefault()
                 : 13 == t.keyCode && t.target == n
                 ? (t.preventDefault(), (t.shiftKey ? Qe : Ge)(e.view))
@@ -12768,27 +12768,27 @@
                   t.target == i &&
                   (t.preventDefault(), Ye(e.view));
             },
-            class: "cm-search",
+            class: 'cm-search',
           },
           [
             n,
-            a("next", () => Ge(e.view), [t("next")]),
-            a("prev", () => Qe(e.view), [t("previous")]),
-            a("select", () => Ke(e.view), [t("all")]),
-            Object(ge.a)("label", null, [r, t("match case")]),
-            Object(ge.a)("label", null, [o, t("regexp")]),
-            Object(ge.a)("br"),
+            a('next', () => Ge(e.view), [t('next')]),
+            a('prev', () => Qe(e.view), [t('previous')]),
+            a('select', () => Ke(e.view), [t('all')]),
+            Object(ge.a)('label', null, [r, t('match case')]),
+            Object(ge.a)('label', null, [o, t('regexp')]),
+            Object(ge.a)('br'),
             i,
-            a("replace", () => Ye(e.view), [t("replace")]),
-            a("replaceAll", () => Xe(e.view), [t("replace all")]),
+            a('replace', () => Ye(e.view), [t('replace')]),
+            a('replaceAll', () => Xe(e.view), [t('replace all')]),
             Object(ge.a)(
-              "button",
+              'button',
               {
-                name: "close",
+                name: 'close',
                 onclick: () => nt(e.view),
-                "aria-label": t("close"),
+                'aria-label': t('close'),
               },
-              ["\xd7"]
+              ['\xd7']
             ),
           ]
         );
@@ -12814,51 +12814,51 @@
               break;
             }
         return c.d.announce.of(
-          `${e.state.phrase("current match")}. ${a} ${e.state.phrase(
-            "on line"
+          `${e.state.phrase('current match')}. ${a} ${e.state.phrase(
+            'on line'
           )} ${e.state.doc.lineAt(t).number}`
         );
       }
       const at = c.d.baseTheme({
-          ".cm-panel.cm-search": {
-            padding: "2px 6px 4px",
-            position: "relative",
-            "& [name=close]": {
-              position: "absolute",
-              top: "0",
-              right: "4px",
-              backgroundColor: "inherit",
-              border: "none",
-              font: "inherit",
+          '.cm-panel.cm-search': {
+            padding: '2px 6px 4px',
+            position: 'relative',
+            '& [name=close]': {
+              position: 'absolute',
+              top: '0',
+              right: '4px',
+              backgroundColor: 'inherit',
+              border: 'none',
+              font: 'inherit',
               padding: 0,
               margin: 0,
             },
-            "& input, & button, & label": {
-              margin: ".2em .6em .2em 0",
+            '& input, & button, & label': {
+              margin: '.2em .6em .2em 0',
             },
-            "& input[type=checkbox]": {
-              marginRight: ".2em",
+            '& input[type=checkbox]': {
+              marginRight: '.2em',
             },
-            "& label": {
-              fontSize: "80%",
-              whiteSpace: "pre",
+            '& label': {
+              fontSize: '80%',
+              whiteSpace: 'pre',
             },
           },
-          "&light .cm-searchMatch": {
-            backgroundColor: "#ffff0054",
+          '&light .cm-searchMatch': {
+            backgroundColor: '#ffff0054',
           },
-          "&dark .cm-searchMatch": {
-            backgroundColor: "#00ffff8a",
+          '&dark .cm-searchMatch': {
+            backgroundColor: '#00ffff8a',
           },
-          "&light .cm-searchMatch-selected": {
-            backgroundColor: "#ff6a0054",
+          '&light .cm-searchMatch-selected': {
+            backgroundColor: '#ff6a0054',
           },
-          "&dark .cm-searchMatch-selected": {
-            backgroundColor: "#ff00ff8a",
+          '&dark .cm-searchMatch-selected': {
+            backgroundColor: '#ff00ff8a',
           },
         }),
         lt = [We, u.j.fallback(Je), at];
-      var ht = n("L4B9");
+      var ht = n('L4B9');
 
       function ct(e, t) {
         return ({ state: n, dispatch: i }) => {
@@ -12870,20 +12870,20 @@
         ft = ct(mt, 0),
         dt = [
           {
-            key: "Mod-/",
+            key: 'Mod-/',
             run: (e) => {
               let t = pt(e.state);
               return t.line ? ut(e) : !!t.block && ft(e);
             },
           },
           {
-            key: "Alt-A",
+            key: 'Alt-A',
             run: ft,
           },
         ];
 
       function pt(e, t = e.selection.main.head) {
-        let n = e.languageDataAt("commentTokens", t);
+        let n = e.languageDataAt('commentTokens', t);
         return n.length ? n[0] : {};
       }
 
@@ -12944,11 +12944,11 @@
               changes: [
                 {
                   from: t.from,
-                  insert: n + " ",
+                  insert: n + ' ',
                 },
                 {
                   from: t.to,
-                  insert: " " + o,
+                  insert: ' ' + o,
                 },
               ],
               range: u.f.range(t.anchor + s, t.head + s),
@@ -13017,7 +13017,7 @@
             (!a && s) ||
               e.push({
                 from: n.from + o,
-                insert: r + " ",
+                insert: r + ' ',
               });
           let t = n.changes(e);
           return {
@@ -13031,7 +13031,7 @@
             if (n >= 0) {
               let i = t.from + n,
                 o = i + r.length;
-              " " == t.text[o - t.from] && o++,
+              ' ' == t.text[o - t.from] && o++,
                 e.push({
                   from: i,
                   to: o,
@@ -13043,11 +13043,11 @@
         }
         return null;
       }
-      var vt = n("QpUv");
-      const bt = "#e06c75",
-        xt = "#abb2bf",
-        wt = "#7d8799",
-        yt = "#d19a66";
+      var vt = n('QpUv');
+      const bt = '#e06c75',
+        xt = '#abb2bf',
+        wt = '#7d8799',
+        yt = '#d19a66';
       L.d.keyword,
         L.d.name,
         L.d.deleted,
@@ -13128,7 +13128,7 @@
                               i.next = 2;
                               break;
                             }
-                            return i.abrupt("return");
+                            return i.abrupt('return');
                           case 2:
                             (r = new u.e()),
                               (s = new u.e()),
@@ -13143,7 +13143,7 @@
                               d({
                                 view: e,
                                 setTheme: function (t) {
-                                  if (!e) throw new Error("Expected view");
+                                  if (!e) throw new Error('Expected view');
                                   var n = q(t);
                                   e.dispatch({
                                     effects: [
@@ -13153,7 +13153,7 @@
                                   });
                                 },
                                 setIndentSize: function (t) {
-                                  if (!e) throw new Error("Expected view");
+                                  if (!e) throw new Error('Expected view');
                                   var n = E(
                                     t.indentSize,
                                     t.indentIsSpace,
@@ -13166,7 +13166,7 @@
                                 setLspExtensions: function (n) {
                                   var i;
                                   if (!t && !e)
-                                    throw new Error("Expected view");
+                                    throw new Error('Expected view');
                                   null === (i = e) ||
                                     void 0 === i ||
                                     i.dispatch({
@@ -13176,7 +13176,7 @@
                                 setDebuggerExtensions: function (n) {
                                   var i;
                                   if (!t && !e)
-                                    throw new Error("Expected view");
+                                    throw new Error('Expected view');
                                   null === (i = e) ||
                                     void 0 === i ||
                                     i.dispatch({
@@ -13184,7 +13184,7 @@
                                     });
                                 },
                                 setLineWrapping: function (t) {
-                                  if (!e) throw new Error("Expected view");
+                                  if (!e) throw new Error('Expected view');
                                   e.dispatch({
                                     effects: f.reconfigure(
                                       t ? c.d.lineWrapping : []
@@ -13214,7 +13214,7 @@
                                 },
                               });
                           case 11:
-                          case "end":
+                          case 'end':
                             return i.stop();
                         }
                     }, i);
@@ -13241,7 +13241,7 @@
                 switch ((e.prev = e.next)) {
                   case 0:
                     if (
-                      "Markdown" !==
+                      'Markdown' !==
                       (null === (i = t ? v.d.matchFilename(V, t) : null) ||
                       void 0 === i
                         ? void 0
@@ -13253,17 +13253,17 @@
                     return (
                       (e.next = 4),
                       Promise.all([n.e(8), n.e(19), n.e(18), n.e(46)]).then(
-                        n.bind(null, "S0tx")
+                        n.bind(null, 'S0tx')
                       )
                     );
                   case 4:
                     return (
                       (r = e.sent),
                       e.abrupt(
-                        "return",
+                        'return',
                         r.markdown({
                           codeLanguages: V.filter(function (e) {
-                            return "Markdown" !== e.name;
+                            return 'Markdown' !== e.name;
                           }),
                         })
                       )
@@ -13273,25 +13273,25 @@
                       e.next = 8;
                       break;
                     }
-                    return e.abrupt("return", i.load());
+                    return e.abrupt('return', i.load());
                   case 8:
                     if (
                       ((s = Object(h.extname)(t).slice(1)),
-                      !["php", "vue", "svelte"].includes(s))
+                      !['php', 'vue', 'svelte'].includes(s))
                     ) {
                       e.next = 12;
                       break;
                     }
                     return (
                       (a = V.find(function (e) {
-                        return "HTML" === e.name;
+                        return 'HTML' === e.name;
                       })),
-                      e.abrupt("return", a ? a.load() : null)
+                      e.abrupt('return', a ? a.load() : null)
                     );
                   case 12:
-                    return e.abrupt("return", null);
+                    return e.abrupt('return', null);
                   case 13:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -13312,7 +13312,7 @@
                 switch ((e.prev = e.next)) {
                   case 0:
                     if (
-                      "Markdown" !==
+                      'Markdown' !==
                       (null === (i = v.d.matchLanguageName(V, t, !0)) ||
                       void 0 === i
                         ? void 0
@@ -13324,17 +13324,17 @@
                     return (
                       (e.next = 4),
                       Promise.all([n.e(8), n.e(19), n.e(18), n.e(46)]).then(
-                        n.bind(null, "S0tx")
+                        n.bind(null, 'S0tx')
                       )
                     );
                   case 4:
                     return (
                       (r = e.sent),
                       e.abrupt(
-                        "return",
+                        'return',
                         r.markdown({
                           codeLanguages: V.filter(function (e) {
-                            return "Markdown" !== e.name;
+                            return 'Markdown' !== e.name;
                           }),
                         })
                       )
@@ -13344,22 +13344,22 @@
                       e.next = 8;
                       break;
                     }
-                    return e.abrupt("return", i.load());
+                    return e.abrupt('return', i.load());
                   case 8:
-                    if ("php" !== t) {
+                    if ('php' !== t) {
                       e.next = 11;
                       break;
                     }
                     return (
                       (s = V.find(function (e) {
-                        return "HTML" === e.name;
+                        return 'HTML' === e.name;
                       })),
-                      e.abrupt("return", s ? s.load() : null)
+                      e.abrupt('return', s ? s.load() : null)
                     );
                   case 11:
-                    return e.abrupt("return", null);
+                    return e.abrupt('return', null);
                   case 12:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -13382,17 +13382,17 @@
                       e.next = 2;
                       break;
                     }
-                    return e.abrupt("return", St(t));
+                    return e.abrupt('return', St(t));
                   case 2:
                     if (!n) {
                       e.next = 4;
                       break;
                     }
-                    return e.abrupt("return", At(n));
+                    return e.abrupt('return', At(n));
                   case 4:
-                    return e.abrupt("return", null);
+                    return e.abrupt('return', null);
                   case 5:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -13476,10 +13476,10 @@
                           )
                         ),
                       ])),
-                      e.abrupt("return", j)
+                      e.abrupt('return', j)
                     );
                   case 8:
-                  case "end":
+                  case 'end':
                     return e.stop();
                 }
             }, e);
@@ -13488,17 +13488,17 @@
       }
     },
     wG49: function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+      'use strict';
+      n.d(t, 'a', function () {
         return l;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return h;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return r;
         });
-      var i = n("4eob");
+      var i = n('4eob');
       class r {
         eq(e) {
           return this == e;
@@ -13803,7 +13803,7 @@
             (e - this.lastFrom || n.startSide - this.last.startSide) < 0
           )
             throw new Error(
-              "Ranges must be added sorted by `from` position and `startSide`"
+              'Ranges must be added sorted by `from` position and `startSide`'
             );
           return (
             !(i < 0) &&
@@ -14206,81 +14206,81 @@
         return n;
       }
     },
-    "yqQ+": function (e, t, n) {
-      "use strict";
-      n.d(t, "a", function () {
+    'yqQ+': function (e, t, n) {
+      'use strict';
+      n.d(t, 'a', function () {
         return E;
       }),
-        n.d(t, "b", function () {
+        n.d(t, 'b', function () {
           return u;
         }),
-        n.d(t, "c", function () {
+        n.d(t, 'c', function () {
           return h;
         }),
-        n.d(t, "d", function () {
+        n.d(t, 'd', function () {
           return S;
         }),
-        n.d(t, "e", function () {
+        n.d(t, 'e', function () {
           return k;
         }),
-        n.d(t, "f", function () {
+        n.d(t, 'f', function () {
           return m;
         }),
-        n.d(t, "g", function () {
+        n.d(t, 'g', function () {
           return z;
         }),
-        n.d(t, "h", function () {
+        n.d(t, 'h', function () {
           return l;
         }),
-        n.d(t, "i", function () {
+        n.d(t, 'i', function () {
           return N;
         }),
-        n.d(t, "j", function () {
+        n.d(t, 'j', function () {
           return q;
         }),
-        n.d(t, "k", function () {
+        n.d(t, 'k', function () {
           return _;
         }),
-        n.d(t, "l", function () {
+        n.d(t, 'l', function () {
           return W;
         }),
-        n.d(t, "m", function () {
+        n.d(t, 'm', function () {
           return U;
         }),
-        n.d(t, "n", function () {
+        n.d(t, 'n', function () {
           return O;
         }),
-        n.d(t, "o", function () {
+        n.d(t, 'o', function () {
           return M;
         }),
-        n.d(t, "p", function () {
+        n.d(t, 'p', function () {
           return I;
         }),
-        n.d(t, "q", function () {
+        n.d(t, 'q', function () {
           return F;
         }),
-        n.d(t, "r", function () {
+        n.d(t, 'r', function () {
           return C;
         }),
-        n.d(t, "s", function () {
+        n.d(t, 's', function () {
           return j;
         }),
-        n.d(t, "t", function () {
+        n.d(t, 't', function () {
           return A;
         }),
-        n.d(t, "u", function () {
+        n.d(t, 'u', function () {
           return y;
         }),
-        n.d(t, "v", function () {
+        n.d(t, 'v', function () {
           return a;
         }),
-        n.d(t, "w", function () {
+        n.d(t, 'w', function () {
           return f;
         });
-      var i = n("lmln"),
-        r = n("4eob"),
-        o = n("AtEE"),
-        s = n("uZp5");
+      var i = n('lmln'),
+        r = n('4eob'),
+        o = n('AtEE'),
+        s = n('uZp5');
       const a = new i.b();
 
       function l(e) {
@@ -14292,8 +14292,8 @@
         constructor(e, t, n, i = []) {
           (this.data = e),
             (this.topNode = n),
-            r.g.prototype.hasOwnProperty("tree") ||
-              Object.defineProperty(r.g.prototype, "tree", {
+            r.g.prototype.hasOwnProperty('tree') ||
+              Object.defineProperty(r.g.prototype, 'tree', {
                 get() {
                   return f(this);
                 },
@@ -14397,7 +14397,7 @@
           (this.doc = e),
             (this.length = t),
             (this.cursorPos = 0),
-            (this.string = ""),
+            (this.string = ''),
             (this.cursor = e.iter());
         }
         syncTo(e) {
@@ -14662,10 +14662,10 @@
         },
       });
       let b =
-          ("undefined" != typeof window && window.requestIdleCallback) ||
+          ('undefined' != typeof window && window.requestIdleCallback) ||
           ((e, { timeout: t }) => setTimeout(e, t)),
         x =
-          ("undefined" != typeof window && window.cancelIdleCallback) ||
+          ('undefined' != typeof window && window.cancelIdleCallback) ||
           clearTimeout;
       const w = o.f.fromClass(
           class {
@@ -14814,9 +14814,9 @@
       const C = r.h.define(),
         A = r.h.define({
           combine: (e) => {
-            if (!e.length) return "  ";
+            if (!e.length) return '  ';
             if (!/^(?: +|\t+)$/.test(e[0]))
-              throw new Error("Invalid indent unit: " + JSON.stringify(e[0]));
+              throw new Error('Invalid indent unit: ' + JSON.stringify(e[0]));
             return e[0];
           },
         });
@@ -14827,11 +14827,11 @@
       }
 
       function j(e, t) {
-        let n = "",
+        let n = '',
           i = e.tabSize;
         if (9 == e.facet(A).charCodeAt(0))
-          for (; t >= i; ) (n += "\t"), (t -= i);
-        for (let r = 0; r < t; r++) n += " ";
+          for (; t >= i; ) (n += '\t'), (t -= i);
+        for (let r = 0; r < t; r++) n += ' ';
         return n;
       }
 
@@ -14880,7 +14880,7 @@
             this.options.simulateDoubleBreak &&
             e == this.options.simulateBreak
           )
-            return "";
+            return '';
           let { text: n, from: i } = this.lineAt(e, t);
           return n.slice(e - i, Math.min(n.length, e + 100 - i));
         }
@@ -15022,9 +15022,9 @@
 
       function F() {
         return r.g.transactionFilter.of((e) => {
-          if (!e.docChanged || !e.isUserEvent("input.type")) return e;
+          if (!e.docChanged || !e.isUserEvent('input.type')) return e;
           let t = e.startState.languageDataAt(
-            "indentOnInput",
+            'indentOnInput',
             e.startState.selection.main.head
           );
           if (!t.length) return e;

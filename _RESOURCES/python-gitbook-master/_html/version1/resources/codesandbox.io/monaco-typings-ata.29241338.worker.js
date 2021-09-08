@@ -20,26 +20,26 @@
         });
     }),
     (n.r = function (t) {
-      "undefined" !== typeof Symbol &&
+      'undefined' !== typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(t, Symbol.toStringTag, {
-          value: "Module",
+          value: 'Module',
         }),
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
     }),
     (n.t = function (t, e) {
       if ((1 & e && (t = n(t)), 8 & e)) return t;
-      if (4 & e && "object" === typeof t && t && t.__esModule) return t;
+      if (4 & e && 'object' === typeof t && t && t.__esModule) return t;
       var r = Object.create(null);
       if (
         (n.r(r),
-        Object.defineProperty(r, "default", {
+        Object.defineProperty(r, 'default', {
           enumerable: !0,
           value: t,
         }),
-        2 & e && "string" != typeof t)
+        2 & e && 'string' != typeof t)
       )
         for (var o in t)
           n.d(
@@ -60,18 +60,18 @@
           : function () {
               return t;
             };
-      return n.d(e, "a", e), e;
+      return n.d(e, 'a', e), e;
     }),
     (n.o = function (t, e) {
       return Object.prototype.hasOwnProperty.call(t, e);
     }),
-    (n.p = "https://codesandbox.io/"),
+    (n.p = 'https://codesandbox.io/'),
     n(
       (n.s =
-        "../../node_modules/thread-loader/dist/cjs.js?!./node_modules/babel-loader/lib/index.js?!./src/embed/components/Content/Monaco/workers/fetch-dependency-typings.js")
+        '../../node_modules/thread-loader/dist/cjs.js?!./node_modules/babel-loader/lib/index.js?!./src/embed/components/Content/Monaco/workers/fetch-dependency-typings.js')
     );
 })({
-  "../../node_modules/@babel/runtime/helpers/asyncToGenerator.js": function (
+  '../../node_modules/@babel/runtime/helpers/asyncToGenerator.js': function (
     t,
     e
   ) {
@@ -92,32 +92,32 @@
           var a = t.apply(e, r);
 
           function c(t) {
-            n(a, o, i, c, u, "next", t);
+            n(a, o, i, c, u, 'next', t);
           }
 
           function u(t) {
-            n(a, o, i, c, u, "throw", t);
+            n(a, o, i, c, u, 'throw', t);
           }
           c(void 0);
         });
       };
     };
   },
-  "../../node_modules/@babel/runtime/regenerator/index.js": function (t, e, n) {
-    t.exports = n("../../node_modules/regenerator-runtime/runtime.js");
+  '../../node_modules/@babel/runtime/regenerator/index.js': function (t, e, n) {
+    t.exports = n('../../node_modules/regenerator-runtime/runtime.js');
   },
-  "../../node_modules/path-browserify/index.js": function (t, e, n) {
-    "use strict";
+  '../../node_modules/path-browserify/index.js': function (t, e, n) {
+    'use strict';
     (function (e) {
       function n(t) {
-        if ("string" !== typeof t)
+        if ('string' !== typeof t)
           throw new TypeError(
-            "Path must be a string. Received " + JSON.stringify(t)
+            'Path must be a string. Received ' + JSON.stringify(t)
           );
       }
 
       function r(t, e) {
-        for (var n, r = "", o = 0, i = -1, a = 0, c = 0; c <= t.length; ++c) {
+        for (var n, r = '', o = 0, i = -1, a = 0, c = 0; c <= t.length; ++c) {
           if (c < t.length) n = t.charCodeAt(c);
           else {
             if (47 === n) break;
@@ -133,24 +133,24 @@
                 46 !== r.charCodeAt(r.length - 2)
               )
                 if (r.length > 2) {
-                  var u = r.lastIndexOf("/");
+                  var u = r.lastIndexOf('/');
                   if (u !== r.length - 1) {
                     -1 === u
-                      ? ((r = ""), (o = 0))
+                      ? ((r = ''), (o = 0))
                       : (o =
-                          (r = r.slice(0, u)).length - 1 - r.lastIndexOf("/")),
+                          (r = r.slice(0, u)).length - 1 - r.lastIndexOf('/')),
                       (i = c),
                       (a = 0);
                     continue;
                   }
                 } else if (2 === r.length || 1 === r.length) {
-                  (r = ""), (o = 0), (i = c), (a = 0);
+                  (r = ''), (o = 0), (i = c), (a = 0);
                   continue;
                 }
-              e && (r.length > 0 ? (r += "/..") : (r = ".."), (o = 2));
+              e && (r.length > 0 ? (r += '/..') : (r = '..'), (o = 2));
             } else
               r.length > 0
-                ? (r += "/" + t.slice(i + 1, c))
+                ? (r += '/' + t.slice(i + 1, c))
                 : (r = t.slice(i + 1, c)),
                 (o = c - i - 1);
             (i = c), (a = 0);
@@ -161,7 +161,7 @@
       var o = {
         resolve: function () {
           for (
-            var t, o = "", i = !1, a = arguments.length - 1;
+            var t, o = '', i = !1, a = arguments.length - 1;
             a >= -1 && !i;
             a--
           ) {
@@ -171,37 +171,37 @@
               : (void 0 === t && (t = e.cwd()), (c = t)),
               n(c),
               0 !== c.length &&
-                ((o = c + "/" + o), (i = 47 === c.charCodeAt(0)));
+                ((o = c + '/' + o), (i = 47 === c.charCodeAt(0)));
           }
           return (
             (o = r(o, !i)),
-            i ? (o.length > 0 ? "/" + o : "/") : o.length > 0 ? o : "."
+            i ? (o.length > 0 ? '/' + o : '/') : o.length > 0 ? o : '.'
           );
         },
         normalize: function (t) {
-          if ((n(t), 0 === t.length)) return ".";
+          if ((n(t), 0 === t.length)) return '.';
           var e = 47 === t.charCodeAt(0),
             o = 47 === t.charCodeAt(t.length - 1);
           return (
-            0 !== (t = r(t, !e)).length || e || (t = "."),
-            t.length > 0 && o && (t += "/"),
-            e ? "/" + t : t
+            0 !== (t = r(t, !e)).length || e || (t = '.'),
+            t.length > 0 && o && (t += '/'),
+            e ? '/' + t : t
           );
         },
         isAbsolute: function (t) {
           return n(t), t.length > 0 && 47 === t.charCodeAt(0);
         },
         join: function () {
-          if (0 === arguments.length) return ".";
+          if (0 === arguments.length) return '.';
           for (var t, e = 0; e < arguments.length; ++e) {
             var r = arguments[e];
-            n(r), r.length > 0 && (void 0 === t ? (t = r) : (t += "/" + r));
+            n(r), r.length > 0 && (void 0 === t ? (t = r) : (t += '/' + r));
           }
-          return void 0 === t ? "." : o.normalize(t);
+          return void 0 === t ? '.' : o.normalize(t);
         },
         relative: function (t, e) {
-          if ((n(t), n(e), t === e)) return "";
-          if ((t = o.resolve(t)) === (e = o.resolve(e))) return "";
+          if ((n(t), n(e), t === e)) return '';
+          if ((t = o.resolve(t)) === (e = o.resolve(e))) return '';
           for (var r = 1; r < t.length && 47 === t.charCodeAt(r); ++r);
           for (
             var i = t.length, a = i - r, c = 1;
@@ -226,10 +226,10 @@
             if (h !== e.charCodeAt(c + f)) break;
             47 === h && (l = f);
           }
-          var d = "";
+          var d = '';
           for (f = r + l + 1; f <= i; ++f)
             (f !== i && 47 !== t.charCodeAt(f)) ||
-              (0 === d.length ? (d += "..") : (d += "/.."));
+              (0 === d.length ? (d += '..') : (d += '/..'));
           return d.length > 0
             ? d + e.slice(c + l)
             : ((c += l), 47 === e.charCodeAt(c) && ++c, e.slice(c));
@@ -238,7 +238,7 @@
           return t;
         },
         dirname: function (t) {
-          if ((n(t), 0 === t.length)) return ".";
+          if ((n(t), 0 === t.length)) return '.';
           for (
             var e = t.charCodeAt(0),
               r = 47 === e,
@@ -256,14 +256,14 @@
             } else i = !1;
           return -1 === o
             ? r
-              ? "/"
-              : "."
+              ? '/'
+              : '.'
             : r && 1 === o
-            ? "//"
+            ? '//'
             : t.slice(0, o);
         },
         basename: function (t, e) {
-          if (void 0 !== e && "string" !== typeof e)
+          if (void 0 !== e && 'string' !== typeof e)
             throw new TypeError('"ext" argument must be a string');
           n(t);
           var r,
@@ -271,7 +271,7 @@
             i = -1,
             a = !0;
           if (void 0 !== e && e.length > 0 && e.length <= t.length) {
-            if (e.length === t.length && e === t) return "";
+            if (e.length === t.length && e === t) return '';
             var c = e.length - 1,
               u = -1;
             for (r = t.length - 1; r >= 0; --r) {
@@ -299,7 +299,7 @@
                 break;
               }
             } else -1 === i && ((a = !1), (i = r + 1));
-          return -1 === i ? "" : t.slice(o, i);
+          return -1 === i ? '' : t.slice(o, i);
         },
         extname: function (t) {
           n(t);
@@ -325,35 +325,35 @@
             -1 === o ||
             0 === a ||
             (1 === a && e === o - 1 && e === r + 1)
-            ? ""
+            ? ''
             : t.slice(e, o);
         },
         format: function (t) {
-          if (null === t || "object" !== typeof t)
+          if (null === t || 'object' !== typeof t)
             throw new TypeError(
               'The "pathObject" argument must be of type Object. Received type ' +
                 typeof t
             );
           return (function (t, e) {
             var n = e.dir || e.root,
-              r = e.base || (e.name || "") + (e.ext || "");
+              r = e.base || (e.name || '') + (e.ext || '');
             return n ? (n === e.root ? n + r : n + t + r) : r;
-          })("/", t);
+          })('/', t);
         },
         parse: function (t) {
           n(t);
           var e = {
-            root: "",
-            dir: "",
-            base: "",
-            ext: "",
-            name: "",
+            root: '',
+            dir: '',
+            base: '',
+            ext: '',
+            name: '',
           };
           if (0 === t.length) return e;
           var r,
             o = t.charCodeAt(0),
             i = 47 === o;
-          i ? ((e.root = "/"), (r = 1)) : (r = 0);
+          i ? ((e.root = '/'), (r = 1)) : (r = 0);
           for (
             var a = -1, c = 0, u = -1, s = !0, l = t.length - 1, f = 0;
             l >= r;
@@ -381,29 +381,29 @@
                   ? ((e.name = t.slice(1, a)), (e.base = t.slice(1, u)))
                   : ((e.name = t.slice(c, a)), (e.base = t.slice(c, u))),
                 (e.ext = t.slice(a, u))),
-            c > 0 ? (e.dir = t.slice(0, c - 1)) : i && (e.dir = "/"),
+            c > 0 ? (e.dir = t.slice(0, c - 1)) : i && (e.dir = '/'),
             e
           );
         },
-        sep: "/",
-        delimiter: ":",
+        sep: '/',
+        delimiter: ':',
         win32: null,
         posix: null,
       };
       (o.posix = o), (t.exports = o);
-    }.call(this, n("../../node_modules/process/browser.js")));
+    }.call(this, n('../../node_modules/process/browser.js')));
   },
-  "../../node_modules/process/browser.js": function (t, e) {
+  '../../node_modules/process/browser.js': function (t, e) {
     var n,
       r,
       o = (t.exports = {});
 
     function i() {
-      throw new Error("setTimeout has not been defined");
+      throw new Error('setTimeout has not been defined');
     }
 
     function a() {
-      throw new Error("clearTimeout has not been defined");
+      throw new Error('clearTimeout has not been defined');
     }
 
     function c(t) {
@@ -422,12 +422,12 @@
     }
     !(function () {
       try {
-        n = "function" === typeof setTimeout ? setTimeout : i;
+        n = 'function' === typeof setTimeout ? setTimeout : i;
       } catch (t) {
         n = i;
       }
       try {
-        r = "function" === typeof clearTimeout ? clearTimeout : a;
+        r = 'function' === typeof clearTimeout ? clearTimeout : a;
       } catch (t) {
         r = a;
       }
@@ -484,11 +484,11 @@
       (p.prototype.run = function () {
         this.fun.apply(null, this.array);
       }),
-      (o.title = "browser"),
+      (o.title = 'browser'),
       (o.browser = !0),
       (o.env = {}),
       (o.argv = []),
-      (o.version = ""),
+      (o.version = ''),
       (o.versions = {}),
       (o.on = v),
       (o.addListener = v),
@@ -503,27 +503,27 @@
         return [];
       }),
       (o.binding = function (t) {
-        throw new Error("process.binding is not supported");
+        throw new Error('process.binding is not supported');
       }),
       (o.cwd = function () {
-        return "/";
+        return '/';
       }),
       (o.chdir = function (t) {
-        throw new Error("process.chdir is not supported");
+        throw new Error('process.chdir is not supported');
       }),
       (o.umask = function () {
         return 0;
       });
   },
-  "../../node_modules/regenerator-runtime/runtime.js": function (t, e, n) {
+  '../../node_modules/regenerator-runtime/runtime.js': function (t, e, n) {
     var r = (function (t) {
-      "use strict";
+      'use strict';
       var e = Object.prototype,
         n = e.hasOwnProperty,
-        r = "function" === typeof Symbol ? Symbol : {},
-        o = r.iterator || "@@iterator",
-        i = r.asyncIterator || "@@asyncIterator",
-        a = r.toStringTag || "@@toStringTag";
+        r = 'function' === typeof Symbol ? Symbol : {},
+        o = r.iterator || '@@iterator',
+        i = r.asyncIterator || '@@asyncIterator',
+        a = r.toStringTag || '@@toStringTag';
 
       function c(t, e, n, r) {
         var o = e && e.prototype instanceof l ? e : l,
@@ -531,12 +531,12 @@
           a = new j(r || []);
         return (
           (i._invoke = (function (t, e, n) {
-            var r = "suspendedStart";
+            var r = 'suspendedStart';
             return function (o, i) {
-              if ("executing" === r)
-                throw new Error("Generator is already running");
-              if ("completed" === r) {
-                if ("throw" === o) throw i;
+              if ('executing' === r)
+                throw new Error('Generator is already running');
+              if ('completed' === r) {
+                if ('throw' === o) throw i;
                 return E();
               }
               for (n.method = o, n.arg = i; ; ) {
@@ -548,16 +548,16 @@
                     return c;
                   }
                 }
-                if ("next" === n.method) n.sent = n._sent = n.arg;
-                else if ("throw" === n.method) {
-                  if ("suspendedStart" === r) throw ((r = "completed"), n.arg);
+                if ('next' === n.method) n.sent = n._sent = n.arg;
+                else if ('throw' === n.method) {
+                  if ('suspendedStart' === r) throw ((r = 'completed'), n.arg);
                   n.dispatchException(n.arg);
-                } else "return" === n.method && n.abrupt("return", n.arg);
-                r = "executing";
+                } else 'return' === n.method && n.abrupt('return', n.arg);
+                r = 'executing';
                 var l = u(t, e, n);
-                if ("normal" === l.type) {
+                if ('normal' === l.type) {
                   if (
-                    ((r = n.done ? "completed" : "suspendedYield"), l.arg === s)
+                    ((r = n.done ? 'completed' : 'suspendedYield'), l.arg === s)
                   )
                     continue;
                   return {
@@ -565,8 +565,8 @@
                     done: n.done,
                   };
                 }
-                "throw" === l.type &&
-                  ((r = "completed"), (n.method = "throw"), (n.arg = l.arg));
+                'throw' === l.type &&
+                  ((r = 'completed'), (n.method = 'throw'), (n.arg = l.arg));
               }
             };
           })(t, n, a)),
@@ -577,12 +577,12 @@
       function u(t, e, n) {
         try {
           return {
-            type: "normal",
+            type: 'normal',
             arg: t.call(e, n),
           };
         } catch (r) {
           return {
-            type: "throw",
+            type: 'throw',
             arg: r,
           };
         }
@@ -605,7 +605,7 @@
       var m = (h.prototype = l.prototype = Object.create(d));
 
       function g(t) {
-        ["next", "throw", "return"].forEach(function (e) {
+        ['next', 'throw', 'return'].forEach(function (e) {
           t[e] = function (t) {
             return this._invoke(e, t);
           };
@@ -619,16 +619,16 @@
             return new e(function (r, a) {
               !(function r(o, i, a, c) {
                 var s = u(t[o], t, i);
-                if ("throw" !== s.type) {
+                if ('throw' !== s.type) {
                   var l = s.arg,
                     f = l.value;
-                  return f && "object" === typeof f && n.call(f, "__await")
+                  return f && 'object' === typeof f && n.call(f, '__await')
                     ? e.resolve(f.__await).then(
                         function (t) {
-                          r("next", t, a, c);
+                          r('next', t, a, c);
                         },
                         function (t) {
-                          r("throw", t, a, c);
+                          r('throw', t, a, c);
                         }
                       )
                     : e.resolve(f).then(
@@ -636,7 +636,7 @@
                           (l.value = t), a(l);
                         },
                         function (t) {
-                          return r("throw", t, a, c);
+                          return r('throw', t, a, c);
                         }
                       );
                 }
@@ -651,16 +651,16 @@
       function w(t, e) {
         var n = t.iterator[e.method];
         if (void 0 === n) {
-          if (((e.delegate = null), "throw" === e.method)) {
+          if (((e.delegate = null), 'throw' === e.method)) {
             if (
               t.iterator.return &&
-              ((e.method = "return"),
+              ((e.method = 'return'),
               (e.arg = void 0),
               w(t, e),
-              "throw" === e.method)
+              'throw' === e.method)
             )
               return s;
-            (e.method = "throw"),
+            (e.method = 'throw'),
               (e.arg = new TypeError(
                 "The iterator does not provide a 'throw' method"
               ));
@@ -668,19 +668,19 @@
           return s;
         }
         var r = u(n, t.iterator, e.arg);
-        if ("throw" === r.type)
-          return (e.method = "throw"), (e.arg = r.arg), (e.delegate = null), s;
+        if ('throw' === r.type)
+          return (e.method = 'throw'), (e.arg = r.arg), (e.delegate = null), s;
         var o = r.arg;
         return o
           ? o.done
             ? ((e[t.resultName] = o.value),
               (e.next = t.nextLoc),
-              "return" !== e.method && ((e.method = "next"), (e.arg = void 0)),
+              'return' !== e.method && ((e.method = 'next'), (e.arg = void 0)),
               (e.delegate = null),
               s)
             : o
-          : ((e.method = "throw"),
-            (e.arg = new TypeError("iterator result is not an object")),
+          : ((e.method = 'throw'),
+            (e.arg = new TypeError('iterator result is not an object')),
             (e.delegate = null),
             s);
       }
@@ -696,13 +696,13 @@
 
       function x(t) {
         var e = t.completion || {};
-        (e.type = "normal"), delete e.arg, (t.completion = e);
+        (e.type = 'normal'), delete e.arg, (t.completion = e);
       }
 
       function j(t) {
         (this.tryEntries = [
           {
-            tryLoc: "root",
+            tryLoc: 'root',
           },
         ]),
           t.forEach(b, this),
@@ -713,7 +713,7 @@
         if (t) {
           var e = t[o];
           if (e) return e.call(t);
-          if ("function" === typeof t.next) return t;
+          if ('function' === typeof t.next) return t;
           if (!isNaN(t.length)) {
             var r = -1,
               i = function e() {
@@ -738,19 +738,19 @@
       return (
         (f.prototype = m.constructor = h),
         (h.constructor = f),
-        (h[a] = f.displayName = "GeneratorFunction"),
+        (h[a] = f.displayName = 'GeneratorFunction'),
         (t.isGeneratorFunction = function (t) {
-          var e = "function" === typeof t && t.constructor;
+          var e = 'function' === typeof t && t.constructor;
           return (
             !!e &&
-            (e === f || "GeneratorFunction" === (e.displayName || e.name))
+            (e === f || 'GeneratorFunction' === (e.displayName || e.name))
           );
         }),
         (t.mark = function (t) {
           return (
             Object.setPrototypeOf
               ? Object.setPrototypeOf(t, h)
-              : ((t.__proto__ = h), a in t || (t[a] = "GeneratorFunction")),
+              : ((t.__proto__ = h), a in t || (t[a] = 'GeneratorFunction')),
             (t.prototype = Object.create(m)),
             t
           );
@@ -775,12 +775,12 @@
               });
         }),
         g(m),
-        (m[a] = "Generator"),
+        (m[a] = 'Generator'),
         (m[o] = function () {
           return this;
         }),
         (m.toString = function () {
-          return "[object Generator]";
+          return '[object Generator]';
         }),
         (t.keys = function (t) {
           var e = [];
@@ -806,13 +806,13 @@
               (this.sent = this._sent = void 0),
               (this.done = !1),
               (this.delegate = null),
-              (this.method = "next"),
+              (this.method = 'next'),
               (this.arg = void 0),
               this.tryEntries.forEach(x),
               !t)
             )
               for (var e in this)
-                "t" === e.charAt(0) &&
+                't' === e.charAt(0) &&
                   n.call(this, e) &&
                   !isNaN(+e.slice(1)) &&
                   (this[e] = void 0);
@@ -820,7 +820,7 @@
           stop: function () {
             this.done = !0;
             var t = this.tryEntries[0].completion;
-            if ("throw" === t.type) throw t.arg;
+            if ('throw' === t.type) throw t.arg;
             return this.rval;
           },
           dispatchException: function (t) {
@@ -829,20 +829,20 @@
 
             function r(n, r) {
               return (
-                (a.type = "throw"),
+                (a.type = 'throw'),
                 (a.arg = t),
                 (e.next = n),
-                r && ((e.method = "next"), (e.arg = void 0)),
+                r && ((e.method = 'next'), (e.arg = void 0)),
                 !!r
               );
             }
             for (var o = this.tryEntries.length - 1; o >= 0; --o) {
               var i = this.tryEntries[o],
                 a = i.completion;
-              if ("root" === i.tryLoc) return r("end");
+              if ('root' === i.tryLoc) return r('end');
               if (i.tryLoc <= this.prev) {
-                var c = n.call(i, "catchLoc"),
-                  u = n.call(i, "finallyLoc");
+                var c = n.call(i, 'catchLoc'),
+                  u = n.call(i, 'finallyLoc');
                 if (c && u) {
                   if (this.prev < i.catchLoc) return r(i.catchLoc, !0);
                   if (this.prev < i.finallyLoc) return r(i.finallyLoc);
@@ -850,7 +850,7 @@
                   if (this.prev < i.catchLoc) return r(i.catchLoc, !0);
                 } else {
                   if (!u)
-                    throw new Error("try statement without catch or finally");
+                    throw new Error('try statement without catch or finally');
                   if (this.prev < i.finallyLoc) return r(i.finallyLoc);
                 }
               }
@@ -861,7 +861,7 @@
               var o = this.tryEntries[r];
               if (
                 o.tryLoc <= this.prev &&
-                n.call(o, "finallyLoc") &&
+                n.call(o, 'finallyLoc') &&
                 this.prev < o.finallyLoc
               ) {
                 var i = o;
@@ -869,7 +869,7 @@
               }
             }
             i &&
-              ("break" === t || "continue" === t) &&
+              ('break' === t || 'continue' === t) &&
               i.tryLoc <= e &&
               e <= i.finallyLoc &&
               (i = null);
@@ -878,20 +878,20 @@
               (a.type = t),
               (a.arg = e),
               i
-                ? ((this.method = "next"), (this.next = i.finallyLoc), s)
+                ? ((this.method = 'next'), (this.next = i.finallyLoc), s)
                 : this.complete(a)
             );
           },
           complete: function (t, e) {
-            if ("throw" === t.type) throw t.arg;
+            if ('throw' === t.type) throw t.arg;
             return (
-              "break" === t.type || "continue" === t.type
+              'break' === t.type || 'continue' === t.type
                 ? (this.next = t.arg)
-                : "return" === t.type
+                : 'return' === t.type
                 ? ((this.rval = this.arg = t.arg),
-                  (this.method = "return"),
-                  (this.next = "end"))
-                : "normal" === t.type && e && (this.next = e),
+                  (this.method = 'return'),
+                  (this.next = 'end'))
+                : 'normal' === t.type && e && (this.next = e),
               s
             );
           },
@@ -907,14 +907,14 @@
               var n = this.tryEntries[e];
               if (n.tryLoc === t) {
                 var r = n.completion;
-                if ("throw" === r.type) {
+                if ('throw' === r.type) {
                   var o = r.arg;
                   x(n);
                 }
                 return o;
               }
             }
-            throw new Error("illegal catch attempt");
+            throw new Error('illegal catch attempt');
           },
           delegateYield: function (t, e, n) {
             return (
@@ -923,7 +923,7 @@
                 resultName: e,
                 nextLoc: n,
               }),
-              "next" === this.method && (this.arg = void 0),
+              'next' === this.method && (this.arg = void 0),
               s
             );
           },
@@ -934,23 +934,23 @@
     try {
       regeneratorRuntime = r;
     } catch (o) {
-      Function("r", "regeneratorRuntime = r")(r);
+      Function('r', 'regeneratorRuntime = r')(r);
     }
   },
-  "../../node_modules/thread-loader/dist/cjs.js?!./node_modules/babel-loader/lib/index.js?!./src/embed/components/Content/Monaco/workers/fetch-dependency-typings.js":
+  '../../node_modules/thread-loader/dist/cjs.js?!./node_modules/babel-loader/lib/index.js?!./src/embed/components/Content/Monaco/workers/fetch-dependency-typings.js':
     function (t, e, n) {
-      "use strict";
+      'use strict';
       n.r(e);
-      var r = n("../../node_modules/@babel/runtime/regenerator/index.js"),
+      var r = n('../../node_modules/@babel/runtime/regenerator/index.js'),
         o = n.n(r),
-        i = n("../../node_modules/@babel/runtime/helpers/asyncToGenerator.js"),
+        i = n('../../node_modules/@babel/runtime/helpers/asyncToGenerator.js'),
         a = n.n(i),
-        c = n("../../node_modules/path-browserify/index.js"),
+        c = n('../../node_modules/path-browserify/index.js'),
         u = n.n(c);
       self.importScripts([
-        "https://cdnjs.cloudflare.com/ajax/libs/typescript/2.7.2/typescript.min.js",
+        'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.7.2/typescript.min.js',
       ]);
-      var s = "https://cdn.jsdelivr.net/",
+      var s = 'https://cdn.jsdelivr.net/',
         l = [],
         f = function (t, e, n) {
           n[t] = e;
@@ -972,11 +972,11 @@
         },
         p = function (t, e, n) {
           return d(
-            ""
-              .concat(s, "npm/@types/")
-              .concat(t.replace("@", "").replace(/\//g, "__"), "/index.d.ts")
+            ''
+              .concat(s, 'npm/@types/')
+              .concat(t.replace('@', '').replace(/\//g, '__'), '/index.d.ts')
           ).then(function (e) {
-            f("node_modules/@types/".concat(t, "/index.d.ts"), e, n);
+            f('node_modules/@types/'.concat(t, '/index.d.ts'), e, n);
           });
         },
         v = function (t) {
@@ -989,22 +989,22 @@
           );
         },
         m = function (t, e) {
-          var n = "/".concat(e);
-          return t["".concat(n, ".d.ts")]
-            ? "".concat(e, ".d.ts")
-            : t["".concat(n, ".ts")]
-            ? "".concat(e, ".ts")
+          var n = '/'.concat(e);
+          return t[''.concat(n, '.d.ts')]
+            ? ''.concat(e, '.d.ts')
+            : t[''.concat(n, '.ts')]
+            ? ''.concat(e, '.ts')
             : t[n]
             ? e
-            : t["".concat(n, "/index.d.ts")]
-            ? "".concat(e, "/index.d.ts")
+            : t[''.concat(n, '/index.d.ts')]
+            ? ''.concat(e, '/index.d.ts')
             : e;
         },
         g = function t(e, n, r, o, i) {
-          var a = u.a.join("node_modules", n, r);
+          var a = u.a.join('node_modules', n, r);
           return o[a]
             ? null
-            : d("".concat(e, "/").concat(r)).then(function (c) {
+            : d(''.concat(e, '/').concat(r)).then(function (c) {
                 return o[a]
                   ? null
                   : (f(a, c, o),
@@ -1033,7 +1033,7 @@
                         );
                       })(r, c)
                         .filter(function (t) {
-                          return t.startsWith(".");
+                          return t.startsWith('.');
                         })
                         .map(function (t) {
                           return u.a.join(u.a.dirname(r), t);
@@ -1049,9 +1049,9 @@
         };
 
       function y(t, e, n) {
-        var r = "https://data.jsdelivr.com/v1/package/npm/"
-          .concat(t, "@")
-          .concat(e, "/flat");
+        var r = 'https://data.jsdelivr.com/v1/package/npm/'
+          .concat(t, '@')
+          .concat(e, '/flat');
         return d(r)
           .then(function (t) {
             return JSON.parse(t);
@@ -1064,17 +1064,17 @@
               },
               i = o(r.files, /\.d\.ts$/);
             if ((0 === i.length && (i = o(r.files, /\.ts$/)), 0 === i.length))
-              throw new Error("No inline typings found.");
+              throw new Error('No inline typings found.');
             return Promise.all(
               i.map(function (r) {
                 return d(
-                  "https://cdn.jsdelivr.net/npm/"
-                    .concat(t, "@")
+                  'https://cdn.jsdelivr.net/npm/'
+                    .concat(t, '@')
                     .concat(e)
                     .concat(r)
                 )
                   .then(function (e) {
-                    return f("node_modules/".concat(t).concat(r), e, n);
+                    return f('node_modules/'.concat(t).concat(r), e, n);
                   })
                   .catch(function () {});
               })
@@ -1083,8 +1083,8 @@
       }
 
       function w(t, e, n) {
-        var r = "".concat(s, "npm/").concat(t, "@").concat(e);
-        return d("".concat(r, "/package.json"))
+        var r = ''.concat(s, 'npm/').concat(t, '@').concat(e);
+        return d(''.concat(r, '/package.json'))
           .then(function (t) {
             return JSON.parse(t);
           })
@@ -1093,15 +1093,15 @@
             if (i)
               return (
                 f(
-                  "node_modules/".concat(t, "/package.json"),
+                  'node_modules/'.concat(t, '/package.json'),
                   JSON.stringify(o),
                   n
                 ),
                 (function (t, e, n) {
                   return d(
-                    "https://data.jsdelivr.com/v1/package/npm/"
-                      .concat(t, "@")
-                      .concat(e, "/flat")
+                    'https://data.jsdelivr.com/v1/package/npm/'
+                      .concat(t, '@')
+                      .concat(e, '/flat')
                   )
                     .then(function (t) {
                       return JSON.parse(t);
@@ -1112,11 +1112,11 @@
                       });
                     })
                     .then(v);
-                })(t, e, u.a.join("/", u.a.dirname(i))).then(function (e) {
+                })(t, e, u.a.join('/', u.a.dirname(i))).then(function (e) {
                   return g(r, t, m(e, i), n, e);
                 })
               );
-            throw new Error("No typings field in package.json");
+            throw new Error('No typings field in package.json');
           });
       }
 
@@ -1151,8 +1151,8 @@
                                             l.push(r),
                                             (t.next = 5),
                                             d(
-                                              "https://data.jsdelivr.com/v1/package/resolve/npm/"
-                                                .concat(r, "@")
+                                              'https://data.jsdelivr.com/v1/package/resolve/npm/'
+                                                .concat(r, '@')
                                                 .concat(e[r])
                                             )
                                               .then(function (t) {
@@ -1180,7 +1180,7 @@
                                         case 10:
                                           (t.prev = 10), (t.t0 = t.catch(0));
                                         case 13:
-                                        case "end":
+                                        case 'end':
                                           return t.stop();
                                       }
                                   },
@@ -1200,14 +1200,14 @@
                   case 4:
                     self.postMessage(n);
                   case 5:
-                  case "end":
+                  case 'end':
                     return t.stop();
                 }
             }, t);
           })
         )).apply(this, arguments);
       }
-      self.addEventListener("message", function (t) {
+      self.addEventListener('message', function (t) {
         !(function (t) {
           b.apply(this, arguments);
         })(t.data.dependencies);

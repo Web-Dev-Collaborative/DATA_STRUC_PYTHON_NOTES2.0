@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -48,7 +48,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.ReakitButton =
@@ -56,12 +56,12 @@ exports.ReakitButton =
   exports.LinkButton =
   exports.styles =
     void 0;
-const react_1 = __importDefault(require("react"));
-const react_router_dom_1 = require("react-router-dom");
-const Button_1 = require("reakit/Button");
-const styled_components_1 = __importStar(require("styled-components"));
-const theme_1 = __importDefault(require("../../theme"));
-const utils_1 = require("../../utils");
+const react_1 = __importDefault(require('react'));
+const react_router_dom_1 = require('react-router-dom');
+const Button_1 = require('reakit/Button');
+const styled_components_1 = __importStar(require('styled-components'));
+const theme_1 = __importDefault(require('../../theme'));
+const utils_1 = require('../../utils');
 const getBackgroundColor = ({
   theme: internalTheme,
   disabled,
@@ -72,14 +72,14 @@ const getBackgroundColor = ({
   if (disabled)
     return `background-color: ${
       internalTheme.light
-        ? "rgba(0, 0, 0, 0.4)"
+        ? 'rgba(0, 0, 0, 0.4)'
         : theme_1.default.background2.darken(0.3)()
     }`;
   if (danger) return `background-color: ${theme_1.default.dangerBackground()}`;
   if (secondary) return `background-color: transparent`;
   if (red) return `background-color: ${theme_1.default.red.darken(0.2)()}`;
-  if (internalTheme && internalTheme["button.background"]) {
-    return `background-color: ${internalTheme["button.background"]}`;
+  if (internalTheme && internalTheme['button.background']) {
+    return `background-color: ${internalTheme['button.background']}`;
   }
   return `background-color: #40A9F3;`;
 };
@@ -93,13 +93,13 @@ const getBackgroundHoverColor = ({
   if (disabled)
     return `background-color: ${
       internalTheme.light
-        ? "rgba(0, 0, 0, 0.4)"
+        ? 'rgba(0, 0, 0, 0.4)'
         : theme_1.default.background2.darken(0.3)()
     }`;
   if (danger) return `background-color: #E25D6A`;
   if (red) return `background-color: #F27777`;
-  if (internalTheme && internalTheme["button.hoverBackground"]) {
-    return `background-color: ${internalTheme["button.hoverBackground"]}`;
+  if (internalTheme && internalTheme['button.hoverBackground']) {
+    return `background-color: ${internalTheme['button.hoverBackground']}`;
   }
   if (secondary) return `background-color: #66b9f4`;
   return `background-color: #66b9f4;`;
@@ -108,14 +108,14 @@ const getColor = ({ disabled, secondary, theme: internalTheme }) => {
   if (disabled) return theme_1.default.background2.lighten(1.5)();
   if (secondary)
     return internalTheme.light
-      ? "rgba(0, 0, 0, 0.75)"
-      : "rgba(255, 255, 255, 0.75)";
-  return "white";
+      ? 'rgba(0, 0, 0, 0.75)'
+      : 'rgba(255, 255, 255, 0.75)';
+  return 'white';
 };
 const getHoverColor = ({ secondary, disabled }) => {
-  if (disabled) return "";
-  if (secondary) return "color: white";
-  return "";
+  if (disabled) return '';
+  if (secondary) return 'color: white';
+  return '';
 };
 const getBorder = ({
   theme: internalTheme,
@@ -126,15 +126,15 @@ const getBorder = ({
 }) => {
   if (disabled)
     return internalTheme.light
-      ? "2px solid rgba(0, 0, 0, 0.3)"
-      : "2px solid #161A1C";
-  if (red) return "2px solid #F27777";
-  if (danger) return "2px solid #E25D6A";
-  if (internalTheme && internalTheme["button.hoverBackground"]) {
-    return `2px solid ${internalTheme["button.hoverBackground"]}`;
+      ? '2px solid rgba(0, 0, 0, 0.3)'
+      : '2px solid #161A1C';
+  if (red) return '2px solid #F27777';
+  if (danger) return '2px solid #E25D6A';
+  if (internalTheme && internalTheme['button.hoverBackground']) {
+    return `2px solid ${internalTheme['button.hoverBackground']}`;
   }
   if (secondary) return `2px solid #66B9F4`;
-  return "2px solid #66B9F4";
+  return '2px solid #66B9F4';
 };
 exports.styles = styled_components_1.css`
   transition: 0.3s ease all;
@@ -153,7 +153,7 @@ exports.styles = styled_components_1.css`
   text-align: center;
   color: ${(props) => getColor(props)};
   font-weight: 600;
-  width: ${(props) => (props.block ? "100%" : "inherit")};
+  width: ${(props) => (props.block ? '100%' : 'inherit')};
 
   user-select: none;
   text-decoration: none;
@@ -194,7 +194,7 @@ exports.LinkButton = styled_components_1.default(
 // eslint-disable-next-line
 exports.AButton = styled_components_1.default(
   utils_1.withoutProps(`small`)((props) =>
-    react_1.default.createElement("a", Object.assign({}, props))
+    react_1.default.createElement('a', Object.assign({}, props))
   )
 )`
   ${exports.styles};

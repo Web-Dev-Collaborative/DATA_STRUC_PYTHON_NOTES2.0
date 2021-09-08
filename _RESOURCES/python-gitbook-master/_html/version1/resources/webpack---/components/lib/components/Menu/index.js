@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -46,7 +46,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -65,28 +65,28 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.Menu = exports.isMenuClicked = exports.MenuStyles = void 0;
-const react_1 = __importDefault(require("react"));
-const deepmerge_1 = __importDefault(require("deepmerge"));
-const css_1 = __importDefault(require("@styled-system/css"));
-const styled_components_1 = require("styled-components");
-const react_router_dom_1 = require("react-router-dom");
-const ReachMenu = __importStar(require("./reach-menu.fork"));
-const __1 = require("../..");
+const react_1 = __importDefault(require('react'));
+const deepmerge_1 = __importDefault(require('deepmerge'));
+const css_1 = __importDefault(require('@styled-system/css'));
+const styled_components_1 = require('styled-components');
+const react_router_dom_1 = require('react-router-dom');
+const ReachMenu = __importStar(require('./reach-menu.fork'));
+const __1 = require('../..');
 const transitions = {
   slide: styled_components_1.keyframes({
     from: {
       opacity: 0,
-      transform: "translateY(-4px)",
+      transform: 'translateY(-4px)',
     },
   }),
   scale: styled_components_1.keyframes({
     from: {
       opacity: 0,
-      transform: "scale(0.7)",
+      transform: 'scale(0.7)',
     },
   }),
 };
@@ -96,57 +96,57 @@ const MenuContext = react_1.default.createContext({
 });
 exports.MenuStyles = styled_components_1.createGlobalStyle(
   css_1.default({
-    "[data-reach-menu]": {
+    '[data-reach-menu]': {
       zIndex: 11,
-      fontFamily: "Inter, sans-serif",
+      fontFamily: 'Inter, sans-serif',
       fontWeight: 400,
     },
-    "[data-reach-menu][hidden],[data-reach-menu-popover][hidden]": {
-      display: "none",
+    '[data-reach-menu][hidden],[data-reach-menu-popover][hidden]': {
+      display: 'none',
     },
-    "[data-reach-menu-list][data-component=MenuList]": {
+    '[data-reach-menu-list][data-component=MenuList]': {
       minWidth: 100,
-      backgroundColor: "menuList.background",
+      backgroundColor: 'menuList.background',
       borderRadius: 3,
       boxShadow: 2,
-      overflow: "hidden",
-      border: "1px solid",
-      borderColor: "menuList.border",
-      ":focus": {
-        outline: "none",
+      overflow: 'hidden',
+      border: '1px solid',
+      borderColor: 'menuList.border',
+      ':focus': {
+        outline: 'none',
       },
-      transform: "translateY(4px)",
+      transform: 'translateY(4px)',
       // override reach ui styles
       padding: 0,
     },
-    "[data-reach-menu-item][data-component=MenuItem], [data-reach-menu-item][data-component=MenuLink]":
+    '[data-reach-menu-item][data-component=MenuItem], [data-reach-menu-item][data-component=MenuLink]':
       {
         fontSize: 2,
         paddingY: 2,
         paddingX: 2,
-        cursor: "pointer",
-        outline: "none",
-        color: "menuList.foreground",
-        "&[data-selected], :hover": {
-          outline: "none",
-          backgroundColor: "menuList.hoverBackground",
-          color: "menuList.hoverForeground",
+        cursor: 'pointer',
+        outline: 'none',
+        color: 'menuList.foreground',
+        '&[data-selected], :hover': {
+          outline: 'none',
+          backgroundColor: 'menuList.hoverBackground',
+          color: 'menuList.hoverForeground',
         },
-        "&[data-disabled], &[data-disabled]:hover": {
-          outline: "none",
-          backgroundColor: "transparent",
-          color: "inherit",
+        '&[data-disabled], &[data-disabled]:hover': {
+          outline: 'none',
+          backgroundColor: 'transparent',
+          color: 'inherit',
           opacity: 0.5,
-          cursor: "not-allowed",
+          cursor: 'not-allowed',
         },
         // override reach ui styles
-        font: "inherit",
+        font: 'inherit',
       },
-    "[data-component=MenuDivider]": {
+    '[data-component=MenuDivider]': {
       margin: 0,
-      border: "none",
-      borderBottom: "1px solid",
-      borderColor: "menuList.border",
+      border: 'none',
+      borderBottom: '1px solid',
+      borderColor: 'menuList.border',
     },
   }),
   styled_components_1.css`
@@ -190,15 +190,15 @@ const ENTER = 13;
 const SPACE = 32;
 const ContextMenu = (_a) => {
   var { visible, setVisibility, position } = _a,
-    props = __rest(_a, ["visible", "setVisibility", "position"]);
+    props = __rest(_a, ['visible', 'setVisibility', 'position']);
   react_1.default.useEffect(() => {
     // close when user clicks outside or scrolls away
     const handler = () => {
       if (visible) setVisibility(false);
     };
-    document.addEventListener("click", handler);
+    document.addEventListener('click', handler);
     return () => {
-      document.removeEventListener("click", handler);
+      document.removeEventListener('click', handler);
     };
   }, [visible, setVisibility]);
   // handle key down events - close on escape + disable the rest
@@ -215,9 +215,9 @@ const ContextMenu = (_a) => {
         setVisibility(false);
       event.preventDefault();
     };
-    document.addEventListener("keydown", handler);
+    document.addEventListener('keydown', handler);
     return () => {
-      document.removeEventListener("keydown", handler);
+      document.removeEventListener('keydown', handler);
     };
   });
   const menuRef = react_1.default.useRef(null);
@@ -262,7 +262,7 @@ const ContextMenu = (_a) => {
       if (visible && !isExpanded) {
         // keep it open if prop is set to visible
         dispatch({
-          type: "OPEN_MENU_AT_FIRST_ITEM",
+          type: 'OPEN_MENU_AT_FIRST_ITEM',
         });
       }
       return react_1.default.createElement(
@@ -277,7 +277,7 @@ const ContextMenu = (_a) => {
           ReachMenu.MenuPopover,
           {
             position: (targetRect, popoverRect) => ({
-              position: "fixed",
+              position: 'fixed',
               left: Math.min(
                 position.x,
                 window.innerWidth -
@@ -296,7 +296,7 @@ const ContextMenu = (_a) => {
             Menu.List,
             {
               style: {
-                visibility: menuIsReadyToShow ? "visible" : "hidden",
+                visibility: menuIsReadyToShow ? 'visible' : 'hidden',
               },
               ref: menuRef,
             },
@@ -313,18 +313,18 @@ const MenuButton = (props) =>
     Object.assign(
       {
         as: ReachMenu.MenuButton,
-        variant: "link",
+        variant: 'link',
       },
       props,
       {
         css: deepmerge_1.default(
           {
-            width: "auto",
+            width: 'auto',
             // disable scale feedback of buttons in menu
             // to make the menu feel less jumpy
-            transform: "scale(1)",
-            ":active:not(:disabled)": {
-              transform: "scale(1)",
+            transform: 'scale(1)',
+            ':active:not(:disabled)': {
+              transform: 'scale(1)',
             },
           },
           props.css || {}
@@ -345,7 +345,7 @@ const MenuIconButton = (props) =>
   );
 const MenuList = react_1.default.forwardRef((_a, ref) => {
   var { style, children } = _a,
-    props = __rest(_a, ["style", "children"]);
+    props = __rest(_a, ['style', 'children']);
   const { trigger, portal } = react_1.default.useContext(MenuContext);
   return react_1.default.createElement(
     ReachMenu.MenuList,
@@ -353,8 +353,8 @@ const MenuList = react_1.default.forwardRef((_a, ref) => {
       {
         style: style,
         ref: ref,
-        "data-component": "MenuList",
-        "data-trigger": trigger,
+        'data-component': 'MenuList',
+        'data-trigger': trigger,
         portal: portal,
       },
       props
@@ -368,7 +368,7 @@ const MenuItem = (props) =>
     Object.assign(
       {
         as: ReachMenu.MenuItem,
-        "data-component": "MenuItem",
+        'data-component': 'MenuItem',
       },
       props
     )
@@ -378,7 +378,7 @@ const MenuLink = ({ children, to, title, href }) => {
     return react_1.default.createElement(
       ReachMenu.MenuLink,
       {
-        "data-component": "MenuLink",
+        'data-component': 'MenuLink',
         as: react_router_dom_1.Link,
         to: to,
         title: title,
@@ -389,7 +389,7 @@ const MenuLink = ({ children, to, title, href }) => {
   return react_1.default.createElement(
     ReachMenu.MenuLink,
     {
-      "data-component": "MenuLink",
+      'data-component': 'MenuLink',
       href: href,
       title: title,
     },
@@ -401,10 +401,10 @@ const MenuDivider = (props) =>
     __1.Element,
     Object.assign(
       {
-        as: "hr",
-        "data-component": "MenuDivider",
+        as: 'hr',
+        'data-component': 'MenuDivider',
         style: {
-          margin: "0.25rem 0",
+          margin: '0.25rem 0',
         },
       },
       props
@@ -423,10 +423,10 @@ exports.isMenuClicked = (event) => {
   // bug in reach/menu-button
   const target = event.target;
   if (
-    target.tagName === "BUTTON" ||
-    target.tagName === "svg" ||
-    target.tagName === "path" ||
-    target.className.includes("no-click")
+    target.tagName === 'BUTTON' ||
+    target.tagName === 'svg' ||
+    target.tagName === 'path' ||
+    target.className.includes('no-click')
   ) {
     return true;
   }

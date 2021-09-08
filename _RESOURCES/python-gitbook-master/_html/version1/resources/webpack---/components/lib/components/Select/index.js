@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __rest =
   (this && this.__rest) ||
   function (s, e) {
@@ -6,7 +6,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -25,23 +25,23 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.Select = void 0;
-const react_1 = __importDefault(require("react"));
-const deepmerge_1 = __importDefault(require("deepmerge"));
-const styled_components_1 = __importDefault(require("styled-components"));
-const css_1 = __importDefault(require("@styled-system/css"));
-const Input_1 = require("../Input");
-const Element_1 = require("../Element");
+const react_1 = __importDefault(require('react'));
+const deepmerge_1 = __importDefault(require('deepmerge'));
+const styled_components_1 = __importDefault(require('styled-components'));
+const css_1 = __importDefault(require('@styled-system/css'));
+const Input_1 = require('../Input');
+const Element_1 = require('../Element');
 const variantStyles = {
   default: {
     // inherits from input
   },
   link: {
-    border: "none",
-    backgroundColor: "transparent",
+    border: 'none',
+    backgroundColor: 'transparent',
   },
 };
 const variantCarets = {
@@ -59,34 +59,34 @@ const variantCarets = {
 };
 // <path d="M4 14L1 10H7L4 14Z" fill="${fill}" />
 const getSVG = (variant, color) => {
-  const fill = "#" + (color || "").split("#")[1];
+  const fill = '#' + (color || '').split('#')[1];
   // caret icon
   const svgString = variantCarets[variant](fill);
-  const header = "data:image/svg+xml,";
+  const header = 'data:image/svg+xml,';
   const encoded = encodeURIComponent(svgString)
-    .replace(/'/g, "%27")
-    .replace(/"/g, "%22");
+    .replace(/'/g, '%27')
+    .replace(/"/g, '%22');
   return header + encoded;
 };
 const SelectComponent = styled_components_1
   .default(Input_1.Input)
   .attrs(() => ({
-    as: "select",
-  }))(({ variant = "default" }) =>
+    as: 'select',
+  }))(({ variant = 'default' }) =>
   css_1.default(
     deepmerge_1.default(variantStyles[variant], {
-      appearance: "none",
-      color: "input.placeholderForeground",
-      transition: "all ease",
+      appearance: 'none',
+      color: 'input.placeholderForeground',
+      transition: 'all ease',
       transitionDuration: (theme) => theme.speeds[2],
       paddingRight: 5,
       backgroundImage: (theme) =>
         theme &&
         `url(${getSVG(variant, theme.colors.input.placeholderForeground)})`,
-      backgroundPosition: "calc(100% - 8px) center",
-      backgroundRepeat: "no-repeat",
-      ":hover, :focus": {
-        color: "input.foreground",
+      backgroundPosition: 'calc(100% - 8px) center',
+      backgroundRepeat: 'no-repeat',
+      ':hover, :focus': {
+        color: 'input.foreground',
         backgroundImage: (theme) =>
           theme && `url(${getSVG(variant, theme.colors.input.foreground)})`,
       },
@@ -94,27 +94,27 @@ const SelectComponent = styled_components_1
   )
 );
 const SelectWithIcon = styled_components_1.default(Element_1.Element)(
-  ({ variant = "default" }) =>
+  ({ variant = 'default' }) =>
     css_1.default({
-      position: "relative",
-      color: "input.placeholderForeground",
-      transition: "all ease",
+      position: 'relative',
+      color: 'input.placeholderForeground',
+      transition: 'all ease',
       transitionDuration: (theme) => theme.speeds[2],
       select: {
         paddingLeft: 7,
       },
       svg: {
-        position: "absolute",
+        position: 'absolute',
         left: 2,
-        top: "50%",
-        transform: "translateY(-50%)",
+        top: '50%',
+        transform: 'translateY(-50%)',
       },
       // hover anywhere on the component should make all elements change
-      ":hover, :focus-within": {
+      ':hover, :focus-within': {
         // the svg takes currentcolor
-        color: "input.foreground",
+        color: 'input.foreground',
         select: {
-          color: "input.foreground",
+          color: 'input.foreground',
           backgroundImage: (theme) =>
             `url(${getSVG(variant, theme.colors.input.foreground)})`,
         },
@@ -123,7 +123,7 @@ const SelectWithIcon = styled_components_1.default(Element_1.Element)(
 );
 exports.Select = (_a) => {
   var { icon = null, placeholder = null } = _a,
-    props = __rest(_a, ["icon", "placeholder"]);
+    props = __rest(_a, ['icon', 'placeholder']);
   const PrefixIcon = icon;
   if (icon)
     return react_1.default.createElement(
@@ -137,9 +137,9 @@ exports.Select = (_a) => {
         Object.assign({}, props),
         placeholder
           ? react_1.default.createElement(
-              "option",
+              'option',
               {
-                value: "",
+                value: '',
               },
               placeholder
             )
@@ -152,9 +152,9 @@ exports.Select = (_a) => {
     Object.assign({}, props),
     placeholder
       ? react_1.default.createElement(
-          "option",
+          'option',
           {
-            value: "",
+            value: '',
           },
           placeholder
         )

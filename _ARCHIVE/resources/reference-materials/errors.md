@@ -14,7 +14,7 @@ The parser repeats the offending line and displays a little 'arrow' pointing at 
 
 Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called _exceptions_ and are not unconditionally fatal: you will soon learn how to handle them in Python programs. Most exceptions are not handled by programs, however, and result in error messages as shown here:
 
-> > > 10 \_\(1/0\) Traceback \(most recent call last\): File "", line 1, in ZeroDivisionError: division by zero 4 + spam\_3 Traceback \(most recent call last\): File "", line 1, in NameError: name 'spam' is not defined '2' + 2 Traceback \(most recent call last\): File "", line 1, in TypeError: can only concatenate str \(not "int"\) to str
+> > > 10 \_\(1/0\) Traceback \(most recent call last\): File "", line 1, in ZeroDivisionError: division by zero 4 + spam_3 Traceback \(most recent call last\): File "", line 1, in NameError: name 'spam' is not defined '2' + 2 Traceback \(most recent call last\): File "", line 1, in TypeError: can only concatenate str \(not "int"\) to str
 
 The last line of the error message indicates what happened. Exceptions come in different types, and the type is printed as part of the message: the types in the example are ZeroDivisionError, NameError and TypeError. The string printed as the exception type is the name of the built-in exception that occurred. This is true for all built-in exceptions, but need not be true for user-defined exceptions \(although it is a useful convention\). Standard exception names are built-in identifiers \(not reserved keywords\).
 
@@ -32,15 +32,15 @@ It is possible to write programs that handle selected exceptions. Look at the fo
 
 The try statement works as follows.
 
-* First, the _try clause_ \(the statement\(s\) between the try and except
+- First, the _try clause_ \(the statement\(s\) between the try and except
 
   keywords\) is executed.
 
-* If no exception occurs, the _except clause_ is skipped and execution
+- If no exception occurs, the _except clause_ is skipped and execution
 
   of the try statement is finished.
 
-* If an exception occurs during execution of the try clause, the rest
+- If an exception occurs during execution of the try clause, the rest
 
   of the clause is skipped. Then if its type matches the exception
 
@@ -48,7 +48,7 @@ The try statement works as follows.
 
   then execution continues after the try statement.
 
-* If an exception occurs which does not match the exception named in
+- If an exception occurs which does not match the exception named in
 
   the except clause, it is passed on to outer try statements; if no
 
@@ -131,7 +131,7 @@ If an exception has arguments, they are printed as the last part \('detail'\) of
 
 Exception handlers don't just handle exceptions if they occur immediately in the try clause, but also if they occur inside functions that are called \(even indirectly\) in the try clause. For example:
 
-> > > def this\_fails\(\): ... x = 1/0 ... try: ... this\_fails\(\) ... except ZeroDivisionError as err: ... print\('Handling run-time error:', err\) ... Handling run-time error: division by zero
+> > > def this_fails\(\): ... x = 1/0 ... try: ... this_fails\(\) ... except ZeroDivisionError as err: ... print\('Handling run-time error:', err\) ... Handling run-time error: division by zero
 
 ## Raising Exceptions
 
@@ -219,7 +219,7 @@ The try statement has another optional clause which is intended to define clean-
 
 If a finally clause is present, the !finally clause will execute as the last task before the try statement completes. The !finally clause runs whether or not the !try statement produces an exception. The following points discuss more complex cases when an exception occurs:
 
-* If an exception occurs during execution of the !try clause, the
+- If an exception occurs during execution of the !try clause, the
 
   exception may be handled by an except clause. If the exception is
 
@@ -227,23 +227,23 @@ If a finally clause is present, the !finally clause will execute as the last tas
 
   the !finally clause has been executed.
 
-* An exception could occur during execution of an !except or !else
+- An exception could occur during execution of an !except or !else
 
   clause. Again, the exception is re-raised after the !finally clause
 
   has been executed.
 
-* If the !finally clause executes a break, continue or return
+- If the !finally clause executes a break, continue or return
 
   statement, exceptions are not re-raised.
 
-* If the !try statement reaches a break, continue or return statement,
+- If the !try statement reaches a break, continue or return statement,
 
   the !finally clause will execute just prior to the !break, !continue
 
   or !return statement's execution.
 
-* If a !finally clause includes a !return statement, the returned
+- If a !finally clause includes a !return statement, the returned
 
   value will be the one from the !finally clause's !return statement,
 
@@ -251,7 +251,7 @@ If a finally clause is present, the !finally clause will execute as the last tas
 
 For example:
 
-> > > def bool\_return\(\): ... try: ... return True ... finally: ... return False ... bool\_return\(\) False
+> > > def bool_return\(\): ... try: ... return True ... finally: ... return False ... bool_return\(\) False
 
 A more complicated example:
 
@@ -279,4 +279,3 @@ with open("myfile.txt") as f:
 ```
 
 After the statement is executed, the file _f_ is always closed, even if a problem was encountered while processing the lines. Objects which, like files, provide predefined clean-up actions will indicate this in their documentation.
-

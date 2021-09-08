@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.relative =
@@ -29,12 +29,12 @@ function normalizeArray(parts, allowAboveRoot) {
   for (let i = 0; i < parts.length; i += 1) {
     const p = parts[i];
     // ignore empty parts
-    if (!p || p === ".") continue; // eslint-disable-line no-continue
-    if (p === "..") {
-      if (res.length && res[res.length - 1] !== "..") {
+    if (!p || p === '.') continue; // eslint-disable-line no-continue
+    if (p === '..') {
+      if (res.length && res[res.length - 1] !== '..') {
         res.pop();
       } else if (allowAboveRoot) {
-        res.push("..");
+        res.push('..');
       }
     } else {
       res.push(p);
@@ -44,32 +44,32 @@ function normalizeArray(parts, allowAboveRoot) {
 }
 
 function isAbsolute(path) {
-  return path.charAt(0) === "/";
+  return path.charAt(0) === '/';
 }
 exports.isAbsolute = isAbsolute;
 
 function normalize(path) {
   const isAbs = isAbsolute(path);
-  const trailingSlash = path && path[path.length - 1] === "/";
+  const trailingSlash = path && path[path.length - 1] === '/';
   let newPath = path;
   // Normalize the path
-  newPath = normalizeArray(newPath.split("/"), !isAbs).join("/");
+  newPath = normalizeArray(newPath.split('/'), !isAbs).join('/');
   if (!newPath && !isAbs) {
-    newPath = ".";
+    newPath = '.';
   }
   if (newPath && trailingSlash) {
-    newPath += "/";
+    newPath += '/';
   }
-  return (isAbs ? "/" : "") + newPath;
+  return (isAbs ? '/' : '') + newPath;
 }
 exports.normalize = normalize;
 
 function join(...paths) {
-  let path = "";
+  let path = '';
   for (let i = 0; i < paths.length; i += 1) {
     const segment = paths[i];
-    if (typeof segment !== "string") {
-      throw new TypeError("Arguments to path.join must be strings");
+    if (typeof segment !== 'string') {
+      throw new TypeError('Arguments to path.join must be strings');
     }
     if (segment) {
       if (!path) {
@@ -89,7 +89,7 @@ function dirname(path) {
   let dir = result[1];
   if (!root && !dir) {
     // No dirname whatsoever
-    return ".";
+    return '.';
   }
   if (dir) {
     // It has a dirname, strip trailing slash
@@ -99,19 +99,19 @@ function dirname(path) {
 }
 exports.dirname = dirname;
 
-function basename(p, ext = "") {
+function basename(p, ext = '') {
   // Special case: Normalize will modify this to '.'
-  if (p === "") {
+  if (p === '') {
     return p;
   }
   // Normalize the string first to remove any weirdness.
   const path = normalize(p);
   // Get the last part of the string.
-  const sections = path.split("/");
+  const sections = path.split('/');
   const lastPart = sections[sections.length - 1];
   // Special case: If it's empty, then we have a string like so: foo/
   // Meaning, 'foo' is guaranteed to be a directory.
-  if (lastPart === "" && sections.length > 1) {
+  if (lastPart === '' && sections.length > 1) {
     return sections[sections.length - 2];
   }
   // Remove the extension, if need be.
@@ -126,20 +126,20 @@ function basename(p, ext = "") {
 exports.basename = basename;
 
 function absolute(path) {
-  if (path.startsWith("/")) {
+  if (path.startsWith('/')) {
     return path;
   }
-  if (path.startsWith("./")) {
-    return path.replace("./", "/");
+  if (path.startsWith('./')) {
+    return path.replace('./', '/');
   }
-  return "/" + path;
+  return '/' + path;
 }
 exports.absolute = absolute;
 
 function assertPath(path) {
-  if (typeof path !== "string") {
+  if (typeof path !== 'string') {
     throw new TypeError(
-      "Path must be a string. Received " + JSON.stringify(path)
+      'Path must be a string. Received ' + JSON.stringify(path)
     );
   }
 }
@@ -189,34 +189,34 @@ function extname(path) {
     // The (right-most) trimmed path component is exactly '..'
     (preDotState === 1 && startDot === end - 1 && startDot === startPart + 1)
   ) {
-    return "";
+    return '';
   }
   return path.slice(startDot, end);
 }
 exports.extname = extname;
 
 function resolve(...args) {
-  let resolvedPath = "";
+  let resolvedPath = '';
   let resolvedAbsolute = false;
   for (let i = args.length - 1; i >= -1 && !resolvedAbsolute; i--) {
     const path = i >= 0 ? args[i] : process.cwd();
     // Skip empty and invalid entries
-    if (typeof path !== "string") {
-      throw new TypeError("Arguments to path.resolve must be strings");
+    if (typeof path !== 'string') {
+      throw new TypeError('Arguments to path.resolve must be strings');
     } else if (!path) {
       continue;
     }
-    resolvedPath = path + "/" + resolvedPath;
-    resolvedAbsolute = path[0] === "/";
+    resolvedPath = path + '/' + resolvedPath;
+    resolvedAbsolute = path[0] === '/';
   }
   // At this point the path should be resolved to a full absolute path, but
   // handle relative paths to be safe (might happen when process.cwd() fails)
   // Normalize the path
   resolvedPath = normalizeArray(
-    resolvedPath.split("/"),
+    resolvedPath.split('/'),
     !resolvedAbsolute
-  ).join("/");
-  return (resolvedAbsolute ? "/" : "") + resolvedPath || ".";
+  ).join('/');
+  return (resolvedAbsolute ? '/' : '') + resolvedPath || '.';
 }
 exports.resolve = resolve;
 
@@ -238,8 +238,8 @@ function trimArray(arr) {
 function relative(from, to) {
   from = resolve(from).substr(1);
   to = resolve(to).substr(1);
-  const fromParts = trimArray(from.split("/"));
-  const toParts = trimArray(to.split("/"));
+  const fromParts = trimArray(from.split('/'));
+  const toParts = trimArray(to.split('/'));
   const length = Math.min(fromParts.length, toParts.length);
   let samePartsLength = length;
   for (let i = 0; i < length; i++) {
@@ -250,9 +250,9 @@ function relative(from, to) {
   }
   let outputParts = [];
   for (let i = samePartsLength; i < fromParts.length; i++) {
-    outputParts.push("..");
+    outputParts.push('..');
   }
   outputParts = outputParts.concat(toParts.slice(samePartsLength));
-  return outputParts.join("/");
+  return outputParts.join('/');
 }
 exports.relative = relative;

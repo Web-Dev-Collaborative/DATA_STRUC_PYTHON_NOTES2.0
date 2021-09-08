@@ -20,26 +20,26 @@
         });
     }),
     (r.r = function (e) {
-      "undefined" != typeof Symbol &&
+      'undefined' != typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, {
-          value: "Module",
+          value: 'Module',
         }),
-        Object.defineProperty(e, "__esModule", {
+        Object.defineProperty(e, '__esModule', {
           value: !0,
         });
     }),
     (r.t = function (e, t) {
       if ((1 & t && (e = r(e)), 8 & t)) return e;
-      if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+      if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
       var i = Object.create(null);
       if (
         (r.r(i),
-        Object.defineProperty(i, "default", {
+        Object.defineProperty(i, 'default', {
           enumerable: !0,
           value: e,
         }),
-        2 & t && "string" != typeof e)
+        2 & t && 'string' != typeof e)
       )
         for (var n in e)
           r.d(
@@ -60,12 +60,12 @@
           : function () {
               return e;
             };
-      return r.d(t, "a", t), t;
+      return r.d(t, 'a', t), t;
     }),
     (r.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (r.p = ""),
+    (r.p = ''),
     r((r.s = 3));
 })([
   function (e, t) {
@@ -75,7 +75,7 @@
   function (e, t, r) {
     var i = r(0),
       n = r(2);
-    i.on("init", function () {
+    i.on('init', function () {
       i.extendOptions(
         (function () {
           for (
@@ -86,9 +86,9 @@
             t < e.length;
             t++
           ) {
-            var r = e[t].getAttribute("src").replace(/&amp;/gi, "&");
+            var r = e[t].getAttribute('src').replace(/&amp;/gi, '&');
             if (i.SCRIPT_RE.test(r)) {
-              var n = s(r, i.SUPPORTED_QUERY_STRING.concat("cdn")),
+              var n = s(r, i.SUPPORTED_QUERY_STRING.concat('cdn')),
                 a = r.match(i.CDN_RE);
               if (
                 ((a || n.cdn) && (i.CDN = n.cdn || a[1]),
@@ -101,14 +101,14 @@
         })()
       ),
         (function () {
-          var e = document.getElementById("iframely-styles");
+          var e = document.getElementById('iframely-styles');
           if (!e) {
             var t =
-              ".iframely-responsive{top:0;left:0;width:100%;height:0;position:relative;padding-bottom:56.25%;box-sizing:border-box;}.iframely-responsive>*{top:0;left:0;width:100%;height:100%;position:absolute;border:0;box-sizing:border-box;}";
-            ((e = document.createElement("style")).id = "iframely-styles"),
-              (e.type = "text/css"),
+              '.iframely-responsive{top:0;left:0;width:100%;height:0;position:relative;padding-bottom:56.25%;box-sizing:border-box;}.iframely-responsive>*{top:0;left:0;width:100%;height:100%;position:absolute;border:0;box-sizing:border-box;}';
+            ((e = document.createElement('style')).id = 'iframely-styles'),
+              (e.type = 'text/css'),
               e.styleSheet ? (e.styleSheet.cssText = t) : (e.innerHTML = t),
-              document.getElementsByTagName("head")[0].appendChild(e);
+              document.getElementsByTagName('head')[0].appendChild(e);
           }
         })(),
         (function (e) {
@@ -128,41 +128,41 @@
               o.match(/^(https?:)?\/\/[^\/]+\/\w+(\?.*)?$/)) &&
               n.postMessage(
                 {
-                  method: "getSize",
+                  method: 'getSize',
                 },
-                "*",
+                '*',
                 a.contentWindow
               );
           }
-        })(i.DOMAINS.concat(i.CDN.replace(/^https?:\/\//, "")));
+        })(i.DOMAINS.concat(i.CDN.replace(/^https?:\/\//, '')));
     }),
       (i.load = function () {
         var e = Array.prototype.slice.call(arguments);
-        e.unshift("load"), i.trigger.apply(this, e);
+        e.unshift('load'), i.trigger.apply(this, e);
       });
     var a = (t.getIframeWrapper = function (e, t) {
       var r = e.parentNode;
       if (
         !(
           !r ||
-          "DIV" !== r.nodeName ||
+          'DIV' !== r.nodeName ||
           d(r) > 2 ||
-          (t && r.getAttribute("class") !== i.ASPECT_WRAPPER_CLASS) ||
+          (t && r.getAttribute('class') !== i.ASPECT_WRAPPER_CLASS) ||
           (!t &&
-            "relative" !== r.style.position &&
-            r.getAttribute("class") !== i.ASPECT_WRAPPER_CLASS)
+            'relative' !== r.style.position &&
+            r.getAttribute('class') !== i.ASPECT_WRAPPER_CLASS)
         )
       ) {
         var n = r.parentNode;
         if (
           !(
             !n ||
-            "DIV" !== n.nodeName ||
+            'DIV' !== n.nodeName ||
             d(n) > 1 ||
-            (t && n.getAttribute("class") !== i.MAXWIDTH_WRAPPER_CLASS) ||
+            (t && n.getAttribute('class') !== i.MAXWIDTH_WRAPPER_CLASS) ||
             (!t &&
-              n.getAttribute("class") &&
-              !n.getAttribute("class").match(/iframely/i))
+              n.getAttribute('class') &&
+              !n.getAttribute('class').match(/iframely/i))
           )
         )
           return {
@@ -173,9 +173,9 @@
     });
     (t.addDefaultWrappers = function (e) {
       var t = e.parentNode,
-        r = document.createElement("div");
+        r = document.createElement('div');
       r.className = i.MAXWIDTH_WRAPPER_CLASS;
-      var n = document.createElement("div");
+      var n = document.createElement('div');
       return (
         (n.className = i.ASPECT_WRAPPER_CLASS),
         r.appendChild(n),
@@ -194,13 +194,13 @@
             aspectWrapper: t.aspectWrapper,
             maxWidthWrapper: t.maxWidthWrapper,
           };
-          if ("A" === e.nodeName && e.hasAttribute("href"))
-            r.url = e.getAttribute("href");
+          if ('A' === e.nodeName && e.hasAttribute('href'))
+            r.url = e.getAttribute('href');
           else if (
-            e.hasAttribute("src") &&
-            /url=/.test(e.getAttribute("src"))
+            e.hasAttribute('src') &&
+            /url=/.test(e.getAttribute('src'))
           ) {
-            var i = s(e.getAttribute("src"));
+            var i = s(e.getAttribute('src'));
             i.url && (r.url = i.url);
           }
           return r;
@@ -216,36 +216,36 @@
         e &&
           Object.keys(t).forEach(function (r) {
             var n = t[r];
-            ("number" == typeof n ||
-              ("string" == typeof n && /^(\d+)?\.?(\d+)$/.test(n))) &&
-              (n += "px");
+            ('number' == typeof n ||
+              ('string' == typeof n && /^(\d+)?\.?(\d+)$/.test(n))) &&
+              (n += 'px');
             var a = e.style[r];
             (window.getComputedStyle &&
               (i.getElementComputedStyle(e, r) == n ||
-                ("iframely-responsive" == e.className &&
-                  "paddingBottom" === r &&
+                ('iframely-responsive' == e.className &&
+                  'paddingBottom' === r &&
                   !a &&
                   /^56\.2\d+%$/.test(n)) ||
-                ("max-width" === r && "keep" === n))) ||
-              (e.style[r] = n || "");
+                ('max-width' === r && 'keep' === n))) ||
+              (e.style[r] = n || '');
           });
       });
     var o = (t.addQueryString = function (e, t) {
-      var r = "";
+      var r = '';
       return (
         Object.keys(t).forEach(function (i) {
           var n = t[i];
-          if ("[object Array]" === Object.prototype.toString.call(n)) {
+          if ('[object Array]' === Object.prototype.toString.call(n)) {
             var a = n.map(function (e) {
-              return i + "=" + encodeURIComponent(e);
+              return i + '=' + encodeURIComponent(e);
             });
-            r += "&" + a.join("&");
-          } else void 0 !== n && -1 === e.indexOf(i + "=") && (!0 === n && (n = 1), !1 === n && (n = 0), (r += "&" + i + "=" + encodeURIComponent(n)));
+            r += '&' + a.join('&');
+          } else void 0 !== n && -1 === e.indexOf(i + '=') && (!0 === n && (n = 1), !1 === n && (n = 0), (r += '&' + i + '=' + encodeURIComponent(n)));
         }),
         e +
-          ("" !== r
-            ? (e.indexOf("?") > -1 ? "&" : "?") + r.replace(/^&/, "")
-            : "")
+          ('' !== r
+            ? (e.indexOf('?') > -1 ? '&' : '?') + r.replace(/^&/, '')
+            : '')
       );
     });
 
@@ -254,7 +254,7 @@
         var i = e.childNodes[r];
         if (i.nodeType === Node.TEXT_NODE) {
           var n = i.textContent || i.innerText;
-          (n = n.replace(/\s|\n/g, "")) && t++;
+          (n = n.replace(/\s|\n/g, '')) && t++;
         } else i.nodeType === Node.ELEMENT_NODE && t++;
       }
       return t;
@@ -272,7 +272,7 @@
       if (
         (/^(https?:)?\/\//i.test(e) ||
           ((n = (t.CDN || i.CDN) + n), delete t.CDN),
-        /^(?:https?:)?\/\//i.test(n) || (n = "//" + n),
+        /^(?:https?:)?\/\//i.test(n) || (n = '//' + n),
         t && (n = o(n, t)),
         r && r.length)
       ) {
@@ -285,8 +285,8 @@
       return (
         /^(https?:)?\/\//i.test(n) &&
           !n.match(/^(https?:)?\/\//i)[1] &&
-          "file:" === document.location.protocol &&
-          (n = "http:" + n),
+          'file:' === document.location.protocol &&
+          (n = 'http:' + n),
         n
       );
     }),
@@ -295,13 +295,13 @@
           Object.keys(e).forEach(function (t) {
             var r =
               0 !== e[t] &&
-              "0" !== e[t] &&
+              '0' !== e[t] &&
               !1 !== e[t] &&
-              "false" !== e[t] &&
+              'false' !== e[t] &&
               (1 === e[t] ||
-                "1" === e[t] ||
+                '1' === e[t] ||
                 !0 === e[t] ||
-                "true" === e[t] ||
+                'true' === e[t] ||
                 e[t]);
             !1 !== i.config[t] && (i.config[t] = r);
           });
@@ -309,8 +309,8 @@
     var s = (t.parseQueryString = function (e, t) {
       var r = e.match(/\?(.+)/i);
       if (r) {
-        for (var i = (r = r[1]).split("&"), n = {}, a = 0; a < i.length; a++) {
-          var o = i[a].split("=");
+        for (var i = (r = r[1]).split('&'), n = {}, a = 0; a < i.length; a++) {
+          var o = i[a].split('=');
           (t && !c(t, o[0])) || (n[o[0]] = decodeURIComponent(o[1]));
         }
         return n;
@@ -339,12 +339,12 @@
       }
       window.postMessage &&
         (window.addEventListener
-          ? window[e ? "addEventListener" : "removeEventListener"](
-              "message",
+          ? window[e ? 'addEventListener' : 'removeEventListener'](
+              'message',
               t,
               !1
             )
-          : window[e ? "attachEvent" : "detachEvent"]("onmessage", t));
+          : window[e ? 'attachEvent' : 'detachEvent']('onmessage', t));
     })(function (e, t) {
       if (t && t.method) {
         var r = (function (e) {
@@ -353,7 +353,7 @@
             e.src &&
               (t = a(
                 document.querySelectorAll(
-                  'iframe[src*="' + e.src.replace(/^https?:/, "") + '"]'
+                  'iframe[src*="' + e.src.replace(/^https?:/, '') + '"]'
                 ),
                 e.contentWindow
               )),
@@ -365,7 +365,7 @@
                         (e.domains || i.DOMAINS).join('"], iframe[src*="') +
                         '"]'
                     )
-                  : document.getElementsByTagName("iframe"),
+                  : document.getElementsByTagName('iframe'),
                 e.contentWindow
               )),
             t
@@ -377,18 +377,18 @@
         });
         if (r) {
           var o = n.getWidget(r);
-          o && t.url && (o.url = t.url), i.trigger("message", o, t);
+          o && t.url && (o.url = t.url), i.trigger('message', o, t);
         }
       }
     }),
       (t.postMessage = function (e, t, r) {
         window.postMessage &&
-          ("object" == typeof e && (e.context = document.location.href),
+          ('object' == typeof e && (e.context = document.location.href),
           (e = JSON.stringify(e)),
-          (t = t || "*"),
+          (t = t || '*'),
           (r = r || window.parent).postMessage(
             e,
-            t.replace(/([^:]+:\/\/[^\/]+).*/, "$1")
+            t.replace(/([^:]+:\/\/[^\/]+).*/, '$1')
           ));
       });
   },
@@ -409,33 +409,33 @@
       r(15),
       r(16),
       r(17),
-      i.trigger("init")),
+      i.trigger('init')),
       (t.iframely = i);
   },
   function (e, t, r) {
     var i,
       n = r(0);
     (i = function () {
-      n.trigger("load");
+      n.trigger('load');
     }),
-      ("complete" !== document.readyState &&
-        "interactive" !== document.readyState) ||
+      ('complete' !== document.readyState &&
+        'interactive' !== document.readyState) ||
         setTimeout(i, 0),
       document.addEventListener
-        ? document.addEventListener("DOMContentLoaded", i)
-        : window.attachEvent("onload", i);
+        ? document.addEventListener('DOMContentLoaded', i)
+        : window.attachEvent('onload', i);
   },
   function (e, t, r) {
     var i = r(0);
     (i.VERSION = 1),
-      (i.ASPECT_WRAPPER_CLASS = "iframely-responsive"),
-      (i.MAXWIDTH_WRAPPER_CLASS = "iframely-embed"),
-      (i.LOADER_CLASS = "iframely-loader"),
+      (i.ASPECT_WRAPPER_CLASS = 'iframely-responsive'),
+      (i.MAXWIDTH_WRAPPER_CLASS = 'iframely-embed'),
+      (i.LOADER_CLASS = 'iframely-loader'),
       (i.DOMAINS = [
-        "cdn.iframe.ly",
-        "iframe.ly",
-        "if-cdn.com",
-        "iframely.net",
+        'cdn.iframe.ly',
+        'iframe.ly',
+        'if-cdn.com',
+        'iframely.net',
       ]),
       (i.CDN = i.CDN || i.DOMAINS[0]),
       (i.BASE_RE = /^(?:https?:)?\/\/[^\/]+/i),
@@ -445,23 +445,23 @@
       (i.CDN_RE =
         /^(?:https?:)?\/\/([^\/]+)\/(?:embed|iframely)\.js(?:[^\/]+)?$/i),
       (i.SUPPORTED_QUERY_STRING = [
-        "api_key",
-        "key",
-        "iframe",
-        "html5",
-        "playerjs",
-        "align",
-        "language",
-        "media",
-        "maxwidth",
-        "maxheight",
-        "lazy",
-        "import",
-        "parent",
-        "click_to_play",
-        "autoplay",
-        "mute",
-        "card",
+        'api_key',
+        'key',
+        'iframe',
+        'html5',
+        'playerjs',
+        'align',
+        'language',
+        'media',
+        'maxwidth',
+        'maxheight',
+        'lazy',
+        'import',
+        'parent',
+        'click_to_play',
+        'autoplay',
+        'mute',
+        'card',
         /^_.+/,
       ]),
       (i.LAZY_IFRAME_SHOW_TIMEOUT = 3e3),
@@ -472,7 +472,7 @@
     (function (e) {
       var t = r(0),
         i = (function (e, t, r, i) {
-          for (; !i && r < t.length; ) i = e[t[r++] + "equestAnimationFrame"];
+          for (; !i && r < t.length; ) i = e[t[r++] + 'equestAnimationFrame'];
           return (
             (i && i.bind(e)) ||
             e.setImmediate ||
@@ -481,8 +481,8 @@
             }
           );
         })(
-          "undefined" != typeof window ? window : e,
-          "r webkitR mozR msR oR".split(" "),
+          'undefined' != typeof window ? window : e,
+          'r webkitR mozR msR oR'.split(' '),
           0
         ),
         n = {};
@@ -495,7 +495,7 @@
               })
             : e.apply(t, a);
         }),
-          "init" === e && (n[e] = []);
+          'init' === e && (n[e] = []);
       }
       (t.on = function (e, t) {
         (n[e] = n[e] || []).push(t);
@@ -514,9 +514,9 @@
       return this;
     })();
     try {
-      r = r || new Function("return this")();
+      r = r || new Function('return this')();
     } catch (e) {
-      "object" == typeof window && (r = window);
+      'object' == typeof window && (r = window);
     }
     e.exports = r;
   },
@@ -524,15 +524,15 @@
     var i = r(2),
       n = r(0),
       a = {};
-    "IntersectionObserver" in window &&
-      "IntersectionObserverEntry" in window &&
-      (n.on("init", function () {
+    'IntersectionObserver' in window &&
+      'IntersectionObserverEntry' in window &&
+      (n.on('init', function () {
         n.extendOptions({
           intersection: 1,
         });
       }),
-      n.on("message", function (e, t) {
-        if ("send-intersections" === t.method && e.iframe) {
+      n.on('message', function (e, t) {
+        if ('send-intersections' === t.method && e.iframe) {
           var r = t.options;
           r ||
             (r = {
@@ -548,13 +548,13 @@
                       t.forEach(function (t) {
                         i.postMessage(
                           {
-                            method: "intersection",
+                            method: 'intersection',
                             entry: {
                               isIntersecting: t.isIntersecting,
                             },
                             options: e,
                           },
-                          "*",
+                          '*',
                           t.target.contentWindow
                         );
                       });
@@ -567,13 +567,13 @@
                           e.margin &&
                           (t.rootMargin =
                             e.margin +
-                            "px " +
+                            'px ' +
                             e.margin +
-                            "px " +
+                            'px ' +
                             e.margin +
-                            "px " +
+                            'px ' +
                             e.margin +
-                            "px"),
+                            'px'),
                         t
                       );
                     })(e)
@@ -602,23 +602,23 @@
             a || {
               maxWidthWrapper: t,
               iframe: t,
-              url: t.getAttribute("href"),
+              url: t.getAttribute('href'),
             }
           );
       else {
         var u, p;
         if (
-          (((a = document.createElement("div")).innerHTML = e.html),
+          (((a = document.createElement('div')).innerHTML = e.html),
           l && !s
             ? ((u = l.aspectWrapper.parentNode),
               (p = l.aspectWrapper),
-              l.maxWidthWrapper.removeAttribute("style"))
+              l.maxWidthWrapper.removeAttribute('style'))
             : ((u = t.parentNode), (p = t)),
           d)
         ) {
-          var f = document.createElement("div"),
+          var f = document.createElement('div'),
             m = f.attachShadow({
-              mode: "open",
+              mode: 'open',
             });
           m.appendChild(a);
           var g = {
@@ -629,16 +629,16 @@
             stylesIds: e.stylesIds,
             stylesDict: r.commonShadowStyles,
           };
-          n.trigger("import-shadow-widget-before-render", g),
+          n.trigger('import-shadow-widget-before-render', g),
             u.insertBefore(f, p),
-            n.trigger("import-shadow-widget-after-render", g);
+            n.trigger('import-shadow-widget-after-render', g);
         } else
           u.insertBefore(a, p),
             (function e(t) {
               function r(e) {
-                var r = e.text || e.textContent || e.innerHTML || "",
-                  i = document.createElement("script");
-                e.src && (i.src = e.src), (i.type = "text/javascript");
+                var r = e.text || e.textContent || e.innerHTML || '',
+                  i = document.createElement('script');
+                e.src && (i.src = e.src), (i.type = 'text/javascript');
                 try {
                   i.appendChild(document.createTextNode(r));
                 } catch (e) {
@@ -653,12 +653,12 @@
                 d = t.childNodes;
               for (a = 0; d[a]; a++)
                 (n = d[a]),
-                  (s = "script"),
+                  (s = 'script'),
                   !(c = n).nodeName ||
                   c.nodeName.toUpperCase() !== s.toUpperCase() ||
                   (n.type &&
-                    "text/javascript" !== n.type.toLowerCase() &&
-                    "application/javascript" !== n.type.toLowerCase())
+                    'text/javascript' !== n.type.toLowerCase() &&
+                    'application/javascript' !== n.type.toLowerCase())
                     ? e(n)
                     : (o.push(n), t.removeChild(n));
               var c, s;
@@ -677,47 +677,47 @@
       delete n.import;
       for (
         var e = document.querySelectorAll(
-            "a[data-iframely-url][data-import-uri]"
+            'a[data-iframely-url][data-import-uri]'
           ),
           t = 0;
         t < e.length;
         t++
       )
-        e[t].removeAttribute("data-import-uri"), n.trigger("load", e[t]);
+        e[t].removeAttribute('data-import-uri'), n.trigger('load', e[t]);
     }
 
     function c(e) {
       for (
         var t = e, r = 0;
-        t && t.getAttribute("class") !== n.ASPECT_WRAPPER_CLASS;
+        t && t.getAttribute('class') !== n.ASPECT_WRAPPER_CLASS;
 
       )
         (t = t.parentNode), ++r > 4 && (t = null);
       var i = t && t.parentNode;
       i &&
-        i.getAttribute("class") === n.MAXWIDTH_WRAPPER_CLASS &&
-        (t.removeAttribute("style"),
-        t.removeAttribute("class"),
-        i.removeAttribute("style"));
+        i.getAttribute('class') === n.MAXWIDTH_WRAPPER_CLASS &&
+        (t.removeAttribute('style'),
+        t.removeAttribute('class'),
+        i.removeAttribute('style'));
     }
-    n.on("load", function (e) {
+    n.on('load', function (e) {
       if (
         !e &&
         !1 !== n.config.import &&
         document.head.attachShadow &&
         (n.debug ||
-          "http:" === document.location.protocol ||
-          "https:" === document.location.protocol) &&
+          'http:' === document.location.protocol ||
+          'https:' === document.location.protocol) &&
         !n.config.playerjs &&
         !n.config.lazy &&
         !n.import
       ) {
         var t = document.querySelectorAll(
-          "a[data-iframely-url]:not([data-import-uri])"
+          'a[data-iframely-url]:not([data-import-uri])'
         );
         t.length > 1 &&
           (function (e) {
-            var t = document.createElement("script"),
+            var t = document.createElement('script'),
               r = [],
               o = [],
               c = null;
@@ -727,20 +727,20 @@
             }
 
             function l(e) {
-              var t = e.getAttribute("data-iframely-url"),
+              var t = e.getAttribute('data-iframely-url'),
                 a = t.match(n.ID_RE),
                 d = a && a[1],
                 l = i.parseQueryString(
                   t,
-                  n.SUPPORTED_QUERY_STRING.concat("url")
+                  n.SUPPORTED_QUERY_STRING.concat('url')
                 ),
                 u = l.url;
               delete l.url;
               var p =
-                "0" === l.import ||
-                "false" === l.import ||
-                "1" === l.playerjs ||
-                "true" === l.playerjs;
+                '0' === l.import ||
+                'false' === l.import ||
+                '1' === l.playerjs ||
+                'true' === l.playerjs;
               if (!p) {
                 var f = t.match(n.BASE_RE);
                 (l.CDN = f && f[0]),
@@ -749,25 +749,25 @@
                         JSON.stringify(c, Object.keys(c).sort()) && (p = !0)
                     : (c = l);
               }
-              if (p) n.trigger("load", e);
+              if (p) n.trigger('load', e);
               else if (d)
-                e.setAttribute("data-import-uri", d),
+                e.setAttribute('data-import-uri', d),
                   -1 === o.indexOf(d) && o.push(d),
                   s(d, e);
               else {
-                u || (u = e.getAttribute("href"));
+                u || (u = e.getAttribute('href'));
                 var m = c.key || c.api_key || n.config.api_key || n.config.key;
                 m && u
-                  ? (e.setAttribute("data-import-uri", u),
+                  ? (e.setAttribute('data-import-uri', u),
                     -1 === r.indexOf(u) && r.push(u),
                     s(u, e))
-                  : n.trigger("load", e);
+                  : n.trigger('load', e);
               }
             }
             for (var u = 0; u < e.length; u++) {
               var p = e[u];
-              !p.getAttribute("data-import-uri") &&
-                p.hasAttribute("data-iframely-url") &&
+              !p.getAttribute('data-import-uri') &&
+                p.hasAttribute('data-iframely-url') &&
                 l(p);
             }
             r.length > 0 || o.length > 0
@@ -775,14 +775,14 @@
                 (c.flash = (function () {
                   var e = !1;
                   try {
-                    var t = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+                    var t = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
                     e = !!t;
                   } catch (t) {
                     e = !(
                       !navigator.mimeTypes ||
                       null ==
-                        navigator.mimeTypes["application/x-shockwave-flash"] ||
-                      !navigator.mimeTypes["application/x-shockwave-flash"]
+                        navigator.mimeTypes['application/x-shockwave-flash'] ||
+                      !navigator.mimeTypes['application/x-shockwave-flash']
                         .enabledPlugin
                     );
                   }
@@ -790,10 +790,10 @@
                 })()),
                 (c.app = 1),
                 r.length > 0 && (c.uri = r),
-                o.length > 0 && (c.ids = o.join("&")),
+                o.length > 0 && (c.ids = o.join('&')),
                 (c.v = n.VERSION),
                 (t.src = i.getEndpoint(
-                  "/api/import/v2",
+                  '/api/import/v2',
                   c,
                   n.SUPPORTED_QUERY_STRING
                 )),
@@ -802,11 +802,11 @@
                 }),
                 document.head.appendChild(t),
                 (n.import = t))
-              : (d(), n.trigger("load"));
+              : (d(), n.trigger('load'));
           })(t);
       }
     }),
-      n.on("load", function (e, t) {
+      n.on('load', function (e, t) {
         if (e && e.uri && (e.html || e.cancel)) {
           var r = a[e.uri];
           if (r) for (var i = 0; i < r.length; i++) o(e, r[i], t);
@@ -814,57 +814,57 @@
         }
       }),
       (n.buildImportWidgets = function (e) {
-        n.trigger("import-loaded", e),
+        n.trigger('import-loaded', e),
           e.widgets.forEach(function (t) {
-            n.trigger("load", t, e);
+            n.trigger('load', t, e);
           }),
           d();
       }),
       (n.isTouch = function () {
-        return "ontouchstart" in window || navigator.maxTouchPoints;
+        return 'ontouchstart' in window || navigator.maxTouchPoints;
       }),
-      n.on("import-widget-ready", c),
+      n.on('import-widget-ready', c),
       n.addEventListener ||
         (n.addEventListener = function (e, t, r) {
           e &&
             (e.addEventListener
               ? e.addEventListener(t, r, !1)
               : e.attachEvent
-              ? e.attachEvent("on" + t, r)
-              : (e["on" + t] = r));
+              ? e.attachEvent('on' + t, r)
+              : (e['on' + t] = r));
         });
   },
   function (e, t, r) {
     var i = r(1),
       n = r(0);
-    n.on("load", function (e, t) {
-      if (e && e.nodeName && "string" == typeof t) {
-        var r = document.createElement("a");
-        r.setAttribute("href", t), e.appendChild(r), n.trigger("load", r);
+    n.on('load', function (e, t) {
+      if (e && e.nodeName && 'string' == typeof t) {
+        var r = document.createElement('a');
+        r.setAttribute('href', t), e.appendChild(r), n.trigger('load', r);
       }
     }),
-      n.on("load", function (e) {
+      n.on('load', function (e) {
         if (!e && !n.import)
           for (
             var t = document.querySelectorAll(
-                "a[data-iframely-url]:not([data-import-uri])"
+                'a[data-iframely-url]:not([data-import-uri])'
               ),
               r = 0;
             r < t.length;
             r++
           )
-            n.trigger("load", t[r]);
+            n.trigger('load', t[r]);
       }),
-      n.on("load", function (e) {
+      n.on('load', function (e) {
         e &&
-          "A" === e.nodeName &&
-          (e.getAttribute("data-iframely-url") || e.getAttribute("href")) &&
-          !e.hasAttribute("data-import-uri") &&
+          'A' === e.nodeName &&
+          (e.getAttribute('data-iframely-url') || e.getAttribute('href')) &&
+          !e.hasAttribute('data-import-uri') &&
           (function (e) {
-            if (!e.getAttribute("data-iframely-url") && !e.getAttribute("href"))
+            if (!e.getAttribute('data-iframely-url') && !e.getAttribute('href'))
               return;
             var t,
-              r = e.getAttribute("data-iframely-url");
+              r = e.getAttribute('data-iframely-url');
             r && /^((?:https?:)?\/\/[^\/]+)\/\w+/i.test(r)
               ? (t = i.getEndpoint(r, {
                   v: n.VERSION,
@@ -872,30 +872,30 @@
                 }))
               : (n.config.api_key || n.config.key) && n.CDN
               ? (t = i.getEndpoint(
-                  "/api/iframe",
+                  '/api/iframe',
                   {
-                    url: e.getAttribute("href"),
+                    url: e.getAttribute('href'),
                     v: n.VERSION,
                     app: 1,
                   },
                   n.SUPPORTED_QUERY_STRING
                 ))
               : console.warn(
-                  "Iframely cannot build embeds: api key is required as query-string of embed.js"
+                  'Iframely cannot build embeds: api key is required as query-string of embed.js'
                 );
             if (t) {
-              var a = document.createElement("iframe");
-              a.setAttribute("allowfullscreen", ""),
-                a.setAttribute("allow", "autoplay *; encrypted-media *"),
-                e.hasAttribute("data-img") &&
-                  a.setAttribute("data-img", e.getAttribute("data-img"));
+              var a = document.createElement('iframe');
+              a.setAttribute('allowfullscreen', ''),
+                a.setAttribute('allow', 'autoplay *; encrypted-media *'),
+                e.hasAttribute('data-img') &&
+                  a.setAttribute('data-img', e.getAttribute('data-img'));
               var o =
-                  e.hasAttribute("data-lazy") ||
-                  e.hasAttribute("data-img") ||
+                  e.hasAttribute('data-lazy') ||
+                  e.hasAttribute('data-img') ||
                   /&lazy=1/.test(t) ||
                   n.config.lazy,
                 d = e.textContent || e.innerText;
-              d && "" !== d && (a.textContent = d);
+              d && '' !== d && (a.textContent = d);
               var c = i.getIframeWrapper(e, !0);
               if (c)
                 for (; c.aspectWrapper.lastChild; )
@@ -907,10 +907,10 @@
               }
               c.aspectWrapper.appendChild(a),
                 o
-                  ? (a.setAttribute("data-iframely-url", t),
-                    n.trigger("load", a))
-                  : (a.setAttribute("src", t), n.trigger("iframe-ready", a));
-            } else e.removeAttribute("data-iframely-url");
+                  ? (a.setAttribute('data-iframely-url', t),
+                    n.trigger('load', a))
+                  : (a.setAttribute('src', t), n.trigger('iframe-ready', a));
+            } else e.removeAttribute('data-iframely-url');
           })(e);
       });
   },
@@ -926,7 +926,7 @@
             var i = e.childNodes[r];
             if (i.nodeType === Node.TEXT_NODE) {
               var n = i.textContent || i.innerText;
-              (n = n.replace(/\s|\n/g, "")) && t++;
+              (n = n.replace(/\s|\n/g, '')) && t++;
             } else i.nodeType === Node.ELEMENT_NODE && t++;
           }
           return t;
@@ -941,30 +941,30 @@
             }
           }
         })(1, e.aspectWrapper);
-      t && "DIV" === t.nodeName && e.aspectWrapper.removeChild(t);
+      t && 'DIV' === t.nodeName && e.aspectWrapper.removeChild(t);
     }
-    n.on("load", function (e) {
+    n.on('load', function (e) {
       if (
         e &&
-        "IFRAME" === e.nodeName &&
-        e.hasAttribute("data-iframely-url") &&
-        e.hasAttribute("data-img") &&
-        !e.getAttribute("src")
+        'IFRAME' === e.nodeName &&
+        e.hasAttribute('data-iframely-url') &&
+        e.hasAttribute('data-img') &&
+        !e.getAttribute('src')
       ) {
-        var t = e.getAttribute("data-img");
-        e.removeAttribute("data-img");
+        var t = e.getAttribute('data-img');
+        e.removeAttribute('data-img');
         var r = i.getWidget(e),
-          a = e.getAttribute("data-iframely-url");
+          a = e.getAttribute('data-iframely-url');
         !(function (e, t, r) {
           var a;
           if (r && /^(https?:)?\/\//.test(r)) a = r;
           else {
             var o = i.parseQueryString(t),
               d = {};
-            for (var c in o) 0 === c.indexOf("_") && (d[c] = o[c]);
+            for (var c in o) 0 === c.indexOf('_') && (d[c] = o[c]);
             if (t.match(/\/api\/iframe/))
               a = i.getEndpoint(
-                t.match(/^(.+)\/api\/iframe/i)[1] + "/api/thumbnail",
+                t.match(/^(.+)\/api\/iframe/i)[1] + '/api/thumbnail',
                 Object.assign(
                   {
                     url: o.url,
@@ -979,33 +979,33 @@
               a = i.getEndpoint(
                 t.replace(
                   /^((?:https?:)?\/\/[^\/]+\/(\w+-?\w+))(?:\?.*)?$/,
-                  "$1/thumbnail"
+                  '$1/thumbnail'
                 ),
                 d
               );
             }
           }
-          var s = document.createElement("div");
+          var s = document.createElement('div');
           i.setStyles(s, {
-            position: "absolute",
-            width: "100%",
-            height: "100%",
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
             backgroundImage: "url('" + a + "')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           });
-          var l = document.createElement("div");
-          l.setAttribute("class", n.LOADER_CLASS), s.appendChild(l);
-          var u = n.getElementComputedStyle(e.aspectWrapper, "padding-top"),
-            p = n.getElementComputedStyle(e.aspectWrapper, "padding-bottom"),
+          var l = document.createElement('div');
+          l.setAttribute('class', n.LOADER_CLASS), s.appendChild(l);
+          var u = n.getElementComputedStyle(e.aspectWrapper, 'padding-top'),
+            p = n.getElementComputedStyle(e.aspectWrapper, 'padding-bottom'),
             f = u.match(/^(\d+)px$/);
           if (f && parseInt(f[1]) && p) {
-            var m = document.createElement("div");
+            var m = document.createElement('div');
             i.setStyles(m, {
-              top: "-" + u,
-              width: "100%",
+              top: '-' + u,
+              width: '100%',
               height: 0,
-              position: "relative",
+              position: 'relative',
               paddingBottom: p,
             }),
               m.appendChild(s),
@@ -1015,18 +1015,18 @@
           (a = i.addQueryString(a, {
             img: 1,
           })),
-          e.setAttribute("data-iframely-url", a),
+          e.setAttribute('data-iframely-url', a),
           new s(r),
-          n.trigger("load", e);
+          n.trigger('load', e);
       }
     }),
-      n.on("message", function (e, t) {
+      n.on('message', function (e, t) {
         var r;
-        "widgetRendered" === t.method && (a(e), (r = c(e)) && r.deactivate()),
-          "begin-waiting-widget-render" === t.method &&
+        'widgetRendered' === t.method && (a(e), (r = c(e)) && r.deactivate()),
+          'begin-waiting-widget-render' === t.method &&
             (r = c(e)) &&
             r.clearLoadingTimeout(),
-          "end-waiting-widget-render" === t.method &&
+          'end-waiting-widget-render' === t.method &&
             (r = c(e)) &&
             r.registerLoadingTimeout();
       });
@@ -1046,7 +1046,7 @@
       (this.widget = e), (this.loadCount = 0);
       var t = e.iframe,
         r = this;
-      n.addEventListener(t, "load", function () {
+      n.addEventListener(t, 'load', function () {
         r.iframeOnLoad();
       }),
         this.registerLoadingTimeout(),
@@ -1081,24 +1081,24 @@
   function (e, t, r) {
     var i = r(1),
       n = r(0);
-    n.on("load", function (e) {
+    n.on('load', function (e) {
       if (!e)
         for (
-          var t = document.querySelectorAll("iframe[data-iframely-url]"), r = 0;
+          var t = document.querySelectorAll('iframe[data-iframely-url]'), r = 0;
           r < t.length;
           r++
         )
-          n.trigger("load", t[r]);
+          n.trigger('load', t[r]);
     }),
-      n.on("load", function (e) {
+      n.on('load', function (e) {
         e &&
-          "IFRAME" === e.nodeName &&
-          e.hasAttribute("data-iframely-url") &&
-          !e.hasAttribute("data-img") &&
-          !e.getAttribute("src") &&
+          'IFRAME' === e.nodeName &&
+          e.hasAttribute('data-iframely-url') &&
+          !e.hasAttribute('data-img') &&
+          !e.getAttribute('src') &&
           (function (e) {
             var t = i.getWidget(e),
-              r = e.getAttribute("data-iframely-url");
+              r = e.getAttribute('data-iframely-url');
             t &&
               r &&
               (r = i.getEndpoint(r, {
@@ -1106,16 +1106,16 @@
                 v: n.VERSION,
                 app: 1,
               }));
-            e.setAttribute("src", r),
-              e.removeAttribute("data-iframely-url"),
-              n.trigger("iframe-ready", e);
+            e.setAttribute('src', r),
+              e.removeAttribute('data-iframely-url'),
+              n.trigger('iframe-ready', e);
           })(e);
       });
   },
   function (e, t, r) {
     var i = r(0);
-    i.on("message", function (e, t) {
-      "cancelWidget" === t.method && i.cancelWidget(e);
+    i.on('message', function (e, t) {
+      'cancelWidget' === t.method && i.cancelWidget(e);
     }),
       (i.cancelWidget = function (e) {
         if (e) {
@@ -1126,45 +1126,45 @@
               for (var r = !1; !r && e.parentNode; )
                 r =
                   (e = e.parentNode).className &&
-                  e.className.split(" ").indexOf(t) >= 0;
+                  e.className.split(' ').indexOf(t) >= 0;
               return r && e;
             })(e.maxWidthWrapper, i.config.parent);
             n && ((t = n.parentNode), (r = n));
           }
           if (e.url) {
             var a = e.iframe && (e.iframe.textContent || e.iframe.innerText);
-            i.triggerAsync("cancel", e.url, t, a, r.nextSibling);
+            i.triggerAsync('cancel', e.url, t, a, r.nextSibling);
           }
           t.removeChild(r);
         } else
-          console.warn("iframely.cancelWidget called without widget param");
+          console.warn('iframely.cancelWidget called without widget param');
       });
   },
   function (e, t, r) {
     var i = r(1),
       n = r(0);
-    n.on("message", function (e, t) {
+    n.on('message', function (e, t) {
       if (
-        "setIframelyWidgetSize" === t.method ||
-        "resize" === t.method ||
-        "setIframelyEmbedData" === t.method
+        'setIframelyWidgetSize' === t.method ||
+        'resize' === t.method ||
+        'setIframelyEmbedData' === t.method
       ) {
         var r = null;
         t.data && t.data.media && t.data.media.frame_style
-          ? (t.data.media.frame_style.split(";").forEach(function (e) {
-              if ("" !== e.trim() && e.indexOf(":") > -1) {
-                var t = e.split(":");
+          ? (t.data.media.frame_style.split(';').forEach(function (e) {
+              if ('' !== e.trim() && e.indexOf(':') > -1) {
+                var t = e.split(':');
                 2 === t.length && ((r = r || {})[t[0].trim()] = t[1].trim());
               }
             }),
             d(e, r))
-          : "setIframelyEmbedData" === t.method && d(e, null);
+          : 'setIframelyEmbedData' === t.method && d(e, null);
         var a = t.data && t.data.media;
         !a &&
           t.height &&
           (a = {
             height: t.height,
-            "max-width": "keep",
+            'max-width': 'keep',
           }),
           (function (e, t) {
             if (t && Object.keys(t).length > 0 && e) {
@@ -1178,49 +1178,49 @@
                 })(e),
                 a =
                   window.getComputedStyle &&
-                  window.getComputedStyle(e.iframe).getPropertyValue("height"),
-                o = t["max-width"];
-              "number" == typeof o && (o += r),
+                  window.getComputedStyle(e.iframe).getPropertyValue('height'),
+                o = t['max-width'];
+              'number' == typeof o && (o += r),
                 i.setStyles(e.maxWidthWrapper, {
-                  "max-width": o,
-                  "min-width": t["min-width"] && t["min-width"] + r,
+                  'max-width': o,
+                  'min-width': t['min-width'] && t['min-width'] + r,
                   width: t.width && t.width + r,
                 }),
                 t.scrolling &&
                   e.iframe &&
-                  e.iframe.setAttribute("scrolling", t.scrolling);
-              var d = t["aspect-ratio"];
+                  e.iframe.setAttribute('scrolling', t.scrolling);
+              var d = t['aspect-ratio'];
               (d || t.height) &&
                 i.setStyles(e.aspectWrapper, {
-                  paddingBottom: d ? Math.round(1e5 / d) / 1e3 + "%" : 0,
-                  paddingTop: d && t["padding-bottom"],
+                  paddingBottom: d ? Math.round(1e5 / d) / 1e3 + '%' : 0,
+                  paddingTop: d && t['padding-bottom'],
                   height: d ? 0 : t.height && t.height + r,
                 });
               var c =
                 window.getComputedStyle &&
-                window.getComputedStyle(e.iframe).getPropertyValue("height");
-              a && a !== c && n.triggerAsync("heightChanged", e.iframe, a, c);
+                window.getComputedStyle(e.iframe).getPropertyValue('height');
+              a && a !== c && n.triggerAsync('heightChanged', e.iframe, a, c);
             }
           })(e, a);
       }
     });
     var a = {
-        border: "",
-        "border-radius": "",
-        "box-shadow": "",
-        overflow: "",
+        border: '',
+        'border-radius': '',
+        'box-shadow': '',
+        overflow: '',
       },
       o = {
-        border: "0",
-        "border-radius": "",
-        "box-shadow": "",
-        overflow: "",
+        border: '0',
+        'border-radius': '',
+        'box-shadow': '',
+        overflow: '',
       };
 
     function d(e, t) {
       t && e && e.iframe
-        ? t["border-radius"]
-          ? ((t.overflow = "hidden"), i.setStyles(e.aspectWrapper, t))
+        ? t['border-radius']
+          ? ((t.overflow = 'hidden'), i.setStyles(e.aspectWrapper, t))
           : i.setStyles(e.iframe, t)
         : !t &&
           e &&
@@ -1230,24 +1230,24 @@
   },
   function (e, t, r) {
     var i = r(0);
-    i.on("message", function (e, t) {
-      ("open-href" !== t.method && "click" !== t.method) ||
+    i.on('message', function (e, t) {
+      ('open-href' !== t.method && 'click' !== t.method) ||
         i.trigger(t.method, t.href);
     }),
       i.openHref ||
         (i.openHref = function (e) {
           0 === e.indexOf(window.location.origin)
             ? (window.location.href = e)
-            : window.open(e, "_blank", "noopener");
+            : window.open(e, '_blank', 'noopener');
         }),
-      i.on("open-href", function (e) {
-        i.triggerAsync("click", e), i.openHref(e);
+      i.on('open-href', function (e) {
+        i.triggerAsync('click', e), i.openHref(e);
       });
   },
   function (e, t, r) {
     var i = r(0);
-    i.on("message", function (e, t) {
-      "setIframelyEmbedOptions" === t.method && i.trigger("options", e, t.data);
+    i.on('message', function (e, t) {
+      'setIframelyEmbedOptions' === t.method && i.trigger('options', e, t.data);
     });
   },
   function (e, t, r) {
@@ -1256,12 +1256,12 @@
       (i.widgets.load = i.load),
       i.events ||
         ((i.events = {}), (i.events.on = i.on), (i.events.trigger = i.trigger)),
-      i.on("cancel", function (e, t, r, i) {
-        if (e && t && r && "" !== r) {
-          var n = document.createElement("a");
-          n.setAttribute("href", e),
-            n.setAttribute("target", "_blank"),
-            n.setAttribute("rel", "noopener"),
+      i.on('cancel', function (e, t, r, i) {
+        if (e && t && r && '' !== r) {
+          var n = document.createElement('a');
+          n.setAttribute('href', e),
+            n.setAttribute('target', '_blank'),
+            n.setAttribute('rel', 'noopener'),
             (n.textContent = r),
             i ? t.insertBefore(n, i) : t.appendChild(n);
         }

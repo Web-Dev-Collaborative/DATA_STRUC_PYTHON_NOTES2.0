@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /* global self */
 // Will be set on init message
 var require;
@@ -7,12 +7,12 @@ var aceVersion;
 var documents = {};
 // token type cache
 var tokenTypes = new Map();
-self.addEventListener("message", function (event) {
+self.addEventListener('message', function (event) {
   if (event.data.init) {
     aceVersion = event.data.aceVersion;
     // Ace trips if there's no window
     self.window = self;
-    self.importScripts("/public/ace/" + aceVersion + "/ace.js");
+    self.importScripts('/public/ace/' + aceVersion + '/ace.js');
     require = self.ace.require;
     return;
   }
@@ -77,7 +77,7 @@ self.addEventListener("message", function (event) {
     }
     var _b = tokenizer.getLineTokens(
         lines[i],
-        curDocument.states[row - 1] || "start",
+        curDocument.states[row - 1] || 'start',
         row
       ),
       tokens = _b.tokens,
@@ -92,7 +92,7 @@ self.addEventListener("message", function (event) {
       var _c = tokens_1[_i],
         type = _c.type,
         value = _c.value;
-      if (type === "text" || type === "identifier") {
+      if (type === 'text' || type === 'identifier') {
         // Both seem to be used as normal text in ace
         currentCol += value.length;
         continue;
@@ -102,7 +102,7 @@ self.addEventListener("message", function (event) {
         // Split up token types (Ace/TM grammar token classes)
         // Although the dots signify sub-state/type it's easier to just
         // handle them separately
-        toks = type.split(".");
+        toks = type.split('.');
         tokenTypes.set(type, toks);
       }
       for (var _d = 0, toks_1 = toks; _d < toks_1.length; _d++) {
@@ -148,8 +148,8 @@ function getTokenizer(mode) {
 
 function getMode(modeId) {
   // Blocking request!
-  self.importScripts("/public/ace/" + aceVersion + "/mode-" + modeId + ".js");
+  self.importScripts('/public/ace/' + aceVersion + '/mode-' + modeId + '.js');
   // Can't do new require(`ace/mode/${modeId}`).Mode for some reason
-  var Mode = require("ace/mode/" + modeId);
+  var Mode = require('ace/mode/' + modeId);
   return new Mode.Mode();
 }

@@ -38,12 +38,12 @@
 
 .DevToolsVersion:before {
   font-size: var(--font-size-sans-large);
-  content: "DevTools ";
+  content: 'DevTools ';
 }
 
 @media screen and (max-width: 400px) {
   .DevToolsVersion:before {
-    content: "";
+    content: '';
   }
 }
 

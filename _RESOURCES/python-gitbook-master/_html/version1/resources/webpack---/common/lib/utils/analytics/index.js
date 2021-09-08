@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -60,7 +60,7 @@ var __awaiter =
 
       function rejected(value) {
         try {
-          step(generator["throw"](value));
+          step(generator['throw'](value));
         } catch (e) {
           reject(e);
         }
@@ -83,7 +83,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.trackWithCooldown =
@@ -99,21 +99,21 @@ exports.trackWithCooldown =
   exports.initializeSentry =
   exports.getHashedUserId =
     void 0;
-const version_1 = __importDefault(require("../../version"));
-const amplitude = __importStar(require("./amplitude"));
-const google = __importStar(require("./google"));
-const sentry = __importStar(require("./sentry"));
-const utils_1 = require("./utils");
-Object.defineProperty(exports, "getHashedUserId", {
+const version_1 = __importDefault(require('../../version'));
+const amplitude = __importStar(require('./amplitude'));
+const google = __importStar(require('./google'));
+const sentry = __importStar(require('./sentry'));
+const utils_1 = require('./utils');
+Object.defineProperty(exports, 'getHashedUserId', {
   enumerable: true,
   get: function () {
     return utils_1.getHashedUserId;
   },
 });
-const vero = __importStar(require("./vero"));
-if (process.env.NODE_ENV === "production") {
+const vero = __importStar(require('./vero'));
+if (process.env.NODE_ENV === 'production') {
   setTimeout(() => {
-    identify("[Amplitude] Version", version_1.default);
+    identify('[Amplitude] Version', version_1.default);
   }, 5000);
 }
 exports.initializeSentry = sentry.initialize;
@@ -152,7 +152,7 @@ exports.identifyOnce = identifyOnce;
 
 function setAnonymousId() {
   return __awaiter(this, void 0, void 0, function* () {
-    if (!utils_1.DO_NOT_TRACK_ENABLED && typeof localStorage !== "undefined") {
+    if (!utils_1.DO_NOT_TRACK_ENABLED && typeof localStorage !== 'undefined') {
       let anonymousUid = localStorage.getItem(utils_1.ANONYMOUS_UID_KEY);
       if (!anonymousUid) {
         anonymousUid = String(Math.random().toString(36).substring(2));
@@ -192,7 +192,7 @@ function trackPageview() {
       version: version_1.default,
       path: location.pathname + location.search,
     };
-    amplitude.track("pageview", data);
+    amplitude.track('pageview', data);
     vero.trackPageview();
     google.trackPageView();
   }
@@ -234,7 +234,7 @@ function track(eventName, secondArg = {}) {
     google.track(eventName, data);
     vero.track(eventName, data);
     sentry.logBreadcrumb({
-      type: "analytics",
+      type: 'analytics',
       message: eventName,
     });
   }

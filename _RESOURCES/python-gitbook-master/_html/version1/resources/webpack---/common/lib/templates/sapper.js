@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,12 +8,12 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const configuration_1 = __importDefault(require("./configuration"));
-const template_1 = __importDefault(require("./template"));
-const decorate_selector_1 = require("../utils/decorate-selector");
+const configuration_1 = __importDefault(require('./configuration'));
+const template_1 = __importDefault(require('./template'));
+const decorate_selector_1 = require('../utils/decorate-selector');
 const extendedSandboxConfig = Object.assign(
   Object.assign({}, configuration_1.default.sandboxConfig),
   {
@@ -30,17 +30,17 @@ const extendedSandboxConfig = Object.assign(
   }
 );
 exports.default = new template_1.default(
-  "sapper",
-  "Sapper",
-  "https://sapper.svelte.dev/",
-  "github/codesandbox-app/sapper-template",
-  decorate_selector_1.decorateSelector(() => "#159497"),
+  'sapper',
+  'Sapper',
+  'https://sapper.svelte.dev/',
+  'github/codesandbox-app/sapper-template',
+  decorate_selector_1.decorateSelector(() => '#159497'),
   {
     extraConfigurations: {
-      "/sandbox.config.json": extendedSandboxConfig,
+      '/sandbox.config.json': extendedSandboxConfig,
     },
     staticDeployment: false,
-    mainFile: ["/src/routes/index.html"],
+    mainFile: ['/src/routes/index.html'],
     showOnHomePage: true,
   }
 );

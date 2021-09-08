@@ -5,11 +5,11 @@
  * https://github.com/Microsoft/monaco-html/blob/master/LICENSE.md
  *-----------------------------------------------------------------------------*/
 define(
-  "vs/language/html/workerManager",
-  ["require", "exports"],
+  'vs/language/html/workerManager',
+  ['require', 'exports'],
   function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
     var s = monaco.Promise,
@@ -48,7 +48,7 @@ define(
               (this._lastUsedTime = Date.now()),
               this._client ||
                 ((this._worker = monaco.editor.createWebWorker({
-                  moduleId: "vs/language/html/htmlWorker",
+                  moduleId: 'vs/language/html/htmlWorker',
                   createData: {
                     languageSettings: this._defaults.options,
                     languageId: this._defaults.languageId,
@@ -94,17 +94,17 @@ define(
   }
 ),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
-        define("vscode-languageserver-types/main", ["require", "exports"], e);
+        define('vscode-languageserver-types/main', ['require', 'exports'], e);
   })(function (e, t) {
-    "use strict";
+    'use strict';
     var a, n, r, i, o, u, s, c, d, l, g, f, m, h, p, v, y, b, _, C, k, x, I, w;
-    Object.defineProperty(t, "__esModule", {
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       ((n = a = t.Position || (t.Position = {})).create = function (e, t) {
@@ -129,15 +129,15 @@ define(
             end: t,
           };
         throw new Error(
-          "Range#create called with invalid arguments[" +
+          'Range#create called with invalid arguments[' +
             e +
-            ", " +
+            ', ' +
             t +
-            ", " +
+            ', ' +
             n +
-            ", " +
+            ', ' +
             r +
-            "]"
+            ']'
         );
       }),
       (i.is = function (e) {
@@ -206,9 +206,9 @@ define(
         );
       }),
       ((g = t.FoldingRangeKind || (t.FoldingRangeKind = {})).Comment =
-        "comment"),
-      (g.Imports = "imports"),
-      (g.Region = "region"),
+        'comment'),
+      (g.Imports = 'imports'),
+      (g.Region = 'region'),
       ((f = t.FoldingRange || (t.FoldingRange = {})).create = function (
         e,
         t,
@@ -317,7 +317,7 @@ define(
       (k.del = function (e) {
         return {
           range: e,
-          newText: "",
+          newText: '',
         };
       }),
       (k.is = function (e) {
@@ -401,7 +401,7 @@ define(
                   }));
         }
         return (
-          Object.defineProperty(e.prototype, "edit", {
+          Object.defineProperty(e.prototype, 'edit', {
             get: function () {
               return this._workspaceEdit;
             },
@@ -418,7 +418,7 @@ define(
                 !this._workspaceEdit.documentChanges)
               )
                 throw new Error(
-                  "Workspace edit is not configured for versioned document changes."
+                  'Workspace edit is not configured for versioned document changes.'
                 );
               var t = e;
               if (!(r = this._textEditChanges[t.uri])) {
@@ -440,7 +440,7 @@ define(
               !this._workspaceEdit.changes)
             )
               throw new Error(
-                "Workspace edit is not configured for normal text edit changes."
+                'Workspace edit is not configured for normal text edit changes.'
               );
             var r;
             if (!(r = this._textEditChanges[e])) {
@@ -501,8 +501,8 @@ define(
           Z.string(t.text)
         );
       }),
-      ((F = M = t.MarkupKind || (t.MarkupKind = {})).PlainText = "plaintext"),
-      (F.Markdown = "markdown"),
+      ((F = M = t.MarkupKind || (t.MarkupKind = {})).PlainText = 'plaintext'),
+      (F.Markdown = 'markdown'),
       ((K = M = t.MarkupKind || (t.MarkupKind = {})).is = function (e) {
         var t = e;
         return t === K.PlainText || t === K.Markdown;
@@ -551,7 +551,7 @@ define(
       }),
       ((O = L = t.MarkedString || (t.MarkedString = {})).fromPlainText =
         function (e) {
-          return e.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
+          return e.replace(/[\\`*_{}[\]()#+\-.!]/g, '\\$&');
         }),
       (O.is = function (e) {
         var t = e;
@@ -689,13 +689,13 @@ define(
         );
       }),
       (t.DocumentSymbol = $),
-      ((q = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = "quickfix"),
-      (q.Refactor = "refactor"),
-      (q.RefactorExtract = "refactor.extract"),
-      (q.RefactorInline = "refactor.inline"),
-      (q.RefactorRewrite = "refactor.rewrite"),
-      (q.Source = "source"),
-      (q.SourceOrganizeImports = "source.organizeImports"),
+      ((q = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = 'quickfix'),
+      (q.Refactor = 'refactor'),
+      (q.RefactorExtract = 'refactor.extract'),
+      (q.RefactorInline = 'refactor.inline'),
+      (q.RefactorRewrite = 'refactor.rewrite'),
+      (q.Source = 'source'),
+      (q.SourceOrganizeImports = 'source.organizeImports'),
       ((U = t.CodeActionContext || (t.CodeActionContext = {})).create =
         function (e, t) {
           var n = {
@@ -783,7 +783,7 @@ define(
         );
       }),
       (t.DocumentLink = Y),
-      (t.EOL = ["\n", "\r\n", "\r"]),
+      (t.EOL = ['\n', '\r\n', '\r']),
       ((J = t.TextDocument || (t.TextDocument = {})).create = function (
         e,
         t,
@@ -834,7 +834,7 @@ define(
           var a = r[o],
             u = e.offsetAt(a.range.start),
             s = e.offsetAt(a.range.end);
-          if (!(s <= i)) throw new Error("Ovelapping edit");
+          if (!(s <= i)) throw new Error('Ovelapping edit');
           (n = n.substring(0, u) + a.newText + n.substring(s, n.length)),
             (i = u);
         }
@@ -857,21 +857,21 @@ define(
             (this._lineOffsets = null);
         }
         return (
-          Object.defineProperty(e.prototype, "uri", {
+          Object.defineProperty(e.prototype, 'uri', {
             get: function () {
               return this._uri;
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "languageId", {
+          Object.defineProperty(e.prototype, 'languageId', {
             get: function () {
               return this._languageId;
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "version", {
+          Object.defineProperty(e.prototype, 'version', {
             get: function () {
               return this._version;
             },
@@ -900,10 +900,10 @@ define(
               ) {
                 n && (e.push(r), (n = !1));
                 var i = t.charAt(r);
-                (n = "\r" === i || "\n" === i),
-                  "\r" === i &&
+                (n = '\r' === i || '\n' === i),
+                  '\r' === i &&
                     r + 1 < t.length &&
-                    "\n" === t.charAt(r + 1) &&
+                    '\n' === t.charAt(r + 1) &&
                     r++;
               }
               n && 0 < t.length && e.push(t.length), (this._lineOffsets = e);
@@ -931,7 +931,7 @@ define(
               r = e.line + 1 < t.length ? t[e.line + 1] : this._content.length;
             return Math.max(Math.min(n + e.character, r), n);
           }),
-          Object.defineProperty(e.prototype, "lineCount", {
+          Object.defineProperty(e.prototype, 'lineCount', {
             get: function () {
               return this.getLineOffsets().length;
             },
@@ -953,34 +953,34 @@ define(
         return !0 === e || !1 === e;
       }),
       (ee.string = function (e) {
-        return "[object String]" === te.call(e);
+        return '[object String]' === te.call(e);
       }),
       (ee.number = function (e) {
-        return "[object Number]" === te.call(e);
+        return '[object Number]' === te.call(e);
       }),
       (ee.func = function (e) {
-        return "[object Function]" === te.call(e);
+        return '[object Function]' === te.call(e);
       }),
       (ee.objectLiteral = function (e) {
-        return null !== e && "object" == typeof e;
+        return null !== e && 'object' == typeof e;
       }),
       (ee.typedArray = function (e, t) {
         return Array.isArray(e) && e.every(t);
       });
   }),
   define(
-    "vscode-languageserver-types",
-    ["vscode-languageserver-types/main"],
+    'vscode-languageserver-types',
+    ['vscode-languageserver-types/main'],
     function (e) {
       return e;
     }
   ),
   define(
-    "vs/language/html/languageFeatures",
-    ["require", "exports", "vscode-languageserver-types"],
+    'vs/language/html/languageFeatures',
+    ['require', 'exports', 'vscode-languageserver-types'],
     function (e, t, i) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var n = monaco.Range,
@@ -1050,7 +1050,7 @@ define(
                     var t = e.map(function (e) {
                       return (
                         (n =
-                          "number" == typeof (t = e).code
+                          'number' == typeof (t = e).code
                             ? String(t.code)
                             : t.code),
                         {
@@ -1176,9 +1176,9 @@ define(
           this._worker = e;
         }
         return (
-          Object.defineProperty(e.prototype, "triggerCharacters", {
+          Object.defineProperty(e.prototype, 'triggerCharacters', {
             get: function () {
-              return [".", ":", "<", '"', "=", "/"];
+              return ['.', ':', '<', '"', '=', '/'];
             },
             enumerable: !0,
             configurable: !0,
@@ -1404,11 +1404,11 @@ define(
     }
   ),
   define(
-    "vs/language/html/htmlMode",
-    ["require", "exports", "./workerManager", "./languageFeatures"],
+    'vs/language/html/htmlMode',
+    ['require', 'exports', './workerManager', './languageFeatures'],
     function (e, t, i, o) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.setupMode = function (e) {
@@ -1435,7 +1435,7 @@ define(
               r,
               new o.FoldingRangeAdapter(t)
             ),
-            "html" === r &&
+            'html' === r &&
               (monaco.languages.registerDocumentFormattingEditProvider(
                 r,
                 new o.DocumentFormattingEditProvider(t)

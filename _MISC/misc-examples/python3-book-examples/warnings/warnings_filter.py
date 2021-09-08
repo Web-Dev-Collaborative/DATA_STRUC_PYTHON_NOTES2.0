@@ -1,0 +1,10 @@
+# Copyright (c) 2008 Doug Hellmann All rights reserved.
+#
+"""
+"""
+
+#end_pymotw_header
+import warnings
+
+warnings.warn('Show this message')
+warnings.warn('Do not show this message')

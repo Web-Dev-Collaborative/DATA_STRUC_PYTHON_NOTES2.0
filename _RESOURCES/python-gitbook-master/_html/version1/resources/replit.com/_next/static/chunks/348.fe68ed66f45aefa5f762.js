@@ -26,26 +26,26 @@
                 });
             }),
             (n.r = function (e) {
-              "undefined" != typeof Symbol &&
+              'undefined' != typeof Symbol &&
                 Symbol.toStringTag &&
                 Object.defineProperty(e, Symbol.toStringTag, {
-                  value: "Module",
+                  value: 'Module',
                 }),
-                Object.defineProperty(e, "__esModule", {
+                Object.defineProperty(e, '__esModule', {
                   value: !0,
                 });
             }),
             (n.t = function (e, t) {
               if ((1 & t && (e = n(e)), 8 & t)) return e;
-              if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+              if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
               var r = Object.create(null);
               if (
                 (n.r(r),
-                Object.defineProperty(r, "default", {
+                Object.defineProperty(r, 'default', {
                   enumerable: !0,
                   value: e,
                 }),
-                2 & t && "string" != typeof e)
+                2 & t && 'string' != typeof e)
               )
                 for (var i in e)
                   n.d(
@@ -66,18 +66,18 @@
                   : function () {
                       return e;
                     };
-              return n.d(t, "a", t), t;
+              return n.d(t, 'a', t), t;
             }),
             (n.o = function (e, t) {
               return Object.prototype.hasOwnProperty.call(e, t);
             }),
-            (n.p = ""),
+            (n.p = ''),
             n((n.s = 0))
           );
         })([
           function (e, t, n) {
-            "use strict";
-            Object.defineProperty(t, "__esModule", {
+            'use strict';
+            Object.defineProperty(t, '__esModule', {
               value: !0,
             }),
               (t.WebLinksAddon = void 0);
@@ -91,7 +91,7 @@
               n
                 ? ((n.opener = null), (n.location.href = t))
                 : console.warn(
-                    "Opening link blocked as opener could not be cleared"
+                    'Opening link blocked as opener could not be cleared'
                   );
             }
             var a = (function () {
@@ -108,7 +108,7 @@
                 (e.prototype.activate = function (e) {
                   (this._terminal = e),
                     this._useLinkProvider &&
-                    "registerLinkProvider" in this._terminal
+                    'registerLinkProvider' in this._terminal
                       ? (this._linkProvider =
                           this._terminal.registerLinkProvider(
                             new r.WebLinkProvider(
@@ -139,8 +139,8 @@
             t.WebLinksAddon = a;
           },
           function (e, t, n) {
-            "use strict";
-            Object.defineProperty(t, "__esModule", {
+            'use strict';
+            Object.defineProperty(t, '__esModule', {
               value: !0,
             }),
               (t.LinkComputer = t.WebLinkProvider = void 0);
@@ -164,7 +164,7 @@
                 (e.computeLink = function (t, n, r, i) {
                   for (
                     var o,
-                      a = new RegExp(n.source, (n.flags || "") + "g"),
+                      a = new RegExp(n.source, (n.flags || '') + 'g'),
                       s = e._translateBufferLineToStringWithWrap(t - 1, !1, r),
                       u = s[0],
                       d = s[1],
@@ -176,7 +176,7 @@
                     var f = o[1];
                     if (!f) {
                       console.log(
-                        "match found without corresponding matchIndex"
+                        'match found without corresponding matchIndex'
                       );
                       break;
                     }
@@ -209,7 +209,7 @@
                 (e._translateBufferLineToStringWithWrap = function (e, t, n) {
                   var r,
                     i,
-                    o = "";
+                    o = '';
                   do {
                     if (!(s = n.buffer.active.getLine(e))) break;
                     s.isWrapped && e--, (i = s.isWrapped);

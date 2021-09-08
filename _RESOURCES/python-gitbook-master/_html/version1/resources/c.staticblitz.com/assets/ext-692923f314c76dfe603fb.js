@@ -17,9 +17,9 @@
     102: function (t, e, n) {
       var r = n(119);
       t.exports = function (t) {
-        if ("string" == typeof t || r(t)) return t;
-        var e = t + "";
-        return "0" == e && 1 / t == -Infinity ? "-0" : e;
+        if ('string' == typeof t || r(t)) return t;
+        var e = t + '';
+        return '0' == e && 1 / t == -Infinity ? '-0' : e;
       };
     },
     1081: function (t, e, n) {
@@ -28,27 +28,27 @@
 
         function o(t) {
           return (o =
-            "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+            'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
                 }
               : function (t) {
                   return t &&
-                    "function" === typeof Symbol &&
+                    'function' === typeof Symbol &&
                     t.constructor === Symbol &&
                     t !== Symbol.prototype
-                    ? "symbol"
+                    ? 'symbol'
                     : typeof t;
                 })(t);
         }
         (function () {
-          "use strict";
+          'use strict';
           var a = {
               function: !0,
               object: !0,
             },
             s =
-              (a["undefined" === typeof window ? "undefined" : o(window)] &&
+              (a['undefined' === typeof window ? 'undefined' : o(window)] &&
                 window) ||
               this,
             u = a[o(e)] && e,
@@ -56,7 +56,7 @@
             h =
               u &&
               c &&
-              "object" == ("undefined" === typeof r ? "undefined" : o(r)) &&
+              'object' == ('undefined' === typeof r ? 'undefined' : o(r)) &&
               r;
           !h || (h.global !== h && h.window !== h && h.self !== h) || (s = h);
           var l = Math.pow(2, 53) - 1,
@@ -82,7 +82,7 @@
           }
 
           function b(t) {
-            return String(t).replace(/([ -])(?!$)/g, "$1?");
+            return String(t).replace(/([ -])(?!$)/g, '$1?');
           }
 
           function w(t, e) {
@@ -91,7 +91,7 @@
               (function (t, e) {
                 var n = -1,
                   r = t ? t.length : 0;
-                if ("number" == typeof r && r > -1 && r <= l)
+                if ('number' == typeof r && r > -1 && r <= l)
                   for (; ++n < r; ) e(t[n], n, t);
                 else m(t, e);
               })(t, function (r, i) {
@@ -102,14 +102,14 @@
           }
 
           function E(t) {
-            return String(t).replace(/^ +| +$/g, "");
+            return String(t).replace(/^ +| +$/g, '');
           }
           var C = (function t(e) {
             var n = s,
-              r = e && "object" == o(e) && "String" != _(e);
+              r = e && 'object' == o(e) && 'String' != _(e);
             r && ((n = e), (e = null));
             var i = n.navigator || {},
-              a = i.userAgent || "";
+              a = i.userAgent || '';
             e || (e = a);
             var u,
               c,
@@ -119,45 +119,45 @@
               d = r
                 ? !!i.likeChrome
                 : /\bChrome\b/.test(e) && !/internal|\n/i.test(v.toString()),
-              y = "Object",
-              C = r ? y : "ScriptBridgingProxyObject",
-              S = r ? y : "Environment",
-              I = r && n.java ? "JavaPackage" : _(n.java),
-              T = r ? y : "RuntimeObject",
+              y = 'Object',
+              C = r ? y : 'ScriptBridgingProxyObject',
+              S = r ? y : 'Environment',
+              I = r && n.java ? 'JavaPackage' : _(n.java),
+              T = r ? y : 'RuntimeObject',
               N = /\bJava/.test(I) && n.java,
               A = N && _(n.environment) == S,
-              O = N ? "a" : "\u03b1",
-              P = N ? "b" : "\u03b2",
+              O = N ? 'a' : '\u03b1',
+              P = N ? 'b' : '\u03b2',
               k = n.document || {},
               x = n.operamini || n.opera,
-              R = f.test((R = r && x ? x["[[Class]]"] : _(x))) ? R : (x = null),
+              R = f.test((R = r && x ? x['[[Class]]'] : _(x))) ? R : (x = null),
               D = e,
               L = [],
               M = null,
               F = e == a,
-              j = F && x && "function" == typeof x.version && x.version(),
+              j = F && x && 'function' == typeof x.version && x.version(),
               U = w(
                 [
                   {
-                    label: "EdgeHTML",
-                    pattern: "Edge",
+                    label: 'EdgeHTML',
+                    pattern: 'Edge',
                   },
-                  "Trident",
+                  'Trident',
                   {
-                    label: "WebKit",
-                    pattern: "AppleWebKit",
+                    label: 'WebKit',
+                    pattern: 'AppleWebKit',
                   },
-                  "iCab",
-                  "Presto",
-                  "NetFront",
-                  "Tasman",
-                  "KHTML",
-                  "Gecko",
+                  'iCab',
+                  'Presto',
+                  'NetFront',
+                  'Tasman',
+                  'KHTML',
+                  'Gecko',
                 ],
                 function (t, n) {
                   return (
                     t ||
-                    (RegExp("\\b" + (n.pattern || b(n)) + "\\b", "i").exec(e) &&
+                    (RegExp('\\b' + (n.pattern || b(n)) + '\\b', 'i').exec(e) &&
                       (n.label || n))
                   );
                 }
@@ -166,161 +166,161 @@
                 return w(t, function (t, n) {
                   return (
                     t ||
-                    (RegExp("\\b" + (n.pattern || b(n)) + "\\b", "i").exec(e) &&
+                    (RegExp('\\b' + (n.pattern || b(n)) + '\\b', 'i').exec(e) &&
                       (n.label || n))
                   );
                 });
               })([
-                "Adobe AIR",
-                "Arora",
-                "Avant Browser",
-                "Breach",
-                "Camino",
-                "Electron",
-                "Epiphany",
-                "Fennec",
-                "Flock",
-                "Galeon",
-                "GreenBrowser",
-                "iCab",
-                "Iceweasel",
-                "K-Meleon",
-                "Konqueror",
-                "Lunascape",
-                "Maxthon",
+                'Adobe AIR',
+                'Arora',
+                'Avant Browser',
+                'Breach',
+                'Camino',
+                'Electron',
+                'Epiphany',
+                'Fennec',
+                'Flock',
+                'Galeon',
+                'GreenBrowser',
+                'iCab',
+                'Iceweasel',
+                'K-Meleon',
+                'Konqueror',
+                'Lunascape',
+                'Maxthon',
                 {
-                  label: "Microsoft Edge",
-                  pattern: "Edge",
+                  label: 'Microsoft Edge',
+                  pattern: 'Edge',
                 },
-                "Midori",
-                "Nook Browser",
-                "PaleMoon",
-                "PhantomJS",
-                "Raven",
-                "Rekonq",
-                "RockMelt",
+                'Midori',
+                'Nook Browser',
+                'PaleMoon',
+                'PhantomJS',
+                'Raven',
+                'Rekonq',
+                'RockMelt',
                 {
-                  label: "Samsung Internet",
-                  pattern: "SamsungBrowser",
+                  label: 'Samsung Internet',
+                  pattern: 'SamsungBrowser',
                 },
-                "SeaMonkey",
+                'SeaMonkey',
                 {
-                  label: "Silk",
-                  pattern: "(?:Cloud9|Silk-Accelerated)",
+                  label: 'Silk',
+                  pattern: '(?:Cloud9|Silk-Accelerated)',
                 },
-                "Sleipnir",
-                "SlimBrowser",
+                'Sleipnir',
+                'SlimBrowser',
                 {
-                  label: "SRWare Iron",
-                  pattern: "Iron",
+                  label: 'SRWare Iron',
+                  pattern: 'Iron',
                 },
-                "Sunrise",
-                "Swiftfox",
-                "Waterfox",
-                "WebPositive",
-                "Opera Mini",
+                'Sunrise',
+                'Swiftfox',
+                'Waterfox',
+                'WebPositive',
+                'Opera Mini',
                 {
-                  label: "Opera Mini",
-                  pattern: "OPiOS",
+                  label: 'Opera Mini',
+                  pattern: 'OPiOS',
                 },
-                "Opera",
+                'Opera',
                 {
-                  label: "Opera",
-                  pattern: "OPR",
+                  label: 'Opera',
+                  pattern: 'OPR',
                 },
-                "Chrome",
+                'Chrome',
                 {
-                  label: "Chrome Mobile",
-                  pattern: "(?:CriOS|CrMo)",
-                },
-                {
-                  label: "Firefox",
-                  pattern: "(?:Firefox|Minefield)",
+                  label: 'Chrome Mobile',
+                  pattern: '(?:CriOS|CrMo)',
                 },
                 {
-                  label: "Firefox for iOS",
-                  pattern: "FxiOS",
+                  label: 'Firefox',
+                  pattern: '(?:Firefox|Minefield)',
                 },
                 {
-                  label: "IE",
-                  pattern: "IEMobile",
+                  label: 'Firefox for iOS',
+                  pattern: 'FxiOS',
                 },
                 {
-                  label: "IE",
-                  pattern: "MSIE",
+                  label: 'IE',
+                  pattern: 'IEMobile',
                 },
-                "Safari",
+                {
+                  label: 'IE',
+                  pattern: 'MSIE',
+                },
+                'Safari',
               ]),
               W = H([
                 {
-                  label: "BlackBerry",
-                  pattern: "BB10",
+                  label: 'BlackBerry',
+                  pattern: 'BB10',
                 },
-                "BlackBerry",
+                'BlackBerry',
                 {
-                  label: "Galaxy S",
-                  pattern: "GT-I9000",
-                },
-                {
-                  label: "Galaxy S2",
-                  pattern: "GT-I9100",
+                  label: 'Galaxy S',
+                  pattern: 'GT-I9000',
                 },
                 {
-                  label: "Galaxy S3",
-                  pattern: "GT-I9300",
+                  label: 'Galaxy S2',
+                  pattern: 'GT-I9100',
                 },
                 {
-                  label: "Galaxy S4",
-                  pattern: "GT-I9500",
+                  label: 'Galaxy S3',
+                  pattern: 'GT-I9300',
                 },
                 {
-                  label: "Galaxy S5",
-                  pattern: "SM-G900",
+                  label: 'Galaxy S4',
+                  pattern: 'GT-I9500',
                 },
                 {
-                  label: "Galaxy S6",
-                  pattern: "SM-G920",
+                  label: 'Galaxy S5',
+                  pattern: 'SM-G900',
                 },
                 {
-                  label: "Galaxy S6 Edge",
-                  pattern: "SM-G925",
+                  label: 'Galaxy S6',
+                  pattern: 'SM-G920',
                 },
                 {
-                  label: "Galaxy S7",
-                  pattern: "SM-G930",
+                  label: 'Galaxy S6 Edge',
+                  pattern: 'SM-G925',
                 },
                 {
-                  label: "Galaxy S7 Edge",
-                  pattern: "SM-G935",
+                  label: 'Galaxy S7',
+                  pattern: 'SM-G930',
                 },
-                "Google TV",
-                "Lumia",
-                "iPad",
-                "iPod",
-                "iPhone",
-                "Kindle",
                 {
-                  label: "Kindle Fire",
-                  pattern: "(?:Cloud9|Silk-Accelerated)",
+                  label: 'Galaxy S7 Edge',
+                  pattern: 'SM-G935',
                 },
-                "Nexus",
-                "Nook",
-                "PlayBook",
-                "PlayStation Vita",
-                "PlayStation",
-                "TouchPad",
-                "Transformer",
+                'Google TV',
+                'Lumia',
+                'iPad',
+                'iPod',
+                'iPhone',
+                'Kindle',
                 {
-                  label: "Wii U",
-                  pattern: "WiiU",
+                  label: 'Kindle Fire',
+                  pattern: '(?:Cloud9|Silk-Accelerated)',
                 },
-                "Wii",
-                "Xbox One",
+                'Nexus',
+                'Nook',
+                'PlayBook',
+                'PlayStation Vita',
+                'PlayStation',
+                'TouchPad',
+                'Transformer',
                 {
-                  label: "Xbox 360",
-                  pattern: "Xbox",
+                  label: 'Wii U',
+                  pattern: 'WiiU',
                 },
-                "Xoom",
+                'Wii',
+                'Xbox One',
+                {
+                  label: 'Xbox 360',
+                  pattern: 'Xbox',
+                },
+                'Xoom',
               ]),
               q = (function (t) {
                 return w(t, function (t, n, r) {
@@ -328,7 +328,7 @@
                     t ||
                     ((n[W] ||
                       n[/^[a-z]+(?: +[a-z]+\b)*/i.exec(W)] ||
-                      RegExp("\\b" + b(r) + "(?:\\b|\\w*\\d)", "i").exec(e)) &&
+                      RegExp('\\b' + b(r) + '(?:\\b|\\w*\\d)', 'i').exec(e)) &&
                       r)
                   );
                 });
@@ -341,19 +341,19 @@
                 Archos: {},
                 Amazon: {
                   Kindle: 1,
-                  "Kindle Fire": 1,
+                  'Kindle Fire': 1,
                 },
                 Asus: {
                   Transformer: 1,
                 },
-                "Barnes & Noble": {
+                'Barnes & Noble': {
                   Nook: 1,
                 },
                 BlackBerry: {
                   PlayBook: 1,
                 },
                 Google: {
-                  "Google TV": 1,
+                  'Google TV': 1,
                   Nexus: 1,
                 },
                 HP: {
@@ -363,27 +363,27 @@
                 LG: {},
                 Microsoft: {
                   Xbox: 1,
-                  "Xbox One": 1,
+                  'Xbox One': 1,
                 },
                 Motorola: {
                   Xoom: 1,
                 },
                 Nintendo: {
-                  "Wii U": 1,
+                  'Wii U': 1,
                   Wii: 1,
                 },
                 Nokia: {
                   Lumia: 1,
                 },
                 Samsung: {
-                  "Galaxy S": 1,
-                  "Galaxy S2": 1,
-                  "Galaxy S3": 1,
-                  "Galaxy S4": 1,
+                  'Galaxy S': 1,
+                  'Galaxy S2': 1,
+                  'Galaxy S3': 1,
+                  'Galaxy S4': 1,
                 },
                 Sony: {
                   PlayStation: 1,
-                  "PlayStation Vita": 1,
+                  'PlayStation Vita': 1,
                 },
               }),
               B = (function (t) {
@@ -392,23 +392,23 @@
                   return (
                     !t &&
                       (t = RegExp(
-                        "\\b" + r + "(?:/[\\d.]+|[ \\w.]*)",
-                        "i"
+                        '\\b' + r + '(?:/[\\d.]+|[ \\w.]*)',
+                        'i'
                       ).exec(e)) &&
                       (t = (function (t, e, n) {
                         var r = {
-                          "10.0": "10",
-                          6.4: "10 Technical Preview",
-                          6.3: "8.1",
-                          6.2: "8",
-                          6.1: "Server 2008 R2 / 7",
-                          "6.0": "Server 2008 / Vista",
-                          5.2: "Server 2003 / XP 64-bit",
-                          5.1: "XP",
-                          5.01: "2000 SP1",
-                          "5.0": "2000",
-                          "4.0": "NT",
-                          "4.90": "ME",
+                          '10.0': '10',
+                          6.4: '10 Technical Preview',
+                          6.3: '8.1',
+                          6.2: '8',
+                          6.1: 'Server 2008 R2 / 7',
+                          '6.0': 'Server 2008 / Vista',
+                          5.2: 'Server 2003 / XP 64-bit',
+                          5.1: 'XP',
+                          5.01: '2000 SP1',
+                          '5.0': '2000',
+                          '4.0': 'NT',
+                          '4.90': 'ME',
                         };
                         return (
                           e &&
@@ -416,24 +416,24 @@
                             /^Win/i.test(t) &&
                             !/^Windows Phone /i.test(t) &&
                             (r = r[/[\d.]+$/.exec(t)]) &&
-                            (t = "Windows " + r),
+                            (t = 'Windows ' + r),
                           (t = String(t)),
-                          e && n && (t = t.replace(RegExp(e, "i"), n)),
+                          e && n && (t = t.replace(RegExp(e, 'i'), n)),
                           g(
                             t
-                              .replace(/ ce$/i, " CE")
-                              .replace(/\bhpw/i, "web")
-                              .replace(/\bMacintosh\b/, "Mac OS")
-                              .replace(/_PowerPC\b/i, " OS")
-                              .replace(/\b(OS X) [^ \d]+/i, "$1")
-                              .replace(/\bMac (OS X)\b/, "$1")
-                              .replace(/\/(\d)/, " $1")
-                              .replace(/_/g, ".")
-                              .replace(/(?: BePC|[ .]*fc[ \d.]+)$/i, "")
-                              .replace(/\bx86\.64\b/gi, "x86_64")
-                              .replace(/\b(Windows Phone) OS\b/, "$1")
-                              .replace(/\b(Chrome OS \w+) [\d.]+\b/, "$1")
-                              .split(" on ")[0]
+                              .replace(/ ce$/i, ' CE')
+                              .replace(/\bhpw/i, 'web')
+                              .replace(/\bMacintosh\b/, 'Mac OS')
+                              .replace(/_PowerPC\b/i, ' OS')
+                              .replace(/\b(OS X) [^ \d]+/i, '$1')
+                              .replace(/\bMac (OS X)\b/, '$1')
+                              .replace(/\/(\d)/, ' $1')
+                              .replace(/_/g, '.')
+                              .replace(/(?: BePC|[ .]*fc[ \d.]+)$/i, '')
+                              .replace(/\bx86\.64\b/gi, 'x86_64')
+                              .replace(/\b(Windows Phone) OS\b/, '$1')
+                              .replace(/\b(Chrome OS \w+) [\d.]+\b/, '$1')
+                              .split(' on ')[0]
                           )
                         );
                       })(t, r, n.label || n)),
@@ -441,38 +441,38 @@
                   );
                 });
               })([
-                "Windows Phone",
-                "Android",
-                "CentOS",
+                'Windows Phone',
+                'Android',
+                'CentOS',
                 {
-                  label: "Chrome OS",
-                  pattern: "CrOS",
+                  label: 'Chrome OS',
+                  pattern: 'CrOS',
                 },
-                "Debian",
-                "Fedora",
-                "FreeBSD",
-                "Gentoo",
-                "Haiku",
-                "Kubuntu",
-                "Linux Mint",
-                "OpenBSD",
-                "Red Hat",
-                "SuSE",
-                "Ubuntu",
-                "Xubuntu",
-                "Cygwin",
-                "Symbian OS",
-                "hpwOS",
-                "webOS ",
-                "webOS",
-                "Tablet OS",
-                "Tizen",
-                "Linux",
-                "Mac OS X",
-                "Macintosh",
-                "Mac",
-                "Windows 98;",
-                "Windows ",
+                'Debian',
+                'Fedora',
+                'FreeBSD',
+                'Gentoo',
+                'Haiku',
+                'Kubuntu',
+                'Linux Mint',
+                'OpenBSD',
+                'Red Hat',
+                'SuSE',
+                'Ubuntu',
+                'Xubuntu',
+                'Cygwin',
+                'Symbian OS',
+                'hpwOS',
+                'webOS ',
+                'webOS',
+                'Tablet OS',
+                'Tizen',
+                'Linux',
+                'Mac OS X',
+                'Macintosh',
+                'Mac',
+                'Windows 98;',
+                'Windows ',
               ]);
 
             function H(t) {
@@ -481,25 +481,25 @@
                 return (
                   !t &&
                     (t =
-                      RegExp("\\b" + r + " *\\d+[.\\w_]*", "i").exec(e) ||
-                      RegExp("\\b" + r + " *\\w+-[\\w]*", "i").exec(e) ||
+                      RegExp('\\b' + r + ' *\\d+[.\\w_]*', 'i').exec(e) ||
+                      RegExp('\\b' + r + ' *\\w+-[\\w]*', 'i').exec(e) ||
                       RegExp(
-                        "\\b" +
+                        '\\b' +
                           r +
-                          "(?:; *(?:[a-z]+[_-])?[a-z]+\\d+|[^ ();-]*)",
-                        "i"
+                          '(?:; *(?:[a-z]+[_-])?[a-z]+\\d+|[^ ();-]*)',
+                        'i'
                       ).exec(e)) &&
                     ((t = String(
-                      n.label && !RegExp(r, "i").test(n.label) ? n.label : t
-                    ).split("/"))[1] &&
+                      n.label && !RegExp(r, 'i').test(n.label) ? n.label : t
+                    ).split('/'))[1] &&
                       !/[\d.]+/.test(t[0]) &&
-                      (t[0] += " " + t[1]),
+                      (t[0] += ' ' + t[1]),
                     (n = n.label || n),
                     (t = g(
                       t[0]
-                        .replace(RegExp(r, "i"), n)
-                        .replace(RegExp("; *(?:" + n + "[_-])?", "i"), " ")
-                        .replace(RegExp("(" + n + ")[-_.]?(\\w)", "i"), "$1 $2")
+                        .replace(RegExp(r, 'i'), n)
+                        .replace(RegExp('; *(?:' + n + '[_-])?', 'i'), ' ')
+                        .replace(RegExp('(' + n + ')[-_.]?(\\w)', 'i'), '$1 $2')
                     ))),
                   t
                 );
@@ -510,45 +510,45 @@
               q && !W && (W = H([q])),
               (u = /\bGoogle TV\b/.exec(W)) && (W = u[0]),
               /\bSimulator\b/i.test(e) &&
-                (W = (W ? W + " " : "") + "Simulator"),
-              "Opera Mini" == V &&
+                (W = (W ? W + ' ' : '') + 'Simulator'),
+              'Opera Mini' == V &&
                 /\bOPiOS\b/.test(e) &&
-                L.push("running in Turbo/Uncompressed mode"),
-              "IE" == V && /\blike iPhone OS\b/.test(e)
-                ? ((q = (u = t(e.replace(/like iPhone OS/, ""))).manufacturer),
+                L.push('running in Turbo/Uncompressed mode'),
+              'IE' == V && /\blike iPhone OS\b/.test(e)
+                ? ((q = (u = t(e.replace(/like iPhone OS/, ''))).manufacturer),
                   (W = u.product))
                 : /^iP/.test(W)
-                ? (V || (V = "Safari"),
+                ? (V || (V = 'Safari'),
                   (B =
-                    "iOS" +
+                    'iOS' +
                     ((u = / OS ([\d_]+)/i.exec(e))
-                      ? " " + u[1].replace(/_/g, ".")
-                      : "")))
-                : "Konqueror" != V || /buntu/i.test(B)
+                      ? ' ' + u[1].replace(/_/g, '.')
+                      : '')))
+                : 'Konqueror' != V || /buntu/i.test(B)
                 ? (q &&
-                    "Google" != q &&
+                    'Google' != q &&
                     ((/Chrome/.test(V) && !/\bMobile Safari\b/i.test(e)) ||
                       /\bVita\b/.test(W))) ||
                   (/\bAndroid\b/.test(B) &&
                     /^Chrome/.test(V) &&
                     /\bVersion\//i.test(e))
-                  ? ((V = "Android Browser"),
-                    (B = /\bAndroid\b/.test(B) ? B : "Android"))
-                  : "Silk" == V
+                  ? ((V = 'Android Browser'),
+                    (B = /\bAndroid\b/.test(B) ? B : 'Android'))
+                  : 'Silk' == V
                   ? (/\bMobi/i.test(e) ||
-                      ((B = "Android"), L.unshift("desktop mode")),
-                    /Accelerated *= *true/i.test(e) && L.unshift("accelerated"))
-                  : "PaleMoon" == V && (u = /\bFirefox\/([\d.]+)\b/.exec(e))
-                  ? L.push("identifying as Firefox " + u[1])
-                  : "Firefox" == V && (u = /\b(Mobile|Tablet|TV)\b/i.exec(e))
-                  ? (B || (B = "Firefox OS"), W || (W = u[1]))
+                      ((B = 'Android'), L.unshift('desktop mode')),
+                    /Accelerated *= *true/i.test(e) && L.unshift('accelerated'))
+                  : 'PaleMoon' == V && (u = /\bFirefox\/([\d.]+)\b/.exec(e))
+                  ? L.push('identifying as Firefox ' + u[1])
+                  : 'Firefox' == V && (u = /\b(Mobile|Tablet|TV)\b/i.exec(e))
+                  ? (B || (B = 'Firefox OS'), W || (W = u[1]))
                   : !V ||
                     (u =
                       !/\bMinefield\b/i.test(e) &&
                       /\b(?:Firefox|Safari)\b/.exec(V))
                   ? (V &&
                       !W &&
-                      /[\/,]|^[^(]+?\)/.test(e.slice(e.indexOf(u + "/") + 8)) &&
+                      /[\/,]|^[^(]+?\)/.test(e.slice(e.indexOf(u + '/') + 8)) &&
                       (V = null),
                     (u = W || q || B) &&
                       (W ||
@@ -556,124 +556,124 @@
                         /\b(?:Android|Symbian OS|Tablet OS|webOS)\b/.test(B)) &&
                       (V =
                         /[a-z]+(?: Hat)?/i.exec(/\bAndroid\b/.test(B) ? B : u) +
-                        " Browser"))
-                  : "Electron" == V &&
+                        ' Browser'))
+                  : 'Electron' == V &&
                     (u = (/\bChrome\/([\d.]+)\b/.exec(e) || 0)[1]) &&
-                    L.push("Chromium " + u)
-                : (B = "Kubuntu"),
+                    L.push('Chromium ' + u)
+                : (B = 'Kubuntu'),
               j ||
                 (j = w(
                   [
-                    "(?:Cloud9|CriOS|CrMo|Edge|FxiOS|IEMobile|Iron|Opera ?Mini|OPiOS|OPR|Raven|SamsungBrowser|Silk(?!/[\\d.]+$))",
-                    "Version",
+                    '(?:Cloud9|CriOS|CrMo|Edge|FxiOS|IEMobile|Iron|Opera ?Mini|OPiOS|OPR|Raven|SamsungBrowser|Silk(?!/[\\d.]+$))',
+                    'Version',
                     b(V),
-                    "(?:Firefox|Minefield|NetFront)",
+                    '(?:Firefox|Minefield|NetFront)',
                   ],
                   function (t, n) {
                     return (
                       t ||
                       (RegExp(
                         n +
-                          "(?:-[\\d.]+/|(?: for [\\w-]+)?[ /-])([\\d.]+[^ ();/_-]*)",
-                        "i"
+                          '(?:-[\\d.]+/|(?: for [\\w-]+)?[ /-])([\\d.]+[^ ();/_-]*)',
+                        'i'
                       ).exec(e) || 0)[1] ||
                       null
                     );
                   }
                 )),
               (u =
-                ("iCab" == U && parseFloat(j) > 3
-                  ? "WebKit"
+                ('iCab' == U && parseFloat(j) > 3
+                  ? 'WebKit'
                   : /\bOpera\b/.test(V) &&
-                    (/\bOPR\b/.test(e) ? "Blink" : "Presto")) ||
+                    (/\bOPR\b/.test(e) ? 'Blink' : 'Presto')) ||
                 (/\b(?:Midori|Nook|Safari)\b/i.test(e) &&
                   !/^(?:Trident|EdgeHTML)$/.test(U) &&
-                  "WebKit") ||
+                  'WebKit') ||
                 (!U &&
                   /\bMSIE\b/i.test(e) &&
-                  ("Mac OS" == B ? "Tasman" : "Trident")) ||
-                ("WebKit" == U &&
+                  ('Mac OS' == B ? 'Tasman' : 'Trident')) ||
+                ('WebKit' == U &&
                   /\bPlayStation\b(?! Vita\b)/i.test(V) &&
-                  "NetFront")) && (U = [u]),
-              "IE" == V && (u = (/; *(?:XBLWP|ZuneWP)(\d+)/i.exec(e) || 0)[1])
-                ? ((V += " Mobile"),
-                  (B = "Windows Phone " + (/\+$/.test(u) ? u : u + ".x")),
-                  L.unshift("desktop mode"))
+                  'NetFront')) && (U = [u]),
+              'IE' == V && (u = (/; *(?:XBLWP|ZuneWP)(\d+)/i.exec(e) || 0)[1])
+                ? ((V += ' Mobile'),
+                  (B = 'Windows Phone ' + (/\+$/.test(u) ? u : u + '.x')),
+                  L.unshift('desktop mode'))
                 : /\bWPDesktop\b/i.test(e)
-                ? ((V = "IE Mobile"),
-                  (B = "Windows Phone 8.x"),
-                  L.unshift("desktop mode"),
+                ? ((V = 'IE Mobile'),
+                  (B = 'Windows Phone 8.x'),
+                  L.unshift('desktop mode'),
                   j || (j = (/\brv:([\d.]+)/.exec(e) || 0)[1]))
-                : "IE" != V &&
-                  "Trident" == U &&
+                : 'IE' != V &&
+                  'Trident' == U &&
                   (u = /\brv:([\d.]+)/.exec(e)) &&
-                  (V && L.push("identifying as " + V + (j ? " " + j : "")),
-                  (V = "IE"),
+                  (V && L.push('identifying as ' + V + (j ? ' ' + j : '')),
+                  (V = 'IE'),
                   (j = u[1])),
               F)
             ) {
               if (
-                ((l = "global"),
-                (p = null != (h = n) ? o(h[l]) : "number"),
+                ((l = 'global'),
+                (p = null != (h = n) ? o(h[l]) : 'number'),
                 /^(?:boolean|number|string|undefined)$/.test(p) ||
-                  ("object" == p && !h[l]))
+                  ('object' == p && !h[l]))
               )
                 _((u = n.runtime)) == C
-                  ? ((V = "Adobe AIR"), (B = u.flash.system.Capabilities.os))
+                  ? ((V = 'Adobe AIR'), (B = u.flash.system.Capabilities.os))
                   : _((u = n.phantom)) == T
-                  ? ((V = "PhantomJS"),
+                  ? ((V = 'PhantomJS'),
                     (j =
                       (u = u.version || null) &&
-                      u.major + "." + u.minor + "." + u.patch))
-                  : "number" == typeof k.documentMode &&
+                      u.major + '.' + u.minor + '.' + u.patch))
+                  : 'number' == typeof k.documentMode &&
                     (u = /\bTrident\/(\d+)/i.exec(e))
                   ? ((j = [j, k.documentMode]),
                     (u = +u[1] + 4) != j[1] &&
-                      (L.push("IE " + j[1] + " mode"),
-                      U && (U[1] = ""),
+                      (L.push('IE ' + j[1] + ' mode'),
+                      U && (U[1] = ''),
                       (j[1] = u)),
-                    (j = "IE" == V ? String(j[1].toFixed(1)) : j[0]))
-                  : "number" == typeof k.documentMode &&
+                    (j = 'IE' == V ? String(j[1].toFixed(1)) : j[0]))
+                  : 'number' == typeof k.documentMode &&
                     /^(?:Chrome|Firefox)\b/.test(V) &&
-                    (L.push("masking as " + V + " " + j),
-                    (V = "IE"),
-                    (j = "11.0"),
-                    (U = ["Trident"]),
-                    (B = "Windows"));
+                    (L.push('masking as ' + V + ' ' + j),
+                    (V = 'IE'),
+                    (j = '11.0'),
+                    (U = ['Trident']),
+                    (B = 'Windows'));
               else if (
                 (N &&
-                  ((D = (u = N.lang.System).getProperty("os.arch")),
+                  ((D = (u = N.lang.System).getProperty('os.arch')),
                   (B =
                     B ||
-                    u.getProperty("os.name") +
-                      " " +
-                      u.getProperty("os.version"))),
+                    u.getProperty('os.name') +
+                      ' ' +
+                      u.getProperty('os.version'))),
                 A)
               ) {
                 try {
-                  (j = n.require("ringo/engine").version.join(".")),
-                    (V = "RingoJS");
+                  (j = n.require('ringo/engine').version.join('.')),
+                    (V = 'RingoJS');
                 } catch (K) {
                   (u = n.system) &&
                     u.global.system == n.system &&
-                    ((V = "Narwhal"), B || (B = u[0].os || null));
+                    ((V = 'Narwhal'), B || (B = u[0].os || null));
                 }
-                V || (V = "Rhino");
+                V || (V = 'Rhino');
               } else
-                "object" == o(n.process) &&
+                'object' == o(n.process) &&
                   !n.process.browser &&
                   (u = n.process) &&
-                  ("object" == o(u.versions) &&
-                    ("string" == typeof u.versions.electron
-                      ? (L.push("Node " + u.versions.node),
-                        (V = "Electron"),
+                  ('object' == o(u.versions) &&
+                    ('string' == typeof u.versions.electron
+                      ? (L.push('Node ' + u.versions.node),
+                        (V = 'Electron'),
                         (j = u.versions.electron))
-                      : "string" == typeof u.versions.nw &&
-                        (L.push("Chromium " + j, "Node " + u.versions.node),
-                        (V = "NW.js"),
+                      : 'string' == typeof u.versions.nw &&
+                        (L.push('Chromium ' + j, 'Node ' + u.versions.node),
+                        (V = 'NW.js'),
                         (j = u.versions.nw))),
                   V ||
-                    ((V = "Node.js"),
+                    ((V = 'Node.js'),
                     (D = u.arch),
                     (B = u.platform),
                     (j = (j = /[\d.]+/.exec(u.version)) ? j[0] : null)));
@@ -684,77 +684,77 @@
                 (u =
                   /(?:[ab]|dp|pre|[ab]\d+pre)(?:\d+\+?)?$/i.exec(j) ||
                   /(?:alpha|beta)(?: ?\d)?/i.exec(
-                    e + ";" + (F && i.appMinorVersion)
+                    e + ';' + (F && i.appMinorVersion)
                   ) ||
-                  (/\bMinefield\b/i.test(e) && "a")) &&
-                ((M = /b/i.test(u) ? "beta" : "alpha"),
+                  (/\bMinefield\b/i.test(e) && 'a')) &&
+                ((M = /b/i.test(u) ? 'beta' : 'alpha'),
                 (j =
-                  j.replace(RegExp(u + "\\+?$"), "") +
-                  ("beta" == M ? P : O) +
-                  (/\d+\+?/.exec(u) || ""))),
-              "Fennec" == V ||
-                ("Firefox" == V && /\b(?:Android|Firefox OS)\b/.test(B)))
+                  j.replace(RegExp(u + '\\+?$'), '') +
+                  ('beta' == M ? P : O) +
+                  (/\d+\+?/.exec(u) || ''))),
+              'Fennec' == V ||
+                ('Firefox' == V && /\b(?:Android|Firefox OS)\b/.test(B)))
             )
-              V = "Firefox Mobile";
-            else if ("Maxthon" == V && j) j = j.replace(/\.[\d.]+/, ".x");
+              V = 'Firefox Mobile';
+            else if ('Maxthon' == V && j) j = j.replace(/\.[\d.]+/, '.x');
             else if (/\bXbox\b/i.test(W))
-              "Xbox 360" == W && (B = null),
-                "Xbox 360" == W &&
+              'Xbox 360' == W && (B = null),
+                'Xbox 360' == W &&
                   /\bIEMobile\b/.test(e) &&
-                  L.unshift("mobile mode");
+                  L.unshift('mobile mode');
             else if (
               (!/^(?:Chrome|IE|Opera)$/.test(V) &&
                 (!V || W || /Browser|Mobi/.test(V))) ||
-              ("Windows CE" != B && !/Mobi/i.test(e))
+              ('Windows CE' != B && !/Mobi/i.test(e))
             )
-              if ("IE" == V && F)
+              if ('IE' == V && F)
                 try {
-                  null === n.external && L.unshift("platform preview");
+                  null === n.external && L.unshift('platform preview');
                 } catch (K) {
-                  L.unshift("embedded");
+                  L.unshift('embedded');
                 }
               else
                 (/\bBlackBerry\b/.test(W) || /\bBB10\b/.test(e)) &&
                 (u =
-                  (RegExp(W.replace(/ +/g, " *") + "/([.\\d]+)", "i").exec(e) ||
+                  (RegExp(W.replace(/ +/g, ' *') + '/([.\\d]+)', 'i').exec(e) ||
                     0)[1] || j)
                   ? ((B =
                       ((u = [u, /BB10/.test(e)])[1]
-                        ? ((W = null), (q = "BlackBerry"))
-                        : "Device Software") +
-                      " " +
+                        ? ((W = null), (q = 'BlackBerry'))
+                        : 'Device Software') +
+                      ' ' +
                       u[0]),
                     (j = null))
                   : this != m &&
-                    "Wii" != W &&
+                    'Wii' != W &&
                     ((F && x) ||
                       (/Opera/.test(V) && /\b(?:MSIE|Firefox)\b/i.test(e)) ||
-                      ("Firefox" == V && /\bOS X (?:\d+\.){2,}/.test(B)) ||
-                      ("IE" == V &&
+                      ('Firefox' == V && /\bOS X (?:\d+\.){2,}/.test(B)) ||
+                      ('IE' == V &&
                         ((B && !/^Win/.test(B) && j > 5.5) ||
                           (/\bWindows XP\b/.test(B) && j > 8) ||
                           (8 == j && !/\bTrident\b/.test(e))))) &&
-                    !f.test((u = t.call(m, e.replace(f, "") + ";"))) &&
+                    !f.test((u = t.call(m, e.replace(f, '') + ';'))) &&
                     u.name &&
                     ((u =
-                      "ing as " + u.name + ((u = u.version) ? " " + u : "")),
+                      'ing as ' + u.name + ((u = u.version) ? ' ' + u : '')),
                     f.test(V)
-                      ? (/\bIE\b/.test(u) && "Mac OS" == B && (B = null),
-                        (u = "identify" + u))
-                      : ((u = "mask" + u),
+                      ? (/\bIE\b/.test(u) && 'Mac OS' == B && (B = null),
+                        (u = 'identify' + u))
+                      : ((u = 'mask' + u),
                         (V = R
-                          ? g(R.replace(/([a-z])([A-Z])/g, "$1 $2"))
-                          : "Opera"),
+                          ? g(R.replace(/([a-z])([A-Z])/g, '$1 $2'))
+                          : 'Opera'),
                         /\bIE\b/.test(u) && (B = null),
                         F || (j = null)),
-                    (U = ["Presto"]),
+                    (U = ['Presto']),
                     L.push(u));
-            else V += " Mobile";
+            else V += ' Mobile';
             (u = (/\bAppleWebKit\/([\d.]+\+?)/i.exec(e) || 0)[1]) &&
-              ((u = [parseFloat(u.replace(/\.(\d)$/, ".0$1")), u]),
-              "Safari" == V && "+" == u[1].slice(-1)
-                ? ((V = "WebKit Nightly"),
-                  (M = "alpha"),
+              ((u = [parseFloat(u.replace(/\.(\d)$/, '.0$1')), u]),
+              'Safari' == V && '+' == u[1].slice(-1)
+                ? ((V = 'WebKit Nightly'),
+                  (M = 'alpha'),
                   (j = u[1].slice(0, -1)))
                 : (j != u[1] &&
                     j != (u[2] = (/\bSafari\/([\d.]+\+?)/i.exec(e) || 0)[1])) ||
@@ -763,10 +763,10 @@
               537.36 == u[0] &&
                 537.36 == u[2] &&
                 parseFloat(u[1]) >= 28 &&
-                "WebKit" == U &&
-                (U = ["Blink"]),
+                'WebKit' == U &&
+                (U = ['Blink']),
               F && (d || u[1])
-                ? (U && (U[1] = "like Chrome"),
+                ? (U && (U[1] = 'like Chrome'),
                   (u =
                     u[1] ||
                     ((u = u[0]) < 530
@@ -794,7 +794,7 @@
                       : u < 535.01
                       ? 12
                       : u < 535.02
-                      ? "13+"
+                      ? '13+'
                       : u < 535.07
                       ? 15
                       : u < 535.11
@@ -808,7 +808,7 @@
                       : u < 537.01
                       ? 20
                       : u < 537.11
-                      ? "21+"
+                      ? '21+'
                       : u < 537.13
                       ? 23
                       : u < 537.18
@@ -817,10 +817,10 @@
                       ? 25
                       : u < 537.36
                       ? 26
-                      : "Blink" != U
-                      ? "27"
-                      : "28")))
-                : (U && (U[1] = "like Safari"),
+                      : 'Blink' != U
+                      ? '27'
+                      : '28')))
+                : (U && (U[1] = 'like Safari'),
                   (u =
                     (u = u[0]) < 400
                       ? 1
@@ -831,7 +831,7 @@
                       : u < 533
                       ? 4
                       : u < 534
-                      ? "4+"
+                      ? '4+'
                       : u < 535
                       ? 5
                       : u < 537
@@ -840,34 +840,34 @@
                       ? 7
                       : u < 601
                       ? 8
-                      : "8")),
+                      : '8')),
               U &&
                 (U[1] +=
-                  " " +
+                  ' ' +
                   (u +=
-                    "number" == typeof u ? ".x" : /[.+]/.test(u) ? "" : "+")),
-              "Safari" == V && (!j || parseInt(j) > 45) && (j = u)),
-              "Opera" == V && (u = /\bzbov|zvav$/.exec(B))
-                ? ((V += " "),
-                  L.unshift("desktop mode"),
-                  "zvav" == u ? ((V += "Mini"), (j = null)) : (V += "Mobile"),
-                  (B = B.replace(RegExp(" *" + u + "$"), "")))
-                : "Safari" == V &&
+                    'number' == typeof u ? '.x' : /[.+]/.test(u) ? '' : '+')),
+              'Safari' == V && (!j || parseInt(j) > 45) && (j = u)),
+              'Opera' == V && (u = /\bzbov|zvav$/.exec(B))
+                ? ((V += ' '),
+                  L.unshift('desktop mode'),
+                  'zvav' == u ? ((V += 'Mini'), (j = null)) : (V += 'Mobile'),
+                  (B = B.replace(RegExp(' *' + u + '$'), '')))
+                : 'Safari' == V &&
                   /\bChrome\b/.exec(U && U[1]) &&
-                  (L.unshift("desktop mode"),
-                  (V = "Chrome Mobile"),
+                  (L.unshift('desktop mode'),
+                  (V = 'Chrome Mobile'),
                   (j = null),
                   /\bOS X\b/.test(B)
-                    ? ((q = "Apple"), (B = "iOS 4.3+"))
+                    ? ((q = 'Apple'), (B = 'iOS 4.3+'))
                     : (B = null)),
               j &&
                 0 == j.indexOf((u = /[\d.]+$/.exec(B))) &&
-                e.indexOf("/" + u + "-") > -1 &&
-                (B = E(B.replace(u, ""))),
+                e.indexOf('/' + u + '-') > -1 &&
+                (B = E(B.replace(u, ''))),
               U &&
                 !/\b(?:Avant|Nook)\b/.test(V) &&
                 (/Browser|Lunascape|Maxthon/.test(V) ||
-                  ("Safari" != V &&
+                  ('Safari' != V &&
                     /^iOS/.test(B) &&
                     /\bSafari\b/.test(U[1])) ||
                   (/^(?:Adobe|Arora|Breach|Midori|Opera|Phantom|Rekonq|Rock|Samsung Internet|Sleipnir|Web)/.test(
@@ -876,22 +876,22 @@
                     U[1])) &&
                 (u = U[U.length - 1]) &&
                 L.push(u),
-              L.length && (L = ["(" + L.join("; ") + ")"]),
-              q && W && W.indexOf(q) < 0 && L.push("on " + q),
-              W && L.push((/^on /.test(L[L.length - 1]) ? "" : "on ") + W),
+              L.length && (L = ['(' + L.join('; ') + ')']),
+              q && W && W.indexOf(q) < 0 && L.push('on ' + q),
+              W && L.push((/^on /.test(L[L.length - 1]) ? '' : 'on ') + W),
               B &&
                 ((u = / ([\d.+]+)$/.exec(B)),
-                (c = u && "/" == B.charAt(B.length - u[0].length - 1)),
+                (c = u && '/' == B.charAt(B.length - u[0].length - 1)),
                 (B = {
                   architecture: 32,
-                  family: u && !c ? B.replace(u[0], "") : B,
+                  family: u && !c ? B.replace(u[0], '') : B,
                   version: u ? u[1] : null,
                   toString: function () {
                     var t = this.version;
                     return (
                       this.family +
-                      (t && !c ? " " + t : "") +
-                      (64 == this.architecture ? " 64-bit" : "")
+                      (t && !c ? ' ' + t : '') +
+                      (64 == this.architecture ? ' 64-bit' : '')
                     );
                   },
                 })),
@@ -899,16 +899,16 @@
               !/\bi686\b/i.test(D)
                 ? (B &&
                     ((B.architecture = 64),
-                    (B.family = B.family.replace(RegExp(" *" + u), ""))),
+                    (B.family = B.family.replace(RegExp(' *' + u), ''))),
                   V &&
                     (/\bWOW64\b/i.test(e) ||
                       (F &&
                         /\w(?:86|32)$/.test(i.cpuClass || i.platform) &&
                         !/\bWin64; x64\b/i.test(e))) &&
-                    L.unshift("32-bit"))
+                    L.unshift('32-bit'))
                 : B &&
                   /^OS X/.test(B.family) &&
-                  "Chrome" == V &&
+                  'Chrome' == V &&
                   parseFloat(j) >= 39 &&
                   (B.architecture = 64),
               e || (e = null);
@@ -927,25 +927,25 @@
                 family: null,
                 version: null,
                 toString: function () {
-                  return "null";
+                  return 'null';
                 },
               }),
               (Q.parse = t),
               (Q.toString = function () {
-                return this.description || "";
+                return this.description || '';
               }),
               Q.version && L.unshift(j),
               Q.name && L.unshift(V),
               B &&
                 V &&
-                (B != String(B).split(" ")[0] ||
-                  (B != V.split(" ")[0] && !W)) &&
-                L.push(W ? "(" + B + ")" : "on " + B),
-              L.length && (Q.description = L.join(" ")),
+                (B != String(B).split(' ')[0] ||
+                  (B != V.split(' ')[0] && !W)) &&
+                L.push(W ? '(' + B + ')' : 'on ' + B),
+              L.length && (Q.description = L.join(' ')),
               Q
             );
           })();
-          "object" == o(n(262)) && n(262)
+          'object' == o(n(262)) && n(262)
             ? ((s.platform = C),
               void 0 ===
                 (i = function () {
@@ -982,8 +982,8 @@
         (t.exports = u);
     },
     1153: function (t, e, n) {
-      "use strict";
-      Object.defineProperty(e, "__esModule", {
+      'use strict';
+      Object.defineProperty(e, '__esModule', {
         value: !0,
       });
       var r = n(710),
@@ -995,7 +995,7 @@
               (this.type = n),
               (this.multipleInstances = !1),
               (this.serviceProps = {}),
-              (this.instantiationMode = "LAZY");
+              (this.instantiationMode = 'LAZY');
           }
           return (
             (t.prototype.setInstantiationMode = function (t) {
@@ -1010,7 +1010,7 @@
             t
           );
         })(),
-        a = "[DEFAULT]",
+        a = '[DEFAULT]',
         s = (function () {
           function t(t, e) {
             (this.name = t),
@@ -1048,7 +1048,7 @@
                 var s = this.getOrInitializeService(o);
                 if (!s) {
                   if (i) return null;
-                  throw Error("Service " + this.name + " is not available");
+                  throw Error('Service ' + this.name + ' is not available');
                 }
                 return s;
               } catch (u) {
@@ -1063,20 +1063,20 @@
               var e, n;
               if (t.name !== this.name)
                 throw Error(
-                  "Mismatching Component " +
+                  'Mismatching Component ' +
                     t.name +
-                    " for Provider " +
+                    ' for Provider ' +
                     this.name +
-                    "."
+                    '.'
                 );
               if (this.component)
                 throw Error(
-                  "Component for " + this.name + " has already been provided"
+                  'Component for ' + this.name + ' has already been provided'
                 );
               if (
                 ((this.component = t),
                 (function (t) {
-                  return "EAGER" === t.instantiationMode;
+                  return 'EAGER' === t.instantiationMode;
                 })(t))
               )
                 try {
@@ -1128,7 +1128,7 @@
                           Promise.all(
                             t
                               .filter(function (t) {
-                                return "INTERNAL" in t;
+                                return 'INTERNAL' in t;
                               })
                               .map(function (t) {
                                 return t.INTERNAL.delete();
@@ -1179,9 +1179,9 @@
             var e = this.getProvider(t.name);
             if (e.isComponentSet())
               throw new Error(
-                "Component " +
+                'Component ' +
                   t.name +
-                  " has already been registered with " +
+                  ' has already been registered with ' +
                   this.name
               );
             e.setComponent(t);
@@ -1205,7 +1205,7 @@
       (e.Component = o), (e.ComponentContainer = u), (e.Provider = s);
     },
     1154: function (t, e, n) {
-      "use strict";
+      'use strict';
 
       function r() {
         for (var t = 0, e = 0, n = arguments.length; e < n; e++)
@@ -1219,27 +1219,27 @@
       }
       var i;
       n.r(e),
-        n.d(e, "LogLevel", function () {
+        n.d(e, 'LogLevel', function () {
           return o;
         }),
-        n.d(e, "Logger", function () {
+        n.d(e, 'Logger', function () {
           return l;
         }),
-        n.d(e, "setLogLevel", function () {
+        n.d(e, 'setLogLevel', function () {
           return f;
         }),
-        n.d(e, "setUserLogHandler", function () {
+        n.d(e, 'setUserLogHandler', function () {
           return p;
         });
       var o,
         a = [];
       !(function (t) {
-        (t[(t.DEBUG = 0)] = "DEBUG"),
-          (t[(t.VERBOSE = 1)] = "VERBOSE"),
-          (t[(t.INFO = 2)] = "INFO"),
-          (t[(t.WARN = 3)] = "WARN"),
-          (t[(t.ERROR = 4)] = "ERROR"),
-          (t[(t.SILENT = 5)] = "SILENT");
+        (t[(t.DEBUG = 0)] = 'DEBUG'),
+          (t[(t.VERBOSE = 1)] = 'VERBOSE'),
+          (t[(t.INFO = 2)] = 'INFO'),
+          (t[(t.WARN = 3)] = 'WARN'),
+          (t[(t.ERROR = 4)] = 'ERROR'),
+          (t[(t.SILENT = 5)] = 'SILENT');
       })(o || (o = {}));
       var s = {
           debug: o.DEBUG,
@@ -1251,11 +1251,11 @@
         },
         u = o.INFO,
         c =
-          (((i = {})[o.DEBUG] = "log"),
-          (i[o.VERBOSE] = "log"),
-          (i[o.INFO] = "info"),
-          (i[o.WARN] = "warn"),
-          (i[o.ERROR] = "error"),
+          (((i = {})[o.DEBUG] = 'log'),
+          (i[o.VERBOSE] = 'log'),
+          (i[o.INFO] = 'info'),
+          (i[o.WARN] = 'warn'),
+          (i[o.ERROR] = 'error'),
           i),
         h = function (t, e) {
           for (var n = [], i = 2; i < arguments.length; i++)
@@ -1265,11 +1265,11 @@
               a = c[e];
             if (!a)
               throw new Error(
-                "Attempted to log a message with an invalid logType (value: " +
+                'Attempted to log a message with an invalid logType (value: ' +
                   e +
-                  ")"
+                  ')'
               );
-            console[a].apply(console, r(["[" + o + "]  " + t.name + ":"], n));
+            console[a].apply(console, r(['[' + o + ']  ' + t.name + ':'], n));
           }
         },
         l = (function () {
@@ -1281,33 +1281,33 @@
               a.push(this);
           }
           return (
-            Object.defineProperty(t.prototype, "logLevel", {
+            Object.defineProperty(t.prototype, 'logLevel', {
               get: function () {
                 return this._logLevel;
               },
               set: function (t) {
                 if (!(t in o))
-                  throw new TypeError("Invalid value assigned to `logLevel`");
+                  throw new TypeError('Invalid value assigned to `logLevel`');
                 this._logLevel = t;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "logHandler", {
+            Object.defineProperty(t.prototype, 'logHandler', {
               get: function () {
                 return this._logHandler;
               },
               set: function (t) {
-                if ("function" !== typeof t)
+                if ('function' !== typeof t)
                   throw new TypeError(
-                    "Value assigned to `logHandler` must be a function"
+                    'Value assigned to `logHandler` must be a function'
                   );
                 this._logHandler = t;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "userLogHandler", {
+            Object.defineProperty(t.prototype, 'userLogHandler', {
               get: function () {
                 return this._userLogHandler;
               },
@@ -1357,7 +1357,7 @@
         })();
 
       function f(t) {
-        var e = "string" === typeof t ? s[t] : t;
+        var e = 'string' === typeof t ? s[t] : t;
         a.forEach(function (t) {
           t.logLevel = e;
         });
@@ -1377,8 +1377,8 @@
                         var s = i
                           .map(function (t) {
                             if (null == t) return null;
-                            if ("string" === typeof t) return t;
-                            if ("number" === typeof t || "boolean" === typeof t)
+                            if ('string' === typeof t) return t;
+                            if ('number' === typeof t || 'boolean' === typeof t)
                               return t.toString();
                             if (t instanceof Error) return t.message;
                             try {
@@ -1390,7 +1390,7 @@
                           .filter(function (t) {
                             return t;
                           })
-                          .join(" ");
+                          .join(' ');
                         n >= (null !== r && void 0 !== r ? r : e.logLevel) &&
                           t({
                             level: o[n].toLowerCase(),
@@ -1410,37 +1410,37 @@
       }
     },
     1155: function (t, e, n) {
-      "use strict";
+      'use strict';
       (function (r) {
         function i(t) {
           return (i =
-            "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+            'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
                 }
               : function (t) {
                   return t &&
-                    "function" === typeof Symbol &&
+                    'function' === typeof Symbol &&
                     t.constructor === Symbol &&
                     t !== Symbol.prototype
-                    ? "symbol"
+                    ? 'symbol'
                     : typeof t;
                 })(t);
         }
-        Object.defineProperty(e, "__esModule", {
+        Object.defineProperty(e, '__esModule', {
           value: !0,
         });
         var o,
           a,
           s =
-            (o = n(42)) && "object" === i(o) && "default" in o ? o.default : o,
+            (o = n(42)) && 'object' === i(o) && 'default' in o ? o.default : o,
           u = n(710),
           c = n(998),
           h = n(1154),
           l = n(1153),
           f = (function () {
             function t(t) {
-              (this.domStorage_ = t), (this.prefix_ = "firebase:");
+              (this.domStorage_ = t), (this.prefix_ = 'firebase:');
             }
             return (
               (t.prototype.set = function (t, e) {
@@ -1487,22 +1487,22 @@
           d = function (t) {
             try {
               if (
-                "undefined" !== typeof window &&
-                "undefined" !== typeof window[t]
+                'undefined' !== typeof window &&
+                'undefined' !== typeof window[t]
               ) {
                 var e = window[t];
                 return (
-                  e.setItem("firebase:sentinel", "cache"),
-                  e.removeItem("firebase:sentinel"),
+                  e.setItem('firebase:sentinel', 'cache'),
+                  e.removeItem('firebase:sentinel'),
                   new f(e)
                 );
               }
             } catch (n) {}
             return new p();
           },
-          v = d("localStorage"),
-          y = d("sessionStorage"),
-          g = new h.Logger("@firebase/database"),
+          v = d('localStorage'),
+          y = d('sessionStorage'),
+          g = new h.Logger('@firebase/database'),
           m =
             ((a = 1),
             function () {
@@ -1518,15 +1518,15 @@
           b = function t() {
             for (var e = [], n = 0; n < arguments.length; n++)
               e[n] = arguments[n];
-            for (var r = "", o = 0; o < e.length; o++) {
+            for (var r = '', o = 0; o < e.length; o++) {
               var a = e[o];
               Array.isArray(a) ||
-              (a && "object" === i(a) && "number" === typeof a.length)
+              (a && 'object' === i(a) && 'number' === typeof a.length)
                 ? (r += t.apply(null, a))
-                : "object" === i(a)
+                : 'object' === i(a)
                 ? (r += c.stringify(a))
                 : (r += a),
-                (r += " ");
+                (r += ' ');
             }
             return r;
           },
@@ -1540,10 +1540,10 @@
               !0 === t
                 ? ((g.logLevel = h.LogLevel.VERBOSE),
                   (w = g.log.bind(g)),
-                  e && y.set("logging_enabled", !0))
-                : "function" === typeof t
+                  e && y.set('logging_enabled', !0))
+                : 'function' === typeof t
                 ? (w = t)
-                : ((w = null), y.remove("logging_enabled"));
+                : ((w = null), y.remove('logging_enabled'));
           },
           S = function () {
             for (var t = [], e = 0; e < arguments.length; e++)
@@ -1551,7 +1551,7 @@
             if (
               (!0 === E &&
                 ((E = !1),
-                null === w && !0 === y.get("logging_enabled") && C(!0)),
+                null === w && !0 === y.get('logging_enabled') && C(!0)),
               w)
             ) {
               var n = b.apply(null, t);
@@ -1569,31 +1569,31 @@
             for (var t = [], e = 0; e < arguments.length; e++)
               t[e] = arguments[e];
             var n =
-              "FIREBASE INTERNAL ERROR: " + b.apply(void 0, u.__spread(t));
+              'FIREBASE INTERNAL ERROR: ' + b.apply(void 0, u.__spread(t));
             g.error(n);
           },
           N = function () {
             for (var t = [], e = 0; e < arguments.length; e++)
               t[e] = arguments[e];
-            var n = "FIREBASE FATAL ERROR: " + b.apply(void 0, u.__spread(t));
+            var n = 'FIREBASE FATAL ERROR: ' + b.apply(void 0, u.__spread(t));
             throw (g.error(n), new Error(n));
           },
           A = function () {
             for (var t = [], e = 0; e < arguments.length; e++)
               t[e] = arguments[e];
-            var n = "FIREBASE WARNING: " + b.apply(void 0, u.__spread(t));
+            var n = 'FIREBASE WARNING: ' + b.apply(void 0, u.__spread(t));
             g.warn(n);
           },
           O = function (t) {
             return (
-              "number" === typeof t &&
+              'number' === typeof t &&
               (t !== t ||
                 t === Number.POSITIVE_INFINITY ||
                 t === Number.NEGATIVE_INFINITY)
             );
           },
-          P = "[MIN_NAME]",
-          k = "[MAX_NAME]",
+          P = '[MIN_NAME]',
+          k = '[MAX_NAME]',
           x = function (t, e) {
             if (t === e) return 0;
             if (t === P || e === k) return -1;
@@ -1618,20 +1618,20 @@
           D = function (t, e) {
             if (e && t in e) return e[t];
             throw new Error(
-              "Missing required key (" + t + ") in object: " + c.stringify(e)
+              'Missing required key (' + t + ') in object: ' + c.stringify(e)
             );
           },
           L = function t(e) {
-            if ("object" !== i(e) || null === e) return c.stringify(e);
+            if ('object' !== i(e) || null === e) return c.stringify(e);
             var n = [];
             for (var r in e) n.push(r);
             n.sort();
-            for (var o = "{", a = 0; a < n.length; a++)
-              0 !== a && (o += ","),
+            for (var o = '{', a = 0; a < n.length; a++)
+              0 !== a && (o += ','),
                 (o += c.stringify(n[a])),
-                (o += ":"),
+                (o += ':'),
                 (o += t(e[n[a]]));
-            return (o += "}");
+            return (o += '}');
           },
           M = function (t, e) {
             var n = t.length;
@@ -1647,7 +1647,7 @@
           for (var n in t) t.hasOwnProperty(n) && e(n, t[n]);
         }
         var j = function (t) {
-            c.assert(!O(t), "Invalid JSON number");
+            c.assert(!O(t), 'Invalid JSON number');
             var e,
               n,
               r,
@@ -1669,15 +1669,15 @@
             for (o = 11; o; o -= 1)
               s.push(n % 2 ? 1 : 0), (n = Math.floor(n / 2));
             s.push(e ? 1 : 0), s.reverse();
-            var u = s.join(""),
-              h = "";
+            var u = s.join(''),
+              h = '';
             for (o = 0; o < 64; o += 8) {
               var l = parseInt(u.substr(o, 8), 2).toString(16);
-              1 === l.length && (l = "0" + l), (h += l);
+              1 === l.length && (l = '0' + l), (h += l);
             }
             return h.toLowerCase();
           },
-          U = new RegExp("^-?(0*)\\d{1,10}$"),
+          U = new RegExp('^-?(0*)\\d{1,10}$'),
           V = function (t) {
             if (U.test(t)) {
               var e = Number(t);
@@ -1690,19 +1690,19 @@
               t();
             } catch (e) {
               setTimeout(function () {
-                var t = e.stack || "";
-                throw (A("Exception was thrown by user callback.", t), e);
+                var t = e.stack || '';
+                throw (A('Exception was thrown by user callback.', t), e);
               }, Math.floor(0));
             }
           },
           q = function (t, e) {
             var n = setTimeout(t, e);
-            return "object" === i(n) && n.unref && n.unref(), n;
+            return 'object' === i(n) && n.unref && n.unref(), n;
           },
           B = (function () {
             function t(t, e) {
               if (void 0 === e) {
-                this.pieces_ = t.split("/");
+                this.pieces_ = t.split('/');
                 for (var n = 0, r = 0; r < this.pieces_.length; r++)
                   this.pieces_[r].length > 0 &&
                     ((this.pieces_[n] = this.pieces_[r]), n++);
@@ -1710,9 +1710,9 @@
               } else (this.pieces_ = t), (this.pieceNum_ = e);
             }
             return (
-              Object.defineProperty(t, "Empty", {
+              Object.defineProperty(t, 'Empty', {
                 get: function () {
-                  return new t("");
+                  return new t('');
                 },
                 enumerable: !0,
                 configurable: !0,
@@ -1736,22 +1736,22 @@
               }),
               (t.prototype.toString = function () {
                 for (
-                  var t = "", e = this.pieceNum_;
+                  var t = '', e = this.pieceNum_;
                   e < this.pieces_.length;
                   e++
                 )
-                  "" !== this.pieces_[e] && (t += "/" + this.pieces_[e]);
-                return t || "/";
+                  '' !== this.pieces_[e] && (t += '/' + this.pieces_[e]);
+                return t || '/';
               }),
               (t.prototype.toUrlEncodedString = function () {
                 for (
-                  var t = "", e = this.pieceNum_;
+                  var t = '', e = this.pieceNum_;
                   e < this.pieces_.length;
                   e++
                 )
-                  "" !== this.pieces_[e] &&
-                    (t += "/" + encodeURIComponent(String(this.pieces_[e])));
-                return t || "/";
+                  '' !== this.pieces_[e] &&
+                    (t += '/' + encodeURIComponent(String(this.pieces_[e])));
+                return t || '/';
               }),
               (t.prototype.slice = function (t) {
                 return (
@@ -1780,7 +1780,7 @@
                   for (r = e.pieceNum_; r < e.pieces_.length; r++)
                     n.push(e.pieces_[r]);
                 else {
-                  var i = e.split("/");
+                  var i = e.split('/');
                   for (r = 0; r < i.length; r++)
                     i[r].length > 0 && n.push(i[r]);
                 }
@@ -1795,11 +1795,11 @@
                 if (null === r) return n;
                 if (r === i) return t.relativePath(e.popFront(), n.popFront());
                 throw new Error(
-                  "INTERNAL ERROR: innerPath (" +
+                  'INTERNAL ERROR: innerPath (' +
                     n +
-                    ") is not within outerPath (" +
+                    ') is not within outerPath (' +
                     e +
-                    ")"
+                    ')'
                 );
               }),
               (t.comparePaths = function (t, e) {
@@ -1846,14 +1846,14 @@
               this.checkValid_();
             }
             return (
-              Object.defineProperty(t, "MAX_PATH_DEPTH", {
+              Object.defineProperty(t, 'MAX_PATH_DEPTH', {
                 get: function () {
                   return 32;
                 },
                 enumerable: !0,
                 configurable: !0,
               }),
-              Object.defineProperty(t, "MAX_PATH_LENGTH_BYTES", {
+              Object.defineProperty(t, 'MAX_PATH_LENGTH_BYTES', {
                 get: function () {
                   return 768;
                 },
@@ -1875,36 +1875,36 @@
                 if (this.byteLength_ > t.MAX_PATH_LENGTH_BYTES)
                   throw new Error(
                     this.errorPrefix_ +
-                      "has a key path longer than " +
+                      'has a key path longer than ' +
                       t.MAX_PATH_LENGTH_BYTES +
-                      " bytes (" +
+                      ' bytes (' +
                       this.byteLength_ +
-                      ")."
+                      ').'
                   );
                 if (this.parts_.length > t.MAX_PATH_DEPTH)
                   throw new Error(
                     this.errorPrefix_ +
-                      "path specified exceeds the maximum depth that can be written (" +
+                      'path specified exceeds the maximum depth that can be written (' +
                       t.MAX_PATH_DEPTH +
-                      ") or object contains a cycle " +
+                      ') or object contains a cycle ' +
                       this.toErrorString()
                   );
               }),
               (t.prototype.toErrorString = function () {
                 return 0 === this.parts_.length
-                  ? ""
-                  : "in property '" + this.parts_.join(".") + "'";
+                  ? ''
+                  : "in property '" + this.parts_.join('.') + "'";
               }),
               t
             );
           })(),
-          Q = "5",
-          K = "firebaseio.com",
-          G = "websocket",
-          z = "long_polling",
+          Q = '5',
+          K = 'firebaseio.com',
+          G = 'websocket',
+          z = 'long_polling',
           Y = (function () {
             function t(t, e, n, r, i, o) {
-              void 0 === i && (i = ""),
+              void 0 === i && (i = ''),
                 void 0 === o && (o = !1),
                 (this.secure = e),
                 (this.namespace = n),
@@ -1912,8 +1912,8 @@
                 (this.persistenceKey = i),
                 (this.includeNamespaceInQueryParams = o),
                 (this.host = t.toLowerCase()),
-                (this.domain = this.host.substr(this.host.indexOf(".") + 1)),
-                (this.internalHost = v.get("host:" + t) || this.host);
+                (this.domain = this.host.substr(this.host.indexOf('.') + 1)),
+                (this.internalHost = v.get('host:' + t) || this.host);
             }
             return (
               (t.prototype.needsQueryParam = function () {
@@ -1924,62 +1924,62 @@
                 );
               }),
               (t.prototype.isCacheableHost = function () {
-                return "s-" === this.internalHost.substr(0, 2);
+                return 's-' === this.internalHost.substr(0, 2);
               }),
               (t.prototype.isDemoHost = function () {
-                return "firebaseio-demo.com" === this.domain;
+                return 'firebaseio-demo.com' === this.domain;
               }),
               (t.prototype.isCustomHost = function () {
                 return (
-                  "firebaseio.com" !== this.domain &&
-                  "firebaseio-demo.com" !== this.domain
+                  'firebaseio.com' !== this.domain &&
+                  'firebaseio-demo.com' !== this.domain
                 );
               }),
               (t.prototype.updateHost = function (t) {
                 t !== this.internalHost &&
                   ((this.internalHost = t),
                   this.isCacheableHost() &&
-                    v.set("host:" + this.host, this.internalHost));
+                    v.set('host:' + this.host, this.internalHost));
               }),
               (t.prototype.connectionURL = function (t, e) {
                 var n;
                 if (
                   (c.assert(
-                    "string" === typeof t,
-                    "typeof type must == string"
+                    'string' === typeof t,
+                    'typeof type must == string'
                   ),
-                  c.assert("object" === i(e), "typeof params must == object"),
+                  c.assert('object' === i(e), 'typeof params must == object'),
                   t === G)
                 )
                   n =
-                    (this.secure ? "wss://" : "ws://") +
+                    (this.secure ? 'wss://' : 'ws://') +
                     this.internalHost +
-                    "/.ws?";
+                    '/.ws?';
                 else {
-                  if (t !== z) throw new Error("Unknown connection type: " + t);
+                  if (t !== z) throw new Error('Unknown connection type: ' + t);
                   n =
-                    (this.secure ? "https://" : "http://") +
+                    (this.secure ? 'https://' : 'http://') +
                     this.internalHost +
-                    "/.lp?";
+                    '/.lp?';
                 }
                 this.needsQueryParam() && (e.ns = this.namespace);
                 var r = [];
                 return (
                   F(e, function (t, e) {
-                    r.push(t + "=" + e);
+                    r.push(t + '=' + e);
                   }),
-                  n + r.join("&")
+                  n + r.join('&')
                 );
               }),
               (t.prototype.toString = function () {
                 var t = this.toURLString();
                 return (
-                  this.persistenceKey && (t += "<" + this.persistenceKey + ">"),
+                  this.persistenceKey && (t += '<' + this.persistenceKey + '>'),
                   t
                 );
               }),
               (t.prototype.toURLString = function () {
-                return (this.secure ? "https://" : "http://") + this.host;
+                return (this.secure ? 'https://' : 'http://') + this.host;
               }),
               t
             );
@@ -1992,56 +1992,56 @@
           et = function (t) {
             var e = nt(t),
               n = e.namespace;
-            "firebase" === e.domain &&
+            'firebase' === e.domain &&
               N(
                 e.host +
-                  " is no longer supported. Please use <YOUR FIREBASE>.firebaseio.com instead"
+                  ' is no longer supported. Please use <YOUR FIREBASE>.firebaseio.com instead'
               ),
-              (n && "undefined" !== n) ||
-                "localhost" === e.domain ||
+              (n && 'undefined' !== n) ||
+                'localhost' === e.domain ||
                 N(
-                  "Cannot parse Firebase url. Please use https://<YOUR FIREBASE>.firebaseio.com"
+                  'Cannot parse Firebase url. Please use https://<YOUR FIREBASE>.firebaseio.com'
                 ),
               e.secure ||
-                ("undefined" !== typeof window &&
+                ('undefined' !== typeof window &&
                   window.location &&
                   window.location.protocol &&
-                  -1 !== window.location.protocol.indexOf("https:") &&
+                  -1 !== window.location.protocol.indexOf('https:') &&
                   A(
-                    "Insecure Firebase access from a secure page. Please use https in calls to new Firebase()."
+                    'Insecure Firebase access from a secure page. Please use https in calls to new Firebase().'
                   ));
-            var r = "ws" === e.scheme || "wss" === e.scheme;
+            var r = 'ws' === e.scheme || 'wss' === e.scheme;
             return {
-              repoInfo: new Y(e.host, e.secure, n, r, "", n !== e.subdomain),
+              repoInfo: new Y(e.host, e.secure, n, r, '', n !== e.subdomain),
               path: new B(e.pathString),
             };
           },
           nt = function (t) {
-            var e = "",
-              n = "",
-              r = "",
-              i = "",
-              o = "",
+            var e = '',
+              n = '',
+              r = '',
+              i = '',
+              o = '',
               a = !0,
-              s = "https",
+              s = 'https',
               c = 443;
-            if ("string" === typeof t) {
-              var h = t.indexOf("//");
+            if ('string' === typeof t) {
+              var h = t.indexOf('//');
               h >= 0 && ((s = t.substring(0, h - 1)), (t = t.substring(h + 2)));
-              var l = t.indexOf("/");
+              var l = t.indexOf('/');
               -1 === l && (l = t.length);
-              var f = t.indexOf("?");
+              var f = t.indexOf('?');
               -1 === f && (f = t.length),
                 (e = t.substring(0, Math.min(l, f))),
                 l < f &&
                   (i = (function (t) {
-                    for (var e = "", n = t.split("/"), r = 0; r < n.length; r++)
+                    for (var e = '', n = t.split('/'), r = 0; r < n.length; r++)
                       if (n[r].length > 0) {
                         var i = n[r];
                         try {
-                          i = decodeURIComponent(i.replace(/\+/g, " "));
+                          i = decodeURIComponent(i.replace(/\+/g, ' '));
                         } catch (o) {}
-                        e += "/" + i;
+                        e += '/' + i;
                       }
                     return e;
                   })(t.substring(l, f)));
@@ -2049,16 +2049,16 @@
                 var e,
                   n,
                   r = {};
-                "?" === t.charAt(0) && (t = t.substring(1));
+                '?' === t.charAt(0) && (t = t.substring(1));
                 try {
                   for (
-                    var i = u.__values(t.split("&")), o = i.next();
+                    var i = u.__values(t.split('&')), o = i.next();
                     !o.done;
                     o = i.next()
                   ) {
                     var a = o.value;
                     if (0 !== a.length) {
-                      var s = a.split("=");
+                      var s = a.split('=');
                       2 === s.length
                         ? (r[decodeURIComponent(s[0])] = decodeURIComponent(
                             s[1]
@@ -2085,18 +2085,18 @@
                 }
                 return r;
               })(t.substring(Math.min(t.length, f)));
-              (h = e.indexOf(":")) >= 0
-                ? ((a = "https" === s || "wss" === s),
+              (h = e.indexOf(':')) >= 0
+                ? ((a = 'https' === s || 'wss' === s),
                   (c = parseInt(e.substring(h + 1), 10)))
                 : (h = t.length);
-              var d = e.split(".");
+              var d = e.split('.');
               3 === d.length
                 ? ((n = d[1]), (o = r = d[0].toLowerCase()))
                 : 2 === d.length
                 ? (n = d[0])
-                : "localhost" === d[0].slice(0, h).toLowerCase() &&
-                  (n = "localhost"),
-                "ns" in p && (o = p.ns);
+                : 'localhost' === d[0].slice(0, h).toLowerCase() &&
+                  (n = 'localhost'),
+                'ns' in p && (o = p.ns);
             }
             return {
               host: e,
@@ -2113,17 +2113,17 @@
           it = /[\[\].#$\u0000-\u001F\u007F]/,
           ot = 10485760,
           at = function (t) {
-            return "string" === typeof t && 0 !== t.length && !rt.test(t);
+            return 'string' === typeof t && 0 !== t.length && !rt.test(t);
           },
           st = function (t) {
-            return "string" === typeof t && 0 !== t.length && !it.test(t);
+            return 'string' === typeof t && 0 !== t.length && !it.test(t);
           },
           ut = function (t) {
             return (
               null === t ||
-              "string" === typeof t ||
-              ("number" === typeof t && !O(t)) ||
-              (t && "object" === i(t) && c.contains(t, ".sv"))
+              'string' === typeof t ||
+              ('number' === typeof t && !O(t)) ||
+              (t && 'object' === i(t) && c.contains(t, '.sv'))
             );
           },
           ct = function (t, e, n, r, i) {
@@ -2132,49 +2132,49 @@
           ht = function t(e, n, r) {
             var o = r instanceof B ? new H(r, e) : r;
             if (void 0 === n)
-              throw new Error(e + "contains undefined " + o.toErrorString());
-            if ("function" === typeof n)
+              throw new Error(e + 'contains undefined ' + o.toErrorString());
+            if ('function' === typeof n)
               throw new Error(
                 e +
-                  "contains a function " +
+                  'contains a function ' +
                   o.toErrorString() +
-                  " with contents = " +
+                  ' with contents = ' +
                   n.toString()
               );
             if (O(n))
               throw new Error(
-                e + "contains " + n.toString() + " " + o.toErrorString()
+                e + 'contains ' + n.toString() + ' ' + o.toErrorString()
               );
             if (
-              "string" === typeof n &&
+              'string' === typeof n &&
               n.length > ot / 3 &&
               c.stringLength(n) > ot
             )
               throw new Error(
                 e +
-                  "contains a string greater than " +
-                  "10485760 utf8 bytes " +
+                  'contains a string greater than ' +
+                  '10485760 utf8 bytes ' +
                   o.toErrorString() +
                   " ('" +
                   n.substring(0, 50) +
                   "...')"
               );
-            if (n && "object" === i(n)) {
+            if (n && 'object' === i(n)) {
               var a = !1,
                 s = !1;
               if (
                 (F(n, function (n, r) {
-                  if (".value" === n) a = !0;
+                  if ('.value' === n) a = !0;
                   else if (
-                    ".priority" !== n &&
-                    ".sv" !== n &&
+                    '.priority' !== n &&
+                    '.sv' !== n &&
                     ((s = !0), !at(n))
                   )
                     throw new Error(
                       e +
-                        " contains an invalid key (" +
+                        ' contains an invalid key (' +
                         n +
-                        ") " +
+                        ') ' +
                         o.toErrorString() +
                         '.  Keys must be non-empty strings and can\'t contain ".", "#", "$", "/", "[", or "]"'
                     );
@@ -2186,22 +2186,22 @@
                   e +
                     ' contains ".value" child ' +
                     o.toErrorString() +
-                    " in addition to actual children."
+                    ' in addition to actual children.'
                 );
             }
           },
           lt = function (t, e, n, r, o) {
             if (!o || void 0 !== n) {
               var a = c.errorPrefix(t, e, o);
-              if (!n || "object" !== i(n) || Array.isArray(n))
+              if (!n || 'object' !== i(n) || Array.isArray(n))
                 throw new Error(
-                  a + " must be an object containing the children to replace."
+                  a + ' must be an object containing the children to replace.'
                 );
               var s = [];
               F(n, function (t, e) {
                 var n = new B(t);
                 if (
-                  (ht(a, e, r.child(n)), ".priority" === n.getBack() && !ut(e))
+                  (ht(a, e, r.child(n)), '.priority' === n.getBack() && !ut(e))
                 )
                   throw new Error(
                     a +
@@ -2215,13 +2215,13 @@
                   var n, r;
                   for (n = 0; n < e.length; n++)
                     for (var i = (r = e[n]).slice(), o = 0; o < i.length; o++)
-                      if (".priority" === i[o] && o === i.length - 1);
+                      if ('.priority' === i[o] && o === i.length - 1);
                       else if (!at(i[o]))
                         throw new Error(
                           t +
-                            "contains an invalid key (" +
+                            'contains an invalid key (' +
                             i[o] +
-                            ") in path " +
+                            ') in path ' +
                             r.toString() +
                             '. Keys must be non-empty strings and can\'t contain ".", "#", "$", "/", "[", or "]"'
                         );
@@ -2231,9 +2231,9 @@
                     if (((r = e[n]), null !== a && a.contains(r)))
                       throw new Error(
                         t +
-                          "contains a path " +
+                          'contains a path ' +
                           a.toString() +
-                          " that is ancestor of another path " +
+                          ' that is ancestor of another path ' +
                           r.toString()
                       );
                     a = r;
@@ -2246,25 +2246,25 @@
               if (O(n))
                 throw new Error(
                   c.errorPrefix(t, e, r) +
-                    "is " +
+                    'is ' +
                     n.toString() +
-                    ", but must be a valid Firebase priority (a string, finite number, server value, or null)."
+                    ', but must be a valid Firebase priority (a string, finite number, server value, or null).'
                 );
               if (!ut(n))
                 throw new Error(
                   c.errorPrefix(t, e, r) +
-                    "must be a valid Firebase priority (a string, finite number, server value, or null)."
+                    'must be a valid Firebase priority (a string, finite number, server value, or null).'
                 );
             }
           },
           pt = function (t, e, n, r) {
             if (!r || void 0 !== n)
               switch (n) {
-                case "value":
-                case "child_added":
-                case "child_removed":
-                case "child_changed":
-                case "child_moved":
+                case 'value':
+                case 'child_added':
+                case 'child_removed':
+                case 'child_changed':
+                case 'child_moved':
                   break;
                 default:
                   throw new Error(
@@ -2292,22 +2292,22 @@
               );
           },
           yt = function (t, e, n, r) {
-            n && (n = n.replace(/^\/*\.info(\/|$)/, "/")), vt(t, e, n, r);
+            n && (n = n.replace(/^\/*\.info(\/|$)/, '/')), vt(t, e, n, r);
           },
           gt = function (t, e) {
-            if (".info" === e.getFront())
+            if ('.info' === e.getFront())
               throw new Error(t + " failed = Can't modify data under /.info/");
           },
           mt = function (t, e, n) {
             var r = n.path.toString();
             if (
-              "string" !== typeof n.repoInfo.host ||
+              'string' !== typeof n.repoInfo.host ||
               0 === n.repoInfo.host.length ||
               (!at(n.repoInfo.namespace) &&
-                "localhost" !== n.repoInfo.host.split(":")[0]) ||
+                'localhost' !== n.repoInfo.host.split(':')[0]) ||
               (0 !== r.length &&
                 !(function (t) {
-                  return t && (t = t.replace(/^\/*\.info(\/|$)/, "/")), st(t);
+                  return t && (t = t.replace(/^\/*\.info(\/|$)/, '/')), st(t);
                 })(r))
             )
               throw new Error(
@@ -2316,8 +2316,8 @@
               );
           },
           _t = function (t, e, n, r) {
-            if ((!r || void 0 !== n) && "boolean" !== typeof n)
-              throw new Error(c.errorPrefix(t, e, r) + "must be a boolean.");
+            if ((!r || void 0 !== n) && 'boolean' !== typeof n)
+              throw new Error(c.errorPrefix(t, e, r) + 'must be a boolean.');
           },
           bt = (function () {
             function t(t, e) {
@@ -2326,12 +2326,12 @@
             return (
               (t.prototype.cancel = function (t) {
                 c.validateArgCount(
-                  "OnDisconnect.cancel",
+                  'OnDisconnect.cancel',
                   0,
                   1,
                   arguments.length
                 ),
-                  c.validateCallback("OnDisconnect.cancel", 1, t, !0);
+                  c.validateCallback('OnDisconnect.cancel', 1, t, !0);
                 var e = new c.Deferred();
                 return (
                   this.repo_.onDisconnectCancel(this.path_, e.wrapCallback(t)),
@@ -2340,13 +2340,13 @@
               }),
               (t.prototype.remove = function (t) {
                 c.validateArgCount(
-                  "OnDisconnect.remove",
+                  'OnDisconnect.remove',
                   0,
                   1,
                   arguments.length
                 ),
-                  gt("OnDisconnect.remove", this.path_),
-                  c.validateCallback("OnDisconnect.remove", 1, t, !0);
+                  gt('OnDisconnect.remove', this.path_),
+                  c.validateCallback('OnDisconnect.remove', 1, t, !0);
                 var e = new c.Deferred();
                 return (
                   this.repo_.onDisconnectSet(
@@ -2358,10 +2358,10 @@
                 );
               }),
               (t.prototype.set = function (t, e) {
-                c.validateArgCount("OnDisconnect.set", 1, 2, arguments.length),
-                  gt("OnDisconnect.set", this.path_),
-                  ct("OnDisconnect.set", 1, t, this.path_, !1),
-                  c.validateCallback("OnDisconnect.set", 2, e, !0);
+                c.validateArgCount('OnDisconnect.set', 1, 2, arguments.length),
+                  gt('OnDisconnect.set', this.path_),
+                  ct('OnDisconnect.set', 1, t, this.path_, !1),
+                  c.validateCallback('OnDisconnect.set', 2, e, !0);
                 var n = new c.Deferred();
                 return (
                   this.repo_.onDisconnectSet(this.path_, t, n.wrapCallback(e)),
@@ -2370,15 +2370,15 @@
               }),
               (t.prototype.setWithPriority = function (t, e, n) {
                 c.validateArgCount(
-                  "OnDisconnect.setWithPriority",
+                  'OnDisconnect.setWithPriority',
                   2,
                   3,
                   arguments.length
                 ),
-                  gt("OnDisconnect.setWithPriority", this.path_),
-                  ct("OnDisconnect.setWithPriority", 1, t, this.path_, !1),
-                  ft("OnDisconnect.setWithPriority", 2, e, !1),
-                  c.validateCallback("OnDisconnect.setWithPriority", 3, n, !0);
+                  gt('OnDisconnect.setWithPriority', this.path_),
+                  ct('OnDisconnect.setWithPriority', 1, t, this.path_, !1),
+                  ft('OnDisconnect.setWithPriority', 2, e, !1),
+                  c.validateCallback('OnDisconnect.setWithPriority', 3, n, !0);
                 var r = new c.Deferred();
                 return (
                   this.repo_.onDisconnectSetWithPriority(
@@ -2393,22 +2393,22 @@
               (t.prototype.update = function (t, e) {
                 if (
                   (c.validateArgCount(
-                    "OnDisconnect.update",
+                    'OnDisconnect.update',
                     1,
                     2,
                     arguments.length
                   ),
-                  gt("OnDisconnect.update", this.path_),
+                  gt('OnDisconnect.update', this.path_),
                   Array.isArray(t))
                 ) {
-                  for (var n = {}, r = 0; r < t.length; ++r) n["" + r] = t[r];
+                  for (var n = {}, r = 0; r < t.length; ++r) n['' + r] = t[r];
                   (t = n),
                     A(
-                      "Passing an Array to firebase.database.onDisconnect().update() is deprecated. Use set() if you want to overwrite the existing data, or an Object with integer keys if you really do want to only update some of the children."
+                      'Passing an Array to firebase.database.onDisconnect().update() is deprecated. Use set() if you want to overwrite the existing data, or an Object with integer keys if you really do want to only update some of the children.'
                     );
                 }
-                lt("OnDisconnect.update", 1, t, this.path_, !1),
-                  c.validateCallback("OnDisconnect.update", 2, e, !0);
+                lt('OnDisconnect.update', 1, t, this.path_, !1),
+                  c.validateCallback('OnDisconnect.update', 2, e, !0);
                 var i = new c.Deferred();
                 return (
                   this.repo_.onDisconnectUpdate(
@@ -2430,7 +2430,7 @@
               (t.prototype.toJSON = function () {
                 return (
                   c.validateArgCount(
-                    "TransactionResult.toJSON",
+                    'TransactionResult.toJSON',
                     0,
                     1,
                     arguments.length
@@ -2446,7 +2446,7 @@
           })(),
           Et =
             ((X =
-              "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz"),
+              '-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz'),
             ($ = 0),
             (J = []),
             function (t) {
@@ -2456,8 +2456,8 @@
               var r = new Array(8);
               for (e = 7; e >= 0; e--)
                 (r[e] = X.charAt(t % 64)), (t = Math.floor(t / 64));
-              c.assert(0 === t, "Cannot push at time == 0");
-              var i = r.join("");
+              c.assert(0 === t, 'Cannot push at time == 0');
+              var i = r.join('');
               if (n) {
                 for (e = 11; e >= 0 && 63 === J[e]; e--) J[e] = 0;
                 J[e]++;
@@ -2465,7 +2465,7 @@
                 for (e = 0; e < 12; e++) J[e] = Math.floor(64 * Math.random());
               for (e = 0; e < 12; e++) i += X.charAt(J[e]);
               return (
-                c.assert(20 === i.length, "nextPushId: Length should be 20."), i
+                c.assert(20 === i.length, 'nextPushId: Length should be 20.'), i
               );
             }),
           Ct = (function () {
@@ -2502,7 +2502,7 @@
             }
             return (
               u.__extends(e, t),
-              Object.defineProperty(e, "__EMPTY_NODE", {
+              Object.defineProperty(e, '__EMPTY_NODE', {
                 get: function () {
                   return Z;
                 },
@@ -2517,7 +2517,7 @@
               }),
               (e.prototype.isDefinedOn = function (t) {
                 throw c.assertionError(
-                  "KeyIndex.isDefinedOn not expected to be called."
+                  'KeyIndex.isDefinedOn not expected to be called.'
                 );
               }),
               (e.prototype.indexedValueChanged = function (t, e) {
@@ -2532,14 +2532,14 @@
               (e.prototype.makePost = function (t, e) {
                 return (
                   c.assert(
-                    "string" === typeof t,
-                    "KeyIndex indexValue must always be a string."
+                    'string' === typeof t,
+                    'KeyIndex indexValue must always be a string.'
                   ),
                   new Ct(t, Z)
                 );
               }),
               (e.prototype.toString = function () {
-                return ".key";
+                return '.key';
               }),
               e
             );
@@ -2549,19 +2549,19 @@
           At,
           Ot,
           Pt = function (t) {
-            return "number" === typeof t ? "number:" + j(t) : "string:" + t;
+            return 'number' === typeof t ? 'number:' + j(t) : 'string:' + t;
           },
           kt = function (t) {
             if (t.isLeafNode()) {
               var e = t.val();
               c.assert(
-                "string" === typeof e ||
-                  "number" === typeof e ||
-                  ("object" === i(e) && c.contains(e, ".sv")),
-                "Priority must be a string or number."
+                'string' === typeof e ||
+                  'number' === typeof e ||
+                  ('object' === i(e) && c.contains(e, '.sv')),
+                'Priority must be a string or number.'
               );
             } else
-              c.assert(t === tt || t.isEmpty(), "priority of unexpected type.");
+              c.assert(t === tt || t.isEmpty(), 'priority of unexpected type.');
             c.assert(
               t === tt || t.getPriority().isEmpty(),
               "Priority nodes can't have a priority of their own."
@@ -2580,7 +2580,7 @@
                 kt(this.priorityNode_);
             }
             return (
-              Object.defineProperty(t, "__childrenNodeConstructor", {
+              Object.defineProperty(t, '__childrenNodeConstructor', {
                 get: function () {
                   return Nt;
                 },
@@ -2600,14 +2600,14 @@
                 return new t(this.value_, e);
               }),
               (t.prototype.getImmediateChild = function (e) {
-                return ".priority" === e
+                return '.priority' === e
                   ? this.priorityNode_
                   : t.__childrenNodeConstructor.EMPTY_NODE;
               }),
               (t.prototype.getChild = function (e) {
                 return e.isEmpty()
                   ? this
-                  : ".priority" === e.getFront()
+                  : '.priority' === e.getFront()
                   ? this.priorityNode_
                   : t.__childrenNodeConstructor.EMPTY_NODE;
               }),
@@ -2618,9 +2618,9 @@
                 return null;
               }),
               (t.prototype.updateImmediateChild = function (e, n) {
-                return ".priority" === e
+                return '.priority' === e
                   ? this.updatePriority(n)
-                  : n.isEmpty() && ".priority" !== e
+                  : n.isEmpty() && '.priority' !== e
                   ? this
                   : t.__childrenNodeConstructor.EMPTY_NODE.updateImmediateChild(
                       e,
@@ -2631,11 +2631,11 @@
                 var r = e.getFront();
                 return null === r
                   ? n
-                  : n.isEmpty() && ".priority" !== r
+                  : n.isEmpty() && '.priority' !== r
                   ? this
                   : (c.assert(
-                      ".priority" !== r || 1 === e.getLength(),
-                      ".priority must be the last token in a path"
+                      '.priority' !== r || 1 === e.getLength(),
+                      '.priority must be the last token in a path'
                     ),
                     this.updateImmediateChild(
                       r,
@@ -2657,19 +2657,19 @@
               (t.prototype.val = function (t) {
                 return t && !this.getPriority().isEmpty()
                   ? {
-                      ".value": this.getValue(),
-                      ".priority": this.getPriority().val(),
+                      '.value': this.getValue(),
+                      '.priority': this.getPriority().val(),
                     }
                   : this.getValue();
               }),
               (t.prototype.hash = function () {
                 if (null === this.lazyHash_) {
-                  var t = "";
+                  var t = '';
                   this.priorityNode_.isEmpty() ||
-                    (t += "priority:" + Pt(this.priorityNode_.val()) + ":");
+                    (t += 'priority:' + Pt(this.priorityNode_.val()) + ':');
                   var e = i(this.value_);
-                  (t += e + ":"),
-                    (t += "number" === e ? j(this.value_) : this.value_),
+                  (t += e + ':'),
+                    (t += 'number' === e ? j(this.value_) : this.value_),
                     (this.lazyHash_ = _(t));
                 }
                 return this.lazyHash_;
@@ -2682,7 +2682,7 @@
                   ? 1
                   : e instanceof t.__childrenNodeConstructor
                   ? -1
-                  : (c.assert(e.isLeafNode(), "Unknown node type"),
+                  : (c.assert(e.isLeafNode(), 'Unknown node type'),
                     this.compareToLeafNode_(e));
               }),
               (t.prototype.compareToLeafNode_ = function (e) {
@@ -2691,10 +2691,10 @@
                   o = t.VALUE_TYPE_ORDER.indexOf(n),
                   a = t.VALUE_TYPE_ORDER.indexOf(r);
                 return (
-                  c.assert(o >= 0, "Unknown leaf type: " + n),
-                  c.assert(a >= 0, "Unknown leaf type: " + r),
+                  c.assert(o >= 0, 'Unknown leaf type: ' + n),
+                  c.assert(a >= 0, 'Unknown leaf type: ' + r),
                   o === a
-                    ? "object" === r
+                    ? 'object' === r
                       ? 0
                       : this.value_ < e.value_
                       ? -1
@@ -2721,7 +2721,7 @@
                 }
                 return !1;
               }),
-              (t.VALUE_TYPE_ORDER = ["object", "boolean", "number", "string"]),
+              (t.VALUE_TYPE_ORDER = ['object', 'boolean', 'number', 'string']),
               t
             );
           })();
@@ -2749,14 +2749,14 @@
                 return Ct.MIN;
               }),
               (e.prototype.maxPost = function () {
-                return new Ct(k, new xt("[PRIORITY-POST]", Ot));
+                return new Ct(k, new xt('[PRIORITY-POST]', Ot));
               }),
               (e.prototype.makePost = function (t, e) {
                 var n = At(t);
-                return new Ct(e, new xt("[PRIORITY-POST]", n));
+                return new Ct(e, new xt('[PRIORITY-POST]', n));
               }),
               (e.prototype.toString = function () {
-                return ".priority";
+                return '.priority';
               }),
               e
             );
@@ -2994,23 +2994,23 @@
               (t.prototype.check_ = function () {
                 if (this.isRed_() && this.left.isRed_())
                   throw new Error(
-                    "Red node has red child(" +
+                    'Red node has red child(' +
                       this.key +
-                      "," +
+                      ',' +
                       this.value +
-                      ")"
+                      ')'
                   );
                 if (this.right.isRed_())
                   throw new Error(
-                    "Right child of (" +
+                    'Right child of (' +
                       this.key +
-                      "," +
+                      ',' +
                       this.value +
-                      ") is red"
+                      ') is red'
                   );
                 var t = this.left.check_();
                 if (t !== this.right.check_())
-                  throw new Error("Black depths differ");
+                  throw new Error('Black depths differ');
                 return t + (this.isRed_() ? 0 : 1);
               }),
               (t.RED = !0),
@@ -3097,7 +3097,7 @@
                   e < 0 ? (n = n.left) : e > 0 && ((r = n), (n = n.right));
                 }
                 throw new Error(
-                  "Attempted to find predecessor key for a nonexistent key.  What gives?"
+                  'Attempted to find predecessor key for a nonexistent key.  What gives?'
                 );
               }),
               (t.prototype.isEmpty = function () {
@@ -3141,7 +3141,7 @@
               (this.count = ((e = t + 1), parseInt(Math.log(e) / Vt, 10))),
                 (this.current_ = this.count - 1);
               var n,
-                r = ((n = this.count), parseInt(Array(n + 1).join("1"), 2));
+                r = ((n = this.count), parseInt(Array(n + 1).join('1'), 2));
               this.bits_ = (t + 1) & r;
             }
             return (
@@ -3209,18 +3209,18 @@
               (this.indexes_ = t), (this.indexSet_ = e);
             }
             return (
-              Object.defineProperty(t, "Default", {
+              Object.defineProperty(t, 'Default', {
                 get: function () {
                   return (
-                    c.assert(Bt && Lt, "ChildrenNode.ts has not been loaded"),
+                    c.assert(Bt && Lt, 'ChildrenNode.ts has not been loaded'),
                     (Rt =
                       Rt ||
                       new t(
                         {
-                          ".priority": Bt,
+                          '.priority': Bt,
                         },
                         {
-                          ".priority": Lt,
+                          '.priority': Lt,
                         }
                       ))
                   );
@@ -3230,7 +3230,7 @@
               }),
               (t.prototype.get = function (t) {
                 var e = c.safeGet(this.indexes_, t);
-                if (!e) throw new Error("No index defined for " + t);
+                if (!e) throw new Error('No index defined for ' + t);
                 return e instanceof Ut ? e : null;
               }),
               (t.prototype.hasIndex = function (t) {
@@ -3266,7 +3266,7 @@
                   c.map(this.indexes_, function (t, i) {
                     var o = c.safeGet(r.indexSet_, i);
                     if (
-                      (c.assert(o, "Missing index implementation for " + i),
+                      (c.assert(o, 'Missing index implementation for ' + i),
                       t === Bt)
                     ) {
                       if (o.isDefinedOn(e.node)) {
@@ -3323,11 +3323,11 @@
                 this.children_.isEmpty() &&
                   c.assert(
                     !this.priorityNode_ || this.priorityNode_.isEmpty(),
-                    "An empty node cannot have a priority"
+                    'An empty node cannot have a priority'
                   );
             }
             return (
-              Object.defineProperty(t, "EMPTY_NODE", {
+              Object.defineProperty(t, 'EMPTY_NODE', {
                 get: function () {
                   return Dt || (Dt = new t(new Ut(Kt), null, Ht.Default));
                 },
@@ -3346,7 +3346,7 @@
                   : new t(this.children_, e, this.indexMap_);
               }),
               (t.prototype.getImmediateChild = function (t) {
-                if (".priority" === t) return this.getPriority();
+                if ('.priority' === t) return this.getPriority();
                 var e = this.children_.get(t);
                 return null === e ? Dt : e;
               }),
@@ -3361,8 +3361,8 @@
               }),
               (t.prototype.updateImmediateChild = function (e, n) {
                 if (
-                  (c.assert(n, "We should always be passing snapshot nodes"),
-                  ".priority" === e)
+                  (c.assert(n, 'We should always be passing snapshot nodes'),
+                  '.priority' === e)
                 )
                   return this.updatePriority(n);
                 var r = new Ct(e, n),
@@ -3380,8 +3380,8 @@
                 var n = t.getFront();
                 if (null === n) return e;
                 c.assert(
-                  ".priority" !== t.getFront() || 1 === t.getLength(),
-                  ".priority must be the last token in a path"
+                  '.priority' !== t.getFront() || 1 === t.getLength(),
+                  '.priority must be the last token in a path'
                 );
                 var r = this.getImmediateChild(n).updateChild(t.popFront(), e);
                 return this.updateImmediateChild(n, r);
@@ -3415,20 +3415,20 @@
                 return (
                   e &&
                     !this.getPriority().isEmpty() &&
-                    (n[".priority"] = this.getPriority().val()),
+                    (n['.priority'] = this.getPriority().val()),
                   n
                 );
               }),
               (t.prototype.hash = function () {
                 if (null === this.lazyHash_) {
-                  var t = "";
+                  var t = '';
                   this.getPriority().isEmpty() ||
-                    (t += "priority:" + Pt(this.getPriority().val()) + ":"),
+                    (t += 'priority:' + Pt(this.getPriority().val()) + ':'),
                     this.forEachChild(Lt, function (e, n) {
                       var r = n.hash();
-                      "" !== r && (t += ":" + e + ":" + r);
+                      '' !== r && (t += ':' + e + ':' + r);
                     }),
-                    (this.lazyHash_ = "" === t ? "" : _(t));
+                    (this.lazyHash_ = '' === t ? '' : _(t));
                 }
                 return this.lazyHash_;
               }),
@@ -3605,26 +3605,26 @@
         function Yt(t, e) {
           if ((void 0 === e && (e = null), null === t)) return Gt.EMPTY_NODE;
           if (
-            ("object" === i(t) && ".priority" in t && (e = t[".priority"]),
+            ('object' === i(t) && '.priority' in t && (e = t['.priority']),
             c.assert(
               null === e ||
-                "string" === typeof e ||
-                "number" === typeof e ||
-                ("object" === i(e) && ".sv" in e),
-              "Invalid priority type found: " + i(e)
+                'string' === typeof e ||
+                'number' === typeof e ||
+                ('object' === i(e) && '.sv' in e),
+              'Invalid priority type found: ' + i(e)
             ),
-            "object" === i(t) &&
-              ".value" in t &&
-              null !== t[".value"] &&
-              (t = t[".value"]),
-            "object" !== i(t) || ".sv" in t)
+            'object' === i(t) &&
+              '.value' in t &&
+              null !== t['.value'] &&
+              (t = t['.value']),
+            'object' !== i(t) || '.sv' in t)
           )
             return new xt(t, Yt(e));
           if (t instanceof Array) {
             var n = Gt.EMPTY_NODE;
             return (
               F(t, function (e, r) {
-                if (c.contains(t, e) && "." !== e.substring(0, 1)) {
+                if (c.contains(t, e) && '.' !== e.substring(0, 1)) {
                   var i = Yt(r);
                   (!i.isLeafNode() && i.isEmpty()) ||
                     (n = n.updateImmediateChild(e, i));
@@ -3637,7 +3637,7 @@
             o = !1;
           if (
             (F(t, function (t, e) {
-              if ("." !== t.substring(0, 1)) {
+              if ('.' !== t.substring(0, 1)) {
                 var n = Yt(e);
                 n.isEmpty() ||
                   ((o = o || !n.getPriority().isEmpty()), r.push(new Ct(t, n)));
@@ -3661,10 +3661,10 @@
               Yt(e),
               new Ht(
                 {
-                  ".priority": s,
+                  '.priority': s,
                 },
                 {
-                  ".priority": Lt,
+                  '.priority': Lt,
                 }
               )
             );
@@ -3703,7 +3703,7 @@
                 return new Ct(e, n);
               }),
               (e.prototype.toString = function () {
-                return ".value";
+                return '.value';
               }),
               e
             );
@@ -3714,7 +3714,7 @@
               return (
                 (n.indexPath_ = e),
                 c.assert(
-                  !e.isEmpty() && ".priority" !== e.getFront(),
+                  !e.isEmpty() && '.priority' !== e.getFront(),
                   "Can't create PathIndex with empty path or .priority key"
                 ),
                 n
@@ -3744,7 +3744,7 @@
                 return new Ct(k, t);
               }),
               (e.prototype.toString = function () {
-                return this.indexPath_.slice().join("/");
+                return this.indexPath_.slice().join('/');
               }),
               e
             );
@@ -3757,7 +3757,7 @@
               (t.prototype.val = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.val",
+                    'DataSnapshot.val',
                     0,
                     0,
                     arguments.length
@@ -3768,7 +3768,7 @@
               (t.prototype.exportVal = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.exportVal",
+                    'DataSnapshot.exportVal',
                     0,
                     0,
                     arguments.length
@@ -3779,7 +3779,7 @@
               (t.prototype.toJSON = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.toJSON",
+                    'DataSnapshot.toJSON',
                     0,
                     1,
                     arguments.length
@@ -3790,7 +3790,7 @@
               (t.prototype.exists = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.exists",
+                    'DataSnapshot.exists',
                     0,
                     0,
                     arguments.length
@@ -3800,32 +3800,32 @@
               }),
               (t.prototype.child = function (e) {
                 c.validateArgCount(
-                  "DataSnapshot.child",
+                  'DataSnapshot.child',
                   0,
                   1,
                   arguments.length
                 ),
                   (e = String(e)),
-                  vt("DataSnapshot.child", 1, e, !1);
+                  vt('DataSnapshot.child', 1, e, !1);
                 var n = new B(e),
                   r = this.ref_.child(n);
                 return new t(this.node_.getChild(n), r, Lt);
               }),
               (t.prototype.hasChild = function (t) {
                 c.validateArgCount(
-                  "DataSnapshot.hasChild",
+                  'DataSnapshot.hasChild',
                   1,
                   1,
                   arguments.length
                 ),
-                  vt("DataSnapshot.hasChild", 1, t, !1);
+                  vt('DataSnapshot.hasChild', 1, t, !1);
                 var e = new B(t);
                 return !this.node_.getChild(e).isEmpty();
               }),
               (t.prototype.getPriority = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.getPriority",
+                    'DataSnapshot.getPriority',
                     0,
                     0,
                     arguments.length
@@ -3837,12 +3837,12 @@
                 var n = this;
                 if (
                   (c.validateArgCount(
-                    "DataSnapshot.forEach",
+                    'DataSnapshot.forEach',
                     1,
                     1,
                     arguments.length
                   ),
-                  c.validateCallback("DataSnapshot.forEach", 1, e, !1),
+                  c.validateCallback('DataSnapshot.forEach', 1, e, !1),
                   this.node_.isLeafNode())
                 )
                   return !1;
@@ -3854,7 +3854,7 @@
               (t.prototype.hasChildren = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.hasChildren",
+                    'DataSnapshot.hasChildren',
                     0,
                     0,
                     arguments.length
@@ -3862,7 +3862,7 @@
                   !this.node_.isLeafNode() && !this.node_.isEmpty()
                 );
               }),
-              Object.defineProperty(t.prototype, "key", {
+              Object.defineProperty(t.prototype, 'key', {
                 get: function () {
                   return this.ref_.getKey();
                 },
@@ -3872,7 +3872,7 @@
               (t.prototype.numChildren = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.numChildren",
+                    'DataSnapshot.numChildren',
                     0,
                     0,
                     arguments.length
@@ -3883,7 +3883,7 @@
               (t.prototype.getRef = function () {
                 return (
                   c.validateArgCount(
-                    "DataSnapshot.ref",
+                    'DataSnapshot.ref',
                     0,
                     0,
                     arguments.length
@@ -3891,7 +3891,7 @@
                   this.ref_
                 );
               }),
-              Object.defineProperty(t.prototype, "ref", {
+              Object.defineProperty(t.prototype, 'ref', {
                 get: function () {
                   return this.getRef();
                 },
@@ -3911,7 +3911,7 @@
             return (
               (t.prototype.getPath = function () {
                 var t = this.snapshot.getRef();
-                return "value" === this.eventType ? t.path : t.getParent().path;
+                return 'value' === this.eventType ? t.path : t.getParent().path;
               }),
               (t.prototype.getEventType = function () {
                 return this.eventType;
@@ -3922,9 +3922,9 @@
               (t.prototype.toString = function () {
                 return (
                   this.getPath().toString() +
-                  ":" +
+                  ':' +
                   this.eventType +
-                  ":" +
+                  ':' +
                   c.stringify(this.snapshot.exportVal())
                 );
               }),
@@ -3940,13 +3940,13 @@
                 return this.path;
               }),
               (t.prototype.getEventType = function () {
-                return "cancel";
+                return 'cancel';
               }),
               (t.prototype.getEventRunner = function () {
                 return this.eventRegistration.getEventRunner(this);
               }),
               (t.prototype.toString = function () {
-                return this.path.toString() + ":cancel";
+                return this.path.toString() + ':cancel';
               }),
               t
             );
@@ -3959,22 +3959,22 @@
             }
             return (
               (t.prototype.respondsTo = function (t) {
-                return "value" === t;
+                return 'value' === t;
               }),
               (t.prototype.createEvent = function (t, e) {
                 var n = e.getQueryParams().getIndex();
                 return new ee(
-                  "value",
+                  'value',
                   this,
                   new te(t.snapshotNode, e.getRef(), n)
                 );
               }),
               (t.prototype.getEventRunner = function (t) {
                 var e = this.context_;
-                if ("cancel" === t.getEventType()) {
+                if ('cancel' === t.getEventType()) {
                   c.assert(
                     this.cancelCallback_,
-                    "Raising a cancel event on a listener with no cancel callback"
+                    'Raising a cancel event on a listener with no cancel callback'
                   );
                   var n = this.cancelCallback_;
                   return function () {
@@ -4012,9 +4012,9 @@
             }
             return (
               (t.prototype.respondsTo = function (t) {
-                var e = "children_added" === t ? "child_added" : t;
+                var e = 'children_added' === t ? 'child_added' : t;
                 return (
-                  (e = "children_removed" === e ? "child_removed" : e),
+                  (e = 'children_removed' === e ? 'child_removed' : e),
                   c.contains(this.callbacks_, e)
                 );
               }),
@@ -4024,7 +4024,7 @@
               (t.prototype.createEvent = function (t, e) {
                 c.assert(
                   null != t.childName,
-                  "Child events should have a childName."
+                  'Child events should have a childName.'
                 );
                 var n = e.getRef().child(t.childName),
                   r = e.getQueryParams().getIndex();
@@ -4037,10 +4037,10 @@
               }),
               (t.prototype.getEventRunner = function (t) {
                 var e = this.context_;
-                if ("cancel" === t.getEventType()) {
+                if ('cancel' === t.getEventType()) {
                   c.assert(
                     this.cancelCallback_,
-                    "Raising a cancel event on a listener with no cancel callback"
+                    'Raising a cancel event on a listener with no cancel callback'
                   );
                   var n = this.cancelCallback_;
                   return function () {
@@ -4093,9 +4093,9 @@
                 (this.orderByCalled_ = r);
             }
             return (
-              Object.defineProperty(t, "__referenceConstructor", {
+              Object.defineProperty(t, '__referenceConstructor', {
                 get: function () {
-                  return c.assert(Xt, "Reference.ts has not been loaded"), Xt;
+                  return c.assert(Xt, 'Reference.ts has not been loaded'), Xt;
                 },
                 set: function (t) {
                   Xt = t;
@@ -4112,32 +4112,32 @@
                   t.getIndex() === Tt)
                 ) {
                   var r =
-                      "Query: When ordering by key, you may only pass one argument to startAt(), endAt(), or equalTo().",
+                      'Query: When ordering by key, you may only pass one argument to startAt(), endAt(), or equalTo().',
                     o =
-                      "Query: When ordering by key, the argument passed to startAt(), endAt(),or equalTo() must be a string.";
+                      'Query: When ordering by key, the argument passed to startAt(), endAt(),or equalTo() must be a string.';
                   if (t.hasStart()) {
                     if (t.getIndexStartName() !== P) throw new Error(r);
-                    if ("string" !== typeof e) throw new Error(o);
+                    if ('string' !== typeof e) throw new Error(o);
                   }
                   if (t.hasEnd()) {
                     if (t.getIndexEndName() !== k) throw new Error(r);
-                    if ("string" !== typeof n) throw new Error(o);
+                    if ('string' !== typeof n) throw new Error(o);
                   }
                 } else if (t.getIndex() === Lt) {
                   if ((null != e && !ut(e)) || (null != n && !ut(n)))
                     throw new Error(
-                      "Query: When ordering by priority, the first argument passed to startAt(), endAt(), or equalTo() must be a valid priority value (null, a number, or a string)."
+                      'Query: When ordering by priority, the first argument passed to startAt(), endAt(), or equalTo() must be a valid priority value (null, a number, or a string).'
                     );
                 } else if (
                   (c.assert(
                     t.getIndex() instanceof Zt || t.getIndex() === Jt,
-                    "unknown index type."
+                    'unknown index type.'
                   ),
-                  (null != e && "object" === i(e)) ||
-                    (null != n && "object" === i(n)))
+                  (null != e && 'object' === i(e)) ||
+                    (null != n && 'object' === i(n)))
                 )
                   throw new Error(
-                    "Query: First argument passed to startAt(), endAt(), or equalTo() cannot be an object."
+                    'Query: First argument passed to startAt(), endAt(), or equalTo() cannot be an object.'
                   );
               }),
               (t.validateLimit_ = function (t) {
@@ -4162,16 +4162,16 @@
               }),
               (t.prototype.getRef = function () {
                 return (
-                  c.validateArgCount("Query.ref", 0, 0, arguments.length),
+                  c.validateArgCount('Query.ref', 0, 0, arguments.length),
                   new t.__referenceConstructor(this.repo, this.path)
                 );
               }),
               (t.prototype.on = function (e, n, r, i) {
-                c.validateArgCount("Query.on", 2, 4, arguments.length),
-                  pt("Query.on", 1, e, !1),
-                  c.validateCallback("Query.on", 2, n, !1);
-                var o = t.getCancelAndContextArgs_("Query.on", r, i);
-                if ("value" === e) this.onValueEvent(n, o.cancel, o.context);
+                c.validateArgCount('Query.on', 2, 4, arguments.length),
+                  pt('Query.on', 1, e, !1),
+                  c.validateCallback('Query.on', 2, n, !1);
+                var o = t.getCancelAndContextArgs_('Query.on', r, i);
+                if ('value' === e) this.onValueEvent(n, o.cancel, o.context);
                 else {
                   var a = {};
                   (a[e] = n), this.onChildEvent(a, o.cancel, o.context);
@@ -4187,13 +4187,13 @@
                 this.repo.addEventCallbackForQuery(this, r);
               }),
               (t.prototype.off = function (t, e, n) {
-                c.validateArgCount("Query.off", 0, 3, arguments.length),
-                  pt("Query.off", 1, t, !0),
-                  c.validateCallback("Query.off", 2, e, !0),
-                  c.validateContextObject("Query.off", 3, n, !0);
+                c.validateArgCount('Query.off', 0, 3, arguments.length),
+                  pt('Query.off', 1, t, !0),
+                  c.validateCallback('Query.off', 2, e, !0),
+                  c.validateContextObject('Query.off', 3, n, !0);
                 var r = null,
                   i = null;
-                if ("value" === t) {
+                if ('value' === t) {
                   var o = e || null;
                   r = new re(o, null, n || null);
                 } else
@@ -4203,10 +4203,10 @@
               }),
               (t.prototype.once = function (e, n, r, i) {
                 var o = this;
-                c.validateArgCount("Query.once", 1, 4, arguments.length),
-                  pt("Query.once", 1, e, !1),
-                  c.validateCallback("Query.once", 2, n, !0);
-                var a = t.getCancelAndContextArgs_("Query.once", r, i),
+                c.validateArgCount('Query.once', 1, 4, arguments.length),
+                  pt('Query.once', 1, e, !1),
+                  c.validateCallback('Query.once', 2, n, !0);
+                var a = t.getCancelAndContextArgs_('Query.once', r, i),
                   s = !0,
                   u = new c.Deferred();
                 u.promise.catch(function () {});
@@ -4229,19 +4229,19 @@
               (t.prototype.limitToFirst = function (e) {
                 if (
                   (c.validateArgCount(
-                    "Query.limitToFirst",
+                    'Query.limitToFirst',
                     1,
                     1,
                     arguments.length
                   ),
-                  "number" !== typeof e || Math.floor(e) !== e || e <= 0)
+                  'number' !== typeof e || Math.floor(e) !== e || e <= 0)
                 )
                   throw new Error(
-                    "Query.limitToFirst: First argument must be a positive integer."
+                    'Query.limitToFirst: First argument must be a positive integer.'
                   );
                 if (this.queryParams_.hasLimit())
                   throw new Error(
-                    "Query.limitToFirst: Limit was already set (by another call to limit, limitToFirst, or limitToLast)."
+                    'Query.limitToFirst: Limit was already set (by another call to limit, limitToFirst, or limitToLast).'
                   );
                 return new t(
                   this.repo,
@@ -4253,19 +4253,19 @@
               (t.prototype.limitToLast = function (e) {
                 if (
                   (c.validateArgCount(
-                    "Query.limitToLast",
+                    'Query.limitToLast',
                     1,
                     1,
                     arguments.length
                   ),
-                  "number" !== typeof e || Math.floor(e) !== e || e <= 0)
+                  'number' !== typeof e || Math.floor(e) !== e || e <= 0)
                 )
                   throw new Error(
-                    "Query.limitToLast: First argument must be a positive integer."
+                    'Query.limitToLast: First argument must be a positive integer.'
                   );
                 if (this.queryParams_.hasLimit())
                   throw new Error(
-                    "Query.limitToLast: Limit was already set (by another call to limit, limitToFirst, or limitToLast)."
+                    'Query.limitToLast: Limit was already set (by another call to limit, limitToFirst, or limitToLast).'
                   );
                 return new t(
                   this.repo,
@@ -4277,30 +4277,30 @@
               (t.prototype.orderByChild = function (e) {
                 if (
                   (c.validateArgCount(
-                    "Query.orderByChild",
+                    'Query.orderByChild',
                     1,
                     1,
                     arguments.length
                   ),
-                  "$key" === e)
+                  '$key' === e)
                 )
                   throw new Error(
                     'Query.orderByChild: "$key" is invalid.  Use Query.orderByKey() instead.'
                   );
-                if ("$priority" === e)
+                if ('$priority' === e)
                   throw new Error(
                     'Query.orderByChild: "$priority" is invalid.  Use Query.orderByPriority() instead.'
                   );
-                if ("$value" === e)
+                if ('$value' === e)
                   throw new Error(
                     'Query.orderByChild: "$value" is invalid.  Use Query.orderByValue() instead.'
                   );
-                vt("Query.orderByChild", 1, e, !1),
-                  this.validateNoPreviousOrderByCall_("Query.orderByChild");
+                vt('Query.orderByChild', 1, e, !1),
+                  this.validateNoPreviousOrderByCall_('Query.orderByChild');
                 var n = new B(e);
                 if (n.isEmpty())
                   throw new Error(
-                    "Query.orderByChild: cannot pass in empty path.  Use Query.orderByValue() instead."
+                    'Query.orderByChild: cannot pass in empty path.  Use Query.orderByValue() instead.'
                   );
                 var r = new Zt(n),
                   i = this.queryParams_.orderBy(r);
@@ -4310,8 +4310,8 @@
                 );
               }),
               (t.prototype.orderByKey = function () {
-                c.validateArgCount("Query.orderByKey", 0, 0, arguments.length),
-                  this.validateNoPreviousOrderByCall_("Query.orderByKey");
+                c.validateArgCount('Query.orderByKey', 0, 0, arguments.length),
+                  this.validateNoPreviousOrderByCall_('Query.orderByKey');
                 var e = this.queryParams_.orderBy(Tt);
                 return (
                   t.validateQueryEndpoints_(e),
@@ -4320,12 +4320,12 @@
               }),
               (t.prototype.orderByPriority = function () {
                 c.validateArgCount(
-                  "Query.orderByPriority",
+                  'Query.orderByPriority',
                   0,
                   0,
                   arguments.length
                 ),
-                  this.validateNoPreviousOrderByCall_("Query.orderByPriority");
+                  this.validateNoPreviousOrderByCall_('Query.orderByPriority');
                 var e = this.queryParams_.orderBy(Lt);
                 return (
                   t.validateQueryEndpoints_(e),
@@ -4334,12 +4334,12 @@
               }),
               (t.prototype.orderByValue = function () {
                 c.validateArgCount(
-                  "Query.orderByValue",
+                  'Query.orderByValue',
                   0,
                   0,
                   arguments.length
                 ),
-                  this.validateNoPreviousOrderByCall_("Query.orderByValue");
+                  this.validateNoPreviousOrderByCall_('Query.orderByValue');
                 var e = this.queryParams_.orderBy(Jt);
                 return (
                   t.validateQueryEndpoints_(e),
@@ -4348,9 +4348,9 @@
               }),
               (t.prototype.startAt = function (e, n) {
                 void 0 === e && (e = null),
-                  c.validateArgCount("Query.startAt", 0, 2, arguments.length),
-                  ct("Query.startAt", 1, e, this.path, !0),
-                  dt("Query.startAt", 2, n, !0);
+                  c.validateArgCount('Query.startAt', 0, 2, arguments.length),
+                  ct('Query.startAt', 1, e, this.path, !0),
+                  dt('Query.startAt', 2, n, !0);
                 var r = this.queryParams_.startAt(e, n);
                 if (
                   (t.validateLimit_(r),
@@ -4358,7 +4358,7 @@
                   this.queryParams_.hasStart())
                 )
                   throw new Error(
-                    "Query.startAt: Starting point was already set (by another call to startAt or equalTo)."
+                    'Query.startAt: Starting point was already set (by another call to startAt or equalTo).'
                   );
                 return (
                   void 0 === e && ((e = null), (n = null)),
@@ -4367,9 +4367,9 @@
               }),
               (t.prototype.endAt = function (e, n) {
                 void 0 === e && (e = null),
-                  c.validateArgCount("Query.endAt", 0, 2, arguments.length),
-                  ct("Query.endAt", 1, e, this.path, !0),
-                  dt("Query.endAt", 2, n, !0);
+                  c.validateArgCount('Query.endAt', 0, 2, arguments.length),
+                  ct('Query.endAt', 1, e, this.path, !0),
+                  dt('Query.endAt', 2, n, !0);
                 var r = this.queryParams_.endAt(e, n);
                 if (
                   (t.validateLimit_(r),
@@ -4377,35 +4377,35 @@
                   this.queryParams_.hasEnd())
                 )
                   throw new Error(
-                    "Query.endAt: Ending point was already set (by another call to endAt or equalTo)."
+                    'Query.endAt: Ending point was already set (by another call to endAt or equalTo).'
                   );
                 return new t(this.repo, this.path, r, this.orderByCalled_);
               }),
               (t.prototype.equalTo = function (t, e) {
                 if (
-                  (c.validateArgCount("Query.equalTo", 1, 2, arguments.length),
-                  ct("Query.equalTo", 1, t, this.path, !1),
-                  dt("Query.equalTo", 2, e, !0),
+                  (c.validateArgCount('Query.equalTo', 1, 2, arguments.length),
+                  ct('Query.equalTo', 1, t, this.path, !1),
+                  dt('Query.equalTo', 2, e, !0),
                   this.queryParams_.hasStart())
                 )
                   throw new Error(
-                    "Query.equalTo: Starting point was already set (by another call to startAt or equalTo)."
+                    'Query.equalTo: Starting point was already set (by another call to startAt or equalTo).'
                   );
                 if (this.queryParams_.hasEnd())
                   throw new Error(
-                    "Query.equalTo: Ending point was already set (by another call to endAt or equalTo)."
+                    'Query.equalTo: Ending point was already set (by another call to endAt or equalTo).'
                   );
                 return this.startAt(t, e).endAt(t, e);
               }),
               (t.prototype.toString = function () {
                 return (
-                  c.validateArgCount("Query.toString", 0, 0, arguments.length),
+                  c.validateArgCount('Query.toString', 0, 0, arguments.length),
                   this.repo.toString() + this.path.toUrlEncodedString()
                 );
               }),
               (t.prototype.toJSON = function () {
                 return (
-                  c.validateArgCount("Query.toJSON", 0, 1, arguments.length),
+                  c.validateArgCount('Query.toJSON', 0, 1, arguments.length),
                   this.toString()
                 );
               }),
@@ -4415,15 +4415,15 @@
               (t.prototype.queryIdentifier = function () {
                 var t = this.queryObject(),
                   e = L(t);
-                return "{}" === e ? "default" : e;
+                return '{}' === e ? 'default' : e;
               }),
               (t.prototype.isEqual = function (e) {
                 if (
-                  (c.validateArgCount("Query.isEqual", 1, 1, arguments.length),
+                  (c.validateArgCount('Query.isEqual', 1, 1, arguments.length),
                   !(e instanceof t))
                 ) {
                   var n =
-                    "Query.isEqual failed: First argument must be an instance of firebase.database.Query.";
+                    'Query.isEqual failed: First argument must be an instance of firebase.database.Query.';
                   throw new Error(n);
                 }
                 var r = this.repo === e.repo,
@@ -4442,18 +4442,18 @@
                     (r.context = n),
                     c.validateContextObject(t, 4, r.context, !0);
                 else if (e)
-                  if ("object" === i(e) && null !== e) r.context = e;
+                  if ('object' === i(e) && null !== e) r.context = e;
                   else {
-                    if ("function" !== typeof e)
+                    if ('function' !== typeof e)
                       throw new Error(
                         c.errorPrefix(t, 3, !0) +
-                          " must either be a cancel callback or a context object."
+                          ' must either be a cancel callback or a context object.'
                       );
                     r.cancel = e;
                   }
                 return r;
               }),
-              Object.defineProperty(t.prototype, "ref", {
+              Object.defineProperty(t.prototype, 'ref', {
                 get: function () {
                   return this.getRef();
                 },
@@ -4517,7 +4517,7 @@
                 null !== this.value
                   ? e(t, this.value)
                   : this.forEachChild(function (n, r) {
-                      var i = new B(t.toString() + "/" + n);
+                      var i = new B(t.toString() + '/' + n);
                       r.forEachTree(i, e);
                     });
               }),
@@ -4530,12 +4530,12 @@
             );
           })(),
           se = function (t, e) {
-            return t && "object" === i(t)
+            return t && 'object' === i(t)
               ? (c.assert(
-                  ".sv" in t,
-                  "Unexpected leaf node or priority contents"
+                  '.sv' in t,
+                  'Unexpected leaf node or priority contents'
                 ),
-                e[t[".sv"]])
+                e[t['.sv']])
               : t;
           },
           ue = function t(e, n) {
@@ -4561,10 +4561,10 @@
             );
           };
         !(function (t) {
-          (t[(t.OVERWRITE = 0)] = "OVERWRITE"),
-            (t[(t.MERGE = 1)] = "MERGE"),
-            (t[(t.ACK_USER_WRITE = 2)] = "ACK_USER_WRITE"),
-            (t[(t.LISTEN_COMPLETE = 3)] = "LISTEN_COMPLETE");
+          (t[(t.OVERWRITE = 0)] = 'OVERWRITE'),
+            (t[(t.MERGE = 1)] = 'MERGE'),
+            (t[(t.ACK_USER_WRITE = 2)] = 'ACK_USER_WRITE'),
+            (t[(t.LISTEN_COMPLETE = 3)] = 'LISTEN_COMPLETE');
         })($t || ($t = {}));
         var ce,
           he,
@@ -4574,7 +4574,7 @@
                 (this.fromServer = e),
                 (this.queryId = n),
                 (this.tagged = r),
-                c.assert(!r || e, "Tagged queries must be from server.");
+                c.assert(!r || e, 'Tagged queries must be from server.');
             }
             return (
               (t.User = new t(!0, !1, null, !1)),
@@ -4600,7 +4600,7 @@
                     return (
                       c.assert(
                         this.affectedTree.children.isEmpty(),
-                        "affectedTree should not have overlapping affected paths."
+                        'affectedTree should not have overlapping affected paths.'
                       ),
                       this
                     );
@@ -4610,7 +4610,7 @@
                 return (
                   c.assert(
                     this.path.getFront() === e,
-                    "operationForChild called for unrelated child."
+                    'operationForChild called for unrelated child.'
                   ),
                   new t(this.path.popFront(), this.affectedTree, this.revert)
                 );
@@ -4828,13 +4828,13 @@
               }),
               (t.prototype.toString = function () {
                 return (
-                  "Operation(" +
+                  'Operation(' +
                   this.path +
-                  ": " +
+                  ': ' +
                   this.source.toString() +
-                  " merge: " +
+                  ' merge: ' +
                   this.children.toString() +
-                  ")"
+                  ')'
                 );
               }),
               t
@@ -4929,11 +4929,11 @@
               (t.childMovedChange = function (e, n) {
                 return new t(t.CHILD_MOVED, n, e);
               }),
-              (t.CHILD_ADDED = "child_added"),
-              (t.CHILD_REMOVED = "child_removed"),
-              (t.CHILD_CHANGED = "child_changed"),
-              (t.CHILD_MOVED = "child_moved"),
-              (t.VALUE = "value"),
+              (t.CHILD_ADDED = 'child_added'),
+              (t.CHILD_REMOVED = 'child_removed'),
+              (t.CHILD_CHANGED = 'child_changed'),
+              (t.CHILD_MOVED = 'child_moved'),
+              (t.VALUE = 'value'),
               t
             );
           })(),
@@ -4945,7 +4945,7 @@
               (t.prototype.updateChild = function (t, e, n, r, i, o) {
                 c.assert(
                   t.isIndexed(this.index_),
-                  "A node must be indexed if only a child is updated"
+                  'A node must be indexed if only a child is updated'
                 );
                 var a = t.getImmediateChild(e);
                 return a.getChild(r).equals(n.getChild(r)) &&
@@ -4957,7 +4957,7 @@
                           ? o.trackChildChange(_e.childRemovedChange(e, a))
                           : c.assert(
                               t.isLeafNode(),
-                              "A child remove without an old child only makes sense on a leaf node"
+                              'A child remove without an old child only makes sense on a leaf node'
                             )
                         : a.isEmpty()
                         ? o.trackChildChange(_e.childAddedChange(e, n))
@@ -5012,11 +5012,11 @@
                   e === _e.CHILD_ADDED ||
                     e === _e.CHILD_CHANGED ||
                     e === _e.CHILD_REMOVED,
-                  "Only child changes supported for tracking"
+                  'Only child changes supported for tracking'
                 ),
                   c.assert(
-                    ".priority" !== n,
-                    "Only non-priority child changes can be tracked."
+                    '.priority' !== n,
+                    'Only non-priority child changes can be tracked.'
                   );
                 var r = this.changeMap.get(n);
                 if (r) {
@@ -5038,9 +5038,9 @@
                   else {
                     if (e !== _e.CHILD_CHANGED || i !== _e.CHILD_CHANGED)
                       throw c.assertionError(
-                        "Illegal combination of changes: " +
+                        'Illegal combination of changes: ' +
                           t +
-                          " occurred after " +
+                          ' occurred after ' +
                           r
                       );
                     this.changeMap.set(
@@ -5111,14 +5111,14 @@
                     .getEventCache()
                     .getNode()
                     .isIndexed(this.filter_.getIndex()),
-                  "Event snap not indexed"
+                  'Event snap not indexed'
                 ),
                   c.assert(
                     t
                       .getServerCache()
                       .getNode()
                       .isIndexed(this.filter_.getIndex()),
-                    "Server snap not indexed"
+                    'Server snap not indexed'
                   );
               }),
               (t.prototype.applyOperation = function (e, n, r, i) {
@@ -5129,7 +5129,7 @@
                   var u = n;
                   u.source.fromUser
                     ? (o = this.applyUserOverwrite_(e, u.path, u.snap, r, i, s))
-                    : (c.assert(u.source.fromServer, "Unknown source."),
+                    : (c.assert(u.source.fromServer, 'Unknown source.'),
                       (a =
                         u.source.tagged ||
                         (e.getServerCache().isFiltered() && !u.path.isEmpty())),
@@ -5146,7 +5146,7 @@
                   var h = n;
                   h.source.fromUser
                     ? (o = this.applyUserMerge_(e, h.path, h.children, r, i, s))
-                    : (c.assert(h.source.fromServer, "Unknown source."),
+                    : (c.assert(h.source.fromServer, 'Unknown source.'),
                       (a = h.source.tagged || e.getServerCache().isFiltered()),
                       (o = this.applyServerMerge_(
                         e,
@@ -5164,7 +5164,7 @@
                     : this.ackUserWrite_(e, l.path, l.affectedTree, r, i, s);
                 } else {
                   if (n.type !== $t.LISTEN_COMPLETE)
-                    throw c.assertionError("Unknown operation type: " + n.type);
+                    throw c.assertionError('Unknown operation type: ' + n.type);
                   o = this.listenComplete_(e, n.path, r, s);
                 }
                 var f = s.getChanges();
@@ -5197,7 +5197,7 @@
                   if (
                     (c.assert(
                       t.getServerCache().isFullyInitialized(),
-                      "If change path is empty, we must have complete server data"
+                      'If change path is empty, we must have complete server data'
                     ),
                     t.getServerCache().isFiltered())
                   ) {
@@ -5219,7 +5219,7 @@
                   }
                 else {
                   var p = e.getFront();
-                  if (".priority" === p) {
+                  if ('.priority' === p) {
                     c.assert(
                       1 === e.getLength(),
                       "Can't have a priority with additional path components"
@@ -5280,7 +5280,7 @@
                   var f = e.popFront(),
                     p = u.getNode().getImmediateChild(l).updateChild(f, n);
                   s =
-                    ".priority" === l
+                    '.priority' === l
                       ? c.updatePriority(u.getNode(), p)
                       : c.updateChild(u.getNode(), l, p, f, Ee, null);
                 }
@@ -5306,7 +5306,7 @@
                     (a = t.updateEventSnap(s, !0, this.filter_.filtersNodes()));
                 else {
                   var h = e.getFront();
-                  if (".priority" === h)
+                  if ('.priority' === h)
                     (s = this.filter_.updatePriority(
                       t.getEventCache().getNode(),
                       n
@@ -5325,7 +5325,7 @@
                       var d = c.getCompleteChild(h);
                       p =
                         null != d
-                          ? ".priority" === l.getBack() &&
+                          ? '.priority' === l.getBack() &&
                             d.getChild(l.parent()).isEmpty()
                             ? d
                             : d.updateChild(l, n)
@@ -5465,7 +5465,7 @@
                 var a = new Ce(n, t, r),
                   s = t.getEventCache().getNode(),
                   u = void 0;
-                if (e.isEmpty() || ".priority" === e.getFront()) {
+                if (e.isEmpty() || '.priority' === e.getFront()) {
                   var h = void 0;
                   if (t.getServerCache().isFullyInitialized())
                     h = n.calcCompleteEventCache(t.getCompleteServerSnap());
@@ -5473,7 +5473,7 @@
                     var l = t.getServerCache().getNode();
                     c.assert(
                       l instanceof Gt,
-                      "serverChildren would be complete if leaf node"
+                      'serverChildren would be complete if leaf node'
                     ),
                       (h = n.calcCompleteEventChildren(l));
                   }
@@ -5553,8 +5553,8 @@
               }),
               (t.prototype.materializeSingleChange_ = function (t, e) {
                 return (
-                  "value" === t.type ||
-                    "child_removed" === t.type ||
+                  'value' === t.type ||
+                    'child_removed' === t.type ||
                     (t.prevName = e.getPredecessorChildName(
                       t.childName,
                       t.snapshotNode,
@@ -5565,7 +5565,7 @@
               }),
               (t.prototype.compareChanges_ = function (t, e) {
                 if (null == t.childName || null == e.childName)
-                  throw c.assertionError("Should only compare child_ events.");
+                  throw c.assertionError('Should only compare child_ events.');
                 var n = new Ct(t.childName, t.snapshotNode),
                   r = new Ct(e.childName, e.snapshotNode);
                 return this.index_.compare(n, r);
@@ -5616,7 +5616,7 @@
                 if (e) {
                   c.assert(
                     null == t,
-                    "A cancel should cancel all event registrations."
+                    'A cancel should cancel all event registrations.'
                   );
                   var r = this.query_.path;
                   this.eventRegistrations_.forEach(function (t) {
@@ -5648,11 +5648,11 @@
                   null !== t.source.queryId &&
                   (c.assert(
                     this.viewCache_.getCompleteServerSnap(),
-                    "We should always have a full cache before handling merges"
+                    'We should always have a full cache before handling merges'
                   ),
                   c.assert(
                     this.viewCache_.getCompleteEventSnap(),
-                    "Missing event cache, even though we have a server cache"
+                    'Missing event cache, even though we have a server cache'
                   ));
                 var r = this.viewCache_,
                   i = this.processor_.applyOperation(r, t, e, n);
@@ -5661,7 +5661,7 @@
                   c.assert(
                     i.viewCache.getServerCache().isFullyInitialized() ||
                       !r.getServerCache().isFullyInitialized(),
-                    "Once a server snap is complete, it should never go back"
+                    'Once a server snap is complete, it should never go back'
                   ),
                   (this.viewCache_ = i.viewCache),
                   this.generateEventsForChanges_(
@@ -5695,14 +5695,14 @@
               this.views = new Map();
             }
             return (
-              Object.defineProperty(t, "__referenceConstructor", {
+              Object.defineProperty(t, '__referenceConstructor', {
                 get: function () {
-                  return c.assert(he, "Reference.ts has not been loaded"), he;
+                  return c.assert(he, 'Reference.ts has not been loaded'), he;
                 },
                 set: function (t) {
                   c.assert(
                     !he,
-                    "__referenceConstructor has already been defined"
+                    '__referenceConstructor has already been defined'
                   ),
                     (he = t);
                 },
@@ -5721,7 +5721,7 @@
                   return (
                     c.assert(
                       null != a,
-                      "SyncTree gave us an op for an invalid query."
+                      'SyncTree gave us an op for an invalid query.'
                     ),
                     a.applyOperation(t, e, n)
                   );
@@ -5772,7 +5772,7 @@
                   s = [],
                   c = [],
                   h = this.hasCompleteView();
-                if ("default" === a)
+                if ('default' === a)
                   try {
                     for (
                       var l = u.__values(this.views.entries()), f = l.next();
@@ -5992,17 +5992,17 @@
           var r = null;
           return (
             e.children.inorderTraversal(function (e, i) {
-              ".priority" === e
+              '.priority' === e
                 ? (c.assert(
                     null !== i.value,
-                    "Priority writes must always be leaf nodes"
+                    'Priority writes must always be leaf nodes'
                   ),
                   (r = i.value))
                 : (n = Pe(t.child(e), i, n));
             }),
             n.getChild(t).isEmpty() ||
               null === r ||
-              (n = n.updateChild(t.child(".priority"), r)),
+              (n = n.updateChild(t.child('.priority'), r)),
             n
           );
         }
@@ -6019,7 +6019,7 @@
               (t.prototype.addOverwrite = function (t, e, n, r) {
                 c.assert(
                   n > this.lastWriteId_,
-                  "Stacking an older write on top of newer ones"
+                  'Stacking an older write on top of newer ones'
                 ),
                   void 0 === r && (r = !0),
                   this.allWrites_.push({
@@ -6035,7 +6035,7 @@
               (t.prototype.addMerge = function (t, e, n) {
                 c.assert(
                   n > this.lastWriteId_,
-                  "Stacking an older merge on top of newer ones"
+                  'Stacking an older merge on top of newer ones'
                 ),
                   this.allWrites_.push({
                     path: t,
@@ -6060,7 +6060,7 @@
                   });
                 c.assert(
                   n >= 0,
-                  "removeWrite called with nonexistent writeId."
+                  'removeWrite called with nonexistent writeId.'
                 );
                 var r = this.allWrites_[n];
                 this.allWrites_.splice(n, 1);
@@ -6167,7 +6167,7 @@
               ) {
                 c.assert(
                   n || r,
-                  "Either existingEventSnap or existingServerSnap must exist"
+                  'Either existingEventSnap or existingServerSnap must exist'
                 );
                 var i = t.child(e);
                 if (this.visibleWrites_.hasCompleteWrite(i)) return null;
@@ -6251,7 +6251,7 @@
                     else {
                       if (!o.children)
                         throw c.assertionError(
-                          "WriteRecord should have .snap or .children"
+                          'WriteRecord should have .snap or .children'
                         );
                       if (n.contains(a))
                         (s = B.relativePath(n, a)),
@@ -6447,7 +6447,7 @@
                   var h = t.makeQueryKey_(e);
                   c.assert(
                     !this.queryToTagMap.has(h),
-                    "View does not exist, but we have a tag"
+                    'View does not exist, but we have a tag'
                   );
                   var l = t.getNextQueryTag_();
                   this.queryToTagMap.set(h, l), this.tagToQueryMap.set(l, h);
@@ -6467,7 +6467,7 @@
                   s = [];
                 if (
                   a &&
-                  ("default" === e.queryIdentifier() || a.viewExistsForQuery(e))
+                  ('default' === e.queryIdentifier() || a.viewExistsForQuery(e))
                 ) {
                   var u = a.removeEventRegistration(e, n, r);
                   a.isEmpty() &&
@@ -6613,22 +6613,22 @@
                     return (t.getServerCache() || Gt.EMPTY_NODE).hash();
                   },
                   onComplete: function (t) {
-                    if ("ok" === t)
+                    if ('ok' === t)
                       return r
                         ? e.applyTaggedListenComplete(n.path, r)
                         : e.applyListenComplete(n.path);
                     var i = (function (t, e) {
-                      var n = "Unknown Error";
-                      "too_big" === t
+                      var n = 'Unknown Error';
+                      'too_big' === t
                         ? (n =
-                            "The data requested exceeds the maximum size that can be accessed with a single request.")
-                        : "permission_denied" === t
+                            'The data requested exceeds the maximum size that can be accessed with a single request.')
+                        : 'permission_denied' === t
                         ? (n =
                             "Client doesn't have permission to access the desired data.")
-                        : "unavailable" === t &&
-                          (n = "The service is unavailable");
+                        : 'unavailable' === t &&
+                          (n = 'The service is unavailable');
                       var r = new Error(
-                        t + " at " + e.path.toString() + ": " + n
+                        t + ' at ' + e.path.toString() + ': ' + n
                       );
                       return (r.code = t.toUpperCase()), r;
                     })(t, n);
@@ -6637,12 +6637,12 @@
                 };
               }),
               (t.makeQueryKey_ = function (t) {
-                return t.path.toString() + "$" + t.queryIdentifier();
+                return t.path.toString() + '$' + t.queryIdentifier();
               }),
               (t.parseQueryKey_ = function (t) {
-                var e = t.indexOf("$");
+                var e = t.indexOf('$');
                 return (
-                  c.assert(-1 !== e && e < t.length - 1, "Bad queryKey."),
+                  c.assert(-1 !== e && e < t.length - 1, 'Bad queryKey.'),
                   {
                     queryId: t.substr(e + 1),
                     path: new B(t.substr(0, e)),
@@ -6756,9 +6756,9 @@
               (t.prototype.getToken = function (t) {
                 return this.auth_
                   ? this.auth_.getToken(t).catch(function (t) {
-                      return t && "auth/token-not-initialized" === t.code
+                      return t && 'auth/token-not-initialized' === t.code
                         ? (S(
-                            "Got auth/token-not-initialized error.  Treating as null token."
+                            'Got auth/token-not-initialized error.  Treating as null token.'
                           ),
                           null)
                         : Promise.reject(t);
@@ -6785,10 +6785,10 @@
                   'Provided authentication credentials for the app named "' +
                   this.app_.name +
                   '" are invalid. This usually indicates your app was not initialized correctly. ';
-                "credential" in this.app_.options
+                'credential' in this.app_.options
                   ? (t +=
                       'Make sure the "credential" property provided to initializeApp() is authorized to access the specified "databaseURL" and is from the correct project.')
-                  : "serviceAccount" in this.app_.options
+                  : 'serviceAccount' in this.app_.options
                   ? (t +=
                       'Make sure the "serviceAccount" property provided to initializeApp() is authorized to access the specified "databaseURL" and is from the correct project.')
                   : (t +=
@@ -6945,7 +6945,7 @@
                   if (null !== e) {
                     this.events_[t] = null;
                     var n = e.getEventRunner();
-                    w && S("event: " + e.toString()), W(n);
+                    w && S('event: ' + e.toString()), W(n);
                   }
                 }
               }),
@@ -6961,7 +6961,7 @@
                 (this.listeners_ = {}),
                 c.assert(
                   Array.isArray(t) && t.length > 0,
-                  "Requires a non-empty array"
+                  'Requires a non-empty array'
                 );
             }
             return (
@@ -6997,7 +6997,7 @@
                   this.allowedEvents_.find(function (e) {
                     return e === t;
                   }),
-                  "Unknown event: " + t
+                  'Unknown event: ' + t
                 );
               }),
               t
@@ -7007,18 +7007,18 @@
             function e() {
               var e,
                 n,
-                r = t.call(this, ["visible"]) || this;
+                r = t.call(this, ['visible']) || this;
               return (
-                "undefined" !== typeof document &&
-                  "undefined" !== typeof document.addEventListener &&
-                  ("undefined" !== typeof document.hidden
-                    ? ((n = "visibilitychange"), (e = "hidden"))
-                    : "undefined" !== typeof document.mozHidden
-                    ? ((n = "mozvisibilitychange"), (e = "mozHidden"))
-                    : "undefined" !== typeof document.msHidden
-                    ? ((n = "msvisibilitychange"), (e = "msHidden"))
-                    : "undefined" !== typeof document.webkitHidden &&
-                      ((n = "webkitvisibilitychange"), (e = "webkitHidden"))),
+                'undefined' !== typeof document &&
+                  'undefined' !== typeof document.addEventListener &&
+                  ('undefined' !== typeof document.hidden
+                    ? ((n = 'visibilitychange'), (e = 'hidden'))
+                    : 'undefined' !== typeof document.mozHidden
+                    ? ((n = 'mozvisibilitychange'), (e = 'mozHidden'))
+                    : 'undefined' !== typeof document.msHidden
+                    ? ((n = 'msvisibilitychange'), (e = 'msHidden'))
+                    : 'undefined' !== typeof document.webkitHidden &&
+                      ((n = 'webkitvisibilitychange'), (e = 'webkitHidden'))),
                 (r.visible_ = !0),
                 n &&
                   document.addEventListener(
@@ -7026,7 +7026,7 @@
                     function () {
                       var t = !document[e];
                       t !== r.visible_ &&
-                        ((r.visible_ = t), r.trigger("visible", t));
+                        ((r.visible_ = t), r.trigger('visible', t));
                     },
                     !1
                   ),
@@ -7040,7 +7040,7 @@
               }),
               (e.prototype.getInitialEvent = function (t) {
                 return (
-                  c.assert("visible" === t, "Unknown event type: " + t),
+                  c.assert('visible' === t, 'Unknown event type: ' + t),
                   [this.visible_]
                 );
               }),
@@ -7049,23 +7049,23 @@
           })(qe),
           He = (function (t) {
             function e() {
-              var e = t.call(this, ["online"]) || this;
+              var e = t.call(this, ['online']) || this;
               return (
                 (e.online_ = !0),
-                "undefined" === typeof window ||
-                  "undefined" === typeof window.addEventListener ||
+                'undefined' === typeof window ||
+                  'undefined' === typeof window.addEventListener ||
                   c.isMobileCordova() ||
                   (window.addEventListener(
-                    "online",
+                    'online',
                     function () {
-                      e.online_ || ((e.online_ = !0), e.trigger("online", !0));
+                      e.online_ || ((e.online_ = !0), e.trigger('online', !0));
                     },
                     !1
                   ),
                   window.addEventListener(
-                    "offline",
+                    'offline',
                     function () {
-                      e.online_ && ((e.online_ = !1), e.trigger("online", !1));
+                      e.online_ && ((e.online_ = !1), e.trigger('online', !1));
                     },
                     !1
                   )),
@@ -7079,7 +7079,7 @@
               }),
               (e.prototype.getInitialEvent = function (t) {
                 return (
-                  c.assert("online" === t, "Unknown event type: " + t),
+                  c.assert('online' === t, 'Unknown event type: ' + t),
                   [this.online_]
                 );
               }),
@@ -7126,7 +7126,7 @@
                       if (i.currentResponseNum === i.closeAfterResponse)
                         return (
                           i.onClose && (i.onClose(), (i.onClose = null)),
-                          "break"
+                          'break'
                         );
                       i.currentResponseNum++;
                     },
@@ -7134,14 +7134,14 @@
                   this.pendingResponses[this.currentResponseNum];
 
                 ) {
-                  if ("break" === r()) break;
+                  if ('break' === r()) break;
                 }
               }),
               t
             );
           })(),
-          Ke = "start",
-          Ge = "close",
+          Ke = 'start',
+          Ge = 'close',
           ze = (function () {
             function t(t, e, n, r) {
               (this.connId = t),
@@ -7165,12 +7165,12 @@
                   (this.myPacketOrderer = new Qe(t)),
                   (this.isClosed_ = !1),
                   (this.connectTimeoutTimer_ = setTimeout(function () {
-                    n.log_("Timed out trying to connect."),
+                    n.log_('Timed out trying to connect.'),
                       n.onClosed_(),
                       (n.connectTimeoutTimer_ = null);
                   }, Math.floor(3e4))),
                   (function (t) {
-                    if (c.isNodeSdk() || "complete" === document.readyState)
+                    if (c.isNodeSdk() || 'complete' === document.readyState)
                       t();
                     else {
                       var e = !1,
@@ -7180,16 +7180,16 @@
                             : setTimeout(n, Math.floor(10));
                         };
                       document.addEventListener
-                        ? (document.addEventListener("DOMContentLoaded", n, !1),
-                          window.addEventListener("load", n, !1))
+                        ? (document.addEventListener('DOMContentLoaded', n, !1),
+                          window.addEventListener('load', n, !1))
                         : document.attachEvent &&
                           (document.attachEvent(
-                            "onreadystatechange",
+                            'onreadystatechange',
                             function () {
-                              "complete" === document.readyState && n();
+                              'complete' === document.readyState && n();
                             }
                           ),
-                          window.attachEvent("onload", n));
+                          window.attachEvent('onload', n));
                     }
                   })(function () {
                     if (!n.isClosed_) {
@@ -7214,7 +7214,7 @@
                             else {
                               if (i !== Ge)
                                 throw new Error(
-                                  "Unrecognized command received: " + i
+                                  'Unrecognized command received: ' + i
                                 );
                               o
                                 ? ((n.scriptTagHolder.sendNewPolls = !1),
@@ -7239,7 +7239,7 @@
                         n.urlFn
                       );
                       var t = {
-                        start: "t",
+                        start: 't',
                       };
                       (t.ser = Math.floor(1e8 * Math.random())),
                         n.scriptTagHolder.uniqueCallbackIdentifier &&
@@ -7247,12 +7247,12 @@
                         (t.v = Q),
                         n.transportSessionId && (t.s = n.transportSessionId),
                         n.lastSessionId && (t.ls = n.lastSessionId),
-                        "undefined" !== typeof location &&
+                        'undefined' !== typeof location &&
                           location.href &&
                           -1 !== location.href.indexOf(K) &&
-                          (t.r = "f");
+                          (t.r = 'f');
                       var e = n.urlFn(t);
-                      n.log_("Connecting via long-poll to " + e),
+                      n.log_('Connecting via long-poll to ' + e),
                         n.scriptTagHolder.addTag(e, function () {});
                     }
                   });
@@ -7272,22 +7272,22 @@
                   !c.isNodeSdk() &&
                   (!!t.forceAllow_ ||
                     (!t.forceDisallow_ &&
-                      "undefined" !== typeof document &&
+                      'undefined' !== typeof document &&
                       null != document.createElement &&
                       !(
-                        "object" ===
-                          ("undefined" === typeof window
-                            ? "undefined"
+                        'object' ===
+                          ('undefined' === typeof window
+                            ? 'undefined'
                             : i(window)) &&
                         window.chrome &&
                         window.chrome.extension &&
                         !/^chrome/.test(window.location.href)
                       ) &&
                       !(
-                        "object" ===
-                          ("undefined" === typeof Windows
-                            ? "undefined"
-                            : i(Windows)) && "object" === i(Windows.UI)
+                        'object' ===
+                          ('undefined' === typeof Windows
+                            ? 'undefined'
+                            : i(Windows)) && 'object' === i(Windows.UI)
                       )))
                 );
               }),
@@ -7306,7 +7306,7 @@
               }),
               (t.prototype.onClosed_ = function () {
                 this.isClosed_ ||
-                  (this.log_("Longpoll is closing itself"),
+                  (this.log_('Longpoll is closing itself'),
                   this.shutdown_(),
                   this.onDisconnect_ &&
                     (this.onDisconnect_(this.everConnected_),
@@ -7314,12 +7314,12 @@
               }),
               (t.prototype.close = function () {
                 this.isClosed_ ||
-                  (this.log_("Longpoll is being closed."), this.shutdown_());
+                  (this.log_('Longpoll is being closed.'), this.shutdown_());
               }),
               (t.prototype.send = function (t) {
                 var e = c.stringify(t);
                 (this.bytesSent += e.length),
-                  this.stats_.incrementCounter("bytes_sent", e.length);
+                  this.stats_.incrementCounter('bytes_sent', e.length);
                 for (
                   var n = c.base64Encode(e), r = M(n, 1840), i = 0;
                   i < r.length;
@@ -7334,21 +7334,21 @@
               }),
               (t.prototype.addDisconnectPingFrame = function (t, e) {
                 if (!c.isNodeSdk()) {
-                  this.myDisconnFrame = document.createElement("iframe");
+                  this.myDisconnFrame = document.createElement('iframe');
                   var n = {
-                    dframe: "t",
+                    dframe: 't',
                   };
                   (n.id = t),
                     (n.pw = e),
                     (this.myDisconnFrame.src = this.urlFn(n)),
-                    (this.myDisconnFrame.style.display = "none"),
+                    (this.myDisconnFrame.style.display = 'none'),
                     document.body.appendChild(this.myDisconnFrame);
                 }
               }),
               (t.prototype.incrementIncomingBytes_ = function (t) {
                 var e = c.stringify(t).length;
                 (this.bytesReceived += e),
-                  this.stats_.incrementCounter("bytes_received", e);
+                  this.stats_.incrementCounter('bytes_received', e);
               }),
               t
             );
@@ -7367,38 +7367,38 @@
                 (this.commandCB = e), (this.onMessageCB = n);
               else {
                 (this.uniqueCallbackIdentifier = m()),
-                  (window["pLPCommand" + this.uniqueCallbackIdentifier] = e),
-                  (window["pRTLPCB" + this.uniqueCallbackIdentifier] = n),
+                  (window['pLPCommand' + this.uniqueCallbackIdentifier] = e),
+                  (window['pRTLPCB' + this.uniqueCallbackIdentifier] = n),
                   (this.myIFrame = t.createIFrame_());
-                var o = "";
+                var o = '';
                 if (
                   this.myIFrame.src &&
-                  "javascript:" ===
-                    this.myIFrame.src.substr(0, "javascript:".length)
+                  'javascript:' ===
+                    this.myIFrame.src.substr(0, 'javascript:'.length)
                 )
                   o =
                     '<script>document.domain="' +
                     document.domain +
                     '";</script>';
-                var a = "<html><body>" + o + "</body></html>";
+                var a = '<html><body>' + o + '</body></html>';
                 try {
                   this.myIFrame.doc.open(),
                     this.myIFrame.doc.write(a),
                     this.myIFrame.doc.close();
                 } catch (s) {
-                  S("frame writing exception"), s.stack && S(s.stack), S(s);
+                  S('frame writing exception'), s.stack && S(s.stack), S(s);
                 }
               }
             }
             return (
               (t.createIFrame_ = function () {
-                var t = document.createElement("iframe");
-                if (((t.style.display = "none"), !document.body))
-                  throw "Document body has not initialized. Wait to initialize Firebase until after the document is ready.";
+                var t = document.createElement('iframe');
+                if (((t.style.display = 'none'), !document.body))
+                  throw 'Document body has not initialized. Wait to initialize Firebase until after the document is ready.';
                 document.body.appendChild(t);
                 try {
                   t.contentWindow.document ||
-                    S("No IE domain setting required");
+                    S('No IE domain setting required');
                 } catch (n) {
                   var e = document.domain;
                   t.src =
@@ -7419,7 +7419,7 @@
                 var t = this;
                 (this.alive = !1),
                   this.myIFrame &&
-                    ((this.myIFrame.doc.body.innerHTML = ""),
+                    ((this.myIFrame.doc.body.innerHTML = ''),
                     setTimeout(function () {
                       null !== t.myIFrame &&
                         (document.body.removeChild(t.myIFrame),
@@ -7448,7 +7448,7 @@
                     (t.pw = this.myPW),
                     (t.ser = this.currentSerial);
                   for (
-                    var e = this.urlFn(t), n = "", r = 0;
+                    var e = this.urlFn(t), n = '', r = 0;
                     this.pendingSegs.length > 0;
 
                   ) {
@@ -7457,17 +7457,17 @@
                     var i = this.pendingSegs.shift();
                     (n =
                       n +
-                      "&seg" +
+                      '&seg' +
                       r +
-                      "=" +
+                      '=' +
                       i.seg +
-                      "&ts" +
+                      '&ts' +
                       r +
-                      "=" +
+                      '=' +
                       i.ts +
-                      "&d" +
+                      '&d' +
                       r +
-                      "=" +
+                      '=' +
                       i.d),
                       r++;
                   }
@@ -7503,20 +7503,20 @@
                   : setTimeout(function () {
                       try {
                         if (!n.sendNewPolls) return;
-                        var r = n.myIFrame.doc.createElement("script");
-                        (r.type = "text/javascript"),
+                        var r = n.myIFrame.doc.createElement('script');
+                        (r.type = 'text/javascript'),
                           (r.async = !0),
                           (r.src = t),
                           (r.onload = r.onreadystatechange =
                             function () {
                               var t = r.readyState;
-                              (t && "loaded" !== t && "complete" !== t) ||
+                              (t && 'loaded' !== t && 'complete' !== t) ||
                                 ((r.onload = r.onreadystatechange = null),
                                 r.parentNode && r.parentNode.removeChild(r),
                                 e());
                             }),
                           (r.onerror = function () {
-                            S("Long-poll script failed to load: " + t),
+                            S('Long-poll script failed to load: ' + t),
                               (n.sendNewPolls = !1),
                               n.close();
                           }),
@@ -7527,11 +7527,11 @@
               t
             );
           })(),
-          Xe = "";
+          Xe = '';
         var $e = null;
-        "undefined" !== typeof MozWebSocket
+        'undefined' !== typeof MozWebSocket
           ? ($e = MozWebSocket)
-          : "undefined" !== typeof WebSocket && ($e = WebSocket);
+          : 'undefined' !== typeof WebSocket && ($e = WebSocket);
         var Je = (function () {
             function t(e, n, r, i) {
               (this.connId = e),
@@ -7550,10 +7550,10 @@
                 return (
                   (r.v = Q),
                   !c.isNodeSdk() &&
-                    "undefined" !== typeof location &&
+                    'undefined' !== typeof location &&
                     location.href &&
                     -1 !== location.href.indexOf(K) &&
-                    (r.r = "f"),
+                    (r.r = 'f'),
                   e && (r.s = e),
                   n && (r.ls = n),
                   t.connectionURL(G, r)
@@ -7563,21 +7563,21 @@
                 var n = this;
                 (this.onDisconnect = e),
                   (this.onMessage = t),
-                  this.log_("Websocket connecting to " + this.connURL),
+                  this.log_('Websocket connecting to ' + this.connURL),
                   (this.everConnected_ = !1),
-                  v.set("previous_websocket_failure", !0);
+                  v.set('previous_websocket_failure', !0);
                 try {
                   if (c.isNodeSdk()) {
-                    var i = c.CONSTANTS.NODE_ADMIN ? "AdminNode" : "Node",
+                    var i = c.CONSTANTS.NODE_ADMIN ? 'AdminNode' : 'Node',
                       o = {
                         headers: {
-                          "User-Agent":
-                            "Firebase/5/" + Xe + "/" + r.platform + "/" + i,
+                          'User-Agent':
+                            'Firebase/5/' + Xe + '/' + r.platform + '/' + i,
                         },
                       },
                       a = r.env,
                       s =
-                        0 === this.connURL.indexOf("wss://")
+                        0 === this.connURL.indexOf('wss://')
                           ? a.HTTPS_PROXY || a.https_proxy
                           : a.HTTP_PROXY || a.http_proxy;
                     s &&
@@ -7587,15 +7587,15 @@
                       (this.mySock = new $e(this.connURL, [], o));
                   } else this.mySock = new $e(this.connURL);
                 } catch (h) {
-                  this.log_("Error instantiating WebSocket.");
+                  this.log_('Error instantiating WebSocket.');
                   var u = h.message || h.data;
                   return u && this.log_(u), void this.onClosed_();
                 }
                 (this.mySock.onopen = function () {
-                  n.log_("Websocket connected."), (n.everConnected_ = !0);
+                  n.log_('Websocket connected.'), (n.everConnected_ = !0);
                 }),
                   (this.mySock.onclose = function () {
-                    n.log_("Websocket connection was disconnected."),
+                    n.log_('Websocket connection was disconnected.'),
                       (n.mySock = null),
                       n.onClosed_();
                   }),
@@ -7603,7 +7603,7 @@
                     n.handleIncomingFrame(t);
                   }),
                   (this.mySock.onerror = function (t) {
-                    n.log_("WebSocket error.  Closing connection.");
+                    n.log_('WebSocket error.  Closing connection.');
                     var e = t.message || t.data;
                     e && n.log_(e), n.onClosed_();
                   });
@@ -7614,7 +7614,7 @@
               }),
               (t.isAvailable = function () {
                 var e = !1;
-                if ("undefined" !== typeof navigator && navigator.userAgent) {
+                if ('undefined' !== typeof navigator && navigator.userAgent) {
                   var n = navigator.userAgent.match(
                     /Android ([0-9]{0,}\.[0-9]{0,})/
                   );
@@ -7625,17 +7625,17 @@
               (t.previouslyFailed = function () {
                 return (
                   v.isInMemoryStorage ||
-                  !0 === v.get("previous_websocket_failure")
+                  !0 === v.get('previous_websocket_failure')
                 );
               }),
               (t.prototype.markConnectionHealthy = function () {
-                v.remove("previous_websocket_failure");
+                v.remove('previous_websocket_failure');
               }),
               (t.prototype.appendFrame_ = function (t) {
                 if (
                   (this.frames.push(t), this.frames.length === this.totalFrames)
                 ) {
-                  var e = this.frames.join("");
+                  var e = this.frames.join('');
                   this.frames = null;
                   var n = c.jsonEval(e);
                   this.onMessage(n);
@@ -7648,7 +7648,7 @@
                 if (
                   (c.assert(
                     null === this.frames,
-                    "We already have a frame buffer"
+                    'We already have a frame buffer'
                   ),
                   t.length <= 6)
                 ) {
@@ -7662,7 +7662,7 @@
                   var e = t.data;
                   if (
                     ((this.bytesReceived += e.length),
-                    this.stats_.incrementCounter("bytes_received", e.length),
+                    this.stats_.incrementCounter('bytes_received', e.length),
                     this.resetKeepAlive(),
                     null !== this.frames)
                   )
@@ -7677,7 +7677,7 @@
                 this.resetKeepAlive();
                 var e = c.stringify(t);
                 (this.bytesSent += e.length),
-                  this.stats_.incrementCounter("bytes_sent", e.length);
+                  this.stats_.incrementCounter('bytes_sent', e.length);
                 var n = M(e, 16384);
                 n.length > 1 && this.sendString_(String(n.length));
                 for (var r = 0; r < n.length; r++) this.sendString_(n[r]);
@@ -7691,7 +7691,7 @@
               }),
               (t.prototype.onClosed_ = function () {
                 this.isClosed_ ||
-                  (this.log_("WebSocket is closing itself"),
+                  (this.log_('WebSocket is closing itself'),
                   this.shutdown_(),
                   this.onDisconnect &&
                     (this.onDisconnect(this.everConnected_),
@@ -7699,13 +7699,13 @@
               }),
               (t.prototype.close = function () {
                 this.isClosed_ ||
-                  (this.log_("WebSocket is being closed"), this.shutdown_());
+                  (this.log_('WebSocket is being closed'), this.shutdown_());
               }),
               (t.prototype.resetKeepAlive = function () {
                 var t = this;
                 clearInterval(this.keepaliveTimer),
                   (this.keepaliveTimer = setInterval(function () {
-                    t.mySock && t.sendString_("0"), t.resetKeepAlive();
+                    t.mySock && t.sendString_('0'), t.resetKeepAlive();
                   }, Math.floor(45e3)));
               }),
               (t.prototype.sendString_ = function (t) {
@@ -7713,9 +7713,9 @@
                   this.mySock.send(t);
                 } catch (e) {
                   this.log_(
-                    "Exception thrown from WebSocket.send():",
+                    'Exception thrown from WebSocket.send():',
                     e.message || e.data,
-                    "Closing connection."
+                    'Closing connection.'
                   ),
                     setTimeout(this.onClosed_.bind(this), 0);
                 }
@@ -7730,7 +7730,7 @@
               this.initTransports_(t);
             }
             return (
-              Object.defineProperty(t, "ALL_TRANSPORTS", {
+              Object.defineProperty(t, 'ALL_TRANSPORTS', {
                 get: function () {
                   return [ze, Je];
                 },
@@ -7778,7 +7778,7 @@
               }),
               (t.prototype.initialTransport = function () {
                 if (this.transports_.length > 0) return this.transports_[0];
-                throw new Error("No transports available");
+                throw new Error('No transports available');
               }),
               (t.prototype.upgradeTransport = function () {
                 return this.transports_.length > 1 ? this.transports_[1] : null;
@@ -7798,9 +7798,9 @@
                 (this.connectionCount = 0),
                 (this.pendingDataMessages = []),
                 (this.state_ = 0),
-                (this.log_ = I("c:" + this.id + ":")),
+                (this.log_ = I('c:' + this.id + ':')),
                 (this.transportManager_ = new Ze(e)),
-                this.log_("Connection created"),
+                this.log_('Connection created'),
                 this.start_();
             }
             return (
@@ -7831,26 +7831,26 @@
                       t.isHealthy_ ||
                         (t.conn_ && t.conn_.bytesReceived > 102400
                           ? (t.log_(
-                              "Connection exceeded healthy timeout but has received " +
+                              'Connection exceeded healthy timeout but has received ' +
                                 t.conn_.bytesReceived +
-                                " bytes.  Marking connection healthy."
+                                ' bytes.  Marking connection healthy.'
                             ),
                             (t.isHealthy_ = !0),
                             t.conn_.markConnectionHealthy())
                           : t.conn_ && t.conn_.bytesSent > 10240
                           ? t.log_(
-                              "Connection exceeded healthy timeout but has sent " +
+                              'Connection exceeded healthy timeout but has sent ' +
                                 t.conn_.bytesSent +
-                                " bytes.  Leaving connection alive."
+                                ' bytes.  Leaving connection alive.'
                             )
                           : (t.log_(
-                              "Closing unhealthy connection after timeout."
+                              'Closing unhealthy connection after timeout.'
                             ),
                             t.close()));
                   }, Math.floor(i)));
               }),
               (t.prototype.nextTransportId_ = function () {
-                return "c:" + this.id + ":" + this.connectionCount++;
+                return 'c:' + this.id + ':' + this.connectionCount++;
               }),
               (t.prototype.disconnReceiver_ = function (t) {
                 var e = this;
@@ -7858,9 +7858,9 @@
                   t === e.conn_
                     ? e.onConnectionLost_(n)
                     : t === e.secondaryConn_
-                    ? (e.log_("Secondary connection lost."),
+                    ? (e.log_('Secondary connection lost.'),
                       e.onSecondaryConnectionLost_())
-                    : e.log_("closing an old connection");
+                    : e.log_('closing an old connection');
                 };
               }),
               (t.prototype.connReceiver_ = function (t) {
@@ -7871,12 +7871,12 @@
                       ? e.onPrimaryMessageReceived_(n)
                       : t === e.secondaryConn_
                       ? e.onSecondaryMessageReceived_(n)
-                      : e.log_("message on old connection"));
+                      : e.log_('message on old connection'));
                 };
               }),
               (t.prototype.sendRequest = function (t) {
                 var e = {
-                  t: "d",
+                  t: 'd',
                   d: t,
                 };
                 this.sendData_(e);
@@ -7885,69 +7885,69 @@
                 this.tx_ === this.secondaryConn_ &&
                   this.rx_ === this.secondaryConn_ &&
                   (this.log_(
-                    "cleaning up and promoting a connection: " +
+                    'cleaning up and promoting a connection: ' +
                       this.secondaryConn_.connId
                   ),
                   (this.conn_ = this.secondaryConn_),
                   (this.secondaryConn_ = null));
               }),
               (t.prototype.onSecondaryControl_ = function (t) {
-                if ("t" in t) {
+                if ('t' in t) {
                   var e = t.t;
-                  "a" === e
+                  'a' === e
                     ? this.upgradeIfSecondaryHealthy_()
-                    : "r" === e
-                    ? (this.log_("Got a reset on secondary, closing it"),
+                    : 'r' === e
+                    ? (this.log_('Got a reset on secondary, closing it'),
                       this.secondaryConn_.close(),
                       (this.tx_ !== this.secondaryConn_ &&
                         this.rx_ !== this.secondaryConn_) ||
                         this.close())
-                    : "o" === e &&
-                      (this.log_("got pong on secondary."),
+                    : 'o' === e &&
+                      (this.log_('got pong on secondary.'),
                       this.secondaryResponsesRequired_--,
                       this.upgradeIfSecondaryHealthy_());
                 }
               }),
               (t.prototype.onSecondaryMessageReceived_ = function (t) {
-                var e = D("t", t),
-                  n = D("d", t);
-                if ("c" === e) this.onSecondaryControl_(n);
+                var e = D('t', t),
+                  n = D('d', t);
+                if ('c' === e) this.onSecondaryControl_(n);
                 else {
-                  if ("d" !== e)
-                    throw new Error("Unknown protocol layer: " + e);
+                  if ('d' !== e)
+                    throw new Error('Unknown protocol layer: ' + e);
                   this.pendingDataMessages.push(n);
                 }
               }),
               (t.prototype.upgradeIfSecondaryHealthy_ = function () {
                 this.secondaryResponsesRequired_ <= 0
-                  ? (this.log_("Secondary connection is healthy."),
+                  ? (this.log_('Secondary connection is healthy.'),
                     (this.isHealthy_ = !0),
                     this.secondaryConn_.markConnectionHealthy(),
                     this.proceedWithUpgrade_())
-                  : (this.log_("sending ping on secondary."),
+                  : (this.log_('sending ping on secondary.'),
                     this.secondaryConn_.send({
-                      t: "c",
+                      t: 'c',
                       d: {
-                        t: "p",
+                        t: 'p',
                         d: {},
                       },
                     }));
               }),
               (t.prototype.proceedWithUpgrade_ = function () {
                 this.secondaryConn_.start(),
-                  this.log_("sending client ack on secondary"),
+                  this.log_('sending client ack on secondary'),
                   this.secondaryConn_.send({
-                    t: "c",
+                    t: 'c',
                     d: {
-                      t: "a",
+                      t: 'a',
                       d: {},
                     },
                   }),
-                  this.log_("Ending transmission on primary"),
+                  this.log_('Ending transmission on primary'),
                   this.conn_.send({
-                    t: "c",
+                    t: 'c',
                     d: {
-                      t: "n",
+                      t: 'n',
                       d: {},
                     },
                   }),
@@ -7955,11 +7955,11 @@
                   this.tryCleanupConnection();
               }),
               (t.prototype.onPrimaryMessageReceived_ = function (t) {
-                var e = D("t", t),
-                  n = D("d", t);
-                "c" === e
+                var e = D('t', t),
+                  n = D('d', t);
+                'c' === e
                   ? this.onControl_(n)
-                  : "d" === e && this.onDataMessage_(n);
+                  : 'd' === e && this.onDataMessage_(n);
               }),
               (t.prototype.onDataMessage_ = function (t) {
                 this.onPrimaryResponse_(), this.onMessage_(t);
@@ -7968,34 +7968,34 @@
                 this.isHealthy_ ||
                   (this.primaryResponsesRequired_--,
                   this.primaryResponsesRequired_ <= 0 &&
-                    (this.log_("Primary connection is healthy."),
+                    (this.log_('Primary connection is healthy.'),
                     (this.isHealthy_ = !0),
                     this.conn_.markConnectionHealthy()));
               }),
               (t.prototype.onControl_ = function (t) {
-                var e = D("t", t);
-                if ("d" in t) {
+                var e = D('t', t);
+                if ('d' in t) {
                   var n = t.d;
-                  if ("h" === e) this.onHandshake_(n);
-                  else if ("n" === e) {
-                    this.log_("recvd end transmission on primary"),
+                  if ('h' === e) this.onHandshake_(n);
+                  else if ('n' === e) {
+                    this.log_('recvd end transmission on primary'),
                       (this.rx_ = this.secondaryConn_);
                     for (var r = 0; r < this.pendingDataMessages.length; ++r)
                       this.onDataMessage_(this.pendingDataMessages[r]);
                     (this.pendingDataMessages = []),
                       this.tryCleanupConnection();
                   } else
-                    "s" === e
+                    's' === e
                       ? this.onConnectionShutdown_(n)
-                      : "r" === e
+                      : 'r' === e
                       ? this.onReset_(n)
-                      : "e" === e
-                      ? T("Server Error: " + n)
-                      : "o" === e
-                      ? (this.log_("got pong on primary."),
+                      : 'e' === e
+                      ? T('Server Error: ' + n)
+                      : 'o' === e
+                      ? (this.log_('got pong on primary.'),
                         this.onPrimaryResponse_(),
                         this.sendPingOnPrimaryIfNecessary_())
-                      : T("Unknown control packet command: " + e);
+                      : T('Unknown control packet command: ' + e);
                 }
               }),
               (t.prototype.onHandshake_ = function (t) {
@@ -8007,7 +8007,7 @@
                   0 === this.state_ &&
                     (this.conn_.start(),
                     this.onConnectionEstablished_(this.conn_, e),
-                    Q !== n && A("Protocol version mismatch detected"),
+                    Q !== n && A('Protocol version mismatch detected'),
                     this.tryStartUpgrade_());
               }),
               (t.prototype.tryStartUpgrade_ = function () {
@@ -8028,12 +8028,12 @@
                 this.secondaryConn_.open(n, r),
                   q(function () {
                     e.secondaryConn_ &&
-                      (e.log_("Timed out trying to upgrade."),
+                      (e.log_('Timed out trying to upgrade.'),
                       e.secondaryConn_.close());
                   }, Math.floor(6e4));
               }),
               (t.prototype.onReset_ = function (t) {
-                this.log_("Reset packet received.  New host: " + t),
+                this.log_('Reset packet received.  New host: ' + t),
                   this.repoInfo_.updateHost(t),
                   1 === this.state_
                     ? this.close()
@@ -8041,13 +8041,13 @@
               }),
               (t.prototype.onConnectionEstablished_ = function (t, e) {
                 var n = this;
-                this.log_("Realtime connection established."),
+                this.log_('Realtime connection established.'),
                   (this.conn_ = t),
                   (this.state_ = 1),
                   this.onReady_ &&
                     (this.onReady_(e, this.sessionId), (this.onReady_ = null)),
                   0 === this.primaryResponsesRequired_
-                    ? (this.log_("Primary connection is healthy."),
+                    ? (this.log_('Primary connection is healthy.'),
                       (this.isHealthy_ = !0))
                     : q(function () {
                         n.sendPingOnPrimaryIfNecessary_();
@@ -8056,11 +8056,11 @@
               (t.prototype.sendPingOnPrimaryIfNecessary_ = function () {
                 this.isHealthy_ ||
                   1 !== this.state_ ||
-                  (this.log_("sending ping on primary."),
+                  (this.log_('sending ping on primary.'),
                   this.sendData_({
-                    t: "c",
+                    t: 'c',
                     d: {
-                      t: "p",
+                      t: 'p',
                       d: {},
                     },
                   }));
@@ -8074,35 +8074,35 @@
                 (this.conn_ = null),
                   t || 0 !== this.state_
                     ? 1 === this.state_ &&
-                      this.log_("Realtime connection lost.")
-                    : (this.log_("Realtime connection failed."),
+                      this.log_('Realtime connection lost.')
+                    : (this.log_('Realtime connection failed.'),
                       this.repoInfo_.isCacheableHost() &&
-                        (v.remove("host:" + this.repoInfo_.host),
+                        (v.remove('host:' + this.repoInfo_.host),
                         (this.repoInfo_.internalHost = this.repoInfo_.host))),
                   this.close();
               }),
               (t.prototype.onConnectionShutdown_ = function (t) {
                 this.log_(
-                  "Connection shutdown command received. Shutting down..."
+                  'Connection shutdown command received. Shutting down...'
                 ),
                   this.onKill_ && (this.onKill_(t), (this.onKill_ = null)),
                   (this.onDisconnect_ = null),
                   this.close();
               }),
               (t.prototype.sendData_ = function (t) {
-                if (1 !== this.state_) throw "Connection is not connected";
+                if (1 !== this.state_) throw 'Connection is not connected';
                 this.tx_.send(t);
               }),
               (t.prototype.close = function () {
                 2 !== this.state_ &&
-                  (this.log_("Closing realtime connection."),
+                  (this.log_('Closing realtime connection.'),
                   (this.state_ = 2),
                   this.closeConnections_(),
                   this.onDisconnect_ &&
                     (this.onDisconnect_(), (this.onDisconnect_ = null)));
               }),
               (t.prototype.closeConnections_ = function () {
-                this.log_("Shutting down all connections"),
+                this.log_('Shutting down all connections'),
                   this.conn_ && (this.conn_.close(), (this.conn_ = null)),
                   this.secondaryConn_ &&
                     (this.secondaryConn_.close(), (this.secondaryConn_ = null)),
@@ -8138,7 +8138,7 @@
                 (u.authTokenProvider_ = a),
                 (u.authOverride_ = s),
                 (u.id = e.nextPersistentConnectionId_++),
-                (u.log_ = I("p:" + u.id + ":")),
+                (u.log_ = I('p:' + u.id + ':')),
                 (u.interruptReasons_ = {}),
                 (u.listens = new Map()),
                 (u.outstandingPuts_ = []),
@@ -8163,13 +8163,13 @@
                 s && !c.isNodeSdk())
               )
                 throw new Error(
-                  "Auth override specified in options, but not supported on non Node.js platforms"
+                  'Auth override specified in options, but not supported on non Node.js platforms'
                 );
               return (
                 u.scheduleConnect_(0),
-                Be.getInstance().on("visible", u.onVisible_, u),
-                -1 === n.host.indexOf("fblocal") &&
-                  He.getInstance().on("online", u.onOnline_, u),
+                Be.getInstance().on('visible', u.onVisible_, u),
+                -1 === n.host.indexOf('fblocal') &&
+                  He.getInstance().on('online', u.onOnline_, u),
                 u
               );
             }
@@ -8193,16 +8193,16 @@
               (e.prototype.listen = function (t, e, n, r) {
                 var i = t.queryIdentifier(),
                   o = t.path.toString();
-                this.log_("Listen called for " + o + " " + i),
+                this.log_('Listen called for ' + o + ' ' + i),
                   this.listens.has(o) || this.listens.set(o, new Map()),
                   c.assert(
                     t.getQueryParams().isDefault() ||
                       !t.getQueryParams().loadsAllData(),
-                    "listen() called for non-default but complete query"
+                    'listen() called for non-default but complete query'
                   ),
                   c.assert(
                     !this.listens.get(o).has(i),
-                    "listen() called twice for same path/queryId."
+                    'listen() called twice for same path/queryId.'
                   );
                 var a = {
                   onComplete: r,
@@ -8218,48 +8218,48 @@
                   r = t.query,
                   i = r.path.toString(),
                   o = r.queryIdentifier();
-                this.log_("Listen on " + i + " for " + o);
+                this.log_('Listen on ' + i + ' for ' + o);
                 var a = {
                   p: i,
                 };
                 t.tag && ((a.q = r.queryObject()), (a.t = t.tag)),
                   (a.h = t.hashFn()),
-                  this.sendRequest("q", a, function (a) {
+                  this.sendRequest('q', a, function (a) {
                     var s = a.d,
                       u = a.s;
                     e.warnOnListenWarnings_(s, r),
                       (n.listens.get(i) && n.listens.get(i).get(o)) === t &&
-                        (n.log_("listen response", a),
-                        "ok" !== u && n.removeListen_(i, o),
+                        (n.log_('listen response', a),
+                        'ok' !== u && n.removeListen_(i, o),
                         t.onComplete && t.onComplete(u, s));
                   });
               }),
               (e.warnOnListenWarnings_ = function (t, e) {
-                if (t && "object" === i(t) && c.contains(t, "w")) {
-                  var n = c.safeGet(t, "w");
-                  if (Array.isArray(n) && ~n.indexOf("no_index")) {
+                if (t && 'object' === i(t) && c.contains(t, 'w')) {
+                  var n = c.safeGet(t, 'w');
+                  if (Array.isArray(n) && ~n.indexOf('no_index')) {
                     var r =
                         '".indexOn": "' +
                         e.getQueryParams().getIndex().toString() +
                         '"',
                       o = e.path.toString();
                     A(
-                      "Using an unspecified index. Your data will be downloaded and filtered on the client. Consider adding " +
+                      'Using an unspecified index. Your data will be downloaded and filtered on the client. Consider adding ' +
                         r +
-                        " at " +
+                        ' at ' +
                         o +
-                        " to your security rules for better performance."
+                        ' to your security rules for better performance.'
                     );
                   }
                 }
               }),
               (e.prototype.refreshAuthToken = function (t) {
                 (this.authToken_ = t),
-                  this.log_("Auth token refreshed"),
+                  this.log_('Auth token refreshed'),
                   this.authToken_
                     ? this.tryAuth()
                     : this.connected_ &&
-                      this.sendRequest("unauth", {}, function () {}),
+                      this.sendRequest('unauth', {}, function () {}),
                   this.reduceReconnectDelayIfAdminCredential_(t);
               }),
               (e.prototype.reduceReconnectDelayIfAdminCredential_ = function (
@@ -8267,7 +8267,7 @@
               ) {
                 ((t && 40 === t.length) || c.isAdmin(t)) &&
                   (this.log_(
-                    "Admin auth credential detected.  Reducing max reconnect time."
+                    'Admin auth credential detected.  Reducing max reconnect time.'
                   ),
                   (this.maxReconnectDelay_ = 3e4));
               }),
@@ -8275,19 +8275,19 @@
                 var t = this;
                 if (this.connected_ && this.authToken_) {
                   var e = this.authToken_,
-                    n = c.isValidFormat(e) ? "auth" : "gauth",
+                    n = c.isValidFormat(e) ? 'auth' : 'gauth',
                     r = {
                       cred: e,
                     };
                   null === this.authOverride_
                     ? (r.noauth = !0)
-                    : "object" === i(this.authOverride_) &&
+                    : 'object' === i(this.authOverride_) &&
                       (r.authvar = this.authOverride_),
                     this.sendRequest(n, r, function (n) {
                       var r = n.s,
-                        i = n.d || "error";
+                        i = n.d || 'error';
                       t.authToken_ === e &&
-                        ("ok" === r
+                        ('ok' === r
                           ? (t.invalidAuthTokenCount_ = 0)
                           : t.onAuthRevoked_(r, i));
                     });
@@ -8296,49 +8296,49 @@
               (e.prototype.unlisten = function (t, e) {
                 var n = t.path.toString(),
                   r = t.queryIdentifier();
-                this.log_("Unlisten called for " + n + " " + r),
+                this.log_('Unlisten called for ' + n + ' ' + r),
                   c.assert(
                     t.getQueryParams().isDefault() ||
                       !t.getQueryParams().loadsAllData(),
-                    "unlisten() called for non-default but complete query"
+                    'unlisten() called for non-default but complete query'
                   ),
                   this.removeListen_(n, r) &&
                     this.connected_ &&
                     this.sendUnlisten_(n, r, t.queryObject(), e);
               }),
               (e.prototype.sendUnlisten_ = function (t, e, n, r) {
-                this.log_("Unlisten on " + t + " for " + e);
+                this.log_('Unlisten on ' + t + ' for ' + e);
                 var i = {
                   p: t,
                 };
-                r && ((i.q = n), (i.t = r)), this.sendRequest("n", i);
+                r && ((i.q = n), (i.t = r)), this.sendRequest('n', i);
               }),
               (e.prototype.onDisconnectPut = function (t, e, n) {
                 this.connected_
-                  ? this.sendOnDisconnect_("o", t, e, n)
+                  ? this.sendOnDisconnect_('o', t, e, n)
                   : this.onDisconnectRequestQueue_.push({
                       pathString: t,
-                      action: "o",
+                      action: 'o',
                       data: e,
                       onComplete: n,
                     });
               }),
               (e.prototype.onDisconnectMerge = function (t, e, n) {
                 this.connected_
-                  ? this.sendOnDisconnect_("om", t, e, n)
+                  ? this.sendOnDisconnect_('om', t, e, n)
                   : this.onDisconnectRequestQueue_.push({
                       pathString: t,
-                      action: "om",
+                      action: 'om',
                       data: e,
                       onComplete: n,
                     });
               }),
               (e.prototype.onDisconnectCancel = function (t, e) {
                 this.connected_
-                  ? this.sendOnDisconnect_("oc", t, null, e)
+                  ? this.sendOnDisconnect_('oc', t, null, e)
                   : this.onDisconnectRequestQueue_.push({
                       pathString: t,
-                      action: "oc",
+                      action: 'oc',
                       data: null,
                       onComplete: e,
                     });
@@ -8348,7 +8348,7 @@
                   p: e,
                   d: n,
                 };
-                this.log_("onDisconnect " + t, i),
+                this.log_('onDisconnect ' + t, i),
                   this.sendRequest(t, i, function (t) {
                     r &&
                       setTimeout(function () {
@@ -8357,10 +8357,10 @@
                   });
               }),
               (e.prototype.put = function (t, e, n, r) {
-                this.putInternal("p", t, e, n, r);
+                this.putInternal('p', t, e, n, r);
               }),
               (e.prototype.merge = function (t, e, n, r) {
-                this.putInternal("m", t, e, n, r);
+                this.putInternal('m', t, e, n, r);
               }),
               (e.prototype.putInternal = function (t, e, n, r, i) {
                 var o = {
@@ -8377,7 +8377,7 @@
                 var a = this.outstandingPuts_.length - 1;
                 this.connected_
                   ? this.sendPut_(a)
-                  : this.log_("Buffering put: " + e);
+                  : this.log_('Buffering put: ' + e);
               }),
               (e.prototype.sendPut_ = function (t) {
                 var e = this,
@@ -8386,7 +8386,7 @@
                   i = this.outstandingPuts_[t].onComplete;
                 (this.outstandingPuts_[t].queued = this.connected_),
                   this.sendRequest(n, r, function (r) {
-                    e.log_(n + " response", r),
+                    e.log_(n + ' response', r),
                       delete e.outstandingPuts_[t],
                       e.outstandingPutCount_--,
                       0 === e.outstandingPutCount_ && (e.outstandingPuts_ = []),
@@ -8399,47 +8399,47 @@
                   var n = {
                     c: t,
                   };
-                  this.log_("reportStats", n),
-                    this.sendRequest("s", n, function (t) {
-                      if ("ok" !== t.s) {
+                  this.log_('reportStats', n),
+                    this.sendRequest('s', n, function (t) {
+                      if ('ok' !== t.s) {
                         var n = t.d;
-                        e.log_("reportStats", "Error sending stats: " + n);
+                        e.log_('reportStats', 'Error sending stats: ' + n);
                       }
                     });
                 }
               }),
               (e.prototype.onDataMessage_ = function (t) {
-                if ("r" in t) {
-                  this.log_("from server: " + c.stringify(t));
+                if ('r' in t) {
+                  this.log_('from server: ' + c.stringify(t));
                   var e = t.r,
                     n = this.requestCBHash_[e];
                   n && (delete this.requestCBHash_[e], n(t.b));
                 } else {
-                  if ("error" in t)
-                    throw "A server-side error has occurred: " + t.error;
-                  "a" in t && this.onDataPush_(t.a, t.b);
+                  if ('error' in t)
+                    throw 'A server-side error has occurred: ' + t.error;
+                  'a' in t && this.onDataPush_(t.a, t.b);
                 }
               }),
               (e.prototype.onDataPush_ = function (t, e) {
-                this.log_("handleServerMessage", t, e),
-                  "d" === t
+                this.log_('handleServerMessage', t, e),
+                  'd' === t
                     ? this.onDataUpdate_(e.p, e.d, !1, e.t)
-                    : "m" === t
+                    : 'm' === t
                     ? this.onDataUpdate_(e.p, e.d, !0, e.t)
-                    : "c" === t
+                    : 'c' === t
                     ? this.onListenRevoked_(e.p, e.q)
-                    : "ac" === t
+                    : 'ac' === t
                     ? this.onAuthRevoked_(e.s, e.d)
-                    : "sd" === t
+                    : 'sd' === t
                     ? this.onSecurityDebugPacket_(e)
                     : T(
-                        "Unrecognized action received from server: " +
+                        'Unrecognized action received from server: ' +
                           c.stringify(t) +
-                          "\nAre you using the latest client?"
+                          '\nAre you using the latest client?'
                       );
               }),
               (e.prototype.onReady_ = function (t, e) {
-                this.log_("connection ready"),
+                this.log_('connection ready'),
                   (this.connected_ = !0),
                   (this.lastConnectionEstablishedTime_ = new Date().getTime()),
                   this.handleTimestamp_(t),
@@ -8466,22 +8466,22 @@
                 t &&
                   !this.visible_ &&
                   this.reconnectDelay_ === this.maxReconnectDelay_ &&
-                  (this.log_("Window became visible.  Reducing delay."),
+                  (this.log_('Window became visible.  Reducing delay.'),
                   (this.reconnectDelay_ = nn),
                   this.realtime_ || this.scheduleConnect_(0)),
                   (this.visible_ = t);
               }),
               (e.prototype.onOnline_ = function (t) {
                 t
-                  ? (this.log_("Browser went online."),
+                  ? (this.log_('Browser went online.'),
                     (this.reconnectDelay_ = nn),
                     this.realtime_ || this.scheduleConnect_(0))
-                  : (this.log_("Browser went offline.  Killing connection."),
+                  : (this.log_('Browser went offline.  Killing connection.'),
                     this.realtime_ && this.realtime_.close());
               }),
               (e.prototype.onRealtimeDisconnect_ = function () {
                 if (
-                  (this.log_("data client disconnected"),
+                  (this.log_('data client disconnected'),
                   (this.connected_ = !1),
                   (this.realtime_ = null),
                   this.cancelSentTransactions_(),
@@ -8503,7 +8503,7 @@
                       new Date().getTime() - this.lastConnectionAttemptTime_,
                     e = Math.max(0, this.reconnectDelay_ - t);
                   (e = Math.random() * e),
-                    this.log_("Trying to reconnect in " + e + "ms"),
+                    this.log_('Trying to reconnect in ' + e + 'ms'),
                     this.scheduleConnect_(e),
                     (this.reconnectDelay_ = Math.min(
                       this.maxReconnectDelay_,
@@ -8514,13 +8514,13 @@
               }),
               (e.prototype.establishConnection_ = function () {
                 if (this.shouldReconnect_()) {
-                  this.log_("Making a connection attempt"),
+                  this.log_('Making a connection attempt'),
                     (this.lastConnectionAttemptTime_ = new Date().getTime()),
                     (this.lastConnectionEstablishedTime_ = null);
                   var t = this.onDataMessage_.bind(this),
                     n = this.onReady_.bind(this),
                     r = this.onRealtimeDisconnect_.bind(this),
-                    i = this.id + ":" + e.nextConnectionId_++,
+                    i = this.id + ':' + e.nextConnectionId_++,
                     o = this,
                     a = this.lastSessionId,
                     s = !1,
@@ -8544,8 +8544,8 @@
                       .getToken(l)
                       .then(function (e) {
                         s
-                          ? S("getToken() completed but was canceled")
-                          : (S("getToken() completed. Creating connection."),
+                          ? S('getToken() completed but was canceled')
+                          : (S('getToken() completed. Creating connection.'),
                             (o.authToken_ = e && e.accessToken),
                             (u = new tn(
                               i,
@@ -8554,20 +8554,20 @@
                               n,
                               r,
                               function (t) {
-                                A(t + " (" + o.repoInfo_.toString() + ")"),
-                                  o.interrupt("server_kill");
+                                A(t + ' (' + o.repoInfo_.toString() + ')'),
+                                  o.interrupt('server_kill');
                               },
                               a
                             )));
                       })
                       .then(null, function (t) {
-                        o.log_("Failed to get token: " + t),
+                        o.log_('Failed to get token: ' + t),
                           s || (c.CONSTANTS.NODE_ADMIN && A(t), h());
                       });
                 }
               }),
               (e.prototype.interrupt = function (t) {
-                S("Interrupting connection for reason: " + t),
+                S('Interrupting connection for reason: ' + t),
                   (this.interruptReasons_[t] = !0),
                   this.realtime_
                     ? this.realtime_.close()
@@ -8577,7 +8577,7 @@
                       this.connected_ && this.onRealtimeDisconnect_());
               }),
               (e.prototype.resume = function (t) {
-                S("Resuming connection for reason: " + t),
+                S('Resuming connection for reason: ' + t),
                   delete this.interruptReasons_[t],
                   c.isEmpty(this.interruptReasons_) &&
                     ((this.reconnectDelay_ = nn),
@@ -8593,9 +8593,9 @@
                 for (var t = 0; t < this.outstandingPuts_.length; t++) {
                   var e = this.outstandingPuts_[t];
                   e &&
-                    "h" in e.request &&
+                    'h' in e.request &&
                     e.queued &&
-                    (e.onComplete && e.onComplete("disconnect"),
+                    (e.onComplete && e.onComplete('disconnect'),
                     delete this.outstandingPuts_[t],
                     this.outstandingPutCount_--);
                 }
@@ -8608,10 +8608,10 @@
                       .map(function (t) {
                         return L(t);
                       })
-                      .join("$")
-                  : "default";
+                      .join('$')
+                  : 'default';
                 var r = this.removeListen_(t, n);
-                r && r.onComplete && r.onComplete("permission_denied");
+                r && r.onComplete && r.onComplete('permission_denied');
               }),
               (e.prototype.removeListen_ = function (t, e) {
                 var n,
@@ -8625,11 +8625,11 @@
                 return n;
               }),
               (e.prototype.onAuthRevoked_ = function (t, e) {
-                S("Auth token revoked: " + t + "/" + e),
+                S('Auth token revoked: ' + t + '/' + e),
                   (this.authToken_ = null),
                   (this.forceTokenRefresh_ = !0),
                   this.realtime_.close(),
-                  ("invalid_token" !== t && "permission_denied" !== t) ||
+                  ('invalid_token' !== t && 'permission_denied' !== t) ||
                     (this.invalidAuthTokenCount_++,
                     this.invalidAuthTokenCount_ >= 3 &&
                       ((this.reconnectDelay_ = 3e4),
@@ -8638,9 +8638,9 @@
               (e.prototype.onSecurityDebugPacket_ = function (t) {
                 this.securityDebugCallback_
                   ? this.securityDebugCallback_(t)
-                  : "msg" in t &&
+                  : 'msg' in t &&
                     console.log(
-                      "FIREBASE: " + t.msg.replace("\n", "\nFIREBASE: ")
+                      'FIREBASE: ' + t.msg.replace('\n', '\nFIREBASE: ')
                     );
               }),
               (e.prototype.restoreState_ = function () {
@@ -8700,14 +8700,14 @@
               }),
               (e.prototype.sendConnectStats_ = function () {
                 var t = {},
-                  e = "js";
+                  e = 'js';
                 c.CONSTANTS.NODE_ADMIN
-                  ? (e = "admin_node")
-                  : c.CONSTANTS.NODE_CLIENT && (e = "node"),
-                  (t["sdk." + e + "." + Xe.replace(/\./g, "-")] = 1),
+                  ? (e = 'admin_node')
+                  : c.CONSTANTS.NODE_CLIENT && (e = 'node'),
+                  (t['sdk.' + e + '.' + Xe.replace(/\./g, '-')] = 1),
                   c.isMobileCordova()
-                    ? (t["framework.cordova"] = 1)
-                    : c.isReactNative() && (t["framework.reactnative"] = 1),
+                    ? (t['framework.cordova'] = 1)
+                    : c.isReactNative() && (t['framework.reactnative'] = 1),
                   this.reportStats(t);
               }),
               (e.prototype.shouldReconnect_ = function () {
@@ -8726,7 +8726,7 @@
                 (i.repoInfo_ = e),
                 (i.onDataUpdate_ = n),
                 (i.authTokenProvider_ = r),
-                (i.log_ = I("p:rest:")),
+                (i.log_ = I('p:rest:')),
                 (i.listens_ = {}),
                 i
               );
@@ -8734,11 +8734,11 @@
             return (
               u.__extends(e, t),
               (e.prototype.reportStats = function (t) {
-                throw new Error("Method not implemented.");
+                throw new Error('Method not implemented.');
               }),
               (e.getListenId_ = function (t, e) {
                 return void 0 !== e
-                  ? "tag$" + e
+                  ? 'tag$' + e
                   : (c.assert(
                       t.getQueryParams().isDefault(),
                       "should have a tag if it's not a default query."
@@ -8748,12 +8748,12 @@
               (e.prototype.listen = function (t, n, r, i) {
                 var o = this,
                   a = t.path.toString();
-                this.log_("Listen called for " + a + " " + t.queryIdentifier());
+                this.log_('Listen called for ' + a + ' ' + t.queryIdentifier());
                 var s = e.getListenId_(t, r),
                   u = {};
                 this.listens_[s] = u;
                 var h = t.getQueryParams().toRestQueryStringParameters();
-                this.restRequest_(a + ".json", h, function (t, e) {
+                this.restRequest_(a + '.json', h, function (t, e) {
                   var n = e;
                   (404 === t && ((n = null), (t = null)),
                   null === t && o.onDataUpdate_(a, n, !1, r),
@@ -8761,9 +8761,9 @@
                     i(
                       t
                         ? 401 === t
-                          ? "permission_denied"
-                          : "rest_error:" + t
-                        : "ok",
+                          ? 'permission_denied'
+                          : 'rest_error:' + t
+                        : 'ok',
                       null
                     );
                 });
@@ -8776,25 +8776,25 @@
               (e.prototype.restRequest_ = function (t, e, n) {
                 var r = this;
                 void 0 === e && (e = {}),
-                  (e.format = "export"),
+                  (e.format = 'export'),
                   this.authTokenProvider_.getToken(!1).then(function (i) {
                     var o = i && i.accessToken;
                     o && (e.auth = o);
                     var a =
-                      (r.repoInfo_.secure ? "https://" : "http://") +
+                      (r.repoInfo_.secure ? 'https://' : 'http://') +
                       r.repoInfo_.host +
                       t +
-                      "?ns=" +
+                      '?ns=' +
                       r.repoInfo_.namespace +
                       c.querystring(e);
-                    r.log_("Sending REST request for " + a);
+                    r.log_('Sending REST request for ' + a);
                     var s = new XMLHttpRequest();
                     (s.onreadystatechange = function () {
                       if (n && 4 === s.readyState) {
                         r.log_(
-                          "REST Response for " + a + " received. status:",
+                          'REST Response for ' + a + ' received. status:',
                           s.status,
-                          "response:",
+                          'response:',
                           s.responseText
                         );
                         var t = null;
@@ -8803,9 +8803,9 @@
                             t = c.jsonEval(s.responseText);
                           } catch (e) {
                             A(
-                              "Failed to parse JSON response for " +
+                              'Failed to parse JSON response for ' +
                                 a +
-                                ": " +
+                                ': ' +
                                 s.responseText
                             );
                           }
@@ -8814,23 +8814,23 @@
                           401 !== s.status &&
                             404 !== s.status &&
                             A(
-                              "Got unsuccessful REST response for " +
+                              'Got unsuccessful REST response for ' +
                                 a +
-                                " Status: " +
+                                ' Status: ' +
                                 s.status
                             ),
                             n(s.status);
                         n = null;
                       }
                     }),
-                      s.open("GET", a, !0),
+                      s.open('GET', a, !0),
                       s.send();
                   });
               }),
               e
             );
           })(en),
-          an = "repo_interrupt",
+          an = 'repo_interrupt',
           sn = (function () {
             function t(t, e, n, r) {
               var o = this;
@@ -8848,13 +8848,13 @@
                 ((this.stats_ = Fe.getCollection(t)),
                 e ||
                   (
-                    ("object" ===
-                      ("undefined" === typeof window
-                        ? "undefined"
+                    ('object' ===
+                      ('undefined' === typeof window
+                        ? 'undefined'
                         : i(window)) &&
                       window.navigator &&
                       window.navigator.userAgent) ||
-                    ""
+                    ''
                   ).search(
                     /googlebot|google webmaster tools|bingbot|yahoo! slurp|baiduspider|yandexbot|duckduckbot/i
                   ) >= 0)
@@ -8867,15 +8867,15 @@
                   setTimeout(this.onConnectStatus_.bind(this, !0), 0);
               else {
                 var s = n.options.databaseAuthVariableOverride;
-                if ("undefined" !== typeof s && null !== s) {
-                  if ("object" !== i(s))
+                if ('undefined' !== typeof s && null !== s) {
+                  if ('object' !== i(s))
                     throw new Error(
-                      "Only objects are supported for option databaseAuthVariableOverride"
+                      'Only objects are supported for option databaseAuthVariableOverride'
                     );
                   try {
                     c.stringify(s);
                   } catch (u) {
-                    throw new Error("Invalid authOverride provided: " + u);
+                    throw new Error('Invalid authOverride provided: ' + u);
                   }
                 }
                 (this.persistentConnection_ = new rn(
@@ -8904,14 +8904,14 @@
                       a.isEmpty() ||
                         ((i = o.infoSyncTree_.applyServerOverwrite(t.path, a)),
                         setTimeout(function () {
-                          r("ok");
+                          r('ok');
                         }, 0)),
                       i
                     );
                   },
                   stopListening: function () {},
                 })),
-                this.updateInfo_("connected", !1),
+                this.updateInfo_('connected', !1),
                 (this.serverSyncTree_ = new Re({
                   startListening: function (t, e, n, r) {
                     return (
@@ -8930,7 +8930,7 @@
             return (
               (t.prototype.toString = function () {
                 return (
-                  (this.repoInfo_.secure ? "https://" : "http://") +
+                  (this.repoInfo_.secure ? 'https://' : 'http://') +
                   this.repoInfo_.host
                 );
               }),
@@ -8940,7 +8940,7 @@
               (t.prototype.serverTime = function () {
                 var t =
                   this.infoData_
-                    .getNode(new B(".info/serverTimeOffset"))
+                    .getNode(new B('.info/serverTimeOffset'))
                     .val() || 0;
                 return new Date().getTime() + t;
               }),
@@ -8988,7 +8988,7 @@
                 this.interceptServerDataCallback_ = t;
               }),
               (t.prototype.onConnectStatus_ = function (t) {
-                this.updateInfo_("connected", t),
+                this.updateInfo_('connected', t),
                   !1 === t && this.runOnDisconnectEvents_();
               }),
               (t.prototype.onServerInfoUpdate_ = function (t) {
@@ -8998,7 +8998,7 @@
                 });
               }),
               (t.prototype.updateInfo_ = function (t, e) {
-                var n = new B("/.info/" + t),
+                var n = new B('/.info/' + t),
                   r = Yt(e);
                 this.infoData_.updateSnapshot(n, r);
                 var i = this.infoSyncTree_.applyServerOverwrite(n, r);
@@ -9009,7 +9009,7 @@
               }),
               (t.prototype.setWithPriority = function (t, e, n, r) {
                 var i = this;
-                this.log_("set", {
+                this.log_('set', {
                   path: t.toString(),
                   value: e,
                   priority: n,
@@ -9021,8 +9021,8 @@
                   c = this.serverSyncTree_.applyUserOverwrite(t, s, u, !0);
                 this.eventQueue_.queueEvents(c),
                   this.server_.put(t.toString(), a.val(!0), function (e, n) {
-                    var o = "ok" === e;
-                    o || A("set at " + t + " failed: " + e);
+                    var o = 'ok' === e;
+                    o || A('set at ' + t + ' failed: ' + e);
                     var a = i.serverSyncTree_.ackUserWrite(u, !o);
                     i.eventQueue_.raiseEventsForChangedPath(t, a),
                       i.callOnCompleteCallback(r, e, n);
@@ -9033,7 +9033,7 @@
               }),
               (t.prototype.update = function (t, e, n) {
                 var r = this;
-                this.log_("update", {
+                this.log_('update', {
                   path: t.toString(),
                   value: e,
                 });
@@ -9049,14 +9049,14 @@
                   i)
                 )
                   S("update() called with empty data.  Don't do anything."),
-                    this.callOnCompleteCallback(n, "ok");
+                    this.callOnCompleteCallback(n, 'ok');
                 else {
                   var s = this.getNextWriteId_(),
                     u = this.serverSyncTree_.applyUserMerge(t, a, s);
                   this.eventQueue_.queueEvents(u),
                     this.server_.merge(t.toString(), e, function (e, i) {
-                      var o = "ok" === e;
-                      o || A("update at " + t + " failed: " + e);
+                      var o = 'ok' === e;
+                      o || A('update at ' + t + ' failed: ' + e);
                       var a = r.serverSyncTree_.ackUserWrite(s, !o),
                         u = a.length > 0 ? r.rerunTransactions_(t) : t;
                       r.eventQueue_.raiseEventsForChangedPath(u, a),
@@ -9071,12 +9071,12 @@
               }),
               (t.prototype.runOnDisconnectEvents_ = function () {
                 var t = this;
-                this.log_("onDisconnectEvents");
+                this.log_('onDisconnectEvents');
                 var e = this.generateServerValues(),
                   n = (function (t, e) {
                     var n = new ae();
                     return (
-                      t.forEachTree(new B(""), function (t, r) {
+                      t.forEachTree(new B(''), function (t, r) {
                         n.remember(t, ue(r, e));
                       }),
                       n
@@ -9094,7 +9094,7 @@
               (t.prototype.onDisconnectCancel = function (t, e) {
                 var n = this;
                 this.server_.onDisconnectCancel(t.toString(), function (r, i) {
-                  "ok" === r && n.onDisconnect_.forget(t),
+                  'ok' === r && n.onDisconnect_.forget(t),
                     n.callOnCompleteCallback(e, r, i);
                 });
               }),
@@ -9105,7 +9105,7 @@
                   t.toString(),
                   i.val(!0),
                   function (e, o) {
-                    "ok" === e && r.onDisconnect_.remember(t, i),
+                    'ok' === e && r.onDisconnect_.remember(t, i),
                       r.callOnCompleteCallback(n, e, o);
                   }
                 );
@@ -9117,7 +9117,7 @@
                   t.toString(),
                   o.val(!0),
                   function (e, n) {
-                    "ok" === e && i.onDisconnect_.remember(t, o),
+                    'ok' === e && i.onDisconnect_.remember(t, o),
                       i.callOnCompleteCallback(r, e, n);
                   }
                 );
@@ -9129,13 +9129,13 @@
                     S(
                       "onDisconnect().update() called with empty data.  Don't do anything."
                     ),
-                    void this.callOnCompleteCallback(n, "ok")
+                    void this.callOnCompleteCallback(n, 'ok')
                   );
                 this.server_.onDisconnectMerge(
                   t.toString(),
                   e,
                   function (i, o) {
-                    "ok" === i &&
+                    'ok' === i &&
                       F(e, function (e, n) {
                         var i = Yt(n);
                         r.onDisconnect_.remember(t.child(e), i);
@@ -9147,7 +9147,7 @@
               (t.prototype.addEventCallbackForQuery = function (t, e) {
                 var n;
                 (n =
-                  ".info" === t.path.getFront()
+                  '.info' === t.path.getFront()
                     ? this.infoSyncTree_.addEventRegistration(t, e)
                     : this.serverSyncTree_.addEventRegistration(t, e)),
                   this.eventQueue_.raiseEventsAtPath(t.path, n);
@@ -9155,7 +9155,7 @@
               (t.prototype.removeEventCallbackForQuery = function (t, e) {
                 var n;
                 (n =
-                  ".info" === t.path.getFront()
+                  '.info' === t.path.getFront()
                     ? this.infoSyncTree_.removeEventRegistration(t, e)
                     : this.serverSyncTree_.removeEventRegistration(t, e)),
                   this.eventQueue_.raiseEventsAtPath(t.path, n);
@@ -9170,7 +9170,7 @@
               }),
               (t.prototype.stats = function (t) {
                 if (
-                  (void 0 === t && (t = !1), "undefined" !== typeof console)
+                  (void 0 === t && (t = !1), 'undefined' !== typeof console)
                 ) {
                   var e;
                   t
@@ -9182,7 +9182,7 @@
                     return Math.max(e.length, t);
                   }, 0);
                   F(e, function (t, e) {
-                    for (var r = t, i = t.length; i < n + 2; i++) r += " ";
+                    for (var r = t, i = t.length; i < n + 2; i++) r += ' ';
                     console.log(r + e);
                   });
                 }
@@ -9194,25 +9194,25 @@
               (t.prototype.log_ = function () {
                 for (var t = [], e = 0; e < arguments.length; e++)
                   t[e] = arguments[e];
-                var n = "";
+                var n = '';
                 this.persistentConnection_ &&
-                  (n = this.persistentConnection_.id + ":"),
+                  (n = this.persistentConnection_.id + ':'),
                   S.apply(void 0, u.__spread([n], t));
               }),
               (t.prototype.callOnCompleteCallback = function (t, e, n) {
                 t &&
                   W(function () {
-                    if ("ok" === e) t(null);
+                    if ('ok' === e) t(null);
                     else {
-                      var r = (e || "error").toUpperCase(),
+                      var r = (e || 'error').toUpperCase(),
                         i = r;
-                      n && (i += ": " + n);
+                      n && (i += ': ' + n);
                       var o = new Error(i);
                       (o.code = r), t(o);
                     }
                   });
               }),
-              Object.defineProperty(t.prototype, "database", {
+              Object.defineProperty(t.prototype, 'database', {
                 get: function () {
                   return this.__database || (this.__database = new gn(this));
                 },
@@ -9401,7 +9401,7 @@
                   };
                 } else o = this.index_.getCompare();
                 var s = t;
-                c.assert(s.numChildren() === this.limit_, "");
+                c.assert(s.numChildren() === this.limit_, '');
                 var u = new Ct(e, n),
                   h = this.reverse_
                     ? s.getFirstChild(this.index_)
@@ -9454,11 +9454,11 @@
                 (this.endSet_ = !1),
                 (this.endNameSet_ = !1),
                 (this.limit_ = 0),
-                (this.viewFrom_ = ""),
+                (this.viewFrom_ = ''),
                 (this.indexStartValue_ = null),
-                (this.indexStartName_ = ""),
+                (this.indexStartName_ = ''),
                 (this.indexEndValue_ = null),
-                (this.indexEndName_ = ""),
+                (this.indexEndName_ = ''),
                 (this.index_ = Lt);
             }
             return (
@@ -9466,20 +9466,20 @@
                 return this.startSet_;
               }),
               (t.prototype.isViewFromLeft = function () {
-                return "" === this.viewFrom_
+                return '' === this.viewFrom_
                   ? this.startSet_
                   : this.viewFrom_ ===
                       t.WIRE_PROTOCOL_CONSTANTS_.VIEW_FROM_LEFT;
               }),
               (t.prototype.getIndexStartValue = function () {
                 return (
-                  c.assert(this.startSet_, "Only valid if start has been set"),
+                  c.assert(this.startSet_, 'Only valid if start has been set'),
                   this.indexStartValue_
                 );
               }),
               (t.prototype.getIndexStartName = function () {
                 return (
-                  c.assert(this.startSet_, "Only valid if start has been set"),
+                  c.assert(this.startSet_, 'Only valid if start has been set'),
                   this.startNameSet_ ? this.indexStartName_ : P
                 );
               }),
@@ -9488,13 +9488,13 @@
               }),
               (t.prototype.getIndexEndValue = function () {
                 return (
-                  c.assert(this.endSet_, "Only valid if end has been set"),
+                  c.assert(this.endSet_, 'Only valid if end has been set'),
                   this.indexEndValue_
                 );
               }),
               (t.prototype.getIndexEndName = function () {
                 return (
-                  c.assert(this.endSet_, "Only valid if end has been set"),
+                  c.assert(this.endSet_, 'Only valid if end has been set'),
                   this.endNameSet_ ? this.indexEndName_ : k
                 );
               }),
@@ -9502,11 +9502,11 @@
                 return this.limitSet_;
               }),
               (t.prototype.hasAnchoredLimit = function () {
-                return this.limitSet_ && "" !== this.viewFrom_;
+                return this.limitSet_ && '' !== this.viewFrom_;
               }),
               (t.prototype.getLimit = function () {
                 return (
-                  c.assert(this.limitSet_, "Only valid if limit has been set"),
+                  c.assert(this.limitSet_, 'Only valid if limit has been set'),
                   this.limit_
                 );
               }),
@@ -9534,7 +9534,7 @@
               (t.prototype.limit = function (t) {
                 var e = this.copy_();
                 return (
-                  (e.limitSet_ = !0), (e.limit_ = t), (e.viewFrom_ = ""), e
+                  (e.limitSet_ = !0), (e.limit_ = t), (e.viewFrom_ = ''), e
                 );
               }),
               (t.prototype.limitToFirst = function (e) {
@@ -9563,7 +9563,7 @@
                   (n.indexStartValue_ = t),
                   null != e
                     ? ((n.startNameSet_ = !0), (n.indexStartName_ = e))
-                    : ((n.startNameSet_ = !1), (n.indexStartName_ = "")),
+                    : ((n.startNameSet_ = !1), (n.indexStartName_ = '')),
                   n
                 );
               }),
@@ -9575,7 +9575,7 @@
                   (n.indexEndValue_ = t),
                   void 0 !== e
                     ? ((n.endNameSet_ = !0), (n.indexEndName_ = e))
-                    : ((n.endNameSet_ = !1), (n.indexEndName_ = "")),
+                    : ((n.endNameSet_ = !1), (n.indexEndName_ = '')),
                   n
                 );
               }),
@@ -9599,7 +9599,7 @@
                 ) {
                   n[e.LIMIT] = this.limit_;
                   var r = this.viewFrom_;
-                  "" === r &&
+                  '' === r &&
                     (r = this.isViewFromLeft()
                       ? e.VIEW_FROM_LEFT
                       : e.VIEW_FROM_RIGHT),
@@ -9636,7 +9636,7 @@
                       ? (e = n.KEY_INDEX)
                       : (c.assert(
                           this.index_ instanceof Zt,
-                          "Unrecognized index type!"
+                          'Unrecognized index type!'
                         ),
                         (e = this.index_.toString())),
                     (r[n.ORDER_BY] = c.stringify(e)),
@@ -9644,11 +9644,11 @@
                       ((r[n.START_AT] = c.stringify(this.indexStartValue_)),
                       this.startNameSet_ &&
                         (r[n.START_AT] +=
-                          "," + c.stringify(this.indexStartName_))),
+                          ',' + c.stringify(this.indexStartName_))),
                     this.endSet_ &&
                       ((r[n.END_AT] = c.stringify(this.indexEndValue_)),
                       this.endNameSet_ &&
-                        (r[n.END_AT] += "," + c.stringify(this.indexEndName_))),
+                        (r[n.END_AT] += ',' + c.stringify(this.indexEndName_))),
                     this.limitSet_ &&
                       (this.isViewFromLeft()
                         ? (r[n.LIMIT_TO_FIRST] = this.limit_)
@@ -9657,25 +9657,25 @@
                 );
               }),
               (t.WIRE_PROTOCOL_CONSTANTS_ = {
-                INDEX_START_VALUE: "sp",
-                INDEX_START_NAME: "sn",
-                INDEX_END_VALUE: "ep",
-                INDEX_END_NAME: "en",
-                LIMIT: "l",
-                VIEW_FROM: "vf",
-                VIEW_FROM_LEFT: "l",
-                VIEW_FROM_RIGHT: "r",
-                INDEX: "i",
+                INDEX_START_VALUE: 'sp',
+                INDEX_START_NAME: 'sn',
+                INDEX_END_VALUE: 'ep',
+                INDEX_END_NAME: 'en',
+                LIMIT: 'l',
+                VIEW_FROM: 'vf',
+                VIEW_FROM_LEFT: 'l',
+                VIEW_FROM_RIGHT: 'r',
+                INDEX: 'i',
               }),
               (t.REST_QUERY_CONSTANTS_ = {
-                ORDER_BY: "orderBy",
-                PRIORITY_INDEX: "$priority",
-                VALUE_INDEX: "$value",
-                KEY_INDEX: "$key",
-                START_AT: "startAt",
-                END_AT: "endAt",
-                LIMIT_TO_FIRST: "limitToFirst",
-                LIMIT_TO_LAST: "limitToLast",
+                ORDER_BY: 'orderBy',
+                PRIORITY_INDEX: '$priority',
+                VALUE_INDEX: '$value',
+                KEY_INDEX: '$key',
+                START_AT: 'startAt',
+                END_AT: 'endAt',
+                LIMIT_TO_FIRST: 'limitToFirst',
+                LIMIT_TO_LAST: 'limitToLast',
               }),
               (t.DEFAULT = new t()),
               t
@@ -9685,7 +9685,7 @@
             function e(e, n) {
               if (!(e instanceof sn))
                 throw new Error(
-                  "new Reference() no longer supported - use app.database()."
+                  'new Reference() no longer supported - use app.database().'
                 );
               return t.call(this, e, n, hn.DEFAULT, !1) || this;
             }
@@ -9693,29 +9693,29 @@
               u.__extends(e, t),
               (e.prototype.getKey = function () {
                 return (
-                  c.validateArgCount("Reference.key", 0, 0, arguments.length),
+                  c.validateArgCount('Reference.key', 0, 0, arguments.length),
                   this.path.isEmpty() ? null : this.path.getBack()
                 );
               }),
               (e.prototype.child = function (t) {
                 return (
-                  c.validateArgCount("Reference.child", 1, 1, arguments.length),
-                  "number" === typeof t
+                  c.validateArgCount('Reference.child', 1, 1, arguments.length),
+                  'number' === typeof t
                     ? (t = String(t))
                     : t instanceof B ||
                       (null === this.path.getFront()
-                        ? yt("Reference.child", 1, t, !1)
-                        : vt("Reference.child", 1, t, !1)),
+                        ? yt('Reference.child', 1, t, !1)
+                        : vt('Reference.child', 1, t, !1)),
                   new e(this.repo, this.path.child(t))
                 );
               }),
               (e.prototype.getParent = function () {
-                c.validateArgCount("Reference.parent", 0, 0, arguments.length);
+                c.validateArgCount('Reference.parent', 0, 0, arguments.length);
                 var t = this.path.parent();
                 return null === t ? null : new e(this.repo, t);
               }),
               (e.prototype.getRoot = function () {
-                c.validateArgCount("Reference.root", 0, 0, arguments.length);
+                c.validateArgCount('Reference.root', 0, 0, arguments.length);
                 for (var t = this; null !== t.getParent(); ) t = t.getParent();
                 return t;
               }),
@@ -9723,10 +9723,10 @@
                 return this.repo.database;
               }),
               (e.prototype.set = function (t, e) {
-                c.validateArgCount("Reference.set", 1, 2, arguments.length),
-                  gt("Reference.set", this.path),
-                  ct("Reference.set", 1, t, this.path, !1),
-                  c.validateCallback("Reference.set", 2, e, !0);
+                c.validateArgCount('Reference.set', 1, 2, arguments.length),
+                  gt('Reference.set', this.path),
+                  ct('Reference.set', 1, t, this.path, !1),
+                  c.validateCallback('Reference.set', 2, e, !0);
                 var n = new c.Deferred();
                 return (
                   this.repo.setWithPriority(
@@ -9741,22 +9741,22 @@
               (e.prototype.update = function (t, e) {
                 if (
                   (c.validateArgCount(
-                    "Reference.update",
+                    'Reference.update',
                     1,
                     2,
                     arguments.length
                   ),
-                  gt("Reference.update", this.path),
+                  gt('Reference.update', this.path),
                   Array.isArray(t))
                 ) {
-                  for (var n = {}, r = 0; r < t.length; ++r) n["" + r] = t[r];
+                  for (var n = {}, r = 0; r < t.length; ++r) n['' + r] = t[r];
                   (t = n),
                     A(
-                      "Passing an Array to Firebase.update() is deprecated. Use set() if you want to overwrite the existing data, or an Object with integer keys if you really do want to only update some of the children."
+                      'Passing an Array to Firebase.update() is deprecated. Use set() if you want to overwrite the existing data, or an Object with integer keys if you really do want to only update some of the children.'
                     );
                 }
-                lt("Reference.update", 1, t, this.path, !1),
-                  c.validateCallback("Reference.update", 2, e, !0);
+                lt('Reference.update', 1, t, this.path, !1),
+                  c.validateCallback('Reference.update', 2, e, !0);
                 var i = new c.Deferred();
                 return (
                   this.repo.update(this.path, t, i.wrapCallback(e)), i.promise
@@ -9765,21 +9765,21 @@
               (e.prototype.setWithPriority = function (t, e, n) {
                 if (
                   (c.validateArgCount(
-                    "Reference.setWithPriority",
+                    'Reference.setWithPriority',
                     2,
                     3,
                     arguments.length
                   ),
-                  gt("Reference.setWithPriority", this.path),
-                  ct("Reference.setWithPriority", 1, t, this.path, !1),
-                  ft("Reference.setWithPriority", 2, e, !1),
-                  c.validateCallback("Reference.setWithPriority", 3, n, !0),
-                  ".length" === this.getKey() || ".keys" === this.getKey())
+                  gt('Reference.setWithPriority', this.path),
+                  ct('Reference.setWithPriority', 1, t, this.path, !1),
+                  ft('Reference.setWithPriority', 2, e, !1),
+                  c.validateCallback('Reference.setWithPriority', 3, n, !0),
+                  '.length' === this.getKey() || '.keys' === this.getKey())
                 )
                   throw (
-                    "Reference.setWithPriority failed: " +
+                    'Reference.setWithPriority failed: ' +
                     this.getKey() +
-                    " is a read-only object."
+                    ' is a read-only object.'
                   );
                 var r = new c.Deferred();
                 return (
@@ -9790,41 +9790,41 @@
               (e.prototype.remove = function (t) {
                 return (
                   c.validateArgCount(
-                    "Reference.remove",
+                    'Reference.remove',
                     0,
                     1,
                     arguments.length
                   ),
-                  gt("Reference.remove", this.path),
-                  c.validateCallback("Reference.remove", 1, t, !0),
+                  gt('Reference.remove', this.path),
+                  c.validateCallback('Reference.remove', 1, t, !0),
                   this.set(null, t)
                 );
               }),
               (e.prototype.transaction = function (t, e, n) {
                 if (
                   (c.validateArgCount(
-                    "Reference.transaction",
+                    'Reference.transaction',
                     1,
                     3,
                     arguments.length
                   ),
-                  gt("Reference.transaction", this.path),
-                  c.validateCallback("Reference.transaction", 1, t, !1),
-                  c.validateCallback("Reference.transaction", 2, e, !0),
-                  _t("Reference.transaction", 3, n, !0),
-                  ".length" === this.getKey() || ".keys" === this.getKey())
+                  gt('Reference.transaction', this.path),
+                  c.validateCallback('Reference.transaction', 1, t, !1),
+                  c.validateCallback('Reference.transaction', 2, e, !0),
+                  _t('Reference.transaction', 3, n, !0),
+                  '.length' === this.getKey() || '.keys' === this.getKey())
                 )
                   throw (
-                    "Reference.transaction failed: " +
+                    'Reference.transaction failed: ' +
                     this.getKey() +
-                    " is a read-only object."
+                    ' is a read-only object.'
                   );
                 void 0 === n && (n = !0);
                 var r = new c.Deferred();
-                "function" === typeof e && r.promise.catch(function () {});
+                'function' === typeof e && r.promise.catch(function () {});
                 var i = function (t, n, i) {
                   t ? r.reject(t) : r.resolve(new wt(n, i)),
-                    "function" === typeof e && e(t, n, i);
+                    'function' === typeof e && e(t, n, i);
                 };
                 return (
                   this.repo.startTransaction(this.path, t, i, n), r.promise
@@ -9832,18 +9832,18 @@
               }),
               (e.prototype.setPriority = function (t, e) {
                 c.validateArgCount(
-                  "Reference.setPriority",
+                  'Reference.setPriority',
                   1,
                   2,
                   arguments.length
                 ),
-                  gt("Reference.setPriority", this.path),
-                  ft("Reference.setPriority", 1, t, !1),
-                  c.validateCallback("Reference.setPriority", 2, e, !0);
+                  gt('Reference.setPriority', this.path),
+                  ft('Reference.setPriority', 1, t, !1),
+                  c.validateCallback('Reference.setPriority', 2, e, !0);
                 var n = new c.Deferred();
                 return (
                   this.repo.setWithPriority(
-                    this.path.child(".priority"),
+                    this.path.child('.priority'),
                     t,
                     null,
                     n.wrapCallback(e)
@@ -9852,10 +9852,10 @@
                 );
               }),
               (e.prototype.push = function (t, e) {
-                c.validateArgCount("Reference.push", 0, 2, arguments.length),
-                  gt("Reference.push", this.path),
-                  ct("Reference.push", 1, t, this.path, !0),
-                  c.validateCallback("Reference.push", 2, e, !0);
+                c.validateArgCount('Reference.push', 0, 2, arguments.length),
+                  gt('Reference.push', this.path),
+                  ct('Reference.push', 1, t, this.path, !0),
+                  c.validateCallback('Reference.push', 2, e, !0);
                 var n,
                   r = this.repo.serverTime(),
                   i = Et(r),
@@ -9870,38 +9870,38 @@
                       : Promise.resolve(a)),
                   (o.then = n.then.bind(n)),
                   (o.catch = n.then.bind(n, void 0)),
-                  "function" === typeof e && n.catch(function () {}),
+                  'function' === typeof e && n.catch(function () {}),
                   o
                 );
               }),
               (e.prototype.onDisconnect = function () {
                 return (
-                  gt("Reference.onDisconnect", this.path),
+                  gt('Reference.onDisconnect', this.path),
                   new bt(this.repo, this.path)
                 );
               }),
-              Object.defineProperty(e.prototype, "database", {
+              Object.defineProperty(e.prototype, 'database', {
                 get: function () {
                   return this.databaseProp();
                 },
                 enumerable: !0,
                 configurable: !0,
               }),
-              Object.defineProperty(e.prototype, "key", {
+              Object.defineProperty(e.prototype, 'key', {
                 get: function () {
                   return this.getKey();
                 },
                 enumerable: !0,
                 configurable: !0,
               }),
-              Object.defineProperty(e.prototype, "parent", {
+              Object.defineProperty(e.prototype, 'parent', {
                 get: function () {
                   return this.getParent();
                 },
                 enumerable: !0,
                 configurable: !0,
               }),
-              Object.defineProperty(e.prototype, "root", {
+              Object.defineProperty(e.prototype, 'root', {
                 get: function () {
                   return this.getRoot();
                 },
@@ -9918,7 +9918,7 @@
           },
           dn = (function () {
             function t(t, e, n) {
-              void 0 === t && (t = ""),
+              void 0 === t && (t = ''),
                 void 0 === e && (e = null),
                 void 0 === n && (n = new pn()),
                 (this.name_ = t),
@@ -9944,8 +9944,8 @@
               }),
               (t.prototype.setValue = function (t) {
                 c.assert(
-                  "undefined" !== typeof t,
-                  "Cannot set value to undefined"
+                  'undefined' !== typeof t,
+                  'Cannot set value to undefined'
                 ),
                   (this.node_.value = t),
                   this.updateParents_();
@@ -9993,7 +9993,7 @@
                 return new B(
                   null === this.parent_
                     ? this.name_
-                    : this.parent_.path() + "/" + this.name_
+                    : this.parent_.path() + '/' + this.name_
                 );
               }),
               (t.prototype.name = function () {
@@ -10023,21 +10023,21 @@
             );
           })();
         !(function (t) {
-          (t[(t.RUN = 0)] = "RUN"),
-            (t[(t.SENT = 1)] = "SENT"),
-            (t[(t.COMPLETED = 2)] = "COMPLETED"),
-            (t[(t.SENT_NEEDS_ABORT = 3)] = "SENT_NEEDS_ABORT"),
-            (t[(t.NEEDS_ABORT = 4)] = "NEEDS_ABORT");
+          (t[(t.RUN = 0)] = 'RUN'),
+            (t[(t.SENT = 1)] = 'SENT'),
+            (t[(t.COMPLETED = 2)] = 'COMPLETED'),
+            (t[(t.SENT_NEEDS_ABORT = 3)] = 'SENT_NEEDS_ABORT'),
+            (t[(t.NEEDS_ABORT = 4)] = 'NEEDS_ABORT');
         })(fn || (fn = {})),
           (sn.MAX_TRANSACTION_RETRIES_ = 25),
           (sn.prototype.transactionsInit_ = function () {
             this.transactionQueueTree_ = new dn();
           }),
           (sn.prototype.startTransaction = function (t, e, n, r) {
-            this.log_("transaction on " + t);
+            this.log_('transaction on ' + t);
             var o = function () {},
               a = new ln(this, t);
-            a.on("value", o);
+            a.on('value', o);
             var s = {
                 path: t,
                 update: e,
@@ -10047,7 +10047,7 @@
                 applyLocally: r,
                 retryCount: 0,
                 unwatcher: function () {
-                  a.off("value", o);
+                  a.off('value', o);
                 },
                 abortReason: null,
                 currentWriteId: null,
@@ -10073,17 +10073,17 @@
                 s.onComplete(null, !1, l);
               }
             } else {
-              ht("transaction failed: Data returned ", h, s.path),
+              ht('transaction failed: Data returned ', h, s.path),
                 (s.status = fn.RUN);
               var f = this.transactionQueueTree_.subTree(t),
                 p = f.getValue() || [];
               p.push(s), f.setValue(p);
               var d = void 0;
-              if ("object" === i(h) && null !== h && c.contains(h, ".priority"))
-                (d = c.safeGet(h, ".priority")),
+              if ('object' === i(h) && null !== h && c.contains(h, '.priority'))
+                (d = c.safeGet(h, '.priority')),
                   c.assert(
                     ut(d),
-                    "Invalid priority returned by transaction. Priority must be a valid string, finite number, server value, or null."
+                    'Invalid priority returned by transaction. Priority must be a valid string, finite number, server value, or null.'
                   );
               else
                 d = (
@@ -10122,7 +10122,7 @@
               null !== t.getValue())
             ) {
               var n = this.buildTransactionQueue_(t);
-              c.assert(n.length > 0, "Sending zero length transaction queue"),
+              c.assert(n.length > 0, 'Sending zero length transaction queue'),
                 n.every(function (t) {
                   return t.status === fn.RUN;
                 }) && this.sendTransactionQueue_(t.path(), n);
@@ -10148,7 +10148,7 @@
               var u = e[s];
               c.assert(
                 u.status === fn.RUN,
-                "tryToSendTransactionQueue_: items in queue should all be run."
+                'tryToSendTransactionQueue_: items in queue should all be run.'
               ),
                 (u.status = fn.SENT),
                 u.retryCount++;
@@ -10161,12 +10161,12 @@
               f.toString(),
               l,
               function (r) {
-                n.log_("transaction put response", {
+                n.log_('transaction put response', {
                   path: f.toString(),
                   status: r,
                 });
                 var i = [];
-                if ("ok" === r) {
+                if ('ok' === r) {
                   for (var o = [], a = 0; a < e.length; a++) {
                     if (
                       ((e[a].status = fn.COMPLETED),
@@ -10189,13 +10189,13 @@
                     n.eventQueue_.raiseEventsForChangedPath(t, i);
                   for (a = 0; a < o.length; a++) W(o[a]);
                 } else {
-                  if ("datastale" === r)
+                  if ('datastale' === r)
                     for (a = 0; a < e.length; a++)
                       e[a].status === fn.SENT_NEEDS_ABORT
                         ? (e[a].status = fn.NEEDS_ABORT)
                         : (e[a].status = fn.RUN);
                   else {
-                    A("transaction at " + f.toString() + " failed: " + r);
+                    A('transaction at ' + f.toString() + ' failed: ' + r);
                     for (a = 0; a < e.length; a++)
                       (e[a].status = fn.NEEDS_ABORT), (e[a].abortReason = r);
                   }
@@ -10235,7 +10235,7 @@
                 if (
                   (c.assert(
                     null !== h,
-                    "rerunTransactionsUnderNode_: relativePath should not be null."
+                    'rerunTransactionsUnderNode_: relativePath should not be null.'
                   ),
                   u.status === fn.NEEDS_ABORT)
                 )
@@ -10247,7 +10247,7 @@
                 else if (u.status === fn.RUN)
                   if (u.retryCount >= sn.MAX_TRANSACTION_RETRIES_)
                     (l = !0),
-                      (f = "maxretry"),
+                      (f = 'maxretry'),
                       (o = o.concat(
                         this.serverSyncTree_.ackUserWrite(u.currentWriteId, !0)
                       ));
@@ -10256,11 +10256,11 @@
                     u.currentInputSnapshot = p;
                     var d = t[s].update(p.val());
                     if (void 0 !== d) {
-                      ht("transaction failed: Data returned ", d, u.path);
+                      ht('transaction failed: Data returned ', d, u.path);
                       var v = Yt(d);
-                      ("object" === i(d) &&
+                      ('object' === i(d) &&
                         null != d &&
-                        c.contains(d, ".priority")) ||
+                        c.contains(d, '.priority')) ||
                         (v = v.updatePriority(p.getPriority()));
                       var y = u.currentWriteId,
                         g = this.generateServerValues(),
@@ -10279,7 +10279,7 @@
                         )).concat(this.serverSyncTree_.ackUserWrite(y, !0)));
                     } else
                       (l = !0),
-                        (f = "nodata"),
+                        (f = 'nodata'),
                         (o = o.concat(
                           this.serverSyncTree_.ackUserWrite(
                             u.currentWriteId,
@@ -10296,7 +10296,7 @@
                     setTimeout(n, Math.floor(0)),
                     t[s].onComplete))
                 )
-                  if ("nodata" === f) {
+                  if ('nodata' === f) {
                     var _ = new ln(this, t[s].path),
                       b = t[s].currentInputSnapshot,
                       w = new te(b, _, Lt);
@@ -10371,15 +10371,15 @@
                 else if (e[o].status === fn.SENT)
                   c.assert(
                     i === o - 1,
-                    "All SENT items should be at beginning of queue."
+                    'All SENT items should be at beginning of queue.'
                   ),
                     (i = o),
                     (e[o].status = fn.SENT_NEEDS_ABORT),
-                    (e[o].abortReason = "set");
+                    (e[o].abortReason = 'set');
                 else if (
                   (c.assert(
                     e[o].status === fn.RUN,
-                    "Unexpected transaction status in abort"
+                    'Unexpected transaction status in abort'
                   ),
                   e[o].unwatcher(),
                   (r = r.concat(
@@ -10388,7 +10388,7 @@
                   e[o].onComplete)
                 ) {
                   n.push(
-                    e[o].onComplete.bind(null, new Error("set"), !1, null)
+                    e[o].onComplete.bind(null, new Error('set'), !1, null)
                   );
                 }
               -1 === i ? t.setValue(null) : (e.length = i + 1),
@@ -10505,15 +10505,15 @@
                   a = o.repoInfo,
                   s = void 0;
                 return (
-                  "undefined" !== typeof r &&
+                  'undefined' !== typeof r &&
                     (s = r.env.FIREBASE_DATABASE_EMULATOR_HOST),
                   s &&
-                    ((i = "http://" + s + "?ns=" + a.namespace),
+                    ((i = 'http://' + s + '?ns=' + a.namespace),
                     (a = (o = et(i)).repoInfo)),
-                  mt("Invalid Firebase Database URL", 1, o),
+                  mt('Invalid Firebase Database URL', 1, o),
                   o.path.isEmpty() ||
                     N(
-                      "Database URL must point to the root of a Firebase Database (not including a child path)."
+                      'Database URL must point to the root of a Firebase Database (not including a child path).'
                     ),
                   this.createRepo(a, t, e).database
                 );
@@ -10522,11 +10522,11 @@
                 var e = c.safeGet(this.repos_, t.app.name);
                 (e && c.safeGet(e, t.repoInfo_.toURLString()) === t) ||
                   N(
-                    "Database " +
+                    'Database ' +
                       t.app.name +
-                      "(" +
+                      '(' +
                       t.repoInfo_ +
-                      ") has already been deleted."
+                      ') has already been deleted.'
                   ),
                   t.interrupt(),
                   delete e[t.repoInfo_.toURLString()];
@@ -10538,7 +10538,7 @@
                 return (
                   i &&
                     N(
-                      "Database initialized multiple times. Please make sure the format of the database URL matches with each database() call."
+                      'Database initialized multiple times. Please make sure the format of the database URL matches with each database() call.'
                     ),
                   (i = new sn(t, this.useRestClient_, e, n)),
                   (r[t.toURLString()] = i),
@@ -10562,7 +10562,7 @@
                 (this.INTERNAL = new mn(this));
             }
             return (
-              Object.defineProperty(t.prototype, "app", {
+              Object.defineProperty(t.prototype, 'app', {
                 get: function () {
                   return this.repo_.app;
                 },
@@ -10571,8 +10571,8 @@
               }),
               (t.prototype.ref = function (t) {
                 return (
-                  this.checkDeleted_("ref"),
-                  c.validateArgCount("database.ref", 0, 1, arguments.length),
+                  this.checkDeleted_('ref'),
+                  c.validateArgCount('database.ref', 0, 1, arguments.length),
                   t instanceof ln
                     ? this.refFromURL(t.toString())
                     : void 0 !== t
@@ -10581,7 +10581,7 @@
                 );
               }),
               (t.prototype.refFromURL = function (t) {
-                var e = "database.refFromURL";
+                var e = 'database.refFromURL';
                 this.checkDeleted_(e),
                   c.validateArgCount(e, 1, 1, arguments.length);
                 var n = et(t);
@@ -10591,37 +10591,37 @@
                   r.host !== this.repo_.repoInfo_.host &&
                     N(
                       e +
-                        ": Host name does not match the current database: (found " +
+                        ': Host name does not match the current database: (found ' +
                         r.host +
-                        " but expected " +
+                        ' but expected ' +
                         this.repo_.repoInfo_.host +
-                        ")"
+                        ')'
                     ),
                   this.ref(n.path.toString())
                 );
               }),
               (t.prototype.checkDeleted_ = function (t) {
                 null === this.repo_ &&
-                  N("Cannot call " + t + " on a deleted database.");
+                  N('Cannot call ' + t + ' on a deleted database.');
               }),
               (t.prototype.goOffline = function () {
                 c.validateArgCount(
-                  "database.goOffline",
+                  'database.goOffline',
                   0,
                   0,
                   arguments.length
                 ),
-                  this.checkDeleted_("goOffline"),
+                  this.checkDeleted_('goOffline'),
                   this.repo_.interrupt();
               }),
               (t.prototype.goOnline = function () {
-                c.validateArgCount("database.goOnline", 0, 0, arguments.length),
-                  this.checkDeleted_("goOnline"),
+                c.validateArgCount('database.goOnline', 0, 0, arguments.length),
+                  this.checkDeleted_('goOnline'),
                   this.repo_.resume();
               }),
               (t.ServerValue = {
                 TIMESTAMP: {
-                  ".sv": "timestamp",
+                  '.sv': 'timestamp',
                 },
               }),
               t
@@ -10636,7 +10636,7 @@
                 return u.__awaiter(this, void 0, void 0, function () {
                   return u.__generator(this, function (t) {
                     return (
-                      this.database.checkDeleted_("delete"),
+                      this.database.checkDeleted_('delete'),
                       yn.getInstance().deleteRepo(this.database.repo_),
                       (this.database.repo_ = null),
                       (this.database.root_ = null),
@@ -10680,7 +10680,7 @@
           bn = rn;
         (rn.prototype.simpleListen = function (t, e) {
           this.sendRequest(
-            "q",
+            'q',
             {
               p: t,
             },
@@ -10689,7 +10689,7 @@
         }),
           (rn.prototype.echo = function (t, e) {
             this.sendRequest(
-              "echo",
+              'echo',
               {
                 d: t,
               },
@@ -10729,13 +10729,13 @@
           })(e.SDK_VERSION);
           var n = e.INTERNAL.registerComponent(
             new l.Component(
-              "database",
+              'database',
               function (t, e) {
-                var n = t.getProvider("app").getImmediate(),
-                  r = t.getProvider("auth-internal");
+                var n = t.getProvider('app').getImmediate(),
+                  r = t.getProvider('auth-internal');
                 return yn.getInstance().databaseFromApp(n, r, e);
               },
-              "PUBLIC"
+              'PUBLIC'
             )
               .setServiceProps({
                 Reference: ln,
@@ -10749,7 +10749,7 @@
               })
               .setMultipleInstances(!0)
           );
-          e.registerVersion("@firebase/database", "0.5.24"),
+          e.registerVersion('@firebase/database', '0.5.24'),
             c.isNodeSdk() && (t.exports = n);
         }
         In(s),
@@ -10764,30 +10764,30 @@
       }.call(this, n(89)));
     },
     1156: function (t, e, n) {
-      "use strict";
+      'use strict';
       (function (t) {
         var e = n(42),
           r = n.n(e);
 
         function i(t) {
           return (i =
-            "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+            'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
                 }
               : function (t) {
                   return t &&
-                    "function" === typeof Symbol &&
+                    'function' === typeof Symbol &&
                     t.constructor === Symbol &&
                     t !== Symbol.prototype
-                    ? "symbol"
+                    ? 'symbol'
                     : typeof t;
                 })(t);
         }
         (function () {
           var e,
             n =
-              "function" == typeof Object.defineProperties
+              'function' == typeof Object.defineProperties
                 ? Object.defineProperty
                 : function (t, e, n) {
                     t != Array.prototype &&
@@ -10796,12 +10796,12 @@
                   };
           var o = (function (e) {
             e = [
-              "object" ==
-                ("undefined" === typeof window ? "undefined" : i(window)) &&
+              'object' ==
+                ('undefined' === typeof window ? 'undefined' : i(window)) &&
                 window,
-              "object" ==
-                ("undefined" === typeof self ? "undefined" : i(self)) && self,
-              "object" == ("undefined" === typeof t ? "undefined" : i(t)) && t,
+              'object' ==
+                ('undefined' === typeof self ? 'undefined' : i(self)) && self,
+              'object' == ('undefined' === typeof t ? 'undefined' : i(t)) && t,
               e,
             ];
             for (var n = 0; n < e.length; ++n) {
@@ -10827,7 +10827,7 @@
 
           function s(t) {
             var e =
-              "undefined" != typeof Symbol &&
+              'undefined' != typeof Symbol &&
               Symbol.iterator &&
               t[Symbol.iterator];
             return e
@@ -10839,7 +10839,7 @@
           !(function (t, e) {
             if (e) {
               var r = o;
-              t = t.split(".");
+              t = t.split('.');
               for (var i = 0; i < t.length - 1; i++) {
                 var a = t[i];
                 a in r || (r[a] = {}), (r = r[a]);
@@ -10852,7 +10852,7 @@
                   value: e,
                 });
             }
-          })("Promise", function (t) {
+          })('Promise', function (t) {
             function e(t) {
               (this.b = 0), (this.c = void 0), (this.a = []);
               var e = this.f();
@@ -10925,14 +10925,14 @@
               }),
               (e.prototype.m = function (t) {
                 if (t === this)
-                  this.g(new TypeError("A Promise cannot resolve to itself"));
+                  this.g(new TypeError('A Promise cannot resolve to itself'));
                 else if (t instanceof e) this.s(t);
                 else {
                   t: switch (i(t)) {
-                    case "object":
+                    case 'object':
                       var n = null != t;
                       break t;
-                    case "function":
+                    case 'function':
                       n = !0;
                       break t;
                     default:
@@ -10948,7 +10948,7 @@
                 } catch (n) {
                   return void this.g(n);
                 }
-                "function" == typeof e ? this.w(e, t) : this.h(t);
+                'function' == typeof e ? this.w(e, t) : this.h(t);
               }),
               (e.prototype.g = function (t) {
                 this.i(2, t);
@@ -10959,11 +10959,11 @@
               (e.prototype.i = function (t, e) {
                 if (0 != this.b)
                   throw Error(
-                    "Cannot settle(" +
+                    'Cannot settle(' +
                       t +
-                      ", " +
+                      ', ' +
                       e +
-                      "): Promise already settled in state" +
+                      '): Promise already settled in state' +
                       this.b
                   );
                 (this.b = t), (this.c = e), this.l();
@@ -10990,7 +10990,7 @@
               }),
               (e.prototype.then = function (t, n) {
                 function r(t, e) {
-                  return "function" == typeof t
+                  return 'function' == typeof t
                     ? function (e) {
                         try {
                           i(t(e));
@@ -11020,7 +11020,7 @@
                       e(r.c);
                       break;
                     default:
-                      throw Error("Unexpected state: " + r.b);
+                      throw Error('Unexpected state: ' + r.b);
                   }
                 }
                 var r = this;
@@ -11071,46 +11071,46 @@
 
           function p(t) {
             var e = i(t);
-            if ("object" == e) {
-              if (!t) return "null";
-              if (t instanceof Array) return "array";
+            if ('object' == e) {
+              if (!t) return 'null';
+              if (t instanceof Array) return 'array';
               if (t instanceof Object) return e;
               var n = Object.prototype.toString.call(t);
-              if ("[object Window]" == n) return "object";
+              if ('[object Window]' == n) return 'object';
               if (
-                "[object Array]" == n ||
-                ("number" == typeof t.length &&
-                  "undefined" != typeof t.splice &&
-                  "undefined" != typeof t.propertyIsEnumerable &&
-                  !t.propertyIsEnumerable("splice"))
+                '[object Array]' == n ||
+                ('number' == typeof t.length &&
+                  'undefined' != typeof t.splice &&
+                  'undefined' != typeof t.propertyIsEnumerable &&
+                  !t.propertyIsEnumerable('splice'))
               )
-                return "array";
+                return 'array';
               if (
-                "[object Function]" == n ||
-                ("undefined" != typeof t.call &&
-                  "undefined" != typeof t.propertyIsEnumerable &&
-                  !t.propertyIsEnumerable("call"))
+                '[object Function]' == n ||
+                ('undefined' != typeof t.call &&
+                  'undefined' != typeof t.propertyIsEnumerable &&
+                  !t.propertyIsEnumerable('call'))
               )
-                return "function";
-            } else if ("function" == e && "undefined" == typeof t.call)
-              return "object";
+                return 'function';
+            } else if ('function' == e && 'undefined' == typeof t.call)
+              return 'object';
             return e;
           }
 
           function d(t) {
             var e = p(t);
             return (
-              "array" == e || ("object" == e && "number" == typeof t.length)
+              'array' == e || ('object' == e && 'number' == typeof t.length)
             );
           }
 
           function v(t) {
-            return "function" == p(t);
+            return 'function' == p(t);
           }
 
           function y(t) {
             var e = i(t);
-            return ("object" == e && null != t) || "function" == e;
+            return ('object' == e && null != t) || 'function' == e;
           }
 
           function g(t) {
@@ -11119,7 +11119,7 @@
               (t[m] = ++_)
             );
           }
-          var m = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
+          var m = 'closure_uid_' + ((1e9 * Math.random()) >>> 0),
             _ = 0;
 
           function b(t, e, n) {
@@ -11143,7 +11143,7 @@
           function E(t, e, n) {
             return (E =
               Function.prototype.bind &&
-              -1 != Function.prototype.bind.toString().indexOf("native code")
+              -1 != Function.prototype.bind.toString().indexOf('native code')
                 ? b
                 : w).apply(null, arguments);
           }
@@ -11171,7 +11171,7 @@
 
           function T(t, e, n) {
             (this.code = O + t),
-              (this.message = e || P[t] || ""),
+              (this.message = e || P[t] || ''),
               (this.a = n || null);
           }
 
@@ -11193,200 +11193,200 @@
               return this.v();
             });
           var A,
-            O = "auth/",
+            O = 'auth/',
             P = {
-              "admin-restricted-operation":
-                "This operation is restricted to administrators only.",
-              "argument-error": "",
-              "app-not-authorized":
+              'admin-restricted-operation':
+                'This operation is restricted to administrators only.',
+              'argument-error': '',
+              'app-not-authorized':
                 "This app, identified by the domain where it's hosted, is not authorized to use Firebase Authentication with the provided API key. Review your key configuration in the Google API console.",
-              "app-not-installed":
-                "The requested mobile application corresponding to the identifier (Android package name or iOS bundle ID) provided is not installed on this device.",
-              "captcha-check-failed":
-                "The reCAPTCHA response token provided is either invalid, expired, already used or the domain associated with it does not match the list of whitelisted domains.",
-              "code-expired":
-                "The SMS code has expired. Please re-send the verification code to try again.",
-              "cordova-not-ready": "Cordova framework is not ready.",
-              "cors-unsupported": "This browser is not supported.",
-              "credential-already-in-use":
-                "This credential is already associated with a different user account.",
-              "custom-token-mismatch":
-                "The custom token corresponds to a different audience.",
-              "requires-recent-login":
-                "This operation is sensitive and requires recent authentication. Log in again before retrying this request.",
-              "dynamic-link-not-activated":
-                "Please activate Dynamic Links in the Firebase Console and agree to the terms and conditions.",
-              "email-change-needs-verification":
-                "Multi-factor users must always have a verified email.",
-              "email-already-in-use":
-                "The email address is already in use by another account.",
-              "expired-action-code": "The action code has expired. ",
-              "cancelled-popup-request":
-                "This operation has been cancelled due to another conflicting popup being opened.",
-              "internal-error": "An internal error has occurred.",
-              "invalid-app-credential":
-                "The phone verification request contains an invalid application verifier. The reCAPTCHA token response is either invalid or expired.",
-              "invalid-app-id":
-                "The mobile app identifier is not registed for the current project.",
-              "invalid-user-token":
+              'app-not-installed':
+                'The requested mobile application corresponding to the identifier (Android package name or iOS bundle ID) provided is not installed on this device.',
+              'captcha-check-failed':
+                'The reCAPTCHA response token provided is either invalid, expired, already used or the domain associated with it does not match the list of whitelisted domains.',
+              'code-expired':
+                'The SMS code has expired. Please re-send the verification code to try again.',
+              'cordova-not-ready': 'Cordova framework is not ready.',
+              'cors-unsupported': 'This browser is not supported.',
+              'credential-already-in-use':
+                'This credential is already associated with a different user account.',
+              'custom-token-mismatch':
+                'The custom token corresponds to a different audience.',
+              'requires-recent-login':
+                'This operation is sensitive and requires recent authentication. Log in again before retrying this request.',
+              'dynamic-link-not-activated':
+                'Please activate Dynamic Links in the Firebase Console and agree to the terms and conditions.',
+              'email-change-needs-verification':
+                'Multi-factor users must always have a verified email.',
+              'email-already-in-use':
+                'The email address is already in use by another account.',
+              'expired-action-code': 'The action code has expired. ',
+              'cancelled-popup-request':
+                'This operation has been cancelled due to another conflicting popup being opened.',
+              'internal-error': 'An internal error has occurred.',
+              'invalid-app-credential':
+                'The phone verification request contains an invalid application verifier. The reCAPTCHA token response is either invalid or expired.',
+              'invalid-app-id':
+                'The mobile app identifier is not registed for the current project.',
+              'invalid-user-token':
                 "This user's credential isn't valid for this project. This can happen if the user's token has been tampered with, or if the user isn't for the project associated with this API key.",
-              "invalid-auth-event": "An internal error has occurred.",
-              "invalid-verification-code":
-                "The SMS verification code used to create the phone auth credential is invalid. Please resend the verification code sms and be sure use the verification code provided by the user.",
-              "invalid-continue-uri":
-                "The continue URL provided in the request is invalid.",
-              "invalid-cordova-configuration":
-                "The following Cordova plugins must be installed to enable OAuth sign-in: cordova-plugin-buildinfo, cordova-universal-links-plugin, cordova-plugin-browsertab, cordova-plugin-inappbrowser and cordova-plugin-customurlscheme.",
-              "invalid-custom-token":
-                "The custom token format is incorrect. Please check the documentation.",
-              "invalid-dynamic-link-domain":
-                "The provided dynamic link domain is not configured or authorized for the current project.",
-              "invalid-email": "The email address is badly formatted.",
-              "invalid-api-key":
-                "Your API key is invalid, please check you have copied it correctly.",
-              "invalid-cert-hash":
-                "The SHA-1 certificate hash provided is invalid.",
-              "invalid-credential":
-                "The supplied auth credential is malformed or has expired.",
-              "invalid-message-payload":
-                "The email template corresponding to this action contains invalid characters in its message. Please fix by going to the Auth email templates section in the Firebase Console.",
-              "invalid-multi-factor-session":
-                "The request does not contain a valid proof of first factor successful sign-in.",
-              "invalid-oauth-provider":
-                "EmailAuthProvider is not supported for this operation. This operation only supports OAuth providers.",
-              "invalid-oauth-client-id":
-                "The OAuth client ID provided is either invalid or does not match the specified API key.",
-              "unauthorized-domain":
-                "This domain is not authorized for OAuth operations for your Firebase project. Edit the list of authorized domains from the Firebase console.",
-              "invalid-action-code":
-                "The action code is invalid. This can happen if the code is malformed, expired, or has already been used.",
-              "wrong-password":
-                "The password is invalid or the user does not have a password.",
-              "invalid-persistence-type":
-                "The specified persistence type is invalid. It can only be local, session or none.",
-              "invalid-phone-number":
-                "The format of the phone number provided is incorrect. Please enter the phone number in a format that can be parsed into E.164 format. E.164 phone numbers are written in the format [+][country code][subscriber number including area code].",
-              "invalid-provider-id": "The specified provider ID is invalid.",
-              "invalid-recipient-email":
-                "The email corresponding to this action failed to send as the provided recipient email address is invalid.",
-              "invalid-sender":
-                "The email template corresponding to this action contains an invalid sender email or name. Please fix by going to the Auth email templates section in the Firebase Console.",
-              "invalid-verification-id":
-                "The verification ID used to create the phone auth credential is invalid.",
-              "invalid-tenant-id": "The Auth instance's tenant ID is invalid.",
-              "multi-factor-info-not-found":
-                "The user does not have a second factor matching the identifier provided.",
-              "multi-factor-auth-required":
-                "Proof of ownership of a second factor is required to complete sign-in.",
-              "missing-android-pkg-name":
-                "An Android Package Name must be provided if the Android App is required to be installed.",
-              "auth-domain-config-required":
-                "Be sure to include authDomain when calling firebase.initializeApp(), by following the instructions in the Firebase console.",
-              "missing-app-credential":
-                "The phone verification request is missing an application verifier assertion. A reCAPTCHA response token needs to be provided.",
-              "missing-verification-code":
-                "The phone auth credential was created with an empty SMS verification code.",
-              "missing-continue-uri":
-                "A continue URL must be provided in the request.",
-              "missing-iframe-start": "An internal error has occurred.",
-              "missing-ios-bundle-id":
-                "An iOS Bundle ID must be provided if an App Store ID is provided.",
-              "missing-multi-factor-info":
-                "No second factor identifier is provided.",
-              "missing-multi-factor-session":
-                "The request is missing proof of first factor successful sign-in.",
-              "missing-or-invalid-nonce":
-                "The request does not contain a valid nonce. This can occur if the SHA-256 hash of the provided raw nonce does not match the hashed nonce in the ID token payload.",
-              "missing-phone-number":
-                "To send verification codes, provide a phone number for the recipient.",
-              "missing-verification-id":
-                "The phone auth credential was created with an empty verification ID.",
-              "app-deleted": "This instance of FirebaseApp has been deleted.",
-              "account-exists-with-different-credential":
-                "An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address.",
-              "network-request-failed":
-                "A network error (such as timeout, interrupted connection or unreachable host) has occurred.",
-              "no-auth-event": "An internal error has occurred.",
-              "no-such-provider":
-                "User was not linked to an account with the given provider.",
-              "null-user":
-                "A null user object was provided as the argument for an operation which requires a non-null user object.",
-              "operation-not-allowed":
-                "The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.",
-              "operation-not-supported-in-this-environment":
+              'invalid-auth-event': 'An internal error has occurred.',
+              'invalid-verification-code':
+                'The SMS verification code used to create the phone auth credential is invalid. Please resend the verification code sms and be sure use the verification code provided by the user.',
+              'invalid-continue-uri':
+                'The continue URL provided in the request is invalid.',
+              'invalid-cordova-configuration':
+                'The following Cordova plugins must be installed to enable OAuth sign-in: cordova-plugin-buildinfo, cordova-universal-links-plugin, cordova-plugin-browsertab, cordova-plugin-inappbrowser and cordova-plugin-customurlscheme.',
+              'invalid-custom-token':
+                'The custom token format is incorrect. Please check the documentation.',
+              'invalid-dynamic-link-domain':
+                'The provided dynamic link domain is not configured or authorized for the current project.',
+              'invalid-email': 'The email address is badly formatted.',
+              'invalid-api-key':
+                'Your API key is invalid, please check you have copied it correctly.',
+              'invalid-cert-hash':
+                'The SHA-1 certificate hash provided is invalid.',
+              'invalid-credential':
+                'The supplied auth credential is malformed or has expired.',
+              'invalid-message-payload':
+                'The email template corresponding to this action contains invalid characters in its message. Please fix by going to the Auth email templates section in the Firebase Console.',
+              'invalid-multi-factor-session':
+                'The request does not contain a valid proof of first factor successful sign-in.',
+              'invalid-oauth-provider':
+                'EmailAuthProvider is not supported for this operation. This operation only supports OAuth providers.',
+              'invalid-oauth-client-id':
+                'The OAuth client ID provided is either invalid or does not match the specified API key.',
+              'unauthorized-domain':
+                'This domain is not authorized for OAuth operations for your Firebase project. Edit the list of authorized domains from the Firebase console.',
+              'invalid-action-code':
+                'The action code is invalid. This can happen if the code is malformed, expired, or has already been used.',
+              'wrong-password':
+                'The password is invalid or the user does not have a password.',
+              'invalid-persistence-type':
+                'The specified persistence type is invalid. It can only be local, session or none.',
+              'invalid-phone-number':
+                'The format of the phone number provided is incorrect. Please enter the phone number in a format that can be parsed into E.164 format. E.164 phone numbers are written in the format [+][country code][subscriber number including area code].',
+              'invalid-provider-id': 'The specified provider ID is invalid.',
+              'invalid-recipient-email':
+                'The email corresponding to this action failed to send as the provided recipient email address is invalid.',
+              'invalid-sender':
+                'The email template corresponding to this action contains an invalid sender email or name. Please fix by going to the Auth email templates section in the Firebase Console.',
+              'invalid-verification-id':
+                'The verification ID used to create the phone auth credential is invalid.',
+              'invalid-tenant-id': "The Auth instance's tenant ID is invalid.",
+              'multi-factor-info-not-found':
+                'The user does not have a second factor matching the identifier provided.',
+              'multi-factor-auth-required':
+                'Proof of ownership of a second factor is required to complete sign-in.',
+              'missing-android-pkg-name':
+                'An Android Package Name must be provided if the Android App is required to be installed.',
+              'auth-domain-config-required':
+                'Be sure to include authDomain when calling firebase.initializeApp(), by following the instructions in the Firebase console.',
+              'missing-app-credential':
+                'The phone verification request is missing an application verifier assertion. A reCAPTCHA response token needs to be provided.',
+              'missing-verification-code':
+                'The phone auth credential was created with an empty SMS verification code.',
+              'missing-continue-uri':
+                'A continue URL must be provided in the request.',
+              'missing-iframe-start': 'An internal error has occurred.',
+              'missing-ios-bundle-id':
+                'An iOS Bundle ID must be provided if an App Store ID is provided.',
+              'missing-multi-factor-info':
+                'No second factor identifier is provided.',
+              'missing-multi-factor-session':
+                'The request is missing proof of first factor successful sign-in.',
+              'missing-or-invalid-nonce':
+                'The request does not contain a valid nonce. This can occur if the SHA-256 hash of the provided raw nonce does not match the hashed nonce in the ID token payload.',
+              'missing-phone-number':
+                'To send verification codes, provide a phone number for the recipient.',
+              'missing-verification-id':
+                'The phone auth credential was created with an empty verification ID.',
+              'app-deleted': 'This instance of FirebaseApp has been deleted.',
+              'account-exists-with-different-credential':
+                'An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address.',
+              'network-request-failed':
+                'A network error (such as timeout, interrupted connection or unreachable host) has occurred.',
+              'no-auth-event': 'An internal error has occurred.',
+              'no-such-provider':
+                'User was not linked to an account with the given provider.',
+              'null-user':
+                'A null user object was provided as the argument for an operation which requires a non-null user object.',
+              'operation-not-allowed':
+                'The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.',
+              'operation-not-supported-in-this-environment':
                 'This operation is not supported in the environment this application is running on. "location.protocol" must be http, https or chrome-extension and web storage must be enabled.',
-              "popup-blocked":
-                "Unable to establish a connection with the popup. It may have been blocked by the browser.",
-              "popup-closed-by-user":
-                "The popup has been closed by the user before finalizing the operation.",
-              "provider-already-linked":
-                "User can only be linked to one identity for the given provider.",
-              "quota-exceeded":
+              'popup-blocked':
+                'Unable to establish a connection with the popup. It may have been blocked by the browser.',
+              'popup-closed-by-user':
+                'The popup has been closed by the user before finalizing the operation.',
+              'provider-already-linked':
+                'User can only be linked to one identity for the given provider.',
+              'quota-exceeded':
                 "The project's quota for this operation has been exceeded.",
-              "redirect-cancelled-by-user":
-                "The redirect operation has been cancelled by the user before finalizing.",
-              "redirect-operation-pending":
-                "A redirect sign-in operation is already pending.",
-              "rejected-credential":
-                "The request contains malformed or mismatching credentials.",
-              "second-factor-already-in-use":
-                "The second factor is already enrolled on this account.",
-              "maximum-second-factor-count-exceeded":
-                "The maximum allowed number of second factors on a user has been exceeded.",
-              "tenant-id-mismatch":
+              'redirect-cancelled-by-user':
+                'The redirect operation has been cancelled by the user before finalizing.',
+              'redirect-operation-pending':
+                'A redirect sign-in operation is already pending.',
+              'rejected-credential':
+                'The request contains malformed or mismatching credentials.',
+              'second-factor-already-in-use':
+                'The second factor is already enrolled on this account.',
+              'maximum-second-factor-count-exceeded':
+                'The maximum allowed number of second factors on a user has been exceeded.',
+              'tenant-id-mismatch':
                 "The provided tenant ID does not match the Auth instance's tenant ID",
-              timeout: "The operation has timed out.",
-              "user-token-expired":
+              timeout: 'The operation has timed out.',
+              'user-token-expired':
                 "The user's credential is no longer valid. The user must sign in again.",
-              "too-many-requests":
-                "We have blocked all requests from this device due to unusual activity. Try again later.",
-              "unauthorized-continue-uri":
-                "The domain of the continue URL is not whitelisted.  Please whitelist the domain in the Firebase console.",
-              "unsupported-first-factor":
-                "Enrolling a second factor or signing in with a multi-factor account requires sign-in with a supported first factor.",
-              "unsupported-persistence-type":
-                "The current environment does not support the specified persistence type.",
-              "unsupported-tenant-operation":
-                "This operation is not supported in a multi-tenant context.",
-              "unverified-email": "The operation requires a verified email.",
-              "user-cancelled":
-                "The user did not grant your application the permissions it requested.",
-              "user-not-found":
-                "There is no user record corresponding to this identifier. The user may have been deleted.",
-              "user-disabled":
-                "The user account has been disabled by an administrator.",
-              "user-mismatch":
-                "The supplied credentials do not correspond to the previously signed in user.",
-              "user-signed-out": "",
-              "weak-password":
-                "The password must be 6 characters long or more.",
-              "web-storage-unsupported":
-                "This browser is not supported or 3rd party cookies and data may be disabled.",
+              'too-many-requests':
+                'We have blocked all requests from this device due to unusual activity. Try again later.',
+              'unauthorized-continue-uri':
+                'The domain of the continue URL is not whitelisted.  Please whitelist the domain in the Firebase console.',
+              'unsupported-first-factor':
+                'Enrolling a second factor or signing in with a multi-factor account requires sign-in with a supported first factor.',
+              'unsupported-persistence-type':
+                'The current environment does not support the specified persistence type.',
+              'unsupported-tenant-operation':
+                'This operation is not supported in a multi-tenant context.',
+              'unverified-email': 'The operation requires a verified email.',
+              'user-cancelled':
+                'The user did not grant your application the permissions it requested.',
+              'user-not-found':
+                'There is no user record corresponding to this identifier. The user may have been deleted.',
+              'user-disabled':
+                'The user account has been disabled by an administrator.',
+              'user-mismatch':
+                'The supplied credentials do not correspond to the previously signed in user.',
+              'user-signed-out': '',
+              'weak-password':
+                'The password must be 6 characters long or more.',
+              'web-storage-unsupported':
+                'This browser is not supported or 3rd party cookies and data may be disabled.',
             },
             k = {
               hd: {
-                Ra: "https://staging-identitytoolkit.sandbox.googleapis.com/identitytoolkit/v3/relyingparty/",
-                Xa: "https://staging-securetoken.sandbox.googleapis.com/v1/token",
-                Ua: "https://staging-identitytoolkit.sandbox.googleapis.com/v2/",
-                id: "b",
+                Ra: 'https://staging-identitytoolkit.sandbox.googleapis.com/identitytoolkit/v3/relyingparty/',
+                Xa: 'https://staging-securetoken.sandbox.googleapis.com/v1/token',
+                Ua: 'https://staging-identitytoolkit.sandbox.googleapis.com/v2/',
+                id: 'b',
               },
               pd: {
-                Ra: "https://www.googleapis.com/identitytoolkit/v3/relyingparty/",
-                Xa: "https://securetoken.googleapis.com/v1/token",
-                Ua: "https://identitytoolkit.googleapis.com/v2/",
-                id: "p",
+                Ra: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/',
+                Xa: 'https://securetoken.googleapis.com/v1/token',
+                Ua: 'https://identitytoolkit.googleapis.com/v2/',
+                id: 'p',
               },
               rd: {
-                Ra: "https://staging-www.sandbox.googleapis.com/identitytoolkit/v3/relyingparty/",
-                Xa: "https://staging-securetoken.sandbox.googleapis.com/v1/token",
-                Ua: "https://staging-identitytoolkit.sandbox.googleapis.com/v2/",
-                id: "s",
+                Ra: 'https://staging-www.sandbox.googleapis.com/identitytoolkit/v3/relyingparty/',
+                Xa: 'https://staging-securetoken.sandbox.googleapis.com/v1/token',
+                Ua: 'https://staging-identitytoolkit.sandbox.googleapis.com/v2/',
+                id: 's',
               },
               sd: {
-                Ra: "https://www-googleapis-test.sandbox.google.com/identitytoolkit/v3/relyingparty/",
-                Xa: "https://test-securetoken.sandbox.googleapis.com/v1/token",
-                Ua: "https://test-identitytoolkit.sandbox.googleapis.com/v2/",
-                id: "t",
+                Ra: 'https://www-googleapis-test.sandbox.google.com/identitytoolkit/v3/relyingparty/',
+                Xa: 'https://test-securetoken.sandbox.googleapis.com/v1/token',
+                Ua: 'https://test-identitytoolkit.sandbox.googleapis.com/v2/',
+                id: 't',
               },
             };
 
@@ -11421,17 +11421,17 @@
 
           function L(t, e) {
             for (
-              var n = "", r = (t = t.split("%s")).length - 1, i = 0;
+              var n = '', r = (t = t.split('%s')).length - 1, i = 0;
               i < r;
               i++
             )
-              n += t[i] + (i < e.length ? e[i] : "%s");
+              n += t[i] + (i < e.length ? e[i] : '%s');
             D.call(this, n + t[r]);
           }
 
           function M(t, e) {
             throw new L(
-              "Failure" + (t ? ": " + t : ""),
+              'Failure' + (t ? ': ' + t : ''),
               Array.prototype.slice.call(arguments, 1)
             );
           }
@@ -11447,11 +11447,11 @@
           function U() {
             this.b = this.a = null;
           }
-          (A = x("__EID__") ? "__EID__" : void 0),
+          (A = x('__EID__') ? '__EID__' : void 0),
             I(D, Error),
-            (D.prototype.name = "CustomError"),
+            (D.prototype.name = 'CustomError'),
             I(L, D),
-            (L.prototype.name = "AssertionError"),
+            (L.prototype.name = 'AssertionError'),
             (F.prototype.get = function () {
               if (0 < this.b) {
                 this.b--;
@@ -11502,8 +11502,8 @@
                   return Array.prototype.indexOf.call(t, e, void 0);
                 }
               : function (t, e) {
-                  if ("string" === typeof t)
-                    return "string" !== typeof e || 1 != e.length
+                  if ('string' === typeof t)
+                    return 'string' !== typeof e || 1 != e.length
                       ? -1
                       : t.indexOf(e, 0);
                   for (var n = 0; n < t.length; n++)
@@ -11517,7 +11517,7 @@
               : function (t, e, n) {
                   for (
                     var r = t.length,
-                      i = "string" === typeof t ? t.split("") : t,
+                      i = 'string' === typeof t ? t.split('') : t,
                       o = 0;
                     o < r;
                     o++
@@ -11533,7 +11533,7 @@
                     var n = t.length,
                       r = [],
                       i = 0,
-                      o = "string" === typeof t ? t.split("") : t,
+                      o = 'string' === typeof t ? t.split('') : t,
                       a = 0;
                     a < n;
                     a++
@@ -11552,7 +11552,7 @@
                   for (
                     var n = t.length,
                       r = Array(n),
-                      i = "string" === typeof t ? t.split("") : t,
+                      i = 'string' === typeof t ? t.split('') : t,
                       o = 0;
                     o < n;
                     o++
@@ -11567,7 +11567,7 @@
               : function (t, e) {
                   for (
                     var n = t.length,
-                      r = "string" === typeof t ? t.split("") : t,
+                      r = 'string' === typeof t ? t.split('') : t,
                       i = 0;
                     i < n;
                     i++
@@ -11591,7 +11591,7 @@
           function X(t, e) {
             !(function (t, e) {
               for (
-                var n = "string" === typeof t ? t.split("") : t,
+                var n = 'string' === typeof t ? t.split('') : t,
                   r = t.length - 1;
                 0 <= r;
                 --r
@@ -11648,7 +11648,7 @@
                 break t;
               }
             }
-            Z = "";
+            Z = '';
           }
 
           function ft(t) {
@@ -11671,8 +11671,8 @@
             return n;
           }
           var yt =
-            "constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(
-              " "
+            'constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf'.split(
+              ' '
             );
 
           function gt(t, e) {
@@ -11698,7 +11698,7 @@
             }
             if (
               o &&
-              "undefined" != typeof o[e] &&
+              'undefined' != typeof o[e] &&
               (!t ||
                 (!(t instanceof o[e]) &&
                   (t instanceof o.Location || t instanceof o.Element)))
@@ -11710,11 +11710,11 @@
                     t.constructor.name ||
                     Object.prototype.toString.call(t);
                 } catch (s) {
-                  a = "<object could not be stringified>";
+                  a = '<object could not be stringified>';
                 }
-              else a = void 0 === t ? "undefined" : null === t ? "null" : i(t);
+              else a = void 0 === t ? 'undefined' : null === t ? 'null' : i(t);
               M(
-                "Argument is not a %s (or a non-Element, non-Location mock); got: %s",
+                'Argument is not a %s (or a non-Element, non-Location mock); got: %s',
                 e,
                 a
               );
@@ -11722,28 +11722,28 @@
           }
 
           function _t(t, e) {
-            (this.a = (t === Et && e) || ""), (this.b = wt);
+            (this.a = (t === Et && e) || ''), (this.b = wt);
           }
 
           function bt(t) {
             return t instanceof _t && t.constructor === _t && t.b === wt
               ? t.a
               : (M("expected object of type Const, got '" + t + "'"),
-                "type_error:Const");
+                'type_error:Const');
           }
           (_t.prototype.ra = !0),
             (_t.prototype.qa = function () {
               return this.a;
             }),
             (_t.prototype.toString = function () {
-              return "Const{" + this.a + "}";
+              return 'Const{' + this.a + '}';
             });
           var wt = {},
             Et = {},
-            Ct = new _t(Et, "");
+            Ct = new _t(Et, '');
 
           function St(t, e) {
-            (this.a = (t === Pt && e) || ""), (this.b = Ot);
+            (this.a = (t === Pt && e) || ''), (this.b = Ot);
           }
 
           function It(t) {
@@ -11755,13 +11755,13 @@
                     "' of type " +
                     p(t)
                 ),
-                "type_error:TrustedResourceUrl");
+                'type_error:TrustedResourceUrl');
           }
 
           function Tt(t, e) {
             var n = bt(t);
             if (!At.test(n))
-              throw Error("Invalid TrustedResourceUrl format: " + n);
+              throw Error('Invalid TrustedResourceUrl format: ' + n);
             return (
               (t = n.replace(Nt, function (t, r) {
                 if (!Object.prototype.hasOwnProperty.call(e, r))
@@ -11785,7 +11785,7 @@
               return this.a.toString();
             }),
             (St.prototype.toString = function () {
-              return "TrustedResourceUrl{" + this.a + "}";
+              return 'TrustedResourceUrl{' + this.a + '}';
             });
           var Nt = /%{(\w+)}/g,
             At =
@@ -11794,7 +11794,7 @@
             Pt = {};
 
           function kt(t, e) {
-            (this.a = (t === Mt && e) || ""), (this.b = Lt);
+            (this.a = (t === Mt && e) || ''), (this.b = Lt);
           }
 
           function xt(t) {
@@ -11806,29 +11806,29 @@
                     "' of type " +
                     p(t)
                 ),
-                "type_error:SafeUrl");
+                'type_error:SafeUrl');
           }
           (kt.prototype.ra = !0),
             (kt.prototype.qa = function () {
               return this.a.toString();
             }),
             (kt.prototype.toString = function () {
-              return "SafeUrl{" + this.a + "}";
+              return 'SafeUrl{' + this.a + '}';
             });
           var Rt = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i;
 
           function Dt(t) {
             return t instanceof kt
               ? t
-              : ((t = "object" == i(t) && t.ra ? t.qa() : String(t)),
-                Rt.test(t) || (t = "about:invalid#zClosurez"),
+              : ((t = 'object' == i(t) && t.ra ? t.qa() : String(t)),
+                Rt.test(t) || (t = 'about:invalid#zClosurez'),
                 new kt(Mt, t));
           }
           var Lt = {},
             Mt = {};
 
           function Ft() {
-            (this.a = ""), (this.b = Ut);
+            (this.a = ''), (this.b = Ut);
           }
 
           function jt(t) {
@@ -11840,14 +11840,14 @@
                     "' of type " +
                     p(t)
                 ),
-                "type_error:SafeHtml");
+                'type_error:SafeHtml');
           }
           (Ft.prototype.ra = !0),
             (Ft.prototype.qa = function () {
               return this.a.toString();
             }),
             (Ft.prototype.toString = function () {
-              return "SafeHtml{" + this.a + "}";
+              return 'SafeHtml{' + this.a + '}';
             });
           var Ut = {};
 
@@ -11855,57 +11855,57 @@
             var e = new Ft();
             return (e.a = t), e;
           }
-          Vt("<!DOCTYPE html>");
-          var Wt = Vt("");
+          Vt('<!DOCTYPE html>');
+          var Wt = Vt('');
 
           function qt(t, e) {
             for (
-              var n = t.split("%s"),
-                r = "",
+              var n = t.split('%s'),
+                r = '',
                 i = Array.prototype.slice.call(arguments, 1);
               i.length && 1 < n.length;
 
             )
               r += n.shift() + i.shift();
-            return r + n.join("%s");
+            return r + n.join('%s');
           }
 
           function Bt(t) {
             return (
               st.test(t) &&
-                (-1 != t.indexOf("&") && (t = t.replace(et, "&amp;")),
-                -1 != t.indexOf("<") && (t = t.replace(nt, "&lt;")),
-                -1 != t.indexOf(">") && (t = t.replace(rt, "&gt;")),
-                -1 != t.indexOf('"') && (t = t.replace(it, "&quot;")),
-                -1 != t.indexOf("'") && (t = t.replace(ot, "&#39;")),
-                -1 != t.indexOf("\0") && (t = t.replace(at, "&#0;"))),
+                (-1 != t.indexOf('&') && (t = t.replace(et, '&amp;')),
+                -1 != t.indexOf('<') && (t = t.replace(nt, '&lt;')),
+                -1 != t.indexOf('>') && (t = t.replace(rt, '&gt;')),
+                -1 != t.indexOf('"') && (t = t.replace(it, '&quot;')),
+                -1 != t.indexOf("'") && (t = t.replace(ot, '&#39;')),
+                -1 != t.indexOf('\0') && (t = t.replace(at, '&#0;'))),
               t
             );
           }
 
           function Ht(t) {
-            return Ht[" "](t), t;
+            return Ht[' '](t), t;
           }
-          Vt("<br>"), (Ht[" "] = f);
+          Vt('<br>'), (Ht[' '] = f);
           var Qt,
             Kt,
-            Gt = ft("Opera"),
-            zt = ft("Trident") || ft("MSIE"),
-            Yt = ft("Edge"),
+            Gt = ft('Opera'),
+            zt = ft('Trident') || ft('MSIE'),
+            Yt = ft('Edge'),
             Xt = Yt || zt,
             $t =
-              ft("Gecko") &&
-              !(ut(Z.toLowerCase(), "webkit") && !ft("Edge")) &&
-              !(ft("Trident") || ft("MSIE")) &&
-              !ft("Edge"),
-            Jt = ut(Z.toLowerCase(), "webkit") && !ft("Edge");
+              ft('Gecko') &&
+              !(ut(Z.toLowerCase(), 'webkit') && !ft('Edge')) &&
+              !(ft('Trident') || ft('MSIE')) &&
+              !ft('Edge'),
+            Jt = ut(Z.toLowerCase(), 'webkit') && !ft('Edge');
 
           function Zt() {
             var t = c.document;
             return t ? t.documentMode : void 0;
           }
           t: {
-            var te = "",
+            var te = '',
               ee =
                 ((Kt = Z),
                 $t
@@ -11919,7 +11919,7 @@
                   : Gt
                   ? /(?:Version)[ \/]?(\S+)/.exec(Kt)
                   : void 0);
-            if ((ee && (te = ee ? ee[1] : ""), zt)) {
+            if ((ee && (te = ee ? ee[1] : ''), zt)) {
               var ne = Zt();
               if (null != ne && ne > parseFloat(te)) {
                 Qt = String(ne);
@@ -11940,19 +11940,19 @@
             })(t, function () {
               for (
                 var e = 0,
-                  n = tt(String(Qt)).split("."),
-                  r = tt(String(t)).split("."),
+                  n = tt(String(Qt)).split('.'),
+                  r = tt(String(t)).split('.'),
                   i = Math.max(n.length, r.length),
                   o = 0;
                 0 == e && o < i;
                 o++
               ) {
-                var a = n[o] || "",
-                  s = r[o] || "";
+                var a = n[o] || '',
+                  s = r[o] || '';
                 do {
                   if (
-                    ((a = /(\d*)(\D*)(.*)/.exec(a) || ["", "", "", ""]),
-                    (s = /(\d*)(\D*)(.*)/.exec(s) || ["", "", "", ""]),
+                    ((a = /(\d*)(\D*)(.*)/.exec(a) || ['', '', '', '']),
+                    (s = /(\d*)(\D*)(.*)/.exec(s) || ['', '', '', '']),
                     0 == a[0].length && 0 == s[0].length)
                   )
                     break;
@@ -11972,28 +11972,28 @@
           }
           re = c.document && zt ? Zt() : void 0;
           try {
-            new self.OffscreenCanvas(0, 0).getContext("2d");
+            new self.OffscreenCanvas(0, 0).getContext('2d');
           } catch (Kt) {}
           var ae = !zt || 9 <= Number(re);
 
           function se(t) {
             var e = document;
-            return "string" === typeof t ? e.getElementById(t) : t;
+            return 'string' === typeof t ? e.getElementById(t) : t;
           }
 
           function ue(t, e) {
             pt(e, function (e, n) {
-              e && "object" == i(e) && e.ra && (e = e.qa()),
-                "style" == n
+              e && 'object' == i(e) && e.ra && (e = e.qa()),
+                'style' == n
                   ? (t.style.cssText = e)
-                  : "class" == n
+                  : 'class' == n
                   ? (t.className = e)
-                  : "for" == n
+                  : 'for' == n
                   ? (t.htmlFor = e)
                   : le.hasOwnProperty(n)
                   ? t.setAttribute(le[n], e)
-                  : 0 == n.lastIndexOf("aria-", 0) ||
-                    0 == n.lastIndexOf("data-", 0)
+                  : 0 == n.lastIndexOf('aria-', 0) ||
+                    0 == n.lastIndexOf('data-', 0)
                   ? t.setAttribute(n, e)
                   : (t[n] = e);
             });
@@ -12001,25 +12001,25 @@
           var ce,
             he,
             le = {
-              cellpadding: "cellPadding",
-              cellspacing: "cellSpacing",
-              colspan: "colSpan",
-              frameborder: "frameBorder",
-              height: "height",
-              maxlength: "maxLength",
-              nonce: "nonce",
-              role: "role",
-              rowspan: "rowSpan",
-              type: "type",
-              usemap: "useMap",
-              valign: "vAlign",
-              width: "width",
+              cellpadding: 'cellPadding',
+              cellspacing: 'cellSpacing',
+              colspan: 'colSpan',
+              frameborder: 'frameBorder',
+              height: 'height',
+              maxlength: 'maxLength',
+              nonce: 'nonce',
+              role: 'role',
+              rowspan: 'rowSpan',
+              type: 'type',
+              usemap: 'useMap',
+              valign: 'vAlign',
+              width: 'width',
             };
 
           function fe(t, e, n) {
             function r(n) {
               n &&
-                e.appendChild("string" === typeof n ? t.createTextNode(n) : n);
+                e.appendChild('string' === typeof n ? t.createTextNode(n) : n);
             }
             for (var i = 2; i < n.length; i++) {
               var o = n[i];
@@ -12030,17 +12030,17 @@
           function pe(t, e) {
             return (
               (e = String(e)),
-              "application/xhtml+xml" === t.contentType &&
+              'application/xhtml+xml' === t.contentType &&
                 (e = e.toLowerCase()),
               t.createElement(e)
             );
           }
 
           function de(t) {
-            if (t && "number" == typeof t.length) {
+            if (t && 'number' == typeof t.length) {
               if (y(t))
-                return "function" == typeof t.item || "string" == typeof t.item;
-              if (v(t)) return "function" == typeof t.item;
+                return 'function' == typeof t.item || 'string' == typeof t.item;
+              if (v(t)) return 'function' == typeof t.item;
             }
             return !1;
           }
@@ -12054,32 +12054,32 @@
           function ye() {
             var t = c.MessageChannel;
             if (
-              ("undefined" === typeof t &&
-                "undefined" !== typeof window &&
+              ('undefined' === typeof t &&
+                'undefined' !== typeof window &&
                 window.postMessage &&
                 window.addEventListener &&
-                !ft("Presto") &&
+                !ft('Presto') &&
                 (t = function () {
-                  var t = pe(document, "IFRAME");
-                  (t.style.display = "none"),
+                  var t = pe(document, 'IFRAME');
+                  (t.style.display = 'none'),
                     (function (t) {
                       var e = new St(Pt, bt(Ct));
-                      mt(t, "HTMLIFrameElement"), (t.src = It(e).toString());
+                      mt(t, 'HTMLIFrameElement'), (t.src = It(e).toString());
                     })(t),
                     document.documentElement.appendChild(t);
                   var e = t.contentWindow;
                   (t = e.document).open(), t.write(jt(Wt)), t.close();
-                  var n = "callImmediate" + Math.random(),
+                  var n = 'callImmediate' + Math.random(),
                     r =
-                      "file:" == e.location.protocol
-                        ? "*"
-                        : e.location.protocol + "//" + e.location.host;
+                      'file:' == e.location.protocol
+                        ? '*'
+                        : e.location.protocol + '//' + e.location.host;
                   (t = E(function (t) {
-                    ("*" != r && t.origin != r) ||
+                    ('*' != r && t.origin != r) ||
                       t.data != n ||
                       this.port1.onmessage();
                   }, this)),
-                    e.addEventListener("message", t, !1),
+                    e.addEventListener('message', t, !1),
                     (this.port1 = {}),
                     (this.port2 = {
                       postMessage: function () {
@@ -12087,7 +12087,7 @@
                       },
                     });
                 }),
-              "undefined" !== typeof t && !ft("Trident") && !ft("MSIE"))
+              'undefined' !== typeof t && !ft('Trident') && !ft('MSIE'))
             ) {
               var e = new t(),
                 n = {},
@@ -12127,7 +12127,7 @@
                     !v(c.setImmediate) ||
                     (c.Window &&
                       c.Window.prototype &&
-                      !ft("Edge") &&
+                      !ft('Edge') &&
                       c.Window.prototype.setImmediate == c.setImmediate)
                       ? (ce || (ce = ye()), ce(t))
                       : c.setImmediate(t);
@@ -12170,7 +12170,7 @@
                     if (!(t instanceof qe))
                       try {
                         if (t instanceof Error) throw t;
-                        throw Error("Promise rejected.");
+                        throw Error('Promise rejected.');
                       } catch (e) {}
                     Le(n, Se, t);
                   }
@@ -12313,7 +12313,7 @@
             t.a == Ee &&
               (t === n &&
                 ((e = Se),
-                (n = new TypeError("Promise cannot resolve to itself"))),
+                (n = new TypeError('Promise cannot resolve to itself'))),
               (t.a = 1),
               Me(n, t.Yc, t.Zc, t) ||
                 ((t.i = n),
@@ -12428,7 +12428,7 @@
               (this.wa = this.wa),
               (this.na = this.na);
           }
-          I(qe, D), (qe.prototype.name = "cancel");
+          I(qe, D), (qe.prototype.name = 'cancel');
           var He = 0,
             Qe = {};
 
@@ -12453,18 +12453,18 @@
                 return t;
               },
             ze = !zt || 9 <= Number(re),
-            Ye = zt && !oe("9"),
+            Ye = zt && !oe('9'),
             Xe = (function () {
               if (!c.addEventListener || !Object.defineProperty) return !1;
               var t = !1,
-                e = Object.defineProperty({}, "passive", {
+                e = Object.defineProperty({}, 'passive', {
                   get: function () {
                     t = !0;
                   },
                 });
               try {
-                c.addEventListener("test", f, e),
-                  c.removeEventListener("test", f, e);
+                c.addEventListener('test', f, e),
+                  c.removeEventListener('test', f, e);
               } catch (n) {}
               return t;
             })();
@@ -12477,7 +12477,7 @@
 
           function Je(t, e) {
             if (
-              ($e.call(this, t ? t.type : ""),
+              ($e.call(this, t ? t.type : ''),
               (this.relatedTarget = this.b = this.target = null),
               (this.button =
                 this.screenY =
@@ -12485,10 +12485,10 @@
                 this.clientY =
                 this.clientX =
                   0),
-              (this.key = ""),
+              (this.key = ''),
               (this.metaKey = this.shiftKey = this.altKey = this.ctrlKey = !1),
               (this.pointerId = 0),
-              (this.pointerType = ""),
+              (this.pointerType = ''),
               (this.a = null),
               t)
             ) {
@@ -12514,9 +12514,9 @@
                   i || (e = null);
                 }
               } else
-                "mouseover" == n
+                'mouseover' == n
                   ? (e = t.fromElement)
-                  : "mouseout" == n && (e = t.toElement);
+                  : 'mouseout' == n && (e = t.toElement);
               (this.relatedTarget = e),
                 r
                   ? ((this.clientX =
@@ -12530,16 +12530,16 @@
                     (this.screenX = t.screenX || 0),
                     (this.screenY = t.screenY || 0)),
                 (this.button = t.button),
-                (this.key = t.key || ""),
+                (this.key = t.key || ''),
                 (this.ctrlKey = t.ctrlKey),
                 (this.altKey = t.altKey),
                 (this.shiftKey = t.shiftKey),
                 (this.metaKey = t.metaKey),
                 (this.pointerId = t.pointerId || 0),
                 (this.pointerType =
-                  "string" === typeof t.pointerType
+                  'string' === typeof t.pointerType
                     ? t.pointerType
-                    : Ze[t.pointerType] || ""),
+                    : Ze[t.pointerType] || ''),
                 (this.a = t),
                 t.defaultPrevented && this.preventDefault();
             }
@@ -12549,9 +12549,9 @@
           }),
             I(Je, $e);
           var Ze = Ge({
-            2: "touch",
-            3: "pen",
-            4: "mouse",
+            2: 'touch',
+            3: 'pen',
+            4: 'mouse',
           });
           (Je.prototype.preventDefault = function () {
             Je.Za.preventDefault.call(this);
@@ -12566,7 +12566,7 @@
             (Je.prototype.f = function () {
               return this.a;
             });
-          var tn = "closure_listenable_" + ((1e6 * Math.random()) | 0),
+          var tn = 'closure_listenable_' + ((1e6 * Math.random()) | 0),
             en = 0;
 
           function nn(t, e, n, r, i) {
@@ -12618,7 +12618,7 @@
               e
             );
           };
-          var un = "closure_lm_" + ((1e6 * Math.random()) | 0),
+          var un = 'closure_lm_' + ((1e6 * Math.random()) | 0),
             cn = {};
 
           function hn(t, e, n, r, i) {
@@ -12633,7 +12633,7 @@
           }
 
           function ln(t, e, n, r, i, o) {
-            if (!e) throw Error("Invalid event type");
+            if (!e) throw Error('Invalid event type');
             var a = y(i) ? !!i.capture : !!i,
               s = _n(t);
             if (
@@ -12663,7 +12663,7 @@
               else {
                 if (!t.addListener || !t.removeListener)
                   throw Error(
-                    "addEventListener and attachEvent are unavailable."
+                    'addEventListener and attachEvent are unavailable.'
                   );
                 t.addListener(r);
               }
@@ -12703,7 +12703,7 @@
           }
 
           function dn(t) {
-            if ("number" !== typeof t && t && !t.ua) {
+            if ('number' !== typeof t && t && !t.ua) {
               var e = t.src;
               if (e && e[tn]) an(e.u, t);
               else {
@@ -12722,7 +12722,7 @@
           }
 
           function vn(t) {
-            return t in cn ? cn[t] : (cn[t] = "on" + t);
+            return t in cn ? cn[t] : (cn[t] = 'on' + t);
           }
 
           function yn(t, e, n, r) {
@@ -12749,7 +12749,7 @@
             if (!ze) {
               if (!e)
                 t: {
-                  e = ["window", "event"];
+                  e = ['window', 'event'];
                   for (var n = c, r = 0; r < e.length; r++)
                     if (null == (n = n[e[r]])) {
                       e = null;
@@ -12790,7 +12790,7 @@
           function _n(t) {
             return (t = t[un]) instanceof on ? t : null;
           }
-          var bn = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
+          var bn = '__closure_events_fn_' + ((1e9 * Math.random()) >>> 0);
 
           function wn(t) {
             return v(t)
@@ -12834,8 +12834,8 @@
           function Tn(t, e, n) {
             if (v(t)) n && (t = E(t, n));
             else {
-              if (!t || "function" != typeof t.handleEvent)
-                throw Error("Invalid listener argument");
+              if (!t || 'function' != typeof t.handleEvent)
+                throw Error('Invalid listener argument');
               t = E(t.handleEvent, t);
             }
             return 2147483647 < Number(e) ? -1 : c.setTimeout(t, e || 0);
@@ -12847,15 +12847,15 @@
               -1 ==
                 (e = Tn(function () {
                   n(void 0);
-                }, t)) && r(Error("Failed to schedule timer."));
+                }, t)) && r(Error('Failed to schedule timer.'));
             }).o(function (t) {
               throw (c.clearTimeout(e), t);
             });
           }
 
           function An(t) {
-            if (t.V && "function" == typeof t.V) return t.V();
-            if ("string" === typeof t) return t.split("");
+            if (t.V && 'function' == typeof t.V) return t.V();
+            if ('string' === typeof t) return t.split('');
             if (d(t)) {
               for (var e = [], n = t.length, r = 0; r < n; r++) e.push(t[r]);
               return e;
@@ -12865,9 +12865,9 @@
           }
 
           function On(t) {
-            if (t.X && "function" == typeof t.X) return t.X();
-            if (!t.V || "function" != typeof t.V) {
-              if (d(t) || "string" === typeof t) {
+            if (t.X && 'function' == typeof t.X) return t.X();
+            if (!t.V || 'function' != typeof t.V) {
+              if (d(t) || 'string' === typeof t) {
                 var e = [];
                 t = t.length;
                 for (var n = 0; n < t; n++) e.push(n);
@@ -12882,7 +12882,7 @@
             (this.b = {}), (this.a = []), (this.c = 0);
             var n = arguments.length;
             if (1 < n) {
-              if (n % 2) throw Error("Uneven number of arguments");
+              if (n % 2) throw Error('Uneven number of arguments');
               for (var r = 0; r < n; r += 2)
                 this.set(arguments[r], arguments[r + 1]);
             } else if (t)
@@ -12925,7 +12925,7 @@
               if (n) for (e = []; n; n = n.eb) e.push(n);
               n = this.Yb;
               var r = t.type || t;
-              if ("string" === typeof t) t = new $e(t, n);
+              if ('string' === typeof t) t = new $e(t, n);
               else if (t instanceof $e) t.target = t.target || n;
               else {
                 var i = t;
@@ -12986,9 +12986,9 @@
 
           function Dn(t, e) {
             var n;
-            (this.b = this.i = this.f = ""),
+            (this.b = this.i = this.f = ''),
               (this.l = null),
-              (this.g = this.c = ""),
+              (this.g = this.c = ''),
               (this.h = !1),
               t instanceof Dn
                 ? ((this.h = void 0 !== e ? e : t.h),
@@ -13001,24 +13001,24 @@
                   (this.g = t.g))
                 : t && (n = String(t).match(Rn))
                 ? ((this.h = !!e),
-                  Ln(this, n[1] || "", !0),
-                  (this.i = qn(n[2] || "")),
-                  (this.b = qn(n[3] || "", !0)),
+                  Ln(this, n[1] || '', !0),
+                  (this.i = qn(n[2] || '')),
+                  (this.b = qn(n[3] || '', !0)),
                   Mn(this, n[4]),
-                  (this.c = qn(n[5] || "", !0)),
-                  Fn(this, n[6] || "", !0),
-                  (this.g = qn(n[7] || "")))
+                  (this.c = qn(n[5] || '', !0)),
+                  Fn(this, n[6] || '', !0),
+                  (this.g = qn(n[7] || '')))
                 : ((this.h = !!e), (this.a = new Xn(null, this.h)));
           }
 
           function Ln(t, e, n) {
-            (t.f = n ? qn(e, !0) : e), t.f && (t.f = t.f.replace(/:$/, ""));
+            (t.f = n ? qn(e, !0) : e), t.f && (t.f = t.f.replace(/:$/, ''));
           }
 
           function Mn(t, e) {
             if (e) {
               if (((e = Number(e)), isNaN(e) || 0 > e))
-                throw Error("Bad port number " + e);
+                throw Error('Bad port number ' + e);
               t.l = e;
             } else t.l = null;
           }
@@ -13054,28 +13054,28 @@
 
           function Wn(t, e) {
             var n = new Dn(null, void 0);
-            return Ln(n, "https"), t && (n.b = t), e && (n.c = e), n;
+            return Ln(n, 'https'), t && (n.b = t), e && (n.c = e), n;
           }
 
           function qn(t, e) {
             return t
               ? e
-                ? decodeURI(t.replace(/%25/g, "%2525"))
+                ? decodeURI(t.replace(/%25/g, '%2525'))
                 : decodeURIComponent(t)
-              : "";
+              : '';
           }
 
           function Bn(t, e, n) {
-            return "string" === typeof t
+            return 'string' === typeof t
               ? ((t = encodeURI(t).replace(e, Hn)),
-                n && (t = t.replace(/%25([0-9a-fA-F]{2})/g, "%$1")),
+                n && (t = t.replace(/%25([0-9a-fA-F]{2})/g, '%$1')),
                 t)
               : null;
           }
 
           function Hn(t) {
             return (
-              "%" +
+              '%' +
               (((t = t.charCodeAt(0)) >> 4) & 15).toString(16) +
               (15 & t).toString(16)
             );
@@ -13083,25 +13083,25 @@
           (Dn.prototype.toString = function () {
             var t = [],
               e = this.f;
-            e && t.push(Bn(e, Qn, !0), ":");
+            e && t.push(Bn(e, Qn, !0), ':');
             var n = this.b;
             return (
-              (n || "file" == e) &&
-                (t.push("//"),
-                (e = this.i) && t.push(Bn(e, Qn, !0), "@"),
+              (n || 'file' == e) &&
+                (t.push('//'),
+                (e = this.i) && t.push(Bn(e, Qn, !0), '@'),
                 t.push(
                   encodeURIComponent(String(n)).replace(
                     /%25([0-9a-fA-F]{2})/g,
-                    "%$1"
+                    '%$1'
                   )
                 ),
-                null != (n = this.l) && t.push(":", String(n))),
+                null != (n = this.l) && t.push(':', String(n))),
               (n = this.c) &&
-                (this.b && "/" != n.charAt(0) && t.push("/"),
-                t.push(Bn(n, "/" == n.charAt(0) ? Gn : Kn, !0))),
-              (n = this.a.toString()) && t.push("?", n),
-              (n = this.g) && t.push("#", Bn(n, Yn)),
-              t.join("")
+                (this.b && '/' != n.charAt(0) && t.push('/'),
+                t.push(Bn(n, '/' == n.charAt(0) ? Gn : Kn, !0))),
+              (n = this.a.toString()) && t.push('?', n),
+              (n = this.g) && t.push('#', Bn(n, Yn)),
+              t.join('')
             );
           }),
             (Dn.prototype.resolve = function (t) {
@@ -13113,30 +13113,30 @@
               var r = t.c;
               if (n) Mn(e, t.l);
               else if ((n = !!t.c)) {
-                if ("/" != r.charAt(0))
-                  if (this.b && !this.c) r = "/" + r;
+                if ('/' != r.charAt(0))
+                  if (this.b && !this.c) r = '/' + r;
                   else {
-                    var i = e.c.lastIndexOf("/");
+                    var i = e.c.lastIndexOf('/');
                     -1 != i && (r = e.c.substr(0, i + 1) + r);
                   }
-                if (".." == (i = r) || "." == i) r = "";
-                else if (ut(i, "./") || ut(i, "/.")) {
-                  (r = 0 == i.lastIndexOf("/", 0)), (i = i.split("/"));
+                if ('..' == (i = r) || '.' == i) r = '';
+                else if (ut(i, './') || ut(i, '/.')) {
+                  (r = 0 == i.lastIndexOf('/', 0)), (i = i.split('/'));
                   for (var o = [], a = 0; a < i.length; ) {
                     var s = i[a++];
-                    "." == s
-                      ? r && a == i.length && o.push("")
-                      : ".." == s
-                      ? ((1 < o.length || (1 == o.length && "" != o[0])) &&
+                    '.' == s
+                      ? r && a == i.length && o.push('')
+                      : '..' == s
+                      ? ((1 < o.length || (1 == o.length && '' != o[0])) &&
                           o.pop(),
-                        r && a == i.length && o.push(""))
+                        r && a == i.length && o.push(''))
                       : (o.push(s), (r = !0));
                   }
-                  r = o.join("/");
+                  r = o.join('/');
                 } else r = i;
               }
               return (
-                n ? (e.c = r) : (n = "" !== t.a.toString()),
+                n ? (e.c = r) : (n = '' !== t.a.toString()),
                 n ? Fn(e, nr(t.a)) : (n = !!t.g),
                 n && (e.g = t.g),
                 e
@@ -13159,25 +13159,25 @@
               t.c &&
                 (function (t, e) {
                   if (t) {
-                    t = t.split("&");
+                    t = t.split('&');
                     for (var n = 0; n < t.length; n++) {
-                      var r = t[n].indexOf("="),
+                      var r = t[n].indexOf('='),
                         i = null;
                       if (0 <= r) {
                         var o = t[n].substring(0, r);
                         i = t[n].substring(r + 1);
                       } else o = t[n];
-                      e(o, i ? decodeURIComponent(i.replace(/\+/g, " ")) : "");
+                      e(o, i ? decodeURIComponent(i.replace(/\+/g, ' ')) : '');
                     }
                   }
                 })(t.c, function (e, n) {
-                  t.add(decodeURIComponent(e.replace(/\+/g, " ")), n);
+                  t.add(decodeURIComponent(e.replace(/\+/g, ' ')), n);
                 }));
           }
 
           function Jn(t) {
             var e = On(t);
-            if ("undefined" == typeof e) throw Error("Keys are undefined");
+            if ('undefined' == typeof e) throw Error('Keys are undefined');
             var n = new Xn(null, void 0);
             t = An(t);
             for (var r = 0; r < e.length; r++) {
@@ -13219,21 +13219,21 @@
 
           function ir(t) {
             var e = [];
-            return ar(new or(), t, e), e.join("");
+            return ar(new or(), t, e), e.join('');
           }
 
           function or() {}
 
           function ar(t, e, n) {
-            if (null == e) n.push("null");
+            if (null == e) n.push('null');
             else {
-              if ("object" == i(e)) {
+              if ('object' == i(e)) {
                 if (Array.isArray(e)) {
                   var r = e;
-                  (e = r.length), n.push("[");
-                  for (var o = "", a = 0; a < e; a++)
-                    n.push(o), ar(t, r[a], n), (o = ",");
-                  return void n.push("]");
+                  (e = r.length), n.push('[');
+                  for (var o = '', a = 0; a < e; a++)
+                    n.push(o), ar(t, r[a], n), (o = ',');
+                  return void n.push(']');
                 }
                 if (
                   !(
@@ -13242,33 +13242,33 @@
                     e instanceof Boolean
                   )
                 ) {
-                  for (r in (n.push("{"), (o = ""), e))
+                  for (r in (n.push('{'), (o = ''), e))
                     Object.prototype.hasOwnProperty.call(e, r) &&
-                      "function" != typeof (a = e[r]) &&
+                      'function' != typeof (a = e[r]) &&
                       (n.push(o),
                       cr(r, n),
-                      n.push(":"),
+                      n.push(':'),
                       ar(t, a, n),
-                      (o = ","));
-                  return void n.push("}");
+                      (o = ','));
+                  return void n.push('}');
                 }
                 e = e.valueOf();
               }
               switch (i(e)) {
-                case "string":
+                case 'string':
                   cr(e, n);
                   break;
-                case "number":
-                  n.push(isFinite(e) && !isNaN(e) ? String(e) : "null");
+                case 'number':
+                  n.push(isFinite(e) && !isNaN(e) ? String(e) : 'null');
                   break;
-                case "boolean":
+                case 'boolean':
                   n.push(String(e));
                   break;
-                case "function":
-                  n.push("null");
+                case 'function':
+                  n.push('null');
                   break;
                 default:
-                  throw Error("Unknown type: " + i(e));
+                  throw Error('Unknown type: ' + i(e));
               }
             }
           }
@@ -13305,7 +13305,7 @@
             (e.V = function (t) {
               $n(this);
               var e = [];
-              if ("string" === typeof t)
+              if ('string' === typeof t)
                 tr(this, t) && (e = $(e, this.a.get(rr(this, t))));
               else {
                 t = this.a.V();
@@ -13328,31 +13328,31 @@
             }),
             (e.toString = function () {
               if (this.c) return this.c;
-              if (!this.a) return "";
+              if (!this.a) return '';
               for (var t = [], e = this.a.X(), n = 0; n < e.length; n++) {
                 var r = e[n],
                   i = encodeURIComponent(String(r));
                 r = this.V(r);
                 for (var o = 0; o < r.length; o++) {
                   var a = i;
-                  "" !== r[o] && (a += "=" + encodeURIComponent(String(r[o]))),
+                  '' !== r[o] && (a += '=' + encodeURIComponent(String(r[o]))),
                     t.push(a);
                 }
               }
-              return (this.c = t.join("&"));
+              return (this.c = t.join('&'));
             });
           var sr = {
               '"': '\\"',
-              "\\": "\\\\",
-              "/": "\\/",
-              "\b": "\\b",
-              "\f": "\\f",
-              "\n": "\\n",
-              "\r": "\\r",
-              "\t": "\\t",
-              "\v": "\\u000b",
+              '\\': '\\\\',
+              '/': '\\/',
+              '\b': '\\b',
+              '\f': '\\f',
+              '\n': '\\n',
+              '\r': '\\r',
+              '\t': '\\t',
+              '\v': '\\u000b',
             },
-            ur = /\uffff/.test("\uffff")
+            ur = /\uffff/.test('\uffff')
               ? /[\\"\x00-\x1f\x7f-\uffff]/g
               : /[\\"\x00-\x1f\x7f-\xff]/g;
 
@@ -13364,7 +13364,7 @@
                 return (
                   e ||
                     ((e =
-                      "\\u" + (65536 | t.charCodeAt(0)).toString(16).substr(1)),
+                      '\\u' + (65536 | t.charCodeAt(0)).toString(16).substr(1)),
                     (sr[t] = e)),
                   e
                 );
@@ -13382,13 +13382,13 @@
             return (
               (c.window && c.window.location.href) ||
               (self && self.location && self.location.href) ||
-              ""
+              ''
             );
           }
 
           function fr(t, e) {
             e = e || c.window;
-            var n = "about:blank";
+            var n = 'about:blank';
             t && (n = xt(Dt(t))), (e.location.href = n);
           }
 
@@ -13399,7 +13399,7 @@
               n in e
                 ? i(t[n]) != i(e[n])
                   ? r.push(n)
-                  : "object" == i(t[n]) && null != t[n] && null != e[n]
+                  : 'object' == i(t[n]) && null != t[n] && null != e[n]
                   ? 0 < pr(t[n], e[n]).length && r.push(n)
                   : t[n] !== e[n] && r.push(n)
                 : r.push(n);
@@ -13441,53 +13441,53 @@
               toolbar: !1,
             }),
             (n = Pr().toLowerCase()),
-            r && ((e.target = r), ut(n, "crios/") && (e.target = "_blank")),
+            r && ((e.target = r), ut(n, 'crios/') && (e.target = '_blank')),
             Nr(Pr()) == Ir &&
-              ((t = t || "http://localhost"), (e.scrollbars = !0)),
-            (n = t || ""),
+              ((t = t || 'http://localhost'), (e.scrollbars = !0)),
+            (n = t || ''),
             (t = e) || (t = {}),
             (r = window),
             (e =
               n instanceof kt
                 ? n
-                : Dt("undefined" != typeof n.href ? n.href : String(n))),
+                : Dt('undefined' != typeof n.href ? n.href : String(n))),
             (n = t.target || n.target),
             (o = []),
             t))
               switch (s) {
-                case "width":
-                case "height":
-                case "top":
-                case "left":
-                  o.push(s + "=" + t[s]);
+                case 'width':
+                case 'height':
+                case 'top':
+                case 'left':
+                  o.push(s + '=' + t[s]);
                   break;
-                case "target":
-                case "noopener":
-                case "noreferrer":
+                case 'target':
+                case 'noopener':
+                case 'noreferrer':
                   break;
                 default:
-                  o.push(s + "=" + (t[s] ? 1 : 0));
+                  o.push(s + '=' + (t[s] ? 1 : 0));
               }
-            var s = o.join(",");
+            var s = o.join(',');
             if (
-              (((ft("iPhone") && !ft("iPod") && !ft("iPad")) ||
-                ft("iPad") ||
-                ft("iPod")) &&
+              (((ft('iPhone') && !ft('iPod') && !ft('iPad')) ||
+                ft('iPad') ||
+                ft('iPod')) &&
               r.navigator &&
               r.navigator.standalone &&
               n &&
-              "_self" != n
-                ? (mt((s = pe(document, "A")), "HTMLAnchorElement"),
+              '_self' != n
+                ? (mt((s = pe(document, 'A')), 'HTMLAnchorElement'),
                   e instanceof kt ||
                     e instanceof kt ||
-                    ((e = "object" == i(e) && e.ra ? e.qa() : String(e)),
-                    Rt.test(e) || (e = "about:invalid#zClosurez"),
+                    ((e = 'object' == i(e) && e.ra ? e.qa() : String(e)),
+                    Rt.test(e) || (e = 'about:invalid#zClosurez'),
                     (e = new kt(Mt, e))),
                   (s.href = xt(e)),
-                  s.setAttribute("target", n),
-                  t.noreferrer && s.setAttribute("rel", "noreferrer"),
-                  (t = document.createEvent("MouseEvent")).initMouseEvent(
-                    "click",
+                  s.setAttribute('target', n),
+                  t.noreferrer && s.setAttribute('rel', 'noreferrer'),
+                  (t = document.createEvent('MouseEvent')).initMouseEvent(
+                    'click',
                     !0,
                     !0,
                     r,
@@ -13496,12 +13496,12 @@
                   s.dispatchEvent(t),
                   (s = {}))
                 : t.noreferrer
-                ? ((s = r.open("", n, s)),
+                ? ((s = r.open('', n, s)),
                   (t = xt(e)),
                   s &&
                     (Xt &&
-                      ut(t, ";") &&
-                      (t = "'" + t.replace(/'/g, "%27") + "'"),
+                      ut(t, ';') &&
+                      (t = "'" + t.replace(/'/g, '%27') + "'"),
                     (s.opener = null),
                     (t = Vt(
                       '<meta name="referrer" content="no-referrer"><meta http-equiv="refresh" content="0; url=' +
@@ -13524,14 +13524,14 @@
           function _r() {
             var t = null;
             return new we(function (e) {
-              "complete" == c.document.readyState
+              'complete' == c.document.readyState
                 ? e()
                 : ((t = function () {
                     e();
                   }),
-                  fn(window, "load", t));
+                  fn(window, 'load', t));
             }).o(function (e) {
-              throw (pn(window, "load", t), e);
+              throw (pn(window, 'load', t), e);
             });
           }
 
@@ -13539,7 +13539,7 @@
             return (
               (t = t || Pr()),
               !(
-                ("file:" !== Lr() && "ionic:" !== Lr()) ||
+                ('file:' !== Lr() && 'ionic:' !== Lr()) ||
                 !t.toLowerCase().match(/iphone|ipad|ipod|android/)
               )
             );
@@ -13556,63 +13556,63 @@
 
           function Er() {
             return (
-              "undefined" !== typeof c.WorkerGlobalScope &&
-              "function" === typeof c.importScripts
+              'undefined' !== typeof c.WorkerGlobalScope &&
+              'function' === typeof c.importScripts
             );
           }
 
           function Cr() {
-            return r.a.INTERNAL.hasOwnProperty("reactNative")
-              ? "ReactNative"
-              : r.a.INTERNAL.hasOwnProperty("node")
-              ? "Node"
+            return r.a.INTERNAL.hasOwnProperty('reactNative')
+              ? 'ReactNative'
+              : r.a.INTERNAL.hasOwnProperty('node')
+              ? 'Node'
               : Er()
-              ? "Worker"
-              : "Browser";
+              ? 'Worker'
+              : 'Browser';
           }
 
           function Sr() {
             var t = Cr();
-            return "ReactNative" === t || "Node" === t;
+            return 'ReactNative' === t || 'Node' === t;
           }
-          var Ir = "Firefox",
-            Tr = "Chrome";
+          var Ir = 'Firefox',
+            Tr = 'Chrome';
 
           function Nr(t) {
             var e = t.toLowerCase();
-            return ut(e, "opera/") || ut(e, "opr/") || ut(e, "opios/")
-              ? "Opera"
-              : ut(e, "iemobile")
-              ? "IEMobile"
-              : ut(e, "msie") || ut(e, "trident/")
-              ? "IE"
-              : ut(e, "edge/")
-              ? "Edge"
-              : ut(e, "firefox/")
+            return ut(e, 'opera/') || ut(e, 'opr/') || ut(e, 'opios/')
+              ? 'Opera'
+              : ut(e, 'iemobile')
+              ? 'IEMobile'
+              : ut(e, 'msie') || ut(e, 'trident/')
+              ? 'IE'
+              : ut(e, 'edge/')
+              ? 'Edge'
+              : ut(e, 'firefox/')
               ? Ir
-              : ut(e, "silk/")
-              ? "Silk"
-              : ut(e, "blackberry")
-              ? "Blackberry"
-              : ut(e, "webos")
-              ? "Webos"
-              : !ut(e, "safari/") ||
-                ut(e, "chrome/") ||
-                ut(e, "crios/") ||
-                ut(e, "android")
-              ? (!ut(e, "chrome/") && !ut(e, "crios/")) || ut(e, "edge/")
-                ? ut(e, "android")
-                  ? "Android"
+              : ut(e, 'silk/')
+              ? 'Silk'
+              : ut(e, 'blackberry')
+              ? 'Blackberry'
+              : ut(e, 'webos')
+              ? 'Webos'
+              : !ut(e, 'safari/') ||
+                ut(e, 'chrome/') ||
+                ut(e, 'crios/') ||
+                ut(e, 'android')
+              ? (!ut(e, 'chrome/') && !ut(e, 'crios/')) || ut(e, 'edge/')
+                ? ut(e, 'android')
+                  ? 'Android'
                   : (t = t.match(/([a-zA-Z\d\.]+)\/[a-zA-Z\d\.]*$/)) &&
                     2 == t.length
                   ? t[1]
-                  : "Other"
+                  : 'Other'
                 : Tr
-              : "Safari";
+              : 'Safari';
           }
           var Ar = {
-            jd: "FirebaseCore-web",
-            ld: "FirebaseUI-web",
+            jd: 'FirebaseCore-web',
+            ld: 'FirebaseUI-web',
           };
 
           function Or(t, e) {
@@ -13622,24 +13622,24 @@
               i = {};
             for (n in Ar) i[Ar[n]] = !0;
             for (n = 0; n < e.length; n++)
-              "undefined" !== typeof i[e[n]] && (delete i[e[n]], r.push(e[n]));
+              'undefined' !== typeof i[e[n]] && (delete i[e[n]], r.push(e[n]));
             return (
               r.sort(),
-              (e = r).length || (e = ["FirebaseCore-web"]),
-              "Browser" === (r = Cr())
+              (e = r).length || (e = ['FirebaseCore-web']),
+              'Browser' === (r = Cr())
                 ? (r = Nr((i = Pr())))
-                : "Worker" === r && (r = Nr((i = Pr())) + "-" + r),
-              r + "/JsCore/" + t + "/" + e.join(",")
+                : 'Worker' === r && (r = Nr((i = Pr())) + '-' + r),
+              r + '/JsCore/' + t + '/' + e.join(',')
             );
           }
 
           function Pr() {
-            return (c.navigator && c.navigator.userAgent) || "";
+            return (c.navigator && c.navigator.userAgent) || '';
           }
 
           function kr(t, e) {
-            (t = t.split(".")), (e = e || c);
-            for (var n = 0; n < t.length && "object" == i(e) && null != e; n++)
+            (t = t.split('.')), (e = e || c);
+            for (var n = 0; n < t.length && 'object' == i(e) && null != e; n++)
               e = e[t[n]];
             return n != t.length && (e = void 0), e;
           }
@@ -13650,7 +13650,7 @@
                 e = Vr();
               if (t)
                 return (
-                  t.setItem(e, "1"), t.removeItem(e), !hr() || !!c.indexedDB
+                  t.setItem(e, '1'), t.removeItem(e), !hr() || !!c.indexedDB
                 );
             } catch (n) {
               return Er() && !!c.indexedDB;
@@ -13660,7 +13660,7 @@
 
           function Rr() {
             return (
-              (Dr() || "chrome-extension:" === Lr() || br()) &&
+              (Dr() || 'chrome-extension:' === Lr() || br()) &&
               !Sr() &&
               xr() &&
               !Er()
@@ -13668,7 +13668,7 @@
           }
 
           function Dr() {
-            return "http:" === Lr() || "https:" === Lr();
+            return 'http:' === Lr() || 'https:' === Lr();
           }
 
           function Lr() {
@@ -13680,7 +13680,7 @@
           }
 
           function Fr(t) {
-            return "undefined" === typeof t ? null : ir(t);
+            return 'undefined' === typeof t ? null : ir(t);
           }
 
           function jr(t) {
@@ -13704,7 +13704,7 @@
 
           function Wr(t) {
             return (
-              "Safari" != Nr((t = t || Pr())) &&
+              'Safari' != Nr((t = t || Pr())) &&
               !t.toLowerCase().match(/iphone|ipad|ipod/)
             );
           }
@@ -13724,20 +13724,20 @@
 
           function Br(t, e) {
             if (t > e)
-              throw Error("Short delay should be less than long delay!");
+              throw Error('Short delay should be less than long delay!');
             (this.a = t),
               (this.c = e),
               (t = Pr()),
               (e = Cr()),
-              (this.b = dr(t) || "ReactNative" === e);
+              (this.b = dr(t) || 'ReactNative' === e);
           }
 
           function Hr() {
             var t = c.document;
             return (
               !t ||
-              "undefined" === typeof t.visibilityState ||
-              "visible" == t.visibilityState
+              'undefined' === typeof t.visibilityState ||
+              'visible' == t.visibilityState
             );
           }
 
@@ -13752,16 +13752,16 @@
 
           function Kr() {
             return !(
-              !kr("fireauth.oauthhelper", c) && !kr("fireauth.iframe", c)
+              !kr('fireauth.oauthhelper', c) && !kr('fireauth.iframe', c)
             );
           }
           Br.prototype.get = function () {
             var t = c.navigator;
             return !t ||
-              "boolean" !== typeof t.onLine ||
+              'boolean' !== typeof t.onLine ||
               (!Dr() &&
-                "chrome-extension:" !== Lr() &&
-                "undefined" === typeof t.connection) ||
+                'chrome-extension:' !== Lr() &&
+                'undefined' === typeof t.connection) ||
               t.onLine
               ? this.b
                 ? this.c
@@ -13774,18 +13774,18 @@
           function Yr(t) {
             zr[t] ||
               ((zr[t] = !0),
-              "undefined" !== typeof console &&
-                "function" === typeof console.warn &&
+              'undefined' !== typeof console &&
+                'function' === typeof console.warn &&
                 console.warn(t));
           }
           try {
             var Xr = {};
-            Object.defineProperty(Xr, "abcd", {
+            Object.defineProperty(Xr, 'abcd', {
               configurable: !0,
               enumerable: !0,
               value: 1,
             }),
-              Object.defineProperty(Xr, "abcd", {
+              Object.defineProperty(Xr, 'abcd', {
                 configurable: !0,
                 enumerable: !0,
                 value: 2,
@@ -13816,24 +13816,24 @@
 
           function ti(t) {
             var e = t;
-            if ("object" == i(t) && null != t)
-              for (var n in ((e = "length" in t ? [] : {}), t))
+            if ('object' == i(t) && null != t)
+              for (var n in ((e = 'length' in t ? [] : {}), t))
                 $r(e, n, ti(t[n]));
             return e;
           }
 
           function ei(t) {
-            var e = t && (t[ai] ? "phone" : null);
+            var e = t && (t[ai] ? 'phone' : null);
             if (!(e && t && t[oi]))
               throw new T(
-                "internal-error",
-                "Internal assert: invalid MultiFactorInfo object"
+                'internal-error',
+                'Internal assert: invalid MultiFactorInfo object'
               );
-            $r(this, "uid", t[oi]), $r(this, "displayName", t[ri] || null);
+            $r(this, 'uid', t[oi]), $r(this, 'displayName', t[ri] || null);
             var n = null;
             t[ii] && (n = new Date(t[ii]).toUTCString()),
-              $r(this, "enrollmentTime", n),
-              $r(this, "factorId", e);
+              $r(this, 'enrollmentTime', n),
+              $r(this, 'factorId', e);
           }
 
           function ni(t) {
@@ -13852,13 +13852,13 @@
               enrollmentTime: this.enrollmentTime,
             };
           };
-          var ri = "displayName",
-            ii = "enrolledAt",
-            oi = "mfaEnrollmentId",
-            ai = "phoneInfo";
+          var ri = 'displayName',
+            ii = 'enrolledAt',
+            oi = 'mfaEnrollmentId',
+            ai = 'phoneInfo';
 
           function si(t) {
-            ei.call(this, t), $r(this, "phoneNumber", t[ai]);
+            ei.call(this, t), $r(this, 'phoneNumber', t[ai]);
           }
 
           function ui(t) {
@@ -13873,7 +13873,7 @@
                 (i == li && !r) ||
                 (i == ci && !t))
             )
-              throw Error("Invalid checkActionCode response!");
+              throw Error('Invalid checkActionCode response!');
             i == li
               ? ((e[gi] = n || null), (e[_i] = n || null), (e[yi] = r))
               : ((e[gi] = r || null), (e[_i] = r || null), (e[yi] = n || null)),
@@ -13886,19 +13886,19 @@
               var t = si.Za.v.call(this);
               return (t.phoneNumber = this.phoneNumber), t;
             });
-          var ci = "REVERT_SECOND_FACTOR_ADDITION",
-            hi = "EMAIL_SIGNIN",
-            li = "VERIFY_AND_CHANGE_EMAIL",
-            fi = "email",
-            pi = "mfaInfo",
-            di = "newEmail",
-            vi = "requestType",
-            yi = "email",
-            gi = "fromEmail",
-            mi = "multiFactorInfo",
-            _i = "previousEmail",
-            bi = "data",
-            wi = "operation";
+          var ci = 'REVERT_SECOND_FACTOR_ADDITION',
+            hi = 'EMAIL_SIGNIN',
+            li = 'VERIFY_AND_CHANGE_EMAIL',
+            fi = 'email',
+            pi = 'mfaInfo',
+            di = 'newEmail',
+            vi = 'requestType',
+            yi = 'email',
+            gi = 'fromEmail',
+            mi = 'multiFactorInfo',
+            _i = 'previousEmail',
+            bi = 'data',
+            wi = 'operation';
 
           function Ei(t) {
             var e = Un((t = Vn(t)), Ci) || null,
@@ -13906,13 +13906,13 @@
               r = Un(t, Ni) || null;
             if (((r = (r && Oi[r]) || null), !e || !n || !r))
               throw new T(
-                "argument-error",
+                'argument-error',
                 Ci +
-                  ", " +
+                  ', ' +
                   Si +
-                  "and " +
+                  'and ' +
                   Ni +
-                  " are required in a valid action code URL."
+                  ' are required in a valid action code URL.'
               );
             Jr(this, {
               apiKey: e,
@@ -13923,19 +13923,19 @@
               tenantId: Un(t, Ai) || null,
             });
           }
-          var Ci = "apiKey",
-            Si = "oobCode",
-            Ii = "continueUrl",
-            Ti = "languageCode",
-            Ni = "mode",
-            Ai = "tenantId",
+          var Ci = 'apiKey',
+            Si = 'oobCode',
+            Ii = 'continueUrl',
+            Ti = 'languageCode',
+            Ni = 'mode',
+            Ai = 'tenantId',
             Oi = {
-              recoverEmail: "RECOVER_EMAIL",
-              resetPassword: "PASSWORD_RESET",
+              recoverEmail: 'RECOVER_EMAIL',
+              resetPassword: 'PASSWORD_RESET',
               revertSecondFactorAddition: ci,
               signIn: hi,
               verifyAndChangeEmail: li,
-              verifyEmail: "VERIFY_EMAIL",
+              verifyEmail: 'VERIFY_EMAIL',
             };
 
           function Pi(t) {
@@ -13948,85 +13948,85 @@
 
           function ki(t) {
             var e = t[Mi];
-            if ("undefined" === typeof e) throw new T("missing-continue-uri");
-            if ("string" !== typeof e || ("string" === typeof e && !e.length))
-              throw new T("invalid-continue-uri");
+            if ('undefined' === typeof e) throw new T('missing-continue-uri');
+            if ('string' !== typeof e || ('string' === typeof e && !e.length))
+              throw new T('invalid-continue-uri');
             (this.h = e), (this.b = this.a = null), (this.g = !1);
             var n = t[xi];
-            if (n && "object" === i(n)) {
+            if (n && 'object' === i(n)) {
               e = n[Ui];
               var r = n[Fi];
-              if (((n = n[ji]), "string" === typeof e && e.length)) {
+              if (((n = n[ji]), 'string' === typeof e && e.length)) {
                 if (
                   ((this.a = e),
-                  "undefined" !== typeof r && "boolean" !== typeof r)
+                  'undefined' !== typeof r && 'boolean' !== typeof r)
                 )
                   throw new T(
-                    "argument-error",
-                    Fi + " property must be a boolean when specified."
+                    'argument-error',
+                    Fi + ' property must be a boolean when specified.'
                   );
                 if (
                   ((this.g = !!r),
-                  "undefined" !== typeof n &&
-                    ("string" !== typeof n ||
-                      ("string" === typeof n && !n.length)))
+                  'undefined' !== typeof n &&
+                    ('string' !== typeof n ||
+                      ('string' === typeof n && !n.length)))
                 )
                   throw new T(
-                    "argument-error",
-                    ji + " property must be a non empty string when specified."
+                    'argument-error',
+                    ji + ' property must be a non empty string when specified.'
                   );
                 this.b = n || null;
               } else {
-                if ("undefined" !== typeof e)
+                if ('undefined' !== typeof e)
                   throw new T(
-                    "argument-error",
-                    Ui + " property must be a non empty string when specified."
+                    'argument-error',
+                    Ui + ' property must be a non empty string when specified.'
                   );
-                if ("undefined" !== typeof r || "undefined" !== typeof n)
-                  throw new T("missing-android-pkg-name");
+                if ('undefined' !== typeof r || 'undefined' !== typeof n)
+                  throw new T('missing-android-pkg-name');
               }
-            } else if ("undefined" !== typeof n)
+            } else if ('undefined' !== typeof n)
               throw new T(
-                "argument-error",
-                xi + " property must be a non null object when specified."
+                'argument-error',
+                xi + ' property must be a non null object when specified.'
               );
-            if (((this.f = null), (e = t[Li]) && "object" === i(e))) {
-              if ("string" === typeof (e = e[Vi]) && e.length) this.f = e;
-              else if ("undefined" !== typeof e)
+            if (((this.f = null), (e = t[Li]) && 'object' === i(e))) {
+              if ('string' === typeof (e = e[Vi]) && e.length) this.f = e;
+              else if ('undefined' !== typeof e)
                 throw new T(
-                  "argument-error",
-                  Vi + " property must be a non empty string when specified."
+                  'argument-error',
+                  Vi + ' property must be a non empty string when specified.'
                 );
-            } else if ("undefined" !== typeof e)
+            } else if ('undefined' !== typeof e)
               throw new T(
-                "argument-error",
-                Li + " property must be a non null object when specified."
+                'argument-error',
+                Li + ' property must be a non null object when specified.'
               );
-            if ("undefined" !== typeof (e = t[Di]) && "boolean" !== typeof e)
+            if ('undefined' !== typeof (e = t[Di]) && 'boolean' !== typeof e)
               throw new T(
-                "argument-error",
-                Di + " property must be a boolean when specified."
+                'argument-error',
+                Di + ' property must be a boolean when specified.'
               );
             if (
               ((this.c = !!e),
-              "undefined" !== typeof (t = t[Ri]) &&
-                ("string" !== typeof t || ("string" === typeof t && !t.length)))
+              'undefined' !== typeof (t = t[Ri]) &&
+                ('string' !== typeof t || ('string' === typeof t && !t.length)))
             )
               throw new T(
-                "argument-error",
-                Ri + " property must be a non empty string when specified."
+                'argument-error',
+                Ri + ' property must be a non empty string when specified.'
               );
             this.i = t || null;
           }
-          var xi = "android",
-            Ri = "dynamicLinkDomain",
-            Di = "handleCodeInApp",
-            Li = "iOS",
-            Mi = "url",
-            Fi = "installApp",
-            ji = "minimumVersion",
-            Ui = "packageName",
-            Vi = "bundleId";
+          var xi = 'android',
+            Ri = 'dynamicLinkDomain',
+            Di = 'handleCodeInApp',
+            Li = 'iOS',
+            Mi = 'url',
+            Fi = 'installApp',
+            ji = 'minimumVersion',
+            Ui = 'packageName',
+            Vi = 'bundleId';
 
           function Wi(t) {
             var e = {};
@@ -14043,7 +14043,7 @@
           var qi = null;
 
           function Bi(t) {
-            var e = "";
+            var e = '';
             return (
               (function (t, e) {
                 function n(e) {
@@ -14052,7 +14052,7 @@
                       i = qi[n];
                     if (null != i) return i;
                     if (!/^[\s\xa0]*$/.test(n))
-                      throw Error("Unknown base64 encoding at char: " + n);
+                      throw Error('Unknown base64 encoding at char: ' + n);
                   }
                   return e;
                 }
@@ -14061,16 +14061,16 @@
                     qi = {};
                     for (
                       var t =
-                          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split(
-                            ""
+                          'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split(
+                            ''
                           ),
-                        e = ["+/=", "+/", "-_=", "-_.", "-_"],
+                        e = ['+/=', '+/', '-_=', '-_.', '-_'],
                         n = 0;
                       5 > n;
                       n++
                     )
                       for (
-                        var r = t.concat(e[n].split("")), i = 0;
+                        var r = t.concat(e[n].split('')), i = 0;
                         i < r.length;
                         i++
                       ) {
@@ -14100,7 +14100,7 @@
           function Hi(t) {
             var e = Ki(t);
             if (!(e && e.sub && e.iss && e.aud && e.exp))
-              throw Error("Invalid JWT");
+              throw Error('Invalid JWT');
             (this.g = t),
               (this.c = e.exp),
               (this.h = e.sub),
@@ -14110,7 +14110,7 @@
                 (e.firebase && e.firebase.sign_in_provider) ||
                 null),
               (this.f = (e.firebase && e.firebase.tenant) || null),
-              (this.b = !!e.is_anonymous || "anonymous" == this.a);
+              (this.b = !!e.is_anonymous || 'anonymous' == this.a);
           }
 
           function Qi(t) {
@@ -14123,9 +14123,9 @@
 
           function Ki(t) {
             if (!t) return null;
-            if (3 != (t = t.split(".")).length) return null;
+            if (3 != (t = t.split('.')).length) return null;
             for (var e = (4 - ((t = t[1]).length % 4)) % 4, n = 0; n < e; n++)
-              t += ".";
+              t += '.';
             try {
               return JSON.parse(Bi(t));
             } catch (r) {}
@@ -14141,50 +14141,50 @@
               return this.g;
             });
           var Gi =
-              "oauth_consumer_key oauth_nonce oauth_signature oauth_signature_method oauth_timestamp oauth_token oauth_version".split(
-                " "
+              'oauth_consumer_key oauth_nonce oauth_signature oauth_signature_method oauth_timestamp oauth_token oauth_version'.split(
+                ' '
               ),
             zi = [
-              "client_id",
-              "response_type",
-              "scope",
-              "redirect_uri",
-              "state",
+              'client_id',
+              'response_type',
+              'scope',
+              'redirect_uri',
+              'state',
             ],
             Yi = {
               kd: {
-                Ha: "locale",
+                Ha: 'locale',
                 ta: 700,
                 sa: 600,
-                ea: "facebook.com",
+                ea: 'facebook.com',
                 Va: zi,
               },
               md: {
                 Ha: null,
                 ta: 500,
                 sa: 750,
-                ea: "github.com",
+                ea: 'github.com',
                 Va: zi,
               },
               nd: {
-                Ha: "hl",
+                Ha: 'hl',
                 ta: 515,
                 sa: 680,
-                ea: "google.com",
+                ea: 'google.com',
                 Va: zi,
               },
               td: {
-                Ha: "lang",
+                Ha: 'lang',
                 ta: 485,
                 sa: 705,
-                ea: "twitter.com",
+                ea: 'twitter.com',
                 Va: Gi,
               },
               gd: {
-                Ha: "locale",
+                Ha: 'locale',
                 ta: 600,
                 sa: 600,
-                ea: "apple.com",
+                ea: 'apple.com',
                 Va: [],
               },
             };
@@ -14196,19 +14196,19 @@
 
           function $i(t) {
             var e = {};
-            (e["facebook.com"] = no),
-              (e["google.com"] = io),
-              (e["github.com"] = ro),
-              (e["twitter.com"] = oo);
+            (e['facebook.com'] = no),
+              (e['google.com'] = io),
+              (e['github.com'] = ro),
+              (e['twitter.com'] = oo);
             var n = t && t[Zi];
             try {
               if (n) return e[n] ? new e[n](t) : new eo(t);
-              if ("undefined" !== typeof t[Ji]) return new to(t);
+              if ('undefined' !== typeof t[Ji]) return new to(t);
             } catch (r) {}
             return null;
           }
-          var Ji = "idToken",
-            Zi = "providerId";
+          var Ji = 'idToken',
+            Zi = 'providerId';
 
           function to(t) {
             var e = t[Zi];
@@ -14216,71 +14216,71 @@
               var n = Qi(t[Ji]);
               n && n.a && (e = n.a);
             }
-            if (!e) throw Error("Invalid additional user info!");
-            ("anonymous" != e && "custom" != e) || (e = null),
+            if (!e) throw Error('Invalid additional user info!');
+            ('anonymous' != e && 'custom' != e) || (e = null),
               (n = !1),
-              "undefined" !== typeof t.isNewUser
+              'undefined' !== typeof t.isNewUser
                 ? (n = !!t.isNewUser)
-                : "identitytoolkit#SignupNewUserResponse" === t.kind &&
+                : 'identitytoolkit#SignupNewUserResponse' === t.kind &&
                   (n = !0),
-              $r(this, "providerId", e),
-              $r(this, "isNewUser", n);
+              $r(this, 'providerId', e),
+              $r(this, 'isNewUser', n);
           }
 
           function eo(t) {
             to.call(this, t),
-              $r(this, "profile", ti((t = Ur(t.rawUserInfo || "{}")) || {}));
+              $r(this, 'profile', ti((t = Ur(t.rawUserInfo || '{}')) || {}));
           }
 
           function no(t) {
-            if ((eo.call(this, t), "facebook.com" != this.providerId))
-              throw Error("Invalid provider ID!");
+            if ((eo.call(this, t), 'facebook.com' != this.providerId))
+              throw Error('Invalid provider ID!');
           }
 
           function ro(t) {
-            if ((eo.call(this, t), "github.com" != this.providerId))
-              throw Error("Invalid provider ID!");
-            $r(this, "username", (this.profile && this.profile.login) || null);
+            if ((eo.call(this, t), 'github.com' != this.providerId))
+              throw Error('Invalid provider ID!');
+            $r(this, 'username', (this.profile && this.profile.login) || null);
           }
 
           function io(t) {
-            if ((eo.call(this, t), "google.com" != this.providerId))
-              throw Error("Invalid provider ID!");
+            if ((eo.call(this, t), 'google.com' != this.providerId))
+              throw Error('Invalid provider ID!');
           }
 
           function oo(t) {
-            if ((eo.call(this, t), "twitter.com" != this.providerId))
-              throw Error("Invalid provider ID!");
-            $r(this, "username", t.screenName || null);
+            if ((eo.call(this, t), 'twitter.com' != this.providerId))
+              throw Error('Invalid provider ID!');
+            $r(this, 'username', t.screenName || null);
           }
 
           function ao(t) {
             var e = Vn(t),
-              n = Un(e, "link"),
-              r = Un(Vn(n), "link");
+              n = Un(e, 'link'),
+              r = Un(Vn(n), 'link');
             return (
-              (e = Un(e, "deep_link_id")), Un(Vn(e), "link") || e || r || n || t
+              (e = Un(e, 'deep_link_id')), Un(Vn(e), 'link') || e || r || n || t
             );
           }
 
           function so(t, e) {
             if (!t && !e)
               throw new T(
-                "internal-error",
-                "Internal assert: no raw session string available"
+                'internal-error',
+                'Internal assert: no raw session string available'
               );
             if (t && e)
               throw new T(
-                "internal-error",
-                "Internal assert: unable to determine the session type"
+                'internal-error',
+                'Internal assert: unable to determine the session type'
               );
             (this.a = t || null),
               (this.b = e || null),
               (this.type = this.a ? uo : co);
           }
           I(eo, to), I(no, eo), I(ro, eo), I(io, eo), I(oo, eo);
-          var uo = "enroll",
-            co = "signin";
+          var uo = 'enroll',
+            co = 'signin';
 
           function ho() {}
 
@@ -14289,30 +14289,30 @@
               .then(function (t) {
                 if (t[ts]) {
                   var n = Qi(t[ts]);
-                  if (!n || e != n.h) throw new T("user-mismatch");
+                  if (!n || e != n.h) throw new T('user-mismatch');
                   return t;
                 }
-                throw new T("user-mismatch");
+                throw new T('user-mismatch');
               })
               .o(function (t) {
-                throw t && t.code && t.code == O + "user-not-found"
-                  ? new T("user-mismatch")
+                throw t && t.code && t.code == O + 'user-not-found'
+                  ? new T('user-mismatch')
                   : t;
               });
           }
 
           function fo(t, e) {
             if (!e)
-              throw new T("internal-error", "failed to construct a credential");
+              throw new T('internal-error', 'failed to construct a credential');
             (this.a = e),
-              $r(this, "providerId", t),
-              $r(this, "signInMethod", t);
+              $r(this, 'providerId', t),
+              $r(this, 'signInMethod', t);
           }
 
           function po(t) {
             return {
               pendingToken: t.a,
-              requestUri: "http://localhost",
+              requestUri: 'http://localhost',
             };
           }
 
@@ -14321,7 +14321,7 @@
               t &&
               t.providerId &&
               t.signInMethod &&
-              0 == t.providerId.indexOf("saml.") &&
+              0 == t.providerId.indexOf('saml.') &&
               t.pendingToken
             )
               try {
@@ -14332,20 +14332,20 @@
 
           function yo(t, e, n) {
             if (((this.a = null), e.idToken || e.accessToken))
-              e.idToken && $r(this, "idToken", e.idToken),
-                e.accessToken && $r(this, "accessToken", e.accessToken),
-                e.nonce && !e.pendingToken && $r(this, "nonce", e.nonce),
+              e.idToken && $r(this, 'idToken', e.idToken),
+                e.accessToken && $r(this, 'accessToken', e.accessToken),
+                e.nonce && !e.pendingToken && $r(this, 'nonce', e.nonce),
                 e.pendingToken && (this.a = e.pendingToken);
             else {
               if (!e.oauthToken || !e.oauthTokenSecret)
                 throw new T(
-                  "internal-error",
-                  "failed to construct a credential"
+                  'internal-error',
+                  'failed to construct a credential'
                 );
-              $r(this, "accessToken", e.oauthToken),
-                $r(this, "secret", e.oauthTokenSecret);
+              $r(this, 'accessToken', e.oauthToken),
+                $r(this, 'secret', e.oauthTokenSecret);
             }
-            $r(this, "providerId", t), $r(this, "signInMethod", n);
+            $r(this, 'providerId', t), $r(this, 'signInMethod', n);
           }
 
           function go(t) {
@@ -14358,7 +14358,7 @@
               t.nonce && !t.a && (e.nonce = t.nonce),
               (e = {
                 postBody: Jn(e).toString(),
-                requestUri: "http://localhost",
+                requestUri: 'http://localhost',
               }),
               t.a && (delete e.postBody, (e.pendingToken = t.a)),
               e
@@ -14394,9 +14394,9 @@
           }
 
           function bo(t) {
-            if ("string" !== typeof t || 0 != t.indexOf("saml."))
+            if ('string' !== typeof t || 0 != t.indexOf('saml.'))
               throw new T(
-                "argument-error",
+                'argument-error',
                 'SAML provider IDs must be prefixed with "saml."'
               );
             _o.call(this, t, []);
@@ -14407,14 +14407,14 @@
           }
 
           function Eo() {
-            wo.call(this, "facebook.com");
+            wo.call(this, 'facebook.com');
           }
 
           function Co(t) {
             if (!t)
               throw new T(
-                "argument-error",
-                "credential failed: expected 1 argument (the OAuth access token)."
+                'argument-error',
+                'credential failed: expected 1 argument (the OAuth access token).'
               );
             var e = t;
             return (
@@ -14426,14 +14426,14 @@
           }
 
           function So() {
-            wo.call(this, "github.com");
+            wo.call(this, 'github.com');
           }
 
           function Io(t) {
             if (!t)
               throw new T(
-                "argument-error",
-                "credential failed: expected 1 argument (the OAuth access token)."
+                'argument-error',
+                'credential failed: expected 1 argument (the OAuth access token).'
               );
             var e = t;
             return (
@@ -14445,7 +14445,7 @@
           }
 
           function To() {
-            wo.call(this, "google.com"), this.Aa("profile");
+            wo.call(this, 'google.com'), this.Aa('profile');
           }
 
           function No(t, e) {
@@ -14460,7 +14460,7 @@
           }
 
           function Ao() {
-            _o.call(this, "twitter.com", Gi);
+            _o.call(this, 'twitter.com', Gi);
           }
 
           function Oo(t, e) {
@@ -14474,19 +14474,19 @@
               !n.oauthToken || !n.oauthTokenSecret)
             )
               throw new T(
-                "argument-error",
-                "credential failed: expected 2 arguments (the OAuth access token and secret)."
+                'argument-error',
+                'credential failed: expected 2 arguments (the OAuth access token and secret).'
               );
-            return new yo("twitter.com", n, "twitter.com");
+            return new yo('twitter.com', n, 'twitter.com');
           }
 
           function Po(t, e, n) {
             (this.a = t),
               (this.f = e),
-              $r(this, "providerId", "password"),
+              $r(this, 'providerId', 'password'),
               $r(
                 this,
-                "signInMethod",
+                'signInMethod',
                 n === xo.EMAIL_LINK_SIGN_IN_METHOD
                   ? xo.EMAIL_LINK_SIGN_IN_METHOD
                   : xo.EMAIL_PASSWORD_SIGN_IN_METHOD
@@ -14501,14 +14501,14 @@
 
           function xo() {
             Jr(this, {
-              providerId: "password",
+              providerId: 'password',
               isOAuthProvider: !1,
             });
           }
 
           function Ro(t, e) {
             if (!(e = Do(e)))
-              throw new T("argument-error", "Invalid email link!");
+              throw new T('argument-error', 'Invalid email link!');
             return new Po(t, e.code, xo.EMAIL_LINK_SIGN_IN_METHOD);
           }
 
@@ -14518,17 +14518,17 @@
 
           function Lo(t) {
             if (!((t.bb && t.ab) || (t.Ja && t.da)))
-              throw new T("internal-error");
+              throw new T('internal-error');
             (this.a = t),
-              $r(this, "providerId", "phone"),
-              (this.ea = "phone"),
-              $r(this, "signInMethod", "phone");
+              $r(this, 'providerId', 'phone'),
+              (this.ea = 'phone'),
+              $r(this, 'signInMethod', 'phone');
           }
 
           function Mo(t) {
             if (
               t &&
-              "phone" === t.providerId &&
+              'phone' === t.providerId &&
               ((t.verificationId && t.verificationCode) ||
                 (t.temporaryProof && t.phoneNumber))
             ) {
@@ -14536,10 +14536,10 @@
               return (
                 H(
                   [
-                    "verificationId",
-                    "verificationCode",
-                    "temporaryProof",
-                    "phoneNumber",
+                    'verificationId',
+                    'verificationCode',
+                    'temporaryProof',
+                    'phoneNumber',
                   ],
                   function (n) {
                     t[n] && (e[n] = t[n]);
@@ -14568,19 +14568,19 @@
               this.a = t || r.a.auth();
             } catch (e) {
               throw new T(
-                "argument-error",
-                "Either an instance of firebase.auth.Auth must be passed as an argument to the firebase.auth.PhoneAuthProvider constructor, or the default firebase App instance must be initialized via firebase.initializeApp()."
+                'argument-error',
+                'Either an instance of firebase.auth.Auth must be passed as an argument to the firebase.auth.PhoneAuthProvider constructor, or the default firebase App instance must be initialized via firebase.initializeApp().'
               );
             }
             Jr(this, {
-              providerId: "phone",
+              providerId: 'phone',
               isOAuthProvider: !1,
             });
           }
 
           function Uo(t, e) {
-            if (!t) throw new T("missing-verification-id");
-            if (!e) throw new T("missing-verification-code");
+            if (!t) throw new T('missing-verification-id');
+            if (!e) throw new T('missing-verification-code');
             return new Lo({
               bb: t,
               ab: e,
@@ -14594,7 +14594,7 @@
                 da: t.phoneNumber,
               });
             var e = t && t.providerId;
-            if (!e || "password" === e) return null;
+            if (!e || 'password' === e) return null;
             var n = t && t.oauthAccessToken,
               r = t && t.oauthTokenSecret,
               i = t && t.nonce,
@@ -14602,18 +14602,18 @@
               a = t && t.pendingToken;
             try {
               switch (e) {
-                case "google.com":
+                case 'google.com':
                   return No(o, n);
-                case "facebook.com":
+                case 'facebook.com':
                   return Co(n);
-                case "github.com":
+                case 'github.com':
                   return Io(n);
-                case "twitter.com":
+                case 'twitter.com':
                   return Oo(n, r);
                 default:
                   return n || r || o || a
                     ? a
-                      ? 0 == e.indexOf("saml.")
+                      ? 0 == e.indexOf('saml.')
                         ? new fo(e, a)
                         : new yo(
                             e,
@@ -14637,7 +14637,7 @@
           }
 
           function Wo(t) {
-            if (!t.isOAuthProvider) throw new T("invalid-oauth-provider");
+            if (!t.isOAuthProvider) throw new T('invalid-oauth-provider');
           }
 
           function qo(t, e, n, r, i, o, a) {
@@ -14651,9 +14651,9 @@
               (this.a = i || null),
               !this.g && !this.a)
             )
-              throw new T("invalid-auth-event");
-            if (this.g && this.a) throw new T("invalid-auth-event");
-            if (this.g && !this.f) throw new T("invalid-auth-event");
+              throw new T('invalid-auth-event');
+            if (this.g && this.a) throw new T('invalid-auth-event');
+            if (this.g && !this.f) throw new T('invalid-auth-event');
           }
 
           function Bo(t) {
@@ -14761,23 +14761,23 @@
                 !n.accessToken
               )
                 throw new T(
-                  "argument-error",
-                  "credential failed: must provide the ID token and/or the access token."
+                  'argument-error',
+                  'credential failed: must provide the ID token and/or the access token.'
                 );
               return new yo(this.providerId, n, this.providerId);
             }),
             I(Eo, wo),
-            $r(Eo, "PROVIDER_ID", "facebook.com"),
-            $r(Eo, "FACEBOOK_SIGN_IN_METHOD", "facebook.com"),
+            $r(Eo, 'PROVIDER_ID', 'facebook.com'),
+            $r(Eo, 'FACEBOOK_SIGN_IN_METHOD', 'facebook.com'),
             I(So, wo),
-            $r(So, "PROVIDER_ID", "github.com"),
-            $r(So, "GITHUB_SIGN_IN_METHOD", "github.com"),
+            $r(So, 'PROVIDER_ID', 'github.com'),
+            $r(So, 'GITHUB_SIGN_IN_METHOD', 'github.com'),
             I(To, wo),
-            $r(To, "PROVIDER_ID", "google.com"),
-            $r(To, "GOOGLE_SIGN_IN_METHOD", "google.com"),
+            $r(To, 'PROVIDER_ID', 'google.com'),
+            $r(To, 'GOOGLE_SIGN_IN_METHOD', 'google.com'),
             I(Ao, _o),
-            $r(Ao, "PROVIDER_ID", "twitter.com"),
-            $r(Ao, "TWITTER_SIGN_IN_METHOD", "twitter.com"),
+            $r(Ao, 'PROVIDER_ID', 'twitter.com'),
+            $r(Ao, 'TWITTER_SIGN_IN_METHOD', 'twitter.com'),
             (Po.prototype.ia = function (t) {
               return this.signInMethod == xo.EMAIL_LINK_SIGN_IN_METHOD
                 ? ru(t, Ps, {
@@ -14813,13 +14813,13 @@
               };
             }),
             Jr(xo, {
-              PROVIDER_ID: "password",
+              PROVIDER_ID: 'password',
             }),
             Jr(xo, {
-              EMAIL_LINK_SIGN_IN_METHOD: "emailLink",
+              EMAIL_LINK_SIGN_IN_METHOD: 'emailLink',
             }),
             Jr(xo, {
-              EMAIL_PASSWORD_SIGN_IN_METHOD: "password",
+              EMAIL_PASSWORD_SIGN_IN_METHOD: 'password',
             }),
             (Lo.prototype.ia = function (t) {
               return t.cb(Fo(this));
@@ -14830,11 +14830,11 @@
             }),
             (Lo.prototype.c = function (t, e) {
               var n = Fo(this);
-              return (n.operation = "REAUTH"), lo((t = ru(t, eu, n)), e);
+              return (n.operation = 'REAUTH'), lo((t = ru(t, eu, n)), e);
             }),
             (Lo.prototype.v = function () {
               var t = {
-                providerId: "phone",
+                providerId: 'phone',
               };
               return (
                 this.a.bb && (t.verificationId = this.a.bb),
@@ -14847,13 +14847,13 @@
             (jo.prototype.cb = function (t, e) {
               var n = this.a.b;
               return Ae(e.verify()).then(function (r) {
-                if ("string" !== typeof r)
+                if ('string' !== typeof r)
                   throw new T(
-                    "argument-error",
-                    "An implementation of firebase.auth.ApplicationVerifier.prototype.verify() must return a firebase.Promise that resolves with a string."
+                    'argument-error',
+                    'An implementation of firebase.auth.ApplicationVerifier.prototype.verify() must return a firebase.Promise that resolves with a string.'
                   );
                 switch (e.type) {
-                  case "recaptcha":
+                  case 'recaptcha':
                     var i = y(t) ? t.session : null,
                       o = y(t) ? t.phoneNumber : t;
                     return (
@@ -14895,25 +14895,25 @@
                           })
                     ).then(
                       function (t) {
-                        return "function" === typeof e.reset && e.reset(), t;
+                        return 'function' === typeof e.reset && e.reset(), t;
                       },
                       function (t) {
-                        throw ("function" === typeof e.reset && e.reset(), t);
+                        throw ('function' === typeof e.reset && e.reset(), t);
                       }
                     );
                   default:
                     throw new T(
-                      "argument-error",
+                      'argument-error',
                       'Only firebase.auth.ApplicationVerifiers with type="recaptcha" are currently supported.'
                     );
                 }
               });
             }),
             Jr(jo, {
-              PROVIDER_ID: "phone",
+              PROVIDER_ID: 'phone',
             }),
             Jr(jo, {
-              PHONE_SIGN_IN_METHOD: "phone",
+              PHONE_SIGN_IN_METHOD: 'phone',
             }),
             (qo.prototype.getUid = function () {
               var t = [];
@@ -14922,7 +14922,7 @@
                 this.b && t.push(this.b),
                 this.f && t.push(this.f),
                 this.h && t.push(this.h),
-                t.join("-")
+                t.join('-')
               );
             }),
             (qo.prototype.S = function () {
@@ -14943,35 +14943,35 @@
             Ko = null;
 
           function Go(t) {
-            var e = "unauthorized-domain",
+            var e = 'unauthorized-domain',
               n = void 0,
               r = Vn(t);
             (t = r.b),
-              "chrome-extension" == (r = r.f)
+              'chrome-extension' == (r = r.f)
                 ? (n = qt(
-                    "This chrome extension ID (chrome-extension://%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.",
+                    'This chrome extension ID (chrome-extension://%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.',
                     t
                   ))
-                : "http" == r || "https" == r
+                : 'http' == r || 'https' == r
                 ? (n = qt(
-                    "This domain (%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.",
+                    'This domain (%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.',
                     t
                   ))
-                : (e = "operation-not-supported-in-this-environment"),
+                : (e = 'operation-not-supported-in-this-environment'),
               T.call(this, e, n);
           }
 
           function zo(t, e, n) {
             T.call(this, t, n),
-              (t = e || {}).Gb && $r(this, "email", t.Gb),
-              t.da && $r(this, "phoneNumber", t.da),
-              t.credential && $r(this, "credential", t.credential),
-              t.Wb && $r(this, "tenantId", t.Wb);
+              (t = e || {}).Gb && $r(this, 'email', t.Gb),
+              t.da && $r(this, 'phoneNumber', t.da),
+              t.credential && $r(this, 'credential', t.credential),
+              t.Wb && $r(this, 'tenantId', t.Wb);
           }
 
           function Yo(t) {
             if (t.code) {
-              var e = t.code || "";
+              var e = t.code || '';
               0 == e.indexOf(O) && (e = e.substring(O.length));
               var n = {
                 credential: Vo(t),
@@ -14996,15 +14996,15 @@
           function Zo(t) {
             if (
               !t.f &&
-              "undefined" == typeof XMLHttpRequest &&
-              "undefined" != typeof ActiveXObject
+              'undefined' == typeof XMLHttpRequest &&
+              'undefined' != typeof ActiveXObject
             ) {
               for (
                 var e = [
-                    "MSXML2.XMLHTTP.6.0",
-                    "MSXML2.XMLHTTP.3.0",
-                    "MSXML2.XMLHTTP",
-                    "Microsoft.XMLHTTP",
+                    'MSXML2.XMLHTTP.6.0',
+                    'MSXML2.XMLHTTP.3.0',
+                    'MSXML2.XMLHTTP',
+                    'Microsoft.XMLHTTP',
                   ],
                   n = 0;
                 n < e.length;
@@ -15016,7 +15016,7 @@
                 } catch (i) {}
               }
               throw Error(
-                "Could not create ActiveXObject. ActiveX might be disabled, or MSXML might not be installed"
+                'Could not create ActiveXObject. ActiveX might be disabled, or MSXML might not be installed'
               );
             }
             return t.f;
@@ -15028,9 +15028,9 @@
             (this.a = new XDomainRequest()),
               (this.readyState = 0),
               (this.onreadystatechange = null),
-              (this.responseType = this.responseText = this.response = ""),
+              (this.responseType = this.responseText = this.response = ''),
               (this.status = -1),
-              (this.statusText = ""),
+              (this.statusText = ''),
               (this.a.onload = E(this.oc, this)),
               (this.a.onerror = E(this.Pb, this)),
               (this.a.onprogress = E(this.pc, this)),
@@ -15074,22 +15074,22 @@
             I(ta, Xo),
             (ta.prototype.a = function () {
               var t = new XMLHttpRequest();
-              if ("withCredentials" in t) return t;
-              if ("undefined" != typeof XDomainRequest) return new ea();
-              throw Error("Unsupported browser");
+              if ('withCredentials' in t) return t;
+              if ('undefined' != typeof XDomainRequest) return new ea();
+              throw Error('Unsupported browser');
             }),
             (ta.prototype.b = function () {
               return {};
             }),
             ((e = ea.prototype).open = function (t, e, n) {
               if (null != n && !n)
-                throw Error("Only async requests are supported.");
+                throw Error('Only async requests are supported.');
               this.a.open(t, e);
             }),
             (e.send = function (t) {
               if (t) {
-                if ("string" != typeof t)
-                  throw Error("Only string data is supported");
+                if ('string' != typeof t)
+                  throw Error('Only string data is supported');
                 this.a.send(t);
               } else this.a.send();
             }),
@@ -15098,9 +15098,9 @@
             }),
             (e.setRequestHeader = function () {}),
             (e.getResponseHeader = function (t) {
-              return "content-type" == t.toLowerCase()
+              return 'content-type' == t.toLowerCase()
                 ? this.a.contentType
-                : "";
+                : '';
             }),
             (e.oc = function () {
               (this.status = 200),
@@ -15109,7 +15109,7 @@
             }),
             (e.Pb = function () {
               (this.status = 500),
-                (this.response = this.responseText = ""),
+                (this.response = this.responseText = ''),
                 na(this, 4);
             }),
             (e.tc = function () {
@@ -15119,7 +15119,7 @@
               (this.status = 200), na(this, 1);
             }),
             (e.getAllResponseHeaders = function () {
-              return "content-type: " + this.a.contentType;
+              return 'content-type: ' + this.a.contentType;
             }),
             (ra.prototype.a = null);
 
@@ -15131,22 +15131,22 @@
             (this.name = t), (this.value = e);
           }
           (ra.prototype.reset = function (t, e, n, r, i) {
-            "number" == typeof i || 0, r || S(), delete this.a;
+            'number' == typeof i || 0, r || S(), delete this.a;
           }),
             (oa.prototype.toString = function () {
               return this.name;
             });
-          var aa = new oa("SEVERE", 1e3),
-            sa = new oa("WARNING", 900),
-            ua = new oa("CONFIG", 700),
-            ca = new oa("FINE", 500);
+          var aa = new oa('SEVERE', 1e3),
+            sa = new oa('WARNING', 900),
+            ua = new oa('CONFIG', 700),
+            ca = new oa('FINE', 500);
 
           function ha(t) {
             return t.c
               ? t.c
               : t.a
               ? ha(t.a)
-              : (M("Root logger has no level set."), null);
+              : (M('Root logger has no level set.'), null);
           }
           ia.prototype.log = function (t, e, n) {
             if (t.value >= ha(this).value)
@@ -15166,11 +15166,11 @@
           function pa(t) {
             var e;
             if (
-              (fa || ((fa = new ia("")), (la[""] = fa), (fa.c = ua)),
+              (fa || ((fa = new ia('')), (la[''] = fa), (fa.c = ua)),
               !(e = la[t]))
             ) {
               e = new ia(t);
-              var n = t.lastIndexOf("."),
+              var n = t.lastIndexOf('.'),
                 r = t.substr(n + 1);
               (n = pa(t.substr(0, n))).b || (n.b = {}),
                 (n.b[r] = e),
@@ -15197,14 +15197,14 @@
                 this.responseText =
                 this.response =
                 this.statusText =
-                  ""),
+                  ''),
               (this.onreadystatechange = null),
               (this.i = new Headers()),
               (this.b = null),
-              (this.m = "GET"),
-              (this.g = ""),
+              (this.m = 'GET'),
+              (this.g = ''),
               (this.a = !1),
-              (this.h = pa("goog.net.FetchXmlHttp")),
+              (this.h = pa('goog.net.FetchXmlHttp')),
               (this.l = this.c = this.f = null);
           }
           I(va, Xo),
@@ -15244,7 +15244,7 @@
               (this.D = t || null),
               (this.c = !1),
               (this.B = this.a = null),
-              (this.h = this.P = this.l = ""),
+              (this.h = this.P = this.l = ''),
               (this.f = this.O = this.i = this.N = !1),
               (this.g = 0),
               (this.s = null),
@@ -15253,12 +15253,12 @@
           }
           ((e = ya.prototype).open = function (t, e) {
             if (this.readyState != ga)
-              throw (this.abort(), Error("Error reopening a connection"));
+              throw (this.abort(), Error('Error reopening a connection'));
             (this.m = t), (this.g = e), (this.readyState = 1), ba(this);
           }),
             (e.send = function (t) {
               if (1 != this.readyState)
-                throw (this.abort(), Error("need to call open() first. "));
+                throw (this.abort(), Error('need to call open() first. '));
               this.a = !0;
               var e = {
                 headers: this.i,
@@ -15272,10 +15272,10 @@
                   .then(this.sc.bind(this), this.Sa.bind(this));
             }),
             (e.abort = function () {
-              (this.response = this.responseText = ""),
+              (this.response = this.responseText = ''),
                 (this.i = new Headers()),
                 (this.status = 0),
-                this.c && this.c.cancel("Request was aborted."),
+                this.c && this.c.cancel('Request was aborted.'),
                 1 <= this.readyState &&
                   this.a &&
                   4 != this.readyState &&
@@ -15291,12 +15291,12 @@
                   ((this.readyState = 3),
                   ba(this),
                   this.a &&
-                    ("arraybuffer" === this.responseType
+                    ('arraybuffer' === this.responseType
                       ? t
                           .arrayBuffer()
                           .then(this.qc.bind(this), this.Sa.bind(this))
-                      : "undefined" !== typeof c.ReadableStream && "body" in t
-                      ? ((this.response = this.responseText = ""),
+                      : 'undefined' !== typeof c.ReadableStream && 'body' in t
+                      ? ((this.response = this.responseText = ''),
                         (this.c = t.body.getReader()),
                         (this.l = new TextDecoder()),
                         ma(this))
@@ -15325,7 +15325,7 @@
               e &&
                 e.log(
                   sa,
-                  "Failed to fetch url " + this.g,
+                  'Failed to fetch url ' + this.g,
                   t instanceof Error ? t : Error(t)
                 ),
                 this.a && _a(this, !0);
@@ -15335,15 +15335,15 @@
             }),
             (e.getResponseHeader = function (t) {
               return this.b
-                ? this.b.get(t.toLowerCase()) || ""
+                ? this.b.get(t.toLowerCase()) || ''
                 : ((t = this.h) &&
                     t.log(
                       sa,
-                      "Attempting to get response header but no headers have been received for url: " +
+                      'Attempting to get response header but no headers have been received for url: ' +
                         this.g,
                       void 0
                     ),
-                  "");
+                  '');
             }),
             (e.getAllResponseHeaders = function () {
               if (!this.b) {
@@ -15352,35 +15352,35 @@
                   t &&
                     t.log(
                       sa,
-                      "Attempting to get all response headers but no headers have been received for url: " +
+                      'Attempting to get all response headers but no headers have been received for url: ' +
                         this.g,
                       void 0
                     ),
-                  ""
+                  ''
                 );
               }
               t = [];
               for (var e = this.b.entries(), n = e.next(); !n.done; )
-                (n = n.value), t.push(n[0] + ": " + n[1]), (n = e.next());
-              return t.join("\r\n");
+                (n = n.value), t.push(n[0] + ': ' + n[1]), (n = e.next());
+              return t.join('\r\n');
             }),
             I(wa, En);
-          var Ea = "";
-          wa.prototype.b = pa("goog.net.XhrIo");
+          var Ea = '';
+          wa.prototype.b = pa('goog.net.XhrIo');
           var Ca = /^https?$/i,
-            Sa = ["POST", "PUT"];
+            Sa = ['POST', 'PUT'];
 
           function Ia(t, e, n, r, i) {
             if (t.a)
               throw Error(
-                "[goog.net.XhrIo] Object is active with another request=" +
+                '[goog.net.XhrIo] Object is active with another request=' +
                   t.l +
-                  "; newUri=" +
+                  '; newUri=' +
                   e
               );
-            (n = n ? n.toUpperCase() : "GET"),
+            (n = n ? n.toUpperCase() : 'GET'),
               (t.l = e),
-              (t.h = ""),
+              (t.h = ''),
               (t.P = n),
               (t.N = !1),
               (t.c = !0),
@@ -15388,22 +15388,22 @@
               (t.B = t.D ? $o(t.D) : $o(Qo)),
               (t.a.onreadystatechange = E(t.Sb, t));
             try {
-              da(t.b, Da(t, "Opening Xhr")),
+              da(t.b, Da(t, 'Opening Xhr')),
                 (t.O = !0),
                 t.a.open(n, String(e), !0),
                 (t.O = !1);
             } catch (a) {
               return (
-                da(t.b, Da(t, "Error opening Xhr: " + a.message)), void Na(t, a)
+                da(t.b, Da(t, 'Error opening Xhr: ' + a.message)), void Na(t, a)
               );
             }
-            e = r || "";
+            e = r || '';
             var o = new Pn(t.headers);
             i &&
               (function (t, e) {
-                if (t.forEach && "function" == typeof t.forEach)
+                if (t.forEach && 'function' == typeof t.forEach)
                   t.forEach(e, void 0);
-                else if (d(t) || "string" === typeof t) H(t, e, void 0);
+                else if (d(t) || 'string' === typeof t) H(t, e, void 0);
                 else
                   for (
                     var n = On(t), r = An(t), i = r.length, o = 0;
@@ -15419,7 +15419,7 @@
                   for (
                     var e = Ta,
                       n = t.length,
-                      r = "string" === typeof t ? t.split("") : t,
+                      r = 'string' === typeof t ? t.split('') : t,
                       i = 0;
                     i < n;
                     i++
@@ -15432,7 +15432,7 @@
                 }
                 return 0 > e
                   ? null
-                  : "string" === typeof t
+                  : 'string' === typeof t
                   ? t.charAt(e)
                   : t[e];
               })(o.X())),
@@ -15441,14 +15441,14 @@
                 i ||
                 r ||
                 o.set(
-                  "Content-Type",
-                  "application/x-www-form-urlencoded;charset=utf-8"
+                  'Content-Type',
+                  'application/x-www-form-urlencoded;charset=utf-8'
                 ),
               o.forEach(function (t, e) {
                 this.a.setRequestHeader(e, t);
               }, t),
               t.m && (t.a.responseType = t.m),
-              "withCredentials" in t.a &&
+              'withCredentials' in t.a &&
                 t.a.withCredentials !== t.R &&
                 (t.a.withCredentials = t.R);
             try {
@@ -15458,7 +15458,7 @@
                     return (
                       zt &&
                       oe(9) &&
-                      "number" === typeof t.timeout &&
+                      'number' === typeof t.timeout &&
                       void 0 !== t.ontimeout
                     );
                   })(t.a)),
@@ -15466,26 +15466,26 @@
                     t.b,
                     Da(
                       t,
-                      "Will abort after " +
+                      'Will abort after ' +
                         t.g +
-                        "ms if incomplete, xhr2 " +
+                        'ms if incomplete, xhr2 ' +
                         t.w
                     )
                   ),
                   t.w
                     ? ((t.a.timeout = t.g), (t.a.ontimeout = E(t.Ka, t)))
                     : (t.s = Tn(t.Ka, t.g, t))),
-                da(t.b, Da(t, "Sending request")),
+                da(t.b, Da(t, 'Sending request')),
                 (t.i = !0),
                 t.a.send(e),
                 (t.i = !1);
             } catch (a) {
-              da(t.b, Da(t, "Send error: " + a.message)), Na(t, a);
+              da(t.b, Da(t, 'Send error: ' + a.message)), Na(t, a);
             }
           }
 
           function Ta(t) {
-            return "content-type" == t.toLowerCase();
+            return 'content-type' == t.toLowerCase();
           }
 
           function Na(t, e) {
@@ -15499,17 +15499,17 @@
           function Aa(t) {
             t.N ||
               ((t.N = !0),
-              t.dispatchEvent("complete"),
-              t.dispatchEvent("error"));
+              t.dispatchEvent('complete'),
+              t.dispatchEvent('error'));
           }
 
           function Oa(t) {
-            if (t.c && "undefined" != typeof u)
+            if (t.c && 'undefined' != typeof u)
               if (t.B[1] && 4 == xa(t) && 2 == Ra(t))
-                da(t.b, Da(t, "Local request error detected and ignored"));
+                da(t.b, Da(t, 'Local request error detected and ignored'));
               else if (t.i && 4 == xa(t)) Tn(t.Sb, 0, t);
-              else if ((t.dispatchEvent("readystatechange"), 4 == xa(t))) {
-                da(t.b, Da(t, "Request complete")), (t.c = !1);
+              else if ((t.dispatchEvent('readystatechange'), 4 == xa(t))) {
+                da(t.b, Da(t, 'Request complete')), (t.c = !1);
                 try {
                   var e,
                     n = Ra(t);
@@ -15534,19 +15534,19 @@
                         var a = c.self.location.protocol;
                         o = a.substr(0, a.length - 1);
                       }
-                      i = !Ca.test(o ? o.toLowerCase() : "");
+                      i = !Ca.test(o ? o.toLowerCase() : '');
                     }
                     e = i;
                   }
                   if (e)
-                    t.dispatchEvent("complete"), t.dispatchEvent("success");
+                    t.dispatchEvent('complete'), t.dispatchEvent('success');
                   else {
                     try {
-                      var s = 2 < xa(t) ? t.a.statusText : "";
+                      var s = 2 < xa(t) ? t.a.statusText : '';
                     } catch (h) {
-                      da(t.b, "Can not get status: " + h.message), (s = "");
+                      da(t.b, 'Can not get status: ' + h.message), (s = '');
                     }
-                    (t.h = s + " [" + Ra(t) + "]"), Aa(t);
+                    (t.h = s + ' [' + Ra(t) + ']'), Aa(t);
                   }
                 } finally {
                   Pa(t);
@@ -15559,14 +15559,14 @@
               ka(t);
               var n = t.a,
                 r = t.B[0] ? f : null;
-              (t.a = null), (t.B = null), e || t.dispatchEvent("ready");
+              (t.a = null), (t.B = null), e || t.dispatchEvent('ready');
               try {
                 n.onreadystatechange = r;
               } catch (i) {
                 (t = t.b) &&
                   t.log(
                     aa,
-                    "Problem encountered resetting onreadystatechange: " +
+                    'Problem encountered resetting onreadystatechange: ' +
                       i.message,
                     void 0
                   );
@@ -15592,7 +15592,7 @@
           }
 
           function Da(t, e) {
-            return e + " [" + t.P + " " + t.l + " " + Ra(t) + "]";
+            return e + ' [' + t.P + ' ' + t.l + ' ' + Ra(t) + ']';
           }
 
           function La(t) {
@@ -15647,7 +15647,7 @@
                     ((t.f = t.f && (s == e || s instanceof Error)),
                     (t.c = e = s)),
                     (R(e) ||
-                      ("function" === typeof c.Promise &&
+                      ('function' === typeof c.Promise &&
                         e instanceof c.Promise)) &&
                       ((r = !0), (t.i = !0));
                 } catch (u) {
@@ -15674,23 +15674,23 @@
             (this.a = c.setTimeout(E(this.c, this), 0)), (this.b = t);
           }
           ((e = wa.prototype).Ka = function () {
-            "undefined" != typeof u &&
+            'undefined' != typeof u &&
               this.a &&
-              ((this.h = "Timed out after " + this.g + "ms, aborting"),
+              ((this.h = 'Timed out after ' + this.g + 'ms, aborting'),
               da(this.b, Da(this, this.h)),
-              this.dispatchEvent("timeout"),
+              this.dispatchEvent('timeout'),
               this.abort(8));
           }),
             (e.abort = function () {
               this.a &&
                 this.c &&
-                (da(this.b, Da(this, "Aborting")),
+                (da(this.b, Da(this, 'Aborting')),
                 (this.c = !1),
                 (this.f = !0),
                 this.a.abort(),
                 (this.f = !1),
-                this.dispatchEvent("complete"),
-                this.dispatchEvent("abort"),
+                this.dispatchEvent('complete'),
+                this.dispatchEvent('abort'),
                 Pa(this));
             }),
             (e.Ba = function () {
@@ -15709,13 +15709,13 @@
             (e.getResponse = function () {
               try {
                 if (!this.a) return null;
-                if ("response" in this.a) return this.a.response;
+                if ('response' in this.a) return this.a.response;
                 switch (this.m) {
                   case Ea:
-                  case "text":
+                  case 'text':
                     return this.a.responseText;
-                  case "arraybuffer":
-                    if ("mozResponseArrayBuffer" in this.a)
+                  case 'arraybuffer':
+                    if ('mozResponseArrayBuffer' in this.a)
                       return this.a.mozResponseArrayBuffer;
                 }
                 var t = this.b;
@@ -15723,15 +15723,15 @@
                   t &&
                     t.log(
                       aa,
-                      "Response type " +
+                      'Response type ' +
                         this.m +
-                        " is not supported on this browser",
+                        ' is not supported on this browser',
                       void 0
                     ),
                   null
                 );
               } catch (e) {
-                return da(this.b, "Can not get response: " + e.message), null;
+                return da(this.b, 'Can not get response: ' + e.message), null;
               }
             }),
             (La.prototype.cancel = function (t) {
@@ -15764,11 +15764,11 @@
             }),
             (La.prototype.$goog_Thenable = !0),
             I(Wa, D),
-            (Wa.prototype.message = "Deferred has already fired"),
-            (Wa.prototype.name = "AlreadyCalledError"),
+            (Wa.prototype.message = 'Deferred has already fired'),
+            (Wa.prototype.name = 'AlreadyCalledError'),
             I(qa, D),
-            (qa.prototype.message = "Deferred was canceled"),
-            (qa.prototype.name = "CanceledError"),
+            (qa.prototype.message = 'Deferred was canceled'),
+            (qa.prototype.name = 'CanceledError'),
             (Ba.prototype.c = function () {
               throw (delete Ha[this.a], this.b);
             });
@@ -15778,7 +15778,7 @@
             var e = {},
               n = e.document || document,
               r = It(t).toString(),
-              i = pe(document, "SCRIPT"),
+              i = pe(document, 'SCRIPT'),
               o = {
                 Tb: i,
                 Ka: void 0,
@@ -15790,44 +15790,44 @@
               0 < u &&
                 ((s = window.setTimeout(function () {
                   Ga(i, !0);
-                  var t = new Xa(Ya, "Timeout reached for loading script " + r);
+                  var t = new Xa(Ya, 'Timeout reached for loading script ' + r);
                   Fa(a), Ma(a, !1, t);
                 }, u)),
                 (o.Ka = s)),
               (i.onload = i.onreadystatechange =
                 function () {
                   (i.readyState &&
-                    "loaded" != i.readyState &&
-                    "complete" != i.readyState) ||
+                    'loaded' != i.readyState &&
+                    'complete' != i.readyState) ||
                     (Ga(i, e.ud || !1, s), Fa(a), Ma(a, !0, null));
                 }),
               (i.onerror = function () {
                 Ga(i, !0, s);
-                var t = new Xa(za, "Error while loading script " + r);
+                var t = new Xa(za, 'Error while loading script ' + r);
                 Fa(a), Ma(a, !1, t);
               }),
               gt((o = e.attributes || {}), {
-                type: "text/javascript",
-                charset: "UTF-8",
+                type: 'text/javascript',
+                charset: 'UTF-8',
               }),
               ue(i, o),
               (function (t, e) {
-                mt(t, "HTMLScriptElement"),
+                mt(t, 'HTMLScriptElement'),
                   (t.src = It(e)),
                   null === l &&
                     (l =
                       (e =
                         (e = c.document).querySelector &&
-                        e.querySelector("script[nonce]")) &&
-                      (e = e.nonce || e.getAttribute("nonce")) &&
+                        e.querySelector('script[nonce]')) &&
+                      (e = e.nonce || e.getAttribute('nonce')) &&
                       h.test(e)
                         ? e
-                        : ""),
-                  (e = l) && t.setAttribute("nonce", e);
+                        : ''),
+                  (e = l) && t.setAttribute('nonce', e);
               })(i, t),
               (function (t) {
                 var e;
-                return (e = (t || document).getElementsByTagName("HEAD")) &&
+                return (e = (t || document).getElementsByTagName('HEAD')) &&
                   0 != e.length
                   ? e[0]
                   : t.documentElement;
@@ -15839,7 +15839,7 @@
           function Ka() {
             if (this && this.Tb) {
               var t = this.Tb;
-              t && "SCRIPT" == t.tagName && Ga(t, !0, this.Ka);
+              t && 'SCRIPT' == t.tagName && Ga(t, !0, this.Ka);
             }
           }
 
@@ -15857,8 +15857,8 @@
             Ya = 1;
 
           function Xa(t, e) {
-            var n = "Jsloader error (code #" + t + ")";
-            e && (n += ": " + e), D.call(this, n), (this.code = t);
+            var n = 'Jsloader error (code #' + t + ')';
+            e && (n += ': ' + e), D.call(this, n), (this.code = t);
           }
 
           function $a(t) {
@@ -15871,29 +15871,29 @@
               (t = e || {}),
               (this.u =
                 t.secureTokenEndpoint ||
-                "https://securetoken.googleapis.com/v1/token"),
+                'https://securetoken.googleapis.com/v1/token'),
               (this.m = t.secureTokenTimeout || es),
               (this.g = vt(t.secureTokenHeaders || ns)),
               (this.h =
                 t.firebaseEndpoint ||
-                "https://www.googleapis.com/identitytoolkit/v3/relyingparty/"),
+                'https://www.googleapis.com/identitytoolkit/v3/relyingparty/'),
               (this.l =
                 t.identityPlatformEndpoint ||
-                "https://identitytoolkit.googleapis.com/v2/"),
+                'https://identitytoolkit.googleapis.com/v2/'),
               (this.i = t.firebaseTimeout || rs),
               (this.a = vt(t.firebaseHeaders || is)),
               n &&
-                ((this.a["X-Client-Version"] = n),
-                (this.g["X-Client-Version"] = n)),
-              (n = "Node" == Cr()),
+                ((this.a['X-Client-Version'] = n),
+                (this.g['X-Client-Version'] = n)),
+              (n = 'Node' == Cr()),
               !(n =
                 c.XMLHttpRequest ||
                 (n && r.a.INTERNAL.node && r.a.INTERNAL.node.XMLHttpRequest)) &&
                 !Er())
             )
               throw new T(
-                "internal-error",
-                "The XMLHttpRequest compatibility library was not found."
+                'internal-error',
+                'The XMLHttpRequest compatibility library was not found.'
               );
             (this.f = void 0),
               Er()
@@ -15912,27 +15912,27 @@
               return {};
             });
           var Za,
-            ts = "idToken",
+            ts = 'idToken',
             es = new Br(3e4, 6e4),
             ns = {
-              "Content-Type": "application/x-www-form-urlencoded",
+              'Content-Type': 'application/x-www-form-urlencoded',
             },
             rs = new Br(3e4, 6e4),
             is = {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             };
 
           function os(t, e) {
             e
-              ? (t.a["X-Firebase-Locale"] = e)
-              : delete t.a["X-Firebase-Locale"];
+              ? (t.a['X-Firebase-Locale'] = e)
+              : delete t.a['X-Firebase-Locale'];
           }
 
           function as(t, e) {
             e
-              ? ((t.a["X-Client-Version"] = e), (t.g["X-Client-Version"] = e))
-              : (delete t.a["X-Client-Version"],
-                delete t.g["X-Client-Version"]);
+              ? ((t.a['X-Client-Version'] = e), (t.g['X-Client-Version'] = e))
+              : (delete t.a['X-Client-Version'],
+                delete t.g['X-Client-Version']);
           }
 
           function ss(t, e, n, r, i, o, a) {
@@ -15959,7 +15959,7 @@
                         (c[cs] = function () {
                           ((window.gapi || {}).client || {}).request
                             ? t()
-                            : e(Error("CORS_UNSUPPORTED"));
+                            : e(Error('CORS_UNSUPPORTED'));
                         }),
                           (function (t, e) {
                             ja(t, null, e, void 0);
@@ -15970,7 +15970,7 @@
                               })
                             ),
                             function () {
-                              e(Error("CORS_UNSUPPORTED"));
+                              e(Error('CORS_UNSUPPORTED'));
                             }
                           );
                       }
@@ -15985,22 +15985,22 @@
             (Ja.prototype.w = function (t, e, n, r, i, o) {
               if (
                 Er() &&
-                ("undefined" === typeof c.fetch ||
-                  "undefined" === typeof c.Headers ||
-                  "undefined" === typeof c.Request)
+                ('undefined' === typeof c.fetch ||
+                  'undefined' === typeof c.Headers ||
+                  'undefined' === typeof c.Request)
               )
                 throw new T(
-                  "operation-not-supported-in-this-environment",
-                  "fetch, Headers and Request native APIs or equivalent Polyfills must be available to support HTTP requests from a Worker environment."
+                  'operation-not-supported-in-this-environment',
+                  'fetch, Headers and Request native APIs or equivalent Polyfills must be available to support HTTP requests from a Worker environment.'
                 );
               var a = new wa(this.f);
               if (o) {
                 a.g = Math.max(0, o);
                 var s = setTimeout(function () {
-                  a.dispatchEvent("timeout");
+                  a.dispatchEvent('timeout');
                 }, o);
               }
-              Cn(a, "complete", function () {
+              Cn(a, 'complete', function () {
                 s && clearTimeout(s);
                 var t = null;
                 try {
@@ -16008,11 +16008,11 @@
                     JSON.parse(
                       (function (t) {
                         try {
-                          return t.a ? t.a.responseText : "";
+                          return t.a ? t.a.responseText : '';
                         } catch (e) {
                           return (
-                            da(t.b, "Can not get responseText: " + e.message),
-                            ""
+                            da(t.b, 'Can not get responseText: ' + e.message),
+                            ''
                           );
                         }
                       })(this)
@@ -16022,24 +16022,24 @@
                 }
                 e && e(t);
               }),
-                Sn(a, "ready", function () {
+                Sn(a, 'ready', function () {
                   s && clearTimeout(s), Ke(this);
                 }),
-                Sn(a, "timeout", function () {
+                Sn(a, 'timeout', function () {
                   s && clearTimeout(s), Ke(this), e && e(null);
                 }),
                 Ia(a, t, n, r, i);
             });
           var us = new _t(
               Et,
-              "https://apis.google.com/js/client.js?onload=%{onload}"
+              'https://apis.google.com/js/client.js?onload=%{onload}'
             ),
-            cs = "__fcb" + Math.floor(1e6 * Math.random()).toString();
+            cs = '__fcb' + Math.floor(1e6 * Math.random()).toString();
 
           function hs(t, e, n, r, i, o, a) {
             var s = Vn(e + n);
-            jn(s, "key", t.c), a && jn(s, "cb", S().toString());
-            var u = "GET" == r;
+            jn(s, 'key', t.c), a && jn(s, 'cb', S().toString());
+            var u = 'GET' == r;
             if (u) for (var c in i) i.hasOwnProperty(c) && jn(s, c, i[c]);
             return new we(function (e, n) {
               ss(
@@ -16050,7 +16050,7 @@
                     ? t.error
                       ? n(ou(t, o || {}))
                       : e(t)
-                    : n(new T("network-request-failed"));
+                    : n(new T('network-request-failed'));
                 },
                 r,
                 u ? void 0 : ir(jr(i)),
@@ -16061,29 +16061,29 @@
           }
 
           function ls(t) {
-            if ("string" !== typeof (t = t.email) || !mr.test(t))
-              throw new T("invalid-email");
+            if ('string' !== typeof (t = t.email) || !mr.test(t))
+              throw new T('invalid-email');
           }
 
           function fs(t) {
-            "email" in t && ls(t);
+            'email' in t && ls(t);
           }
 
           function ps(t) {
             if (!t[ts]) {
               if (t.mfaPendingCredential)
-                throw new T("multi-factor-auth-required", null, vt(t));
-              throw new T("internal-error");
+                throw new T('multi-factor-auth-required', null, vt(t));
+              throw new T('internal-error');
             }
           }
 
           function ds(t) {
             if (t.phoneNumber || t.temporaryProof) {
               if (!t.phoneNumber || !t.temporaryProof)
-                throw new T("internal-error");
+                throw new T('internal-error');
             } else {
-              if (!t.sessionInfo) throw new T("missing-verification-id");
-              if (!t.code) throw new T("missing-verification-code");
+              if (!t.sessionInfo) throw new T('missing-verification-id');
+              if (!t.code) throw new T('missing-verification-code');
             }
           }
           (Ja.prototype.s = function (t, e, n, r, i) {
@@ -16097,7 +16097,7 @@
                   method: n,
                   body: r,
                   headers: i,
-                  authType: "none",
+                  authType: 'none',
                   callback: function (t) {
                     window.gapi.auth.setToken(a), e && e(t);
                   },
@@ -16106,7 +16106,7 @@
               e &&
                 e({
                   error: {
-                    message: (t && t.message) || "CORS_UNSUPPORTED",
+                    message: (t && t.message) || 'CORS_UNSUPPORTED',
                   },
                 });
             });
@@ -16127,16 +16127,16 @@
               });
             });
           var vs = {
-            displayName: "DISPLAY_NAME",
-            photoUrl: "PHOTO_URL",
+            displayName: 'DISPLAY_NAME',
+            photoUrl: 'PHOTO_URL',
           };
 
           function ys(t) {
-            if (!t.phoneVerificationInfo) throw new T("internal-error");
+            if (!t.phoneVerificationInfo) throw new T('internal-error');
             if (!t.phoneVerificationInfo.sessionInfo)
-              throw new T("missing-verification-id");
+              throw new T('missing-verification-id');
             if (!t.phoneVerificationInfo.code)
-              throw new T("missing-verification-code");
+              throw new T('missing-verification-code');
           }
 
           function gs(t) {
@@ -16144,20 +16144,20 @@
               !t.requestUri ||
               (!t.sessionId && !t.postBody && !t.pendingToken)
             )
-              throw new T("internal-error");
+              throw new T('internal-error');
           }
 
           function ms(t, e) {
             return (
               e.oauthIdToken &&
                 e.providerId &&
-                0 == e.providerId.indexOf("oidc.") &&
+                0 == e.providerId.indexOf('oidc.') &&
                 !e.pendingToken &&
                 (t.sessionId
                   ? (e.nonce = t.sessionId)
                   : t.postBody &&
-                    tr((t = new Xn(t.postBody)), "nonce") &&
-                    (e.nonce = t.get("nonce"))),
+                    tr((t = new Xn(t.postBody)), 'nonce') &&
+                    (e.nonce = t.get('nonce'))),
               e
             );
           }
@@ -16166,12 +16166,12 @@
             var e = null;
             if (
               (t.needConfirmation
-                ? ((t.code = "account-exists-with-different-credential"),
+                ? ((t.code = 'account-exists-with-different-credential'),
                   (e = Yo(t)))
-                : "FEDERATED_USER_ID_ALREADY_LINKED" == t.errorMessage
-                ? ((t.code = "credential-already-in-use"), (e = Yo(t)))
-                : "EMAIL_EXISTS" == t.errorMessage
-                ? ((t.code = "email-already-in-use"), (e = Yo(t)))
+                : 'FEDERATED_USER_ID_ALREADY_LINKED' == t.errorMessage
+                ? ((t.code = 'credential-already-in-use'), (e = Yo(t)))
+                : 'EMAIL_EXISTS' == t.errorMessage
+                ? ((t.code = 'email-already-in-use'), (e = Yo(t)))
                 : t.errorMessage && (e = iu(t.errorMessage)),
               e)
             )
@@ -16194,7 +16194,7 @@
           }
 
           function Cs(t) {
-            if (!t.oobCode) throw new T("invalid-action-code");
+            if (!t.oobCode) throw new T('invalid-action-code');
           }
           ((e = Ja.prototype).zb = function (t, e) {
             var n = {
@@ -16214,7 +16214,7 @@
               return (
                 gt(
                   (t = {
-                    requestType: "PASSWORD_RESET",
+                    requestType: 'PASSWORD_RESET',
                     email: t,
                   }),
                   e
@@ -16226,7 +16226,7 @@
               return (
                 gt(
                   (t = {
-                    requestType: "EMAIL_SIGNIN",
+                    requestType: 'EMAIL_SIGNIN',
                     email: t,
                   }),
                   e
@@ -16238,7 +16238,7 @@
               return (
                 gt(
                   (t = {
-                    requestType: "VERIFY_EMAIL",
+                    requestType: 'VERIFY_EMAIL',
                     idToken: t,
                   }),
                   e
@@ -16250,7 +16250,7 @@
               return (
                 gt(
                   (t = {
-                    requestType: "VERIFY_AND_CHANGE_EMAIL",
+                    requestType: 'VERIFY_AND_CHANGE_EMAIL',
                     idToken: t,
                     newEmail: e,
                   }),
@@ -16279,206 +16279,206 @@
               });
             });
           var Ss = {
-              endpoint: "setAccountInfo",
+              endpoint: 'setAccountInfo',
               A: Cs,
-              Y: "email",
+              Y: 'email',
               C: !0,
             },
             Is = {
-              endpoint: "resetPassword",
+              endpoint: 'resetPassword',
               A: Cs,
               G: function (t) {
                 var e = t.requestType;
                 if (
                   !e ||
                   (!t.email &&
-                    "EMAIL_SIGNIN" != e &&
-                    "VERIFY_AND_CHANGE_EMAIL" != e)
+                    'EMAIL_SIGNIN' != e &&
+                    'VERIFY_AND_CHANGE_EMAIL' != e)
                 )
-                  throw new T("internal-error");
+                  throw new T('internal-error');
               },
               C: !0,
             },
             Ts = {
-              endpoint: "signupNewUser",
+              endpoint: 'signupNewUser',
               A: function (t) {
-                if ((ls(t), !t.password)) throw new T("weak-password");
+                if ((ls(t), !t.password)) throw new T('weak-password');
               },
               G: ps,
               U: !0,
               C: !0,
             },
             Ns = {
-              endpoint: "createAuthUri",
+              endpoint: 'createAuthUri',
               C: !0,
             },
             As = {
-              endpoint: "deleteAccount",
-              M: ["idToken"],
+              endpoint: 'deleteAccount',
+              M: ['idToken'],
             },
             Os = {
-              endpoint: "setAccountInfo",
-              M: ["idToken", "deleteProvider"],
+              endpoint: 'setAccountInfo',
+              M: ['idToken', 'deleteProvider'],
               A: function (t) {
-                if ("array" != p(t.deleteProvider))
-                  throw new T("internal-error");
+                if ('array' != p(t.deleteProvider))
+                  throw new T('internal-error');
               },
             },
             Ps = {
-              endpoint: "emailLinkSignin",
-              M: ["email", "oobCode"],
+              endpoint: 'emailLinkSignin',
+              M: ['email', 'oobCode'],
               A: ls,
               G: ps,
               U: !0,
               C: !0,
             },
             ks = {
-              endpoint: "emailLinkSignin",
-              M: ["idToken", "email", "oobCode"],
+              endpoint: 'emailLinkSignin',
+              M: ['idToken', 'email', 'oobCode'],
               A: ls,
               G: ps,
               U: !0,
             },
             xs = {
-              endpoint: "accounts/mfaEnrollment:finalize",
-              M: ["idToken", "phoneVerificationInfo"],
+              endpoint: 'accounts/mfaEnrollment:finalize',
+              M: ['idToken', 'phoneVerificationInfo'],
               A: ys,
               G: ps,
               C: !0,
               La: !0,
             },
             Rs = {
-              endpoint: "accounts/mfaSignIn:finalize",
-              M: ["mfaPendingCredential", "phoneVerificationInfo"],
+              endpoint: 'accounts/mfaSignIn:finalize',
+              M: ['mfaPendingCredential', 'phoneVerificationInfo'],
               A: ys,
               G: ps,
               C: !0,
               La: !0,
             },
             Ds = {
-              endpoint: "getAccountInfo",
+              endpoint: 'getAccountInfo',
             },
             Ls = {
-              endpoint: "getOobConfirmationCode",
-              M: ["requestType"],
+              endpoint: 'getOobConfirmationCode',
+              M: ['requestType'],
               A: function (t) {
-                if ("EMAIL_SIGNIN" != t.requestType)
-                  throw new T("internal-error");
+                if ('EMAIL_SIGNIN' != t.requestType)
+                  throw new T('internal-error');
                 ls(t);
               },
-              Y: "email",
+              Y: 'email',
               C: !0,
             },
             Ms = {
-              endpoint: "getOobConfirmationCode",
-              M: ["idToken", "requestType"],
+              endpoint: 'getOobConfirmationCode',
+              M: ['idToken', 'requestType'],
               A: function (t) {
-                if ("VERIFY_EMAIL" != t.requestType)
-                  throw new T("internal-error");
+                if ('VERIFY_EMAIL' != t.requestType)
+                  throw new T('internal-error');
               },
-              Y: "email",
+              Y: 'email',
               C: !0,
             },
             Fs = {
-              endpoint: "getOobConfirmationCode",
-              M: ["idToken", "newEmail", "requestType"],
+              endpoint: 'getOobConfirmationCode',
+              M: ['idToken', 'newEmail', 'requestType'],
               A: function (t) {
-                if ("VERIFY_AND_CHANGE_EMAIL" != t.requestType)
-                  throw new T("internal-error");
+                if ('VERIFY_AND_CHANGE_EMAIL' != t.requestType)
+                  throw new T('internal-error');
               },
-              Y: "email",
+              Y: 'email',
               C: !0,
             },
             js = {
-              endpoint: "getOobConfirmationCode",
-              M: ["requestType"],
+              endpoint: 'getOobConfirmationCode',
+              M: ['requestType'],
               A: function (t) {
-                if ("PASSWORD_RESET" != t.requestType)
-                  throw new T("internal-error");
+                if ('PASSWORD_RESET' != t.requestType)
+                  throw new T('internal-error');
                 ls(t);
               },
-              Y: "email",
+              Y: 'email',
               C: !0,
             },
             Us = {
               hb: !0,
-              endpoint: "getProjectConfig",
-              Rb: "GET",
+              endpoint: 'getProjectConfig',
+              Rb: 'GET',
             },
             Vs = {
               hb: !0,
-              endpoint: "getRecaptchaParam",
-              Rb: "GET",
+              endpoint: 'getRecaptchaParam',
+              Rb: 'GET',
               G: function (t) {
-                if (!t.recaptchaSiteKey) throw new T("internal-error");
+                if (!t.recaptchaSiteKey) throw new T('internal-error');
               },
             },
             Ws = {
-              endpoint: "resetPassword",
+              endpoint: 'resetPassword',
               A: Cs,
-              Y: "email",
+              Y: 'email',
               C: !0,
             },
             qs = {
-              endpoint: "sendVerificationCode",
-              M: ["phoneNumber", "recaptchaToken"],
-              Y: "sessionInfo",
+              endpoint: 'sendVerificationCode',
+              M: ['phoneNumber', 'recaptchaToken'],
+              Y: 'sessionInfo',
               C: !0,
             },
             Bs = {
-              endpoint: "setAccountInfo",
-              M: ["idToken"],
+              endpoint: 'setAccountInfo',
+              M: ['idToken'],
               A: fs,
               U: !0,
             },
             Hs = {
-              endpoint: "setAccountInfo",
-              M: ["idToken"],
+              endpoint: 'setAccountInfo',
+              M: ['idToken'],
               A: function (t) {
-                if ((fs(t), !t.password)) throw new T("weak-password");
+                if ((fs(t), !t.password)) throw new T('weak-password');
               },
               G: ps,
               U: !0,
             },
             Qs = {
-              endpoint: "signupNewUser",
+              endpoint: 'signupNewUser',
               G: ps,
               U: !0,
               C: !0,
             },
             Ks = {
-              endpoint: "accounts/mfaEnrollment:start",
-              M: ["idToken", "phoneEnrollmentInfo"],
+              endpoint: 'accounts/mfaEnrollment:start',
+              M: ['idToken', 'phoneEnrollmentInfo'],
               A: function (t) {
-                if (!t.phoneEnrollmentInfo) throw new T("internal-error");
+                if (!t.phoneEnrollmentInfo) throw new T('internal-error');
                 if (!t.phoneEnrollmentInfo.phoneNumber)
-                  throw new T("missing-phone-number");
+                  throw new T('missing-phone-number');
                 if (!t.phoneEnrollmentInfo.recaptchaToken)
-                  throw new T("missing-app-credential");
+                  throw new T('missing-app-credential');
               },
               G: function (t) {
                 if (!t.phoneSessionInfo || !t.phoneSessionInfo.sessionInfo)
-                  throw new T("internal-error");
+                  throw new T('internal-error');
               },
               C: !0,
               La: !0,
             },
             Gs = {
-              endpoint: "accounts/mfaSignIn:start",
-              M: ["mfaPendingCredential", "mfaEnrollmentId", "phoneSignInInfo"],
+              endpoint: 'accounts/mfaSignIn:start',
+              M: ['mfaPendingCredential', 'mfaEnrollmentId', 'phoneSignInInfo'],
               A: function (t) {
                 if (!t.phoneSignInInfo || !t.phoneSignInInfo.recaptchaToken)
-                  throw new T("missing-app-credential");
+                  throw new T('missing-app-credential');
               },
               G: function (t) {
                 if (!t.phoneResponseInfo || !t.phoneResponseInfo.sessionInfo)
-                  throw new T("internal-error");
+                  throw new T('internal-error');
               },
               C: !0,
               La: !0,
             },
             zs = {
-              endpoint: "verifyAssertion",
+              endpoint: 'verifyAssertion',
               A: gs,
               Wa: ms,
               G: _s,
@@ -16486,12 +16486,12 @@
               C: !0,
             },
             Ys = {
-              endpoint: "verifyAssertion",
+              endpoint: 'verifyAssertion',
               A: gs,
               Wa: ms,
               G: function (t) {
-                if (t.errorMessage && "USER_NOT_FOUND" == t.errorMessage)
-                  throw new T("user-not-found");
+                if (t.errorMessage && 'USER_NOT_FOUND' == t.errorMessage)
+                  throw new T('user-not-found');
                 if (t.errorMessage) throw iu(t.errorMessage);
                 ps(t);
               },
@@ -16499,64 +16499,64 @@
               C: !0,
             },
             Xs = {
-              endpoint: "verifyAssertion",
+              endpoint: 'verifyAssertion',
               A: function (t) {
-                if ((gs(t), !t.idToken)) throw new T("internal-error");
+                if ((gs(t), !t.idToken)) throw new T('internal-error');
               },
               Wa: ms,
               G: _s,
               U: !0,
             },
             $s = {
-              endpoint: "verifyCustomToken",
+              endpoint: 'verifyCustomToken',
               A: function (t) {
-                if (!t.token) throw new T("invalid-custom-token");
+                if (!t.token) throw new T('invalid-custom-token');
               },
               G: ps,
               U: !0,
               C: !0,
             },
             Js = {
-              endpoint: "verifyPassword",
+              endpoint: 'verifyPassword',
               A: function (t) {
-                if ((ls(t), !t.password)) throw new T("wrong-password");
+                if ((ls(t), !t.password)) throw new T('wrong-password');
               },
               G: ps,
               U: !0,
               C: !0,
             },
             Zs = {
-              endpoint: "verifyPhoneNumber",
+              endpoint: 'verifyPhoneNumber',
               A: ds,
               G: ps,
               C: !0,
             },
             tu = {
-              endpoint: "verifyPhoneNumber",
+              endpoint: 'verifyPhoneNumber',
               A: function (t) {
-                if (!t.idToken) throw new T("internal-error");
+                if (!t.idToken) throw new T('internal-error');
                 ds(t);
               },
               G: function (t) {
                 if (t.temporaryProof)
-                  throw ((t.code = "credential-already-in-use"), Yo(t));
+                  throw ((t.code = 'credential-already-in-use'), Yo(t));
                 ps(t);
               },
             },
             eu = {
               Eb: {
-                USER_NOT_FOUND: "user-not-found",
+                USER_NOT_FOUND: 'user-not-found',
               },
-              endpoint: "verifyPhoneNumber",
+              endpoint: 'verifyPhoneNumber',
               A: ds,
               G: ps,
               C: !0,
             },
             nu = {
-              endpoint: "accounts/mfaEnrollment:withdraw",
-              M: ["idToken", "mfaEnrollmentId"],
+              endpoint: 'accounts/mfaEnrollment:withdraw',
+              M: ['idToken', 'mfaEnrollmentId'],
               G: function (t) {
-                if (!!t[ts] ^ !!t.refreshToken) throw new T("internal-error");
+                if (!!t[ts] ^ !!t.refreshToken) throw new T('internal-error');
               },
               C: !0,
               La: !0,
@@ -16569,15 +16569,15 @@
                 if (!t) return !1;
                 for (var n = 0; n < e.length; n++) {
                   var r = t[e[n]];
-                  if (void 0 === r || null === r || "" === r) return !1;
+                  if (void 0 === r || null === r || '' === r) return !1;
                 }
                 return !0;
               })(n, e.M)
             )
-              return Oe(new T("internal-error"));
+              return Oe(new T('internal-error'));
             var r,
               i = !!e.La,
-              o = e.Rb || "POST";
+              o = e.Rb || 'POST';
             return Ae(n)
               .then(e.A)
               .then(function () {
@@ -16585,7 +16585,7 @@
                   e.U && (n.returnSecureToken = !0),
                   e.C &&
                     t.b &&
-                    "undefined" === typeof n.tenantId &&
+                    'undefined' === typeof n.tenantId &&
                     (n.tenantId = t.b),
                   hs(t, i ? t.l : t.h, e.endpoint, o, n, e.Eb, e.hb || !1)
                 );
@@ -16596,7 +16596,7 @@
               .then(e.G)
               .then(function () {
                 if (!e.Y) return r;
-                if (!(e.Y in r)) throw new T("internal-error");
+                if (!(e.Y in r)) throw new T('internal-error');
                 return r[e.Y];
               });
           }
@@ -16618,85 +16618,85 @@
           function ou(t, e) {
             var n =
                 ((t.error && t.error.errors && t.error.errors[0]) || {})
-                  .reason || "",
+                  .reason || '',
               r = {
-                keyInvalid: "invalid-api-key",
-                ipRefererBlocked: "app-not-authorized",
+                keyInvalid: 'invalid-api-key',
+                ipRefererBlocked: 'app-not-authorized',
               };
             if ((n = r[n] ? new T(r[n]) : null)) return n;
-            for (var i in ((n = (t.error && t.error.message) || ""),
+            for (var i in ((n = (t.error && t.error.message) || ''),
             gt(
               (r = {
-                INVALID_CUSTOM_TOKEN: "invalid-custom-token",
-                CREDENTIAL_MISMATCH: "custom-token-mismatch",
-                MISSING_CUSTOM_TOKEN: "internal-error",
-                INVALID_IDENTIFIER: "invalid-email",
-                MISSING_CONTINUE_URI: "internal-error",
-                INVALID_EMAIL: "invalid-email",
-                INVALID_PASSWORD: "wrong-password",
-                USER_DISABLED: "user-disabled",
-                MISSING_PASSWORD: "internal-error",
-                EMAIL_EXISTS: "email-already-in-use",
-                PASSWORD_LOGIN_DISABLED: "operation-not-allowed",
-                INVALID_IDP_RESPONSE: "invalid-credential",
-                INVALID_PENDING_TOKEN: "invalid-credential",
-                FEDERATED_USER_ID_ALREADY_LINKED: "credential-already-in-use",
-                MISSING_OR_INVALID_NONCE: "missing-or-invalid-nonce",
-                INVALID_MESSAGE_PAYLOAD: "invalid-message-payload",
-                INVALID_RECIPIENT_EMAIL: "invalid-recipient-email",
-                INVALID_SENDER: "invalid-sender",
-                EMAIL_NOT_FOUND: "user-not-found",
-                RESET_PASSWORD_EXCEED_LIMIT: "too-many-requests",
-                EXPIRED_OOB_CODE: "expired-action-code",
-                INVALID_OOB_CODE: "invalid-action-code",
-                MISSING_OOB_CODE: "internal-error",
-                INVALID_PROVIDER_ID: "invalid-provider-id",
-                CREDENTIAL_TOO_OLD_LOGIN_AGAIN: "requires-recent-login",
-                INVALID_ID_TOKEN: "invalid-user-token",
-                TOKEN_EXPIRED: "user-token-expired",
-                USER_NOT_FOUND: "user-token-expired",
-                CORS_UNSUPPORTED: "cors-unsupported",
-                DYNAMIC_LINK_NOT_ACTIVATED: "dynamic-link-not-activated",
-                INVALID_APP_ID: "invalid-app-id",
-                TOO_MANY_ATTEMPTS_TRY_LATER: "too-many-requests",
-                WEAK_PASSWORD: "weak-password",
-                OPERATION_NOT_ALLOWED: "operation-not-allowed",
-                USER_CANCELLED: "user-cancelled",
-                CAPTCHA_CHECK_FAILED: "captcha-check-failed",
-                INVALID_APP_CREDENTIAL: "invalid-app-credential",
-                INVALID_CODE: "invalid-verification-code",
-                INVALID_PHONE_NUMBER: "invalid-phone-number",
-                INVALID_SESSION_INFO: "invalid-verification-id",
-                INVALID_TEMPORARY_PROOF: "invalid-credential",
-                MISSING_APP_CREDENTIAL: "missing-app-credential",
-                MISSING_CODE: "missing-verification-code",
-                MISSING_PHONE_NUMBER: "missing-phone-number",
-                MISSING_SESSION_INFO: "missing-verification-id",
-                QUOTA_EXCEEDED: "quota-exceeded",
-                SESSION_EXPIRED: "code-expired",
-                REJECTED_CREDENTIAL: "rejected-credential",
-                INVALID_CONTINUE_URI: "invalid-continue-uri",
-                MISSING_ANDROID_PACKAGE_NAME: "missing-android-pkg-name",
-                MISSING_IOS_BUNDLE_ID: "missing-ios-bundle-id",
-                UNAUTHORIZED_DOMAIN: "unauthorized-continue-uri",
-                INVALID_DYNAMIC_LINK_DOMAIN: "invalid-dynamic-link-domain",
-                INVALID_OAUTH_CLIENT_ID: "invalid-oauth-client-id",
-                INVALID_CERT_HASH: "invalid-cert-hash",
-                UNSUPPORTED_TENANT_OPERATION: "unsupported-tenant-operation",
-                INVALID_TENANT_ID: "invalid-tenant-id",
-                TENANT_ID_MISMATCH: "tenant-id-mismatch",
-                ADMIN_ONLY_OPERATION: "admin-restricted-operation",
-                INVALID_MFA_PENDING_CREDENTIAL: "invalid-multi-factor-session",
-                MFA_ENROLLMENT_NOT_FOUND: "multi-factor-info-not-found",
-                MISSING_MFA_PENDING_CREDENTIAL: "missing-multi-factor-session",
-                MISSING_MFA_ENROLLMENT_ID: "missing-multi-factor-info",
+                INVALID_CUSTOM_TOKEN: 'invalid-custom-token',
+                CREDENTIAL_MISMATCH: 'custom-token-mismatch',
+                MISSING_CUSTOM_TOKEN: 'internal-error',
+                INVALID_IDENTIFIER: 'invalid-email',
+                MISSING_CONTINUE_URI: 'internal-error',
+                INVALID_EMAIL: 'invalid-email',
+                INVALID_PASSWORD: 'wrong-password',
+                USER_DISABLED: 'user-disabled',
+                MISSING_PASSWORD: 'internal-error',
+                EMAIL_EXISTS: 'email-already-in-use',
+                PASSWORD_LOGIN_DISABLED: 'operation-not-allowed',
+                INVALID_IDP_RESPONSE: 'invalid-credential',
+                INVALID_PENDING_TOKEN: 'invalid-credential',
+                FEDERATED_USER_ID_ALREADY_LINKED: 'credential-already-in-use',
+                MISSING_OR_INVALID_NONCE: 'missing-or-invalid-nonce',
+                INVALID_MESSAGE_PAYLOAD: 'invalid-message-payload',
+                INVALID_RECIPIENT_EMAIL: 'invalid-recipient-email',
+                INVALID_SENDER: 'invalid-sender',
+                EMAIL_NOT_FOUND: 'user-not-found',
+                RESET_PASSWORD_EXCEED_LIMIT: 'too-many-requests',
+                EXPIRED_OOB_CODE: 'expired-action-code',
+                INVALID_OOB_CODE: 'invalid-action-code',
+                MISSING_OOB_CODE: 'internal-error',
+                INVALID_PROVIDER_ID: 'invalid-provider-id',
+                CREDENTIAL_TOO_OLD_LOGIN_AGAIN: 'requires-recent-login',
+                INVALID_ID_TOKEN: 'invalid-user-token',
+                TOKEN_EXPIRED: 'user-token-expired',
+                USER_NOT_FOUND: 'user-token-expired',
+                CORS_UNSUPPORTED: 'cors-unsupported',
+                DYNAMIC_LINK_NOT_ACTIVATED: 'dynamic-link-not-activated',
+                INVALID_APP_ID: 'invalid-app-id',
+                TOO_MANY_ATTEMPTS_TRY_LATER: 'too-many-requests',
+                WEAK_PASSWORD: 'weak-password',
+                OPERATION_NOT_ALLOWED: 'operation-not-allowed',
+                USER_CANCELLED: 'user-cancelled',
+                CAPTCHA_CHECK_FAILED: 'captcha-check-failed',
+                INVALID_APP_CREDENTIAL: 'invalid-app-credential',
+                INVALID_CODE: 'invalid-verification-code',
+                INVALID_PHONE_NUMBER: 'invalid-phone-number',
+                INVALID_SESSION_INFO: 'invalid-verification-id',
+                INVALID_TEMPORARY_PROOF: 'invalid-credential',
+                MISSING_APP_CREDENTIAL: 'missing-app-credential',
+                MISSING_CODE: 'missing-verification-code',
+                MISSING_PHONE_NUMBER: 'missing-phone-number',
+                MISSING_SESSION_INFO: 'missing-verification-id',
+                QUOTA_EXCEEDED: 'quota-exceeded',
+                SESSION_EXPIRED: 'code-expired',
+                REJECTED_CREDENTIAL: 'rejected-credential',
+                INVALID_CONTINUE_URI: 'invalid-continue-uri',
+                MISSING_ANDROID_PACKAGE_NAME: 'missing-android-pkg-name',
+                MISSING_IOS_BUNDLE_ID: 'missing-ios-bundle-id',
+                UNAUTHORIZED_DOMAIN: 'unauthorized-continue-uri',
+                INVALID_DYNAMIC_LINK_DOMAIN: 'invalid-dynamic-link-domain',
+                INVALID_OAUTH_CLIENT_ID: 'invalid-oauth-client-id',
+                INVALID_CERT_HASH: 'invalid-cert-hash',
+                UNSUPPORTED_TENANT_OPERATION: 'unsupported-tenant-operation',
+                INVALID_TENANT_ID: 'invalid-tenant-id',
+                TENANT_ID_MISMATCH: 'tenant-id-mismatch',
+                ADMIN_ONLY_OPERATION: 'admin-restricted-operation',
+                INVALID_MFA_PENDING_CREDENTIAL: 'invalid-multi-factor-session',
+                MFA_ENROLLMENT_NOT_FOUND: 'multi-factor-info-not-found',
+                MISSING_MFA_PENDING_CREDENTIAL: 'missing-multi-factor-session',
+                MISSING_MFA_ENROLLMENT_ID: 'missing-multi-factor-info',
                 EMAIL_CHANGE_NEEDS_VERIFICATION:
-                  "email-change-needs-verification",
-                SECOND_FACTOR_EXISTS: "second-factor-already-in-use",
+                  'email-change-needs-verification',
+                SECOND_FACTOR_EXISTS: 'second-factor-already-in-use',
                 SECOND_FACTOR_LIMIT_EXCEEDED:
-                  "maximum-second-factor-count-exceeded",
-                UNSUPPORTED_FIRST_FACTOR: "unsupported-first-factor",
-                UNVERIFIED_EMAIL: "unverified-email",
+                  'maximum-second-factor-count-exceeded',
+                UNSUPPORTED_FIRST_FACTOR: 'unsupported-first-factor',
+                UNVERIFIED_EMAIL: 'unverified-email',
               }),
               e || {}
             ),
@@ -16706,7 +16706,7 @@
                 : void 0),
             r))
               if (0 === n.indexOf(i)) return new T(r[i], e);
-            return !e && t && (e = Fr(t)), new T("internal-error", e);
+            return !e && t && (e = Fr(t)), new T('internal-error', e);
           }
 
           function au(t) {
@@ -16718,22 +16718,22 @@
                   (hu = new we(function (t, e) {
                     function n() {
                       qr(),
-                        kr("gapi.load")("gapi.iframes", {
+                        kr('gapi.load')('gapi.iframes', {
                           callback: t,
                           ontimeout: function () {
-                            qr(), e(Error("Network Error"));
+                            qr(), e(Error('Network Error'));
                           },
                           timeout: uu.get(),
                         });
                     }
-                    if (kr("gapi.iframes.Iframe")) t();
-                    else if (kr("gapi.load")) n();
+                    if (kr('gapi.iframes.Iframe')) t();
+                    else if (kr('gapi.load')) n();
                     else {
                       var r =
-                        "__iframefcb" +
+                        '__iframefcb' +
                         Math.floor(1e6 * Math.random()).toString();
                       (c[r] = function () {
-                        kr("gapi.load") ? n() : e(Error("Network Error"));
+                        kr('gapi.load') ? n() : e(Error('Network Error'));
                       }),
                         Ae(
                           Qa(
@@ -16742,7 +16742,7 @@
                             }))
                           )
                         ).o(function () {
-                          e(Error("Network Error"));
+                          e(Error('Network Error'));
                         });
                     }
                   }).o(function (t) {
@@ -16750,19 +16750,19 @@
                   }))
                 ).then(function () {
                   return new we(function (e, n) {
-                    kr("gapi.iframes.getContext")().open(
+                    kr('gapi.iframes.getContext')().open(
                       {
                         where: document.body,
                         url: t.b,
                         messageHandlersFilter: kr(
-                          "gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER"
+                          'gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER'
                         ),
                         attributes: {
                           style: {
-                            position: "absolute",
-                            top: "-100px",
-                            width: "1px",
-                            height: "1px",
+                            position: 'absolute',
+                            top: '-100px',
+                            width: '1px',
+                            height: '1px',
                           },
                         },
                         dontclear: !0,
@@ -16776,10 +16776,10 @@
                             setHideOnLeave: !1,
                           });
                         var o = setTimeout(function () {
-                          n(Error("Network Error"));
+                          n(Error('Network Error'));
                         }, cu.get());
                         r.ping(i).then(i, function () {
-                          n(Error("Network Error"));
+                          n(Error('Network Error'));
                         });
                       }
                     );
@@ -16789,7 +16789,7 @@
           }
           var su = new _t(
               Et,
-              "https://apis.google.com/js/api.js?onload=%{onload}"
+              'https://apis.google.com/js/api.js?onload=%{onload}'
             ),
             uu = new Br(3e4, 6e4),
             cu = new Br(5e3, 15e3),
@@ -16800,9 +16800,9 @@
               (this.g = e),
               (this.h = n),
               (this.f = null),
-              (this.a = Wn(this.i, "/__/auth/iframe")),
-              jn(this.a, "apiKey", this.g),
-              jn(this.a, "appName", this.h),
+              (this.a = Wn(this.i, '/__/auth/iframe')),
+              jn(this.a, 'apiKey', this.g),
+              jn(this.a, 'appName', this.h),
               (this.b = null),
               (this.c = []);
           }
@@ -16852,16 +16852,16 @@
                     a = n,
                     s = r;
                   if (
-                    (0 == o.indexOf("chrome-extension://")
-                      ? (a = Vn(o).b == a && "chrome-extension" == s)
-                      : "http" != s && "https" != s
+                    (0 == o.indexOf('chrome-extension://')
+                      ? (a = Vn(o).b == a && 'chrome-extension' == s)
+                      : 'http' != s && 'https' != s
                       ? (a = !1)
                       : gr.test(o)
                       ? (a = a == o)
-                      : ((o = o.split(".").join("\\.")),
+                      : ((o = o.split('.').join('\\.')),
                         (a = new RegExp(
-                          "^(.+\\." + o + "|" + o + ")$",
-                          "i"
+                          '^(.+\\.' + o + '|' + o + ')$',
+                          'i'
                         ).test(a))),
                     a)
                   ) {
@@ -16891,13 +16891,13 @@
                   }
                   (t.i = new au(t.s)),
                     (function (t) {
-                      if (!t.i) throw Error("IfcHandler must be initialized!");
+                      if (!t.i) throw Error('IfcHandler must be initialized!');
                       !(function (t, e) {
                         t.nb.then(function () {
                           t.a.register(
-                            "authEvent",
+                            'authEvent',
                             e,
-                            kr("gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER")
+                            kr('gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER')
                           );
                         });
                       })(t.i, function (e) {
@@ -16906,9 +16906,9 @@
                           var r = !1;
                           for (e = Bo(e.authEvent), n = 0; n < t.g.length; n++)
                             r = t.g[n](e) || r;
-                          return ((n = {}).status = r ? "ACK" : "ERROR"), Ae(n);
+                          return ((n = {}).status = r ? 'ACK' : 'ERROR'), Ae(n);
                         }
-                        return (n.status = "ERROR"), Ae(n);
+                        return (n.status = 'ERROR'), Ae(n);
                       });
                     })(t);
                 })),
@@ -16945,10 +16945,10 @@
               !this.a)
             )
               throw new T(
-                "internal-error",
-                "The React Native compatibility library was not found."
+                'internal-error',
+                'The React Native compatibility library was not found.'
               );
-            this.type = "asyncStorage";
+            this.type = 'asyncStorage';
           }
 
           function bu(t) {
@@ -16956,11 +16956,11 @@
           }
           (lu.prototype.toString = function () {
             return (
-              this.f ? jn(this.a, "v", this.f) : Zn(this.a.a, "v"),
-              this.b ? jn(this.a, "eid", this.b) : Zn(this.a.a, "eid"),
+              this.f ? jn(this.a, 'v', this.f) : Zn(this.a.a, 'v'),
+              this.b ? jn(this.a, 'eid', this.b) : Zn(this.a.a, 'eid'),
               this.c.length
-                ? jn(this.a, "fw", this.c.join(","))
-                : Zn(this.a.a, "fw"),
+                ? jn(this.a, 'fw', this.c.join(','))
+                : Zn(this.a.a, 'fw'),
               this.a.toString()
             );
           }),
@@ -16968,11 +16968,11 @@
               return (this.h = t), this;
             }),
             (fu.prototype.toString = function () {
-              var t = Wn(this.s, "/__/auth/handler");
+              var t = Wn(this.s, '/__/auth/handler');
               if (
-                (jn(t, "apiKey", this.m),
-                jn(t, "appName", this.c),
-                jn(t, "authType", this.u),
+                (jn(t, 'apiKey', this.m),
+                jn(t, 'appName', this.c),
+                jn(t, 'authType', this.u),
                 this.a.isOAuthProvider)
               ) {
                 var e = this.a;
@@ -16982,7 +16982,7 @@
                   n = null;
                 }
                 for (var i in ((e.kb = n),
-                jn(t, "providerId", this.a.providerId),
+                jn(t, 'providerId', this.a.providerId),
                 (n = jr((e = this.a).Fb))))
                   n[i] = n[i].toString();
                 (i = e.Oc), (n = vt(n));
@@ -16991,36 +16991,36 @@
                   a in n && delete n[a];
                 }
                 e.lb && e.kb && !n[e.lb] && (n[e.lb] = e.kb),
-                  dt(n) || jn(t, "customParameters", Fr(n));
+                  dt(n) || jn(t, 'customParameters', Fr(n));
               }
               if (
-                ("function" === typeof this.a.Nb &&
+                ('function' === typeof this.a.Nb &&
                   (e = this.a.Nb()).length &&
-                  jn(t, "scopes", e.join(",")),
-                this.l ? jn(t, "redirectUrl", this.l) : Zn(t.a, "redirectUrl"),
-                this.g ? jn(t, "eventId", this.g) : Zn(t.a, "eventId"),
-                this.i ? jn(t, "v", this.i) : Zn(t.a, "v"),
+                  jn(t, 'scopes', e.join(',')),
+                this.l ? jn(t, 'redirectUrl', this.l) : Zn(t.a, 'redirectUrl'),
+                this.g ? jn(t, 'eventId', this.g) : Zn(t.a, 'eventId'),
+                this.i ? jn(t, 'v', this.i) : Zn(t.a, 'v'),
                 this.b)
               )
                 for (var s in this.b)
                   this.b.hasOwnProperty(s) && !Un(t, s) && jn(t, s, this.b[s]);
               return (
-                this.h ? jn(t, "tid", this.h) : Zn(t.a, "tid"),
-                this.f ? jn(t, "eid", this.f) : Zn(t.a, "eid"),
-                (s = pu(this.c)).length && jn(t, "fw", s.join(",")),
+                this.h ? jn(t, 'tid', this.h) : Zn(t.a, 'tid'),
+                this.f ? jn(t, 'eid', this.f) : Zn(t.a, 'eid'),
+                (s = pu(this.c)).length && jn(t, 'fw', s.join(',')),
                 t.toString()
               );
             }),
             ((e = du.prototype).Lb = function (t, e, n) {
-              var r = new T("popup-closed-by-user"),
-                i = new T("web-storage-unsupported"),
+              var r = new T('popup-closed-by-user'),
+                i = new T('web-storage-unsupported'),
                 o = this,
                 a = !1;
               return this.ka()
                 .then(function () {
                   (function (t) {
                     var e = {
-                      type: "webStorageSupport",
+                      type: 'webStorageSupport',
                     };
                     return yu(t)
                       .then(function () {
@@ -17031,7 +17031,7 @@
                                 e.type,
                                 e,
                                 n,
-                                kr("gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER")
+                                kr('gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER')
                               );
                             });
                           });
@@ -17041,7 +17041,7 @@
                         if (
                           t &&
                           t.length &&
-                          "undefined" !== typeof t[0].webStorageSupport
+                          'undefined' !== typeof t[0].webStorageSupport
                         )
                           return t[0].webStorageSupport;
                         throw Error();
@@ -17079,7 +17079,7 @@
               return !1;
             }),
             (e.Jb = function (t, e, n, r, i, o, a, s) {
-              if (!t) return Oe(new T("popup-blocked"));
+              if (!t) return Oe(new T('popup-blocked'));
               if (a && !Mr())
                 return (
                   this.ka().o(function (e) {
@@ -17106,7 +17106,7 @@
                 })
                 .o(function (t) {
                   throw (
-                    ("auth/network-request-failed" == t.code && (u.a = null), t)
+                    ('auth/network-request-failed' == t.code && (u.a = null), t)
                   );
                 });
             }),
@@ -17120,7 +17120,7 @@
                 })
                 .o(function (t) {
                   throw (
-                    ("auth/network-request-failed" == t.code && (i.a = null), t)
+                    ('auth/network-request-failed' == t.code && (i.a = null), t)
                   );
                 });
             }),
@@ -17131,7 +17131,7 @@
                   return t.i.nb;
                 })
                 .o(function () {
-                  throw ((t.a = null), new T("network-request-failed"));
+                  throw ((t.a = null), new T('network-request-failed'));
                 });
             }),
             (e.Xb = function () {
@@ -17162,8 +17162,8 @@
             Eu = [];
 
           function Cu(t, e, n) {
-            dt(t.a) && t.b.addEventListener("message", t.f),
-              "undefined" === typeof t.a[e] && (t.a[e] = []),
+            dt(t.a) && t.b.addEventListener('message', t.f),
+              'undefined' === typeof t.a[e] && (t.a[e] = []),
               t.a[e].push(n);
           }
 
@@ -17182,10 +17182,10 @@
               s,
               u = n || {},
               c = null;
-            if (t.b) return Oe(Error("connection_unavailable"));
+            if (t.b) return Oe(Error('connection_unavailable'));
             var h = r ? 800 : 50,
               l =
-                "undefined" !== typeof MessageChannel
+                'undefined' !== typeof MessageChannel
                   ? new MessageChannel()
                   : null;
             return new we(function (n, r) {
@@ -17195,29 +17195,29 @@
                   ).toString()),
                   l.port1.start(),
                   (a = setTimeout(function () {
-                    r(Error("unsupported_event"));
+                    r(Error('unsupported_event'));
                   }, h)),
                   (c = {
                     messageChannel: l,
                     onMessage: (o = function (t) {
                       t.data.eventId === i &&
-                        ("ack" === t.data.status
+                        ('ack' === t.data.status
                           ? (clearTimeout(a),
                             (s = setTimeout(function () {
-                              r(Error("timeout"));
+                              r(Error('timeout'));
                             }, 3e3)))
-                          : "done" === t.data.status
+                          : 'done' === t.data.status
                           ? (clearTimeout(s),
-                            "undefined" !== typeof t.data.response
+                            'undefined' !== typeof t.data.response
                               ? n(t.data.response)
-                              : r(Error("unknown_error")))
+                              : r(Error('unknown_error')))
                           : (clearTimeout(a),
                             clearTimeout(s),
-                            r(Error("invalid_response"))));
+                            r(Error('invalid_response'))));
                     }),
                   }),
                   t.a.push(c),
-                  l.port1.addEventListener("message", o),
+                  l.port1.addEventListener('message', o),
                   t.c.postMessage(
                     {
                       eventType: e,
@@ -17226,7 +17226,7 @@
                     },
                     [l.port2]
                   ))
-                : r(Error("connection_unavailable"));
+                : r(Error('connection_unavailable'));
             })
               .then(function (e) {
                 return Nu(t, c), e;
@@ -17240,7 +17240,7 @@
             if (e) {
               var n = e.messageChannel,
                 r = e.onMessage;
-              n && (n.port1.removeEventListener("message", r), n.port1.close()),
+              n && (n.port1.removeEventListener('message', r), n.port1.close()),
                 X(t.a, function (t) {
                   return t == e;
                 });
@@ -17248,12 +17248,12 @@
           }
 
           function Au() {
-            if (!ku()) throw new T("web-storage-unsupported");
+            if (!ku()) throw new T('web-storage-unsupported');
             (this.c = {}),
               (this.a = []),
               (this.b = 0),
               (this.u = c.indexedDB),
-              (this.type = "indexedDB"),
+              (this.type = 'indexedDB'),
               (this.g = this.l = this.f = this.i = null),
               (this.s = !1),
               (this.h = null);
@@ -17272,7 +17272,7 @@
                   }
                   return e;
                 })()),
-                Cu(this.l, "keyChanged", function (e, n) {
+                Cu(this.l, 'keyChanged', function (e, n) {
                   return Mu(t).then(function (e) {
                     return (
                       0 < e.length &&
@@ -17285,8 +17285,8 @@
                     );
                   });
                 }),
-                Cu(this.l, "ping", function () {
-                  return Ae(["keyChanged"]);
+                Cu(this.l, 'ping', function () {
+                  return Ae(['keyChanged']);
                 }))
               : (function () {
                   var t = c.navigator;
@@ -17305,10 +17305,10 @@
                 })().then(function (e) {
                   (t.h = e) &&
                     ((t.g = new Iu(new Su(e))),
-                    Tu(t.g, "ping", null, !0)
+                    Tu(t.g, 'ping', null, !0)
                       .then(function (e) {
                         e[0].fulfilled &&
-                          z(e[0].value, "keyChanged") &&
+                          z(e[0].value, 'keyChanged') &&
                           (t.s = !0);
                       })
                       .o(function () {}));
@@ -17317,7 +17317,7 @@
 
           function Ou(t) {
             return new we(function (e, n) {
-              var r = t.u.open("firebaseLocalStorageDb", 1);
+              var r = t.u.open('firebaseLocalStorageDb', 1);
               (r.onerror = function (t) {
                 try {
                   t.preventDefault();
@@ -17327,8 +17327,8 @@
                 (r.onupgradeneeded = function (t) {
                   t = t.target.result;
                   try {
-                    t.createObjectStore("firebaseLocalStorage", {
-                      keyPath: "fbase_key",
+                    t.createObjectStore('firebaseLocalStorage', {
+                      keyPath: 'fbase_key',
                     });
                   } catch (e) {
                     n(e);
@@ -17336,12 +17336,12 @@
                 }),
                 (r.onsuccess = function (r) {
                   (r = r.target.result).objectStoreNames.contains(
-                    "firebaseLocalStorage"
+                    'firebaseLocalStorage'
                   )
                     ? e(r)
                     : (function (t) {
                         return new we(function (e, n) {
-                          var r = t.u.deleteDatabase("firebaseLocalStorageDb");
+                          var r = t.u.deleteDatabase('firebaseLocalStorageDb');
                           (r.onsuccess = function () {
                             e();
                           }),
@@ -17376,13 +17376,13 @@
           }
 
           function xu(t) {
-            return t.objectStore("firebaseLocalStorage");
+            return t.objectStore('firebaseLocalStorage');
           }
 
           function Ru(t, e) {
             return t.transaction(
-              ["firebaseLocalStorage"],
-              e ? "readwrite" : "readonly"
+              ['firebaseLocalStorage'],
+              e ? 'readwrite' : 'readonly'
             );
           }
 
@@ -17408,7 +17408,7 @@
               })() === t.h
               ? Tu(
                   t.g,
-                  "keyChanged",
+                  'keyChanged',
                   {
                     key: e,
                   },
@@ -17450,7 +17450,7 @@
           }
 
           function Fu(t) {
-            t.i && t.i.cancel("STOP_EVENT"),
+            t.i && t.i.cancel('STOP_EVENT'),
               t.f && (clearTimeout(t.f), (t.f = null));
           }
 
@@ -17458,13 +17458,13 @@
             var e = this,
               n = null;
             (this.a = []),
-              (this.type = "indexedDB"),
+              (this.type = 'indexedDB'),
               (this.c = t),
               (this.b = Ae()
                 .then(function () {
                   if (ku()) {
                     var t = Vr(),
-                      r = "__sak" + t;
+                      r = '__sak' + t;
                     return (
                       wu || (wu = new Au()),
                       (n = wu)
@@ -17473,7 +17473,7 @@
                           return n.get(r);
                         })
                         .then(function (e) {
-                          if (e !== t) throw Error("indexedDB not supported!");
+                          if (e !== t) throw Error('indexedDB not supported!');
                           return n.T(r);
                         })
                         .then(function () {
@@ -17500,13 +17500,13 @@
           }
 
           function Uu() {
-            (this.a = {}), (this.type = "inMemory");
+            (this.a = {}), (this.type = 'inMemory');
           }
 
           function Vu() {
             if (
               !(function () {
-                var t = "Node" == Cr();
+                var t = 'Node' == Cr();
                 if (
                   !(t =
                     Wu() ||
@@ -17514,41 +17514,41 @@
                 )
                   return !1;
                 try {
-                  return t.setItem("__sak", "1"), t.removeItem("__sak"), !0;
+                  return t.setItem('__sak', '1'), t.removeItem('__sak'), !0;
                 } catch (e) {
                   return !1;
                 }
               })()
             ) {
-              if ("Node" == Cr())
+              if ('Node' == Cr())
                 throw new T(
-                  "internal-error",
-                  "The LocalStorage compatibility library was not found."
+                  'internal-error',
+                  'The LocalStorage compatibility library was not found.'
                 );
-              throw new T("web-storage-unsupported");
+              throw new T('web-storage-unsupported');
             }
             (this.a = Wu() || r.a.INTERNAL.node.localStorage),
-              (this.type = "localStorage");
+              (this.type = 'localStorage');
           }
 
           function Wu() {
             try {
               var t = c.localStorage,
                 e = Vr();
-              return t && (t.setItem(e, "1"), t.removeItem(e)), t;
+              return t && (t.setItem(e, '1'), t.removeItem(e)), t;
             } catch (n) {
               return null;
             }
           }
 
           function qu() {
-            this.type = "nullStorage";
+            this.type = 'nullStorage';
           }
 
           function Bu() {
             if (
               !(function () {
-                var t = "Node" == Cr();
+                var t = 'Node' == Cr();
                 if (
                   !(t =
                     Hu() ||
@@ -17558,28 +17558,28 @@
                 )
                   return !1;
                 try {
-                  return t.setItem("__sak", "1"), t.removeItem("__sak"), !0;
+                  return t.setItem('__sak', '1'), t.removeItem('__sak'), !0;
                 } catch (e) {
                   return !1;
                 }
               })()
             ) {
-              if ("Node" == Cr())
+              if ('Node' == Cr())
                 throw new T(
-                  "internal-error",
-                  "The SessionStorage compatibility library was not found."
+                  'internal-error',
+                  'The SessionStorage compatibility library was not found.'
                 );
-              throw new T("web-storage-unsupported");
+              throw new T('web-storage-unsupported');
             }
             (this.a = Hu() || r.a.INTERNAL.node.sessionStorage),
-              (this.type = "sessionStorage");
+              (this.type = 'sessionStorage');
           }
 
           function Hu() {
             try {
               var t = c.sessionStorage,
                 e = Vr();
-              return t && (t.setItem(e, "1"), t.removeItem(e)), t;
+              return t && (t.setItem(e, '1'), t.removeItem(e)), t;
             } catch (n) {
               return null;
             }
@@ -17599,7 +17599,7 @@
               r = this.a[e];
             if (r && 0 < r.length) {
               t.ports[0].postMessage({
-                status: "ack",
+                status: 'ack',
                 eventId: n,
                 eventType: e,
                 response: null,
@@ -17623,10 +17623,10 @@
                   }),
                     H(i, function (t) {
                       for (var e in t)
-                        "undefined" === typeof t[e] && delete t[e];
+                        'undefined' === typeof t[e] && delete t[e];
                     }),
                     t.ports[0].postMessage({
-                      status: "done",
+                      status: 'done',
                       eventId: n,
                       eventType: e,
                       response: i,
@@ -17705,7 +17705,7 @@
                           e();
                         })
                         .o(function (t) {
-                          "STOP_EVENT" != t.message && e();
+                          'STOP_EVENT' != t.message && e();
                         });
                     }, 800);
                   }
@@ -17773,10 +17773,10 @@
               });
             }),
             (e.ba = function (t) {
-              c.window && hn(c.window, "storage", t);
+              c.window && hn(c.window, 'storage', t);
             }),
             (e.ha = function (t) {
-              c.window && pn(c.window, "storage", t);
+              c.window && pn(c.window, 'storage', t);
             }),
             ((e = qu.prototype).get = function () {
               return Ae(null);
@@ -17829,9 +17829,9 @@
               $a: qu,
             },
             Ju = {
-              od: "local",
-              NONE: "none",
-              qd: "session",
+              od: 'local',
+              NONE: 'none',
+              qd: 'session',
             };
 
           function Zu() {
@@ -17866,9 +17866,9 @@
 
           function ec(t, e) {
             switch (e) {
-              case "session":
+              case 'session':
                 return t.i;
-              case "none":
+              case 'none':
                 return t.u;
               default:
                 return t.g;
@@ -17876,12 +17876,12 @@
           }
 
           function nc(t, e) {
-            return "firebase:" + t.name + (e ? ":" + e : "");
+            return 'firebase:' + t.name + (e ? ':' + e : '');
           }
 
           function rc(t, e, n) {
             return (
-              (n = nc(e, n)), "local" == e.F && (t.b[n] = null), ec(t, e.F).T(n)
+              (n = nc(e, n)), 'local' == e.F && (t.b[n] = null), ec(t, e.F).T(n)
             );
           }
 
@@ -17905,14 +17905,14 @@
                   return o.get(r);
                 })
                 .then(function (e) {
-                  "local" == t.F && (i.b[r] = e);
+                  'local' == t.F && (i.b[r] = e);
                 });
             }),
             (e.addListener = function (t, e, n) {
               (t = nc(t, e)),
                 this.l && (this.b[t] = c.localStorage.getItem(t)),
                 dt(this.a) &&
-                  (ec(this, "local").ba(this.f),
+                  (ec(this, 'local').ba(this.f),
                   this.h ||
                     ((hr() || !Kr()) && c.indexedDB) ||
                     !this.l ||
@@ -17925,7 +17925,7 @@
                             n != r &&
                               ((t.b[e] = n),
                               (n = new Je({
-                                type: "storage",
+                                type: 'storage',
                                 key: e,
                                 target: window,
                                 oldValue: r,
@@ -17946,7 +17946,7 @@
                     return t == n;
                   }),
                   0 == this.a[t].length && delete this.a[t]),
-                dt(this.a) && (ec(this, "local").ha(this.f), ic(this));
+                dt(this.a) && (ec(this, 'local').ha(this.f), ic(this));
             }),
             (e.Vb = function (t) {
               if (t && t.f) {
@@ -17954,14 +17954,14 @@
                 if (null == e)
                   for (var n in this.a) {
                     var r = this.b[n];
-                    "undefined" === typeof r && (r = null);
+                    'undefined' === typeof r && (r = null);
                     var i = c.localStorage.getItem(n);
                     i !== r && ((this.b[n] = i), this.ib(n));
                   }
-                else if (0 == e.indexOf("firebase:") && this.a[e]) {
+                else if (0 == e.indexOf('firebase:') && this.a[e]) {
                   if (
-                    ("undefined" !== typeof t.a.a
-                      ? ec(this, "local").ha(this.f)
+                    ('undefined' !== typeof t.a.a
+                      ? ec(this, 'local').ha(this.f)
                       : ic(this),
                     this.m)
                   )
@@ -17972,11 +17972,11 @@
                       null !== r
                         ? c.localStorage.setItem(e, r)
                         : c.localStorage.removeItem(e);
-                    else if (this.b[e] === r && "undefined" === typeof t.a.a)
+                    else if (this.b[e] === r && 'undefined' === typeof t.a.a)
                       return;
                   var o = this;
                   (n = function () {
-                    ("undefined" === typeof t.a.a &&
+                    ('undefined' === typeof t.a.a &&
                       o.b[e] === c.localStorage.getItem(e)) ||
                       ((o.b[e] = c.localStorage.getItem(e)), o.ib(e));
                   }),
@@ -17998,8 +17998,8 @@
             });
           var ac,
             sc = {
-              name: "authEvent",
-              F: "local",
+              name: 'authEvent',
+              F: 'local',
             };
 
           function uc() {
@@ -18092,17 +18092,17 @@
             void 0 === n && (n = e.length);
             var r = 0,
               i = t.c;
-            if ("string" === typeof e)
+            if ('string' === typeof e)
               for (; r < n; )
                 (t.f[i++] = e.charCodeAt(r++)), i == t.b && (vc(t), (i = 0));
             else {
-              if (!d(e)) throw Error("message must be string or array");
+              if (!d(e)) throw Error('message must be string or array');
               for (; r < n; ) {
                 var o = e[r++];
                 if (
-                  !("number" == typeof o && 0 <= o && 255 >= o && o == (0 | o))
+                  !('number' == typeof o && 0 <= o && 255 >= o && o == (0 | o))
                 )
-                  throw Error("message must be a byte array");
+                  throw Error('message must be a byte array');
                 (t.f[i++] = o), i == t.b && (vc(t), (i = 0));
               }
             }
@@ -18143,7 +18143,7 @@
               (this.l = n),
               (this.m = r || null),
               (this.s = i || null),
-              (this.h = e + ":" + n),
+              (this.h = e + ':' + n),
               (this.w = new uc()),
               (this.g = new oc(this.h)),
               (this.f = null),
@@ -18152,7 +18152,7 @@
           }
 
           function wc(t) {
-            return new T("invalid-cordova-configuration", t);
+            return new T('invalid-cordova-configuration', t);
           }
 
           function Ec(t) {
@@ -18165,8 +18165,8 @@
               for (var i = 24; 0 <= i; i -= 8) t[n++] = (e.a[r] >> i) & 255;
             return (function (t) {
               return K(t, function (t) {
-                return 1 < (t = t.toString(16)).length ? t : "0" + t;
-              }).join("");
+                return 1 < (t = t.toString(16)).length ? t : '0' + t;
+              }).join('');
             })(t);
           }
 
@@ -18195,13 +18195,13 @@
                                 var a = null;
                                 -1 !=
                                   (o = ao(e.url)).indexOf(
-                                    "/__/auth/callback"
+                                    '/__/auth/callback'
                                   ) &&
                                   (a = (a =
-                                    "object" ===
+                                    'object' ===
                                     i(
                                       (a = Ur(
-                                        Un((a = Vn(o)), "firebaseError") || null
+                                        Un((a = Vn(o)), 'firebaseError') || null
                                       ))
                                     )
                                       ? N(a)
@@ -18230,11 +18230,11 @@
                             });
                         }
                         var n = new qo(
-                            "unknown",
+                            'unknown',
                             null,
                             null,
                             null,
-                            new T("no-auth-event")
+                            new T('no-auth-event')
                           ),
                           r = !1,
                           o = Nn(500).then(function () {
@@ -18249,13 +18249,13 @@
                               t
                                 .toLowerCase()
                                 .indexOf(
-                                  kr("BuildInfo.packageName", c).toLowerCase() +
-                                    "://"
+                                  kr('BuildInfo.packageName', c).toLowerCase() +
+                                    '://'
                                 ) &&
                               e({
                                 url: t,
                               }),
-                            "function" === typeof a)
+                            'function' === typeof a)
                           )
                             try {
                               a(t);
@@ -18272,9 +18272,9 @@
                                   for (var n = 0; n < e.a.length; n++)
                                     e.a[n](t);
                                 }),
-                                "function" ===
+                                'function' ===
                                   typeof (t = kr(
-                                    "universalLinks.subscribe",
+                                    'universalLinks.subscribe',
                                     c
                                   )) && t(null, e.b));
                           })(e);
@@ -18312,10 +18312,10 @@
                         return new we(function (t, e) {
                           var n = c.document,
                             r = setTimeout(function () {
-                              e(Error("Cordova framework is not ready."));
+                              e(Error('Cordova framework is not ready.'));
                             }, 1e3);
                           n.addEventListener(
-                            "deviceready",
+                            'deviceready',
                             function () {
                               clearTimeout(r), t();
                             },
@@ -18325,39 +18325,39 @@
                       })
                     : Oe(
                         Error(
-                          "Cordova must run in an Android or iOS file scheme."
+                          'Cordova must run in an Android or iOS file scheme.'
                         )
                       )
                 ).then(
                   function () {
-                    if ("function" !== typeof kr("universalLinks.subscribe", c))
+                    if ('function' !== typeof kr('universalLinks.subscribe', c))
                       throw wc(
-                        "cordova-universal-links-plugin-fix is not installed"
+                        'cordova-universal-links-plugin-fix is not installed'
                       );
-                    if ("undefined" === typeof kr("BuildInfo.packageName", c))
-                      throw wc("cordova-plugin-buildinfo is not installed");
+                    if ('undefined' === typeof kr('BuildInfo.packageName', c))
+                      throw wc('cordova-plugin-buildinfo is not installed');
                     if (
-                      "function" !==
-                      typeof kr("cordova.plugins.browsertab.openUrl", c)
+                      'function' !==
+                      typeof kr('cordova.plugins.browsertab.openUrl', c)
                     )
-                      throw wc("cordova-plugin-browsertab is not installed");
+                      throw wc('cordova-plugin-browsertab is not installed');
                     if (
-                      "function" !== typeof kr("cordova.InAppBrowser.open", c)
+                      'function' !== typeof kr('cordova.InAppBrowser.open', c)
                     )
-                      throw wc("cordova-plugin-inappbrowser is not installed");
+                      throw wc('cordova-plugin-inappbrowser is not installed');
                   },
                   function () {
-                    throw new T("cordova-not-ready");
+                    throw new T('cordova-not-ready');
                   }
                 ));
           }),
             (e.Lb = function (t, e) {
               return (
-                e(new T("operation-not-supported-in-this-environment")), Ae()
+                e(new T('operation-not-supported-in-this-environment')), Ae()
               );
             }),
             (e.Jb = function () {
-              return Oe(new T("operation-not-supported-in-this-environment"));
+              return Oe(new T('operation-not-supported-in-this-environment'));
             }),
             (e.Xb = function () {
               return !1;
@@ -18369,7 +18369,7 @@
               return !0;
             }),
             (e.Kb = function (t, e, n, r) {
-              if (this.c) return Oe(new T("redirect-operation-pending"));
+              if (this.c) return Oe(new T('redirect-operation-pending'));
               var i = this,
                 o = c.document,
                 a = null,
@@ -18385,26 +18385,26 @@
                     var o = (function () {
                         for (var t = 20, e = []; 0 < t; )
                           e.push(
-                            "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(
+                            '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.charAt(
                               Math.floor(62 * Math.random())
                             )
                           ),
                             t--;
-                        return e.join("");
+                        return e.join('');
                       })(),
                       a = new qo(
                         e,
                         r,
                         null,
                         o,
-                        new T("no-auth-event"),
+                        new T('no-auth-event'),
                         null,
                         i
                       ),
-                      s = kr("BuildInfo.packageName", c);
-                    if ("string" !== typeof s)
-                      throw new T("invalid-cordova-configuration");
-                    var u = kr("BuildInfo.displayName", c),
+                      s = kr('BuildInfo.packageName', c);
+                    if ('string' !== typeof s)
+                      throw new T('invalid-cordova-configuration');
+                    var u = kr('BuildInfo.displayName', c),
                       h = {};
                     if (
                       Pr()
@@ -18419,7 +18419,7 @@
                           .match(/android/)
                       )
                         return Oe(
-                          new T("operation-not-supported-in-this-environment")
+                          new T('operation-not-supported-in-this-environment')
                         );
                       h.apn = s;
                     }
@@ -18432,35 +18432,35 @@
                         return t.w.a.set(sc, a.v(), e);
                       })
                       .then(function () {
-                        var e = kr("cordova.plugins.browsertab.isAvailable", c);
-                        if ("function" !== typeof e)
-                          throw new T("invalid-cordova-configuration");
+                        var e = kr('cordova.plugins.browsertab.isAvailable', c);
+                        if ('function' !== typeof e)
+                          throw new T('invalid-cordova-configuration');
                         var n = null;
                         e(function (e) {
                           if (e) {
                             if (
-                              "function" !==
+                              'function' !==
                               typeof (n = kr(
-                                "cordova.plugins.browsertab.openUrl",
+                                'cordova.plugins.browsertab.openUrl',
                                 c
                               ))
                             )
-                              throw new T("invalid-cordova-configuration");
+                              throw new T('invalid-cordova-configuration');
                             n(l);
                           } else {
                             if (
-                              "function" !==
-                              typeof (n = kr("cordova.InAppBrowser.open", c))
+                              'function' !==
+                              typeof (n = kr('cordova.InAppBrowser.open', c))
                             )
-                              throw new T("invalid-cordova-configuration");
+                              throw new T('invalid-cordova-configuration');
                             (e = Pr()),
                               (t.a = n(
                                 l,
                                 e.match(/(iPad|iPhone|iPod).*OS 7_\d/i) ||
                                   e.match(/(iPad|iPhone|iPod).*OS 8_\d/i)
-                                  ? "_blank"
-                                  : "_system",
-                                "location=yes"
+                                  ? '_blank'
+                                  : '_system',
+                                'location=yes'
                               ));
                           }
                         });
@@ -18470,12 +18470,12 @@
                 .then(function () {
                   return new we(function (t, e) {
                     (s = function () {
-                      var e = kr("cordova.plugins.browsertab.close", c);
+                      var e = kr('cordova.plugins.browsertab.close', c);
                       return (
                         t(),
-                        "function" === typeof e && e(),
+                        'function' === typeof e && e(),
                         i.a &&
-                          "function" === typeof i.a.close &&
+                          'function' === typeof i.a.close &&
                           (i.a.close(), (i.a = null)),
                         !1
                       );
@@ -18484,17 +18484,17 @@
                       (u = function () {
                         a ||
                           (a = Nn(2e3).then(function () {
-                            e(new T("redirect-cancelled-by-user"));
+                            e(new T('redirect-cancelled-by-user'));
                           }));
                       }),
                       (h = function () {
                         Hr() && u();
                       }),
-                      o.addEventListener("resume", u, !1),
+                      o.addEventListener('resume', u, !1),
                       Pr()
                         .toLowerCase()
                         .match(/android/) ||
-                        o.addEventListener("visibilitychange", h, !1);
+                        o.addEventListener('visibilitychange', h, !1);
                   }).o(function (t) {
                     return Ic(i).then(function () {
                       throw t;
@@ -18502,8 +18502,8 @@
                   });
                 })
                 .ma(function () {
-                  u && o.removeEventListener("resume", u, !1),
-                    h && o.removeEventListener("visibilitychange", h, !1),
+                  u && o.removeEventListener('resume', u, !1),
+                    h && o.removeEventListener('visibilitychange', h, !1),
                     a && a.cancel(),
                     s && i.Qa(s),
                     (i.c = null);
@@ -18512,13 +18512,13 @@
             (e.Ca = function (t) {
               this.b.push(t),
                 Sc(this).o(function (e) {
-                  "auth/invalid-cordova-configuration" === e.code &&
+                  'auth/invalid-cordova-configuration' === e.code &&
                     ((e = new qo(
-                      "unknown",
+                      'unknown',
                       null,
                       null,
                       null,
-                      new T("no-auth-event")
+                      new T('no-auth-event')
                     )),
                     t(e));
                 });
@@ -18529,8 +18529,8 @@
               });
             });
           var Nc = {
-            name: "pendingRedirect",
-            F: "session",
+            name: 'pendingRedirect',
+            F: 'session',
           };
 
           function Ac(t) {
@@ -18548,7 +18548,7 @@
               (this.l = E(this.s, this)),
               (this.b = new Bc()),
               (this.B = new zc()),
-              (this.g = new Tc(this.u + ":" + this.m)),
+              (this.g = new Tc(this.u + ':' + this.m)),
               (this.c = {}),
               (this.c.unknown = this.b),
               (this.c.signInViaRedirect = this.b),
@@ -18577,11 +18577,11 @@
             t.a.Ub() &&
               kc(t).o(function (e) {
                 var n = new qo(
-                  "unknown",
+                  'unknown',
                   null,
                   null,
                   null,
-                  new T("operation-not-supported-in-this-environment")
+                  new T('operation-not-supported-in-this-environment')
                 );
                 jc(e) && t.s(n);
               }),
@@ -18593,7 +18593,7 @@
               t.f ||
                 (function (t) {
                   return t.b.get(Nc, t.a).then(function (t) {
-                    return "pending" == t;
+                    return 'pending' == t;
                   });
                 })(t.g)
                   .then(function (e) {
@@ -18601,12 +18601,12 @@
                       ? Ac(t.g).then(function () {
                           kc(t).o(function (e) {
                             var n = new qo(
-                              "unknown",
+                              'unknown',
                               null,
                               null,
                               null,
                               new T(
-                                "operation-not-supported-in-this-environment"
+                                'operation-not-supported-in-this-environment'
                               )
                             );
                             jc(e) && t.s(n);
@@ -18631,7 +18631,7 @@
               (this.i = {});
           }),
             (Oc.prototype.s = function (t) {
-              if (!t) throw new T("invalid-auth-event");
+              if (!t) throw new T('invalid-auth-event');
               if (
                 (6e5 <= S() - this.w && ((this.i = {}), (this.w = 0)),
                 t && t.getUid() && this.i.hasOwnProperty(t.getUid()))
@@ -18672,19 +18672,19 @@
           }
 
           function jc(t) {
-            return !(!t || "auth/cordova-not-ready" != t.code);
+            return !(!t || 'auth/cordova-not-ready' != t.code);
           }
 
           function Uc(t, e, n, r, i) {
             var o;
             return (function (t) {
-              return t.b.set(Nc, "pending", t.a);
+              return t.b.set(Nc, 'pending', t.a);
             })(t.g).then(function () {
               return t.a
                 .Kb(e, n, r, i)
                 .o(function (e) {
                   if (jc(e))
-                    throw new T("operation-not-supported-in-this-environment");
+                    throw new T('operation-not-supported-in-this-environment');
                   return (
                     (o = e),
                     Ac(t.g).then(function () {
@@ -18720,7 +18720,7 @@
           var Wc = {};
 
           function qc(t, e, n) {
-            var r = e + ":" + n;
+            var r = e + ':' + n;
             return Wc[r] || (Wc[r] = new Oc(t, e, n)), Wc[r];
           }
 
@@ -18774,7 +18774,7 @@
 
           function Yc() {
             (this.Bb = !1),
-              Object.defineProperty(this, "appVerificationDisabled", {
+              Object.defineProperty(this, 'appVerificationDisabled', {
                 get: function () {
                   return this.Bb;
                 },
@@ -18786,7 +18786,7 @@
           }
 
           function Xc(t, e) {
-            (this.a = e), $r(this, "verificationId", t);
+            (this.a = e), $r(this, 'verificationId', t);
           }
 
           function $c(t, e, n, r) {
@@ -18799,8 +18799,8 @@
             var e = Ki(t);
             if (!(e && e.exp && e.auth_time && e.iat))
               throw new T(
-                "internal-error",
-                "An internal error occurred. The token obtained by Firebase appears to be malformed. Please retry the operation."
+                'internal-error',
+                'An internal error occurred. The token obtained by Firebase appears to be malformed. Please retry the operation.'
               );
             Jr(this, {
               token: t,
@@ -18823,8 +18823,8 @@
             var r = e && e[eh];
             if (!r)
               throw new T(
-                "argument-error",
-                "Internal assert: Invalid MultiFactorResolver"
+                'argument-error',
+                'Internal assert: Invalid MultiFactorResolver'
               );
             (this.a = t),
               (this.f = vt(e)),
@@ -18835,9 +18835,9 @@
             H(e[th] || [], function (t) {
               (t = ni(t)) && i.b.push(t);
             }),
-              $r(this, "auth", this.a),
-              $r(this, "session", this.c),
-              $r(this, "hints", this.b);
+              $r(this, 'auth', this.a),
+              $r(this, 'session', this.c),
+              $r(this, 'hints', this.b);
           }
           (Bc.prototype.reset = function () {
             (this.b = null), this.a && (this.a.cancel(), (this.a = null));
@@ -18847,13 +18847,13 @@
                 this.reset(), (this.g = !0);
                 var n = t.c,
                   r = t.b,
-                  i = t.a && "auth/web-storage-unsupported" == t.a.code,
+                  i = t.a && 'auth/web-storage-unsupported' == t.a.code,
                   o =
                     t.a &&
-                    "auth/operation-not-supported-in-this-environment" ==
+                    'auth/operation-not-supported-in-this-environment' ==
                       t.a.code;
                 (this.i = !(!i && !o)),
-                  "unknown" != n || i || o
+                  'unknown' != n || i || o
                     ? t.a
                       ? (Gc(this, !0, null, t.a), Ae())
                       : e.Da(n, r)
@@ -18872,9 +18872,9 @@
                               Gc(t, s, null, e);
                             });
                         })(this, t, e)
-                      : Oe(new T("invalid-auth-event"))
+                      : Oe(new T('invalid-auth-event'))
                     : (Gc(this, !1, null, null), Ae());
-              } else Oe(new T("invalid-auth-event"));
+              } else Oe(new T('invalid-auth-event'));
             }),
             (Bc.prototype.pa = function () {
               var t = this;
@@ -18884,7 +18884,7 @@
                   : (t.f.push(e),
                     t.c.push(n),
                     (function (t) {
-                      var e = new T("timeout");
+                      var e = new T('timeout');
                       t.a && t.a.cancel(),
                         (t.a = Nn(Mc.get()).then(function () {
                           t.b || ((t.g = !0), Gc(t, !0, null, e));
@@ -18910,26 +18910,26 @@
                           e.la(r, null, t, n);
                         });
                     })(t, e)
-                  : Oe(new T("invalid-auth-event"));
-              } else Oe(new T("invalid-auth-event"));
+                  : Oe(new T('invalid-auth-event'));
+              } else Oe(new T('invalid-auth-event'));
             }),
             (Xc.prototype.confirm = function (t) {
               return (t = Uo(this.verificationId, t)), this.a(t);
             });
-          var th = "mfaInfo",
-            eh = "mfaPendingCredential";
+          var th = 'mfaInfo',
+            eh = 'mfaPendingCredential';
 
           function nh(t, e, n, r) {
-            T.call(this, "multi-factor-auth-required", r, e),
+            T.call(this, 'multi-factor-auth-required', r, e),
               (this.b = new Zc(t, e, n)),
-              $r(this, "resolver", this.b);
+              $r(this, 'resolver', this.b);
           }
 
           function rh(t, e, n) {
             if (
               t &&
               y(t.serverResponse) &&
-              "auth/multi-factor-auth-required" === t.code
+              'auth/multi-factor-auth-required' === t.code
             )
               try {
                 return new nh(e, t.serverResponse, n, t.message);
@@ -18940,14 +18940,14 @@
           function ih() {}
 
           function oh(t) {
-            $r(this, "factorId", t.ea), (this.a = t);
+            $r(this, 'factorId', t.ea), (this.a = t);
           }
 
           function ah(t) {
             if ((oh.call(this, t), this.a.ea != jo.PROVIDER_ID))
               throw new T(
-                "argument-error",
-                "firebase.auth.PhoneMultiFactorAssertion requires a valid firebase.auth.PhoneAuthCredential"
+                'argument-error',
+                'firebase.auth.PhoneMultiFactorAssertion requires a valid firebase.auth.PhoneAuthCredential'
               );
           }
 
@@ -18959,7 +18959,7 @@
             (this.a = t),
               (this.b = []),
               (this.c = E(this.wc, this)),
-              hn(this.a, "userReloaded", this.c);
+              hn(this.a, 'userReloaded', this.c);
             var n = [];
             e &&
               e.multiFactor &&
@@ -18984,7 +18984,7 @@
           }
 
           function ch(t, e) {
-            (t.b = e), $r(t, "enrolledFactors", e);
+            (t.b = e), $r(t, 'enrolledFactors', e);
           }
 
           function hh(t, e, n) {
@@ -18999,7 +18999,7 @@
               this.f < this.c)
             )
               throw Error(
-                "Proactive refresh lower bound greater than upper bound!"
+                'Proactive refresh lower bound greater than upper bound!'
               );
           }
 
@@ -19021,13 +19021,13 @@
                       : new we(function (n) {
                           (e = function () {
                             Hr() &&
-                              (t.removeEventListener("visibilitychange", e, !1),
+                              (t.removeEventListener('visibilitychange', e, !1),
                               n());
                           }),
-                            t.addEventListener("visibilitychange", e, !1);
+                            t.addEventListener('visibilitychange', e, !1);
                         }).o(function (n) {
                           throw (
-                            (t.removeEventListener("visibilitychange", e, !1),
+                            (t.removeEventListener('visibilitychange', e, !1),
                             n)
                           );
                         });
@@ -19054,32 +19054,32 @@
 
           function dh(t, e) {
             var n = e.refreshToken;
-            (t.b = Qi(e[ts] || "")), (t.a = n);
+            (t.b = Qi(e[ts] || '')), (t.a = n);
           }
 
           function vh(t, e) {
             return (function (t, e) {
               return new we(function (n, r) {
-                ("refresh_token" == e.grant_type && e.refresh_token) ||
-                ("authorization_code" == e.grant_type && e.code)
+                ('refresh_token' == e.grant_type && e.refresh_token) ||
+                ('authorization_code' == e.grant_type && e.code)
                   ? ss(
                       t,
-                      t.u + "?key=" + encodeURIComponent(t.c),
+                      t.u + '?key=' + encodeURIComponent(t.c),
                       function (t) {
                         t
                           ? t.error
                             ? r(ou(t))
                             : t.access_token && t.refresh_token
                             ? n(t)
-                            : r(new T("internal-error"))
-                          : r(new T("network-request-failed"));
+                            : r(new T('internal-error'))
+                          : r(new T('network-request-failed'));
                       },
-                      "POST",
+                      'POST',
                       Jn(e).toString(),
                       t.g,
                       t.m.get()
                     )
-                  : r(new T("internal-error"));
+                  : r(new T('internal-error'));
               });
             })(t.c, e)
               .then(function (e) {
@@ -19093,7 +19093,7 @@
                 );
               })
               .o(function (e) {
-                throw ("auth/user-token-expired" == e.code && (t.a = null), e);
+                throw ('auth/user-token-expired' == e.code && (t.a = null), e);
               });
           }
 
@@ -19127,7 +19127,7 @@
               (this.b = new fh(this.a)),
               Ih(this, e[ts]),
               dh(this.b, e),
-              $r(this, "refreshToken", this.b.a),
+              $r(this, 'refreshToken', this.b.a),
               Ah(this, n || {}),
               En.call(this),
               (this.P = !1),
@@ -19140,7 +19140,7 @@
                     return t.I(!0);
                   },
                   function (t) {
-                    return !(!t || "auth/network-request-failed" != t.code);
+                    return !(!t || 'auth/network-request-failed' != t.code);
                   },
                   function () {
                     var e = ph(t.b) - S() - 3e5;
@@ -19161,12 +19161,12 @@
               }),
               (this.$ = null),
               (this.O = new uh(this, n)),
-              $r(this, "multiFactor", this.O);
+              $r(this, 'multiFactor', this.O);
           }
 
           function _h(t, e) {
-            t.aa && pn(t.aa, "languageCodeChanged", t.za),
-              (t.aa = e) && hn(e, "languageCodeChanged", t.za);
+            t.aa && pn(t.aa, 'languageCodeChanged', t.za),
+              (t.aa = e) && hn(e, 'languageCodeChanged', t.za);
           }
 
           function bh(t, e) {
@@ -19175,8 +19175,8 @@
           }
 
           function wh(t, e) {
-            t.$ && pn(t.$, "frameworkChanged", t.ya),
-              (t.$ = e) && hn(e, "frameworkChanged", t.ya);
+            t.$ && pn(t.$, 'frameworkChanged', t.ya),
+              (t.$ = e) && hn(e, 'frameworkChanged', t.ya);
           }
 
           function Eh(t) {
@@ -19184,7 +19184,7 @@
               return r.a.app(t.m).auth();
             } catch (e) {
               throw new T(
-                "internal-error",
+                'internal-error',
                 "No firebase.auth.Auth instance is available for the Firebase App '" +
                   t.m +
                   "'!"
@@ -19196,16 +19196,16 @@
             t.D ||
               t.B.b ||
               (t.B.start(),
-              pn(t, "tokenChanged", t.Z),
-              hn(t, "tokenChanged", t.Z));
+              pn(t, 'tokenChanged', t.Z),
+              hn(t, 'tokenChanged', t.Z));
           }
 
           function Sh(t) {
-            pn(t, "tokenChanged", t.Z), t.B.stop();
+            pn(t, 'tokenChanged', t.Z), t.B.stop();
           }
 
           function Ih(t, e) {
-            (t.xa = e), $r(t, "_lat", e);
+            (t.xa = e), $r(t, '_lat', e);
           }
 
           function Th(t) {
@@ -19239,7 +19239,7 @@
 
           function Ph(t) {
             return Ae().then(function () {
-              if (t.D) throw new T("app-deleted");
+              if (t.D) throw new T('app-deleted');
             });
           }
 
@@ -19260,7 +19260,7 @@
           }
 
           function Dh(t, e, n) {
-            ("uid" != e || n) && t.hasOwnProperty(e) && $r(t, e, n);
+            ('uid' != e || n) && t.hasOwnProperty(e) && $r(t, e, n);
           }
 
           function Lh(t, e) {
@@ -19279,19 +19279,19 @@
               e.metadata
                 ? $r(
                     t,
-                    "metadata",
+                    'metadata',
                     (function (t) {
                       return new yh(t.a, t.b);
                     })(e.metadata)
                   )
-                : $r(t, "metadata", new yh()),
+                : $r(t, 'metadata', new yh()),
               H(e.providerData, function (e) {
                 xh(t, e);
               }),
               (function (t, e) {
                 (t.b = e.b), (t.a = e.a);
               })(t.b, e.b),
-              $r(t, "refreshToken", t.b.a),
+              $r(t, 'refreshToken', t.b.a),
               ch(t.O, e.O.b));
           }
 
@@ -19303,7 +19303,7 @@
                   idToken: e,
                 }).then(E(t.Ic, t));
               })(t, e).then(function () {
-                return n || Dh(t, "isAnonymous", !1), e;
+                return n || Dh(t, 'isAnonymous', !1), e;
               });
             });
           }
@@ -19312,16 +19312,16 @@
             e[ts] &&
               t.xa != e[ts] &&
               (dh(t.b, e),
-              t.dispatchEvent(new sh("tokenChanged")),
+              t.dispatchEvent(new sh('tokenChanged')),
               Ih(t, e[ts]),
-              Dh(t, "refreshToken", t.b.a));
+              Dh(t, 'refreshToken', t.b.a));
           }
 
           function jh(t, e) {
             return Mh(t).then(function () {
               if (z(kh(t), e))
                 return Th(t).then(function () {
-                  throw new T("provider-already-linked");
+                  throw new T('provider-already-linked');
                 });
             });
           }
@@ -19346,10 +19346,10 @@
 
           function Wh(t, e, n, i, o) {
             if (!Rr())
-              return Oe(new T("operation-not-supported-in-this-environment"));
+              return Oe(new T('operation-not-supported-in-this-environment'));
             if (t.h && !o) return Oe(t.h);
             var a = Xi(n.providerId),
-              s = Vr(t.uid + ":::"),
+              s = Vr(t.uid + ':::'),
               u = null;
             (!Mr() || wr()) &&
               t.s &&
@@ -19381,7 +19381,7 @@
                     t.la(
                       e,
                       null,
-                      new T("cancelled-popup-request"),
+                      new T('cancelled-popup-request'),
                       t.g || null
                     ),
                       (t.f = n),
@@ -19402,10 +19402,10 @@
 
           function qh(t, e, n, r, i) {
             if (!Rr())
-              return Oe(new T("operation-not-supported-in-this-environment"));
+              return Oe(new T('operation-not-supported-in-this-environment'));
             if (t.h && !i) return Oe(t.h);
             var o = null,
-              a = Vr(t.uid + ":::");
+              a = Vr(t.uid + ':::');
             return (
               (r = r()
                 .then(function () {
@@ -19433,8 +19433,8 @@
 
           function Bh(t) {
             if (!t.i || !t.P) {
-              if (t.i && !t.P) throw new T("internal-error");
-              throw new T("auth-domain-config-required");
+              if (t.i && !t.P) throw new T('internal-error');
+              throw new T('auth-domain-config-required');
             }
           }
 
@@ -19445,9 +19445,9 @@
                 : e.o(function (e) {
                     throw (
                       (!e ||
-                        ("auth/user-disabled" != e.code &&
-                          "auth/user-token-expired" != e.code) ||
-                        (t.h || t.dispatchEvent(new sh("userInvalidated")),
+                        ('auth/user-disabled' != e.code &&
+                          'auth/user-token-expired' != e.code) ||
+                        (t.h || t.dispatchEvent(new sh('userInvalidated')),
                         (t.h = e)),
                       e)
                     );
@@ -19462,7 +19462,7 @@
                 var n = null;
                 throw (
                   (e &&
-                    "auth/multi-factor-auth-required" === e.code &&
+                    'auth/multi-factor-auth-required' === e.code &&
                     (n = rh(e.v(), Eh(t), E(t.hc, t))),
                   n || e)
                 );
@@ -19512,7 +19512,7 @@
                         (n = {
                           idToken: n,
                         }),
-                        "undefined" !== typeof r && (n.displayName = r),
+                        'undefined' !== typeof r && (n.displayName = r),
                         gt(n, {
                           phoneVerificationInfo: Fo(t.a),
                         }),
@@ -19571,7 +19571,7 @@
             }),
             (e.$c = function (t) {
               var e = this,
-                n = "string" === typeof t ? t : t.uid,
+                n = 'string' === typeof t ? t : t.uid,
                 r = this.a.a;
               return this.a
                 .I()
@@ -19589,7 +19589,7 @@
                     ch(e, r),
                     Fh(e.a, t),
                     e.a.reload().o(function (t) {
-                      if ("auth/user-token-expired" != t.code) throw t;
+                      if ('auth/user-token-expired' != t.code) throw t;
                     })
                   );
                 });
@@ -19621,11 +19621,11 @@
               return (
                 (t = !!t),
                 this.b && !this.a
-                  ? Oe(new T("user-token-expired"))
+                  ? Oe(new T('user-token-expired'))
                   : t || !this.b || S() > ph(this) - 3e4
                   ? this.a
                     ? vh(this, {
-                        grant_type: "refresh_token",
+                        grant_type: 'refresh_token',
                         refresh_token: this.a,
                       })
                     : Ae(null)
@@ -19654,7 +19654,7 @@
             (mh.prototype.Ma = function () {
               this.B.b && (this.B.stop(), this.B.start());
             }),
-            $r(mh.prototype, "providerId", "firebase"),
+            $r(mh.prototype, 'providerId', 'firebase'),
             ((e = mh.prototype).reload = function () {
               var t = this;
               return Hh(
@@ -19682,19 +19682,19 @@
                     return e.b.getToken(t);
                   })
                   .then(function (t) {
-                    if (!t) throw new T("internal-error");
+                    if (!t) throw new T('internal-error');
                     return (
                       t.accessToken != e.xa &&
                         (Ih(e, t.accessToken),
-                        e.dispatchEvent(new sh("tokenChanged"))),
-                      Dh(e, "refreshToken", t.refreshToken),
+                        e.dispatchEvent(new sh('tokenChanged'))),
+                      Dh(e, 'refreshToken', t.refreshToken),
                       t.accessToken
                     );
                   })
               );
             }),
             (e.Ic = function (t) {
-              if (!(t = t.users) || !t.length) throw new T("internal-error");
+              if (!(t = t.users) || !t.length) throw new T('internal-error');
               Ah(this, {
                 uid: (t = t[0]).localId,
                 displayName: t.displayName,
@@ -19728,12 +19728,12 @@
                 xh(this, e[n]);
               Dh(
                 this,
-                "isAnonymous",
+                'isAnonymous',
                 !(this.email && t.passwordHash) &&
                   !(this.providerData && this.providerData.length)
               ),
                 this.dispatchEvent(
-                  new sh("userReloaded", {
+                  new sh('userReloaded', {
                     ed: t,
                   })
                 );
@@ -19741,7 +19741,7 @@
             (e.Jc = function (t) {
               return (
                 Yr(
-                  "firebase.User.prototype.reauthenticateAndRetrieveDataWithCredential is deprecated. Please use firebase.User.prototype.reauthenticateWithCredential instead."
+                  'firebase.User.prototype.reauthenticateAndRetrieveDataWithCredential is deprecated. Please use firebase.User.prototype.reauthenticateWithCredential instead.'
                 ),
                 this.pb(t)
               );
@@ -19756,7 +19756,7 @@
                   .then(function (t) {
                     return (
                       Fh(e, t),
-                      (n = Uh(e, t, "reauthenticate")),
+                      (n = Uh(e, t, 'reauthenticate')),
                       (e.h = null),
                       e.reload()
                     );
@@ -19770,7 +19770,7 @@
             (e.Ac = function (t) {
               return (
                 Yr(
-                  "firebase.User.prototype.linkAndRetrieveDataWithCredential is deprecated. Please use firebase.User.prototype.linkWithCredential instead."
+                  'firebase.User.prototype.linkAndRetrieveDataWithCredential is deprecated. Please use firebase.User.prototype.linkWithCredential instead.'
                 ),
                 this.mb(t)
               );
@@ -19788,7 +19788,7 @@
                     return t.b(e.a, n);
                   })
                   .then(function (t) {
-                    return (n = Uh(e, t, "link")), Vh(e, t);
+                    return (n = Uh(e, t, 'link')), Vh(e, t);
                   })
                   .then(function () {
                     return n;
@@ -19799,7 +19799,7 @@
               var n = this;
               return Hh(
                 this,
-                jh(this, "phone").then(function () {
+                jh(this, 'phone').then(function () {
                   return $c(Eh(n), t, e, E(n.mb, n));
                 })
               );
@@ -19869,12 +19869,12 @@
                   .then(function (t) {
                     return (
                       Fh(e, t),
-                      Dh(e, "displayName", t.displayName || null),
-                      Dh(e, "photoURL", t.photoUrl || null),
+                      Dh(e, 'displayName', t.displayName || null),
+                      Dh(e, 'photoURL', t.photoUrl || null),
                       H(e.providerData, function (t) {
-                        "password" === t.providerId &&
-                          ($r(t, "displayName", e.displayName),
-                          $r(t, "photoURL", e.photoURL));
+                        'password' === t.providerId &&
+                          ($r(t, 'displayName', e.displayName),
+                          $r(t, 'photoURL', e.photoURL));
                       }),
                       Th(e)
                     );
@@ -19902,12 +19902,12 @@
                           H(kh(e), function (t) {
                             n[t] || Rh(e, t);
                           }),
-                          n[jo.PROVIDER_ID] || $r(e, "phoneNumber", null),
+                          n[jo.PROVIDER_ID] || $r(e, 'phoneNumber', null),
                           Th(e)
                         );
                       })
                     : Th(e).then(function () {
-                        throw new T("no-such-provider");
+                        throw new T('no-such-provider');
                       });
                 })
               );
@@ -19923,30 +19923,30 @@
                     });
                   })
                   .then(function () {
-                    t.dispatchEvent(new sh("userDeleted"));
+                    t.dispatchEvent(new sh('userDeleted'));
                   })
               ).then(function () {
                 for (var e = 0; e < t.N.length; e++)
-                  t.N[e].cancel("app-deleted");
+                  t.N[e].cancel('app-deleted');
                 _h(t, null),
                   wh(t, null),
                   (t.N = []),
                   (t.D = !0),
                   Sh(t),
-                  $r(t, "refreshToken", null),
+                  $r(t, 'refreshToken', null),
                   t.i && Dc(t.i, t);
               });
             }),
             (e.Cb = function (t, e) {
               return !!(
-                ("linkViaPopup" == t && (this.g || null) == e && this.f) ||
-                ("reauthViaPopup" == t && (this.g || null) == e && this.f) ||
-                ("linkViaRedirect" == t && (this.fa || null) == e) ||
-                ("reauthViaRedirect" == t && (this.fa || null) == e)
+                ('linkViaPopup' == t && (this.g || null) == e && this.f) ||
+                ('reauthViaPopup' == t && (this.g || null) == e && this.f) ||
+                ('linkViaRedirect' == t && (this.fa || null) == e) ||
+                ('reauthViaRedirect' == t && (this.fa || null) == e)
               );
             }),
             (e.la = function (t, e, n, r) {
-              ("linkViaPopup" != t && "reauthViaPopup" != t) ||
+              ('linkViaPopup' != t && 'reauthViaPopup' != t) ||
                 r != (this.g || null) ||
                 (n && this.w ? this.w(n) : e && !n && this.f && this.f(e),
                 this.c && (this.c.cancel(), (this.c = null)),
@@ -19954,13 +19954,13 @@
                 delete this.w);
             }),
             (e.Da = function (t, e) {
-              return "linkViaPopup" == t && e == (this.g || null)
+              return 'linkViaPopup' == t && e == (this.g || null)
                 ? E(this.Hb, this)
-                : "reauthViaPopup" == t && e == (this.g || null)
+                : 'reauthViaPopup' == t && e == (this.g || null)
                 ? E(this.Ib, this)
-                : "linkViaRedirect" == t && (this.fa || null) == e
+                : 'linkViaRedirect' == t && (this.fa || null) == e
                 ? E(this.Hb, this)
-                : "reauthViaRedirect" == t && (this.fa || null) == e
+                : 'reauthViaRedirect' == t && (this.fa || null) == e
                 ? E(this.Ib, this)
                 : null;
             }),
@@ -19968,7 +19968,7 @@
               var e = this;
               return Wh(
                 this,
-                "linkViaPopup",
+                'linkViaPopup',
                 t,
                 function () {
                   return jh(e, t.providerId).then(function () {
@@ -19981,7 +19981,7 @@
             (e.Lc = function (t) {
               return Wh(
                 this,
-                "reauthViaPopup",
+                'reauthViaPopup',
                 t,
                 function () {
                   return Ae();
@@ -19993,7 +19993,7 @@
               var e = this;
               return qh(
                 this,
-                "linkViaRedirect",
+                'linkViaRedirect',
                 t,
                 function () {
                   return jh(e, t.providerId);
@@ -20004,7 +20004,7 @@
             (e.Mc = function (t) {
               return qh(
                 this,
-                "reauthViaRedirect",
+                'reauthViaRedirect',
                 t,
                 function () {
                   return Ae();
@@ -20028,7 +20028,7 @@
                     });
                   })
                   .then(function (t) {
-                    return (o = Uh(i, t, "link")), Vh(i, t);
+                    return (o = Uh(i, t, 'link')), Vh(i, t);
                   })
                   .then(function () {
                     return o;
@@ -20055,7 +20055,7 @@
                   })
                   .then(function (t) {
                     return (
-                      (o = Uh(i, t, "reauthenticate")),
+                      (o = Uh(i, t, 'reauthenticate')),
                       Fh(i, t),
                       (i.h = null),
                       i.reload()
@@ -20076,7 +20076,7 @@
                   .then(function (e) {
                     return (
                       (n = e),
-                      "undefined" === typeof t || dt(t) ? {} : Wi(new ki(t))
+                      'undefined' === typeof t || dt(t) ? {} : Wi(new ki(t))
                     );
                   })
                   .then(function (t) {
@@ -20097,7 +20097,7 @@
                   .then(function (t) {
                     return (
                       (r = t),
-                      "undefined" === typeof e || dt(e) ? {} : Wi(new ki(e))
+                      'undefined' === typeof e || dt(e) ? {} : Wi(new ki(e))
                     );
                   })
                   .then(function (e) {
@@ -20117,7 +20117,7 @@
                 (t = lo(Ae(t), n.uid)
                   .then(function (t) {
                     return (
-                      (e = Uh(n, t, "reauthenticate")),
+                      (e = Uh(n, t, 'reauthenticate')),
                       Fh(n, t),
                       (n.h = null),
                       n.reload()
@@ -20166,8 +20166,8 @@
               );
             });
           var Gh = {
-            name: "redirectUser",
-            F: "session",
+            name: 'redirectUser',
+            F: 'session',
           };
 
           function zh(t) {
@@ -20179,9 +20179,9 @@
               (this.b = tc()),
               (this.c = null),
               (this.f = (function (t) {
-                var e = Jh("local"),
-                  n = Jh("session"),
-                  r = Jh("none");
+                var e = Jh('local'),
+                  n = Jh('session'),
+                  r = Jh('none');
                 return (function (t, e, n) {
                   var r = nc(e, n),
                     i = ec(t, e.F);
@@ -20194,7 +20194,7 @@
                       return c.localStorage.removeItem(r), t.set(e, a, n);
                     a &&
                       o &&
-                      "localStorage" != i.type &&
+                      'localStorage' != i.type &&
                       c.localStorage.removeItem(r);
                   });
                 })(t.b, e, t.a)
@@ -20223,7 +20223,7 @@
                     t.c || (t.c = e);
                   });
               })(this)),
-              this.b.addListener(Jh("local"), this.a, E(this.g, this));
+              this.b.addListener(Jh('local'), this.a, E(this.g, this));
           }
 
           function Xh(t, e) {
@@ -20256,28 +20256,28 @@
           }
           Yh.prototype.g = function () {
             var t = this,
-              e = Jh("local");
+              e = Jh('local');
             nl(this, function () {
               return Ae()
                 .then(function () {
-                  return t.c && "local" != t.c.F ? t.b.get(e, t.a) : null;
+                  return t.c && 'local' != t.c.F ? t.b.get(e, t.a) : null;
                 })
                 .then(function (n) {
                   if (n)
-                    return Xh(t, "local").then(function () {
+                    return Xh(t, 'local').then(function () {
                       t.c = e;
                     });
                 });
             });
           };
           var $h = {
-            name: "persistence",
-            F: "session",
+            name: 'persistence',
+            F: 'session',
           };
 
           function Jh(t) {
             return {
-              name: "authUser",
+              name: 'authUser',
               F: t,
             };
           }
@@ -20309,11 +20309,11 @@
           function rl(t) {
             if (
               ((this.l = !1),
-              $r(this, "settings", new Yc()),
-              $r(this, "app", t),
+              $r(this, 'settings', new Yc()),
+              $r(this, 'app', t),
               !ll(this).options || !ll(this).options.apiKey)
             )
-              throw new T("invalid-api-key");
+              throw new T('invalid-api-key');
             (t = r.a.SDK_VERSION ? Or(r.a.SDK_VERSION) : null),
               (this.b = new Ja(
                 ll(this).options && ll(this).options.apiKey,
@@ -20327,8 +20327,8 @@
               (this.W = void 0),
               (this.ac = r.a.INTERNAL.createSubscribe(E(this.yc, this))),
               cl(this, null),
-              (this.i = new Yh(ll(this).options.apiKey + ":" + ll(this).name)),
-              (this.B = new Kh(ll(this).options.apiKey + ":" + ll(this).name)),
+              (this.i = new Yh(ll(this).options.apiKey + ':' + ll(this).name)),
+              (this.B = new Kh(ll(this).options.apiKey + ':' + ll(this).name)),
               (this.Z = vl(
                 this,
                 (function (t) {
@@ -20359,7 +20359,7 @@
                                     });
                                   })
                                   .o(function (n) {
-                                    return "auth/network-request-failed" ==
+                                    return 'auth/network-request-failed' ==
                                       n.code
                                       ? e
                                       : tl(t.i);
@@ -20387,7 +20387,7 @@
                       if (!t.l) {
                         t.aa = !0;
                         var e = t.i;
-                        e.b.addListener(Jh("local"), e.a, t.oa);
+                        e.b.addListener(Jh('local'), e.a, t.oa);
                       }
                     });
                 })(this)
@@ -20430,7 +20430,7 @@
               (this.s = 0),
               En.call(this),
               (function (t) {
-                Object.defineProperty(t, "lc", {
+                Object.defineProperty(t, 'lc', {
                   get: function () {
                     return this.ja();
                   },
@@ -20440,7 +20440,7 @@
                   enumerable: !1,
                 }),
                   (t.$ = null),
-                  Object.defineProperty(t, "ti", {
+                  Object.defineProperty(t, 'ti', {
                     get: function () {
                       return this.S();
                     },
@@ -20455,20 +20455,20 @@
           }
 
           function il(t) {
-            $e.call(this, "languageCodeChanged"), (this.g = t);
+            $e.call(this, 'languageCodeChanged'), (this.g = t);
           }
 
           function ol(t) {
-            $e.call(this, "frameworkChanged"), (this.c = t);
+            $e.call(this, 'frameworkChanged'), (this.c = t);
           }
 
           function al(t) {
-            return t.Zb || Oe(new T("auth-domain-config-required"));
+            return t.Zb || Oe(new T('auth-domain-config-required'));
           }
 
           function sl(t) {
             if (!Rr())
-              return Oe(new T("operation-not-supported-in-this-environment"));
+              return Oe(new T('operation-not-supported-in-this-environment'));
             var e = al(t)
               .then(function () {
                 return t.a.pa();
@@ -20515,17 +20515,17 @@
                   return t == e;
                 });
               })(fl(t), t.Ma),
-              pn(fl(t), "tokenChanged", t.xa),
-              pn(fl(t), "userDeleted", t.ya),
-              pn(fl(t), "userInvalidated", t.za),
+              pn(fl(t), 'tokenChanged', t.xa),
+              pn(fl(t), 'userDeleted', t.ya),
+              pn(fl(t), 'userInvalidated', t.za),
               Sh(fl(t))),
               e &&
                 (e.R.push(t.Ma),
-                hn(e, "tokenChanged", t.xa),
-                hn(e, "userDeleted", t.ya),
-                hn(e, "userInvalidated", t.za),
+                hn(e, 'tokenChanged', t.xa),
+                hn(e, 'userDeleted', t.ya),
+                hn(e, 'userInvalidated', t.za),
                 0 < t.s && Ch(e)),
-              $r(t, "currentUser", e),
+              $r(t, 'currentUser', e),
               e && (e.va(t.ja()), _h(e, t), bh(e, t.N), wh(e, t));
           }
 
@@ -20543,7 +20543,7 @@
                     var n = null;
                     throw (
                       (e &&
-                        "auth/multi-factor-auth-required" === e.code &&
+                        'auth/multi-factor-auth-required' === e.code &&
                         (n = rh(e.v(), t, E(t.ic, t))),
                       n || e)
                     );
@@ -20554,7 +20554,7 @@
                     user: fl(t),
                     credential: n,
                     additionalUserInfo: r,
-                    operationType: "signIn",
+                    operationType: 'signIn',
                   });
                 })
             );
@@ -20601,8 +20601,8 @@
               n = this;
             return (
               (function (t) {
-                var e = new T("invalid-persistence-type"),
-                  n = new T("unsupported-persistence-type");
+                var e = new T('invalid-persistence-type'),
+                  n = new T('unsupported-persistence-type');
                 t: {
                   for (r in Ju)
                     if (Ju[r] == t) {
@@ -20611,16 +20611,16 @@
                     }
                   r = !1;
                 }
-                if (!r || "string" !== typeof t) throw e;
+                if (!r || 'string' !== typeof t) throw e;
                 switch (Cr()) {
-                  case "ReactNative":
-                    if ("session" === t) throw n;
+                  case 'ReactNative':
+                    if ('session' === t) throw n;
                     break;
-                  case "Node":
-                    if ("none" !== t) throw n;
+                  case 'Node':
+                    if ('none' !== t) throw n;
                     break;
                   default:
-                    if (!xr() && "none" !== t) throw n;
+                    if (!xr() && 'none' !== t) throw n;
                 }
               })(t),
               nl(this, function () {
@@ -20690,17 +20690,17 @@
             }),
             (e.Cb = function (t, e) {
               switch (t) {
-                case "unknown":
-                case "signInViaRedirect":
+                case 'unknown':
+                case 'signInViaRedirect':
                   return !0;
-                case "signInViaPopup":
+                case 'signInViaPopup':
                   return this.g == e && !!this.f;
                 default:
                   return !1;
               }
             }),
             (e.la = function (t, e, n, r) {
-              "signInViaPopup" == t &&
+              'signInViaPopup' == t &&
                 this.g == r &&
                 (n && this.w ? this.w(n) : e && !n && this.f && this.f(e),
                 this.c && (this.c.cancel(), (this.c = null)),
@@ -20708,8 +20708,8 @@
                 delete this.w);
             }),
             (e.Da = function (t, e) {
-              return "signInViaRedirect" == t ||
-                ("signInViaPopup" == t && this.g == e && this.f)
+              return 'signInViaRedirect' == t ||
+                ('signInViaPopup' == t && this.g == e && this.f)
                 ? E(this.gc, this)
                 : null;
             }),
@@ -20730,7 +20730,7 @@
             }),
             (e.Vc = function (t) {
               if (!Rr())
-                return Oe(new T("operation-not-supported-in-this-environment"));
+                return Oe(new T('operation-not-supported-in-this-environment'));
               var e = this,
                 n = Xi(t.providerId),
                 i = Vr(),
@@ -20742,7 +20742,7 @@
                   ll(this).options.authDomain,
                   ll(this).options.apiKey,
                   ll(this).name,
-                  "signInViaPopup",
+                  'signInViaPopup',
                   t,
                   null,
                   i,
@@ -20756,20 +20756,20 @@
                 this,
                 (n = al(this)
                   .then(function (n) {
-                    return Fc(n, a, "signInViaPopup", t, i, !!o, e.S());
+                    return Fc(n, a, 'signInViaPopup', t, i, !!o, e.S());
                   })
                   .then(function () {
                     return new we(function (t, n) {
                       e.la(
-                        "signInViaPopup",
+                        'signInViaPopup',
                         null,
-                        new T("cancelled-popup-request"),
+                        new T('cancelled-popup-request'),
                         e.g
                       ),
                         (e.f = t),
                         (e.w = n),
                         (e.g = i),
-                        (e.c = Vc(e.a, e, "signInViaPopup", a, i));
+                        (e.c = Vc(e.a, e, 'signInViaPopup', a, i));
                     });
                   })
                   .then(function (t) {
@@ -20782,7 +20782,7 @@
             }),
             (e.Wc = function (t) {
               if (!Rr())
-                return Oe(new T("operation-not-supported-in-this-environment"));
+                return Oe(new T('operation-not-supported-in-this-environment'));
               var e = this;
               return vl(
                 this,
@@ -20795,7 +20795,7 @@
                     })(e.i);
                   })
                   .then(function () {
-                    return Uc(e.a, "signInViaRedirect", t, void 0, e.S());
+                    return Uc(e.a, 'signInViaRedirect', t, void 0, e.S());
                   })
               );
             }),
@@ -20810,8 +20810,8 @@
                 });
             }),
             (e.bd = function (t) {
-              if (!t) return Oe(new T("null-user"));
-              if (this.R != t.tenantId) return Oe(new T("tenant-id-mismatch"));
+              if (!t) return Oe(new T('null-user'));
+              if (this.R != t.tenantId) return Oe(new T('tenant-id-mismatch'));
               var e = this,
                 n = {};
               (n.apiKey = ll(this).options.apiKey),
@@ -20881,10 +20881,10 @@
                     n =
                       void 0 !== n &&
                       null !== n &&
-                      "" !== n &&
+                      '' !== n &&
                       void 0 !== r &&
                       null !== r &&
-                      "" !== r &&
+                      '' !== r &&
                       n == r;
                   }
                   if (n) return Lh(fl(t), e), fl(t).I();
@@ -20988,7 +20988,7 @@
                 })
                 .then(function (t) {
                   var n = t.user;
-                  return Dh(n, "isAnonymous", !1), e.ca(n), t;
+                  return Dh(n, 'isAnonymous', !1), e.ca(n), t;
                 });
             }),
             (e.Sc = function (t, e) {
@@ -21024,7 +21024,7 @@
             (e.Qc = function (t) {
               return (
                 Yr(
-                  "firebase.auth.Auth.prototype.signInAndRetrieveDataWithCredential is deprecated. Please use firebase.auth.Auth.prototype.signInWithCredential instead."
+                  'firebase.auth.Auth.prototype.signInAndRetrieveDataWithCredential is deprecated. Please use firebase.auth.Auth.prototype.signInWithCredential instead.'
                 ),
                 this.Ya(t)
               );
@@ -21042,12 +21042,12 @@
                     user: e,
                     credential: null,
                     additionalUserInfo: n,
-                    operationType: "signIn",
+                    operationType: 'signIn',
                   });
                 }
                 return hl(t, t.b.vb()).then(function (e) {
                   var n = e.user;
-                  return Dh(n, "isAnonymous", !0), t.ca(n), e;
+                  return Dh(n, 'isAnonymous', !0), t.ca(n), e;
                 });
               });
             }),
@@ -21086,11 +21086,11 @@
             (e.delete = function () {
               this.l = !0;
               for (var t = 0; t < this.P.length; t++)
-                this.P[t].cancel("app-deleted");
+                this.P[t].cancel('app-deleted');
               return (
                 (this.P = []),
                 this.i &&
-                  (t = this.i).b.removeListener(Jh("local"), t.a, this.oa),
+                  (t = this.i).b.removeListener(Jh('local'), t.a, this.oa),
                 this.a && (Dc(this.a, this), Qc(this.a.b)),
                 Promise.resolve()
               );
@@ -21101,7 +21101,7 @@
                 (function (t, e) {
                   return ru(t, Ns, {
                     identifier: e,
-                    continueUri: Dr() ? lr() : "http://localhost",
+                    continueUri: Dr() ? lr() : 'http://localhost',
                   }).then(function (t) {
                     return t.signinMethods || [];
                   });
@@ -21120,8 +21120,8 @@
                     var t = new ki(e);
                     if (!t.c)
                       throw new T(
-                        "argument-error",
-                        Di + " must be true when sending sign in link to email"
+                        'argument-error',
+                        Di + ' must be true when sending sign in link to email'
                       );
                     return Wi(t);
                   })
@@ -21162,7 +21162,7 @@
                 this,
                 Ae()
                   .then(function () {
-                    return "undefined" === typeof e || dt(e)
+                    return 'undefined' === typeof e || dt(e)
                       ? {}
                       : Wi(new ki(e));
                   })
@@ -21183,8 +21183,8 @@
                   var r = e || lr(),
                     i = Ro(t, r);
                   if (!(r = Do(r)))
-                    throw new T("argument-error", "Invalid email link!");
-                  if (r.tenantId !== n.S()) throw new T("tenant-id-mismatch");
+                    throw new T('argument-error', 'Invalid email link!');
+                  if (r.tenantId !== n.S()) throw new T('tenant-id-mismatch');
                   return n.Ya(i);
                 })
               );
@@ -21200,7 +21200,7 @@
           }
 
           function bl(t) {
-            return (t = "undefined" === typeof t ? 1e12 : t)
+            return (t = 'undefined' === typeof t ? 1e12 : t)
               ? t.toString()
               : null;
           }
@@ -21209,17 +21209,17 @@
             (this.g = !1),
               (this.c = e),
               (this.a = this.b = null),
-              (this.h = "invisible" !== this.c.size),
+              (this.h = 'invisible' !== this.c.size),
               (this.f = se(t));
             var n = this;
             (this.i = function () {
               n.execute();
             }),
-              this.h ? this.execute() : hn(this.f, "click", this.i);
+              this.h ? this.execute() : hn(this.f, 'click', this.i);
           }
 
           function El(t) {
-            if (t.g) throw Error("reCAPTCHA mock was already deleted!");
+            if (t.g) throw Error('reCAPTCHA mock was already deleted!');
           }
 
           function Cl() {}
@@ -21249,15 +21249,15 @@
                   t.b = (function () {
                     for (var t = 50, e = []; 0 < t; )
                       e.push(
-                        "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(
+                        '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.charAt(
                           Math.floor(62 * Math.random())
                         )
                       ),
                         t--;
-                    return e.join("");
+                    return e.join('');
                   })();
                   var e = t.c.callback,
-                    n = t.c["expired-callback"];
+                    n = t.c['expired-callback'];
                   if (e)
                     try {
                       e(t.b);
@@ -21276,9 +21276,9 @@
                 (this.g = !0),
                 clearTimeout(this.a),
                 (this.a = null),
-                pn(this.f, "click", this.i);
+                pn(this.f, 'click', this.i);
             }),
-            $r(Cl, "FACTOR_ID", "phone"),
+            $r(Cl, 'FACTOR_ID', 'phone'),
             (Sl.prototype.g = function () {
               return ml || (ml = new gl()), Ae(ml);
             }),
@@ -21288,18 +21288,18 @@
           function Tl() {
             (this.b = c.grecaptcha ? 1 / 0 : 0),
               (this.f = null),
-              (this.a = "__rcb" + Math.floor(1e6 * Math.random()).toString());
+              (this.a = '__rcb' + Math.floor(1e6 * Math.random()).toString());
           }
           var Nl = new _t(
               Et,
-              "https://www.google.com/recaptcha/api.js?onload=%{onload}&render=explicit&hl=%{hl}"
+              'https://www.google.com/recaptcha/api.js?onload=%{onload}&render=explicit&hl=%{hl}'
             ),
             Al = new Br(3e4, 6e4);
           (Tl.prototype.g = function (t) {
             var e = this;
             return new we(function (n, r) {
               var i = setTimeout(function () {
-                r(new T("network-request-failed"));
+                r(new T('network-request-failed'));
               }, Al.get());
               !c.grecaptcha || (t !== e.f && !e.b)
                 ? ((c[e.a] = function () {
@@ -21311,22 +21311,22 @@
                       }),
                         clearTimeout(i),
                         n(c.grecaptcha);
-                    } else clearTimeout(i), r(new T("internal-error"));
+                    } else clearTimeout(i), r(new T('internal-error'));
                     delete c[e.a];
                   }),
                   Ae(
                     Qa(
                       Tt(Nl, {
                         onload: e.a,
-                        hl: t || "",
+                        hl: t || '',
                       })
                     )
                   ).o(function () {
                     clearTimeout(i),
                       r(
                         new T(
-                          "internal-error",
-                          "Unable to load external reCAPTCHA dependencies!"
+                          'internal-error',
+                          'Unable to load external reCAPTCHA dependencies!'
                         )
                       );
                   }))
@@ -21340,7 +21340,7 @@
 
           function Pl(t, e, n, r, i, o, a) {
             if (
-              ($r(this, "type", "recaptcha"),
+              ($r(this, 'type', 'recaptcha'),
               (this.c = this.f = null),
               (this.D = !1),
               (this.u = e),
@@ -21350,25 +21350,25 @@
                 : (Ol || (Ol = new Tl()), (a = Ol)),
               (this.m = a),
               (this.a = n || {
-                theme: "light",
-                type: "image",
+                theme: 'light',
+                type: 'image',
               }),
               (this.h = []),
               this.a[Rl])
             )
               throw new T(
-                "argument-error",
-                "sitekey should not be provided for reCAPTCHA as one is automatically provisioned for the current project."
+                'argument-error',
+                'sitekey should not be provided for reCAPTCHA as one is automatically provisioned for the current project.'
               );
-            if (((this.i = "invisible" === this.a[Dl]), !c.document))
+            if (((this.i = 'invisible' === this.a[Dl]), !c.document))
               throw new T(
-                "operation-not-supported-in-this-environment",
-                "RecaptchaVerifier is only supported in a browser HTTP/HTTPS environment with DOM support."
+                'operation-not-supported-in-this-environment',
+                'RecaptchaVerifier is only supported in a browser HTTP/HTTPS environment with DOM support.'
               );
             if (!se(e) || (!this.i && se(e).hasChildNodes()))
               throw new T(
-                "argument-error",
-                "reCAPTCHA container is either not found or already contains inner elements!"
+                'argument-error',
+                'reCAPTCHA container is either not found or already contains inner elements!'
               );
             (this.s = new Ja(t, o || null, i || null)),
               (this.w =
@@ -21380,25 +21380,25 @@
             this.l = [];
             var u = this.a[kl];
             this.a[kl] = function (t) {
-              if ((Ll(s, t), "function" === typeof u)) u(t);
-              else if ("string" === typeof u) {
+              if ((Ll(s, t), 'function' === typeof u)) u(t);
+              else if ('string' === typeof u) {
                 var e = kr(u, c);
-                "function" === typeof e && e(t);
+                'function' === typeof e && e(t);
               }
             };
             var h = this.a[xl];
             this.a[xl] = function () {
-              if ((Ll(s, null), "function" === typeof h)) h();
-              else if ("string" === typeof h) {
+              if ((Ll(s, null), 'function' === typeof h)) h();
+              else if ('string' === typeof h) {
                 var t = kr(h, c);
-                "function" === typeof t && t();
+                'function' === typeof t && t();
               }
             };
           }
-          var kl = "callback",
-            xl = "expired-callback",
-            Rl = "sitekey",
-            Dl = "size";
+          var kl = 'callback',
+            xl = 'expired-callback',
+            Rl = 'sitekey',
+            Dl = 'size';
 
           function Ll(t, e) {
             for (var n = 0; n < t.l.length; n++)
@@ -21420,8 +21420,8 @@
           function Fl(t) {
             if (t.D)
               throw new T(
-                "internal-error",
-                "RecaptchaVerifier instance has been destroyed."
+                'internal-error',
+                'RecaptchaVerifier instance has been destroyed.'
               );
           }
 
@@ -21431,12 +21431,12 @@
               this.b = n || r.a.app();
             } catch (s) {
               throw new T(
-                "argument-error",
-                "No firebase.app.App instance is currently initialized."
+                'argument-error',
+                'No firebase.app.App instance is currently initialized.'
               );
             }
             if (!this.b.options || !this.b.options.apiKey)
-              throw new T("invalid-api-key");
+              throw new T('invalid-api-key');
             n = this.b.options.apiKey;
             var o = this,
               a = null;
@@ -21474,22 +21474,22 @@
                 else {
                   if (o)
                     throw new T(
-                      "internal-error",
-                      "Argument validator encountered a required argument after an optional argument."
+                      'internal-error',
+                      'Argument validator encountered a required argument after an optional argument.'
                     );
                   i++;
                 }
               if (((o = e.length), n.length < i || o < n.length))
                 r =
-                  "Expected " +
+                  'Expected ' +
                   (i == o
                     ? 1 == i
-                      ? "1 argument"
-                      : i + " arguments"
-                    : i + "-" + o + " arguments") +
-                  " but got " +
+                      ? '1 argument'
+                      : i + ' arguments'
+                    : i + '-' + o + ' arguments') +
+                  ' but got ' +
                   n.length +
-                  ".";
+                  '.';
               else {
                 for (i = 0; i < n.length; i++)
                   if (
@@ -21498,22 +21498,22 @@
                   ) {
                     if (((e = e[i]), 0 > i || i >= Vl.length))
                       throw new T(
-                        "internal-error",
-                        "Argument validator received an unsupported number of arguments."
+                        'internal-error',
+                        'Argument validator received an unsupported number of arguments.'
                       );
                     (n = Vl[i]),
                       (r =
-                        (r ? "" : n + " argument ") +
-                        (e.name ? '"' + e.name + '" ' : "") +
-                        "must be " +
+                        (r ? '' : n + ' argument ') +
+                        (e.name ? '"' + e.name + '" ' : '') +
+                        'must be ' +
                         e.J +
-                        ".");
+                        '.');
                     break t;
                   }
                 r = null;
               }
             }
-            if (r) throw new T("argument-error", t + " failed: " + r);
+            if (r) throw new T('argument-error', t + ' failed: ' + r);
           }
           ((e = Pl.prototype).Ga = function () {
             var t = this;
@@ -21525,8 +21525,8 @@
                     .then(function () {
                       if (Dr() && !Er()) return _r();
                       throw new T(
-                        "operation-not-supported-in-this-environment",
-                        "RecaptchaVerifier is only supported in a browser HTTP/HTTPS environment."
+                        'operation-not-supported-in-this-environment',
+                        'RecaptchaVerifier is only supported in a browser HTTP/HTTPS environment.'
                       );
                     })
                     .then(function () {
@@ -21560,7 +21560,7 @@
                           a = r[1];
                         if (!ae && a && (a.name || a.type)) {
                           if (
-                            ((o = ["<", o]),
+                            ((o = ['<', o]),
                             a.name && o.push(' name="', Bt(a.name), '"'),
                             a.type)
                           ) {
@@ -21568,20 +21568,20 @@
                             var s = {};
                             gt(s, a), delete s.type, (a = s);
                           }
-                          o.push(">"), (o = o.join(""));
+                          o.push('>'), (o = o.join(''));
                         }
                         return (
                           (o = pe(i, o)),
                           a &&
-                            ("string" === typeof a
+                            ('string' === typeof a
                               ? (o.className = a)
                               : Array.isArray(a)
-                              ? (o.className = a.join(" "))
+                              ? (o.className = a.join(' '))
                               : ue(o, a)),
                           2 < r.length && fe(i, o, r),
                           o
                         );
-                      })("DIV")),
+                      })('DIV')),
                         n.appendChild(e);
                     }
                     t.c = t.g.render(e, t.a);
@@ -21622,7 +21622,7 @@
               Fl(this), (this.D = !0), this.m.c();
               for (var t = 0; t < this.h.length; t++)
                 this.h[t].cancel(
-                  "RecaptchaVerifier instance has been destroyed."
+                  'RecaptchaVerifier instance has been destroyed.'
                 );
               if (!this.i) {
                 t = se(this.u);
@@ -21631,36 +21631,36 @@
             }),
             I(jl, Pl);
           var Vl =
-            "First Second Third Fourth Fifth Sixth Seventh Eighth Ninth".split(
-              " "
+            'First Second Third Fourth Fifth Sixth Seventh Eighth Ninth'.split(
+              ' '
             );
 
           function Wl(t, e) {
             return {
-              name: t || "",
-              J: "a valid string",
+              name: t || '',
+              J: 'a valid string',
               optional: !!e,
               K: function (t) {
-                return "string" === typeof t;
+                return 'string' === typeof t;
               },
             };
           }
 
           function ql(t, e) {
             return {
-              name: t || "",
-              J: "a boolean",
+              name: t || '',
+              J: 'a boolean',
               optional: !!e,
               K: function (t) {
-                return "boolean" === typeof t;
+                return 'boolean' === typeof t;
               },
             };
           }
 
           function Bl(t, e) {
             return {
-              name: t || "",
-              J: "a valid object",
+              name: t || '',
+              J: 'a valid object',
               optional: !!e,
               K: y,
             };
@@ -21668,8 +21668,8 @@
 
           function Hl(t, e) {
             return {
-              name: t || "",
-              J: "a function",
+              name: t || '',
+              J: 'a function',
               optional: !!e,
               K: v,
             };
@@ -21677,8 +21677,8 @@
 
           function Ql(t, e) {
             return {
-              name: t || "",
-              J: "null",
+              name: t || '',
+              J: 'null',
               optional: !!e,
               K: function (t) {
                 return null === t;
@@ -21688,8 +21688,8 @@
 
           function Kl(t) {
             return {
-              name: t ? t + "Credential" : "credential",
-              J: t ? "a valid " + t + " credential" : "a valid credential",
+              name: t ? t + 'Credential' : 'credential',
+              J: t ? 'a valid ' + t + ' credential' : 'a valid credential',
               optional: !1,
               K: function (e) {
                 if (!e) return !1;
@@ -21701,29 +21701,29 @@
 
           function Gl(t, e) {
             return (
-              y(t) && "string" === typeof t.type && t.type === e && v(t.Fa)
+              y(t) && 'string' === typeof t.type && t.type === e && v(t.Fa)
             );
           }
 
           function zl(t) {
-            return y(t) && "string" === typeof t.uid;
+            return y(t) && 'string' === typeof t.uid;
           }
 
           function Yl() {
             return {
-              name: "applicationVerifier",
-              J: "an implementation of firebase.auth.ApplicationVerifier",
+              name: 'applicationVerifier',
+              J: 'an implementation of firebase.auth.ApplicationVerifier',
               optional: !1,
               K: function (t) {
-                return !(!t || "string" !== typeof t.type || !v(t.verify));
+                return !(!t || 'string' !== typeof t.type || !v(t.verify));
               },
             };
           }
 
           function Xl(t, e, n, r) {
             return {
-              name: n || "",
-              J: t.J + " or " + e.J,
+              name: n || '',
+              J: t.J + ' or ' + e.J,
               optional: !!r,
               K: function (n) {
                 return t.K(n) || e.K(n);
@@ -21771,7 +21771,7 @@
             if (!n) return e;
             var i,
               o = (function (t) {
-                return (t = t.split("."))[t.length - 1];
+                return (t = t.split('.'))[t.length - 1];
               })(t);
             for (i in e) r[i] = e[i];
             for (i in e.prototype) r.prototype[i] = e.prototype[i];
@@ -21779,337 +21779,337 @@
           }
           $l(rl.prototype, {
             fb: {
-              name: "applyActionCode",
-              j: [Wl("code")],
+              name: 'applyActionCode',
+              j: [Wl('code')],
             },
             Pa: {
-              name: "checkActionCode",
-              j: [Wl("code")],
+              name: 'checkActionCode',
+              j: [Wl('code')],
             },
             jb: {
-              name: "confirmPasswordReset",
-              j: [Wl("code"), Wl("newPassword")],
+              name: 'confirmPasswordReset',
+              j: [Wl('code'), Wl('newPassword')],
             },
             cc: {
-              name: "createUserWithEmailAndPassword",
-              j: [Wl("email"), Wl("password")],
+              name: 'createUserWithEmailAndPassword',
+              j: [Wl('email'), Wl('password')],
             },
             fc: {
-              name: "fetchSignInMethodsForEmail",
-              j: [Wl("email")],
+              name: 'fetchSignInMethodsForEmail',
+              j: [Wl('email')],
             },
             pa: {
-              name: "getRedirectResult",
+              name: 'getRedirectResult',
               j: [],
             },
             zc: {
-              name: "isSignInWithEmailLink",
-              j: [Wl("emailLink")],
+              name: 'isSignInWithEmailLink',
+              j: [Wl('emailLink')],
             },
             Fc: {
-              name: "onAuthStateChanged",
+              name: 'onAuthStateChanged',
               j: [
-                Xl(Bl(), Hl(), "nextOrObserver"),
-                Hl("opt_error", !0),
-                Hl("opt_completed", !0),
+                Xl(Bl(), Hl(), 'nextOrObserver'),
+                Hl('opt_error', !0),
+                Hl('opt_completed', !0),
               ],
             },
             Gc: {
-              name: "onIdTokenChanged",
+              name: 'onIdTokenChanged',
               j: [
-                Xl(Bl(), Hl(), "nextOrObserver"),
-                Hl("opt_error", !0),
-                Hl("opt_completed", !0),
+                Xl(Bl(), Hl(), 'nextOrObserver'),
+                Hl('opt_error', !0),
+                Hl('opt_completed', !0),
               ],
             },
             rb: {
-              name: "sendPasswordResetEmail",
+              name: 'sendPasswordResetEmail',
               j: [
-                Wl("email"),
+                Wl('email'),
                 Xl(
-                  Bl("opt_actionCodeSettings", !0),
+                  Bl('opt_actionCodeSettings', !0),
                   Ql(null, !0),
-                  "opt_actionCodeSettings",
+                  'opt_actionCodeSettings',
                   !0
                 ),
               ],
             },
             sb: {
-              name: "sendSignInLinkToEmail",
-              j: [Wl("email"), Bl("actionCodeSettings")],
+              name: 'sendSignInLinkToEmail',
+              j: [Wl('email'), Bl('actionCodeSettings')],
             },
             tb: {
-              name: "setPersistence",
-              j: [Wl("persistence")],
+              name: 'setPersistence',
+              j: [Wl('persistence')],
             },
             Qc: {
-              name: "signInAndRetrieveDataWithCredential",
+              name: 'signInAndRetrieveDataWithCredential',
               j: [Kl()],
             },
             vb: {
-              name: "signInAnonymously",
+              name: 'signInAnonymously',
               j: [],
             },
             Ya: {
-              name: "signInWithCredential",
+              name: 'signInWithCredential',
               j: [Kl()],
             },
             Rc: {
-              name: "signInWithCustomToken",
-              j: [Wl("token")],
+              name: 'signInWithCustomToken',
+              j: [Wl('token')],
             },
             Sc: {
-              name: "signInWithEmailAndPassword",
-              j: [Wl("email"), Wl("password")],
+              name: 'signInWithEmailAndPassword',
+              j: [Wl('email'), Wl('password')],
             },
             Tc: {
-              name: "signInWithEmailLink",
-              j: [Wl("email"), Wl("emailLink", !0)],
+              name: 'signInWithEmailLink',
+              j: [Wl('email'), Wl('emailLink', !0)],
             },
             Uc: {
-              name: "signInWithPhoneNumber",
-              j: [Wl("phoneNumber"), Yl()],
+              name: 'signInWithPhoneNumber',
+              j: [Wl('phoneNumber'), Yl()],
             },
             Vc: {
-              name: "signInWithPopup",
+              name: 'signInWithPopup',
               j: [
                 {
-                  name: "authProvider",
-                  J: "a valid Auth provider",
+                  name: 'authProvider',
+                  J: 'a valid Auth provider',
                   optional: !1,
                   K: function (t) {
                     return !!(
                       t &&
                       t.providerId &&
                       t.hasOwnProperty &&
-                      t.hasOwnProperty("isOAuthProvider")
+                      t.hasOwnProperty('isOAuthProvider')
                     );
                   },
                 },
               ],
             },
             Wc: {
-              name: "signInWithRedirect",
+              name: 'signInWithRedirect',
               j: [
                 {
-                  name: "authProvider",
-                  J: "a valid Auth provider",
+                  name: 'authProvider',
+                  J: 'a valid Auth provider',
                   optional: !1,
                   K: function (t) {
                     return !!(
                       t &&
                       t.providerId &&
                       t.hasOwnProperty &&
-                      t.hasOwnProperty("isOAuthProvider")
+                      t.hasOwnProperty('isOAuthProvider')
                     );
                   },
                 },
               ],
             },
             bd: {
-              name: "updateCurrentUser",
+              name: 'updateCurrentUser',
               j: [
                 Xl(
                   {
-                    name: "user",
-                    J: "an instance of Firebase User",
+                    name: 'user',
+                    J: 'an instance of Firebase User',
                     optional: !1,
                     K: function (t) {
                       return !!(t && t instanceof mh);
                     },
                   },
                   Ql(),
-                  "user"
+                  'user'
                 ),
               ],
             },
             wb: {
-              name: "signOut",
+              name: 'signOut',
               j: [],
             },
             toJSON: {
-              name: "toJSON",
+              name: 'toJSON',
               j: [Wl(null, !0)],
             },
             dd: {
-              name: "useDeviceLanguage",
+              name: 'useDeviceLanguage',
               j: [],
             },
             fd: {
-              name: "verifyPasswordResetCode",
-              j: [Wl("code")],
+              name: 'verifyPasswordResetCode',
+              j: [Wl('code')],
             },
           }),
             Jl(rl.prototype, {
               lc: {
-                name: "languageCode",
-                gb: Xl(Wl(), Ql(), "languageCode"),
+                name: 'languageCode',
+                gb: Xl(Wl(), Ql(), 'languageCode'),
               },
               ti: {
-                name: "tenantId",
-                gb: Xl(Wl(), Ql(), "tenantId"),
+                name: 'tenantId',
+                gb: Xl(Wl(), Ql(), 'tenantId'),
               },
             }),
             (rl.Persistence = Ju),
-            (rl.Persistence.LOCAL = "local"),
-            (rl.Persistence.SESSION = "session"),
-            (rl.Persistence.NONE = "none"),
+            (rl.Persistence.LOCAL = 'local'),
+            (rl.Persistence.SESSION = 'session'),
+            (rl.Persistence.NONE = 'none'),
             $l(mh.prototype, {
               delete: {
-                name: "delete",
+                name: 'delete',
                 j: [],
               },
               mc: {
-                name: "getIdTokenResult",
-                j: [ql("opt_forceRefresh", !0)],
+                name: 'getIdTokenResult',
+                j: [ql('opt_forceRefresh', !0)],
               },
               I: {
-                name: "getIdToken",
-                j: [ql("opt_forceRefresh", !0)],
+                name: 'getIdToken',
+                j: [ql('opt_forceRefresh', !0)],
               },
               Ac: {
-                name: "linkAndRetrieveDataWithCredential",
+                name: 'linkAndRetrieveDataWithCredential',
                 j: [Kl()],
               },
               mb: {
-                name: "linkWithCredential",
+                name: 'linkWithCredential',
                 j: [Kl()],
               },
               Bc: {
-                name: "linkWithPhoneNumber",
-                j: [Wl("phoneNumber"), Yl()],
+                name: 'linkWithPhoneNumber',
+                j: [Wl('phoneNumber'), Yl()],
               },
               Cc: {
-                name: "linkWithPopup",
+                name: 'linkWithPopup',
                 j: [
                   {
-                    name: "authProvider",
-                    J: "a valid Auth provider",
+                    name: 'authProvider',
+                    J: 'a valid Auth provider',
                     optional: !1,
                     K: function (t) {
                       return !!(
                         t &&
                         t.providerId &&
                         t.hasOwnProperty &&
-                        t.hasOwnProperty("isOAuthProvider")
+                        t.hasOwnProperty('isOAuthProvider')
                       );
                     },
                   },
                 ],
               },
               Dc: {
-                name: "linkWithRedirect",
+                name: 'linkWithRedirect',
                 j: [
                   {
-                    name: "authProvider",
-                    J: "a valid Auth provider",
+                    name: 'authProvider',
+                    J: 'a valid Auth provider',
                     optional: !1,
                     K: function (t) {
                       return !!(
                         t &&
                         t.providerId &&
                         t.hasOwnProperty &&
-                        t.hasOwnProperty("isOAuthProvider")
+                        t.hasOwnProperty('isOAuthProvider')
                       );
                     },
                   },
                 ],
               },
               Jc: {
-                name: "reauthenticateAndRetrieveDataWithCredential",
+                name: 'reauthenticateAndRetrieveDataWithCredential',
                 j: [Kl()],
               },
               pb: {
-                name: "reauthenticateWithCredential",
+                name: 'reauthenticateWithCredential',
                 j: [Kl()],
               },
               Kc: {
-                name: "reauthenticateWithPhoneNumber",
-                j: [Wl("phoneNumber"), Yl()],
+                name: 'reauthenticateWithPhoneNumber',
+                j: [Wl('phoneNumber'), Yl()],
               },
               Lc: {
-                name: "reauthenticateWithPopup",
+                name: 'reauthenticateWithPopup',
                 j: [
                   {
-                    name: "authProvider",
-                    J: "a valid Auth provider",
+                    name: 'authProvider',
+                    J: 'a valid Auth provider',
                     optional: !1,
                     K: function (t) {
                       return !!(
                         t &&
                         t.providerId &&
                         t.hasOwnProperty &&
-                        t.hasOwnProperty("isOAuthProvider")
+                        t.hasOwnProperty('isOAuthProvider')
                       );
                     },
                   },
                 ],
               },
               Mc: {
-                name: "reauthenticateWithRedirect",
+                name: 'reauthenticateWithRedirect',
                 j: [
                   {
-                    name: "authProvider",
-                    J: "a valid Auth provider",
+                    name: 'authProvider',
+                    J: 'a valid Auth provider',
                     optional: !1,
                     K: function (t) {
                       return !!(
                         t &&
                         t.providerId &&
                         t.hasOwnProperty &&
-                        t.hasOwnProperty("isOAuthProvider")
+                        t.hasOwnProperty('isOAuthProvider')
                       );
                     },
                   },
                 ],
               },
               reload: {
-                name: "reload",
+                name: 'reload',
                 j: [],
               },
               qb: {
-                name: "sendEmailVerification",
+                name: 'sendEmailVerification',
                 j: [
                   Xl(
-                    Bl("opt_actionCodeSettings", !0),
+                    Bl('opt_actionCodeSettings', !0),
                     Ql(null, !0),
-                    "opt_actionCodeSettings",
+                    'opt_actionCodeSettings',
                     !0
                   ),
                 ],
               },
               toJSON: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
               ad: {
-                name: "unlink",
-                j: [Wl("provider")],
+                name: 'unlink',
+                j: [Wl('provider')],
               },
               xb: {
-                name: "updateEmail",
-                j: [Wl("email")],
+                name: 'updateEmail',
+                j: [Wl('email')],
               },
               yb: {
-                name: "updatePassword",
-                j: [Wl("password")],
+                name: 'updatePassword',
+                j: [Wl('password')],
               },
               cd: {
-                name: "updatePhoneNumber",
-                j: [Kl("phone")],
+                name: 'updatePhoneNumber',
+                j: [Kl('phone')],
               },
               zb: {
-                name: "updateProfile",
-                j: [Bl("profile")],
+                name: 'updateProfile',
+                j: [Bl('profile')],
               },
               Ab: {
-                name: "verifyBeforeUpdateEmail",
+                name: 'verifyBeforeUpdateEmail',
                 j: [
-                  Wl("email"),
+                  Wl('email'),
                   Xl(
-                    Bl("opt_actionCodeSettings", !0),
+                    Bl('opt_actionCodeSettings', !0),
                     Ql(null, !0),
-                    "opt_actionCodeSettings",
+                    'opt_actionCodeSettings',
                     !0
                   ),
                 ],
@@ -22117,187 +22117,187 @@
             }),
             $l(gl.prototype, {
               execute: {
-                name: "execute",
+                name: 'execute',
               },
               render: {
-                name: "render",
+                name: 'render',
               },
               reset: {
-                name: "reset",
+                name: 'reset',
               },
               getResponse: {
-                name: "getResponse",
+                name: 'getResponse',
               },
             }),
             $l(yl.prototype, {
               execute: {
-                name: "execute",
+                name: 'execute',
               },
               render: {
-                name: "render",
+                name: 'render',
               },
               reset: {
-                name: "reset",
+                name: 'reset',
               },
               getResponse: {
-                name: "getResponse",
+                name: 'getResponse',
               },
             }),
             $l(we.prototype, {
               ma: {
-                name: "finally",
+                name: 'finally',
               },
               o: {
-                name: "catch",
+                name: 'catch',
               },
               then: {
-                name: "then",
+                name: 'then',
               },
             }),
             Jl(Yc.prototype, {
               appVerificationDisabled: {
-                name: "appVerificationDisabledForTesting",
-                gb: ql("appVerificationDisabledForTesting"),
+                name: 'appVerificationDisabledForTesting',
+                gb: ql('appVerificationDisabledForTesting'),
               },
             }),
             $l(Xc.prototype, {
               confirm: {
-                name: "confirm",
-                j: [Wl("verificationCode")],
+                name: 'confirm',
+                j: [Wl('verificationCode')],
               },
             }),
             Zl(
               ho,
-              "fromJSON",
+              'fromJSON',
               function (t) {
-                t = "string" === typeof t ? JSON.parse(t) : t;
+                t = 'string' === typeof t ? JSON.parse(t) : t;
                 for (var e, n = [mo, ko, Mo, vo], r = 0; r < n.length; r++)
                   if ((e = n[r](t))) return e;
                 return null;
               },
-              [Xl(Wl(), Bl(), "json")]
+              [Xl(Wl(), Bl(), 'json')]
             ),
             Zl(
               xo,
-              "credential",
+              'credential',
               function (t, e) {
                 return new Po(t, e);
               },
-              [Wl("email"), Wl("password")]
+              [Wl('email'), Wl('password')]
             ),
             $l(Po.prototype, {
               v: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
             $l(Eo.prototype, {
               Aa: {
-                name: "addScope",
-                j: [Wl("scope")],
+                name: 'addScope',
+                j: [Wl('scope')],
               },
               Ia: {
-                name: "setCustomParameters",
-                j: [Bl("customOAuthParameters")],
+                name: 'setCustomParameters',
+                j: [Bl('customOAuthParameters')],
               },
             }),
-            Zl(Eo, "credential", Co, [Xl(Wl(), Bl(), "token")]),
-            Zl(xo, "credentialWithLink", Ro, [Wl("email"), Wl("emailLink")]),
+            Zl(Eo, 'credential', Co, [Xl(Wl(), Bl(), 'token')]),
+            Zl(xo, 'credentialWithLink', Ro, [Wl('email'), Wl('emailLink')]),
             $l(So.prototype, {
               Aa: {
-                name: "addScope",
-                j: [Wl("scope")],
+                name: 'addScope',
+                j: [Wl('scope')],
               },
               Ia: {
-                name: "setCustomParameters",
-                j: [Bl("customOAuthParameters")],
+                name: 'setCustomParameters',
+                j: [Bl('customOAuthParameters')],
               },
             }),
-            Zl(So, "credential", Io, [Xl(Wl(), Bl(), "token")]),
+            Zl(So, 'credential', Io, [Xl(Wl(), Bl(), 'token')]),
             $l(To.prototype, {
               Aa: {
-                name: "addScope",
-                j: [Wl("scope")],
+                name: 'addScope',
+                j: [Wl('scope')],
               },
               Ia: {
-                name: "setCustomParameters",
-                j: [Bl("customOAuthParameters")],
+                name: 'setCustomParameters',
+                j: [Bl('customOAuthParameters')],
               },
             }),
-            Zl(To, "credential", No, [
-              Xl(Wl(), Xl(Bl(), Ql()), "idToken"),
-              Xl(Wl(), Ql(), "accessToken", !0),
+            Zl(To, 'credential', No, [
+              Xl(Wl(), Xl(Bl(), Ql()), 'idToken'),
+              Xl(Wl(), Ql(), 'accessToken', !0),
             ]),
             $l(Ao.prototype, {
               Ia: {
-                name: "setCustomParameters",
-                j: [Bl("customOAuthParameters")],
+                name: 'setCustomParameters',
+                j: [Bl('customOAuthParameters')],
               },
             }),
-            Zl(Ao, "credential", Oo, [
-              Xl(Wl(), Bl(), "token"),
-              Wl("secret", !0),
+            Zl(Ao, 'credential', Oo, [
+              Xl(Wl(), Bl(), 'token'),
+              Wl('secret', !0),
             ]),
             $l(wo.prototype, {
               Aa: {
-                name: "addScope",
-                j: [Wl("scope")],
+                name: 'addScope',
+                j: [Wl('scope')],
               },
               credential: {
-                name: "credential",
+                name: 'credential',
                 j: [
-                  Xl(Wl(), Xl(Bl(), Ql()), "optionsOrIdToken"),
-                  Xl(Wl(), Ql(), "accessToken", !0),
+                  Xl(Wl(), Xl(Bl(), Ql()), 'optionsOrIdToken'),
+                  Xl(Wl(), Ql(), 'accessToken', !0),
                 ],
               },
               Ia: {
-                name: "setCustomParameters",
-                j: [Bl("customOAuthParameters")],
+                name: 'setCustomParameters',
+                j: [Bl('customOAuthParameters')],
               },
             }),
             $l(yo.prototype, {
               v: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
             $l(fo.prototype, {
               v: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
-            Zl(jo, "credential", Uo, [
-              Wl("verificationId"),
-              Wl("verificationCode"),
+            Zl(jo, 'credential', Uo, [
+              Wl('verificationId'),
+              Wl('verificationCode'),
             ]),
             $l(jo.prototype, {
               cb: {
-                name: "verifyPhoneNumber",
+                name: 'verifyPhoneNumber',
                 j: [
                   Xl(
                     Wl(),
                     {
-                      name: "phoneInfoOptions",
-                      J: "valid phone info options",
+                      name: 'phoneInfoOptions',
+                      J: 'valid phone info options',
                       optional: !1,
                       K: function (t) {
                         return (
                           !!t &&
                           (t.session && t.phoneNumber
                             ? Gl(t.session, uo) &&
-                              "string" === typeof t.phoneNumber
+                              'string' === typeof t.phoneNumber
                             : t.session && t.multiFactorHint
                             ? Gl(t.session, co) && zl(t.multiFactorHint)
                             : t.session && t.multiFactorUid
                             ? Gl(t.session, co) &&
-                              "string" === typeof t.multiFactorUid
+                              'string' === typeof t.multiFactorUid
                             : !!t.phoneNumber &&
-                              "string" === typeof t.phoneNumber)
+                              'string' === typeof t.phoneNumber)
                         );
                       },
                     },
-                    "phoneInfoOptions"
+                    'phoneInfoOptions'
                   ),
                   Yl(),
                 ],
@@ -22305,41 +22305,41 @@
             }),
             $l(Lo.prototype, {
               v: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
             $l(T.prototype, {
               toJSON: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
             $l(zo.prototype, {
               toJSON: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
             $l(Go.prototype, {
               toJSON: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
             $l(nh.prototype, {
               toJSON: {
-                name: "toJSON",
+                name: 'toJSON',
                 j: [Wl(null, !0)],
               },
             }),
             $l(Zc.prototype, {
               Pc: {
-                name: "resolveSignIn",
+                name: 'resolveSignIn',
                 j: [
                   {
-                    name: "multiFactorAssertion",
-                    J: "a valid multiFactorAssertion",
+                    name: 'multiFactorAssertion',
+                    J: 'a valid multiFactorAssertion',
                     optional: !1,
                     K: function (t) {
                       return !!t && !!t.ob;
@@ -22350,144 +22350,144 @@
             }),
             $l(uh.prototype, {
               Ob: {
-                name: "getSession",
+                name: 'getSession',
                 j: [],
               },
               dc: {
-                name: "enroll",
+                name: 'enroll',
                 j: [
                   {
-                    name: "multiFactorAssertion",
-                    J: "a valid multiFactorAssertion",
+                    name: 'multiFactorAssertion',
+                    J: 'a valid multiFactorAssertion',
                     optional: !1,
                     K: function (t) {
                       return !!t && !!t.ob;
                     },
                   },
-                  Wl("displayName", !0),
+                  Wl('displayName', !0),
                 ],
               },
               $c: {
-                name: "unenroll",
+                name: 'unenroll',
                 j: [
                   Xl(
                     {
-                      name: "multiFactorInfo",
-                      J: "a valid multiFactorInfo",
+                      name: 'multiFactorInfo',
+                      J: 'a valid multiFactorInfo',
                       optional: !1,
                       K: zl,
                     },
                     Wl(),
-                    "multiFactorInfoIdentifier"
+                    'multiFactorInfoIdentifier'
                   ),
                 ],
               },
             }),
             $l(jl.prototype, {
               clear: {
-                name: "clear",
+                name: 'clear',
                 j: [],
               },
               render: {
-                name: "render",
+                name: 'render',
                 j: [],
               },
               verify: {
-                name: "verify",
+                name: 'verify',
                 j: [],
               },
             }),
-            Zl(Ei, "parseLink", Pi, [Wl("link")]),
+            Zl(Ei, 'parseLink', Pi, [Wl('link')]),
             Zl(
               Cl,
-              "assertion",
+              'assertion',
               function (t) {
                 return new ah(t);
               },
-              [Kl("phone")]
+              [Kl('phone')]
             ),
             (function () {
               if (
-                "undefined" === typeof r.a ||
+                'undefined' === typeof r.a ||
                 !r.a.INTERNAL ||
                 !r.a.INTERNAL.registerComponent
               )
                 throw Error(
-                  "Cannot find the firebase namespace; be sure to include firebase-app.js before this library."
+                  'Cannot find the firebase namespace; be sure to include firebase-app.js before this library.'
                 );
               var t = {
                 ActionCodeInfo: {
                   Operation: {
                     EMAIL_SIGNIN: hi,
-                    PASSWORD_RESET: "PASSWORD_RESET",
-                    RECOVER_EMAIL: "RECOVER_EMAIL",
+                    PASSWORD_RESET: 'PASSWORD_RESET',
+                    RECOVER_EMAIL: 'RECOVER_EMAIL',
                     REVERT_SECOND_FACTOR_ADDITION: ci,
                     VERIFY_AND_CHANGE_EMAIL: li,
-                    VERIFY_EMAIL: "VERIFY_EMAIL",
+                    VERIFY_EMAIL: 'VERIFY_EMAIL',
                   },
                 },
                 Auth: rl,
                 AuthCredential: ho,
                 Error: T,
               };
-              Zl(t, "EmailAuthProvider", xo, []),
-                Zl(t, "FacebookAuthProvider", Eo, []),
-                Zl(t, "GithubAuthProvider", So, []),
-                Zl(t, "GoogleAuthProvider", To, []),
-                Zl(t, "TwitterAuthProvider", Ao, []),
-                Zl(t, "OAuthProvider", wo, [Wl("providerId")]),
-                Zl(t, "SAMLAuthProvider", bo, [Wl("providerId")]),
-                Zl(t, "PhoneAuthProvider", jo, [
+              Zl(t, 'EmailAuthProvider', xo, []),
+                Zl(t, 'FacebookAuthProvider', Eo, []),
+                Zl(t, 'GithubAuthProvider', So, []),
+                Zl(t, 'GoogleAuthProvider', To, []),
+                Zl(t, 'TwitterAuthProvider', Ao, []),
+                Zl(t, 'OAuthProvider', wo, [Wl('providerId')]),
+                Zl(t, 'SAMLAuthProvider', bo, [Wl('providerId')]),
+                Zl(t, 'PhoneAuthProvider', jo, [
                   {
-                    name: "auth",
-                    J: "an instance of Firebase Auth",
+                    name: 'auth',
+                    J: 'an instance of Firebase Auth',
                     optional: !0,
                     K: function (t) {
                       return !!(t && t instanceof rl);
                     },
                   },
                 ]),
-                Zl(t, "RecaptchaVerifier", jl, [
+                Zl(t, 'RecaptchaVerifier', jl, [
                   Xl(
                     Wl(),
                     {
-                      name: "",
-                      J: "an HTML element",
+                      name: '',
+                      J: 'an HTML element',
                       optional: !1,
                       K: function (t) {
                         return !!(t && t instanceof Element);
                       },
                     },
-                    "recaptchaContainer"
+                    'recaptchaContainer'
                   ),
-                  Bl("recaptchaParameters", !0),
+                  Bl('recaptchaParameters', !0),
                   {
-                    name: "app",
-                    J: "an instance of Firebase App",
+                    name: 'app',
+                    J: 'an instance of Firebase App',
                     optional: !0,
                     K: function (t) {
                       return !!(t && t instanceof r.a.app.App);
                     },
                   },
                 ]),
-                Zl(t, "ActionCodeURL", Ei, []),
-                Zl(t, "PhoneMultiFactorGenerator", Cl, []),
+                Zl(t, 'ActionCodeURL', Ei, []),
+                Zl(t, 'PhoneMultiFactorGenerator', Cl, []),
                 r.a.INTERNAL.registerComponent({
-                  name: "auth",
+                  name: 'auth',
                   instanceFactory: function (t) {
-                    return new rl((t = t.getProvider("app").getImmediate()));
+                    return new rl((t = t.getProvider('app').getImmediate()));
                   },
                   multipleInstances: !1,
                   serviceProps: t,
-                  instantiationMode: "LAZY",
-                  type: "PUBLIC",
+                  instantiationMode: 'LAZY',
+                  type: 'PUBLIC',
                 }),
                 r.a.INTERNAL.registerComponent({
-                  name: "auth-internal",
+                  name: 'auth-internal',
                   instanceFactory: function (t) {
                     return {
                       getUid: E(
-                        (t = t.getProvider("auth").getImmediate()).getUid,
+                        (t = t.getProvider('auth').getImmediate()).getUid,
                         t
                       ),
                       getToken: E(t.kc, t),
@@ -22496,20 +22496,20 @@
                     };
                   },
                   multipleInstances: !1,
-                  instantiationMode: "LAZY",
-                  type: "PRIVATE",
+                  instantiationMode: 'LAZY',
+                  type: 'PRIVATE',
                 }),
-                r.a.registerVersion("@firebase/auth", "0.14.1"),
+                r.a.registerVersion('@firebase/auth', '0.14.1'),
                 r.a.INTERNAL.extendNamespace({
                   User: mh,
                 });
             })();
         }.apply(
-          "undefined" !== typeof t
+          'undefined' !== typeof t
             ? t
-            : "undefined" !== typeof self
+            : 'undefined' !== typeof self
             ? self
-            : "undefined" !== typeof window
+            : 'undefined' !== typeof window
             ? window
             : {}
         ));
@@ -22523,36 +22523,36 @@
       };
     },
     117: function (t, e, n) {
-      var r = n(65)(Object, "create");
+      var r = n(65)(Object, 'create');
       t.exports = r;
     },
     118: function (t, e, n) {
       var r = n(404);
       t.exports = function (t, e) {
         var n = t.__data__;
-        return r(e) ? n["string" == typeof e ? "string" : "hash"] : n.map;
+        return r(e) ? n['string' == typeof e ? 'string' : 'hash'] : n.map;
       };
     },
     119: function (t, e, n) {
       function r(t) {
         return (r =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
       var i = n(61),
         o = n(55);
       t.exports = function (t) {
-        return "symbol" == r(t) || (o(t) && "[object Symbol]" == i(t));
+        return 'symbol' == r(t) || (o(t) && '[object Symbol]' == i(t));
       };
     },
     131: function (t, e, n) {
@@ -22575,23 +22575,23 @@
         )
           ? r
           : function (t) {
-              return i(t) && a.call(t, "callee") && !s.call(t, "callee");
+              return i(t) && a.call(t, 'callee') && !s.call(t, 'callee');
             };
       t.exports = u;
     },
     139: function (t, e, n) {
       function r(t) {
         return (r =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
@@ -22601,11 +22601,11 @@
         s = n(26),
         u = n(423);
       t.exports = function (t) {
-        return "function" == typeof t
+        return 'function' == typeof t
           ? t
           : null == t
           ? a
-          : "object" == r(t)
+          : 'object' == r(t)
           ? s(t)
             ? o(t[0], t[1])
             : i(t)
@@ -22616,23 +22616,23 @@
       (function (t) {
         function r(t) {
           return (r =
-            "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+            'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
                 }
               : function (t) {
                   return t &&
-                    "function" === typeof Symbol &&
+                    'function' === typeof Symbol &&
                     t.constructor === Symbol &&
                     t !== Symbol.prototype
-                    ? "symbol"
+                    ? 'symbol'
                     : typeof t;
                 })(t);
         }
         var i = n(33),
           o = n(380),
-          a = "object" == r(e) && e && !e.nodeType && e,
-          s = a && "object" == r(t) && t && !t.nodeType && t,
+          a = 'object' == r(e) && e && !e.nodeType && e,
+          s = a && 'object' == r(t) && t && !t.nodeType && t,
           u = s && s.exports === a ? i.Buffer : void 0,
           c = (u ? u.isBuffer : void 0) || o;
         t.exports = c;
@@ -22641,16 +22641,16 @@
     151: function (t, e) {
       function n(t) {
         return (n =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
@@ -22659,7 +22659,7 @@
         var i = n(t);
         return (
           !!(e = null == e ? 9007199254740991 : e) &&
-          ("number" == i || ("symbol" != i && r.test(t))) &&
+          ('number' == i || ('symbol' != i && r.test(t))) &&
           t > -1 &&
           t % 1 == 0 &&
           t < e
@@ -22669,7 +22669,7 @@
     152: function (t, e) {
       t.exports = function (t) {
         return (
-          "number" == typeof t && t > -1 && t % 1 == 0 && t <= 9007199254740991
+          'number' == typeof t && t > -1 && t % 1 == 0 && t <= 9007199254740991
         );
       };
     },
@@ -22680,15 +22680,15 @@
         if (!i(t)) return !1;
         var e = r(t);
         return (
-          "[object Function]" == e ||
-          "[object GeneratorFunction]" == e ||
-          "[object AsyncFunction]" == e ||
-          "[object Proxy]" == e
+          '[object Function]' == e ||
+          '[object GeneratorFunction]' == e ||
+          '[object AsyncFunction]' == e ||
+          '[object Proxy]' == e
         );
       };
     },
     154: function (t, e, n) {
-      var r = n(65)(n(33), "Map");
+      var r = n(65)(n(33), 'Map');
       t.exports = r;
     },
     155: function (t, e, n) {
@@ -22734,16 +22734,16 @@
     158: function (t, e, n) {
       function r(t) {
         return (r =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
@@ -22756,9 +22756,9 @@
         var n = r(t);
         return (
           !(
-            "number" != n &&
-            "symbol" != n &&
-            "boolean" != n &&
+            'number' != n &&
+            'symbol' != n &&
+            'boolean' != n &&
             null != t &&
             !o(t)
           ) ||
@@ -22804,21 +22804,21 @@
       (function (e) {
         function n(t) {
           return (n =
-            "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+            'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
                 }
               : function (t) {
                   return t &&
-                    "function" === typeof Symbol &&
+                    'function' === typeof Symbol &&
                     t.constructor === Symbol &&
                     t !== Symbol.prototype
-                    ? "symbol"
+                    ? 'symbol'
                     : typeof t;
                 })(t);
         }
         var r =
-          "object" == ("undefined" === typeof e ? "undefined" : n(e)) &&
+          'object' == ('undefined' === typeof e ? 'undefined' : n(e)) &&
           e &&
           e.Object === Object &&
           e;
@@ -22833,10 +22833,10 @@
             return n.call(t);
           } catch (e) {}
           try {
-            return t + "";
+            return t + '';
           } catch (e) {}
         }
-        return "";
+        return '';
       };
     },
     192: function (t, e) {
@@ -22849,7 +22849,7 @@
     193: function (t, e, n) {
       var r = n(300);
       t.exports = function (t, e, n) {
-        "__proto__" == e && r
+        '__proto__' == e && r
           ? r(t, e, {
               configurable: !0,
               enumerable: !0,
@@ -22868,7 +22868,7 @@
       var n = Object.prototype;
       t.exports = function (t) {
         var e = t && t.constructor;
-        return t === (("function" == typeof e && e.prototype) || n);
+        return t === (('function' == typeof e && e.prototype) || n);
       };
     },
     208: function (t, e, n) {
@@ -22886,7 +22886,7 @@
     209: function (t, e, n) {
       var r = n(332);
       t.exports = function (t) {
-        return null == t ? "" : r(t);
+        return null == t ? '' : r(t);
       };
     },
     226: function (t, e) {
@@ -22945,11 +22945,11 @@
         s = n(331),
         u = n(61),
         c = n(191),
-        h = "[object Map]",
-        l = "[object Promise]",
-        f = "[object Set]",
-        p = "[object WeakMap]",
-        d = "[object DataView]",
+        h = '[object Map]',
+        l = '[object Promise]',
+        f = '[object Set]',
+        p = '[object WeakMap]',
+        d = '[object DataView]',
         v = c(r),
         y = c(i),
         g = c(o),
@@ -22963,8 +22963,8 @@
         (s && b(new s()) != p)) &&
         (b = function (t) {
           var e = u(t),
-            n = "[object Object]" == e ? t.constructor : void 0,
-            r = n ? c(n) : "";
+            n = '[object Object]' == e ? t.constructor : void 0,
+            r = n ? c(n) : '';
           if (r)
             switch (r) {
               case v:
@@ -23028,7 +23028,7 @@
       var r = n(61),
         i = n(55);
       t.exports = function (t) {
-        return "number" == typeof t || (i(t) && "[object Number]" == r(t));
+        return 'number' == typeof t || (i(t) && '[object Number]' == r(t));
       };
     },
     267: function (t, e, n) {
@@ -23049,7 +23049,7 @@
         o = n(55);
       t.exports = function (t) {
         return (
-          "string" == typeof t || (!i(t) && o(t) && "[object String]" == r(t))
+          'string' == typeof t || (!i(t) && o(t) && '[object String]' == r(t))
         );
       };
     },
@@ -23063,16 +23063,16 @@
     27: function (t, e) {
       function n(t) {
         return (n =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
@@ -23081,10 +23081,10 @@
         return this;
       })();
       try {
-        r = r || new Function("return this")();
+        r = r || new Function('return this')();
       } catch (i) {
-        "object" ===
-          ("undefined" === typeof window ? "undefined" : n(window)) &&
+        'object' ===
+          ('undefined' === typeof window ? 'undefined' : n(window)) &&
           (r = window);
       }
       t.exports = r;
@@ -23135,10 +23135,10 @@
         for (var y in t)
           (!e && !c.call(t, y)) ||
             (p &&
-              ("length" == y ||
-                (l && ("offset" == y || "parent" == y)) ||
+              ('length' == y ||
+                (l && ('offset' == y || 'parent' == y)) ||
                 (f &&
-                  ("buffer" == y || "byteLength" == y || "byteOffset" == y)) ||
+                  ('buffer' == y || 'byteLength' == y || 'byteOffset' == y)) ||
                 s(y, v))) ||
             d.push(y);
         return d;
@@ -23148,27 +23148,27 @@
       (function (t) {
         function r(t) {
           return (r =
-            "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+            'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
                 }
               : function (t) {
                   return t &&
-                    "function" === typeof Symbol &&
+                    'function' === typeof Symbol &&
                     t.constructor === Symbol &&
                     t !== Symbol.prototype
-                    ? "symbol"
+                    ? 'symbol'
                     : typeof t;
                 })(t);
         }
         var i = n(190),
-          o = "object" == r(e) && e && !e.nodeType && e,
-          a = o && "object" == r(t) && t && !t.nodeType && t,
+          o = 'object' == r(e) && e && !e.nodeType && e,
+          a = o && 'object' == r(t) && t && !t.nodeType && t,
           s = a && a.exports === o && i.process,
           u = (function () {
             try {
-              var t = a && a.require && a.require("util").types;
-              return t || (s && s.binding && s.binding("util"));
+              var t = a && a.require && a.require('util').types;
+              return t || (s && s.binding && s.binding('util'));
             } catch (e) {}
           })();
         t.exports = u;
@@ -23192,15 +23192,15 @@
         h = u.toString,
         l = c.hasOwnProperty,
         f = RegExp(
-          "^" +
+          '^' +
             h
               .call(l)
-              .replace(/[\\^$.*+?()[\]{}|]/g, "\\$&")
+              .replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
               .replace(
                 /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
-                "$1.*?"
+                '$1.*?'
               ) +
-            "$"
+            '$'
         );
       t.exports = function (t) {
         return !(!o(t) || i(t)) && (r(t) ? f : s).test(a(t));
@@ -23209,15 +23209,15 @@
     294: function (t, e, n) {
       var r,
         i = n(295),
-        o = (r = /[^.]+$/.exec((i && i.keys && i.keys.IE_PROTO) || ""))
-          ? "Symbol(src)_1." + r
-          : "";
+        o = (r = /[^.]+$/.exec((i && i.keys && i.keys.IE_PROTO) || ''))
+          ? 'Symbol(src)_1.' + r
+          : '';
       t.exports = function (t) {
         return !!o && o in t;
       };
     },
     295: function (t, e, n) {
-      var r = n(33)["__core-js_shared__"];
+      var r = n(33)['__core-js_shared__'];
       t.exports = r;
     },
     296: function (t, e) {
@@ -23262,8 +23262,8 @@
       var r = n(65),
         i = (function () {
           try {
-            var t = r(Object, "defineProperty");
-            return t({}, "", {}), t;
+            var t = r(Object, 'defineProperty');
+            return t({}, '', {}), t;
           } catch (e) {}
         })();
       t.exports = i;
@@ -23276,7 +23276,7 @@
         if (!r(t)) return i(t);
         var e = [];
         for (var n in Object(t))
-          o.call(t, n) && "constructor" != n && e.push(n);
+          o.call(t, n) && 'constructor' != n && e.push(n);
         return e;
       };
     },
@@ -23343,34 +23343,34 @@
     33: function (t, e, n) {
       function r(t) {
         return (r =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
       var i = n(190),
         o =
-          "object" == ("undefined" === typeof self ? "undefined" : r(self)) &&
+          'object' == ('undefined' === typeof self ? 'undefined' : r(self)) &&
           self &&
           self.Object === Object &&
           self,
-        a = i || o || Function("return this")();
+        a = i || o || Function('return this')();
       t.exports = a;
     },
     330: function (t, e, n) {
-      var r = n(65)(n(33), "Set");
+      var r = n(65)(n(33), 'Set');
       t.exports = r;
     },
     331: function (t, e, n) {
-      var r = n(65)(n(33), "WeakMap");
+      var r = n(65)(n(33), 'WeakMap');
       t.exports = r;
     },
     332: function (t, e, n) {
@@ -23381,11 +23381,11 @@
         s = r ? r.prototype : void 0,
         u = s ? s.toString : void 0;
       t.exports = function t(e) {
-        if ("string" == typeof e) return e;
-        if (o(e)) return i(e, t) + "";
-        if (a(e)) return u ? u.call(e) : "";
-        var n = e + "";
-        return "0" == n && 1 / e == -Infinity ? "-0" : n;
+        if ('string' == typeof e) return e;
+        if (o(e)) return i(e, t) + '';
+        if (a(e)) return u ? u.call(e) : '';
+        var n = e + '';
+        return '0' == n && 1 / e == -Infinity ? '-0' : n;
       };
     },
     333: function (t, e, n) {
@@ -23423,7 +23423,7 @@
       var r = n(61),
         i = n(55);
       t.exports = function (t) {
-        return i(t) && "[object Arguments]" == r(t);
+        return i(t) && '[object Arguments]' == r(t);
       };
     },
     380: function (t, e) {
@@ -23436,31 +23436,31 @@
         i = n(152),
         o = n(55),
         a = {};
-      (a["[object Float32Array]"] =
-        a["[object Float64Array]"] =
-        a["[object Int8Array]"] =
-        a["[object Int16Array]"] =
-        a["[object Int32Array]"] =
-        a["[object Uint8Array]"] =
-        a["[object Uint8ClampedArray]"] =
-        a["[object Uint16Array]"] =
-        a["[object Uint32Array]"] =
+      (a['[object Float32Array]'] =
+        a['[object Float64Array]'] =
+        a['[object Int8Array]'] =
+        a['[object Int16Array]'] =
+        a['[object Int32Array]'] =
+        a['[object Uint8Array]'] =
+        a['[object Uint8ClampedArray]'] =
+        a['[object Uint16Array]'] =
+        a['[object Uint32Array]'] =
           !0),
-        (a["[object Arguments]"] =
-          a["[object Array]"] =
-          a["[object ArrayBuffer]"] =
-          a["[object Boolean]"] =
-          a["[object DataView]"] =
-          a["[object Date]"] =
-          a["[object Error]"] =
-          a["[object Function]"] =
-          a["[object Map]"] =
-          a["[object Number]"] =
-          a["[object Object]"] =
-          a["[object RegExp]"] =
-          a["[object Set]"] =
-          a["[object String]"] =
-          a["[object WeakMap]"] =
+        (a['[object Arguments]'] =
+          a['[object Array]'] =
+          a['[object ArrayBuffer]'] =
+          a['[object Boolean]'] =
+          a['[object DataView]'] =
+          a['[object Date]'] =
+          a['[object Error]'] =
+          a['[object Function]'] =
+          a['[object Map]'] =
+          a['[object Number]'] =
+          a['[object Object]'] =
+          a['[object RegExp]'] =
+          a['[object Set]'] =
+          a['[object String]'] =
+          a['[object WeakMap]'] =
             !1),
         (t.exports = function (t) {
           return o(t) && i(t.length) && !!a[r(t)];
@@ -23656,7 +23656,7 @@
         var e = this.__data__;
         if (r) {
           var n = e[t];
-          return "__lodash_hash_undefined__" === n ? void 0 : n;
+          return '__lodash_hash_undefined__' === n ? void 0 : n;
         }
         return i.call(e, t) ? e[t] : void 0;
       };
@@ -23675,7 +23675,7 @@
         var n = this.__data__;
         return (
           (this.size += this.has(t) ? 0 : 1),
-          (n[t] = r && void 0 === e ? "__lodash_hash_undefined__" : e),
+          (n[t] = r && void 0 === e ? '__lodash_hash_undefined__' : e),
           this
         );
       };
@@ -23690,23 +23690,23 @@
     404: function (t, e) {
       function n(t) {
         return (n =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
       t.exports = function (t) {
         var e = n(t);
-        return "string" == e || "number" == e || "symbol" == e || "boolean" == e
-          ? "__proto__" !== t
+        return 'string' == e || 'number' == e || 'symbol' == e || 'boolean' == e
+          ? '__proto__' !== t
           : null === t;
       };
     },
@@ -23739,9 +23739,9 @@
         u = n(26),
         c = n(150),
         h = n(176),
-        l = "[object Arguments]",
-        f = "[object Array]",
-        p = "[object Object]",
+        l = '[object Arguments]',
+        f = '[object Array]',
+        p = '[object Object]',
         d = Object.prototype.hasOwnProperty;
       t.exports = function (t, e, n, v, y, g) {
         var m = u(t),
@@ -23761,8 +23761,8 @@
             m || h(t) ? i(t, e, n, v, y, g) : o(t, e, b, n, v, y, g)
           );
         if (!(1 & n)) {
-          var I = E && d.call(t, "__wrapped__"),
-            T = C && d.call(e, "__wrapped__");
+          var I = E && d.call(t, '__wrapped__'),
+            T = C && d.call(e, '__wrapped__');
           if (I || T) {
             var N = I ? t.value() : t,
               A = T ? e.value() : e;
@@ -23774,7 +23774,7 @@
     },
     409: function (t, e) {
       t.exports = function (t) {
-        return this.__data__.set(t, "__lodash_hash_undefined__"), this;
+        return this.__data__.set(t, '__lodash_hash_undefined__'), this;
       };
     },
     410: function (t, e) {
@@ -23793,24 +23793,24 @@
         h = c ? c.valueOf : void 0;
       t.exports = function (t, e, n, r, c, l, f) {
         switch (n) {
-          case "[object DataView]":
+          case '[object DataView]':
             if (t.byteLength != e.byteLength || t.byteOffset != e.byteOffset)
               return !1;
             (t = t.buffer), (e = e.buffer);
-          case "[object ArrayBuffer]":
+          case '[object ArrayBuffer]':
             return !(t.byteLength != e.byteLength || !l(new i(t), new i(e)));
-          case "[object Boolean]":
-          case "[object Date]":
-          case "[object Number]":
+          case '[object Boolean]':
+          case '[object Date]':
+          case '[object Number]':
             return o(+t, +e);
-          case "[object Error]":
+          case '[object Error]':
             return t.name == e.name && t.message == e.message;
-          case "[object RegExp]":
-          case "[object String]":
-            return t == e + "";
-          case "[object Map]":
+          case '[object RegExp]':
+          case '[object String]':
+            return t == e + '';
+          case '[object Map]':
             var p = s;
-          case "[object Set]":
+          case '[object Set]':
             var d = 1 & r;
             if ((p || (p = u), t.size != e.size && !d)) return !1;
             var v = f.get(t);
@@ -23818,7 +23818,7 @@
             (r |= 2), f.set(t, e);
             var y = a(p(t), p(e), r, c, l, f);
             return f.delete(t), y;
-          case "[object Symbol]":
+          case '[object Symbol]':
             if (h) return h.call(t) == h.call(e);
         }
         return !1;
@@ -23861,17 +23861,17 @@
             v = !1;
             break;
           }
-          y || (y = "constructor" == f);
+          y || (y = 'constructor' == f);
         }
         if (v && !y) {
           var b = t.constructor,
             w = e.constructor;
           b == w ||
-            !("constructor" in t) ||
-            !("constructor" in e) ||
-            ("function" == typeof b &&
+            !('constructor' in t) ||
+            !('constructor' in e) ||
+            ('function' == typeof b &&
               b instanceof b &&
-              "function" == typeof w &&
+              'function' == typeof w &&
               w instanceof w) ||
             (v = !1);
         }
@@ -23879,11 +23879,11 @@
       };
     },
     414: function (t, e, n) {
-      var r = n(65)(n(33), "DataView");
+      var r = n(65)(n(33), 'DataView');
       t.exports = r;
     },
     415: function (t, e, n) {
-      var r = n(65)(n(33), "Promise");
+      var r = n(65)(n(33), 'Promise');
       t.exports = r;
     },
     416: function (t, e, n) {
@@ -23923,9 +23923,9 @@
         a = r(function (t) {
           var e = [];
           return (
-            46 === t.charCodeAt(0) && e.push(""),
+            46 === t.charCodeAt(0) && e.push(''),
             t.replace(i, function (t, n, r, i) {
-              e.push(r ? i.replace(o, "$1") : n || t);
+              e.push(r ? i.replace(o, '$1') : n || t);
             }),
             e
           );
@@ -23943,24 +23943,24 @@
       };
     },
     42: function (t, e, n) {
-      "use strict";
+      'use strict';
 
       function r(t) {
         return (r =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
-      Object.defineProperty(e, "__esModule", {
+      Object.defineProperty(e, '__esModule', {
         value: !0,
       });
       var i,
@@ -23970,37 +23970,37 @@
         u = n(1153),
         c = n(1154),
         h =
-          (((i = {})["no-app"] =
+          (((i = {})['no-app'] =
             "No Firebase App '{$appName}' has been created - call Firebase App.initializeApp()"),
-          (i["bad-app-name"] = "Illegal App name: '{$appName}"),
-          (i["duplicate-app"] =
+          (i['bad-app-name'] = "Illegal App name: '{$appName}"),
+          (i['duplicate-app'] =
             "Firebase App named '{$appName}' already exists"),
-          (i["app-deleted"] =
+          (i['app-deleted'] =
             "Firebase App named '{$appName}' already deleted"),
-          (i["invalid-app-argument"] =
-            "firebase.{$appName}() takes either no argument or a Firebase App instance."),
-          (i["invalid-log-argument"] =
-            "First argument to `onLog` must be null or a function."),
+          (i['invalid-app-argument'] =
+            'firebase.{$appName}() takes either no argument or a Firebase App instance.'),
+          (i['invalid-log-argument'] =
+            'First argument to `onLog` must be null or a function.'),
           i),
-        l = new s.ErrorFactory("app", "Firebase", h),
-        f = "@firebase/app",
-        p = "[DEFAULT]",
+        l = new s.ErrorFactory('app', 'Firebase', h),
+        f = '@firebase/app',
+        p = '[DEFAULT]',
         d =
-          (((o = {})[f] = "fire-core"),
-          (o["@firebase/analytics"] = "fire-analytics"),
-          (o["@firebase/auth"] = "fire-auth"),
-          (o["@firebase/database"] = "fire-rtdb"),
-          (o["@firebase/functions"] = "fire-fn"),
-          (o["@firebase/installations"] = "fire-iid"),
-          (o["@firebase/messaging"] = "fire-fcm"),
-          (o["@firebase/performance"] = "fire-perf"),
-          (o["@firebase/remote-config"] = "fire-rc"),
-          (o["@firebase/storage"] = "fire-gcs"),
-          (o["@firebase/firestore"] = "fire-fst"),
-          (o["fire-js"] = "fire-js"),
-          (o["firebase-wrapper"] = "fire-js-all"),
+          (((o = {})[f] = 'fire-core'),
+          (o['@firebase/analytics'] = 'fire-analytics'),
+          (o['@firebase/auth'] = 'fire-auth'),
+          (o['@firebase/database'] = 'fire-rtdb'),
+          (o['@firebase/functions'] = 'fire-fn'),
+          (o['@firebase/installations'] = 'fire-iid'),
+          (o['@firebase/messaging'] = 'fire-fcm'),
+          (o['@firebase/performance'] = 'fire-perf'),
+          (o['@firebase/remote-config'] = 'fire-rc'),
+          (o['@firebase/storage'] = 'fire-gcs'),
+          (o['@firebase/firestore'] = 'fire-fst'),
+          (o['fire-js'] = 'fire-js'),
+          (o['firebase-wrapper'] = 'fire-js-all'),
           o),
-        v = new c.Logger("@firebase/app"),
+        v = new c.Logger('@firebase/app'),
         y = (function () {
           function t(t, e, n) {
             var r,
@@ -24015,11 +24015,11 @@
               (this.container = new u.ComponentContainer(e.name)),
               this._addComponent(
                 new u.Component(
-                  "app",
+                  'app',
                   function () {
                     return o;
                   },
-                  "PUBLIC"
+                  'PUBLIC'
                 )
               );
             try {
@@ -24047,7 +24047,7 @@
           return (
             Object.defineProperty(
               t.prototype,
-              "automaticDataCollectionEnabled",
+              'automaticDataCollectionEnabled',
               {
                 get: function () {
                   return (
@@ -24062,14 +24062,14 @@
                 configurable: !0,
               }
             ),
-            Object.defineProperty(t.prototype, "name", {
+            Object.defineProperty(t.prototype, 'name', {
               get: function () {
                 return this.checkDestroyed_(), this.name_;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(t.prototype, "options", {
+            Object.defineProperty(t.prototype, 'options', {
               get: function () {
                 return this.checkDestroyed_(), this.options_;
               },
@@ -24113,9 +24113,9 @@
                 this.container.addComponent(t);
               } catch (e) {
                 v.debug(
-                  "Component " +
+                  'Component ' +
                     t.name +
-                    " failed to register with FirebaseApp " +
+                    ' failed to register with FirebaseApp ' +
                     this.name,
                   e
                 );
@@ -24126,7 +24126,7 @@
             }),
             (t.prototype.checkDestroyed_ = function () {
               if (this.isDeleted_)
-                throw l.create("app-deleted", {
+                throw l.create('app-deleted', {
                   appName: this.name_,
                 });
             }),
@@ -24135,7 +24135,7 @@
         })();
       (y.prototype.name && y.prototype.options) ||
         y.prototype.delete ||
-        console.log("dc");
+        console.log('dc');
       var g = (function t() {
           var e = (function (t) {
             var e = {},
@@ -24144,19 +24144,19 @@
                 __esModule: !0,
                 initializeApp: function (n, o) {
                   void 0 === o && (o = {}),
-                    ("object" === r(o) && null !== o) ||
+                    ('object' === r(o) && null !== o) ||
                       (o = {
                         name: o,
                       });
                   var a = o;
                   void 0 === a.name && (a.name = p);
                   var u = a.name;
-                  if ("string" !== typeof u || !u)
-                    throw l.create("bad-app-name", {
+                  if ('string' !== typeof u || !u)
+                    throw l.create('bad-app-name', {
                       appName: String(u),
                     });
                   if (s.contains(e, u))
-                    throw l.create("duplicate-app", {
+                    throw l.create('duplicate-app', {
                       appName: u,
                     });
                   var c = new t(n, a, i);
@@ -24166,7 +24166,7 @@
                 registerVersion: function (t, e, n) {
                   var r,
                     i = null !== (r = d[t]) && void 0 !== r ? r : t;
-                  n && (i += "-" + n);
+                  n && (i += '-' + n);
                   var o = i.match(/\s|\//),
                     a = e.match(/\s|\//);
                   if (o || a) {
@@ -24184,39 +24184,39 @@
                             i +
                             '" contains illegal characters (whitespace or "/")'
                         ),
-                      o && a && s.push("and"),
+                      o && a && s.push('and'),
                       a &&
                         s.push(
                           'version name "' +
                             e +
                             '" contains illegal characters (whitespace or "/")'
                         ),
-                      void v.warn(s.join(" "))
+                      void v.warn(s.join(' '))
                     );
                   }
                   h(
                     new u.Component(
-                      i + "-version",
+                      i + '-version',
                       function () {
                         return {
                           library: i,
                           version: e,
                         };
                       },
-                      "VERSION"
+                      'VERSION'
                     )
                   );
                 },
                 setLogLevel: c.setLogLevel,
                 onLog: function (t, e) {
-                  if (null !== t && "function" !== typeof t)
-                    throw l.create("invalid-log-argument", {
+                  if (null !== t && 'function' !== typeof t)
+                    throw l.create('invalid-log-argument', {
                       appName: name,
                     });
                   c.setUserLogHandler(t, e);
                 },
                 apps: null,
-                SDK_VERSION: "7.12.0",
+                SDK_VERSION: '7.12.0',
                 INTERNAL: {
                   registerComponent: h,
                   removeApp: function (t) {
@@ -24224,14 +24224,14 @@
                   },
                   components: n,
                   useAsService: function (t, e) {
-                    return "serverAuth" === e ? null : e;
+                    return 'serverAuth' === e ? null : e;
                   },
                 },
               };
 
             function o(t) {
               if (((t = t || p), !s.contains(e, t)))
-                throw l.create("no-app", {
+                throw l.create('no-app', {
                   appName: t,
                 });
               return e[t];
@@ -24244,16 +24244,16 @@
               if (n.has(h))
                 return (
                   v.debug(
-                    "There were multiple attempts to register component " +
+                    'There were multiple attempts to register component ' +
                       h +
-                      "."
+                      '.'
                   ),
-                  "PUBLIC" === r.type ? i[h] : null
+                  'PUBLIC' === r.type ? i[h] : null
                 );
-              if ((n.set(h, r), "PUBLIC" === r.type)) {
+              if ((n.set(h, r), 'PUBLIC' === r.type)) {
                 var f = function (t) {
-                  if ((void 0 === t && (t = o()), "function" !== typeof t[h]))
-                    throw l.create("invalid-app-argument", {
+                  if ((void 0 === t && (t = o()), 'function' !== typeof t[h]))
+                    throw l.create('invalid-app-argument', {
                       appName: h,
                     });
                   return t[h]();
@@ -24288,11 +24288,11 @@
                   if (u) throw u.error;
                 }
               }
-              return "PUBLIC" === r.type ? i[h] : null;
+              return 'PUBLIC' === r.type ? i[h] : null;
             }
             return (
               (i.default = i),
-              Object.defineProperty(i, "apps", {
+              Object.defineProperty(i, 'apps', {
                 get: function () {
                   return Object.keys(e).map(function (t) {
                     return e[t];
@@ -24329,33 +24329,33 @@
                     (function (t) {
                       var e = t.getComponent();
                       return (
-                        "VERSION" ===
+                        'VERSION' ===
                         (null === e || void 0 === e ? void 0 : e.type)
                       );
                     })(t)
                   ) {
                     var e = t.getImmediate();
-                    return e.library + "/" + e.version;
+                    return e.library + '/' + e.version;
                   }
                   return null;
                 })
                 .filter(function (t) {
                   return t;
                 })
-                .join(" ");
+                .join(' ');
             }),
             t
           );
         })();
       if (s.isBrowser() && void 0 !== self.firebase) {
         v.warn(
-          "\n    Warning: Firebase is already defined in the global scope. Please make sure\n    Firebase library is only loaded once.\n  "
+          '\n    Warning: Firebase is already defined in the global scope. Please make sure\n    Firebase library is only loaded once.\n  '
         );
         var _ = self.firebase.SDK_VERSION;
         _ &&
-          _.indexOf("LITE") >= 0 &&
+          _.indexOf('LITE') >= 0 &&
           v.warn(
-            "\n    Warning: You are trying to load Firebase while using Firebase Performance standalone script.\n    You should load Firebase Performance with this instance of Firebase to avoid loading duplicate code.\n    "
+            '\n    Warning: You are trying to load Firebase while using Firebase Performance standalone script.\n    You should load Firebase Performance with this instance of Firebase to avoid loading duplicate code.\n    '
           );
       }
       var b = g.initializeApp;
@@ -24373,15 +24373,15 @@
       !(function (t, e) {
         t.INTERNAL.registerComponent(
           new u.Component(
-            "platform-logger",
+            'platform-logger',
             function (t) {
               return new m(t);
             },
-            "PRIVATE"
+            'PRIVATE'
           )
         ),
-          t.registerVersion(f, "0.6.0", e),
-          t.registerVersion("fire-js", "");
+          t.registerVersion(f, '0.6.0', e),
+          t.registerVersion('fire-js', '');
       })(w),
         (e.default = w),
         (e.firebase = w);
@@ -24390,8 +24390,8 @@
       var r = n(155);
 
       function i(t, e) {
-        if ("function" != typeof t || (null != e && "function" != typeof e))
-          throw new TypeError("Expected a function");
+        if ('function' != typeof t || (null != e && 'function' != typeof e))
+          throw new TypeError('Expected a function');
         var n = function n() {
           var r = arguments,
             i = e ? e.apply(this, r) : r[0],
@@ -24457,42 +24457,42 @@
     55: function (t, e) {
       function n(t) {
         return (n =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
       t.exports = function (t) {
-        return null != t && "object" == n(t);
+        return null != t && 'object' == n(t);
       };
     },
     56: function (t, e) {
       function n(t) {
         return (n =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
       t.exports = function (t) {
         var e = n(t);
-        return null != t && ("object" == e || "function" == e);
+        return null != t && ('object' == e || 'function' == e);
       };
     },
     568: function (t, e) {
@@ -24530,8 +24530,8 @@
       t.exports = function (t) {
         return null == t
           ? void 0 === t
-            ? "[object Undefined]"
-            : "[object Null]"
+            ? '[object Undefined]'
+            : '[object Null]'
           : a && a in Object(t)
           ? i(t)
           : o(t);
@@ -24546,88 +24546,88 @@
       };
     },
     710: function (t, e, n) {
-      "use strict";
+      'use strict';
 
       function r(t) {
         return (r =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
       n.r(e),
-        n.d(e, "__extends", function () {
+        n.d(e, '__extends', function () {
           return o;
         }),
-        n.d(e, "__assign", function () {
+        n.d(e, '__assign', function () {
           return a;
         }),
-        n.d(e, "__rest", function () {
+        n.d(e, '__rest', function () {
           return s;
         }),
-        n.d(e, "__decorate", function () {
+        n.d(e, '__decorate', function () {
           return u;
         }),
-        n.d(e, "__param", function () {
+        n.d(e, '__param', function () {
           return c;
         }),
-        n.d(e, "__metadata", function () {
+        n.d(e, '__metadata', function () {
           return h;
         }),
-        n.d(e, "__awaiter", function () {
+        n.d(e, '__awaiter', function () {
           return l;
         }),
-        n.d(e, "__generator", function () {
+        n.d(e, '__generator', function () {
           return f;
         }),
-        n.d(e, "__exportStar", function () {
+        n.d(e, '__exportStar', function () {
           return p;
         }),
-        n.d(e, "__values", function () {
+        n.d(e, '__values', function () {
           return d;
         }),
-        n.d(e, "__read", function () {
+        n.d(e, '__read', function () {
           return v;
         }),
-        n.d(e, "__spread", function () {
+        n.d(e, '__spread', function () {
           return y;
         }),
-        n.d(e, "__spreadArrays", function () {
+        n.d(e, '__spreadArrays', function () {
           return g;
         }),
-        n.d(e, "__await", function () {
+        n.d(e, '__await', function () {
           return m;
         }),
-        n.d(e, "__asyncGenerator", function () {
+        n.d(e, '__asyncGenerator', function () {
           return _;
         }),
-        n.d(e, "__asyncDelegator", function () {
+        n.d(e, '__asyncDelegator', function () {
           return b;
         }),
-        n.d(e, "__asyncValues", function () {
+        n.d(e, '__asyncValues', function () {
           return w;
         }),
-        n.d(e, "__makeTemplateObject", function () {
+        n.d(e, '__makeTemplateObject', function () {
           return E;
         }),
-        n.d(e, "__importStar", function () {
+        n.d(e, '__importStar', function () {
           return C;
         }),
-        n.d(e, "__importDefault", function () {
+        n.d(e, '__importDefault', function () {
           return S;
         }),
-        n.d(e, "__classPrivateFieldGet", function () {
+        n.d(e, '__classPrivateFieldGet', function () {
           return I;
         }),
-        n.d(e, "__classPrivateFieldSet", function () {
+        n.d(e, '__classPrivateFieldSet', function () {
           return T;
         });
       var i = function (t, e) {
@@ -24671,7 +24671,7 @@
           Object.prototype.hasOwnProperty.call(t, r) &&
             e.indexOf(r) < 0 &&
             (n[r] = t[r]);
-        if (null != t && "function" === typeof Object.getOwnPropertySymbols) {
+        if (null != t && 'function' === typeof Object.getOwnPropertySymbols) {
           var i = 0;
           for (r = Object.getOwnPropertySymbols(t); i < r.length; i++)
             e.indexOf(r[i]) < 0 &&
@@ -24691,9 +24691,9 @@
               ? (i = Object.getOwnPropertyDescriptor(e, n))
               : i;
         if (
-          "object" ===
-            ("undefined" === typeof Reflect ? "undefined" : r(Reflect)) &&
-          "function" === typeof Reflect.decorate
+          'object' ===
+            ('undefined' === typeof Reflect ? 'undefined' : r(Reflect)) &&
+          'function' === typeof Reflect.decorate
         )
           s = Reflect.decorate(t, e, n, i);
         else
@@ -24711,9 +24711,9 @@
 
       function h(t, e) {
         if (
-          "object" ===
-            ("undefined" === typeof Reflect ? "undefined" : r(Reflect)) &&
-          "function" === typeof Reflect.metadata
+          'object' ===
+            ('undefined' === typeof Reflect ? 'undefined' : r(Reflect)) &&
+          'function' === typeof Reflect.metadata
         )
           return Reflect.metadata(t, e);
       }
@@ -24771,7 +24771,7 @@
             throw: s(1),
             return: s(2),
           }),
-          "function" === typeof Symbol &&
+          'function' === typeof Symbol &&
             (o[Symbol.iterator] = function () {
               return this;
             }),
@@ -24781,7 +24781,7 @@
         function s(o) {
           return function (s) {
             return (function (o) {
-              if (n) throw new TypeError("Generator is already executing.");
+              if (n) throw new TypeError('Generator is already executing.');
               for (; a; )
                 try {
                   if (
@@ -24859,11 +24859,11 @@
       }
 
       function d(t) {
-        var e = "function" === typeof Symbol && Symbol.iterator,
+        var e = 'function' === typeof Symbol && Symbol.iterator,
           n = e && t[e],
           r = 0;
         if (n) return n.call(t);
-        if (t && "number" === typeof t.length)
+        if (t && 'number' === typeof t.length)
           return {
             next: function () {
               return (
@@ -24876,12 +24876,12 @@
             },
           };
         throw new TypeError(
-          e ? "Object is not iterable." : "Symbol.iterator is not defined."
+          e ? 'Object is not iterable.' : 'Symbol.iterator is not defined.'
         );
       }
 
       function v(t, e) {
-        var n = "function" === typeof Symbol && t[Symbol.iterator];
+        var n = 'function' === typeof Symbol && t[Symbol.iterator];
         if (!n) return t;
         var r,
           i,
@@ -24927,15 +24927,15 @@
 
       function _(t, e, n) {
         if (!Symbol.asyncIterator)
-          throw new TypeError("Symbol.asyncIterator is not defined.");
+          throw new TypeError('Symbol.asyncIterator is not defined.');
         var r,
           i = n.apply(t, e || []),
           o = [];
         return (
           (r = {}),
-          a("next"),
-          a("throw"),
-          a("return"),
+          a('next'),
+          a('throw'),
+          a('return'),
           (r[Symbol.asyncIterator] = function () {
             return this;
           }),
@@ -24963,11 +24963,11 @@
         }
 
         function u(t) {
-          s("next", t);
+          s('next', t);
         }
 
         function c(t) {
-          s("throw", t);
+          s('throw', t);
         }
 
         function h(t, e) {
@@ -24979,11 +24979,11 @@
         var e, n;
         return (
           (e = {}),
-          r("next"),
-          r("throw", function (t) {
+          r('next'),
+          r('throw', function (t) {
             throw t;
           }),
-          r("return"),
+          r('return'),
           (e[Symbol.iterator] = function () {
             return this;
           }),
@@ -24996,7 +24996,7 @@
                 return (n = !n)
                   ? {
                       value: m(t[r](e)),
-                      done: "return" === r,
+                      done: 'return' === r,
                     }
                   : i
                   ? i(e)
@@ -25008,16 +25008,16 @@
 
       function w(t) {
         if (!Symbol.asyncIterator)
-          throw new TypeError("Symbol.asyncIterator is not defined.");
+          throw new TypeError('Symbol.asyncIterator is not defined.');
         var e,
           n = t[Symbol.asyncIterator];
         return n
           ? n.call(t)
           : ((t = d(t)),
             (e = {}),
-            r("next"),
-            r("throw"),
-            r("return"),
+            r('next'),
+            r('throw'),
+            r('return'),
             (e[Symbol.asyncIterator] = function () {
               return this;
             }),
@@ -25044,7 +25044,7 @@
       function E(t, e) {
         return (
           Object.defineProperty
-            ? Object.defineProperty(t, "raw", {
+            ? Object.defineProperty(t, 'raw', {
                 value: e,
               })
             : (t.raw = e),
@@ -25070,13 +25070,13 @@
 
       function I(t, e) {
         if (!e.has(t))
-          throw new TypeError("attempted to get private field on non-instance");
+          throw new TypeError('attempted to get private field on non-instance');
         return e.get(t);
       }
 
       function T(t, e, n) {
         if (!e.has(t))
-          throw new TypeError("attempted to set private field on non-instance");
+          throw new TypeError('attempted to set private field on non-instance');
         return e.set(t, n), n;
       }
     },
@@ -25093,26 +25093,26 @@
       };
     },
     88: function (t, e, n) {
-      "use strict";
+      'use strict';
 
       function r(t) {
         return (r =
-          "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+          'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
             ? function (t) {
                 return typeof t;
               }
             : function (t) {
                 return t &&
-                  "function" === typeof Symbol &&
+                  'function' === typeof Symbol &&
                   t.constructor === Symbol &&
                   t !== Symbol.prototype
-                  ? "symbol"
+                  ? 'symbol'
                   : typeof t;
               })(t);
       }
       var i,
-        o = (i = n(42)) && "object" === r(i) && "default" in i ? i.default : i;
-      o.registerVersion("firebase", "7.12.0", "app"), (t.exports = o);
+        o = (i = n(42)) && 'object' === r(i) && 'default' in i ? i.default : i;
+      o.registerVersion('firebase', '7.12.0', 'app'), (t.exports = o);
     },
     89: function (t, e) {
       var n,
@@ -25120,11 +25120,11 @@
         i = (t.exports = {});
 
       function o() {
-        throw new Error("setTimeout has not been defined");
+        throw new Error('setTimeout has not been defined');
       }
 
       function a() {
-        throw new Error("clearTimeout has not been defined");
+        throw new Error('clearTimeout has not been defined');
       }
 
       function s(t) {
@@ -25143,12 +25143,12 @@
       }
       !(function () {
         try {
-          n = "function" === typeof setTimeout ? setTimeout : o;
+          n = 'function' === typeof setTimeout ? setTimeout : o;
         } catch (t) {
           n = o;
         }
         try {
-          r = "function" === typeof clearTimeout ? clearTimeout : a;
+          r = 'function' === typeof clearTimeout ? clearTimeout : a;
         } catch (t) {
           r = a;
         }
@@ -25205,11 +25205,11 @@
         (d.prototype.run = function () {
           this.fun.apply(null, this.array);
         }),
-        (i.title = "browser"),
+        (i.title = 'browser'),
         (i.browser = !0),
         (i.env = {}),
         (i.argv = []),
-        (i.version = ""),
+        (i.version = ''),
         (i.versions = {}),
         (i.on = v),
         (i.addListener = v),
@@ -25224,13 +25224,13 @@
           return [];
         }),
         (i.binding = function (t) {
-          throw new Error("process.binding is not supported");
+          throw new Error('process.binding is not supported');
         }),
         (i.cwd = function () {
-          return "/";
+          return '/';
         }),
         (i.chdir = function (t) {
-          throw new Error("process.chdir is not supported");
+          throw new Error('process.chdir is not supported');
         }),
         (i.umask = function () {
           return 0;
@@ -25243,13 +25243,13 @@
             ((t.deprecate = function () {}),
             (t.paths = []),
             t.children || (t.children = []),
-            Object.defineProperty(t, "loaded", {
+            Object.defineProperty(t, 'loaded', {
               enumerable: !0,
               get: function () {
                 return t.l;
               },
             }),
-            Object.defineProperty(t, "id", {
+            Object.defineProperty(t, 'id', {
               enumerable: !0,
               get: function () {
                 return t.i;
@@ -25261,40 +25261,40 @@
       };
     },
     998: function (t, e, n) {
-      "use strict";
+      'use strict';
       (function (t) {
         function r(t) {
           return (r =
-            "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
+            'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
                 }
               : function (t) {
                   return t &&
-                    "function" === typeof Symbol &&
+                    'function' === typeof Symbol &&
                     t.constructor === Symbol &&
                     t !== Symbol.prototype
-                    ? "symbol"
+                    ? 'symbol'
                     : typeof t;
                 })(t);
         }
-        Object.defineProperty(e, "__esModule", {
+        Object.defineProperty(e, '__esModule', {
           value: !0,
         });
         var i = n(710),
           o = {
             NODE_CLIENT: !1,
             NODE_ADMIN: !1,
-            SDK_VERSION: "${JSCORE_VERSION}",
+            SDK_VERSION: '${JSCORE_VERSION}',
           },
           a = function (t, e) {
             if (!t) throw s(e);
           },
           s = function (t) {
             return new Error(
-              "Firebase Database (" +
+              'Firebase Database (' +
                 o.SDK_VERSION +
-                ") INTERNAL ASSERT FAILED: " +
+                ') INTERNAL ASSERT FAILED: ' +
                 t
             );
           },
@@ -25326,17 +25326,17 @@
             byteToCharMapWebSafe_: null,
             charToByteMapWebSafe_: null,
             ENCODED_VALS_BASE:
-              "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+              'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
             get ENCODED_VALS() {
-              return this.ENCODED_VALS_BASE + "+/=";
+              return this.ENCODED_VALS_BASE + '+/=';
             },
             get ENCODED_VALS_WEBSAFE() {
-              return this.ENCODED_VALS_BASE + "-_.";
+              return this.ENCODED_VALS_BASE + '-_.';
             },
-            HAS_NATIVE_SUPPORT: "function" === typeof atob,
+            HAS_NATIVE_SUPPORT: 'function' === typeof atob,
             encodeByteArray: function (t, e) {
               if (!Array.isArray(t))
-                throw Error("encodeByteArray takes an array as a parameter");
+                throw Error('encodeByteArray takes an array as a parameter');
               this.init_();
               for (
                 var n = e ? this.byteToCharMapWebSafe_ : this.byteToCharMap_,
@@ -25356,7 +25356,7 @@
                   p = 63 & c;
                 u || ((p = 64), a || (f = 64)), r.push(n[h], n[l], n[f], n[p]);
               }
-              return r.join("");
+              return r.join('');
             },
             encodeString: function (t, e) {
               return this.HAS_NATIVE_SUPPORT && !e
@@ -25392,7 +25392,7 @@
                         );
                       }
                     }
-                    return e.join("");
+                    return e.join('');
                   })(this.decodeStringToByteArray(t, e));
             },
             decodeStringToByteArray: function (t, e) {
@@ -25447,7 +25447,7 @@
             try {
               return c.decodeString(t, !0);
             } catch (e) {
-              console.error("base64Decode failed: ", e);
+              console.error('base64Decode failed: ', e);
             }
             return null;
           };
@@ -25483,7 +25483,7 @@
               var e = this;
               return function (n, r) {
                 n ? e.reject(n) : e.resolve(r),
-                  "function" === typeof t &&
+                  'function' === typeof t &&
                     (e.promise.catch(function () {}),
                     1 === t.length ? t(n) : t(n, r));
               };
@@ -25493,17 +25493,17 @@
         })();
 
         function p() {
-          return "undefined" !== typeof navigator &&
-            "string" === typeof navigator.userAgent
+          return 'undefined' !== typeof navigator &&
+            'string' === typeof navigator.userAgent
             ? navigator.userAgent
-            : "";
+            : '';
         }
         var d = (function (t) {
             function e(n, r) {
               var i = t.call(this, r) || this;
               return (
                 (i.code = n),
-                (i.name = "FirebaseError"),
+                (i.name = 'FirebaseError'),
                 Object.setPrototypeOf(i, e.prototype),
                 Error.captureStackTrace &&
                   Error.captureStackTrace(i, v.prototype.create),
@@ -25522,10 +25522,10 @@
                   e[n - 1] = arguments[n];
                 for (
                   var r = e[0] || {},
-                    i = this.service + "/" + t,
+                    i = this.service + '/' + t,
                     o = this.errors[t],
-                    a = o ? y(o, r) : "Error",
-                    s = this.serviceName + ": " + a + " (" + i + ").",
+                    a = o ? y(o, r) : 'Error',
+                    s = this.serviceName + ': ' + a + ' (' + i + ').',
                     u = new d(i, s),
                     c = 0,
                     h = Object.keys(r);
@@ -25533,7 +25533,7 @@
                   c++
                 ) {
                   var l = h[c];
-                  "_" !== l.slice(-1) &&
+                  '_' !== l.slice(-1) &&
                     (l in u &&
                       console.warn(
                         'Overwriting FirebaseError base field "' +
@@ -25551,7 +25551,7 @@
         function y(t, e) {
           return t.replace(g, function (t, n) {
             var r = e[n];
-            return null != r ? r.toString() : "<" + n + "?>";
+            return null != r ? r.toString() : '<' + n + '?>';
           });
         }
         var g = /\{\$([^}]+)}/g;
@@ -25563,11 +25563,11 @@
           var e = {},
             n = {},
             r = {},
-            i = "";
+            i = '';
           try {
-            var o = t.split(".");
-            (e = m(h(o[0]) || "")),
-              (n = m(h(o[1]) || "")),
+            var o = t.split('.');
+            (e = m(h(o[0]) || '')),
+              (n = m(h(o[1]) || '')),
               (i = o[2]),
               (r = n.d || {}),
               delete n.d;
@@ -25605,7 +25605,7 @@
             (t.prototype.compress_ = function (t, e) {
               e || (e = 0);
               var n = this.W_;
-              if ("string" === typeof t)
+              if ('string' === typeof t)
                 for (var r = 0; r < 16; r++)
                   (n[r] =
                     (t.charCodeAt(e) << 24) |
@@ -25667,7 +25667,7 @@
                   if (0 === o)
                     for (; r <= n; )
                       this.compress_(t, r), (r += this.blockSize);
-                  if ("string" === typeof t) {
+                  if ('string' === typeof t) {
                     for (; r < e; )
                       if (
                         ((i[o] = t.charCodeAt(r)), ++r, ++o === this.blockSize)
@@ -25742,16 +25742,16 @@
               var i,
                 o = this;
               if (void 0 === t && void 0 === e && void 0 === n)
-                throw new Error("Missing Observer.");
+                throw new Error('Missing Observer.');
               void 0 ===
                 (i = (function (t, e) {
-                  if ("object" !== r(t) || null === t) return !1;
+                  if ('object' !== r(t) || null === t) return !1;
                   for (var n = 0, i = e; n < i.length; n++) {
                     var o = i[n];
-                    if (o in t && "function" === typeof t[o]) return !0;
+                    if (o in t && 'function' === typeof t[o]) return !0;
                   }
                   return !1;
-                })(t, ["next", "error", "complete"])
+                })(t, ['next', 'error', 'complete'])
                   ? t
                   : {
                       next: t,
@@ -25793,7 +25793,7 @@
                   try {
                     e(n.observers[t]);
                   } catch (r) {
-                    "undefined" !== typeof console &&
+                    'undefined' !== typeof console &&
                       console.error &&
                       console.error(r);
                   }
@@ -25815,27 +25815,27 @@
         function E() {}
 
         function C(t, e, n) {
-          var r = "";
+          var r = '';
           switch (e) {
             case 1:
-              r = n ? "first" : "First";
+              r = n ? 'first' : 'First';
               break;
             case 2:
-              r = n ? "second" : "Second";
+              r = n ? 'second' : 'Second';
               break;
             case 3:
-              r = n ? "third" : "Third";
+              r = n ? 'third' : 'Third';
               break;
             case 4:
-              r = n ? "fourth" : "Fourth";
+              r = n ? 'fourth' : 'Fourth';
               break;
             default:
               throw new Error(
-                "errorPrefix called with argumentNumber > 4.  Need to update it?"
+                'errorPrefix called with argumentNumber > 4.  Need to update it?'
               );
           }
-          var i = t + " failed: ";
-          return (i += r + " argument ");
+          var i = t + ' failed: ';
+          return (i += r + ' argument ');
         }
         (e.CONSTANTS = o),
           (e.Deferred = f),
@@ -25879,28 +25879,28 @@
           (e.getUA = p),
           (e.isAdmin = function (t) {
             var e = _(t).claims;
-            return "object" === r(e) && !0 === e.admin;
+            return 'object' === r(e) && !0 === e.admin;
           }),
           (e.isBrowser = function () {
             return (
-              "object" ===
-                ("undefined" === typeof self ? "undefined" : r(self)) &&
+              'object' ===
+                ('undefined' === typeof self ? 'undefined' : r(self)) &&
               self.self === self
             );
           }),
           (e.isBrowserExtension = function () {
             var t =
-              "object" ===
-              ("undefined" === typeof chrome ? "undefined" : r(chrome))
+              'object' ===
+              ('undefined' === typeof chrome ? 'undefined' : r(chrome))
                 ? chrome.runtime
-                : "object" ===
-                  ("undefined" === typeof browser ? "undefined" : r(browser))
+                : 'object' ===
+                  ('undefined' === typeof browser ? 'undefined' : r(browser))
                 ? browser.runtime
                 : void 0;
-            return "object" === r(t) && void 0 !== t.id;
+            return 'object' === r(t) && void 0 !== t.id;
           }),
           (e.isElectron = function () {
-            return p().indexOf("Electron/") >= 0;
+            return p().indexOf('Electron/') >= 0;
           }),
           (e.isEmpty = function (t) {
             for (var e in t)
@@ -25909,11 +25909,11 @@
           }),
           (e.isIE = function () {
             var t = p();
-            return t.indexOf("MSIE ") >= 0 || t.indexOf("Trident/") >= 0;
+            return t.indexOf('MSIE ') >= 0 || t.indexOf('Trident/') >= 0;
           }),
           (e.isMobileCordova = function () {
             return (
-              "undefined" !== typeof window &&
+              'undefined' !== typeof window &&
               !!(window.cordova || window.phonegap || window.PhoneGap) &&
               /ios|iphone|ipod|ipad|android|blackberry|iemobile/i.test(p())
             );
@@ -25921,7 +25921,7 @@
           (e.isNode = function () {
             try {
               return (
-                "[object process]" === Object.prototype.toString.call(t.process)
+                '[object process]' === Object.prototype.toString.call(t.process)
               );
             } catch (e) {
               return !1;
@@ -25932,18 +25932,18 @@
           }),
           (e.isReactNative = function () {
             return (
-              "object" ===
-                ("undefined" === typeof navigator
-                  ? "undefined"
-                  : r(navigator)) && "ReactNative" === navigator.product
+              'object' ===
+                ('undefined' === typeof navigator
+                  ? 'undefined'
+                  : r(navigator)) && 'ReactNative' === navigator.product
             );
           }),
           (e.isUWP = function () {
-            return p().indexOf("MSAppHost/") >= 0;
+            return p().indexOf('MSAppHost/') >= 0;
           }),
           (e.isValidFormat = function (t) {
             var e = _(t).claims;
-            return !!e && "object" === r(e) && e.hasOwnProperty("iat");
+            return !!e && 'object' === r(e) && e.hasOwnProperty('iat');
           }),
           (e.isValidTimestamp = function (t) {
             var e = _(t).claims,
@@ -25951,17 +25951,17 @@
               i = 0,
               o = 0;
             return (
-              "object" === r(e) &&
-                (e.hasOwnProperty("nbf")
+              'object' === r(e) &&
+                (e.hasOwnProperty('nbf')
                   ? (i = e.nbf)
-                  : e.hasOwnProperty("iat") && (i = e.iat),
-                (o = e.hasOwnProperty("exp") ? e.exp : i + 86400)),
+                  : e.hasOwnProperty('iat') && (i = e.iat),
+                (o = e.hasOwnProperty('exp') ? e.exp : i + 86400)),
               !!n && !!i && !!o && n >= i && n <= o
             );
           }),
           (e.issuedAtTime = function (t) {
             var e = _(t).claims;
-            return "object" === r(e) && e.hasOwnProperty("iat") ? e.iat : null;
+            return 'object' === r(e) && e.hasOwnProperty('iat') ? e.iat : null;
           }),
           (e.jsonEval = m),
           (e.map = function (t, e, n) {
@@ -25978,11 +25978,11 @@
                   Array.isArray(n)
                     ? n.forEach(function (n) {
                         e.push(
-                          encodeURIComponent(t) + "=" + encodeURIComponent(n)
+                          encodeURIComponent(t) + '=' + encodeURIComponent(n)
                         );
                       })
                     : e.push(
-                        encodeURIComponent(t) + "=" + encodeURIComponent(n)
+                        encodeURIComponent(t) + '=' + encodeURIComponent(n)
                       );
                 },
                 r = 0,
@@ -25993,17 +25993,17 @@
               var o = i[r];
               n(o[0], o[1]);
             }
-            return e.length ? "&" + e.join("&") : "";
+            return e.length ? '&' + e.join('&') : '';
           }),
           (e.querystringDecode = function (t) {
             var e = {};
             return (
               t
-                .replace(/^\?/, "")
-                .split("&")
+                .replace(/^\?/, '')
+                .split('&')
                 .forEach(function (t) {
                   if (t) {
-                    var n = t.split("=");
+                    var n = t.split('=');
                     e[n[0]] = n[1];
                   }
                 }),
@@ -26032,7 +26032,7 @@
               if (i >= 55296 && i <= 56319) {
                 var o = i - 55296;
                 r++,
-                  a(r < t.length, "Surrogate pair missing trail surrogate."),
+                  a(r < t.length, 'Surrogate pair missing trail surrogate.'),
                   (i = 65536 + (o << 10) + (t.charCodeAt(r) - 56320));
               }
               i < 128
@@ -26057,32 +26057,32 @@
             var i;
             if (
               (r < e
-                ? (i = "at least " + e)
-                : r > n && (i = 0 === n ? "none" : "no more than " + n),
+                ? (i = 'at least ' + e)
+                : r > n && (i = 0 === n ? 'none' : 'no more than ' + n),
               i)
             )
               throw new Error(
                 t +
-                  " failed: Was called with " +
+                  ' failed: Was called with ' +
                   r +
-                  (1 === r ? " argument." : " arguments.") +
-                  " Expects " +
+                  (1 === r ? ' argument.' : ' arguments.') +
+                  ' Expects ' +
                   i +
-                  "."
+                  '.'
               );
           }),
           (e.validateCallback = function (t, e, n, r) {
-            if ((!r || n) && "function" !== typeof n)
-              throw new Error(C(t, e, r) + "must be a valid function.");
+            if ((!r || n) && 'function' !== typeof n)
+              throw new Error(C(t, e, r) + 'must be a valid function.');
           }),
           (e.validateContextObject = function (t, e, n, i) {
-            if ((!i || n) && ("object" !== r(n) || null === n))
-              throw new Error(C(t, e, i) + "must be a valid context object.");
+            if ((!i || n) && ('object' !== r(n) || null === n))
+              throw new Error(C(t, e, i) + 'must be a valid context object.');
           }),
           (e.validateNamespace = function (t, e, n, r) {
-            if ((!r || n) && "string" !== typeof n)
+            if ((!r || n) && 'string' !== typeof n)
               throw new Error(
-                C(t, e, r) + "must be a valid firebase namespace."
+                C(t, e, r) + 'must be a valid firebase namespace.'
               );
           });
       }.call(this, n(27)));

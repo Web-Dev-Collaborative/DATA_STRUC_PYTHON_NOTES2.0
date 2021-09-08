@@ -1,20 +1,20 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.convertTypeToStatus = exports.notificationState = void 0;
-const notifications_1 = require("@codesandbox/notifications");
+const notifications_1 = require('@codesandbox/notifications');
 exports.notificationState = new notifications_1.NotificationState();
 
 function convertTypeToStatus(type) {
   switch (type) {
-    case "notice":
+    case 'notice':
       return notifications_1.NotificationStatus.NOTICE;
-    case "warning":
+    case 'warning':
       return notifications_1.NotificationStatus.WARNING;
-    case "error":
+    case 'error':
       return notifications_1.NotificationStatus.ERROR;
-    case "success":
+    case 'success':
       return notifications_1.NotificationStatus.SUCCESS;
     default:
       return notifications_1.NotificationStatus.NOTICE;

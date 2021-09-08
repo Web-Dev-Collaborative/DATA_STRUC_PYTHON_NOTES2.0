@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,7 +8,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.inDirectory =
@@ -25,9 +25,9 @@ exports.inDirectory =
   exports.getModulesAndDirectoriesInDirectory =
   exports.resolveDirectory =
     void 0;
-const memoize_1 = __importDefault(require("lodash/memoize"));
-const templates_1 = __importDefault(require("../templates"));
-const parse_1 = __importDefault(require("../templates/configuration/parse"));
+const memoize_1 = __importDefault(require('lodash/memoize'));
+const templates_1 = __importDefault(require('../templates'));
+const parse_1 = __importDefault(require('../templates/configuration/parse'));
 const compareTitle = (original, test, ignoredExtensions) => {
   if (original === test) return true;
   return ignoredExtensions.some((ext) => original === `${test}.${ext}`);
@@ -43,23 +43,23 @@ function resolveDirectory(
   _startdirectoryShortid = undefined
 ) {
   if (!_path) {
-    return throwError("");
+    return throwError('');
   }
   let path = _path;
   let startdirectoryShortid = _startdirectoryShortid;
   // If paths start with {{sandboxRoot}} we see them as root paths
-  if (path.startsWith("{{sandboxRoot}}")) {
+  if (path.startsWith('{{sandboxRoot}}')) {
     startdirectoryShortid = undefined;
-    path = _path.replace("{{sandboxRoot}}/", "./");
+    path = _path.replace('{{sandboxRoot}}/', './');
   }
   // Split path
-  const splitPath = path.replace(/^.\//, "").split("/").filter(Boolean);
+  const splitPath = path.replace(/^.\//, '').split('/').filter(Boolean);
   const foundDirectoryShortid = splitPath.reduce((dirId, pathPart, i) => {
     // Meaning this is the last argument, so the directory
     if (i === splitPath.length) {
       return dirId;
     }
-    if (pathPart === "..") {
+    if (pathPart === '..') {
       // Find the parent
       const dir = directories.find((d) => d.shortid === dirId);
       if (dir == null) throwError(path);
@@ -101,18 +101,18 @@ function getModulesInDirectory(
   directories,
   _startdirectoryShortid = undefined
 ) {
-  if (!_path) return throwError("");
+  if (!_path) return throwError('');
   let path = _path;
   // If paths start with {{sandboxRoot}} we see them as root paths
-  if (path.startsWith("{{sandboxRoot}}")) {
-    path = _path.replace("{{sandboxRoot}}/", "./");
+  if (path.startsWith('{{sandboxRoot}}')) {
+    path = _path.replace('{{sandboxRoot}}/', './');
   }
   // Split path
-  const splitPath = path.replace(/^.\//, "").split("/").filter(Boolean);
-  const dirPath = path.replace(/^.\//, "").split("/").filter(Boolean);
+  const splitPath = path.replace(/^.\//, '').split('/').filter(Boolean);
+  const dirPath = path.replace(/^.\//, '').split('/').filter(Boolean);
   dirPath.pop();
   const dir = resolveDirectory(
-    dirPath.join("/") || "/",
+    dirPath.join('/') || '/',
     modules,
     directories,
     _startdirectoryShortid
@@ -139,7 +139,7 @@ exports.resolveModule = (
   modules,
   directories,
   startdirectoryShortid = undefined,
-  ignoredExtensions = ["js", "jsx", "json"]
+  ignoredExtensions = ['js', 'jsx', 'json']
 ) => {
   const {
     modules: modulesInFoundDirectory,
@@ -167,15 +167,15 @@ exports.resolveModule = (
       (m) =>
         // eslint-disable-next-line eqeqeq
         m.directoryShortid == foundDirectory.shortid &&
-        compareTitle(m.title, "index", ignoredExtensions)
+        compareTitle(m.title, 'index', ignoredExtensions)
     );
     if (indexModule == null) throwError(path);
     return indexModule;
   }
-  if (splitPath[splitPath.length - 1] === "") {
+  if (splitPath[splitPath.length - 1] === '') {
     // Last resort, check if there is something in the same folder called index
     const indexModule = modulesInFoundDirectory.find((m) =>
-      compareTitle(m.title, "index", ignoredExtensions)
+      compareTitle(m.title, 'index', ignoredExtensions)
     );
     if (indexModule) return indexModule;
   }
@@ -191,12 +191,12 @@ function findByShortid(entities, shortid) {
 }
 const getPath = (arrayToLookIn, modules, directories, id) => {
   const module = findById(arrayToLookIn, id);
-  if (!module) return "";
+  if (!module) return '';
   let directory = findByShortid(directories, module.directoryShortid);
-  let path = "/";
+  let path = '/';
   if (directory == null && module.directoryShortid) {
     // Parent got deleted, return '';
-    return "";
+    return '';
   }
   while (directory != null) {
     path = `/${directory.title}${path}`;
@@ -205,15 +205,15 @@ const getPath = (arrayToLookIn, modules, directories, id) => {
     // In this case it couldn't find the parent directory of this dir, so probably
     // deleted. we just return '' in that case
     if (!directory && lastDirectoryShortid) {
-      return "";
+      return '';
     }
   }
   return `${path}${module.title}`;
 };
 const memoizeFunction = (modules, directories, id) =>
   id +
-  modules.map((m) => m.id + m.title + m.directoryShortid).join(",") +
-  directories.map((d) => d.id + d.title + d.directoryShortid).join(",");
+  modules.map((m) => m.id + m.title + m.directoryShortid).join(',') +
+  directories.map((d) => d.id + d.title + d.directoryShortid).join(',');
 exports.getModulePath = (modules, directories, id) =>
   getPath(modules, modules, directories, id);
 exports.getDirectoryPath = (modules, directories, id) =>
@@ -225,9 +225,9 @@ exports.getChildren = memoize_1.default(
   ],
   memoizeFunction
 );
-exports.isMainModule = (module, modules, directories, entry = "index.js") => {
+exports.isMainModule = (module, modules, directories, entry = 'index.js') => {
   const path = exports.getModulePath(modules, directories, module.id);
-  return path.replace("/", "") === entry;
+  return path.replace('/', '') === entry;
 };
 exports.findMainModule = (sandbox) => {
   const resolve = exports.resolveModuleWrapped(sandbox);
@@ -259,11 +259,11 @@ exports.findMainModule = (sandbox) => {
 exports.findCurrentModule = (
   modules,
   directories,
-  modulePath = "",
+  modulePath = '',
   mainModule
 ) => {
   // cleanPath, encode and replace first /
-  const cleanPath = decodeURIComponent(modulePath).replace("/", "");
+  const cleanPath = decodeURIComponent(modulePath).replace('/', '');
   let foundModule = null;
   try {
     foundModule = exports.resolveModule(cleanPath, modules, directories);
@@ -294,7 +294,7 @@ exports.resolveDirectoryWrapped = (sandbox) => (path) => {
 const inDirectoryMemoize = (directories, sourceShortid, destinationShortid) =>
   sourceShortid +
   destinationShortid +
-  directories.map((d) => d.id + d.title + d.directoryShortid).join(",");
+  directories.map((d) => d.id + d.title + d.directoryShortid).join(',');
 exports.inDirectory = memoize_1.default((directories, rootShortid, shortid) => {
   let directory = findByShortid(directories, shortid);
   while (directory) {

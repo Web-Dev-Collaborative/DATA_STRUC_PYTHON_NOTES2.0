@@ -776,7 +776,7 @@
 
 .monaco-sash:not(.disabled).orthogonal-end:after,
 .monaco-sash:not(.disabled).orthogonal-start:before {
-  content: " ";
+  content: ' ';
   height: 8px;
   width: 8px;
   z-index: 7;
@@ -1352,7 +1352,7 @@
   .monaco-tree-rows.show-twisties
   > .monaco-tree-row.has-children
   > .content:before {
-  content: " ";
+  content: ' ';
   position: absolute;
   display: block;
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iIzY0NjQ2NSIgZD0iTTYgNHY4bDQtNC00LTR6bTEgMi40MTRMOC41ODYgOCA3IDkuNTg2VjYuNDE0eiIvPjwvc3ZnPg==)
@@ -1929,13 +1929,13 @@
   position: relative;
   overflow: visible;
   -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: "liga" off, "calt" off;
-  font-feature-settings: "liga" off, "calt" off;
+  -webkit-font-feature-settings: 'liga' off, 'calt' off;
+  font-feature-settings: 'liga' off, 'calt' off;
 }
 
 .monaco-editor.enable-ligatures {
-  -webkit-font-feature-settings: "liga" on, "calt" on;
-  font-feature-settings: "liga" on, "calt" on;
+  -webkit-font-feature-settings: 'liga' on, 'calt' on;
+  font-feature-settings: 'liga' on, 'calt' on;
 }
 
 .monaco-editor .overflow-guard {
@@ -2355,7 +2355,7 @@
 }
 
 .monaco-editor .find-widget .monaco-checkbox .label {
-  content: "";
+  content: '';
   display: inline-block;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -2569,7 +2569,7 @@
 .monaco-editor .inline-folded:after {
   color: grey;
   margin: 0.1em 0.2em 0;
-  content: "⋯";
+  content: '⋯';
   display: inline;
   line-height: 1em;
   cursor: pointer;

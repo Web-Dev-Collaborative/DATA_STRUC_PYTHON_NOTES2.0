@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,21 +8,21 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const react_1 = __importDefault(require("react"));
-const components_1 = require("@codesandbox/components");
-const ModuleView_1 = require("../../icons/ModuleView");
-const ProjectView_1 = require("../../icons/ProjectView");
-const NewWindow_1 = require("../../icons/NewWindow");
-const Back_1 = require("../../icons/Back");
-const Forward_1 = require("../../icons/Forward");
-const Reload_1 = require("../../icons/Reload");
-const ResponsivePreview_1 = require("../../icons/ResponsivePreview");
-const Tooltip_1 = __importDefault(require("../../Tooltip"));
-const AddressBar_1 = __importDefault(require("../AddressBar"));
-const elements_1 = require("./elements");
+const react_1 = __importDefault(require('react'));
+const components_1 = require('@codesandbox/components');
+const ModuleView_1 = require('../../icons/ModuleView');
+const ProjectView_1 = require('../../icons/ProjectView');
+const NewWindow_1 = require('../../icons/NewWindow');
+const Back_1 = require('../../icons/Back');
+const Forward_1 = require('../../icons/Forward');
+const Reload_1 = require('../../icons/Reload');
+const ResponsivePreview_1 = require('../../icons/ResponsivePreview');
+const Tooltip_1 = __importDefault(require('../../Tooltip'));
+const AddressBar_1 = __importDefault(require('../AddressBar'));
+const elements_1 = require('./elements');
 
 function Navigator({
   sandbox,
@@ -45,9 +45,9 @@ function Navigator({
   return react_1.default.createElement(
     elements_1.Container,
     {
-      className: "flying-container-handler",
+      className: 'flying-container-handler',
       style: {
-        cursor: "move",
+        cursor: 'move',
       },
     },
     react_1.default.createElement(
@@ -56,7 +56,7 @@ function Navigator({
       react_1.default.createElement(
         elements_1.Icon,
         {
-          "aria-label": "Go Back",
+          'aria-label': 'Go Back',
           disabled: !onBack,
           onClick: onBack,
         },
@@ -65,7 +65,7 @@ function Navigator({
       react_1.default.createElement(
         elements_1.Icon,
         {
-          "aria-label": "Go Forward",
+          'aria-label': 'Go Forward',
           disabled: !onForward,
           onClick: onForward,
         },
@@ -74,7 +74,7 @@ function Navigator({
       react_1.default.createElement(
         elements_1.Icon,
         {
-          "aria-label": "Refresh",
+          'aria-label': 'Refresh',
           onClick: onRefresh,
         },
         react_1.default.createElement(Reload_1.ReloadIcon, null)
@@ -101,30 +101,30 @@ function Navigator({
           style: {
             color:
               isPreviewCommentModeActive && !isScreenshotLoading
-                ? "#FF3B30"
-                : "currentColor",
+                ? '#FF3B30'
+                : 'currentColor',
           },
         },
         react_1.default.createElement(
           Tooltip_1.default,
           {
             delay: 0,
-            content: "Add Preview Comment (CTRL/CMD + SHIFT + S)",
+            content: 'Add Preview Comment (CTRL/CMD + SHIFT + S)',
           },
           isScreenshotLoading
             ? react_1.default.createElement(
                 elements_1.SpinnerWrapper,
                 null,
                 react_1.default.createElement(components_1.Icon, {
-                  name: "spinner",
+                  name: 'spinner',
                 })
               )
             : react_1.default.createElement(components_1.Icon, {
-                name: "comment",
+                name: 'comment',
                 size: 12,
                 style: {
                   top: -1,
-                  position: "relative",
+                  position: 'relative',
                 },
               })
         )
@@ -141,8 +141,8 @@ function Navigator({
           Tooltip_1.default,
           {
             delay: 0,
-            content: isProjectView ? "Project View" : "Current Module View",
-            placement: "left",
+            content: isProjectView ? 'Project View' : 'Current Module View',
+            placement: 'left',
           },
           isProjectView
             ? react_1.default.createElement(ProjectView_1.ProjectViewIcon, null)
@@ -159,7 +159,7 @@ function Navigator({
           Tooltip_1.default,
           {
             delay: 0,
-            content: "Toggle Responsive Preview",
+            content: 'Toggle Responsive Preview',
           },
           react_1.default.createElement(ResponsivePreview_1.ResponsivePreview, {
             active: isInResponsivePreview,
@@ -176,7 +176,7 @@ function Navigator({
           Tooltip_1.default,
           {
             delay: 0,
-            content: "Open In New Window",
+            content: 'Open In New Window',
           },
           react_1.default.createElement(NewWindow_1.NewWindowIcon, null)
         )

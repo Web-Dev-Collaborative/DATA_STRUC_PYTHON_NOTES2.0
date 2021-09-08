@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.default = {
@@ -8,7 +8,7 @@ exports.default = {
   useTabs: false,
   semi: true,
   singleQuote: false,
-  trailingComma: "none",
+  trailingComma: 'none',
   bracketSpacing: true,
   jsxBracketSameLine: false,
 };

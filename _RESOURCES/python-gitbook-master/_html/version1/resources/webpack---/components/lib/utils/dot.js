@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.object = void 0;
-const dot_object_1 = require("dot-object");
+const dot_object_1 = require('dot-object');
 /* eslint-disable */
 /**
  * Version of 'object' from 'dot-object' that doesn't mutate the existing variable.

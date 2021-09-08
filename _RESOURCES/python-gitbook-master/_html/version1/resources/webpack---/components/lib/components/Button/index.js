@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -46,7 +46,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -65,21 +65,21 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.Button = void 0;
-const react_1 = __importDefault(require("react"));
-const deepmerge_1 = __importDefault(require("deepmerge"));
-const styled_components_1 = __importStar(require("styled-components"));
-const react_router_dom_1 = require("react-router-dom");
-const visually_hidden_1 = __importDefault(require("@reach/visually-hidden"));
-const Element_1 = require("../Element");
+const react_1 = __importDefault(require('react'));
+const deepmerge_1 = __importDefault(require('deepmerge'));
+const styled_components_1 = __importStar(require('styled-components'));
+const react_router_dom_1 = require('react-router-dom');
+const visually_hidden_1 = __importDefault(require('@reach/visually-hidden'));
+const Element_1 = require('../Element');
 const variantStyles = {
   primary: {
-    backgroundColor: "button.background",
-    color: "button.foreground",
-    ":hover:not(:disabled)": {
+    backgroundColor: 'button.background',
+    color: 'button.foreground',
+    ':hover:not(:disabled)': {
       // hoverBackground is polyfilled and uses a gradient
       // so we use background and not backgroundColor
       // background is not hooked to the system like backgroundColor
@@ -87,94 +87,94 @@ const variantStyles = {
       // TODO @sid: extend our system to make background work as well
       background: (theme) => theme.colors.button.hoverBackground,
     },
-    ":focus:not(:disabled)": {
+    ':focus:not(:disabled)': {
       // we use the same colors for hover and focus
       // but we add an active state to give
       background: (theme) => theme.colors.button.hoverBackground,
     },
   },
   secondary: {
-    backgroundColor: "secondaryButton.background",
-    color: "secondaryButton.foreground",
+    backgroundColor: 'secondaryButton.background',
+    color: 'secondaryButton.foreground',
     // same technique as primary
-    ":hover:not(:disabled)": {
+    ':hover:not(:disabled)': {
       background: (theme) => theme.colors.secondaryButton.hoverBackground,
     },
-    ":focus:not(:disabled)": {
+    ':focus:not(:disabled)': {
       background: (theme) => theme.colors.secondaryButton.hoverBackground,
     },
   },
   link: {
-    backgroundColor: "transparent",
-    color: "mutedForeground",
+    backgroundColor: 'transparent',
+    color: 'mutedForeground',
     // same technique as primary
-    ":hover:not(:disabled)": {
-      color: "foreground",
+    ':hover:not(:disabled)': {
+      color: 'foreground',
     },
-    ":focus:not(:disabled)": {
-      color: "foreground",
+    ':focus:not(:disabled)': {
+      color: 'foreground',
     },
   },
   danger: {
-    backgroundColor: "dangerButton.background",
-    color: "dangerButton.foreground",
+    backgroundColor: 'dangerButton.background',
+    color: 'dangerButton.foreground',
     // same technique as primary
-    ":hover:not(:disabled)": {
+    ':hover:not(:disabled)': {
       background: (theme) => theme.colors.dangerButton.hoverBackground,
     },
-    ":focus:not(:disabled)": {
+    ':focus:not(:disabled)': {
       background: (theme) => theme.colors.dangerButton.hoverBackground,
     },
   },
 };
 const commonStyles = {
-  display: "inline-flex",
-  justifyContent: "center",
-  alignItems: "center",
-  flex: "none",
-  cursor: "pointer",
-  fontFamily: "Inter, sans-serif",
+  display: 'inline-flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flex: 'none',
+  cursor: 'pointer',
+  fontFamily: 'Inter, sans-serif',
   paddingY: 0,
-  width: "100%",
+  width: '100%',
   paddingX: 2,
-  height: "26px",
+  height: '26px',
   fontSize: 2,
-  fontWeight: "medium",
+  fontWeight: 'medium',
   lineHeight: 1,
-  border: "none",
-  borderRadius: "small",
-  transition: "all ease-in",
-  textDecoration: "none",
+  border: 'none',
+  borderRadius: 'small',
+  transition: 'all ease-in',
+  textDecoration: 'none',
   transitionDuration: (theme) => theme.speeds[2],
-  ":focus": {
-    outline: "none",
+  ':focus': {
+    outline: 'none',
   },
-  ":active:not(:disabled)": {
-    transform: "scale(0.98)",
+  ':active:not(:disabled)': {
+    transform: 'scale(0.98)',
   },
-  ":disabled": {
-    opacity: "0.4",
-    cursor: "not-allowed",
+  ':disabled': {
+    opacity: '0.4',
+    cursor: 'not-allowed',
   },
   '&[data-loading="true"]': {
     opacity: 1,
-    cursor: "default",
+    cursor: 'default',
   },
   '&[data-auto-width="true"]': {
-    width: "fit-content",
+    width: 'fit-content',
   },
 };
 exports.Button = react_1.default.forwardRef(function Button(_a, ref) {
-  var { variant = "primary", loading, css = {}, autoWidth, as: pAs } = _a,
-    props = __rest(_a, ["variant", "loading", "css", "autoWidth", "as"]);
+  var { variant = 'primary', loading, css = {}, autoWidth, as: pAs } = _a,
+    props = __rest(_a, ['variant', 'loading', 'css', 'autoWidth', 'as']);
   const styles = deepmerge_1.default.all([
     variantStyles[variant],
     commonStyles,
     css,
   ]);
-  const usedAs = pAs || (props.to ? react_router_dom_1.Link : "button");
+  const usedAs = pAs || (props.to ? react_router_dom_1.Link : 'button');
   // default type is button unless props.as was changed
-  const type = usedAs === "button" && "button";
+  const type = usedAs === 'button' && 'button';
   return react_1.default.createElement(
     Element_1.Element,
     Object.assign(
@@ -184,8 +184,8 @@ exports.Button = react_1.default.forwardRef(function Button(_a, ref) {
         css: styles,
         ref: ref,
         disabled: props.disabled || loading,
-        "data-loading": loading,
-        "data-auto-width": autoWidth,
+        'data-loading': loading,
+        'data-auto-width': autoWidth,
       },
       props
     ),
@@ -198,13 +198,13 @@ exports.Button = react_1.default.forwardRef(function Button(_a, ref) {
  *  because keyframes aren't supported in the object syntax
  */
 const transition = styled_components_1.keyframes({
-  "0%": {
+  '0%': {
     opacity: 0.6,
   },
-  "50%": {
+  '50%': {
     opacity: 1,
   },
-  "100%": {
+  '100%': {
     opacity: 0.6,
   },
 });
@@ -216,30 +216,30 @@ const AnimatingDots = () =>
   react_1.default.createElement(
     react_1.default.Fragment,
     null,
-    react_1.default.createElement(visually_hidden_1.default, null, "Loading"),
+    react_1.default.createElement(visually_hidden_1.default, null, 'Loading'),
     react_1.default.createElement(
-      "span",
+      'span',
       {
-        role: "presentation",
+        role: 'presentation',
       },
-      react_1.default.createElement(Dot, null, "\u00B7"),
+      react_1.default.createElement(Dot, null, '\u00B7'),
       react_1.default.createElement(
         Dot,
         {
           style: {
-            animationDelay: "200ms",
+            animationDelay: '200ms',
           },
         },
-        "\u00B7"
+        '\u00B7'
       ),
       react_1.default.createElement(
         Dot,
         {
           style: {
-            animationDelay: "400ms",
+            animationDelay: '400ms',
           },
         },
-        "\u00B7"
+        '\u00B7'
       )
     )
   );

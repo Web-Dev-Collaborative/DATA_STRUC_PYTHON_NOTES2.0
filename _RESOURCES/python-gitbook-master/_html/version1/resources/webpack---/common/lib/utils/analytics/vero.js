@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.track =
@@ -7,13 +7,13 @@ exports.track =
   exports.setAnonymousUserId =
   exports.trackPageview =
     void 0;
-const utils_1 = require("./utils");
+const utils_1 = require('./utils');
 let _script;
 const _veroq = [
   [
-    "init",
+    'init',
     {
-      api_key: "348b8acbc93adcf7c3d647d2abb4f4c22fe880e9",
+      api_key: '348b8acbc93adcf7c3d647d2abb4f4c22fe880e9',
     },
   ],
 ];
@@ -23,14 +23,14 @@ utils_1.global.veroq = _veroq;
  */
 function processArray() {
   if (
-    typeof utils_1.global.__vero !== "undefined" &&
-    typeof utils_1.global.__vero.processVeroArray === "function"
+    typeof utils_1.global.__vero !== 'undefined' &&
+    typeof utils_1.global.__vero.processVeroArray === 'function'
   ) {
     utils_1.global.__vero.processVeroArray(_veroq);
   }
 }
 exports.trackPageview = () => {
-  _veroq.push(["trackPageview"]);
+  _veroq.push(['trackPageview']);
   processArray();
 };
 // Already start tracking the first pageview
@@ -38,13 +38,13 @@ exports.trackPageview();
 
 function loadScript() {
   return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.async = true;
     script.onload = resolve;
     script.onerror = () => {
-      reject(new Error("Could not load script"));
+      reject(new Error('Could not load script'));
     };
-    script.src = "//d3qxef4rp70elm.cloudfront.net/m.js";
+    script.src = '//d3qxef4rp70elm.cloudfront.net/m.js';
     document.body.appendChild(script);
   })
     .then(() => {
@@ -59,10 +59,10 @@ exports.setAnonymousUserId = (userId) => {
     _script = loadScript();
   }
   _veroq.push([
-    "user",
+    'user',
     {
       id: userId,
-      email: "anon@codesandbox.io",
+      email: 'anon@codesandbox.io',
     },
   ]);
   processArray();
@@ -73,7 +73,7 @@ exports.setUserId = (userId, email) => {
   }
   utils_1.debug(`[Vero] Identifying user`);
   _veroq.push([
-    "user",
+    'user',
     {
       id: userId,
       email,
@@ -83,7 +83,7 @@ exports.setUserId = (userId, email) => {
     const anonymousUid = localStorage.getItem(utils_1.ANONYMOUS_UID_KEY);
     if (anonymousUid) {
       utils_1.debug(`[Vero] Reidentifying from ${anonymousUid} to ${userId}`);
-      _veroq.push(["reidentify", userId, anonymousUid]);
+      _veroq.push(['reidentify', userId, anonymousUid]);
     }
   } catch (e) {
     /* Ignore */
@@ -91,6 +91,6 @@ exports.setUserId = (userId, email) => {
   processArray();
 };
 exports.track = (eventName, data) => {
-  _veroq.push(["track", eventName, data]);
+  _veroq.push(['track', eventName, data]);
   processArray();
 };

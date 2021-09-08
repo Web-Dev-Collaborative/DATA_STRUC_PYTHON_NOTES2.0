@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,12 +34,12 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.SpinnerWrapper =
@@ -49,11 +49,11 @@ exports.SpinnerWrapper =
   exports.Icons =
   exports.Container =
     void 0;
-const styled_components_1 = __importStar(require("styled-components"));
+const styled_components_1 = __importStar(require('styled-components'));
 exports.Container = styled_components_1.default.div`
   display: flex;
   background-color: ${(props) =>
-    props.theme["editor.background"] || props.theme.background()};
+    props.theme['editor.background'] || props.theme.background()};
   padding: 0.25rem;
   align-items: center;
   line-height: 1;
@@ -83,13 +83,13 @@ exports.Icon = styled_components_1.default.button`
   color: ${({ theme }) =>
     theme === null || theme === void 0
       ? void 0
-      : theme["titleBar.inactiveForeground"]};
+      : theme['titleBar.inactiveForeground']};
 
   &:hover {
     color: ${({ theme }) =>
       theme === null || theme === void 0
         ? void 0
-        : theme["titleBar.activeForeground"]};
+        : theme['titleBar.activeForeground']};
   }
 
   ${({ moduleView, disabled }) =>
@@ -109,7 +109,7 @@ exports.IconWithBackground = styled_components_1.default(exports.Icon)`
   width: 24px;
   height: 24px;
   background-color: ${({ theme }) =>
-    theme["input.background"] || theme.background()};
+    theme['input.background'] || theme.background()};
 `;
 exports.AddressBarContainer = styled_components_1.default.div`
   width: 100%;

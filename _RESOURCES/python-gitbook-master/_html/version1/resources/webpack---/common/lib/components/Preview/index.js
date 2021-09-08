@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __createBinding =
   (this && this.__createBinding) ||
   (Object.create
@@ -19,13 +19,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -34,7 +34,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -48,28 +48,28 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const codesandbox_api_1 = require("codesandbox-api");
-const debounce_1 = __importDefault(require("lodash/debounce"));
-const react_1 = __importDefault(require("react"));
-const renderprops_cjs_1 = require("react-spring/renderprops.cjs");
-const modules_1 = require("../../sandbox/modules");
-const templates_1 = __importDefault(require("../../templates"));
-const package_json_1 = require("../../templates/configuration/package-json");
-const analytics_1 = __importStar(require("../../utils/analytics"));
-const get_sandbox_name_1 = require("../../utils/get-sandbox-name");
-const url_generator_1 = require("../../utils/url-generator");
-const elements_1 = require("./elements");
-const Navigator_1 = __importDefault(require("./Navigator"));
+const codesandbox_api_1 = require('codesandbox-api');
+const debounce_1 = __importDefault(require('lodash/debounce'));
+const react_1 = __importDefault(require('react'));
+const renderprops_cjs_1 = require('react-spring/renderprops.cjs');
+const modules_1 = require('../../sandbox/modules');
+const templates_1 = __importDefault(require('../../templates'));
+const package_json_1 = require('../../templates/configuration/package-json');
+const analytics_1 = __importStar(require('../../utils/analytics'));
+const get_sandbox_name_1 = require('../../utils/get-sandbox-name');
+const url_generator_1 = require('../../utils/url-generator');
+const elements_1 = require('./elements');
+const Navigator_1 = __importDefault(require('./Navigator'));
 const DefaultWrapper = ({ children }) => children;
 const sseDomain = process.env.STAGING_API
-  ? "codesandbox.stream"
-  : "codesandbox.io";
-const getSSEUrl = (sandbox, initialPath = "") =>
-  `https://${sandbox ? `${sandbox.id}.` : ""}sse.${
-    process.env.NODE_ENV === "development" || process.env.STAGING
+  ? 'codesandbox.stream'
+  : 'codesandbox.io';
+const getSSEUrl = (sandbox, initialPath = '') =>
+  `https://${sandbox ? `${sandbox.id}.` : ''}sse.${
+    process.env.NODE_ENV === 'development' || process.env.STAGING
       ? sseDomain
       : url_generator_1.host()
   }${initialPath}`;
@@ -85,14 +85,14 @@ class BasePreview extends react_1.default.PureComponent {
      * domain in a different process, which means for us that we have a snappier editor
      */
     this.testFallbackDomainIfNeeded = () => {
-      const TRACKING_NAME = "Preview - Fallback URL";
+      const TRACKING_NAME = 'Preview - Fallback URL';
       const normalUrl = url_generator_1.frameUrl(
         this.props.sandbox,
-        this.props.initialPath || ""
+        this.props.initialPath || ''
       );
       const fallbackUrl = url_generator_1.frameUrl(
         this.props.sandbox,
-        this.props.initialPath || "",
+        this.props.initialPath || '',
         {
           useFallbackDomain: true,
         }
@@ -103,7 +103,7 @@ class BasePreview extends react_1.default.PureComponent {
             useFallbackDomain: true,
             urlInAddressBar: url_generator_1.frameUrl(
               this.props.sandbox,
-              this.props.initialPath || "",
+              this.props.initialPath || '',
               {
                 useFallbackDomain: true,
               }
@@ -118,7 +118,7 @@ class BasePreview extends react_1.default.PureComponent {
       };
       if (!this.props.url && normalUrl !== fallbackUrl) {
         fetch(normalUrl, {
-          mode: "no-cors",
+          mode: 'no-cors',
         })
           .then(() => {
             // Succeeded, don't send anything
@@ -134,12 +134,12 @@ class BasePreview extends react_1.default.PureComponent {
     };
     this.currentUrl = () => {
       const { url, sandbox } = this.props;
-      if (url && !url.startsWith("/")) {
+      if (url && !url.startsWith('/')) {
         // An absolute url is given, just return that
         return url;
       }
       // url may be a relative path (/test), so start with that
-      const initialPath = url || this.props.initialPath || "";
+      const initialPath = url || this.props.initialPath || '';
       return this.serverPreview
         ? getSSEUrl(sandbox, initialPath)
         : url_generator_1.frameUrl(sandbox, initialPath, {
@@ -150,11 +150,11 @@ class BasePreview extends react_1.default.PureComponent {
       if (this.props.onOpenNewWindow) {
         this.props.onOpenNewWindow();
       }
-      window.open(this.state.urlInAddressBar, "_blank");
+      window.open(this.state.urlInAddressBar, '_blank');
     };
     this.sendPreviewSecret = () => {
       codesandbox_api_1.dispatch({
-        $type: "preview-secret",
+        $type: 'preview-secret',
         previewSecret: this.props.previewSecret,
       });
     };
@@ -168,7 +168,7 @@ class BasePreview extends react_1.default.PureComponent {
       codesandbox_api_1.resetState();
       const url = this.currentUrl();
       codesandbox_api_1.dispatch({
-        type: "clear-console",
+        type: 'clear-console',
       });
       if (this.serverPreview) {
         setTimeout(() => {
@@ -192,7 +192,7 @@ class BasePreview extends react_1.default.PureComponent {
     };
     this.handleMessage = (data, source) => {
       if (data && data.codesandbox) {
-        if (data.type === "initialized" && source) {
+        if (data.type === 'initialized' && source) {
           codesandbox_api_1.registerFrame(source, this.currentUrl());
           if (!this.state.frameInitialized && this.props.onInitialized) {
             this.disposeInitializer = this.props.onInitialized(this);
@@ -212,21 +212,21 @@ class BasePreview extends react_1.default.PureComponent {
         } else {
           const { type } = data;
           switch (type) {
-            case "render": {
+            case 'render': {
               this.executeCodeImmediately();
               break;
             }
-            case "urlchange": {
+            case 'urlchange': {
               this.commitUrl(data.url, data.back, data.forward);
               break;
             }
-            case "resize": {
+            case 'resize': {
               if (this.props.onResize) {
                 this.props.onResize(data.height);
               }
               break;
             }
-            case "action": {
+            case 'action': {
               if (this.props.onAction) {
                 this.props.onAction(
                   Object.assign(Object.assign({}, data), {
@@ -236,14 +236,14 @@ class BasePreview extends react_1.default.PureComponent {
               }
               break;
             }
-            case "done": {
+            case 'done': {
               this.setState({
                 showScreenshot: false,
               });
               break;
             }
-            case "document-focus": {
-              analytics_1.trackWithCooldown("Preview focus", 30000);
+            case 'document-focus': {
+              analytics_1.trackWithCooldown('Preview focus', 30000);
               break;
             }
             default: {
@@ -261,7 +261,7 @@ class BasePreview extends react_1.default.PureComponent {
     this.getRenderedModule = () => {
       const { sandbox, currentModule, isInProjectView } = this.props;
       return isInProjectView
-        ? "/" + sandbox.entry
+        ? '/' + sandbox.entry
         : modules_1.getModulePath(
             sandbox.modules,
             sandbox.directories,
@@ -290,10 +290,10 @@ class BasePreview extends react_1.default.PureComponent {
         Object.assign({}, extraModules),
         modulesObject
       );
-      if (!modulesToSend["/package.json"]) {
-        modulesToSend["/package.json"] = {
+      if (!modulesToSend['/package.json']) {
+        modulesToSend['/package.json'] = {
           code: package_json_1.generateFileFromSandbox(sandbox),
-          path: "/package.json",
+          path: '/package.json',
           isBinary: false,
         };
       }
@@ -317,14 +317,14 @@ class BasePreview extends react_1.default.PureComponent {
       } else {
         if (!this.props.isInProjectView) {
           codesandbox_api_1.dispatch({
-            type: "evaluate",
+            type: 'evaluate',
             command: `history.pushState({}, null, '/')`,
           });
         }
         const modulesToSend = this.getModulesToSend();
         if (!this.serverPreview) {
           codesandbox_api_1.dispatch({
-            type: "compile",
+            type: 'compile',
             version: 3,
             entry: this.getRenderedModule(),
             customNpmRegistries: this.props.customNpmRegistries,
@@ -349,7 +349,7 @@ class BasePreview extends react_1.default.PureComponent {
     this.clearErrors = () => {
       // @ts-ignore
       codesandbox_api_1.dispatch(
-        codesandbox_api_1.actions.error.clear("*", "browser")
+        codesandbox_api_1.actions.error.clear('*', 'browser')
       );
       if (this.props.onClearErrors) {
         this.props.onClearErrors();
@@ -389,21 +389,21 @@ class BasePreview extends react_1.default.PureComponent {
       });
     };
     this.refreshHashedUrl = (url) => {
-      if (!url.includes("#")) {
+      if (!url.includes('#')) {
         return;
       }
       codesandbox_api_1.dispatch({
-        type: "refresh",
+        type: 'refresh',
       });
     };
     this.handleBack = () => {
       codesandbox_api_1.dispatch({
-        type: "urlback",
+        type: 'urlback',
       });
     };
     this.handleForward = () => {
       codesandbox_api_1.dispatch({
-        type: "urlforward",
+        type: 'urlforward',
       });
     };
     this.commitUrl = (url, back, forward) => {
@@ -526,12 +526,12 @@ class BasePreview extends react_1.default.PureComponent {
     return react_1.default.createElement(
       elements_1.Container,
       {
-        id: "sandbox-preview-container",
+        id: 'sandbox-preview-container',
         className: className,
         style: {
-          position: "relative",
+          position: 'relative',
           flex: 1,
-          display: hide ? "none" : undefined,
+          display: hide ? 'none' : undefined,
         },
       },
       showNavigation &&
@@ -562,7 +562,7 @@ class BasePreview extends react_1.default.PureComponent {
         react_1.default.createElement(
           AnySpring,
           {
-            key: "preview",
+            key: 'preview',
             from: {
               opacity: this.props.showScreenshotOverlay ? 0 : 1,
             },
@@ -575,35 +575,35 @@ class BasePreview extends react_1.default.PureComponent {
               react_1.default.Fragment,
               null,
               react_1.default.createElement(elements_1.StyledFrame, {
-                key: "PREVIEW",
+                key: 'PREVIEW',
                 allow:
-                  "accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking",
+                  'accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking',
                 sandbox:
-                  "allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts",
+                  'allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts',
                 src: this.state.url,
                 ref: this.setIframeElement,
                 title: get_sandbox_name_1.getSandboxName(sandbox),
-                id: "sandbox-preview",
+                id: 'sandbox-preview',
                 style: Object.assign(Object.assign({}, style), {
                   zIndex: 1,
-                  backgroundColor: "white",
+                  backgroundColor: 'white',
                   pointerEvents:
                     dragging || inactive || this.props.isResizing
-                      ? "none"
-                      : "initial",
+                      ? 'none'
+                      : 'initial',
                 }),
               }),
               this.props.sandbox.screenshotUrl &&
                 style.opacity !== 1 &&
                 react_1.default.createElement(
-                  "div",
+                  'div',
                   {
                     style: {
-                      overflow: "hidden",
-                      width: "100%",
-                      position: "absolute",
-                      display: "flex",
-                      justifyContent: "center",
+                      overflow: 'hidden',
+                      width: '100%',
+                      position: 'absolute',
+                      display: 'flex',
+                      justifyContent: 'center',
                       left: 0,
                       right: 0,
                       bottom: 0,
@@ -611,15 +611,15 @@ class BasePreview extends react_1.default.PureComponent {
                       zIndex: 0,
                     },
                   },
-                  react_1.default.createElement("div", {
+                  react_1.default.createElement('div', {
                     style: {
-                      width: "100%",
-                      height: "100%",
+                      width: '100%',
+                      height: '100%',
                       filter: `blur(2px)`,
-                      transform: "scale(1.025, 1.025)",
+                      transform: 'scale(1.025, 1.025)',
                       backgroundImage: `url("${this.props.sandbox.screenshotUrl}")`,
-                      backgroundRepeat: "no-repeat",
-                      backgroundPositionX: "center",
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPositionX: 'center',
                     },
                   })
                 )

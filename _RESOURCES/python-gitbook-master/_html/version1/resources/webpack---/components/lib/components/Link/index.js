@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,24 +8,24 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.Link = void 0;
-const react_1 = __importDefault(require("react"));
-const styled_components_1 = __importDefault(require("styled-components"));
-const css_1 = __importDefault(require("@styled-system/css"));
-const Text_1 = require("../Text");
+const react_1 = __importDefault(require('react'));
+const styled_components_1 = __importDefault(require('styled-components'));
+const css_1 = __importDefault(require('@styled-system/css'));
+const Text_1 = require('../Text');
 const LinkElement = styled_components_1.default(Text_1.Text).attrs((p) => ({
-  as: p.as || "a",
+  as: p.as || 'a',
 }))(
   css_1.default({
-    cursor: "pointer",
-    textDecoration: "none",
-    transition: "color ease",
+    cursor: 'pointer',
+    textDecoration: 'none',
+    transition: 'color ease',
     transitionDuration: (theme) => theme.speeds[2],
-    ":hover, :focus": {
-      color: "foreground",
+    ':hover, :focus': {
+      color: 'foreground',
     },
   })
 );
@@ -34,8 +34,8 @@ exports.Link = (props) =>
     LinkElement,
     Object.assign(
       {
-        rel: props.target === "_blank" ? "noopener noreferrer" : null,
-        as: "a",
+        rel: props.target === '_blank' ? 'noopener noreferrer' : null,
+        as: 'a',
       },
       props
     )

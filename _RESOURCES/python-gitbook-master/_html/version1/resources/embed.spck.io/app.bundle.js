@@ -703,41 +703,41 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 function virtualBack() {
   let e = !1;
-  const t = $(".uk-modal.uk-open").attr("id");
+  const t = $('.uk-modal.uk-open').attr('id');
   if (t) $$(t).close(), (e = !0);
   else {
-    const t = $(".uk-offcanvas.uk-active").attr("id");
+    const t = $('.uk-offcanvas.uk-active').attr('id');
     if (t) $$(t).close(), (e = !0);
     else {
-      const t = $$("mainEditor").$editor;
+      const t = $$('mainEditor').$editor;
       t.isTextSelected() && (t.clearSelection(), (e = !0));
     }
   }
   return e;
 }
-window.addEventListener("unhandledrejection", (e) => {
+window.addEventListener('unhandledrejection', (e) => {
   e.preventDefault();
   const { reason: t, promise: n } = e;
   window.console.warn(
-    "Unhandled promise rejection:",
+    'Unhandled promise rejection:',
     (n && n.stack) || (t && t.stack)
   );
 }),
   (m.debug = !1),
   (window.$checkEnabled = !1),
-  ace.config.set("basePath", "ace"),
+  ace.config.set('basePath', 'ace'),
   m
-    .module("embed")
+    .module('embed')
     .require(
-      "main",
-      "settings",
-      "urlQuery",
-      "remote",
-      "path",
-      "model",
-      "project",
-      "session",
-      "files"
+      'main',
+      'settings',
+      'urlQuery',
+      'remote',
+      'path',
+      'model',
+      'project',
+      'session',
+      'files'
     )
     .__new__(function (e) {
       (e.unprocessedEvents = []),
@@ -746,15 +746,15 @@ window.addEventListener("unhandledrejection", (e) => {
           if (e.t()) return;
           const n = t.data,
             i = t.ports && t.ports[0],
-            o = (t.origin || "-").split("://").pop();
-          "connect" === n && i
-            ? (i.postMessage("connected"), (e.port = i))
+            o = (t.origin || '-').split('://').pop();
+          'connect' === n && i
+            ? (i.postMessage('connected'), (e.port = i))
             : e.unprocessedEvents.push({
                 port: i,
                 data: n,
                 origin: o,
               }),
-            "loaded" === e.__state__ &&
+            'loaded' === e.__state__ &&
               (e.unprocessedEvents.forEach((t) => e.i(t)),
               (e.unprocessedEvents.length = 0));
         });
@@ -784,10 +784,10 @@ window.addEventListener("unhandledrejection", (e) => {
           model: r,
           session: c,
           files: l,
-          projectName: u("name") || u("project"),
-          useFiles: u("files"),
-          usePreview: u("preview"),
-          theme: u("theme"),
+          projectName: u('name') || u('project'),
+          useFiles: u('files'),
+          usePreview: u('preview'),
+          theme: u('theme'),
         }),
         e.t())
       )
@@ -805,25 +805,25 @@ window.addEventListener("unhandledrejection", (e) => {
         }) => {
           if (e.port)
             switch (t) {
-              case "focus":
-              case "blur":
+              case 'focus':
+              case 'blur':
                 e.port.postMessage({
                   action: t,
                 });
                 break;
-              case "edit":
+              case 'edit':
                 e.port.postMessage({
-                  action: "textChange",
+                  action: 'textChange',
                   args: [h.getValue(), a],
                 });
                 break;
-              case "positionChange":
+              case 'positionChange':
                 e.port.postMessage({
                   action: t,
                   args: [n],
                 });
                 break;
-              case "selectionChange":
+              case 'selectionChange':
                 e.port.postMessage({
                   action: t,
                   args: [
@@ -839,9 +839,9 @@ window.addEventListener("unhandledrejection", (e) => {
         l.observable.subscribe(({ action: t, path: n }) => {
           if (e.port)
             switch (t) {
-              case "open":
+              case 'open':
                 e.port.postMessage({
-                  action: "fileOpen",
+                  action: 'fileOpen',
                   path: n,
                 });
             }
@@ -849,15 +849,15 @@ window.addEventListener("unhandledrejection", (e) => {
         c.observable.subscribe(({ action: t, project: n }) => {
           if (e.port)
             switch (t) {
-              case "open":
+              case 'open':
                 e.port.postMessage({
-                  action: "projectOpen",
+                  action: 'projectOpen',
                   project: n,
                 });
                 break;
-              case "close":
+              case 'close':
                 e.port.postMessage({
-                  action: "projectClose",
+                  action: 'projectClose',
                 });
             }
         }),
@@ -876,7 +876,7 @@ window.addEventListener("unhandledrejection", (e) => {
       t: function () {
         return (
           !window.$embedMode ||
-          ["spck.io", "www.spck.io"].includes(window.location.hostname)
+          ['spck.io', 'www.spck.io'].includes(window.location.hostname)
         );
       },
       R: async function ({ projectName: e, files: t, open: n, origin: i }) {
@@ -903,24 +903,24 @@ window.addEventListener("unhandledrejection", (e) => {
           o = i.main.s(),
           a = i.settings,
           s = [];
-        if ("string" == typeof e && t)
+        if ('string' == typeof e && t)
           switch (e) {
-            case "text":
+            case 'text':
               t.postMessage(o.getValue());
               break;
-            case "theme":
+            case 'theme':
               t.postMessage(o.getTheme());
               break;
-            case "mode":
+            case 'mode':
               t.postMessage(o.getMode());
               break;
-            case "tabSize":
+            case 'tabSize':
               t.postMessage(o.getTabSize());
               break;
-            case "position":
+            case 'position':
               t.postMessage(o.getCursorPosition());
           }
-        else if ("object" == typeof e) {
+        else if ('object' == typeof e) {
           const {
               project: t,
               files: r,
@@ -929,11 +929,11 @@ window.addEventListener("unhandledrejection", (e) => {
               editor: u,
               clearProjects: h,
             } = e,
-            d = i.projectName || t || "Project";
+            d = i.projectName || t || 'Project';
           if (
             (h &&
-              ("boolean" == typeof h
-                ? s.push(i.model.j("RISKY_STUFF"))
+              ('boolean' == typeof h
+                ? s.push(i.model.j('RISKY_STUFF'))
                 : Array.isArray(h) &&
                   s.push(
                     Promise.all(
@@ -990,7 +990,7 @@ window.addEventListener("unhandledrejection", (e) => {
                 ),
             u)
           ) {
-            if ("object" != typeof e)
+            if ('object' != typeof e)
               throw new Error(
                 "Type mismatch: 'editorConfig' property must be an object."
               );
@@ -1004,13 +1004,13 @@ window.addEventListener("unhandledrejection", (e) => {
               theme: h,
               position: d,
             } = u;
-            "string" == typeof h && (a.C(h), (t = !0)),
-              "string" == typeof n && o.setMode(n),
+            'string' == typeof h && (a.C(h), (t = !0)),
+              'string' == typeof n && o.setMode(n),
               i && (a.U(i), (t = !0)),
               void 0 !== r && (a.B(r), (t = !0)),
-              "string" == typeof c && o.setValue(c, !0),
-              "boolean" == typeof l && (a.L(l), (t = !0)),
-              "object" === d &&
+              'string' == typeof c && o.setValue(c, !0),
+              'boolean' == typeof l && (a.L(l), (t = !0)),
+              'object' === d &&
                 (o.navigateTo(d.row, d.column), o.scrollToLine(d.row, !0, !1)),
               t && s.push(a.G().then(a.D()));
           }
@@ -1020,12 +1020,12 @@ window.addEventListener("unhandledrejection", (e) => {
     }),
   (UIkit2.support.mutationobserver = null),
   UI.ready(function () {
-    m.module("views").require(
-      "embed",
-      "main",
-      "urlQuery",
-      "cookieBanner",
-      "logger"
+    m.module('views').require(
+      'embed',
+      'main',
+      'urlQuery',
+      'cookieBanner',
+      'logger'
     );
     const e = m.modules,
       {
@@ -1041,19 +1041,19 @@ window.addEventListener("unhandledrejection", (e) => {
       l = t.o.bind(t),
       u = {
         embedMode: window.$embedMode,
-        fileName: l("fileName"),
-        externalPath: l("externalPath"),
-        fileContent: l("fileContent"),
+        fileName: l('fileName'),
+        externalPath: l('externalPath'),
+        fileContent: l('fileContent'),
       };
     Promise.resolve()
       .then(function () {
-        if ("serviceWorker" in navigator)
+        if ('serviceWorker' in navigator)
           return navigator.serviceWorker
-            .register("service.worker.js")
-            .catch($LOG.error.bind($LOG, "[SW ERROR]"));
+            .register('service.worker.js')
+            .catch($LOG.error.bind($LOG, '[SW ERROR]'));
       })
       .then(function () {
-        return m.initialize("views");
+        return m.initialize('views');
       })
       .then(function () {
         return r.D();
@@ -1061,10 +1061,10 @@ window.addEventListener("unhandledrejection", (e) => {
       .then(function () {
         if (
           (n.M(),
-          c.switcher().switchToTab("projects"),
+          c.switcher().switchToTab('projects'),
           !u.embedMode && !u.fileName)
         )
-          return o.W("currentProjectDir").then(
+          return o.W('currentProjectDir').then(
             function (e) {
               e ? i.V(e) : i.H();
             },
@@ -1072,22 +1072,22 @@ window.addEventListener("unhandledrejection", (e) => {
               return (
                 s.q(
                   {
-                    en: "Incognito mode detected!",
-                    es: "Modo de incógnito detectado!",
-                    ja: "シークレットモードが検出されました!",
-                    pt: "Modo de navegação anônima detectado!",
-                    zh: "检测到无痕模式!",
-                    zhTW: "檢測到無痕模式!",
+                    en: 'Incognito mode detected!',
+                    es: 'Modo de incógnito detectado!',
+                    ja: 'シークレットモードが検出されました!',
+                    pt: 'Modo de navegação anônima detectado!',
+                    zh: '检测到无痕模式!',
+                    zhTW: '檢測到無痕模式!',
                   },
                   null,
                   {
                     message: {
-                      en: "Your browser is operating in incognito, and the editor will not function properly in this mode. Please restart in a normal browsing session.",
+                      en: 'Your browser is operating in incognito, and the editor will not function properly in this mode. Please restart in a normal browsing session.',
                     },
                     hideCancel: !0,
                   }
                 ),
-                n.container().showBatch("empty"),
+                n.container().showBatch('empty'),
                 i.H()
               );
             }
@@ -1096,25 +1096,25 @@ window.addEventListener("unhandledrejection", (e) => {
       .then(function () {
         setTimeout(function () {
           UI.removeClass(
-            document.getElementById("appContainer"),
-            "uk-invisible"
+            document.getElementById('appContainer'),
+            'uk-invisible'
           );
-          const e = document.getElementById("preloader");
+          const e = document.getElementById('preloader');
           e && e.parentNode && document.body.removeChild(e);
         }, 350),
           a.initAsync(u);
       });
   });
-const i18nCaseFor = (e, t) => ("string" == typeof t ? t : t[e]);
+const i18nCaseFor = (e, t) => ('string' == typeof t ? t : t[e]);
 var RES_I18N = {
   Actions: {
     New: (e) => ({
       en: `New ${e.en}`,
-      es: `${i18nCaseFor(e.$.es, { m: "Nuevo", f: "Nueva" })} ${e.es}`,
+      es: `${i18nCaseFor(e.$.es, { m: 'Nuevo', f: 'Nueva' })} ${e.es}`,
       ja: `新規${e.ja}`,
-      pt: `${i18nCaseFor(e.$.pt, { m: "Novo", f: "Nova" })} ${e.pt}`,
-      ru: `${i18nCaseFor(e.$.ru, { m: "Новая", f: "Hовый" })} ${i18nCaseFor(
-        "a",
+      pt: `${i18nCaseFor(e.$.pt, { m: 'Novo', f: 'Nova' })} ${e.pt}`,
+      ru: `${i18nCaseFor(e.$.ru, { m: 'Новая', f: 'Hовый' })} ${i18nCaseFor(
+        'a',
         e.ru
       )}`,
       zh: `新建${e.zh}`,
@@ -1125,7 +1125,7 @@ var RES_I18N = {
       es: `Subir ${e.es}`,
       ja: `${e.ja} Upload`,
       pt: `Subir ${e.pt}`,
-      ru: `Загрузить ${i18nCaseFor("a", e.ru)}`,
+      ru: `Загрузить ${i18nCaseFor('a', e.ru)}`,
       zh: `上传${e.zh}`,
       zhTW: `上传${e.zhTW}`,
     }),
@@ -1134,7 +1134,7 @@ var RES_I18N = {
       es: `Borrar ${e.es}`,
       ja: `${e.ja}を削除`,
       pt: `Excluir ${e.pt}`,
-      ru: `Удалить ${i18nCaseFor("a", e.ru)}`,
+      ru: `Удалить ${i18nCaseFor('a', e.ru)}`,
       zh: `删除${e.zh}`,
       zhTW: `删除${e.zhTW}`,
     }),
@@ -1144,10 +1144,10 @@ var RES_I18N = {
       ja: `${e.ja}を名前を変更`,
       pt: `Renomear ${e.pt}`,
       ru: `${i18nCaseFor(e.$.ru, {
-        m: "Переименуйте",
-        ms: "Переименовать",
-        f: "Переименовать",
-      })} ${i18nCaseFor("a", e.ru)}`,
+        m: 'Переименуйте',
+        ms: 'Переименовать',
+        f: 'Переименовать',
+      })} ${i18nCaseFor('a', e.ru)}`,
       zh: `重新命${e.zh}名`,
       zhTW: `重命${e.zhTW}名`,
     }),
@@ -1156,7 +1156,7 @@ var RES_I18N = {
       es: `Ingrese el ${e.es}`,
       ja: `${e.ja}を入力`,
       pt: `Digite o ${e.pt}`,
-      ru: `Введите ${i18nCaseFor("a", e.ru)}`,
+      ru: `Введите ${i18nCaseFor('a', e.ru)}`,
       zh: `输入${e.zh}`,
       zhTW: `输入${e.zhTW}`,
     }),
@@ -1165,7 +1165,7 @@ var RES_I18N = {
       es: `Restituir ${e.es}`,
       ja: `${e.ja}を取り消す`,
       pt: `Reverter ${e.pt}`,
-      ru: `Откатить ${i18nCaseFor("a", e.ru)}`,
+      ru: `Откатить ${i18nCaseFor('a', e.ru)}`,
       zh: `还原${e.zh}`,
       zhTW: `復原${e.zhTW}`,
     }),
@@ -1174,7 +1174,7 @@ var RES_I18N = {
       es: `Establecer ${e.es}`,
       ja: `${e.ja}を設定`,
       pt: `Definir ${e.pt}`,
-      ru: `Установить ${i18nCaseFor("a", e.ru)}`,
+      ru: `Установить ${i18nCaseFor('a', e.ru)}`,
       zh: `设置${e.zh}`,
       zhTW: `設定${e.zhTW}`,
     }),
@@ -1183,7 +1183,7 @@ var RES_I18N = {
       es: `Deshacer ${e.es}`,
       ja: `${e.ja}を取り消す`,
       pt: `Desfazer ${e.pt}`,
-      ru: `Отменить ${i18nCaseFor("a", e.ru)}`,
+      ru: `Отменить ${i18nCaseFor('a', e.ru)}`,
       zh: `撤销${e.zh}`,
       zhTW: `復原${e.zhTW}`,
     }),
@@ -1192,7 +1192,7 @@ var RES_I18N = {
       es: `Rehacer ${e.es}`,
       ja: `${e.ja}をやり直す`,
       pt: `Refazer ${e.pt}`,
-      ru: `Повторить ${i18nCaseFor("a", e.ru)}`,
+      ru: `Повторить ${i18nCaseFor('a', e.ru)}`,
       zh: `重做${e.zh}`,
       zhTW: `重做${e.zhTW}`,
     }),
@@ -1201,7 +1201,7 @@ var RES_I18N = {
       es: `Importar ${e.es}`,
       ja: `${e.ja}をインポート`,
       pt: `Importar ${e.pt}`,
-      ru: `Импортировать ${i18nCaseFor("a", e.ru)}`,
+      ru: `Импортировать ${i18nCaseFor('a', e.ru)}`,
       zh: `导入${e.zh}`,
       zhTW: `導入${e.zhTW}`,
     }),
@@ -1210,7 +1210,7 @@ var RES_I18N = {
       es: `Exportar ${e.es}`,
       ja: `エクスポート${e.ja}`,
       pt: `Exportar ${e.pt}`,
-      ru: `Экспорт ${i18nCaseFor("a", e.ru)}`,
+      ru: `Экспорт ${i18nCaseFor('a', e.ru)}`,
       zh: `导出为${e.zh}`,
       zhTW: `匯出為${e.zhTW}`,
     }),
@@ -1220,10 +1220,10 @@ var RES_I18N = {
       ja: `${e.ja}を作成`,
       pt: `Criar ${e.pt}`,
       ru: `${i18nCaseFor(e.$.ru, {
-        m: "Создать",
-        ms: "Создавать",
-        f: "Создать",
-      })} ${i18nCaseFor("a", e.ru)}`,
+        m: 'Создать',
+        ms: 'Создавать',
+        f: 'Создать',
+      })} ${i18nCaseFor('a', e.ru)}`,
       zh: `创建新${e.zh}`,
       zhTW: `建立新${e.zhTW}`,
     }),
@@ -1233,11 +1233,11 @@ var RES_I18N = {
       ja: `表示${e.ja}`,
       pt: `Exibir ${e.pt}`,
       ru: `${i18nCaseFor(e.$.ru, {
-        m: "Посмотреть",
-        ms: "Просмотр",
-        ns: "Просмотр",
-        f: "Просмотр",
-      })} ${i18nCaseFor("a", e.ru)}`,
+        m: 'Посмотреть',
+        ms: 'Просмотр',
+        ns: 'Просмотр',
+        f: 'Просмотр',
+      })} ${i18nCaseFor('a', e.ru)}`,
       zh: `查看${e.zh}`,
       zhTW: `檢視${e.zhTW}`,
     }),
@@ -1246,7 +1246,7 @@ var RES_I18N = {
       es: `Ir a ${e.es}`,
       ja: `${e.ja}へ移動`,
       pt: `Ir para a ${e.pt}`,
-      ru: `Перейти ${i18nCaseFor("d", e.ru)}`,
+      ru: `Перейти ${i18nCaseFor('d', e.ru)}`,
       zh: `跳转到${e.zh}`,
       zhTW: `前往${e.zhTW}`,
     }),
@@ -1256,9 +1256,9 @@ var RES_I18N = {
       ja: `${e.ja}を選択してください`,
       pt: `Selecione o ${e.pt}`,
       ru: `${i18nCaseFor(e.$.ru, {
-        m: "Выбрать",
-        f: "Выберите",
-      })} ${i18nCaseFor("a", e.ru)}`,
+        m: 'Выбрать',
+        f: 'Выберите',
+      })} ${i18nCaseFor('a', e.ru)}`,
       zh: `请选择${e.zh}`,
       zhTW: `請選擇${e.zhTW}`,
     }),
@@ -1267,7 +1267,7 @@ var RES_I18N = {
       es: `Fallo al ${e.es}`,
       ja: `${e.ja}に失敗`,
       pt: `${e.pt} Falhou`,
-      ru: `Hе удалось ${i18nCaseFor("a", e.ru)}`,
+      ru: `Hе удалось ${i18nCaseFor('a', e.ru)}`,
       zh: `${e.zh}失败`,
       zhTW: `${e.zhTW}失敗`,
     }),
@@ -1276,384 +1276,384 @@ var RES_I18N = {
       es: `Buscar ${e.en}`,
       ja: `検索: ${e.ja}`,
       pt: `Procurar ${e.pt}`,
-      ru: `Поиск ${i18nCaseFor("g", e.ru)}`,
+      ru: `Поиск ${i18nCaseFor('g', e.ru)}`,
       zh: `查找${e.zh}`,
       zhTW: `搜尋${e.zhTW}`,
     }),
   },
   Objects: {
     File: {
-      en: "File",
-      es: "Archivo",
-      ja: "ファイル",
-      pt: "Arquivo",
+      en: 'File',
+      es: 'Archivo',
+      ja: 'ファイル',
+      pt: 'Arquivo',
       ru: {
-        n: "файл",
-        g: "файла",
-        a: "файл",
+        n: 'файл',
+        g: 'файла',
+        a: 'файл',
       },
-      zh: "文件",
-      zhTW: "檔案",
+      zh: '文件',
+      zhTW: '檔案',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Folder: {
-      en: "Folder",
-      es: "Carpeta",
-      ja: "フォルダ",
-      pt: "Pasta",
+      en: 'Folder',
+      es: 'Carpeta',
+      ja: 'フォルダ',
+      pt: 'Pasta',
       ru: {
-        n: "папка",
-        g: "папки",
-        a: "папку",
+        n: 'папка',
+        g: 'папки',
+        a: 'папку',
       },
-      zh: "文件夹",
-      zhTW: "資料夾",
+      zh: '文件夹',
+      zhTW: '資料夾',
       $: {
-        es: "f",
-        pt: "f",
-        ru: "f",
+        es: 'f',
+        pt: 'f',
+        ru: 'f',
       },
     },
     Project: {
-      en: "Project",
-      es: "Proyecto",
-      ja: "プロジェクト",
-      pt: "Projeto",
+      en: 'Project',
+      es: 'Proyecto',
+      ja: 'プロジェクト',
+      pt: 'Projeto',
       ru: {
-        n: "проект",
-        g: "проекта",
-        a: "проект",
+        n: 'проект',
+        g: 'проекта',
+        a: 'проект',
       },
-      zh: "项目",
-      zhTW: "專案",
+      zh: '项目',
+      zhTW: '專案',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Line: {
-      en: "Line",
-      es: "La Línea",
-      ja: "指定行",
-      pt: "Linha",
-      ru: "строке",
-      zh: "指定行",
-      zhTW: "指定列",
+      en: 'Line',
+      es: 'La Línea',
+      ja: '指定行',
+      pt: 'Linha',
+      ru: 'строке',
+      zh: '指定行',
+      zhTW: '指定列',
       $: {
-        es: "f",
-        pt: "f",
-        ru: "f",
+        es: 'f',
+        pt: 'f',
+        ru: 'f',
       },
     },
     TargetPath: {
-      en: "Target path",
-      es: "La ruta de destino",
-      ja: "ターゲットパス",
-      pt: "Caminho de destino",
-      ru: "Целевой путь",
-      zh: "目标路径",
-      zhTW: "目標路徑",
+      en: 'Target path',
+      es: 'La ruta de destino',
+      ja: 'ターゲットパス',
+      pt: 'Caminho de destino',
+      ru: 'Целевой путь',
+      zh: '目标路径',
+      zhTW: '目標路徑',
       $: {
-        es: "f",
-        pt: "m",
-        ru: "m",
+        es: 'f',
+        pt: 'm',
+        ru: 'm',
       },
     },
     SourcePath: {
-      en: "Source path",
-      es: "La ruta de origen",
-      ja: "ソースパス",
-      pt: "Caminho de origem",
-      ru: "Исходный путь",
-      zh: "源路径",
-      zhTW: "源路徑",
+      en: 'Source path',
+      es: 'La ruta de origen',
+      ja: 'ソースパス',
+      pt: 'Caminho de origem',
+      ru: 'Исходный путь',
+      zh: '源路径',
+      zhTW: '源路徑',
       $: {
-        es: "f",
-        pt: "m",
-        ru: "m",
+        es: 'f',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Preview: {
-      en: "Preview",
-      es: "Vista Previa",
-      ja: "プレビュー",
-      pt: "Pré-Visualização",
-      ru: "предпросмотр",
-      zh: "预览",
-      zhTW: "預覽頁面",
+      en: 'Preview',
+      es: 'Vista Previa',
+      ja: 'プレビュー',
+      pt: 'Pré-Visualização',
+      ru: 'предпросмотр',
+      zh: '预览',
+      zhTW: '預覽頁面',
       $: {
-        es: "f",
-        pt: "f",
-        ru: "m",
+        es: 'f',
+        pt: 'f',
+        ru: 'm',
       },
     },
     Definition: {
-      en: "Definition",
-      es: "Definición",
-      ja: "宣言に移動",
-      pt: "Definição",
-      ru: "определение",
-      zh: "跳转至声明",
-      zhTW: "移動至宣告",
+      en: 'Definition',
+      es: 'Definición',
+      ja: '宣言に移動',
+      pt: 'Definição',
+      ru: 'определение',
+      zh: '跳转至声明',
+      zhTW: '移動至宣告',
       $: {
-        es: "f",
-        pt: "f",
-        ru: "n",
+        es: 'f',
+        pt: 'f',
+        ru: 'n',
       },
     },
     Credentials: {
-      en: "Credentials",
-      es: "Credenciales",
-      ja: "資格情報",
-      pt: "Credenciais",
-      ru: "полномочия",
-      zh: "凭证",
-      zhTW: "憑證",
+      en: 'Credentials',
+      es: 'Credenciales',
+      ja: '資格情報',
+      pt: 'Credenciais',
+      ru: 'полномочия',
+      zh: '凭证',
+      zhTW: '憑證',
       $: {
-        es: "fs",
-        pt: "fs",
-        ru: "ns",
+        es: 'fs',
+        pt: 'fs',
+        ru: 'ns',
       },
     },
     Labs: {
-      en: "Labs",
-      es: "Labs",
-      ja: "ラボを見る",
-      pt: "Labs",
-      ru: "лаборатории",
-      zh: "实验项目",
-      zhTW: "實驗專案",
+      en: 'Labs',
+      es: 'Labs',
+      ja: 'ラボを見る',
+      pt: 'Labs',
+      ru: 'лаборатории',
+      zh: '实验项目',
+      zhTW: '實驗專案',
       $: {
-        es: "ms",
-        pt: "ms",
-        ru: "ns",
+        es: 'ms',
+        pt: 'ms',
+        ru: 'ns',
       },
     },
     Repository: {
-      en: "Repo",
-      es: "Repositorio",
-      ja: "リポジトリ",
-      pt: "Repositório",
-      ru: "репозиторий",
-      zh: "版本库",
-      zhTW: "版本庫",
+      en: 'Repo',
+      es: 'Repositorio',
+      ja: 'リポジトリ',
+      pt: 'Repositório',
+      ru: 'репозиторий',
+      zh: '版本库',
+      zhTW: '版本庫',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Upstream: {
-      en: "Upstream",
-      es: "Ascendencia (Upstream)",
-      ja: "上流",
-      pt: "Upstream",
-      ru: "верховую",
-      zh: "上游",
-      zhTW: "上游",
+      en: 'Upstream',
+      es: 'Ascendencia (Upstream)',
+      ja: '上流',
+      pt: 'Upstream',
+      ru: 'верховую',
+      zh: '上游',
+      zhTW: '上游',
       $: {
-        es: "f",
-        pt: "m",
-        ru: "f",
+        es: 'f',
+        pt: 'm',
+        ru: 'f',
       },
     },
     Path: {
-      en: "Path",
-      es: "Ruta",
-      ja: "パス",
-      pt: "Caminho",
-      ru: "Путь",
-      zh: "路径",
-      zhTW: "路徑",
+      en: 'Path',
+      es: 'Ruta',
+      ja: 'パス',
+      pt: 'Caminho',
+      ru: 'Путь',
+      zh: '路径',
+      zhTW: '路徑',
       $: {
-        es: "f",
-        pt: "m",
-        ru: "m",
+        es: 'f',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Remote: {
-      en: "Remote",
-      es: "Remoto",
-      ja: "リモート",
-      pt: "Remoto",
+      en: 'Remote',
+      es: 'Remoto',
+      ja: 'リモート',
+      pt: 'Remoto',
       ru: {
-        n: "Внешнее",
-        g: "Внешняя",
-        a: "Внешнее",
+        n: 'Внешнее',
+        g: 'Внешняя',
+        a: 'Внешнее',
       },
-      zh: "远端",
-      zhTW: "遠端",
+      zh: '远端',
+      zhTW: '遠端',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "n",
+        es: 'm',
+        pt: 'm',
+        ru: 'n',
       },
     },
     Diff: {
-      en: "Diff",
-      es: "Diff",
-      ja: "差分",
-      pt: "Comparação",
-      ru: "Различия",
-      zh: "差异",
-      zhTW: "比較差異",
+      en: 'Diff',
+      es: 'Diff',
+      ja: '差分',
+      pt: 'Comparação',
+      ru: 'Различия',
+      zh: '差异',
+      zhTW: '比較差異',
       $: {
-        es: "m",
-        pt: "f",
-        ru: "f",
+        es: 'm',
+        pt: 'f',
+        ru: 'f',
       },
     },
     Branch: {
-      en: "Branch",
-      es: "Ramal",
-      ja: "ブランチ",
-      pt: "Ramo",
+      en: 'Branch',
+      es: 'Ramal',
+      ja: 'ブランチ',
+      pt: 'Ramo',
       ru: {
-        n: "Ветвь",
-        g: "Bетви",
-        a: "Bетвь",
+        n: 'Ветвь',
+        g: 'Bетви',
+        a: 'Bетвь',
       },
-      zh: "分支",
-      zhTW: "分支",
+      zh: '分支',
+      zhTW: '分支',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "f",
+        es: 'm',
+        pt: 'm',
+        ru: 'f',
       },
     },
     Log: {
-      en: "Log",
-      es: "Reg.",
-      ja: "ログ",
-      pt: "Histórico",
-      ru: "Журнал",
-      zh: "日志",
-      zhTW: "日誌",
+      en: 'Log',
+      es: 'Reg.',
+      ja: 'ログ',
+      pt: 'Histórico',
+      ru: 'Журнал',
+      zh: '日志',
+      zhTW: '日誌',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Push: {
-      en: "Push",
-      es: "Impulsar",
-      ja: "プッシュ",
-      pt: "Empurrar",
-      ru: "Отправить",
-      zh: "推送(Push)",
-      zhTW: "推送",
+      en: 'Push',
+      es: 'Impulsar',
+      ja: 'プッシュ',
+      pt: 'Empurrar',
+      ru: 'Отправить',
+      zh: '推送(Push)',
+      zhTW: '推送',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Pull: {
-      en: "Pull",
-      es: "Incorporar",
-      ja: "プル",
-      pt: "Puxar",
-      ru: "Получить",
-      zh: "拉取(Pull)",
-      zhTW: "拉取",
+      en: 'Pull',
+      es: 'Incorporar',
+      ja: 'プル',
+      pt: 'Puxar',
+      ru: 'Получить',
+      zh: '拉取(Pull)',
+      zhTW: '拉取',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Fetch: {
-      en: "Fetch",
-      es: "Descargar",
-      ja: "フェッチ",
-      pt: "Obter",
-      ru: "Извлечь",
-      zh: "获取",
-      zhTW: "獲取",
+      en: 'Fetch',
+      es: 'Descargar',
+      ja: 'フェッチ',
+      pt: 'Obter',
+      ru: 'Извлечь',
+      zh: '获取',
+      zhTW: '獲取',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     RemoteUrl: {
-      en: "Remote URL",
-      es: "URL Remota",
-      ja: "リモート URL ",
-      pt: "URL Remota",
-      ru: "URL внешнего",
-      zh: "远端 URL ",
-      zhTW: "遠端 URL ",
+      en: 'Remote URL',
+      es: 'URL Remota',
+      ja: 'リモート URL ',
+      pt: 'URL Remota',
+      ru: 'URL внешнего',
+      zh: '远端 URL ',
+      zhTW: '遠端 URL ',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     RecoveredFile: {
-      en: "Recovered File",
-      es: "Archivo Recuperado",
-      ja: "回収されたファイル",
-      pt: "Arquivo Recuperado",
-      ru: "восстановленный файл",
-      zh: "恢復的件恢",
-      zhTW: "恢復的件恢",
+      en: 'Recovered File',
+      es: 'Archivo Recuperado',
+      ja: '回収されたファイル',
+      pt: 'Arquivo Recuperado',
+      ru: 'восстановленный файл',
+      zh: '恢復的件恢',
+      zhTW: '恢復的件恢',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     Author: {
-      en: "Author",
-      es: "Autor",
-      ja: "作者",
-      pt: "Autor",
+      en: 'Author',
+      es: 'Autor',
+      ja: '作者',
+      pt: 'Autor',
       ru: {
-        n: "Автор",
-        g: "Aвтора",
-        a: "Автор",
+        n: 'Автор',
+        g: 'Aвтора',
+        a: 'Автор',
       },
-      zh: "作者",
-      zhTW: "作者",
+      zh: '作者',
+      zhTW: '作者',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     AuthorEmail: {
-      en: "Author Email",
-      es: "E-mail del Autor",
-      ja: "作者メールアドレス",
-      pt: "Autor Email",
-      ru: "Эл.почта автора",
-      zh: "作者邮件",
-      zhTW: "作者電郵",
+      en: 'Author Email',
+      es: 'E-mail del Autor',
+      ja: '作者メールアドレス',
+      pt: 'Autor Email',
+      ru: 'Эл.почта автора',
+      zh: '作者邮件',
+      zhTW: '作者電郵',
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     },
     CommitMessage: {
-      en: "Commit Message",
-      es: "Mensaje de Consigna",
-      ja: "コミットメッセージ",
-      pt: "Mensagem de Submissão",
-      ru: "Сообщение фиксации",
-      zh: "提交消息",
-      zhTW: "提交訊息",
+      en: 'Commit Message',
+      es: 'Mensaje de Consigna',
+      ja: 'コミットメッセージ',
+      pt: 'Mensagem de Submissão',
+      ru: 'Сообщение фиксации',
+      zh: '提交消息',
+      zhTW: '提交訊息',
       $: {
-        es: "f",
-        pt: "f",
-        ru: "n",
+        es: 'f',
+        pt: 'f',
+        ru: 'n',
       },
     },
     ActionRequired: (e) => ({
@@ -1670,7 +1670,7 @@ var RES_I18N = {
       es: `${e.es} Exitoso`,
       ja: `${e.ja}成功`,
       pt: `${e.pt} bem Sucedido`,
-      ru: `${i18nCaseFor("n", e.ru)} успешно`,
+      ru: `${i18nCaseFor('n', e.ru)} успешно`,
       zh: `${e.zh}成功`,
       zhTW: `${e.zhTW}成功`,
     }),
@@ -1679,7 +1679,7 @@ var RES_I18N = {
       es: `Nombre del ${e.es}`,
       ja: `${e.ja}名`,
       pt: `Nome do ${e.pt}`,
-      ru: `имя ${i18nCaseFor("g", e.ru)}`,
+      ru: `имя ${i18nCaseFor('g', e.ru)}`,
       zh: `${e.zh}名`,
       zhTW: `${e.zhTW}名`,
     }),
@@ -1701,335 +1701,335 @@ var RES_I18N = {
       zh: e,
       zhTW: e,
       $: {
-        es: "m",
-        pt: "m",
-        ru: "m",
+        es: 'm',
+        pt: 'm',
+        ru: 'm',
       },
     }),
   },
   Elements: {
     Ok: i18nTag({
-      en: "Ok",
-      ja: "確認",
-      zh: "确认",
-      zhTW: "確認",
+      en: 'Ok',
+      ja: '確認',
+      zh: '确认',
+      zhTW: '確認',
     }),
     Cancel: i18nTag({
-      en: "Cancel",
-      es: "Cancelar",
-      ja: "キャンセル",
-      pt: "Cancelar",
-      ru: "Отменить",
-      zh: "取消",
-      zhTW: "取消",
+      en: 'Cancel',
+      es: 'Cancelar',
+      ja: 'キャンセル',
+      pt: 'Cancelar',
+      ru: 'Отменить',
+      zh: '取消',
+      zhTW: '取消',
     }),
     Revert: i18nTag({
-      en: "Revert",
-      es: "Restituir",
-      ja: "変更の取り消し",
-      pt: "Reverter",
-      ru: "Откатить",
-      zh: "还原",
-      zhTW: "還原",
+      en: 'Revert',
+      es: 'Restituir',
+      ja: '変更の取り消し',
+      pt: 'Reverter',
+      ru: 'Откатить',
+      zh: '还原',
+      zhTW: '還原',
     }),
     Undo: i18nTag({
-      en: "Undo",
-      es: "Deshacer",
-      ja: "取り消す",
-      pt: "Desfazer",
-      ru: "Отменить",
-      zh: "撤销",
-      zhTW: "復原",
+      en: 'Undo',
+      es: 'Deshacer',
+      ja: '取り消す',
+      pt: 'Desfazer',
+      ru: 'Отменить',
+      zh: '撤销',
+      zhTW: '復原',
     }),
     Redo: i18nTag({
-      en: "Redo",
-      es: "Rehacer",
-      ja: "やり直す",
-      pt: "Refazer",
-      ru: "Вернуть",
-      zh: "重做",
-      zhTW: "重做",
+      en: 'Redo',
+      es: 'Rehacer',
+      ja: 'やり直す',
+      pt: 'Refazer',
+      ru: 'Вернуть',
+      zh: '重做',
+      zhTW: '重做',
     }),
     Paste: i18nTag({
-      en: "Paste",
-      es: "Pegar",
-      ja: "ペースト",
-      pt: "Colar",
-      ru: "Вставить",
-      zh: "粘贴",
-      zhTW: "貼上",
+      en: 'Paste',
+      es: 'Pegar',
+      ja: 'ペースト',
+      pt: 'Colar',
+      ru: 'Вставить',
+      zh: '粘贴',
+      zhTW: '貼上',
     }),
     Cut: i18nTag({
-      en: "Cut",
-      es: "Cortar",
-      ja: "カット",
-      pt: "Cortar",
-      ru: "Вырезать",
-      zh: "剪切",
-      zhTW: "剪下",
+      en: 'Cut',
+      es: 'Cortar',
+      ja: 'カット',
+      pt: 'Cortar',
+      ru: 'Вырезать',
+      zh: '剪切',
+      zhTW: '剪下',
     }),
     Delete: i18nTag({
-      en: "Delete",
-      es: "Borrar",
-      ja: "削除",
-      pt: "Excluir",
-      ru: "Удалить",
-      zh: "删除",
-      zhTW: "删除",
+      en: 'Delete',
+      es: 'Borrar',
+      ja: '削除',
+      pt: 'Excluir',
+      ru: 'Удалить',
+      zh: '删除',
+      zhTW: '删除',
     }),
     Rename: i18nTag({
-      en: "Rename",
-      es: "Renombrar",
-      ja: "名前を変更",
-      pt: "Renomear",
-      ru: "Переименование",
-      zh: "重新命名",
-      zhTW: "重命名",
+      en: 'Rename',
+      es: 'Renombrar',
+      ja: '名前を変更',
+      pt: 'Renomear',
+      ru: 'Переименование',
+      zh: '重新命名',
+      zhTW: '重命名',
     }),
     Edit: i18nTag({
-      en: "Edit",
-      es: "Edita",
-      ja: "編集",
-      pt: "Editar",
-      ru: "Правка",
-      zh: "编辑",
-      zhTW: "編輯",
+      en: 'Edit',
+      es: 'Edita',
+      ja: '編集',
+      pt: 'Editar',
+      ru: 'Правка',
+      zh: '编辑',
+      zhTW: '編輯',
     }),
     ShareLink: i18nTag({
-      en: "Share Link",
-      es: "Compartir Enlace",
-      ja: "共有リンク",
-      pt: "Compartilhar Link",
-      ru: "Поделиться ссылкой",
-      zh: "分享链接",
-      zhTW: "分享鏈接",
+      en: 'Share Link',
+      es: 'Compartir Enlace',
+      ja: '共有リンク',
+      pt: 'Compartilhar Link',
+      ru: 'Поделиться ссылкой',
+      zh: '分享链接',
+      zhTW: '分享鏈接',
     }),
     Export: i18nTag({
-      en: "Export",
-      es: "Exportar",
-      ja: "エクスポート",
-      pt: "Exportar",
-      ru: "экспорт",
-      zh: "导出",
-      zhTW: "匯出",
+      en: 'Export',
+      es: 'Exportar',
+      ja: 'エクスポート',
+      pt: 'Exportar',
+      ru: 'экспорт',
+      zh: '导出',
+      zhTW: '匯出',
     }),
     Format: i18nTag({
-      en: "Format",
-      es: "Formato",
-      ja: "自動インデント",
-      pt: "Formato",
-      ru: "Формат",
-      zh: "自动缩进",
-      zhTW: "自動縮排",
+      en: 'Format',
+      es: 'Formato',
+      ja: '自動インデント',
+      pt: 'Formato',
+      ru: 'Формат',
+      zh: '自动缩进',
+      zhTW: '自動縮排',
     }),
     FindAll: i18nTag({
-      en: "Find All",
-      es: "Buscar Todos",
-      ja: "すべて検索",
-      pt: "Localizar Tudo",
-      ru: "Найти все",
-      zh: "查找全部",
-      zhTW: "尋找所有項目",
+      en: 'Find All',
+      es: 'Buscar Todos',
+      ja: 'すべて検索',
+      pt: 'Localizar Tudo',
+      ru: 'Найти все',
+      zh: '查找全部',
+      zhTW: '尋找所有項目',
     }),
     Find: i18nTag({
-      en: "Find",
-      es: "Buscar",
-      ja: "検索",
-      pt: "Procurar",
-      ru: "Найти",
-      zh: "查找",
-      zhTW: "尋找",
+      en: 'Find',
+      es: 'Buscar',
+      ja: '検索',
+      pt: 'Procurar',
+      ru: 'Найти',
+      zh: '查找',
+      zhTW: '尋找',
     }),
     Replace: i18nTag({
-      en: "Replace",
-      es: "Reemplazar",
-      ja: "検索",
-      pt: "Substituir",
-      ru: "Заменить",
-      zh: "替换",
-      zhTW: "替換",
+      en: 'Replace',
+      es: 'Reemplazar',
+      ja: '検索',
+      pt: 'Substituir',
+      ru: 'Заменить',
+      zh: '替换',
+      zhTW: '替換',
     }),
     ReplaceAll: i18nTag({
-      en: "Replace All",
-      es: "Reemplaza Todas",
-      ja: "すべて置換",
-      pt: "Substituir Tudo",
-      ru: "Заменить все",
-      zh: "全部替换",
-      zhTW: "全部取代",
+      en: 'Replace All',
+      es: 'Reemplaza Todas',
+      ja: 'すべて置換',
+      pt: 'Substituir Tudo',
+      ru: 'Заменить все',
+      zh: '全部替换',
+      zhTW: '全部取代',
     }),
     FindResults: i18nTag({
-      en: "Find Results",
-      es: "Resultados",
-      ja: "検索結果",
-      pt: "Resultados",
-      ru: "Найти результаты",
-      zh: "查找结果",
-      zhTW: "搜尋結果",
+      en: 'Find Results',
+      es: 'Resultados',
+      ja: '検索結果',
+      pt: 'Resultados',
+      ru: 'Найти результаты',
+      zh: '查找结果',
+      zhTW: '搜尋結果',
     }),
     Open: i18nTag({
-      en: "Open",
-      es: "Abrir",
-      ja: "開",
-      pt: "Abrir",
-      ru: "Открыть",
-      zh: "打开",
-      zhTW: "開啟",
+      en: 'Open',
+      es: 'Abrir',
+      ja: '開',
+      pt: 'Abrir',
+      ru: 'Открыть',
+      zh: '打开',
+      zhTW: '開啟',
     }),
     ShowInfo: i18nTag({
-      en: "Show Info",
-      es: "Mostrar Info",
-      ja: "情報を表示",
-      pt: "Mostrar Info",
-      ru: "информацию",
-      zh: "显示信息",
-      zhTW: "顯示信息",
+      en: 'Show Info',
+      es: 'Mostrar Info',
+      ja: '情報を表示',
+      pt: 'Mostrar Info',
+      ru: 'информацию',
+      zh: '显示信息',
+      zhTW: '顯示信息',
     }),
     CommitAll: i18nTag({
-      en: "Commit All",
-      es: "Consigna Todos",
-      ja: "すべてコミット",
-      pt: "Submeter Todos",
-      ru: "Фиксировать все",
-      zh: "全部提交",
-      zhTW: "全部提交",
+      en: 'Commit All',
+      es: 'Consigna Todos',
+      ja: 'すべてコミット',
+      pt: 'Submeter Todos',
+      ru: 'Фиксировать все',
+      zh: '全部提交',
+      zhTW: '全部提交',
     }),
     RevertAll: i18nTag({
-      en: "Revert All",
-      es: "Restituir Todos",
-      ja: "すべて変更の取り消し",
-      pt: "Reverter Todos",
-      ru: "откатить все",
-      zh: "全部还原",
-      zhTW: "全部還原",
+      en: 'Revert All',
+      es: 'Restituir Todos',
+      ja: 'すべて変更の取り消し',
+      pt: 'Reverter Todos',
+      ru: 'откатить все',
+      zh: '全部还原',
+      zhTW: '全部還原',
     }),
     Checkout: i18nTag({
-      en: "Checkout",
-      es: "Adquirir",
-      ja: "チェックアウト",
-      pt: "Restaurar",
-      ru: "Извлечение",
-      zh: "检出",
-      zhTW: "取出",
+      en: 'Checkout',
+      es: 'Adquirir',
+      ja: 'チェックアウト',
+      pt: 'Restaurar',
+      ru: 'Извлечение',
+      zh: '检出',
+      zhTW: '取出',
     }),
     Local: i18nTag({
-      en: "Local",
-      es: "Local",
-      ja: "ローカル",
-      pt: "Local",
-      ru: "Локальное",
-      zh: "本地",
-      zhTW: "本地",
+      en: 'Local',
+      es: 'Local',
+      ja: 'ローカル',
+      pt: 'Local',
+      ru: 'Локальное',
+      zh: '本地',
+      zhTW: '本地',
     }),
     Branches: i18nTag({
-      en: "Branches",
-      es: "Ramals",
-      ja: "ブランチ",
-      pt: " Ramos",
-      ru: "ветви",
-      zh: "分支",
-      zhTW: "分支",
+      en: 'Branches',
+      es: 'Ramals',
+      ja: 'ブランチ',
+      pt: ' Ramos',
+      ru: 'ветви',
+      zh: '分支',
+      zhTW: '分支',
     }),
     RevertAndCheckout: i18nTag({
-      en: "Revert & Checkout",
-      es: "Restituir & Adquirir",
-      ja: "取り消し/チェックアウト",
-      pt: "Reverter e Restaurar",
-      ru: "Откатить и Извлечение",
-      zh: "还原/检出",
-      zhTW: "復原/取出",
+      en: 'Revert & Checkout',
+      es: 'Restituir & Adquirir',
+      ja: '取り消し/チェックアウト',
+      pt: 'Reverter e Restaurar',
+      ru: 'Откатить и Извлечение',
+      zh: '还原/检出',
+      zhTW: '復原/取出',
     }),
     MarkResolved: i18nTag({
-      en: "Mark Resolved",
-      es: "Marcar Resuelto",
-      ja: "解決済みとする",
-      pt: "Marcar Resolvido",
-      ru: "Пометить как улаженный",
-      zh: "标记为已解决",
-      zhTW: "標記為已解決",
+      en: 'Mark Resolved',
+      es: 'Marcar Resuelto',
+      ja: '解決済みとする',
+      pt: 'Marcar Resolvido',
+      ru: 'Пометить как улаженный',
+      zh: '标记为已解决',
+      zhTW: '標記為已解決',
     }),
     LogHistory: i18nTag({
-      en: "Log History",
-      es: "Reg. Histórico",
-      ja: "ログの履歴",
-      pt: "Histórico",
-      ru: "Сообщения журнала",
-      zh: "历史记录",
-      zhTW: "日誌歷史",
+      en: 'Log History',
+      es: 'Reg. Histórico',
+      ja: 'ログの履歴',
+      pt: 'Histórico',
+      ru: 'Сообщения журнала',
+      zh: '历史记录',
+      zhTW: '日誌歷史',
     }),
     Remotes: i18nTag({
-      en: "Remotes",
-      es: "Remotos",
-      ja: "リモート",
-      pt: "Remotos",
-      ru: "Bнешние",
-      zh: "远端",
-      zhTW: "遠端",
+      en: 'Remotes',
+      es: 'Remotos',
+      ja: 'リモート',
+      pt: 'Remotos',
+      ru: 'Bнешние',
+      zh: '远端',
+      zhTW: '遠端',
     }),
     RemoteBranches: i18nTag({
-      en: "Remote Branches",
-      es: "Ramals Remoto",
-      ja: "リモートブランチ",
-      pt: "Ramos Remoto",
-      ru: "Bетви внешнего",
-      zh: "远端分支",
-      zhTW: "遠端分支",
+      en: 'Remote Branches',
+      es: 'Ramals Remoto',
+      ja: 'リモートブランチ',
+      pt: 'Ramos Remoto',
+      ru: 'Bетви внешнего',
+      zh: '远端分支',
+      zhTW: '遠端分支',
     }),
     GitCredentials: i18nTag({
-      en: "Git Credentials",
-      es: "Git Credenciales",
-      ja: "Git 資格情報",
-      pt: "Git Credenciais",
-      ru: "Git Удостоверения",
-      zh: "Git 凭证",
-      zhTW: "Git 憑證",
+      en: 'Git Credentials',
+      es: 'Git Credenciales',
+      ja: 'Git 資格情報',
+      pt: 'Git Credenciais',
+      ru: 'Git Удостоверения',
+      zh: 'Git 凭证',
+      zhTW: 'Git 憑證',
     }),
     PrivateRepository: i18nTag({
-      en: "Private Repository",
-      es: "Repositorio Privado",
-      ja: "プライベートリポジトリ",
-      pt: "Repositório Privado",
-      ru: "частный репозиторий",
-      zh: "私版本库",
-      zhTW: "私版本庫",
+      en: 'Private Repository',
+      es: 'Repositorio Privado',
+      ja: 'プライベートリポジトリ',
+      pt: 'Repositório Privado',
+      ru: 'частный репозиторий',
+      zh: '私版本库',
+      zhTW: '私版本庫',
     }),
     CloneRepo: i18nTag({
-      en: "Clone Repo",
-      es: "Clonar Repo",
-      ja: "クローン(複製)",
-      pt: "Clonar Repositório",
-      ru: "Клонировать хранилище",
-      zh: "克隆版本库",
-      zhTW: "克隆版本庫",
+      en: 'Clone Repo',
+      es: 'Clonar Repo',
+      ja: 'クローン(複製)',
+      pt: 'Clonar Repositório',
+      ru: 'Клонировать хранилище',
+      zh: '克隆版本库',
+      zhTW: '克隆版本庫',
     }),
   },
   Placeholders: {
     EnterNameOrPath: {
-      en: "Enter Name or Path",
-      es: "Ingrese Nombre o Ruta",
-      ja: "ファイルパス",
-      pt: "Insira Nome ou Caminho",
-      ru: "Введите имя или путь",
-      zh: "输入名或路径",
-      zhTW: "輸入名或路徑",
+      en: 'Enter Name or Path',
+      es: 'Ingrese Nombre o Ruta',
+      ja: 'ファイルパス',
+      pt: 'Insira Nome ou Caminho',
+      ru: 'Введите имя или путь',
+      zh: '输入名或路径',
+      zhTW: '輸入名或路徑',
     },
     HttpsUrl: {
-      en: "URL (Start with https://)",
-      es: "URL (Comienzan con https://)",
-      ja: "「https://」で始まるURL",
-      pt: "URL (Iniciam com https://)",
-      ru: "URL (адреса начинаются с https://)",
-      zh: "URL 以「https://」开始",
-      zhTW: "「https://」開頭的 URL",
+      en: 'URL (Start with https://)',
+      es: 'URL (Comienzan con https://)',
+      ja: '「https://」で始まるURL',
+      pt: 'URL (Iniciam com https://)',
+      ru: 'URL (адреса начинаются с https://)',
+      zh: 'URL 以「https://」开始',
+      zhTW: '「https://」開頭的 URL',
     },
     Username: {
-      en: "Username",
-      es: "Nombre de Usuario",
-      ja: "ユーザー名",
-      pt: "Usuário",
-      ru: "Имя пользователя",
-      zh: "用户名",
-      zhTW: "帳號",
+      en: 'Username',
+      es: 'Nombre de Usuario',
+      ja: 'ユーザー名',
+      pt: 'Usuário',
+      ru: 'Имя пользователя',
+      zh: '用户名',
+      zhTW: '帳號',
     },
   },
   ErrorMessages: {
@@ -2039,7 +2039,7 @@ var RES_I18N = {
         es: `${e.es} no puede estar vacío.`,
         ja: `${e.ja}は空にすることはできません`,
         pt: `${e.pt} não pode estar vazio.`,
-        ru: `${i18nCaseFor("n", e.ru)} не может быть пустым`,
+        ru: `${i18nCaseFor('n', e.ru)} не может быть пустым`,
         zh: `${e.zh}不能为空`,
         zhTW: `${e.zhTW}不能為空`,
       }),
@@ -2059,7 +2059,7 @@ var RES_I18N = {
         es: `${e.es} ya existe.`,
         ja: `${e.ja}は既に存在します`,
         pt: `${e.pt} já existe.`,
-        ru: `${i18nCaseFor("n", e.ru)} уже существует`,
+        ru: `${i18nCaseFor('n', e.ru)} уже существует`,
         zh: `${e.zh}已存在`,
         zhTW: `${e.zhTW}已經存在`,
       }),
@@ -2069,7 +2069,7 @@ var RES_I18N = {
         es: `${e.es} no existe.`,
         ja: `${e.ja}が存在しません`,
         pt: `${e.pt} não existe.`,
-        ru: `${i18nCaseFor("n", e.ru)} не существует`,
+        ru: `${i18nCaseFor('n', e.ru)} не существует`,
         zh: `${e.zh}不存在`,
         zhTW: `${e.zhTW}不存在`,
       }),
@@ -2079,18 +2079,18 @@ var RES_I18N = {
         es: `${e.es} no es válida.`,
         ja: `${e.ja}は無効です。`,
         pt: `${e.pt} é inválido.`,
-        ru: `${i18nCaseFor("n", e.ru)} недействительна`,
+        ru: `${i18nCaseFor('n', e.ru)} недействительна`,
         zh: `${e.zh}无效`,
         zhTW: `${e.zhTW}無效`,
       }),
     DecodeError: i18nTag({
-      en: "Decoding Error",
-      es: "Error de Decodificación",
-      ja: "デコードエラー",
-      pt: "Erro na decodificação",
-      ru: "Ошибка декодирования",
-      zh: "错误解码",
-      zhTW: "錯誤解碼",
+      en: 'Decoding Error',
+      es: 'Error de Decodificación',
+      ja: 'デコードエラー',
+      pt: 'Erro na decodificação',
+      ru: 'Ошибка декодирования',
+      zh: '错误解码',
+      zhTW: '錯誤解碼',
     }),
     ManualRecoveryRequired: (e) =>
       i18nTag({
@@ -2108,9 +2108,9 @@ var RES_I18N = {
 function i18nAttributes(e) {
   return Object.keys(e).reduce(
     (t, n) => (
-      "$" !== n &&
+      '$' !== n &&
         (t[
-          "data-i18n-" + n.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase()
+          'data-i18n-' + n.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
         ] = e[n]),
       t
     ),
@@ -2118,10 +2118,10 @@ function i18nAttributes(e) {
   );
 }
 
-function i18nTag(e, t = "span") {
+function i18nTag(e, t = 'span') {
   return (
     (e = i18nAttributes(e)),
-    `<${t} ${Object.keys(e).reduce((t, n) => t + `${n}="${e[n]}"`, "")}></${t}>`
+    `<${t} ${Object.keys(e).reduce((t, n) => t + `${n}="${e[n]}"`, '')}></${t}>`
   );
 }
 
@@ -2250,34 +2250,34 @@ function PromisePool({
   }
 }
 define(
-  "ace/ext/searchbox",
+  'ace/ext/searchbox',
   [
-    "require",
-    "exports",
-    "module",
-    "ace/lib/dom",
-    "ace/lib/lang",
-    "ace/lib/event",
-    "ace/keyboard/hash_handler",
-    "ace/lib/keys",
+    'require',
+    'exports',
+    'module',
+    'ace/lib/dom',
+    'ace/lib/lang',
+    'ace/lib/event',
+    'ace/keyboard/hash_handler',
+    'ace/lib/keys',
   ],
   function (e, t, n) {
-    "use strict";
-    var i = e("../lib/dom"),
-      o = e("../lib/lang"),
-      a = e("../lib/event"),
-      s = e("../keyboard/hash_handler").HashHandler,
-      r = e("../lib/keys"),
+    'use strict';
+    var i = e('../lib/dom'),
+      o = e('../lib/lang'),
+      a = e('../lib/event'),
+      s = e('../keyboard/hash_handler').HashHandler,
+      r = e('../lib/keys'),
       c =
         '<div class="ace_search right">    <button action="toggleReplace" class="ace_search_toggle collapse" title="Toggle Replace"></button>    <div class="ace_search_form">      <div class="uk-flex uk-flex-middle uk-flex-space-between">        <div class="uk-flex-item-1">          <button action="findAll" class="ace_icon find-all" title="All (Alt-Enter)"></button>          <button action="toggleRegexpMode" class="ace_icon x-menu-toggle x-outline regex" title="RegExp Search"></button>          <button action="toggleCaseSensitive" class="ace_icon x-menu-toggle x-outline case-sensitive" title="Case-Sensitive Search"></button>          <button action="toggleWholeWords" class="ace_icon x-menu-toggle x-outline whole-word" title="Whole Word Search"></button>        </div>        <button action="hide" class="ace_icon close" title="Close (Esc)"></button>      </div>      <div class="uk-flex">        <div class="uk-flex-item-1">          <input class="uk-input" placeholder="Find" spellcheck="false">          <span class="ace_search_counter"></span>        </div>        <button action="findPrev" class="ace_icon prev" title="Previous (Ctrl-Shift-G)"></button>        <button action="findNext" class="ace_icon next" title="Next (Ctrl-G)"></button>      </div>    </div>    <div class="ace_replace_form uk-flex uk-flex-middle">      <div class="uk-flex-item-1">        <input class="uk-input" placeholder="Replace" spellcheck="false">      </div>      <div action="replaceAndFindNext" class="ace_icon replace" title="Replace"></div>      <div action="replaceAll" class="ace_icon replace-all" title="Replace All"></div>    </div></div>'.replace(
           /> +/g,
-          ">"
+          '>'
         ),
       l = function (e, t, n) {
-        var o = i.createElement("div");
+        var o = i.createElement('div');
         (o.innerHTML = c),
           (this.element = o.firstChild),
-          (this.checkedClass = "uk-active"),
+          (this.checkedClass = 'uk-active'),
           (this.setSession = this.setSession.bind(this)),
           this.$init(),
           this.setEditor(e);
@@ -2292,20 +2292,20 @@ define(
           (this.searchRange = null), this.$syncOptions(!0);
         }),
         (this.$initElements = function (e) {
-          (this.searchBox = e.querySelector(".ace_search_form")),
-            (this.replaceBox = e.querySelector(".ace_replace_form")),
-            (this.replaceOption = e.querySelector("[action=toggleReplace]")),
-            (this.regExpOption = e.querySelector("[action=toggleRegexpMode]")),
+          (this.searchBox = e.querySelector('.ace_search_form')),
+            (this.replaceBox = e.querySelector('.ace_replace_form')),
+            (this.replaceOption = e.querySelector('[action=toggleReplace]')),
+            (this.regExpOption = e.querySelector('[action=toggleRegexpMode]')),
             (this.caseSensitiveOption = e.querySelector(
-              "[action=toggleCaseSensitive]"
+              '[action=toggleCaseSensitive]'
             )),
             (this.wholeWordOption = e.querySelector(
-              "[action=toggleWholeWords]"
+              '[action=toggleWholeWords]'
             )),
-            (this.searchInput = this.searchBox.querySelector("input.uk-input")),
+            (this.searchInput = this.searchBox.querySelector('input.uk-input')),
             (this.replaceInput =
-              this.replaceBox.querySelector("input.uk-input")),
-            (this.searchCounter = e.querySelector(".ace_search_counter"));
+              this.replaceBox.querySelector('input.uk-input')),
+            (this.searchCounter = e.querySelector('.ace_search_counter'));
         }),
         (this.$init = function () {
           var e = this.element;
@@ -2314,7 +2314,7 @@ define(
 
           function n(e) {
             e.preventDefault(), e.stopPropagation();
-            var n = (e.target || e.srcElement).getAttribute("action");
+            var n = (e.target || e.srcElement).getAttribute('action');
             n && t[n]
               ? t[n]()
               : t.$searchBarKb.commands[n] &&
@@ -2323,13 +2323,13 @@ define(
 
           function i(e) {
             var t = e.target || e.srcElement;
-            "INPUT" === t.tagName && t.focus();
+            'INPUT' === t.tagName && t.focus();
           }
-          e.addEventListener("click", function (e) {
+          e.addEventListener('click', function (e) {
             n(e), i(e);
           }),
-            e.addEventListener("touchstart", n),
-            e.addEventListener("touchend", i),
+            e.addEventListener('touchstart', n),
+            e.addEventListener('touchend', i),
             a.addCommandKeyListener(e, function (e, n, i) {
               var o = r.keyCodeToString(i),
                 s = t.$searchBarKb.findKeyCommand(n, o);
@@ -2338,22 +2338,22 @@ define(
             (this.$onChange = o.delayedCall(function () {
               t.find(!1, !1);
             })),
-            a.addListener(this.searchInput, "input", function () {
+            a.addListener(this.searchInput, 'input', function () {
               t.$onChange.schedule(20);
             }),
-            a.addListener(this.searchInput, "focus", function () {
+            a.addListener(this.searchInput, 'focus', function () {
               (t.activeInput = t.searchInput),
                 t.searchInput.value && t.highlight();
             }),
-            a.addListener(this.replaceInput, "focus", function () {
+            a.addListener(this.replaceInput, 'focus', function () {
               (t.activeInput = t.replaceInput),
                 t.searchInput.value && t.highlight();
             });
         }),
         (this.$closeSearchBarKb = new s([
           {
-            bindKey: "Esc",
-            name: "closeSearchBar",
+            bindKey: 'Esc',
+            name: 'closeSearchBar',
             exec: function (e) {
               e.searchBox.hide();
             },
@@ -2361,22 +2361,22 @@ define(
         ])),
         (this.$searchBarKb = new s()),
         this.$searchBarKb.bindKeys({
-          "Ctrl-f|Command-f": function (e) {
+          'Ctrl-f|Command-f': function (e) {
             var t = (e.isReplace = !e.isReplace);
-            (e.replaceBox.style.display = t ? "" : "none"),
+            (e.replaceBox.style.display = t ? '' : 'none'),
               (e.replaceOption.checked = !1),
               e.$syncOptions(),
               e.searchInput.focus();
           },
-          "Ctrl-R|Ctrl-H|Command-Option-F": function (e) {
+          'Ctrl-R|Ctrl-H|Command-Option-F': function (e) {
             (e.replaceOption.checked = !0),
               e.$syncOptions(),
               e.replaceInput.focus();
           },
-          "Ctrl-G|Command-G": function (e) {
+          'Ctrl-G|Command-G': function (e) {
             e.findNext();
           },
-          "Ctrl-Shift-G|Command-Shift-G": function (e) {
+          'Ctrl-Shift-G|Command-Shift-G': function (e) {
             e.findPrev();
           },
           esc: function (e) {
@@ -2387,10 +2387,10 @@ define(
           Return: function (e) {
             e.activeInput == e.replaceInput && e.replace(), e.findNext();
           },
-          "Shift-Return": function (e) {
+          'Shift-Return': function (e) {
             e.activeInput == e.replaceInput && e.replace(), e.findPrev();
           },
-          "Alt-Return": function (e) {
+          'Alt-Return': function (e) {
             e.activeInput == e.replaceInput && e.replaceAll(), e.findAll();
           },
           Tab: function (e) {
@@ -2402,10 +2402,10 @@ define(
         }),
         this.$searchBarKb.addCommands([
           {
-            name: "toggleRegexpMode",
+            name: 'toggleRegexpMode',
             bindKey: {
-              win: "Alt-R|Alt-/",
-              mac: "Ctrl-Alt-R|Ctrl-Alt-/",
+              win: 'Alt-R|Alt-/',
+              mac: 'Ctrl-Alt-R|Ctrl-Alt-/',
             },
             exec: function (e) {
               (e.regExpOption.checked = !e.regExpOption.checked),
@@ -2413,10 +2413,10 @@ define(
             },
           },
           {
-            name: "toggleCaseSensitive",
+            name: 'toggleCaseSensitive',
             bindKey: {
-              win: "Alt-C|Alt-I",
-              mac: "Ctrl-Alt-R|Ctrl-Alt-I",
+              win: 'Alt-C|Alt-I',
+              mac: 'Ctrl-Alt-R|Ctrl-Alt-I',
             },
             exec: function (e) {
               (e.caseSensitiveOption.checked = !e.caseSensitiveOption.checked),
@@ -2424,10 +2424,10 @@ define(
             },
           },
           {
-            name: "toggleWholeWords",
+            name: 'toggleWholeWords',
             bindKey: {
-              win: "Alt-B|Alt-W",
-              mac: "Ctrl-Alt-B|Ctrl-Alt-W",
+              win: 'Alt-B|Alt-W',
+              mac: 'Ctrl-Alt-B|Ctrl-Alt-W',
             },
             exec: function (e) {
               (e.wholeWordOption.checked = !e.wholeWordOption.checked),
@@ -2435,14 +2435,14 @@ define(
             },
           },
           {
-            name: "toggleReplace",
+            name: 'toggleReplace',
             exec: function (e) {
               (e.replaceOption.checked = !e.replaceOption.checked),
                 e.$syncOptions();
             },
           },
           {
-            name: "searchInSelection",
+            name: 'searchInSelection',
             exec: function (e) {
               (e.searchOption.checked = !e.searchRange),
                 e.setSearchRange(
@@ -2457,7 +2457,7 @@ define(
             e
               ? (this.searchRangeMarker = this.editor.session.addMarker(
                   e,
-                  "ace_active-line"
+                  'ace_active-line'
                 ))
               : this.searchRangeMarker &&
                 (this.editor.session.removeMarker(this.searchRangeMarker),
@@ -2490,8 +2490,8 @@ define(
               this.caseSensitiveOption.checked
             ),
             (this.replaceBox.style.display = this.replaceOption.checked
-              ? ""
-              : "none"),
+              ? ''
+              : 'none'),
             this.find(!1, !1, e);
         }),
         (this.highlight = function (e) {
@@ -2510,8 +2510,8 @@ define(
               preventScroll: n,
               range: this.searchRange,
             }) && this.searchInput.value;
-          i.setCssClass(this.searchBox, "ace_nomatch", o),
-            this.editor._emit("findSearchBox", {
+          i.setCssClass(this.searchBox, 'ace_nomatch', o),
+            this.editor._emit('findSearchBox', {
               match: !o,
             }),
             this.highlight(),
@@ -2537,7 +2537,7 @@ define(
 
             );
           }
-          this.searchCounter.textContent = i + "/" + (n > 999 ? "999+" : n);
+          this.searchCounter.textContent = i + '/' + (n > 999 ? '999+' : n);
         }),
         (this.findNext = function () {
           this.find(!0, !1);
@@ -2552,8 +2552,8 @@ define(
               caseSensitive: this.caseSensitiveOption.checked,
               wholeWord: this.wholeWordOption.checked,
             }) && this.searchInput.value;
-          i.setCssClass(this.searchBox, "ace_nomatch", e),
-            this.editor._emit("findSearchBox", {
+          i.setCssClass(this.searchBox, 'ace_nomatch', e),
+            this.editor._emit('findSearchBox', {
               match: !e,
             }),
             this.highlight(),
@@ -2574,19 +2574,19 @@ define(
         (this.hide = function () {
           (this.active = !1),
             this.setSearchRange(null),
-            this.editor.off("changeSession", this.setSession),
-            (this.element.style.display = "none"),
+            this.editor.off('changeSession', this.setSession),
+            (this.element.style.display = 'none'),
             this.editor.keyBinding.removeKeyboardHandler(
               this.$closeSearchBarKb
             ),
             this.editor.focus(),
-            this.editor._emit("searchBoxClose");
+            this.editor._emit('searchBoxClose');
         }),
         (this.show = function (e, t) {
           (this.active = !0),
-            this.editor.on("changeSession", this.setSession),
-            this.editor._emit("searchBoxOpen"),
-            (this.element.style.display = ""),
+            this.editor.on('changeSession', this.setSession),
+            this.editor._emit('searchBoxOpen'),
+            (this.element.style.display = ''),
             (this.replaceOption.checked = t),
             e && (this.searchInput.value = e),
             t
@@ -2606,14 +2606,14 @@ define(
       }));
   }
 ),
-  window.require(["ace/ext/searchbox"], function () {}),
-  m.module("assets").__new__(function (e) {
+  window.require(['ace/ext/searchbox'], function () {}),
+  m.module('assets').__new__(function (e) {
     e.svgIcons = {
       github:
         '<svg class="svg-icon" style="width:100%" viewBox="-2 0 20 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"></path></svg>',
     };
   }),
-  m.module("git").def({
+  m.module('git').def({
     K: function () {
       return window.localStorage;
     },
@@ -2621,7 +2621,7 @@ define(
       try {
         return JSON.parse(
           await GFS.readFile(await ENV.gitConfigPathAsync(), {
-            encoding: "utf8",
+            encoding: 'utf8',
           })
         );
       } catch (e) {
@@ -2635,35 +2635,35 @@ define(
     },
     J: function (e) {
       return (
-        (e = e.toLowerCase()).startsWith("git@")
-          ? (e = "https://" + e.replace("git@", "").replace(":", "/"))
-          : e.startsWith("ssh://git@")
-          ? (e = "https://" + e.replace("ssh://git@", "").replace(":", "/"))
-          : e.startsWith("ssh://") &&
-            (e = "https://" + e.replace("ssh://", "").replace(":", "/")),
-        PathUtils.hasExt(e, ".git") ||
-          ((e.includes("github.com") ||
-            e.includes("gitlab.com") ||
-            e.includes("bitbucket.org")) &&
-            (e += ".git")),
+        (e = e.toLowerCase()).startsWith('git@')
+          ? (e = 'https://' + e.replace('git@', '').replace(':', '/'))
+          : e.startsWith('ssh://git@')
+          ? (e = 'https://' + e.replace('ssh://git@', '').replace(':', '/'))
+          : e.startsWith('ssh://') &&
+            (e = 'https://' + e.replace('ssh://', '').replace(':', '/')),
+        PathUtils.hasExt(e, '.git') ||
+          ((e.includes('github.com') ||
+            e.includes('gitlab.com') ||
+            e.includes('bitbucket.org')) &&
+            (e += '.git')),
         (e = e.replace(
           /https:\/\/([\w]+)@bitbucket.org/,
-          "https://bitbucket.org"
+          'https://bitbucket.org'
         ))
       );
     },
     X: function (e) {
       if (!e) return e;
       const t = e.match(/git@([A-Za-z0-9-.]+):/);
-      return t ? "https://" + t[1] + "/" : e;
+      return t ? 'https://' + t[1] + '/' : e;
     },
     ee: function (e) {
       return PathUtils.basename(
-        PathUtils.hasExt(e, ".git") ? e.slice(0, e.length - 4) : e
+        PathUtils.hasExt(e, '.git') ? e.slice(0, e.length - 4) : e
       );
     },
     te: function (e) {
-      const t = new RegExp("https?://([\\w_\\.\\-@:]+)/([\\w_\\.\\-/]+)"),
+      const t = new RegExp('https?://([\\w_\\.\\-@:]+)/([\\w_\\.\\-/]+)'),
         n = e.match(t);
       return n
         ? {
@@ -2681,24 +2681,24 @@ define(
       const t = await this.Z(),
         n = UI.defaults(t, this.K());
       return {
-        username: n["git.username::" + e] || n["git.username::git"] || "",
-        token: n["git.token::" + e] || n["git.token::git"] || "",
-        email: n["git.email::" + e] || n["git.email::git"] || "",
+        username: n['git.username::' + e] || n['git.username::git'] || '',
+        token: n['git.token::' + e] || n['git.token::git'] || '',
+        email: n['git.email::' + e] || n['git.email::git'] || '',
       };
     },
     oe: async function (e, t, n, i) {
       const o = await this.Z();
       e
-        ? ((o["git.username::" + e] = t),
-          (o["git.token::" + e] = n),
-          (o["git.email::" + e] = i))
-        : ((o["git.username::git"] = t),
-          (o["git.token::git"] = n),
-          (o["git.email::git"] = i)),
+        ? ((o['git.username::' + e] = t),
+          (o['git.token::' + e] = n),
+          (o['git.email::' + e] = i))
+        : ((o['git.username::git'] = t),
+          (o['git.token::git'] = n),
+          (o['git.email::git'] = i)),
         await this.Y(o);
     },
   }),
-  m.module("history").__new__(function (e) {
+  m.module('history').__new__(function (e) {
     (e.HistoryTracker = function () {
       this.reset();
     }),
@@ -2771,36 +2771,36 @@ define(
   }),
   (function (e) {
     const t = [
-      "Ctrl-p",
-      "Ctrl-s",
-      "Ctrl-f",
-      "Ctrl-g",
-      "Ctrl-r",
-      "Ctrl-Shift-R",
-      "Meta-r",
-      "Meta-Shift-R",
-      "Meta-q",
+      'Ctrl-p',
+      'Ctrl-s',
+      'Ctrl-f',
+      'Ctrl-g',
+      'Ctrl-r',
+      'Ctrl-Shift-R',
+      'Meta-r',
+      'Meta-Shift-R',
+      'Meta-q',
     ];
-    e.addEventListener("keydown", function (e) {
+    e.addEventListener('keydown', function (e) {
       UI.polyfillKeyboardEvent(e);
-      let n = "";
-      e.metaKey && (n += "Meta-"),
-        e.ctrlKey && (n += "Ctrl-"),
-        e.shiftKey && (n += "Shift-"),
-        e.altKey && (n += "Alt-"),
+      let n = '';
+      e.metaKey && (n += 'Meta-'),
+        e.ctrlKey && (n += 'Ctrl-'),
+        e.shiftKey && (n += 'Shift-'),
+        e.altKey && (n += 'Alt-'),
         (n += e.key),
         -1 !== t.indexOf(n) && UI.preventEvent(e);
     });
   })(document),
   m
-    .module("memory")
-    .require("prompt")
+    .module('memory')
+    .require('prompt')
     .__init__(function (e, { prompt: t }) {
       const n = window.performance && window.performance.memory;
       Object.assign(e, {
         prompt: t,
         supported:
-          !!n && ["spck.io", "www.spck.io"].includes(window.location.hostname),
+          !!n && ['spck.io', 'www.spck.io'].includes(window.location.hostname),
         lowOnMemory: !1,
         observable: new ObservableClass(),
         memory: n || {
@@ -2819,7 +2819,7 @@ define(
       ae: function () {
         const e = this;
         e.supported &&
-          GA_SendEvent("memory_profile", "n/a", "mem_used_" + e.se());
+          GA_SendEvent('memory_profile', 'n/a', 'mem_used_' + e.se());
       },
       se: function () {
         const e = this.memory;
@@ -2837,8 +2837,8 @@ define(
         e.lowOnMemory ||
           ((e.lowOnMemory = !0),
           e.prompt.ue(
-            "Low Memory Warning",
-            "System memory is running low, language service and syntax checking will be disabled."
+            'Low Memory Warning',
+            'System memory is running low, language service and syntax checking will be disabled.'
           ),
           e.observable.run({
             lowOnMemory: !0,
@@ -2858,120 +2858,120 @@ define(
         );
       },
     });
-var IDB = new Dexie("ProjectStore");
+var IDB = new Dexie('ProjectStore');
 IDB.version(1).stores({
-  projects: "pid, name, hash, repo",
-  files: "id, &path, &fid, type, hash",
-  folders: "id, &path, hash",
-  data: "fid",
-  libraries: "url",
-  sessions: "pid",
-  meta: "key",
+  projects: 'pid, name, hash, repo',
+  files: 'id, &path, &fid, type, hash',
+  folders: 'id, &path, hash',
+  data: 'fid',
+  libraries: 'url',
+  sessions: 'pid',
+  meta: 'key',
 }),
   IDB.version(2)
     .stores({
-      projects: "pid",
-      files: "id, &path, &fid",
-      folders: "id, &path",
-      data: "fid",
-      libraries: "url",
-      meta: "key",
+      projects: 'pid',
+      files: 'id, &path, &fid',
+      folders: 'id, &path',
+      data: 'fid',
+      libraries: 'url',
+      meta: 'key',
     })
     .upgrade((e) =>
       Promise.all([
         e.projects
           .filter((e) => !e.dir)
           .modify((e) => {
-            const t = e.ref ? `${e.pid}:${e.ref.split("/").pop()}` : e.pid;
+            const t = e.ref ? `${e.pid}:${e.ref.split('/').pop()}` : e.pid;
             (e.olddir = t), (e.dir = `${t}/${e.name}`);
           }),
         e.folders.filter((e) => e.deleted).delete(),
         e.files.filter((e) => e.deleted).delete(),
         e.data
-          .filter((e) => "base64" === e.encoding)
+          .filter((e) => 'base64' === e.encoding)
           .modify((e) => {
-            (e.text = castAsReadableArrayBuffer(Buffer.from(e.text, "base64"))),
-              (e.encoding = "binary");
+            (e.text = castAsReadableArrayBuffer(Buffer.from(e.text, 'base64'))),
+              (e.encoding = 'binary');
           }),
       ])
     ),
   IDB.version(3).stores({
-    files: "id, &path, &fid",
-    folders: "id, &path",
-    data: "fid",
-    meta: "key",
+    files: 'id, &path, &fid',
+    folders: 'id, &path',
+    data: 'fid',
+    meta: 'key',
   });
 var Buffer = buffer.Buffer,
   GlobalErrorCodes = {
-    ProjectNotFound: "project:404",
-    FileNotFound: "file:404",
-    RemoveFailed: "rm:500",
-    NotADirectory: "rmdir:405",
-    DestinationExists: "mv:403",
-    SourceNotFound: "src:404",
-    INodeNotFound: "inode:404",
-    RemoteNotFound: "remote:404",
-    CriticalDeletionError: "delete:500",
-    InvalidArgument: "args:400",
+    ProjectNotFound: 'project:404',
+    FileNotFound: 'file:404',
+    RemoveFailed: 'rm:500',
+    NotADirectory: 'rmdir:405',
+    DestinationExists: 'mv:403',
+    SourceNotFound: 'src:404',
+    INodeNotFound: 'inode:404',
+    RemoteNotFound: 'remote:404',
+    CriticalDeletionError: 'delete:500',
+    InvalidArgument: 'args:400',
   };
 class ExtError extends Error {
   constructor(e) {
     super(e.message), Object.assign(this, e);
   }
 }
-const ERROR_SOURCE = "filesystem",
-  isIDB = (e) => e.startsWith("idb/"),
+const ERROR_SOURCE = 'filesystem',
+  isIDB = (e) => e.startsWith('idb/'),
   ext = (e) => {
     const t = basename(e),
-      n = t.lastIndexOf(".");
-    return -1 == n ? "" : t.substr(n).toLowerCase();
+      n = t.lastIndexOf('.');
+    return -1 == n ? '' : t.substr(n).toLowerCase();
   },
   normPathCache = new LFUCache(800, 0.8),
   normalizePath = (e) => {
     const t = normPathCache.get(e);
     if (t) return t;
-    if (e.indexOf("\0") >= 0)
+    if (e.indexOf('\0') >= 0)
       throw new ExtError({
-        name: "InvalidArgument",
-        src: "filesystem:normalizePath",
+        name: 'InvalidArgument',
+        src: 'filesystem:normalizePath',
         message: RES_I18N.ErrorMessages.InvalidFor(RES_I18N.Objects.Path),
         code: GlobalErrorCodes.InvalidArgument,
       });
     if (!e)
       throw new ExtError({
-        name: "InvalidArgument",
-        src: "filesystem:normalizePath",
+        name: 'InvalidArgument',
+        src: 'filesystem:normalizePath',
         message: RES_I18N.ErrorMessages.CannotBeEmptyFor(RES_I18N.Objects.Path),
         code: GlobalErrorCodes.InvalidArgument,
       });
     return normPathCache.set(
       e,
       e
-        .split("/")
-        .filter((e, t) => ("" !== e || 0 === t) && "." !== e)
-        .join("/")
+        .split('/')
+        .filter((e, t) => ('' !== e || 0 === t) && '.' !== e)
+        .join('/')
     );
   },
   dirname = (e) => {
-    const t = e.lastIndexOf("/");
-    return -1 === t ? "." : 0 === t ? "/" : e.slice(0, t);
+    const t = e.lastIndexOf('/');
+    return -1 === t ? '.' : 0 === t ? '/' : e.slice(0, t);
   },
   relativeTo = (e, t) =>
-    t ? e.slice(t.length + (t.endsWith("/") ? 0 : 1)) : e,
+    t ? e.slice(t.length + (t.endsWith('/') ? 0 : 1)) : e,
   childOf = (e, t) =>
     !!e &&
     ((e = normalizePath(e)),
     (t = normalizePath(t)),
-    e.startsWith(t + "/") || e === t),
+    e.startsWith(t + '/') || e === t),
   basename = (e) => {
-    const t = e.lastIndexOf("/");
+    const t = e.lastIndexOf('/');
     return -1 === t ? e : e.slice(t + 1);
   },
   hasExt = (e, t) => e && ext(e) === t,
   join = (e, t) =>
     null == e || null == t
       ? null
-      : e.replace(/\/$/, "") + "/" + t.replace(/^\//, ""),
+      : e.replace(/\/$/, '') + '/' + t.replace(/^\//, ''),
   $warn = console ? console.warn : () => {},
   FileType = {
     FILE: 32768,
@@ -2981,9 +2981,9 @@ const ERROR_SOURCE = "filesystem",
 class Stats {
   constructor({ size: e, mode: t, atimeMs: n = null, mtimeMs: i, ctimeMs: o }) {
     let a = Date.now();
-    (this.atimeMs = "number" != typeof n ? a : n),
-      (this.mtimeMs = "number" != typeof i ? a : i),
-      (this.ctimeMs = "number" != typeof o ? a : o),
+    (this.atimeMs = 'number' != typeof n ? a : n),
+      (this.mtimeMs = 'number' != typeof i ? a : i),
+      (this.ctimeMs = 'number' != typeof o ? a : o),
       (this.size = e),
       (this.mode = Stats.normalizeMode(t)),
       (this.uid = this.gid = this.ino = 0);
@@ -3039,95 +3039,95 @@ if (messageHandlers && messageHandlers.file && messageHandlers.system) {
     }
     showToast(e, t) {
       this._system.postMessage({
-        method: "showToast",
+        method: 'showToast',
         message: e,
         duration: t,
       });
     }
     launchWebView(e) {
       this._system.postMessage({
-        method: "launchWebView",
+        method: 'launchWebView',
         url: e,
       });
     }
     appVersion() {
-      return this.call("appVersion");
+      return this.call('appVersion');
     }
     versionName() {
-      return this.call("versionName");
+      return this.call('versionName');
     }
     clipboardText() {
-      return this.call("clipboardText");
+      return this.call('clipboardText');
     }
     getOrientation() {
-      return this.call("getOrientation");
+      return this.call('getOrientation');
     }
     getFileContent() {
-      return this.call("getFileContent");
+      return this.call('getFileContent');
     }
     getDirectory() {
-      return this.call("getDirectory");
+      return this.call('getDirectory');
     }
     mkdirp(e) {
-      return this.call("mkdirp", {
+      return this.call('mkdirp', {
         path: e,
       });
     }
     exists(e) {
-      return this.call("exists", {
+      return this.call('exists', {
         path: e,
       });
     }
     readFile(e, t) {
-      return this.call("readFile", {
+      return this.call('readFile', {
         path: e,
         encoding: t,
       });
     }
     remove(e) {
-      return this.call("remove", {
+      return this.call('remove', {
         path: e,
       });
     }
     readlink(e) {
-      return this.call("readlink", {
+      return this.call('readlink', {
         path: e,
       });
     }
     writelink(e, t) {
-      return this.call("writelink", {
+      return this.call('writelink', {
         path: e,
         target: t,
       });
     }
     write(e, t, n) {
-      return this.call("write", {
+      return this.call('write', {
         path: e,
         contents: t,
         base64: n,
       });
     }
     readdir(e, t, n) {
-      return this.call("readdir", {
+      return this.call('readdir', {
         path: e,
         skipFiles: t,
         skipFolders: n,
       });
     }
     readdirDeep(e, t, n) {
-      return this.call("readdirDeep", {
+      return this.call('readdirDeep', {
         path: e,
         files: t,
         folders: n,
       });
     }
     lstat(e) {
-      return this.call("lstat", {
+      return this.call('lstat', {
         path: e,
       });
     }
     mv(e, t) {
-      return this.call("mv", {
+      return this.call('mv', {
         src: e,
         target: t,
       });
@@ -3177,7 +3177,7 @@ class DeviceSystem {
   showToast(e, t) {
     const n = this._device;
     n && n.showToast
-      ? n.showToast(e, "long")
+      ? n.showToast(e, 'long')
       : (((t = t || {}).timeout = 3500), UI.message(e, t));
   }
   launchWebView(e) {
@@ -3191,7 +3191,7 @@ class DeviceSystem {
   async saveBase64(e, t) {
     const n = this._device;
     return n && n.saveBase64
-      ? n.saveBase64(Buffer.from(t).toString("base64"), e)
+      ? n.saveBase64(Buffer.from(t).toString('base64'), e)
       : saveAs(new Blob([t]), e);
   }
   async appVersion() {
@@ -3240,7 +3240,7 @@ class DeviceFileSystem {
           e.mv
         )),
       this._supported ||
-        $warn("DeviceFileSystem is not operational: interface missing");
+        $warn('DeviceFileSystem is not operational: interface missing');
   }
   get legacy() {
     return this.device.appVersion && this.device.appVersion() <= 33;
@@ -3257,14 +3257,14 @@ class DeviceFileSystem {
     const { contents: n } = await DeviceFileSystem.promisifyStatus(
       await this.device.readFile(e, t)
     );
-    return "utf8" === t ? n : Buffer.from(n, "base64");
+    return 'utf8' === t ? n : Buffer.from(n, 'base64');
   }
   async remove(e) {
     if (e === this._directory)
       throw new ExtError({
-        name: "CriticalDeletionError",
+        name: 'CriticalDeletionError',
         src: `${this.constructor.name}:remove`,
-        message: "Critical deletion error.",
+        message: 'Critical deletion error.',
         code: GlobalErrorCodes.CriticalDeletionError,
       });
     return DeviceFileSystem.promisifyStatus(await this.device.remove(e));
@@ -3334,9 +3334,9 @@ class DeviceFileSystem {
   }
   static async promisifyStatus(e) {
     switch (e) {
-      case "{}":
+      case '{}':
         return {};
-      case "[]":
+      case '[]':
         return [];
       default: {
         const t = tryParseJSON(e);
@@ -3400,7 +3400,7 @@ class GitFileSystem {
     if (t) return t;
     throw new ExtError({
       src: `${this.constructor.name}:inodePath`,
-      message: "Could not find inode.",
+      message: 'Could not find inode.',
       inode: e,
       code: GlobalErrorCodes.INodeNotFound,
     });
@@ -3453,7 +3453,7 @@ class GitFileSystem {
     if (((e = normalizePath(e)), (t = normalizePath(t)), e === t)) return;
     if (await this.exists(t))
       throw new ExtError({
-        name: "DestinationExists",
+        name: 'DestinationExists',
         src: `${this.constructor.name}:mv`,
         message: RES_I18N.ErrorMessages.ExistsFor(RES_I18N.Objects.TargetPath),
         path: t,
@@ -3469,12 +3469,12 @@ class GitFileSystem {
             path: t,
             mtimeMs: Date.now(),
           }),
-          (s = "file");
+          (s = 'file');
       else {
         const n = await this.lookupFolder(e);
         if (!n)
           throw new ExtError({
-            name: "SourceNotFound",
+            name: 'SourceNotFound',
             src: `${this.constructor.name}:mv`,
             message: RES_I18N.ErrorMessages.NotExistsFor(
               RES_I18N.Objects.SourcePath
@@ -3486,14 +3486,14 @@ class GitFileSystem {
           await this.mkdir(dirname(t));
           const o = Date.now();
           await i.files
-            .where("path")
-            .startsWith(e + "/")
+            .where('path')
+            .startsWith(e + '/')
             .modify((n) => {
               (n.path = t + n.path.slice(e.length)), (n.mtimeMs = o);
             }),
             await i.folders
-              .where("path")
-              .startsWith(e + "/")
+              .where('path')
+              .startsWith(e + '/')
               .modify((n) => {
                 (n.path = t + n.path.slice(e.length)), (n.mtimeMs = o);
               }),
@@ -3501,21 +3501,21 @@ class GitFileSystem {
               path: t,
               mtimeMs: o,
             }),
-            (s = "folder");
+            (s = 'folder');
         }
       }
     }
     const { updateStatus: r, atomic: c } = n;
     return (
       c ||
-        ("file" === s
+        ('file' === s
           ? o.rename(e, t)
-          : "folder" === s &&
+          : 'folder' === s &&
             o.keys
-              .filter((t) => t.startsWith(e + "/"))
+              .filter((t) => t.startsWith(e + '/'))
               .forEach((n) => o.rename(n, n.replace(e, t))),
         await this.observable.run({
-          action: "mv",
+          action: 'mv',
           updateStatus: r,
           oldpath: e,
           path: t,
@@ -3540,22 +3540,22 @@ class GitFileSystem {
       const t = await this.lookupFile(e);
       if (t) {
         const e = await i.data.get(t.fid),
-          n = (e && e.text) || "",
-          a = (e && e.encoding) || "";
+          n = (e && e.text) || '',
+          a = (e && e.encoding) || '';
         return a
-          ? "utf8" === o && "utf8" === a
+          ? 'utf8' === o && 'utf8' === a
             ? n
             : o
             ? Buffer.from(n, a).toString(o)
             : Buffer.from(n, a)
-          : "utf8" === o
+          : 'utf8' === o
           ? n
           : o
           ? Buffer.from(n).toString(o)
           : Buffer.from(n);
       }
       throw new ExtError({
-        name: "FileNotFound",
+        name: 'FileNotFound',
         src: `${this.constructor.name}:read`,
         message: RES_I18N.ErrorMessages.NotExistsFor(RES_I18N.Objects.File),
         path: e,
@@ -3571,13 +3571,13 @@ class GitFileSystem {
   ) {
     e = normalizePath(e);
     const { _fs: n, _store: i } = this,
-      o = e.split("/").map((e, t, n) => n.slice(0, t + 1).join("/"));
+      o = e.split('/').map((e, t, n) => n.slice(0, t + 1).join('/'));
     let a;
     (a =
       n.supported && !isIDB(e)
         ? await n.mkdirp(e)
         : await i.folders
-            .where("path")
+            .where('path')
             .anyOf(o)
             .keys((e) => {
               const t = o.filter((t) => !e.includes(t));
@@ -3586,13 +3586,13 @@ class GitFileSystem {
       a &&
         !t.atomic &&
         (await this.observable.run({
-          action: "mkdir",
+          action: 'mkdir',
           path: e,
-          type: "folder",
+          type: 'folder',
         }));
   }
   async write(e, t, n) {
-    (e = normalizePath(e)), (t = t || "");
+    (e = normalizePath(e)), (t = t || '');
     let { mode: i, target: o, updateStatus: a, atomic: s } = n || {};
     const { _fs: r, _store: c } = this;
     await this.mkdir(dirname(e), {
@@ -3605,7 +3605,7 @@ class GitFileSystem {
         mtimeMs: u,
         size: h,
         mode: i,
-      } = await r.write(e, l ? Buffer.from(t).toString("base64") : t, l));
+      } = await r.write(e, l ? Buffer.from(t).toString('base64') : t, l));
     else {
       const n = await this.lookupFile(e),
         a = l ? castAsReadableArrayBuffer(t) : t;
@@ -3625,21 +3625,21 @@ class GitFileSystem {
         await c.data.put({
           fid: r,
           text: a,
-          encoding: l ? "binary" : "utf8",
+          encoding: l ? 'binary' : 'utf8',
         });
     }
     return (
       s ||
         (await this.observable.run({
-          action: "write",
+          action: 'write',
           path: e,
-          type: "file",
+          type: 'file',
           updateStatus: a,
         })),
       {
         mode: i,
         mtimeMs: u,
-        type: "file",
+        type: 'file',
         ino: 0,
         size: h,
       }
@@ -3673,7 +3673,7 @@ class GitFileSystem {
       } else c = !0;
     }
     if (c) {
-      const t = "file";
+      const t = 'file';
       if (o)
         return {
           oldpath: e,
@@ -3682,9 +3682,9 @@ class GitFileSystem {
         };
       r.del(e);
       const n = dirname(e);
-      return "." === n || "" === n || (await this.fileCount(n)) > 0
+      return '.' === n || '' === n || (await this.fileCount(n)) > 0
         ? (await this.observable.run({
-            action: "rm",
+            action: 'rm',
             updateStatus: i,
             oldpath: e,
             path: null,
@@ -3698,7 +3698,7 @@ class GitFileSystem {
         : this.rmdir(n);
     }
     throw new ExtError({
-      name: "RemoveFailed",
+      name: 'RemoveFailed',
       src: `${this.constructor.name}:rm`,
       message: `Could not remove ${e}.`,
       path: e,
@@ -3709,7 +3709,7 @@ class GitFileSystem {
     const { tmpDir: n, updateStatus: i } = t;
     e = normalizePath(e);
     const { _inodes: o, _fs: a, _store: s } = this,
-      r = e + "/";
+      r = e + '/';
     if ((o.keys.filter((e) => e.startsWith(r)).forEach((e) => o.del(e)), n))
       return this.mv(e, n + e, {
         updateStatus: i,
@@ -3720,7 +3720,7 @@ class GitFileSystem {
       if (t) {
         if (!t.isDirectory())
           throw new ExtError({
-            name: "NotADirectory",
+            name: 'NotADirectory',
             src: `${this.constructor.name}:rmdir`,
             message: `${e} is not a directory.`,
             path: e,
@@ -3730,18 +3730,18 @@ class GitFileSystem {
         a.supported && !isIDB(e)
           ? (n = await a.remove(e))
           : (await Promise.all([
-              s.folders.where("path").equals(e).delete(),
-              s.files.where("path").startsWith(r).delete(),
-              s.folders.where("path").startsWith(r).delete(),
+              s.folders.where('path').equals(e).delete(),
+              s.files.where('path').startsWith(r).delete(),
+              s.folders.where('path').startsWith(r).delete(),
             ]),
             (n = !0));
       } else n = !0;
       if (n) {
-        const t = "folder",
+        const t = 'folder',
           n = dirname(e);
-        return "." === n || "" === n || (await this.fileCount(n)) > 0
+        return '.' === n || '' === n || (await this.fileCount(n)) > 0
           ? (await this.observable.run({
-              action: "rmdir",
+              action: 'rmdir',
               updateStatus: i,
               oldpath: e,
               path: null,
@@ -3755,7 +3755,7 @@ class GitFileSystem {
           : this.rmdir(n);
       }
       throw new ExtError({
-        name: "RemoveFailed",
+        name: 'RemoveFailed',
         src: `${this.constructor.name}:rmdir`,
         message: `Could not remove ${e}.`,
         path: e,
@@ -3782,21 +3782,21 @@ class GitFileSystem {
       );
     const r = await this.lookupFolder(e);
     if (r) {
-      const e = r.path + "/",
+      const e = r.path + '/',
         t = e.length;
       let o = i
           ? []
           : a.folders
-              .where("path")
+              .where('path')
               .startsWith(e)
-              .filter((e) => !e.path.slice(t).includes("/"))
+              .filter((e) => !e.path.slice(t).includes('/'))
               .keys(),
         c = n
           ? []
           : a.files
-              .where("path")
+              .where('path')
               .startsWith(e)
-              .filter((e) => !e.path.slice(t).includes("/"))
+              .filter((e) => !e.path.slice(t).includes('/'))
               .keys();
       return (
         (s = (await o).concat(await c).map((e) => e.slice(t))),
@@ -3809,14 +3809,14 @@ class GitFileSystem {
   async readdirDeep(e, t) {
     const { files: n = !0, folders: i = !1, relative: o = !1 } = t || {},
       { _store: a, _fs: s } = this,
-      r = (e = normalizePath(e)) + "/",
+      r = (e = normalizePath(e)) + '/',
       c = r.length;
     let l;
     if (s.supported && !isIDB(e)) l = await s.readdirDeep(e, n, i);
     else {
       const [e, t] = await Promise.all([
-        n ? a.files.where("path").startsWith(r).keys() : [],
-        i ? a.folders.where("path").startsWith(r).keys() : [],
+        n ? a.files.where('path').startsWith(r).keys() : [],
+        i ? a.folders.where('path').startsWith(r).keys() : [],
       ]);
       l = t.concat(e);
     }
@@ -3882,10 +3882,10 @@ class GitFileSystem {
   async writelink(e, t) {
     e = normalizePath(e);
     const { _fs: n } = this,
-      i = t.toString("utf8");
+      i = t.toString('utf8');
     return n.supported && !isIDB(e)
       ? (await this.mkdir(dirname(e)), n.writelink(e, i))
-      : this.write(e, "", {
+      : this.write(e, '', {
           target: i,
           mode: FileTypeModes.SYMLINK,
         });
@@ -3902,9 +3902,9 @@ class GitFileSystem {
     );
   }
   static uuid4() {
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (e) => {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (e) => {
       const t = (16 * Math.random()) | 0;
-      return ("x" === e ? t : (3 & t) | 8).toString(16);
+      return ('x' === e ? t : (3 & t) | 8).toString(16);
     });
   }
   static compareStrings(e, t) {
@@ -3921,38 +3921,38 @@ var GitFileSystemClass = GitFileSystem,
   GFS = new GitFileSystem(DFS);
 class Environ {
   constructor(e, t) {
-    (this._fs = e), (this._ds = t), (this.locale = "en");
+    (this._fs = e), (this._ds = t), (this.locale = 'en');
   }
   resource(e) {
     return e
       ? isIDB(e)
-        ? join("/run", e)
-        : this._ds.resourceUrl(e) || join("/run", e)
+        ? join('/run', e)
+        : this._ds.resourceUrl(e) || join('/run', e)
       : e;
   }
   async projectConfigPathAsync() {
-    return this.filesDirAsync(".projects");
+    return this.filesDirAsync('.projects');
   }
   async gitConfigPathAsync() {
-    return this.filesDirAsync(".gitconfig");
+    return this.filesDirAsync('.gitconfig');
   }
   async settingsConfigPathAsync() {
-    return this.filesDirAsync(".settings");
+    return this.filesDirAsync('.settings');
   }
   async metadataDirAsync(e) {
     const t = await this.filesDirAsync();
-    return `${t}.metadata/${(e || "").replace(t, "")}`;
+    return `${t}.metadata/${(e || '').replace(t, '')}`;
   }
   async trashDirAsync(e) {
     const t = await this.filesDirAsync();
-    return `${t}.trash/${(e || "").replace(t, "")}`;
+    return `${t}.trash/${(e || '').replace(t, '')}`;
   }
   async tmpDirAsync(e) {
     const t = await this.filesDirAsync();
-    return `${t}.tmp/${(e || "").replace(t, "")}`;
+    return `${t}.tmp/${(e || '').replace(t, '')}`;
   }
   async filesDirAsync(e) {
-    return `${(await this.systemDirAsync()) || "idb/"}${e || ""}`;
+    return `${(await this.systemDirAsync()) || 'idb/'}${e || ''}`;
   }
   async systemDirAsync() {
     return this._fs.supported ? await this.resolveDir() : null;
@@ -4008,7 +4008,7 @@ function castAsReadableArrayBuffer(e) {
       ? e.buffer
       : e.buffer.slice(e.byteOffset, e.byteOffset + e.byteLength);
   if (Buffer.isBuffer(e)) return e.buffer;
-  throw new Error("Argument type not recognized: " + typeof e);
+  throw new Error('Argument type not recognized: ' + typeof e);
 }
 
 function GA_SendEvent(e, t, n, i) {
@@ -4018,7 +4018,7 @@ function GA_SendEvent(e, t, n, i) {
       e &&
       window.navigator &&
       navigator.onLine &&
-      window.gtag("event", e, {
+      window.gtag('event', e, {
         event_category: t,
         event_label: n,
         value: i,
@@ -4031,7 +4031,7 @@ function GA_SendException(e, t) {
     window.gtag &&
       window.navigator &&
       navigator.onLine &&
-      window.gtag("event", "exception", {
+      window.gtag('event', 'exception', {
         description: e,
         fatal: !!t,
       });
@@ -4040,7 +4040,7 @@ function GA_SendException(e, t) {
 
 function GA_SendEvent_Success(e, t, n, i) {
   return function (o) {
-    return GA_SendEvent(e + "_s", t, n, i), o;
+    return GA_SendEvent(e + '_s', t, n, i), o;
   };
 }
 
@@ -4049,9 +4049,9 @@ function GA_SendEvent_Failure(e, t) {
     try {
       if (n) {
         const i = `${window.$version}_${e}_${
-          "string" == typeof n.message ? n.message : n
+          'string' == typeof n.message ? n.message : n
         }`;
-        GA_SendEvent(e + "_f", t + "_f", i), GA_SendException(n.message);
+        GA_SendEvent(e + '_f', t + '_f', i), GA_SendException(n.message);
       }
     } catch (e) {}
     return Promise.reject(n);
@@ -4068,8 +4068,8 @@ function GA_SendEvent_Failure(e, t) {
   STAGED: 64,
 }),
   m
-    .module("metadata")
-    .require("session", "gitClient", "path", "set")
+    .module('metadata')
+    .require('session', 'gitClient', 'path', 'set')
     .__init__((e, { session: t, gitClient: n, path: i, set: o }) => {
       Object.assign(e, {
         gitClient: n,
@@ -4086,7 +4086,7 @@ function GA_SendEvent_Failure(e, t) {
       me: async function ({ action: e, projectDir: t }) {
         const n = this;
         switch (e) {
-          case "syncGit":
+          case 'syncGit':
             n.ge(), await n.ve(t), await n.we(t);
         }
       },
@@ -4122,14 +4122,14 @@ function GA_SendEvent_Failure(e, t) {
       _e: function (e, t, n, i) {
         const o = this;
         switch (e) {
-          case "write":
+          case 'write':
             return o.ke(n, i);
-          case "mv":
+          case 'mv':
             if (n === i) break;
-          case "rm":
-          case "rmdir":
-            if ("folder" === t) return o.ve(n);
-            if ("file" === t) return o.ke(n, i);
+          case 'rm':
+          case 'rmdir':
+            if ('folder' === t) return o.ve(n);
+            if ('file' === t) return o.ke(n, i);
         }
       },
       ve: async function (e) {
@@ -4141,7 +4141,7 @@ function GA_SendEvent_Failure(e, t) {
             t.Ce().map((e) => e.path),
             GFS.readdirDeep(e),
           ]),
-          s = e + "/",
+          s = e + '/',
           r = t.set
             .Ee(
               e === n ? i : i.filter((e) => e.startsWith(s)),
@@ -4172,13 +4172,13 @@ function GA_SendEvent_Failure(e, t) {
             });
         }
         await n.observable.run({
-          action: "updateStatus",
+          action: 'updateStatus',
           path: e,
           status: o,
         });
       },
       ge: function () {
-        (this._cache = {}), $LOG.log("[metadata] clear cache");
+        (this._cache = {}), $LOG.log('[metadata] clear cache');
       },
       $e: function (e) {
         return (
@@ -4198,7 +4198,7 @@ function GA_SendEvent_Failure(e, t) {
         const e = this.session.Ae(),
           t = await ENV.metadataDirAsync(e),
           n = await GFS.readFile(t, {
-            encoding: "utf8",
+            encoding: 'utf8',
           });
         return (this._cache = tryParseJSON(n) || {}), this.ve(e);
       },
@@ -4235,31 +4235,31 @@ function GA_SendEvent_Failure(e, t) {
         } = GitStatusTypes;
         let l = t;
         switch (
-          (e.includes("!") && (l |= n),
-          e.includes("*") || (l |= i),
-          (e = e.replace(/[*!]/g, "")))
+          (e.includes('!') && (l |= n),
+          e.includes('*') || (l |= i),
+          (e = e.replace(/[*!]/g, '')))
         ) {
-          case "absent":
-          case "unmodified":
+          case 'absent':
+          case 'unmodified':
             l |= o;
             break;
-          case "deleted":
+          case 'deleted':
             l |= a;
             break;
-          case "ignored":
+          case 'ignored':
             l |= s;
             break;
-          case "added":
+          case 'added':
             l |= r;
             break;
-          case "modified":
+          case 'modified':
             l |= c;
         }
         return l;
       },
     }),
   m
-    .module("model")
+    .module('model')
     .__init__(function (e) {
       Object.assign(e, {
         observable: new ObservableClass(),
@@ -4268,7 +4268,7 @@ function GA_SendEvent_Failure(e, t) {
     .def({
       W: function (e) {
         return IDB.meta
-          .where("key")
+          .where('key')
           .equals(e)
           .first()
           .then((e) => e && e.value);
@@ -4288,7 +4288,7 @@ function GA_SendEvent_Failure(e, t) {
         try {
           return JSON.parse(
             await GFS.readFile(await ENV.projectConfigPathAsync(), {
-              encoding: "utf8",
+              encoding: 'utf8',
             })
           );
         } catch (e) {
@@ -4307,11 +4307,11 @@ function GA_SendEvent_Failure(e, t) {
           Object.assign(i, t),
           await this.je(n),
           this.observable.run({
-            action: "update",
+            action: 'update',
             dir: e,
             changes: t,
             project: i,
-            type: "project",
+            type: 'project',
           })
         );
       },
@@ -4327,9 +4327,9 @@ function GA_SendEvent_Failure(e, t) {
           n = t.find((t) => t.dir === e);
         if (n) return n;
         throw new ExtError({
-          name: "ProjectNotFound",
-          src: "model:pvGetProjectAsync",
-          message: "Project not found.",
+          name: 'ProjectNotFound',
+          src: 'model:pvGetProjectAsync',
+          message: 'Project not found.',
           dir: e,
           projects: t,
           code: GlobalErrorCodes.ProjectNotFound,
@@ -4344,16 +4344,16 @@ function GA_SendEvent_Failure(e, t) {
         ]);
         try {
           await IDB.files
-            .where("path")
+            .where('path')
             .startsWith(`idb/${PathUtils.basename(t)}/`)
             .delete(),
             await IDB.folders
-              .where("path")
+              .where('path')
               .startsWith(`idb/${PathUtils.basename(t)}/`)
               .delete();
           const [e, n] = await Promise.all([
               IDB.data.toCollection().primaryKeys(),
-              IDB.files.orderBy("fid").uniqueKeys(),
+              IDB.files.orderBy('fid').uniqueKeys(),
             ]),
             i = e.filter((e) => !n.includes(e));
           i.length && (await IDB.data.bulkDelete(i));
@@ -4361,9 +4361,9 @@ function GA_SendEvent_Failure(e, t) {
           console.error(e);
         }
         return this.observable.run({
-          action: "delete",
+          action: 'delete',
           dir: t,
-          type: "project",
+          type: 'project',
         });
       },
       Oe: async function () {
@@ -4378,15 +4378,15 @@ function GA_SendEvent_Failure(e, t) {
             }
           },
           t = await ENV.systemDirAsync(),
-          [n, i, o] = await Promise.all([t ? e(t) : [], e("idb"), this.Pe()]),
+          [n, i, o] = await Promise.all([t ? e(t) : [], e('idb'), this.Pe()]),
           a = o.reduce((e, t) => (t.dir && (e[t.dir] = t), e), {}),
           s = [
-            ".projects",
-            ".settings",
-            ".tmp",
-            ".metadata",
-            ".gitconfig",
-            ".trash",
+            '.projects',
+            '.settings',
+            '.tmp',
+            '.metadata',
+            '.gitconfig',
+            '.trash',
           ];
         return n
           .concat(i)
@@ -4400,7 +4400,7 @@ function GA_SendEvent_Failure(e, t) {
           );
       },
       j: async function (e) {
-        "RISKY_STUFF" === e &&
+        'RISKY_STUFF' === e &&
           (await Promise.all([
             IDB.files.clear(),
             IDB.folders.clear(),
@@ -4414,16 +4414,16 @@ function GA_SendEvent_Failure(e, t) {
             ENV.metadataDirAsync().then((e) => GFS.rm(e)),
           ]),
           await this.observable.run({
-            action: "delete",
-            type: "projects",
+            action: 'delete',
+            type: 'projects',
           }));
       },
     }),
-  m.module("remote").def({
+  m.module('remote').def({
     Be: function ({ url: e, responseType: t, noCache: n }) {
       return new Promise(function (i, o) {
         const a = new XMLHttpRequest();
-        a.open("get", e + (n ? `?_=${new Date().getTime()}` : ""), !0),
+        a.open('get', e + (n ? `?_=${new Date().getTime()}` : ''), !0),
           (a.responseType = t),
           (a.onload = () => {
             if (200 === a.status) i(a.response);
@@ -4455,7 +4455,7 @@ function GA_SendEvent_Failure(e, t) {
     },
     F: function ({
       url: e,
-      responseType: t = "text",
+      responseType: t = 'text',
       noCache: n = !0,
       retryCount: i = 0,
       tries: o = 0,
@@ -4480,8 +4480,8 @@ function GA_SendEvent_Failure(e, t) {
     },
   }),
   m
-    .module("session")
-    .require("model", "progress", "prompt", "gitClient", "zipper")
+    .module('session')
+    .require('model', 'progress', 'prompt', 'gitClient', 'zipper')
     .__init__(function (
       e,
       { model: t, gitClient: n, progress: i, prompt: o, zipper: a }
@@ -4497,17 +4497,17 @@ function GA_SendEvent_Failure(e, t) {
       }),
         t.observable.subscribe(({ type: t, project: n, action: i, dir: o }) => {
           switch (t) {
-            case "project":
+            case 'project':
               if (e.Le(o))
                 switch (i) {
-                  case "delete":
+                  case 'delete':
                     return e.H();
-                  case "update":
+                  case 'update':
                     return e.Ge(n);
                 }
               break;
-            case "projects":
-              if ("delete" === i) return e.H();
+            case 'projects':
+              if ('delete' === i) return e.H();
           }
         });
     })
@@ -4530,9 +4530,9 @@ function GA_SendEvent_Failure(e, t) {
       H: async function () {
         return (
           await this.Ge(null),
-          await this.model.ze("currentProjectDir", null),
+          await this.model.ze('currentProjectDir', null),
           this.observable.run({
-            action: "close",
+            action: 'close',
           })
         );
       },
@@ -4541,19 +4541,19 @@ function GA_SendEvent_Failure(e, t) {
         return (
           t &&
             Object.assign(e, {
-              git: await GFS.exists(PathUtils.join(t, ".git/config")),
+              git: await GFS.exists(PathUtils.join(t, '.git/config')),
             }),
-          await this.model.ze("currentProjectDir", t),
+          await this.model.ze('currentProjectDir', t),
           (this._project = e),
           this.observable.run({
-            action: "setProject",
+            action: 'setProject',
             project: e,
           })
         );
       },
       Ve: function (e) {
         return this.observable.run({
-          action: "syncGit",
+          action: 'syncGit',
           projectDir: e,
         });
       },
@@ -4561,7 +4561,7 @@ function GA_SendEvent_Failure(e, t) {
         const t = this;
         let [n, i] = await Promise.all([t.model.N(e), ENV.filesDirAsync()]);
         const { olddir: o } = n,
-          a = PathUtils.basename(e) || "Unknown",
+          a = PathUtils.basename(e) || 'Unknown',
           s = await t.model.Ue(`${i}${a}`);
         return (
           PathUtils.isIDB(s) &&
@@ -4575,323 +4575,323 @@ function GA_SendEvent_Failure(e, t) {
             (n = await t.model.N(s))),
           await t.Ge(n),
           this.observable.run({
-            action: "open",
+            action: 'open',
             project: n,
           })
         );
       },
     }),
-  m.module("templates").__new__(function (e) {
+  m.module('templates').__new__(function (e) {
     (e.frameworks = {
       js: {
         angular: {
-          name: "Angular",
-          info: "Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target.",
+          name: 'Angular',
+          info: 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target.',
           templates: [
             {
-              path: "index.html",
-              src: "index.html",
+              path: 'index.html',
+              src: 'index.html',
             },
             {
-              path: "systemjs.config.js",
-              src: "angular-systemjs.config.js",
+              path: 'systemjs.config.js',
+              src: 'angular-systemjs.config.js',
               include: !0,
             },
             {
-              path: "app.ts",
-              src: "angular-app.ts",
+              path: 'app.ts',
+              src: 'angular-app.ts',
             },
             {
-              path: "main.ts",
-              src: "angular-main.ts",
+              path: 'main.ts',
+              src: 'angular-main.ts',
             },
             {
-              path: "app.html",
-              src: "angular-app.html",
+              path: 'app.html',
+              src: 'angular-app.html',
             },
           ],
           scripts: [
-            "//unpkg.com/core-js@2.5.7/client/shim.min.js",
-            "//unpkg.com/zone.js@0.8.26?main=browser",
-            "//unpkg.com/zone.js@0.8.26/dist/long-stack-trace-zone.js",
-            "//unpkg.com/reflect-metadata@0.1.8",
-            "//unpkg.com/systemjs@0.19.47/dist/system.js",
+            '//unpkg.com/core-js@2.5.7/client/shim.min.js',
+            '//unpkg.com/zone.js@0.8.26?main=browser',
+            '//unpkg.com/zone.js@0.8.26/dist/long-stack-trace-zone.js',
+            '//unpkg.com/reflect-metadata@0.1.8',
+            '//unpkg.com/systemjs@0.19.47/dist/system.js',
           ],
-          body: "<my-app>Loading...</my-app>",
-          defaultFile: "app.ts",
+          body: '<my-app>Loading...</my-app>',
+          defaultFile: 'app.ts',
         },
         angularjs: {
-          name: "AngularJS",
-          info: "AngularJS is what HTML would have been, had it been designed for building web-apps.",
+          name: 'AngularJS',
+          info: 'AngularJS is what HTML would have been, had it been designed for building web-apps.',
           templates: [
             {
-              path: "index.html",
-              src: "index.html",
+              path: 'index.html',
+              src: 'index.html',
             },
             {
-              path: "index.js",
-              src: "angularjs-index.js",
+              path: 'index.js',
+              src: 'angularjs-index.js',
               include: !0,
             },
           ],
-          bodyTemplate: "angularjs-body.html",
+          bodyTemplate: 'angularjs-body.html',
           scripts: [
-            "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js",
-            "https://cdn.jsdelivr.net/npm/angular@1.7.3/angular.min.js",
+            'https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/angular@1.7.3/angular.min.js',
           ],
-          defaultFile: "index.js",
+          defaultFile: 'index.js',
         },
         d3: {
-          name: "D3",
-          info: "Library for visualizing data using web standards. D3 helps you bring data to life using SVG, Canvas and HTML.",
+          name: 'D3',
+          info: 'Library for visualizing data using web standards. D3 helps you bring data to life using SVG, Canvas and HTML.',
           templates: [
             {
-              path: "index.html",
-              src: "index.html",
+              path: 'index.html',
+              src: 'index.html',
             },
             {
-              path: "index.js",
-              src: "d3-index.js",
+              path: 'index.js',
+              src: 'd3-index.js',
               include: !0,
             },
             {
-              path: "style.css",
-              src: "d3-style.css",
+              path: 'style.css',
+              src: 'd3-style.css',
               stylesheet: !0,
             },
           ],
-          scripts: ["https://cdn.jsdelivr.net/npm/d3@5.5.0/dist/d3.min.js"],
-          defaultFile: "index.js",
+          scripts: ['https://cdn.jsdelivr.net/npm/d3@5.5.0/dist/d3.min.js'],
+          defaultFile: 'index.js',
         },
         html: {
-          name: "HTML",
-          info: "Just a simple plain HTML page.",
+          name: 'HTML',
+          info: 'Just a simple plain HTML page.',
           templates: [
             {
-              path: "index.html",
-              src: "index.html",
+              path: 'index.html',
+              src: 'index.html',
             },
             {
-              path: "main.js",
-              src: "main.js",
+              path: 'main.js',
+              src: 'main.js',
               include: !0,
             },
             {
-              path: "style.css",
-              src: "style.css",
+              path: 'style.css',
+              src: 'style.css',
               stylesheet: !0,
             },
           ],
-          body: "<p>Nothing to see here...</p>",
+          body: '<p>Nothing to see here...</p>',
           scripts: [],
-          defaultFile: "main.js",
+          defaultFile: 'main.js',
         },
         react: {
-          name: "React",
-          info: "React will efficiently update and render just the right components when your data changes.",
-          scripts: ["//unpkg.com/systemjs@0.19.47/dist/system.js"],
+          name: 'React',
+          info: 'React will efficiently update and render just the right components when your data changes.',
+          scripts: ['//unpkg.com/systemjs@0.19.47/dist/system.js'],
           templates: [
             {
-              path: "index.html",
-              src: "index.html",
+              path: 'index.html',
+              src: 'index.html',
             },
             {
-              path: "config.js",
-              src: "react-config.js",
+              path: 'config.js',
+              src: 'react-config.js',
               include: !0,
             },
             {
-              path: "app.jsx",
-              src: "react-app.jsx",
+              path: 'app.jsx',
+              src: 'react-app.jsx',
             },
           ],
           body: '<div id="react-app"></div>',
-          defaultFile: "app.jsx",
+          defaultFile: 'app.jsx',
         },
         vue: {
-          name: "Vue.js",
-          info: "A progressive framework for building user interfaces. (Vue files are not supported.)",
+          name: 'Vue.js',
+          info: 'A progressive framework for building user interfaces. (Vue files are not supported.)',
           templates: [
             {
-              path: "index.html",
-              src: "index.html",
+              path: 'index.html',
+              src: 'index.html',
             },
             {
-              path: "app.js",
-              src: "vue-app.js",
+              path: 'app.js',
+              src: 'vue-app.js',
               include: !0,
             },
           ],
-          scripts: ["https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.min.js"],
-          bodyTemplate: "vue-body.html",
-          defaultFile: "app.js",
+          scripts: ['https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.min.js'],
+          bodyTemplate: 'vue-body.html',
+          defaultFile: 'app.js',
         },
       },
       css: {
         bootstrap: {
-          name: "Bootstrap",
-          info: "Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+          name: 'Bootstrap',
+          info: 'Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.',
           classes: {
-            container: "container text-center",
-            heading: "h2",
-            text: "lead",
+            container: 'container text-center',
+            heading: 'h2',
+            text: 'lead',
           },
           links: [
-            "https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/css/bootstrap.min.css",
+            'https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/css/bootstrap.min.css',
           ],
           scripts: [
-            "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js",
-            "https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/js/bootstrap.min.js",
+            'https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/js/bootstrap.min.js',
           ],
         },
         mdl: {
-          name: "Material Design Lite",
-          info: "A front-end template that helps you build fast, modern mobile web apps.",
+          name: 'Material Design Lite',
+          info: 'A front-end template that helps you build fast, modern mobile web apps.',
           classes: {
-            container: "mdl-grid mdl-typography--text-center",
-            heading: "mdl-layout-title mdl-cell--12-col",
-            text: "mdl-cell--12-col",
+            container: 'mdl-grid mdl-typography--text-center',
+            heading: 'mdl-layout-title mdl-cell--12-col',
+            text: 'mdl-cell--12-col',
           },
           links: [
-            "//fonts.googleapis.com/icon?family=Material+Icons",
-            "https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css",
+            '//fonts.googleapis.com/icon?family=Material+Icons',
+            'https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css',
           ],
           scripts: [
-            "https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.min.js",
+            'https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.min.js',
           ],
         },
         semantic_ui: {
-          name: "Semantic UI",
-          info: "Semantic is a UI component framework based around useful principles from natural language.",
+          name: 'Semantic UI',
+          info: 'Semantic is a UI component framework based around useful principles from natural language.',
           classes: {
-            container: "ui container",
-            heading: "header",
-            text: "text",
+            container: 'ui container',
+            heading: 'header',
+            text: 'text',
           },
           links: [
-            "https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css",
+            'https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css',
           ],
           scripts: [
-            "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js",
-            "https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.js",
+            'https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.js',
           ],
         },
         bulma: {
-          name: "Bulma",
-          info: "A lightweight and modular front-end framework for developing fast and powerful web interfaces.",
+          name: 'Bulma',
+          info: 'A lightweight and modular front-end framework for developing fast and powerful web interfaces.',
           classes: {
-            container: "container",
-            heading: "title",
-            text: "subtitle",
+            container: 'container',
+            heading: 'title',
+            text: 'subtitle',
           },
-          links: ["https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.min.css"],
-          scripts: ["https://use.fontawesome.com/releases/v5.3.1/js/all.js"],
+          links: ['https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.min.css'],
+          scripts: ['https://use.fontawesome.com/releases/v5.3.1/js/all.js'],
         },
         uikit: {
-          name: "UIkit",
-          info: "A lightweight and modular front-end framework for developing fast and powerful web interfaces.",
+          name: 'UIkit',
+          info: 'A lightweight and modular front-end framework for developing fast and powerful web interfaces.',
           classes: {
-            container: "uk-container uk-text-center",
-            heading: "uk-text-lead",
-            text: "uk-text-meta",
+            container: 'uk-container uk-text-center',
+            heading: 'uk-text-lead',
+            text: 'uk-text-meta',
           },
           links: [
-            "https://cdn.jsdelivr.net/npm/uikit@3.0.0-rc.11/dist/css/uikit.min.css",
+            'https://cdn.jsdelivr.net/npm/uikit@3.0.0-rc.11/dist/css/uikit.min.css',
           ],
           scripts: [
-            "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js",
-            "https://cdn.jsdelivr.net/npm/uikit@3.0.0-rc.11/dist/js/uikit.min.js",
+            'https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/uikit@3.0.0-rc.11/dist/js/uikit.min.js',
           ],
         },
       },
     }),
       (e.quotes = [
-        "Hard work pays off in the future. Laziness pays off now.",
-        "A closed mouth gathers no foot.",
-        "A dog is a dog unless he is facing you. Then he is Mr. Dog.",
-        "A neat desk is a sign of a cluttered desk drawer.",
-        "A sine curve goes off to infinity, or at least to the end of the blackboard.",
-        "Artificial intelligence is no match for natural stupidity.",
-        "Caution: do not look into laser with remaining eye.",
-        "Change is inevitable, except from a vending machine.",
-        "Democracy is four wolves and a lamb voting on what to have for lunch.",
+        'Hard work pays off in the future. Laziness pays off now.',
+        'A closed mouth gathers no foot.',
+        'A dog is a dog unless he is facing you. Then he is Mr. Dog.',
+        'A neat desk is a sign of a cluttered desk drawer.',
+        'A sine curve goes off to infinity, or at least to the end of the blackboard.',
+        'Artificial intelligence is no match for natural stupidity.',
+        'Caution: do not look into laser with remaining eye.',
+        'Change is inevitable, except from a vending machine.',
+        'Democracy is four wolves and a lamb voting on what to have for lunch.',
         "Diplomacy is the art of saying 'good doggie' while looking for a bigger stick.",
         "Don't personify computers - we don't like it.",
         "Do not worry about the world ending today, it's already tomorrow in Australia",
-        "Experience is something you get just after you need it.",
-        "Give a man a fish and you feed him for a day. Teach a man to fish, and you can sell him some tackle.",
-        "Happiness makes up in height what it lacks in length.",
-        "As a computer, I find your faith in technology amusing.",
+        'Experience is something you get just after you need it.',
+        'Give a man a fish and you feed him for a day. Teach a man to fish, and you can sell him some tackle.',
+        'Happiness makes up in height what it lacks in length.',
+        'As a computer, I find your faith in technology amusing.',
         "If it weren't for the last minute, nothing would get done.",
-        "My favourite scientific theory is that the rings of Saturn are made of lost airline luggage.",
-        "Never attribute to malice what can be adequately explained by stupidity.",
-        "Never test the depth of the water with both feet.",
+        'My favourite scientific theory is that the rings of Saturn are made of lost airline luggage.',
+        'Never attribute to malice what can be adequately explained by stupidity.',
+        'Never test the depth of the water with both feet.',
         "No problem is so big that you can't run away from it.",
-        "On the other hand... I have some fingers.",
-        "Personifiers of the world! Unite! You have nothing to lose but Mr. Dignity!",
+        'On the other hand... I have some fingers.',
+        'Personifiers of the world! Unite! You have nothing to lose but Mr. Dignity!',
         "Rome wasn't built in a day, it just looks like that.",
-        "Smash forehead on keyboard to continue.",
-        "The amount of sleep needed by the average person is ten minutes more.",
-        "The early bird gets the worm, but the early worm gets eaten.",
-        "Time flies like an arrow, fruit flies like a banana",
-        "To steal ideas from one person is plagiarism; to steal from many is research.",
-        "The person who knows how to laugh at himself will never cease to be amused",
-        "Where in the nursery rhyme does it say Humpty Dumpty is an egg?",
-        "The trouble with doing something right the first time, is nobody appreciates how difficult it was.",
-        "Be nice to other people; they outnumber you 5.5 billion to one. ",
-        "Talk is cheap because supply exceeds demand",
-        "There has been an alarming increase in the number of things you know absolutely nothing about.",
-        "For every problem there is a solution which is simple, neat and wrong. ",
-        "When you find yourself in a hole, the first thing to do is stop digging.",
+        'Smash forehead on keyboard to continue.',
+        'The amount of sleep needed by the average person is ten minutes more.',
+        'The early bird gets the worm, but the early worm gets eaten.',
+        'Time flies like an arrow, fruit flies like a banana',
+        'To steal ideas from one person is plagiarism; to steal from many is research.',
+        'The person who knows how to laugh at himself will never cease to be amused',
+        'Where in the nursery rhyme does it say Humpty Dumpty is an egg?',
+        'The trouble with doing something right the first time, is nobody appreciates how difficult it was.',
+        'Be nice to other people; they outnumber you 5.5 billion to one. ',
+        'Talk is cheap because supply exceeds demand',
+        'There has been an alarming increase in the number of things you know absolutely nothing about.',
+        'For every problem there is a solution which is simple, neat and wrong. ',
+        'When you find yourself in a hole, the first thing to do is stop digging.',
         "If it's stupid but works, it isn't stupid.",
-        "Anything free is worth the price.",
+        'Anything free is worth the price.',
         "Always listen to experts. They'll tell you what can't be done, and why. Then go and do it anyway.",
-        "Compromise is the art of dividing a cake so everyone believes he got the biggest piece. -Ludwig Erhard",
-        "It is better to have enough ideas for some of them to be wrong than to always be right by having no ideas at all. -Edward de Bono",
-        "Time is what keeps everything from happening all at once.",
-        "When all else fails, read the instructions.",
-        "There are 10 types of people in this world; those who understand the binary number system and those who do not",
+        'Compromise is the art of dividing a cake so everyone believes he got the biggest piece. -Ludwig Erhard',
+        'It is better to have enough ideas for some of them to be wrong than to always be right by having no ideas at all. -Edward de Bono',
+        'Time is what keeps everything from happening all at once.',
+        'When all else fails, read the instructions.',
+        'There are 10 types of people in this world; those who understand the binary number system and those who do not',
       ]);
   }),
   m
-    .module("templates")
-    .require("remote")
+    .module('templates')
+    .require('remote')
     .__init__(function (e, { remote: t }) {
       (e.remote = t),
-        (e.templateLocation = "assets/templates"),
+        (e.templateLocation = 'assets/templates'),
         (e.template = doT.template),
-        (doT.templateSettings.varname = "d"),
+        (doT.templateSettings.varname = 'd'),
         (doT.templateSettings.strip = !1);
     })
     .def({
       He: function () {
-        return "";
+        return '';
       },
       qe: function (e) {
         return beautifier.html(
           [
-            "<!DOCTYPE html>",
-            "<html>",
-            "<head>",
+            '<!DOCTYPE html>',
+            '<html>',
+            '<head>',
             '<meta charset="UTF-8">',
             '<meta name="viewport" content="width=device-width, initial-scale=1">',
-            "<title></title>",
-            "</head>",
-            "<body>",
-            "",
-            "</body>",
-            "</html>",
-          ].join("\n"),
+            '<title></title>',
+            '</head>',
+            '<body>',
+            '',
+            '</body>',
+            '</html>',
+          ].join('\n'),
           {
             tabString: e,
           }
         );
       },
       Ke: function () {
-        return "";
+        return '';
       },
       Ze: async function (e) {
-        const t = this.templateLocation + "/" + e;
+        const t = this.templateLocation + '/' + e;
         return doT.template(
           await this.remote.F({
             url: t,
@@ -4909,8 +4909,8 @@ function GA_SendEvent_Failure(e, t) {
             scripts: e.scripts || [],
             links: e.links || [],
             name: e.name,
-            headTemplate: doT.template(e.head || ""),
-            bodyTemplate: doT.template(e.body || ""),
+            headTemplate: doT.template(e.head || ''),
+            bodyTemplate: doT.template(e.body || ''),
           },
           i = [];
         return (
@@ -4933,80 +4933,80 @@ function GA_SendEvent_Failure(e, t) {
       },
     }),
   m
-    .module("date")
+    .module('date')
     .__new__(function (e) {
       Object.assign(e, {
         pastTenses: {
-          en: "ago",
-          es: "atrás",
-          ja: "前",
-          pt: "atrás",
-          ru: "назад",
-          zh: "前",
-          zhTW: "前",
+          en: 'ago',
+          es: 'atrás',
+          ja: '前',
+          pt: 'atrás',
+          ru: 'назад',
+          zh: '前',
+          zhTW: '前',
         },
         shortTimes: {
-          en: "moments ",
-          es: "momentos ",
-          ja: "一瞬",
-          pt: "momentos ",
-          ru: "минуту ",
-          zh: "不久",
-          zhTW: "不久",
+          en: 'moments ',
+          es: 'momentos ',
+          ja: '一瞬',
+          pt: 'momentos ',
+          ru: 'минуту ',
+          zh: '不久',
+          zhTW: '不久',
         },
         minuteAgo: {
-          en: "a minute ",
-          es: "un minuto ",
-          ja: "一分",
-          pt: "um minuto ",
-          ru: "минуту ",
-          zh: "一分钟",
-          zhTW: "一分鐘",
+          en: 'a minute ',
+          es: 'un minuto ',
+          ja: '一分',
+          pt: 'um minuto ',
+          ru: 'минуту ',
+          zh: '一分钟',
+          zhTW: '一分鐘',
         },
         minutesAgo: {
-          en: " minutes ",
-          es: " minutos ",
-          ja: "分",
-          pt: " minutos ",
-          ru: " минуты ",
-          zh: "分钟",
-          zhTW: "分鐘",
+          en: ' minutes ',
+          es: ' minutos ',
+          ja: '分',
+          pt: ' minutos ',
+          ru: ' минуты ',
+          zh: '分钟',
+          zhTW: '分鐘',
         },
         hourAgo: {
-          en: "an hour ",
-          es: "una hora ",
-          ja: "一時間",
-          pt: "uma hora ",
-          ru: "час ",
-          zh: "一个小时",
-          zhTW: "一個小時",
+          en: 'an hour ',
+          es: 'una hora ',
+          ja: '一時間',
+          pt: 'uma hora ',
+          ru: 'час ',
+          zh: '一个小时',
+          zhTW: '一個小時',
         },
         hoursAgo: {
-          en: " hours ",
-          es: " horas ",
-          ja: "時間",
-          pt: " horas ",
-          ru: " часа ",
-          zh: "小时",
-          zhTW: "小時",
+          en: ' hours ',
+          es: ' horas ',
+          ja: '時間',
+          pt: ' horas ',
+          ru: ' часа ',
+          zh: '小时',
+          zhTW: '小時',
         },
         dayAgo: {
-          en: "a day ",
-          es: "un día ",
-          ja: "一日",
-          pt: "um dia ",
-          ru: "день ",
-          zh: "一天",
-          zhTW: "一天",
+          en: 'a day ',
+          es: 'un día ',
+          ja: '一日',
+          pt: 'um dia ',
+          ru: 'день ',
+          zh: '一天',
+          zhTW: '一天',
         },
         daysAgo: {
-          en: " days ",
-          es: " dias ",
-          ja: "日",
-          pt: " dias ",
-          ru: " дня ",
-          zh: "天",
-          zhTW: "天",
+          en: ' days ',
+          es: ' dias ',
+          ja: '日',
+          pt: ' dias ',
+          ru: ' дня ',
+          zh: '天',
+          zhTW: '天',
         },
       });
     })
@@ -5024,24 +5024,24 @@ function GA_SendEvent_Failure(e, t) {
           } = this,
           u = this.Xe,
           h = (Date.now() - e) / 1e3,
-          d = n[n[t] ? t : "en"];
+          d = n[n[t] ? t : 'en'];
         let p;
         return (
           (p = isNaN(h)
-            ? "? "
+            ? '? '
             : h < 30
-            ? i[i[t] ? t : "en"]
+            ? i[i[t] ? t : 'en']
             : h < 120
-            ? o[o[t] ? t : "en"]
+            ? o[o[t] ? t : 'en']
             : h < 3600
-            ? u(h, 60) + a[a[t] ? t : "en"]
+            ? u(h, 60) + a[a[t] ? t : 'en']
             : h < 7200
-            ? s[s[t] ? t : "en"]
+            ? s[s[t] ? t : 'en']
             : h < 86400
-            ? u(h, 3600) + r[r[t] ? t : "en"]
+            ? u(h, 3600) + r[r[t] ? t : 'en']
             : h < 172800
-            ? c[c[t] ? t : "en"]
-            : u(h, 86400) + l[l[t] ? t : "en"]),
+            ? c[c[t] ? t : 'en']
+            : u(h, 86400) + l[l[t] ? t : 'en']),
           p + d
         );
       },
@@ -5050,153 +5050,153 @@ function GA_SendEvent_Failure(e, t) {
       },
     }),
   m
-    .module("path")
+    .module('path')
     .__new__(function (e) {
       e.BinaryExtensions = [
-        ".avi",
-        ".ogv",
-        ".ogg",
-        ".mov",
-        ".webm",
-        ".m4p",
-        ".m4v",
-        ".mp4",
-        ".mkv",
-        ".mov",
-        ".h261",
-        ".h263",
-        ".h264",
-        ".mts",
-        ".m2ts",
-        ".vob",
-        ".wmv",
-        ".rmvb",
-        ".rm",
-        ".amv",
-        ".gifv",
-        ".flv",
-        ".f4v",
-        ".f4a",
-        ".psd",
-        ".swf",
-        ".ai",
-        ".asf",
-        ".abf",
-        ".afm",
-        "acfm",
-        ".zip",
-        ".tar",
-        ".gz",
-        ".rar",
-        ".ai",
-        ".7z",
-        ".bzip",
-        ".lzma",
-        ".iso",
-        ".jar",
-        ".zipx",
-        ".ipa",
-        ".dmg",
-        ".exe",
-        ".msi",
-        ".war",
-        ".apk",
-        ".mpg",
-        ".mpeg",
-        ".mpe",
-        ".mpv",
-        ".mp2",
-        ".3gp",
-        ".aa",
-        ".aac",
-        ".aax",
-        ".act",
-        ".aiff",
-        ".alac",
-        ".amr",
-        ".ape",
-        ".au",
-        ".awb",
-        ".dct",
-        ".dss",
-        ".dvf",
-        ".flac",
-        ".gsm",
-        ".ivs",
-        ".m4a",
-        ".m4b",
-        ".m4p",
-        ".mp3",
-        ".mpc",
-        ".msv",
-        ".nsf",
-        ".oga",
-        ".mogg",
-        ".opus",
-        ".ra",
-        ".tta",
-        ".wav",
-        ".wma",
-        ".wv",
-        ".8svx",
-        ".3ds",
-        ".3dm",
-        ".fbx",
-        ".dae",
-        ".stp",
-        ".igs",
-        ".stl",
-        ".wrl",
-        ".ply",
-        ".obj",
-        ".off",
-        ".prt",
-        ".blend",
-        ".ppt",
-        ".pptx",
-        ".doc",
-        ".docm",
-        ".docx",
-        ".xls",
-        ".xlsx",
-        ".DS_Store",
-        ".jpe",
-        ".jpg",
-        ".jpeg",
-        ".jif",
-        ".jfif",
-        ".jfi",
-        ".ttf",
-        ".otf",
-        ".woff",
-        ".eot",
-        ".woff",
-        ".woff2",
-        ".gif",
-        ".tiff",
-        ".bmp",
-        ".apng",
-        ".mng",
-        ".png",
-        ".webp",
-        ".ico",
-        ".pdf",
-        ".raw",
-        ".heif",
-        ".indd",
-        ".eps",
-        ".tga",
-        ".dds",
+        '.avi',
+        '.ogv',
+        '.ogg',
+        '.mov',
+        '.webm',
+        '.m4p',
+        '.m4v',
+        '.mp4',
+        '.mkv',
+        '.mov',
+        '.h261',
+        '.h263',
+        '.h264',
+        '.mts',
+        '.m2ts',
+        '.vob',
+        '.wmv',
+        '.rmvb',
+        '.rm',
+        '.amv',
+        '.gifv',
+        '.flv',
+        '.f4v',
+        '.f4a',
+        '.psd',
+        '.swf',
+        '.ai',
+        '.asf',
+        '.abf',
+        '.afm',
+        'acfm',
+        '.zip',
+        '.tar',
+        '.gz',
+        '.rar',
+        '.ai',
+        '.7z',
+        '.bzip',
+        '.lzma',
+        '.iso',
+        '.jar',
+        '.zipx',
+        '.ipa',
+        '.dmg',
+        '.exe',
+        '.msi',
+        '.war',
+        '.apk',
+        '.mpg',
+        '.mpeg',
+        '.mpe',
+        '.mpv',
+        '.mp2',
+        '.3gp',
+        '.aa',
+        '.aac',
+        '.aax',
+        '.act',
+        '.aiff',
+        '.alac',
+        '.amr',
+        '.ape',
+        '.au',
+        '.awb',
+        '.dct',
+        '.dss',
+        '.dvf',
+        '.flac',
+        '.gsm',
+        '.ivs',
+        '.m4a',
+        '.m4b',
+        '.m4p',
+        '.mp3',
+        '.mpc',
+        '.msv',
+        '.nsf',
+        '.oga',
+        '.mogg',
+        '.opus',
+        '.ra',
+        '.tta',
+        '.wav',
+        '.wma',
+        '.wv',
+        '.8svx',
+        '.3ds',
+        '.3dm',
+        '.fbx',
+        '.dae',
+        '.stp',
+        '.igs',
+        '.stl',
+        '.wrl',
+        '.ply',
+        '.obj',
+        '.off',
+        '.prt',
+        '.blend',
+        '.ppt',
+        '.pptx',
+        '.doc',
+        '.docm',
+        '.docx',
+        '.xls',
+        '.xlsx',
+        '.DS_Store',
+        '.jpe',
+        '.jpg',
+        '.jpeg',
+        '.jif',
+        '.jfif',
+        '.jfi',
+        '.ttf',
+        '.otf',
+        '.woff',
+        '.eot',
+        '.woff',
+        '.woff2',
+        '.gif',
+        '.tiff',
+        '.bmp',
+        '.apng',
+        '.mng',
+        '.png',
+        '.webp',
+        '.ico',
+        '.pdf',
+        '.raw',
+        '.heif',
+        '.indd',
+        '.eps',
+        '.tga',
+        '.dds',
       ].reduce((e, t) => ((e[t] = 0), e), {});
     })
     .def({
       et: function (e) {
-        return e.includes("//")
-          ? "//"
-          : e.includes("\0")
-          ? "NUL"
-          : e.includes("\\")
-          ? "\\"
+        return e.includes('//')
+          ? '//'
+          : e.includes('\0')
+          ? 'NUL'
+          : e.includes('\\')
+          ? '\\'
           : void 0;
       },
       tt: function (e) {
@@ -5205,9 +5205,9 @@ function GA_SendEvent_Failure(e, t) {
       nt: function (e) {
         let t;
         return (
-          (t = e.indexOf("//") > -1 ? e.split("/")[2] : e.split("/")[0]),
-          (t = t.split(":")[0]),
-          (t = t.split("?")[0]),
+          (t = e.indexOf('//') > -1 ? e.split('/')[2] : e.split('/')[0]),
+          (t = t.split(':')[0]),
+          (t = t.split('?')[0]),
           t
         );
       },
@@ -5217,10 +5217,10 @@ function GA_SendEvent_Failure(e, t) {
           i = n.length;
         return (
           i > 2 &&
-            ((t = n[i - 2] + "." + n[i - 1]),
+            ((t = n[i - 2] + '.' + n[i - 1]),
             2 == n[i - 2].length &&
               2 == n[i - 1].length &&
-              (t = n[i - 3] + "." + t)),
+              (t = n[i - 3] + '.' + t)),
           t
         );
       },
@@ -5228,7 +5228,7 @@ function GA_SendEvent_Failure(e, t) {
         return /\/\.git\b/.test(e);
       },
     }),
-  m.module("set").def({
+  m.module('set').def({
     ot: function (e, t) {
       return e.filter(function (e) {
         return -1 === t.indexOf(e);
@@ -5242,46 +5242,46 @@ function GA_SendEvent_Failure(e, t) {
       });
     },
   }),
-  m.module("string").def({
+  m.module('string').def({
     at: function (e) {
       return e
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     },
     st: function (e) {
-      return e.replace(/[.*+?^${}()|\\[\]]/g, "\\$&");
+      return e.replace(/[.*+?^${}()|\\[\]]/g, '\\$&');
     },
     rt: function (e) {
-      return (e.match(/\n/g) || "").length + 1;
+      return (e.match(/\n/g) || '').length + 1;
     },
   }),
-  m.module("urlQuery").def({
+  m.module('urlQuery').def({
     ct: function () {
       return window.location.search;
     },
     o: function (e) {
-      const t = this.ct().substring(1).split("&");
+      const t = this.ct().substring(1).split('&');
       for (let n = 0; n < t.length; n++) {
-        let i = t[n].split("=");
+        let i = t[n].split('=');
         if (decodeURIComponent(i[0]) == e) return decodeURIComponent(i[1]);
       }
     },
   }),
   m
-    .module("vibrate")
+    .module('vibrate')
     .__new__((e) => {
       e.enabled = !0;
     })
     .def({
       lt: function () {
-        "vibrate" in navigator && this.enabled && navigator.vibrate(30);
+        'vibrate' in navigator && this.enabled && navigator.vibrate(30);
       },
     }),
   m
-    .module("zipper")
-    .require("path", "messages", "prompt", "progress")
+    .module('zipper')
+    .require('path', 'messages', 'prompt', 'progress')
     .__init__(function (e, { path: t, messages: n, prompt: i, progress: o }) {
       Object.assign(e, {
         path: t,
@@ -5290,56 +5290,56 @@ function GA_SendEvent_Failure(e, t) {
         progress: o,
       }),
         (zip.workerScripts = {
-          deflater: ["workers/worker_deflate.js"],
-          inflater: ["workers/worker_inflate.js"],
+          deflater: ['workers/worker_deflate.js'],
+          inflater: ['workers/worker_inflate.js'],
         }),
         (e.ZipErrorMessages = {
           ERR_BAD_FORMAT: {
-            en: "File format is not recognized.",
-            es: "El formato del archivo no se reconoce.",
-            ja: "ファイル形式が認識されません。",
-            pt: "O formato do arquivo não é reconhecido.",
-            ru: "Формат файла не распознан.",
-            zh: "无法识别文件格式。",
-            zhTW: "無法識別文件格式。",
+            en: 'File format is not recognized.',
+            es: 'El formato del archivo no se reconoce.',
+            ja: 'ファイル形式が認識されません。',
+            pt: 'O formato do arquivo não é reconhecido.',
+            ru: 'Формат файла не распознан.',
+            zh: '无法识别文件格式。',
+            zhTW: '無法識別文件格式。',
           },
           ERR_BAD_ENCODING: {
-            en: "File encoding is not recognized. Please recreate ZIP file with UTF-8 encoding.",
-            es: "La codificación del archivo no se reconoce. Vuelva a crear el archivo ZIP con codificación UTF-8.",
-            ja: "ファイルのエンコードは認識されません。 UTF-8エンコードでZIPファイルを再作成してください。",
-            pt: "A codificação de arquivo não é reconhecida. Recrie o arquivo ZIP com a codificação UTF-8.",
-            ru: "Кодировка файла не распознается. Пожалуйста, заново создайте ZIP-файл с кодировкой UTF-8.",
-            zh: "无法识别文件编码。 请使用UTF-8编码重新创建ZIP文件。",
-            zhTW: "無法識別文件編碼。 請使用UTF-8編碼重新創建ZIP文件。",
+            en: 'File encoding is not recognized. Please recreate ZIP file with UTF-8 encoding.',
+            es: 'La codificación del archivo no se reconoce. Vuelva a crear el archivo ZIP con codificación UTF-8.',
+            ja: 'ファイルのエンコードは認識されません。 UTF-8エンコードでZIPファイルを再作成してください。',
+            pt: 'A codificação de arquivo não é reconhecida. Recrie o arquivo ZIP com a codificação UTF-8.',
+            ru: 'Кодировка файла не распознается. Пожалуйста, заново создайте ZIP-файл с кодировкой UTF-8.',
+            zh: '无法识别文件编码。 请使用UTF-8编码重新创建ZIP文件。',
+            zhTW: '無法識別文件編碼。 請使用UTF-8編碼重新創建ZIP文件。',
           },
-          ERR_CRC: "CRC failed.",
+          ERR_CRC: 'CRC failed.',
           ERR_ENCRYPTED: {
-            en: "File contains encrypted entry.",
-            es: "El archivo contiene una entrada encriptada.",
-            ja: "ファイルには暗号化されたエントリが含まれています。",
-            pt: "O arquivo contém entrada criptografada.",
-            ru: "Файл содержит зашифрованную запись.",
-            zh: "文件包含加密的条目。",
-            zhTW: "文件包含加密的條目。",
+            en: 'File contains encrypted entry.',
+            es: 'El archivo contiene una entrada encriptada.',
+            ja: 'ファイルには暗号化されたエントリが含まれています。',
+            pt: 'O arquivo contém entrada criptografada.',
+            ru: 'Файл содержит зашифрованную запись.',
+            zh: '文件包含加密的条目。',
+            zhTW: '文件包含加密的條目。',
           },
           ERR_ZIP64: {
-            en: "File is using Zip64 (4gb+ file size).",
-            es: "El archivo está usando Zip64 (4 gb + tamaño de archivo).",
-            pt: "O arquivo está usando o Zip64 (4 GB + tamanho do arquivo).",
-            ru: "Файл использует Zip64 (4 ГБ + размер файла).",
-            zh: "文件正在使用Zip64（4GB以上的文件大小）。",
+            en: 'File is using Zip64 (4gb+ file size).',
+            es: 'El archivo está usando Zip64 (4 gb + tamaño de archivo).',
+            pt: 'O arquivo está usando o Zip64 (4 GB + tamanho do arquivo).',
+            ru: 'Файл использует Zip64 (4 ГБ + размер файла).',
+            zh: '文件正在使用Zip64（4GB以上的文件大小）。',
           },
           ERR_READ: {
-            en: "Error while reading zip file.",
+            en: 'Error while reading zip file.',
           },
           ERR_WRITE: {
-            en: "Error while writing zip file.",
+            en: 'Error while writing zip file.',
           },
           ERR_WRITE_DATA: {
-            en: "Error while writing file data.",
+            en: 'Error while writing file data.',
           },
           ERR_READ_DATA: {
-            en: "Error while reading file data.",
+            en: 'Error while reading file data.',
           },
           ERR_DUPLICATED_NAME: RES_I18N.ErrorMessages.ExistsFor(
             RES_I18N.Objects.File
@@ -5351,28 +5351,28 @@ function GA_SendEvent_Failure(e, t) {
         const t = this;
         e &&
           t.prompt.q(
-            RES_I18N.Actions.Export(RES_I18N.Objects.Echo("ZIP")),
+            RES_I18N.Actions.Export(RES_I18N.Objects.Echo('ZIP')),
             PathUtils.basename(e),
             {
               message: RES_I18N.Actions.Enter(
-                RES_I18N.Objects.NameFor(RES_I18N.Objects.Echo("ZIP"))
+                RES_I18N.Objects.NameFor(RES_I18N.Objects.Echo('ZIP'))
               ),
               showInput: !0,
               onResult: function (n) {
                 return t
                   .ht(e, n)
                   .then(
-                    GA_SendEvent_Success("export_zip", "zip"),
-                    GA_SendEvent_Failure("export_zip", "zip")
+                    GA_SendEvent_Success('export_zip', 'zip'),
+                    GA_SendEvent_Failure('export_zip', 'zip')
                   )
                   .catch(function (e) {
                     throw (
-                      (t.messages.dt("exportZipError"),
+                      (t.messages.dt('exportZipError'),
                       t.ZipErrorMessages[e] &&
                         t.prompt.ue(
                           RES_I18N.Actions.Failed(
                             RES_I18N.Actions.Export(
-                              RES_I18N.Objects.Echo("ZIP")
+                              RES_I18N.Objects.Echo('ZIP')
                             )
                           ),
                           t.ZipErrorMessages[e]
@@ -5417,8 +5417,8 @@ function GA_SendEvent_Failure(e, t) {
                     t.close(e);
                   }).then(
                     (t) => (
-                      (e = e || "Unknown"),
-                      (e = PathUtils.hasExt(e, ".zip") ? e : e + ".zip"),
+                      (e = e || 'Unknown'),
+                      (e = PathUtils.hasExt(e, '.zip') ? e : e + '.zip'),
                       DS.saveBase64(e, t)
                     )
                   );
@@ -5536,7 +5536,7 @@ function GA_SendEvent_Failure(e, t) {
               n.ZipErrorMessages[e] &&
                 n.prompt.ue(
                   RES_I18N.Actions.Failed(
-                    RES_I18N.Actions.Export(RES_I18N.Objects.Echo("ZIP"))
+                    RES_I18N.Actions.Export(RES_I18N.Objects.Echo('ZIP'))
                   ),
                   n.ZipErrorMessages[e]
                 ),
@@ -5546,14 +5546,14 @@ function GA_SendEvent_Failure(e, t) {
         });
       },
     }),
-  m.module("card").__new__(function (e) {
+  m.module('card').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         $defaults: {
-          tagClass: "x-card",
-          width: "40",
-          label: "",
+          tagClass: 'x-card',
+          width: '40',
+          label: '',
           accessoryIcon:
             '<i class="uk-icon-chevron-right uk-icon-large" style="margin-left:auto"></i>',
         },
@@ -5561,23 +5561,23 @@ function GA_SendEvent_Failure(e, t) {
           '<div class="uk-flex uk-flex-middle">',
           '<div class="uk-margin-large-right">',
           '<svg viewBox="{{viewBox}}" width="{{width}}">',
-          "{{svg}}",
-          "</svg>",
-          "</div>",
+          '{{svg}}',
+          '</svg>',
+          '</div>',
           '<div class="uk-margin-top">',
-          "<h5>{{title}}</h5>",
+          '<h5>{{title}}</h5>',
           '<p class="uk-margin-large-right">{{label}}</p>',
-          "</div>",
-          "{{accessoryIcon}}",
-          "</div>",
-        ].join(""),
+          '</div>',
+          '{{accessoryIcon}}',
+          '</div>',
+        ].join(''),
       },
       UI.definitions.link
     );
   }),
   m
-    .module("fileBreadcrumb")
-    .require("fileTree")
+    .module('fileBreadcrumb')
+    .require('fileTree')
     .__init__(function (e, { fileTree: t }) {
       Object.assign(e, {
         fileTree: t,
@@ -5588,27 +5588,27 @@ function GA_SendEvent_Failure(e, t) {
         {
           __name__: e.__name__,
           $defaults: {
-            listStyle: "breadcrumb",
-            tagClass: "x-file-breadcrumb",
+            listStyle: 'breadcrumb',
+            tagClass: 'x-file-breadcrumb',
           },
           getFullPath: function () {
             return this._fullPath;
           },
           setFullPath: function (t) {
-            (this._fullPath = t = t || ""),
-              "" === t
+            (this._fullPath = t = t || ''),
+              '' === t
                 ? this.setData([])
                 : this.setData(
-                    t.split("/").map((t, n, i) => ({
-                      view: "link",
+                    t.split('/').map((t, n, i) => ({
+                      view: 'link',
                       label:
                         (n === i.length - 1
                           ? e.fileTree.wt(t)
                           : e.fileTree.bt(e.fileTree.svg.openFolder, 30, 15)) +
-                        "<span>" +
+                        '<span>' +
                         t +
-                        "</span>",
-                      path: i.slice(0, n + 1).join("/"),
+                        '</span>',
+                      path: i.slice(0, n + 1).join('/'),
                     }))
                   );
           },
@@ -5617,8 +5617,8 @@ function GA_SendEvent_Failure(e, t) {
       );
     }),
   m
-    .module("fileSelect")
-    .require("path", "session")
+    .module('fileSelect')
+    .require('path', 'session')
     .__init__((e, { path: t, session: n }) => {
       Object.assign(e, {
         path: t,
@@ -5634,15 +5634,15 @@ function GA_SendEvent_Failure(e, t) {
             if (0 == t.length)
               n.setData([
                 {
-                  value: "",
-                  label: "No file selected",
+                  value: '',
+                  label: 'No file selected',
                   selected: !0,
                 },
               ]),
                 n.disable(),
                 (n.paths = null);
             else {
-              const i = e.session.Ae() || "";
+              const i = e.session.Ae() || '';
               n.setData(
                 (function (e, t) {
                   return e.map(function (e) {
@@ -5653,7 +5653,7 @@ function GA_SendEvent_Failure(e, t) {
                   });
                 })(t, i)
               ),
-                n.setActive("label", "index.html"),
+                n.setActive('label', 'index.html'),
                 n.enable(),
                 (n.paths = t);
             }
@@ -5670,7 +5670,7 @@ function GA_SendEvent_Failure(e, t) {
         UI.definitions.select
       );
     }),
-  m.module("fileTree").__new__(function (e) {
+  m.module('fileTree').__new__(function (e) {
     e.svg = {
       assetFile:
         '<path fill="#51DB78" d="M 2,0 2,18 16,18 16,5.4 10.75,0 z m 7.875,6.3 0,-4.95 4.8125,4.95 z"></path>',
@@ -5689,21 +5689,21 @@ function GA_SendEvent_Failure(e, t) {
     };
   }),
   m
-    .module("fileTree")
+    .module('fileTree')
     .__init__((e) => {
       UI.def(
         {
           __name__: e.__name__,
           $defaults: {
             indentWidth: 12,
-            tagClass: "x-file-tree",
+            tagClass: 'x-file-tree',
           },
           template: function (t) {
             const n = this.config.allowDrag;
-            let i = "";
+            let i = '';
             return (
               (i = t.search
-                ? ""
+                ? ''
                 : '<span class="x-tree-icon" style="margin-left:{{margin}}px"><i class="uk-icon-{{chevron}}"></i></span><span class="uk-active-line"></span>{{svg}}'),
               UI.interpolate(
                 '<a class="uk-flex-middle uk-flex {{itemClass}} {{statusClass}}">' +
@@ -5711,10 +5711,10 @@ function GA_SendEvent_Failure(e, t) {
                   '<span class="x-text-overflow-ellipsis uk-flex-item-1">{{label}}</span>' +
                   (n
                     ? '<i class="uk-hidden-notouch uk-icon-more-vertical menu"></i>'
-                    : "") +
-                  "</a>",
+                    : '') +
+                  '</a>',
                 {
-                  itemClass: t.cls || "x-tree-item",
+                  itemClass: t.cls || 'x-tree-item',
                   statusClass: e.yt(t.status),
                   chevron: e.St(t),
                   svg: e.xt(t),
@@ -5741,16 +5741,16 @@ function GA_SendEvent_Failure(e, t) {
       St: function (e) {
         return e.$children && e.$children.length > 0
           ? e.$closed
-            ? "chevron-right"
-            : "chevron-down"
-          : "";
+            ? 'chevron-right'
+            : 'chevron-down'
+          : '';
       },
       xt: function (e) {
         const t = this;
         let n;
         return (
           (n = e.search
-            ? ""
+            ? ''
             : e.file
             ? e.isDefaultLaunchFile
               ? t.svg.defaultFile
@@ -5785,60 +5785,60 @@ function GA_SendEvent_Failure(e, t) {
           IGNORED: a,
         } = GitStatusTypes;
         return e & t
-          ? "x-git-conflict"
+          ? 'x-git-conflict'
           : e & n
-          ? "x-git-changed"
+          ? 'x-git-changed'
           : e & i
-          ? "x-git-new"
+          ? 'x-git-new'
           : e & o
-          ? "x-git-deleted"
+          ? 'x-git-deleted'
           : e & a
-          ? "x-git-ignored"
-          : "";
+          ? 'x-git-ignored'
+          : '';
       },
       _t: function (e) {
         const t = this;
         switch (PathUtils.ext(e)) {
-          case ".png":
-          case ".gif":
-          case ".svg":
-          case ".jpg":
-          case ".jpeg":
-          case ".bmp":
-          case ".woff":
-          case ".woff2":
-          case ".eot":
-          case ".ttf":
-          case ".otf":
-          case ".mp3":
-          case ".acc":
-          case ".flac":
-          case ".ogg":
-          case ".wav":
+          case '.png':
+          case '.gif':
+          case '.svg':
+          case '.jpg':
+          case '.jpeg':
+          case '.bmp':
+          case '.woff':
+          case '.woff2':
+          case '.eot':
+          case '.ttf':
+          case '.otf':
+          case '.mp3':
+          case '.acc':
+          case '.flac':
+          case '.ogg':
+          case '.wav':
             return t.svg.assetFile;
-          case ".css":
-          case ".scss":
-          case ".sass":
-          case ".less":
+          case '.css':
+          case '.scss':
+          case '.sass':
+          case '.less':
             return t.svg.styleFile;
-          case ".js":
-          case ".jsx":
-          case ".ts":
-          case ".coffee":
+          case '.js':
+          case '.jsx':
+          case '.ts':
+          case '.coffee':
             return t.svg.scriptFile;
-          case ".html":
-          case ".htm":
-          case ".xhtml":
-          case ".xml":
-          case ".csv":
+          case '.html':
+          case '.htm':
+          case '.xhtml':
+          case '.xml':
+          case '.csv':
           default:
             return t.svg.textFile;
         }
       },
     }),
   m
-    .module("keyButton")
-    .require("keyOption", "vibrate")
+    .module('keyButton')
+    .require('keyOption', 'vibrate')
     .__init__(function (e, t) {
       UI.def(
         {
@@ -5846,7 +5846,7 @@ function GA_SendEvent_Failure(e, t) {
           $events: {
             touchstart: {
               lazy: !1,
-              dispatch: "onTouchStart",
+              dispatch: 'onTouchStart',
               passive: !0,
             },
             mousedown: {
@@ -5858,10 +5858,10 @@ function GA_SendEvent_Failure(e, t) {
             },
           },
           $defaults: {
-            tagClass: "x-key-button",
-            dropdownEvent: "onOpenDropdown",
+            tagClass: 'x-key-button',
+            dropdownEvent: 'onOpenDropdown',
             dropdownOptions: {
-              dropdownClass: "x-key-popup",
+              dropdownClass: 'x-key-popup',
               blank: !0,
             },
           },
@@ -5869,11 +5869,11 @@ function GA_SendEvent_Failure(e, t) {
             (n.dropdownOptions = UI.defaults(
               {
                 marginX: n.offset || 0,
-                pos: n.pos || "top-center",
+                pos: n.pos || 'top-center',
               },
               n.dropdownOptions
             )),
-              this.addListener("onTouchStart", function (n, i, o) {
+              this.addListener('onTouchStart', function (n, i, o) {
                 if (!e.activeKey) {
                   const n = this;
                   t.vibrate.lt(),
@@ -5890,7 +5890,7 @@ function GA_SendEvent_Failure(e, t) {
                       !e.touchReleased &&
                         Math.abs(e.deltaX) < 50 &&
                         Math.abs(e.deltaY < 50) &&
-                        n.dispatch("onOpenDropdown", [n.config, n.element]);
+                        n.dispatch('onOpenDropdown', [n.config, n.element]);
                     }, 750);
                 }
               });
@@ -5952,42 +5952,42 @@ function GA_SendEvent_Failure(e, t) {
           }
         }));
     }),
-  m.module("keyOption").__new__(function (e) {
+  m.module('keyOption').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         $defaults: {
-          tagClass: "x-key-option",
+          tagClass: 'x-key-option',
         },
         select: function () {
-          UI.addClass(this.element, "uk-active");
+          UI.addClass(this.element, 'uk-active');
         },
         deselect: function () {
-          UI.removeClass(this.element, "uk-active");
+          UI.removeClass(this.element, 'uk-active');
         },
       },
       UI.definitions.link
     );
   }),
-  m.module("keybindingLink").__new__(function (e) {
+  m.module('keybindingLink').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         $defaults: {
-          tagClass: "x-keybinding-link",
-          editorId: "mainEditor",
-          command: "",
+          tagClass: 'x-keybinding-link',
+          editorId: 'mainEditor',
+          command: '',
         },
         template: function (e) {
           const t = $$(this.editorId);
-          let n = "<span>{{label}}</span>";
+          let n = '<span>{{label}}</span>';
           if (t && e.command) {
             const i = t.$editor.$ace.commands,
               o = i.byName[e.command];
             if (o) {
               let e = o.bindKey[i.platform];
               e &&
-                ((e = e.split("|")[0]),
+                ((e = e.split('|')[0]),
                 (n += UI.interpolate('<span="uk-notouch">{{key}}</span>', {
                   key: e,
                 })));
@@ -5999,22 +5999,22 @@ function GA_SendEvent_Failure(e, t) {
       UI.definitions.link
     );
   }),
-  m.module("menuIcon").__new__(function (e) {
+  m.module('menuIcon').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         $defaults: {
-          tagClass: "x-menu-icon",
+          tagClass: 'x-menu-icon',
         },
         $events: {
           touchstart: {
             lazy: !0,
-            dispatch: "onMouseDown",
+            dispatch: 'onMouseDown',
             passive: !0,
           },
           mousedown: {
             lazy: !0,
-            dispatch: "onMouseDown",
+            dispatch: 'onMouseDown',
             defaultEvent: !1,
             callback: function () {
               return !1;
@@ -6025,53 +6025,53 @@ function GA_SendEvent_Failure(e, t) {
       UI.definitions.icon
     );
   }),
-  m.module("touchIcon").__new__(function (e) {
+  m.module('touchIcon').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         $events: {
           touchstart: {
             lazy: !1,
-            dispatch: "onTouchStart",
+            dispatch: 'onTouchStart',
             passive: !0,
           },
           touchend: {
             lazy: !0,
-            dispatch: "onTouchEnd",
+            dispatch: 'onTouchEnd',
           },
         },
       },
       UI.definitions.menuIcon
     );
   }),
-  m.module("menuTitle").__new__(function (e) {
+  m.module('menuTitle').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         $defaults: {
           visible: !0,
           collapsable: !0,
-          tagClass: "x-menu-title",
+          tagClass: 'x-menu-title',
         },
         $events: {
           click: {
-            dispatch: "onClick",
+            dispatch: 'onClick',
             defaultEvent: !0,
           },
         },
         __after__: function () {
           (this.$onClickListenerId = this.addListener(
-            "onClick",
+            'onClick',
             this._onToggle
           )),
             this.updateLabel();
         },
         _onToggle: function (e, t, n) {
           e.collapsable &&
-            (this.dispatch("onToggle", [e, t, n]),
+            (this.dispatch('onToggle', [e, t, n]),
             (this.config.visible = !e.visible),
             this.updateLabel(),
-            this.dispatch("onToggled", [e, t, n]));
+            this.dispatch('onToggled', [e, t, n]));
         },
         updateLabel: function () {
           const { visible: e, label: t, collapsable: n } = this.config,
@@ -6083,11 +6083,11 @@ function GA_SendEvent_Failure(e, t) {
 
               );
               return e;
-            })(this.el, ".x-menu-title-bar");
-          e ? UI.removeClass(i, "collapsed") : UI.addClass(i, "collapsed"),
+            })(this.el, '.x-menu-title-bar');
+          e ? UI.removeClass(i, 'collapsed') : UI.addClass(i, 'collapsed'),
             (this.el.innerHTML = n
               ? `<i class='uk-icon-${
-                  e ? "triangle-down" : "triangle-right"
+                  e ? 'triangle-down' : 'triangle-right'
                 }'></i> ${t}`
               : t);
         },
@@ -6095,18 +6095,18 @@ function GA_SendEvent_Failure(e, t) {
       UI.definitions.link
     );
   }),
-  m.module("menuToggle").__new__(function (e) {
+  m.module('menuToggle').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         $defaults: {
-          tagClass: "x-menu-toggle",
+          tagClass: 'x-menu-toggle',
         },
         $setters: {
           outline: function (e) {
             e
-              ? UI.addClass(this.el, "x-outline")
-              : UI.removeClass(this.el, "x-outline");
+              ? UI.addClass(this.el, 'x-outline')
+              : UI.removeClass(this.el, 'x-outline');
           },
           selected: function (e) {
             e ? this.select() : this.deselect();
@@ -6114,112 +6114,112 @@ function GA_SendEvent_Failure(e, t) {
         },
         $events: {
           click: {
-            dispatch: "onClick",
+            dispatch: 'onClick',
             defaultEvent: !0,
           },
         },
         __after__: function () {
-          this.$onClickListenerId = this.addListener("onClick", this._onToggle);
+          this.$onClickListenerId = this.addListener('onClick', this._onToggle);
         },
         select: function () {
-          (this.config.$selected = !0), UI.addClass(this.el, "uk-active");
+          (this.config.$selected = !0), UI.addClass(this.el, 'uk-active');
         },
         isSelected: function () {
           return !!this.config.$selected;
         },
         deselect: function () {
-          (this.config.$selected = !1), UI.removeClass(this.el, "uk-active");
+          (this.config.$selected = !1), UI.removeClass(this.el, 'uk-active');
         },
         _onToggle: function (e, t, n) {
-          this.dispatch("onToggle", [e, t, n]),
+          this.dispatch('onToggle', [e, t, n]),
             this.isSelected() ? this.deselect() : this.select(),
-            this.dispatch("onToggled", [e, t, n]);
+            this.dispatch('onToggled', [e, t, n]);
         },
       },
       UI.definitions.icon
     );
   }),
   m
-    .module("messages")
+    .module('messages')
     .__new__(function (e) {
       e.messages = {
         fileEncodeError: {
-          en: "Error encoding file.",
-          es: "Error al codificar el archivo.",
-          ja: "ファイルのエンコードエラー",
-          pt: "Erro ao codificar o arquivo.",
-          zh: "编码文件错误",
-          zhTW: "編碼錯誤",
+          en: 'Error encoding file.',
+          es: 'Error al codificar el archivo.',
+          ja: 'ファイルのエンコードエラー',
+          pt: 'Erro ao codificar o arquivo.',
+          zh: '编码文件错误',
+          zhTW: '編碼錯誤',
         },
         fileNotFoundError: {
-          en: "Missing file: {{name}}",
-          es: "Archivo faltante: {{name}}",
-          ja: "ファイルがありません: {{name}}",
-          pt: "Arquivo ausente: {{name}}",
-          zh: "缺少文件: {{name}}",
-          zhTW: "缺少文件: {{name}}",
+          en: 'Missing file: {{name}}',
+          es: 'Archivo faltante: {{name}}',
+          ja: 'ファイルがありません: {{name}}',
+          pt: 'Arquivo ausente: {{name}}',
+          zh: '缺少文件: {{name}}',
+          zhTW: '缺少文件: {{name}}',
         },
         mainSaveFileError: {
-          en: "Error saving file.",
-          es: "Error al guardar el archivo.",
-          ja: "ファイルの保存エラー",
-          pt: "Erro ao salvar o arquivo.",
-          zh: "保存文件时出错",
-          zhTW: "保存檔案時出錯",
+          en: 'Error saving file.',
+          es: 'Error al guardar el archivo.',
+          ja: 'ファイルの保存エラー',
+          pt: 'Erro ao salvar o arquivo.',
+          zh: '保存文件时出错',
+          zhTW: '保存檔案時出錯',
         },
         deleteProjectMessage: {
-          en: "Deleted project: {{name}}",
-          es: "Proyecto eliminado: {{name}}",
-          ja: "削除: {{name}}",
-          pt: "Excluir projeto: {{name}}",
-          zh: "删除: {{name}}",
-          zhTW: "删除: {{name}}",
+          en: 'Deleted project: {{name}}',
+          es: 'Proyecto eliminado: {{name}}',
+          ja: '削除: {{name}}',
+          pt: 'Excluir projeto: {{name}}',
+          zh: '删除: {{name}}',
+          zhTW: '删除: {{name}}',
         },
         loadTemplateError: {
-          en: "No internet connection.",
-          es: "Sin conexión a Internet.",
-          ja: "インターネット接続なし",
-          pt: "Sem conexão à Internet.",
-          zh: "没有网络连接",
-          zhTW: "沒有網絡連接",
+          en: 'No internet connection.',
+          es: 'Sin conexión a Internet.',
+          ja: 'インターネット接続なし',
+          pt: 'Sem conexão à Internet.',
+          zh: '没有网络连接',
+          zhTW: '沒有網絡連接',
         },
         searchBusyError: {
-          en: "Busy with another search.",
+          en: 'Busy with another search.',
         },
         openFileError: {
-          en: "Error opening file.",
-          es: "Error al abrir el archivo.",
-          ja: "ファイルを開く際のエラー",
-          pt: "Erro ao abrir o arquivo.",
-          zh: "打开文件时出错",
-          zhTW: "打開檔案時出錯",
+          en: 'Error opening file.',
+          es: 'Error al abrir el archivo.',
+          ja: 'ファイルを開く際のエラー',
+          pt: 'Erro ao abrir o arquivo.',
+          zh: '打开文件时出错',
+          zhTW: '打開檔案時出錯',
         },
         databaseError: {
-          en: "Error accessing local database.",
+          en: 'Error accessing local database.',
         },
         exportZipError: {
-          en: "Error exporting ZIP.",
-          es: "Error al exportar ZIP.",
-          ja: "ZIPのエクスポートエラー",
-          pt: "Erro ao exportar ZIP.",
-          zh: "导出ZIP时出错",
-          zhTW: "導出ZIP時出錯",
+          en: 'Error exporting ZIP.',
+          es: 'Error al exportar ZIP.',
+          ja: 'ZIPのエクスポートエラー',
+          pt: 'Erro ao exportar ZIP.',
+          zh: '导出ZIP时出错',
+          zhTW: '導出ZIP時出錯',
         },
         backupError: {
-          en: "File backup failed.",
-          es: "Copia de seguridad fallida.",
-          ja: "バックアップが失敗する",
-          pt: "Falha no backup do arquivo.",
-          zh: "文件备份失效",
-          zhTW: "文件備份失效",
+          en: 'File backup failed.',
+          es: 'Copia de seguridad fallida.',
+          ja: 'バックアップが失敗する',
+          pt: 'Falha no backup do arquivo.',
+          zh: '文件备份失效',
+          zhTW: '文件備份失效',
         },
         unknownError: {
-          en: "Unknown error has occurred.",
-          es: "Se ha producido un error desconocido.",
-          ja: "不明なエラーが発生しました",
-          pt: "Ocorreu um erro desconhecido.",
-          zh: "发生未知错误",
-          zhTW: "發生未知錯誤",
+          en: 'Unknown error has occurred.',
+          es: 'Se ha producido un error desconocido.',
+          ja: '不明なエラーが発生しました',
+          pt: 'Ocorreu um erro desconhecido.',
+          zh: '发生未知错误',
+          zhTW: '發生未知錯誤',
         },
       };
     })
@@ -6229,29 +6229,29 @@ function GA_SendEvent_Failure(e, t) {
           o = i[e] || i.unknownError,
           a = o[n && n.locale] || o.en,
           s = UI.interpolate(a, t || {});
-        this.kt(s, n), GA_SendEvent("message_" + e, "n/a");
+        this.kt(s, n), GA_SendEvent('message_' + e, 'n/a');
       },
       kt: function (e, t) {
         DS.showToast(e, t);
       },
     }),
-  m.module("searchField").__new__(function (e) {
+  m.module('searchField').__new__(function (e) {
     UI.def(
       {
         __name__: e.__name__,
         template: function (e) {
           const t = this;
-          (t.$input = UI.createElement("INPUT", e.inputAttributes)),
+          (t.$input = UI.createElement('INPUT', e.inputAttributes)),
             UI.addClass(t.$input, e.inputClass);
           const n = [t.$input];
           if (e.clearSearch) {
             (e.searchOptions = e.searchOptions || []).unshift({
-              view: "menuIcon",
-              icon: "close",
-              title: "Clear",
+              view: 'menuIcon',
+              icon: 'close',
+              title: 'Clear',
               on: {
                 onClick: function () {
-                  t.setValue(""), t.dispatch("onInput"), t.focus();
+                  t.setValue(''), t.dispatch('onInput'), t.focus();
                 },
               },
             });
@@ -6259,34 +6259,34 @@ function GA_SendEvent_Failure(e, t) {
           return (
             e.searchOptions &&
               n.push({
-                cls: "uk-flex uk-flex-middle",
+                cls: 'uk-flex uk-flex-middle',
                 cells: e.searchOptions,
               }),
             n
           );
         },
         $defaults: {
-          htmlTag: "DIV",
-          placeholder: "",
-          tagClass: "",
-          cls: "x-menu-search",
-          inputClass: "uk-search-field x-text-indent-remove",
+          htmlTag: 'DIV',
+          placeholder: '',
+          tagClass: '',
+          cls: 'x-menu-search',
+          inputClass: 'uk-search-field x-text-indent-remove',
           inputAttributes: {
-            autocapitalize: "off",
-            autocorrect: "off",
-            spellcheck: "false",
+            autocapitalize: 'off',
+            autocorrect: 'off',
+            spellcheck: 'false',
           },
           flex: !0,
-          type: "search",
+          type: 'search',
         },
         __after__: function () {
           const e = this.getFormControl(),
             t = this.el;
-          e.addEventListener("focus", function () {
-            UI.addClass(t, "uk-focus");
+          e.addEventListener('focus', function () {
+            UI.addClass(t, 'uk-focus');
           }),
-            e.addEventListener("blur", function () {
-              UI.removeClass(t, "uk-focus");
+            e.addEventListener('blur', function () {
+              UI.removeClass(t, 'uk-focus');
             });
         },
         getFormControl: function () {
@@ -6297,8 +6297,8 @@ function GA_SendEvent_Failure(e, t) {
     );
   }),
   m
-    .module("copyToProject")
-    .require("model", "project")
+    .module('copyToProject')
+    .require('model', 'project')
     .__init__(function (e, { model: t, project: n }) {
       Object.assign(e, {
         model: t,
@@ -6307,24 +6307,24 @@ function GA_SendEvent_Failure(e, t) {
     })
     .def({
       At: function () {
-        return $$("copyToProjectLabel");
+        return $$('copyToProjectLabel');
       },
       It: function () {
-        return $$("copyToProjectSelect");
+        return $$('copyToProjectSelect');
       },
       Ct: function () {
-        return $$("copyToProjectInput");
+        return $$('copyToProjectInput');
       },
       Et: function () {
-        return $$("copyToProjectInputContainer");
+        return $$('copyToProjectInputContainer');
       },
       $t: function () {
-        return $$("copyToProjectAddToggleIcon");
+        return $$('copyToProjectAddToggleIcon');
       },
       Rt: function (e) {
         const t = this.$t().isSelected(),
           n = PathUtils.basename(e);
-        this.Et().showBatch([t ? "input" : "select", "toggle"]),
+        this.Et().showBatch([t ? 'input' : 'select', 'toggle']),
           this.At().setValue(
             t
               ? `Create a new project for "${n}":`
@@ -6337,7 +6337,7 @@ function GA_SendEvent_Failure(e, t) {
           n = t.model.Oe(),
           i = t.$t();
         (0 === n.length && !i.isSelected()) || (n.length > 0 && i.isSelected())
-          ? i.dispatch("onToggled")
+          ? i.dispatch('onToggled')
           : t.Rt(e),
           t.It().setData(
             n.map(({ dir: e }) => ({
@@ -6358,58 +6358,58 @@ function GA_SendEvent_Failure(e, t) {
         });
       },
     }),
-  m.module("copyToProject").__init__(function (e) {
+  m.module('copyToProject').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
-        cls: "x-prompt",
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
         center: !1,
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
-              label: "COPY TO PROJECT",
+              view: 'menuTitle',
+              label: 'COPY TO PROJECT',
               collapsable: !1,
             },
           ],
         },
         body: {
-          flexLayout: "column",
+          flexLayout: 'column',
           cells: [
             {
-              id: "copyToProjectLabel",
-              view: "label",
-              margin: "top",
+              id: 'copyToProjectLabel',
+              view: 'label',
+              margin: 'top',
             },
             {
-              id: "copyToProjectInputContainer",
-              cls: "uk-form",
-              margin: "top-sm",
-              flexAlign: "middle",
+              id: 'copyToProjectInputContainer',
+              cls: 'uk-form',
+              margin: 'top-sm',
+              flexAlign: 'middle',
               cells: [
                 {
-                  id: "copyToProjectSelect",
-                  batch: "select",
-                  view: "select",
-                  flexSize: "flex",
+                  id: 'copyToProjectSelect',
+                  batch: 'select',
+                  view: 'select',
+                  flexSize: 'flex',
                   data: [],
                   style: {
-                    maxWidth: "calc(100% - 56px)",
+                    maxWidth: 'calc(100% - 56px)',
                   },
                 },
                 {
-                  id: "copyToProjectInput",
-                  batch: "input",
-                  view: "input",
-                  flexSize: "flex",
+                  id: 'copyToProjectInput',
+                  batch: 'input',
+                  view: 'input',
+                  flexSize: 'flex',
                   style: {
-                    maxWidth: "calc(100% - 56px)",
+                    maxWidth: 'calc(100% - 56px)',
                   },
                   validate: function (e) {
                     const t = this,
@@ -6424,13 +6424,13 @@ function GA_SendEvent_Failure(e, t) {
                   },
                 },
                 {
-                  id: "copyToProjectAddToggleIcon",
-                  batch: "toggle",
-                  view: "menuToggle",
-                  cls: "x-menu-icon",
-                  margin: "left",
-                  icon: "plus",
-                  title: "Create Project",
+                  id: 'copyToProjectAddToggleIcon',
+                  batch: 'toggle',
+                  view: 'menuToggle',
+                  cls: 'x-menu-icon',
+                  margin: 'left',
+                  icon: 'plus',
+                  title: 'Create Project',
                   on: {
                     onToggled: function () {
                       e.Rt(e.modal.filepath);
@@ -6442,12 +6442,12 @@ function GA_SendEvent_Failure(e, t) {
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "copyToProjectCancelButton",
-              view: "button",
+              id: 'copyToProjectCancelButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -6456,11 +6456,11 @@ function GA_SendEvent_Failure(e, t) {
               },
             },
             {
-              id: "copyToProjectOkButton",
-              view: "button",
+              id: 'copyToProjectOkButton',
+              view: 'button',
               label: RES_I18N.Elements.Ok,
               style: {
-                minWidth: "64px",
+                minWidth: '64px',
               },
               on: {
                 onClick: function () {
@@ -6481,11 +6481,11 @@ function GA_SendEvent_Failure(e, t) {
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("progress")
+    .module('progress')
     .__init__(function (e) {
       e.ProgressReporter = {
         reportProgress: function ({
@@ -6511,67 +6511,67 @@ function GA_SendEvent_Failure(e, t) {
     })
     .def({
       zt: function () {
-        this.modal.close(), $$("progressBar").setValue(0);
+        this.modal.close(), $$('progressBar').setValue(0);
       },
       We: function () {
         setTimeout(function () {
-          $$("progress").close(), $$("progressBar").setValue(0);
+          $$('progress').close(), $$('progressBar').setValue(0);
         }, 1500);
       },
       Me: function (e, t, n) {
         const i = this,
-          o = $$("animatedProgressBar"),
-          a = $$("progressBar"),
-          s = $$("progressCloseButton");
-        $$("progressLabel").setValue(e),
+          o = $$('animatedProgressBar'),
+          a = $$('progressBar'),
+          s = $$('progressCloseButton');
+        $$('progressLabel').setValue(e),
           t < 0 ? (o.show(), a.hide()) : (o.hide(), a.show(), a.setValue(t)),
           n ? s.show() : s.hide(),
-          UI.hasClass(i.modal.el, "uk-open") || i.modal.open(),
+          UI.hasClass(i.modal.el, 'uk-open') || i.modal.open(),
           (i.cancelCallback = n),
           n ? s.show() : s.hide();
       },
     }),
-  m.module("progress").__init__(function (e) {
+  m.module('progress').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
+        view: 'modal',
         closeButton: !1,
         bgClose: !1,
         center: !1,
         body: {
-          flexLayout: "column",
+          flexLayout: 'column',
           cells: [
             {
-              id: "progressLabel",
-              cls: "x-text-overflow-ellipsis",
-              view: "label",
-              template: "{{label}}",
+              id: 'progressLabel',
+              cls: 'x-text-overflow-ellipsis',
+              view: 'label',
+              template: '{{label}}',
             },
             {
-              id: "progressBar",
-              view: "progress",
-              size: "small",
-              color: "primary",
-              margin: "top",
+              id: 'progressBar',
+              view: 'progress',
+              size: 'small',
+              color: 'primary',
+              margin: 'top',
             },
             {
-              id: "animatedProgressBar",
-              view: "progress",
-              size: "small",
+              id: 'animatedProgressBar',
+              view: 'progress',
+              size: 'small',
               value: 100,
-              color: "primary striped",
-              margin: "top",
+              color: 'primary striped',
+              margin: 'top',
             },
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "progressCloseButton",
-              view: "button",
+              id: 'progressCloseButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -6582,11 +6582,11 @@ function GA_SendEvent_Failure(e, t) {
           ],
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("prompt")
+    .module('prompt')
     .__new__(function (e) {
       (window.prompt = function (t, n) {
         e.q(t, n, {
@@ -6597,7 +6597,7 @@ function GA_SendEvent_Failure(e, t) {
     })
     .def({
       ue: function (e, t, n) {
-        this.q(e, "", {
+        this.q(e, '', {
           message: t,
           hideCancel: !0,
           onResult: function () {
@@ -6611,16 +6611,16 @@ function GA_SendEvent_Failure(e, t) {
           : this.modalGreen;
       },
       q: function (e, t, n) {
-        (t = t || ""), (n = n || {});
+        (t = t || ''), (n = n || {});
         const i = this.jt();
         if (
           ((this.activeModal = i),
-          (i.label().config.label = "string" == typeof e ? e : i18nTag(e)),
+          (i.label().config.label = 'string' == typeof e ? e : i18nTag(e)),
           i.label().render(),
           null != t)
         ) {
           const e = i.valueInput();
-          e.setValue(t), e.set("help", ""), e.setFormClass("");
+          e.setValue(t), e.set('help', ''), e.setFormClass('');
         }
         (i.onResult = n.onResult),
           (i.onDismiss = n.onDismiss),
@@ -6644,29 +6644,29 @@ function GA_SendEvent_Failure(e, t) {
       ) {
         const l = e.okButton();
         (l.config.label = o
-          ? "string" == typeof o
+          ? 'string' == typeof o
             ? o
             : i18nTag(o)
           : RES_I18N.Elements.Ok),
-          a && l.set("color", a),
+          a && l.set('color', a),
           l.render();
         const u = e.cancelButton();
         t ? u.hide() : u.show(),
           (u.config.label = r
-            ? "string" == typeof r
+            ? 'string' == typeof r
               ? r
               : i18nTag(r)
             : RES_I18N.Elements.Cancel),
-          c && u.set("color", c),
+          c && u.set('color', c),
           u.render();
         const h = e.textLabel();
         s
-          ? ((h.element.innerHTML = "string" == typeof s ? s : i18nTag(s)),
+          ? ((h.element.innerHTML = 'string' == typeof s ? s : i18nTag(s)),
             h.show())
           : h.hide();
         const d = e.valueInput();
         n
-          ? (i && d.set("placeholder", i[ENV.locale] || i.en || ""), d.show())
+          ? (i && d.set('placeholder', i[ENV.locale] || i.en || ''), d.show())
           : d.hide();
       },
       Nt: function (e) {
@@ -6687,46 +6687,46 @@ function GA_SendEvent_Failure(e, t) {
         this.activeModal && this.activeModal.valueInput().raiseConcern(e);
       },
     }),
-  m.module("prompt").__init__(function (e) {
+  m.module('prompt').__init__(function (e) {
     function t(e) {
       return {
-        id: "promptModal" + e,
-        cls: "x-prompt",
-        view: "modal",
+        id: 'promptModal' + e,
+        cls: 'x-prompt',
+        view: 'modal',
         closeButton: !1,
         center: !1,
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
-              id: "promptLabel" + e,
-              label: "",
+              view: 'menuTitle',
+              id: 'promptLabel' + e,
+              label: '',
               collapsable: !1,
             },
           ],
         },
         body: {
-          flexLayout: "column",
+          flexLayout: 'column',
           cells: [
             {
-              id: "promptTextLabel" + e,
-              view: "label",
-              margin: "top",
+              id: 'promptTextLabel' + e,
+              view: 'label',
+              margin: 'top',
               hidden: !0,
             },
             {
-              id: "promptValueInput" + e,
-              view: "input",
-              width: "full",
-              margin: "top",
+              id: 'promptValueInput' + e,
+              view: 'input',
+              width: 'full',
+              margin: 'top',
               on: {
                 onKeyUp: function (t, n, i) {
-                  const o = $$("promptModal" + e);
-                  "Enter" == i.key
+                  const o = $$('promptModal' + e);
+                  'Enter' == i.key
                     ? o.ok()
                     : o.onValidate &&
                       o
@@ -6741,29 +6741,29 @@ function GA_SendEvent_Failure(e, t) {
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "promptCancelButton" + e,
-              view: "button",
+              id: 'promptCancelButton' + e,
+              view: 'button',
               on: {
                 onClick: function () {
-                  const t = $$("promptModal" + e);
+                  const t = $$('promptModal' + e);
                   (!!t.onDismiss && t.onDismiss(t.valueInput().getValue())) ||
                     (t.close(), t.onClosed && t.onClosed(!1));
                 },
               },
             },
             {
-              id: "promptOkButton" + e,
-              view: "button",
+              id: 'promptOkButton' + e,
+              view: 'button',
               style: {
-                minWidth: "64px",
+                minWidth: '64px',
               },
               on: {
                 onClick: async function () {
-                  const t = $$("promptModal" + e),
+                  const t = $$('promptModal' + e),
                     n = t.valueInput(),
                     i = n.getValue();
                   if (t.onValidate)
@@ -6780,19 +6780,19 @@ function GA_SendEvent_Failure(e, t) {
           ],
         },
         label: function () {
-          return $$("promptLabel" + e);
+          return $$('promptLabel' + e);
         },
         textLabel: function () {
-          return $$("promptTextLabel" + e);
+          return $$('promptTextLabel' + e);
         },
         valueInput: function () {
-          return $$("promptValueInput" + e);
+          return $$('promptValueInput' + e);
         },
         cancelButton: function () {
-          return $$("promptCancelButton" + e);
+          return $$('promptCancelButton' + e);
         },
         okButton: function () {
-          return $$("promptOkButton" + e);
+          return $$('promptOkButton' + e);
         },
         result: function (e) {
           const t = this;
@@ -6805,25 +6805,25 @@ function GA_SendEvent_Failure(e, t) {
           );
         },
         ok: function () {
-          return this.okButton().dispatch("onClick");
+          return this.okButton().dispatch('onClick');
         },
         cancel: function () {
-          return this.cancelButton().dispatch("onClick");
+          return this.cancelButton().dispatch('onClick');
         },
       };
     }
     (e.modalGreen = UI.new(
-      t("Green"),
-      document.getElementById("appContainer")
+      t('Green'),
+      document.getElementById('appContainer')
     )),
       (e.modalBlue = UI.new(
-        t("Blue"),
-        document.getElementById("appContainer")
+        t('Blue'),
+        document.getElementById('appContainer')
       ));
   }),
   m
-    .module("searchSettings")
-    .require("fileTree", "fileTreeController", "session")
+    .module('searchSettings')
+    .require('fileTree', 'fileTreeController', 'session')
     .__init__(function (e, { session: t, fileTreeController: n }) {
       (e.minimatch = window.minimatch),
         Object.assign(e, {
@@ -6837,43 +6837,43 @@ function GA_SendEvent_Failure(e, t) {
       e.modal = UI.new(
         {
           id: e.__name__,
-          view: "modal",
+          view: 'modal',
           closeButton: !1,
-          dialogClass: "uk-flex uk-flex-column",
-          dialogStyle: ["scroll", "blank"],
+          dialogClass: 'uk-flex uk-flex-column',
+          dialogStyle: ['scroll', 'blank'],
           header: {
-            flexSize: "none",
-            cls: "x-menu-title-bar shadow",
-            flexLayout: "column",
+            flexSize: 'none',
+            cls: 'x-menu-title-bar shadow',
+            flexLayout: 'column',
             cells: [
               {
-                flexSize: "none",
-                flexSpace: "between",
-                flexAlign: "middle",
+                flexSize: 'none',
+                flexSpace: 'between',
+                flexAlign: 'middle',
                 cells: [
                   {
-                    view: "menuTitle",
+                    view: 'menuTitle',
                     attributes: i18nAttributes({
-                      en: "FILTER SEARCH FILES",
-                      es: "FILTRAR ARCHIVOS DE BÚSQUEDA",
-                      ja: "フィルター検索ファイル",
-                      pt: "FILTRE ARQUIVOS DE PESQUISA",
-                      ru: "ФИЛЬТР ПОИСК ФАЙЛОВ",
-                      zh: "筛选器搜索文件",
-                      zhTW: "篩選器搜索檔案",
+                      en: 'FILTER SEARCH FILES',
+                      es: 'FILTRAR ARCHIVOS DE BÚSQUEDA',
+                      ja: 'フィルター検索ファイル',
+                      pt: 'FILTRE ARQUIVOS DE PESQUISA',
+                      ru: 'ФИЛЬТР ПОИСК ФАЙЛОВ',
+                      zh: '筛选器搜索文件',
+                      zhTW: '篩選器搜索檔案',
                     }),
                     collapsable: !1,
                   },
                   {
-                    cls: "x-menu-icons",
-                    flexSize: "none",
-                    defaultBatch: "",
+                    cls: 'x-menu-icons',
+                    flexSize: 'none',
+                    defaultBatch: '',
                     cells: [
                       {
-                        id: "searchSettingsBackButton",
-                        view: "menuIcon",
-                        icon: "close",
-                        title: "Close",
+                        id: 'searchSettingsBackButton',
+                        view: 'menuIcon',
+                        icon: 'close',
+                        title: 'Close',
                         on: {
                           onClick: function () {
                             e.modal.close();
@@ -6885,17 +6885,17 @@ function GA_SendEvent_Failure(e, t) {
                 ],
               },
               {
-                id: "searchSettingsInput",
-                cls: "x-menu-search",
-                view: "searchField",
+                id: 'searchSettingsInput',
+                cls: 'x-menu-search',
+                view: 'searchField',
                 i18nPlaceholders: {
-                  en: "File Glob Pattern",
-                  es: "Patrones de archivos, p.ej: *.js",
-                  ja: "ファイルパターン 例 *.js",
-                  pt: "Glob Padrões de Arquivo",
-                  ru: "Шаблоны файлов (например, *.js)",
-                  zh: "文件通配符，比如 *.js",
-                  zhTW: "檔案式樣，例如：*.js",
+                  en: 'File Glob Pattern',
+                  es: 'Patrones de archivos, p.ej: *.js',
+                  ja: 'ファイルパターン 例 *.js',
+                  pt: 'Glob Padrões de Arquivo',
+                  ru: 'Шаблоны файлов (например, *.js)',
+                  zh: '文件通配符，比如 *.js',
+                  zhTW: '檔案式樣，例如：*.js',
                 },
                 clearSearch: !0,
                 on: {
@@ -6903,10 +6903,10 @@ function GA_SendEvent_Failure(e, t) {
                     e.Gt().refresh();
                   },
                   onKeyUp: function (t, n, i) {
-                    "Enter" === i.key &&
+                    'Enter' === i.key &&
                       (e.modal.close(),
                       e.observable.run({
-                        action: "updateSettings",
+                        action: 'updateSettings',
                       }));
                   },
                 },
@@ -6914,12 +6914,12 @@ function GA_SendEvent_Failure(e, t) {
             ],
           },
           body: {
-            view: "scroller",
+            view: 'scroller',
             cells: [
               {
-                id: "searchSettingsFileTree",
-                view: "fileTree",
-                flexSize: "none",
+                id: 'searchSettingsFileTree',
+                view: 'fileTree',
+                flexSize: 'none',
                 data: [],
                 filter: function (t) {
                   const n = e.input().getValue();
@@ -6962,7 +6962,7 @@ function GA_SendEvent_Failure(e, t) {
             },
           },
         },
-        document.getElementById("appContainer")
+        document.getElementById('appContainer')
       );
     })
     .def({
@@ -6970,25 +6970,25 @@ function GA_SendEvent_Failure(e, t) {
         return this.treeController;
       },
       Gt: function () {
-        return $$("searchSettingsFileTree");
+        return $$('searchSettingsFileTree');
       },
       input: function () {
-        return $$("searchSettingsInput");
+        return $$('searchSettingsInput');
       },
       Mt: function () {
         return this.input().getValue() ? this.filteredFileList : null;
       },
     }),
   m
-    .module("cookieBanner")
-    .require("model", "prompt")
+    .module('cookieBanner')
+    .require('model', 'prompt')
     .__init__(function (e, t) {
       e.banner = UI.new(
         {
           id: e.__name__,
-          flexAlign: "middle",
-          position: "absolute",
-          padding: "small",
+          flexAlign: 'middle',
+          position: 'absolute',
+          padding: 'small',
           hidden:
             UI.support.touch ||
             window.$embedMode ||
@@ -6996,46 +6996,46 @@ function GA_SendEvent_Failure(e, t) {
               localStorage.$privacyAgreed === window.$privacyVersion),
           cells: [
             {
-              view: "label",
+              view: 'label',
               label:
                 (localStorage.$termsAgreed
-                  ? "This site uses cookies and similar web technologies. By using Spck Editor, you agree to our new updated "
-                  : "This site uses cookies and similar web technologies. By using Spck Editor, you agree to our ") +
+                  ? 'This site uses cookies and similar web technologies. By using Spck Editor, you agree to our new updated '
+                  : 'This site uses cookies and similar web technologies. By using Spck Editor, you agree to our ') +
                 '<a href="/terms.html" target="_blank">legal terms</a> and <a href="/privacy.html" target="_blank">privacy policy</a>.',
-              flexSize: "flex",
+              flexSize: 'flex',
             },
             {
-              id: "cookieBannerActions",
-              flexSize: "none",
-              flexAlign: "middle",
-              margin: "left-sm",
+              id: 'cookieBannerActions',
+              flexSize: 'none',
+              flexAlign: 'middle',
+              margin: 'left-sm',
               cells: [
                 {
-                  id: "cookieBannerDeclineButton",
-                  view: "button",
-                  color: "muted",
-                  label: "DECLINE",
+                  id: 'cookieBannerDeclineButton',
+                  view: 'button',
+                  color: 'muted',
+                  label: 'DECLINE',
                   on: {
                     onClick: function () {
                       const n = GitFileSystemClass.uuid4().toUpperCase();
                       t.prompt.q(
                         {
-                          en: "DANGER: Irreversible Data Loss!",
+                          en: 'DANGER: Irreversible Data Loss!',
                         },
-                        "Are you sure?",
+                        'Are you sure?',
                         {
                           message: {
                             en: `Type '${n}' to confirm. This will PERMANENTLY delete all data this site stores for you including all projects, files, and settings!`,
                           },
                           okLabel: {
-                            en: "DELETE EVERYTHING!",
-                            es: "¡ELIMINA TODO!",
-                            ja: "すべてを削除",
-                            pt: "EXCLUIR TUDO!",
-                            zh: "删除所有内容",
-                            zhTW: "刪除所有內容",
+                            en: 'DELETE EVERYTHING!',
+                            es: '¡ELIMINA TODO!',
+                            ja: 'すべてを削除',
+                            pt: 'EXCLUIR TUDO!',
+                            zh: '删除所有内容',
+                            zhTW: '刪除所有內容',
                           },
-                          okColor: "danger",
+                          okColor: 'danger',
                           showInput: !0,
                           onValidate: async function (e) {
                             return e;
@@ -7051,18 +7051,18 @@ function GA_SendEvent_Failure(e, t) {
                               return (
                                 t.prompt.Lt(e),
                                 GA_SendEvent(
-                                  "banner_clear_all_reject",
-                                  "banner"
+                                  'banner_clear_all_reject',
+                                  'banner'
                                 ),
                                 Promise.reject(e)
                               );
                             }
                             $$(e.__name__).hide(),
-                              t.model.j("RISKY_STUFF").then(() => {
+                              t.model.j('RISKY_STUFF').then(() => {
                                 t.files.Dt().clearAll(),
                                   sessionStorage.clear(),
                                   localStorage.clear(),
-                                  GA_SendEvent("banner_clear_all", "banner");
+                                  GA_SendEvent('banner_clear_all', 'banner');
                               });
                           },
                         }
@@ -7071,17 +7071,17 @@ function GA_SendEvent_Failure(e, t) {
                   },
                 },
                 {
-                  id: "cookieBannerAgreeButton",
-                  view: "button",
-                  color: "primary",
-                  label: "AGREE",
-                  margin: "y-sm",
+                  id: 'cookieBannerAgreeButton',
+                  view: 'button',
+                  color: 'primary',
+                  label: 'AGREE',
+                  margin: 'y-sm',
                   on: {
                     onClick: function () {
                       $$(e.__name__).hide(),
                         (localStorage.$termsAgreed = window.$termsVersion),
                         (localStorage.$privacyAgreed = window.$privacyVersion),
-                        GA_SendEvent("banner_accept_terms", "banner");
+                        GA_SendEvent('banner_accept_terms', 'banner');
                     },
                   },
                 },
@@ -7093,8 +7093,8 @@ function GA_SendEvent_Failure(e, t) {
       );
     }),
   m
-    .module("gitClient")
-    .require("addGitAuth", "prompt", "progress", "path")
+    .module('gitClient')
+    .require('addGitAuth', 'prompt', 'progress', 'path')
     .__init__((e, { addGitAuth: t, prompt: n, progress: i, path: o }) => {
       Object.assign(e, {
         addGitAuth: t,
@@ -7104,11 +7104,11 @@ function GA_SendEvent_Failure(e, t) {
       }),
         (e.Emitter = {
           emit: function (e, t) {
-            if (e.includes("::progress"))
+            if (e.includes('::progress'))
               return i.ProgressReporter.throttledReportProgress(t);
           },
         }),
-        git.plugins.set("emitter", e.Emitter);
+        git.plugins.set('emitter', e.Emitter);
     })
     .def({
       Wt: function ({
@@ -7119,20 +7119,20 @@ function GA_SendEvent_Failure(e, t) {
       }) {
         const o = this;
         return (
-          (t.emitterPrefix = "::"),
+          (t.emitterPrefix = '::'),
           git[e]
             .call(git, t)
             .then((e) => (n && o.progress.ProgressReporter.close(i), e))
             .catch((t) => {
               n && o.progress.ProgressReporter.close(i);
-              const a = "string" == typeof t ? t : t && t.message;
+              const a = 'string' == typeof t ? t : t && t.message;
               return $LOG.warn(`[git:${e}] ${a}`), Promise.reject(t);
             })
         );
       },
       Vt: function (e, t) {
         return this.Wt({
-          method: "getOidAtPath",
+          method: 'getOidAtPath',
           params: {
             dir: e,
             path: t,
@@ -7140,11 +7140,11 @@ function GA_SendEvent_Failure(e, t) {
         }).then((t) =>
           t
             ? this.Wt({
-                method: "readObject",
+                method: 'readObject',
                 params: {
                   dir: e,
                   oid: t,
-                  encoding: "utf8",
+                  encoding: 'utf8',
                 },
               }).then((e) => e.object)
             : null
@@ -7152,7 +7152,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       Ht: function (e, t) {
         return this.Wt({
-          method: "currentBranch",
+          method: 'currentBranch',
           params: {
             dir: e,
             fullname: t,
@@ -7163,7 +7163,7 @@ function GA_SendEvent_Failure(e, t) {
         const { dir: t, prop: n, value: i } = e;
         return this.Ht(t).then((o) =>
           this.Kt(
-            void 0 !== i || Object.prototype.hasOwnProperty.call(e, "value")
+            void 0 !== i || Object.prototype.hasOwnProperty.call(e, 'value')
               ? {
                   dir: t,
                   path: `branch.${o}.${n}`,
@@ -7179,38 +7179,38 @@ function GA_SendEvent_Failure(e, t) {
       Zt: function (e) {
         return this.qt({
           dir: e,
-          prop: "remote",
+          prop: 'remote',
         });
       },
       Qt: function (e) {
         return this.qt({
           dir: e,
-          prop: "merge",
+          prop: 'merge',
         });
       },
       Yt: function (e, t) {
         return this.qt({
           dir: e,
-          prop: "remote",
+          prop: 'remote',
           value: t,
         });
       },
       Jt: function (e, t) {
         return this.qt({
           dir: e,
-          prop: "merge",
+          prop: 'merge',
           value: t,
         });
       },
       Xt: function (e) {
         return this.Wt({
-          method: "log",
+          method: 'log',
           params: {
             dir: e,
           },
         }).then(
-          GA_SendEvent_Success("git_log", "git_core"),
-          GA_SendEvent_Failure("git_log", "git_core")
+          GA_SendEvent_Success('git_log', 'git_core'),
+          GA_SendEvent_Failure('git_log', 'git_core')
         );
       },
       tn: function (e, t, n, i) {
@@ -7224,9 +7224,9 @@ function GA_SendEvent_Failure(e, t) {
           t || {}
         );
         return (
-          $LOG.log(`[git:pull] ${t ? t.username : "?"}@${n}/${i}`),
+          $LOG.log(`[git:pull] ${t ? t.username : '?'}@${n}/${i}`),
           this.Wt({
-            method: "pull",
+            method: 'pull',
             params: o,
             closeProgress: !0,
           })
@@ -7272,18 +7272,18 @@ function GA_SendEvent_Failure(e, t) {
               o.alreadyMerged
                 ? (i.prompt.ue(
                     e,
-                    "Your branch is already up-to-date with the remote."
+                    'Your branch is already up-to-date with the remote.'
                   ),
-                  GA_SendEvent("pull_up_to_date", "git_core"))
+                  GA_SendEvent('pull_up_to_date', 'git_core'))
                 : o.fastForward
-                ? (i.prompt.ue(e, "Fast-forwarded local branch to the remote."),
-                  GA_SendEvent("pull_fast_forward", "git_core"))
+                ? (i.prompt.ue(e, 'Fast-forwarded local branch to the remote.'),
+                  GA_SendEvent('pull_fast_forward', 'git_core'))
                 : o.recursiveMerge &&
                   (i.prompt.ue(
                     e,
-                    "Merged the remote with the local branch. Commit to save the merged files."
+                    'Merged the remote with the local branch. Commit to save the merged files.'
                   ),
-                  GA_SendEvent("pull_merged", "git_core"));
+                  GA_SendEvent('pull_merged', 'git_core'));
             }
           }
         } catch (e) {
@@ -7300,7 +7300,7 @@ function GA_SendEvent_Failure(e, t) {
               ? t.pn({
                   resolveTo: e,
                   error: {
-                    name: "Checkout Error: Uncommitted changes",
+                    name: 'Checkout Error: Uncommitted changes',
                     message: i18nTag({
                       en: `The current working tree is not clean with ${n} change(s). Checkout will lose your current changes.`,
                       es: `El árbol de trabajo actual no está limpio con ${n} cambios. ¿Descartar todos los cambios?`,
@@ -7316,8 +7316,8 @@ function GA_SendEvent_Failure(e, t) {
               : e;
           })
           .then(
-            GA_SendEvent_Success("git_core_checkout", "git_core"),
-            GA_SendEvent_Failure("git_core_checkout", "git_core")
+            GA_SendEvent_Success('git_core_checkout', 'git_core'),
+            GA_SendEvent_Failure('git_core_checkout', 'git_core')
           );
       },
       pn: function ({ resolveTo: e, error: t, ignoreLabel: n, obeyLabel: i }) {
@@ -7327,7 +7327,7 @@ function GA_SendEvent_Failure(e, t) {
             message: t.message,
             okLabel: i,
             cancelLabel: n,
-            cancelColor: "danger",
+            cancelColor: 'danger',
             onResult: function () {
               s(t);
             },
@@ -7361,27 +7361,27 @@ function GA_SendEvent_Failure(e, t) {
         try {
           return await i.tn(e, a, t.remote, n);
         } catch (e) {
-          "string" == typeof e && e.includes("MergeNoCommonAncestryError")
+          'string' == typeof e && e.includes('MergeNoCommonAncestryError')
             ? (i.prompt.ue(
-                "Remote Diverged",
-                "Pull failed because no common ancestor was found between the remote and local branch."
+                'Remote Diverged',
+                'Pull failed because no common ancestor was found between the remote and local branch.'
               ),
-              GA_SendEvent("pull_diverged", "git_core_f"))
-            : await i.vn(e, "pull");
+              GA_SendEvent('pull_diverged', 'git_core_f'))
+            : await i.vn(e, 'pull');
         }
       },
       vn: async function (e, t) {
         const n = this;
-        if (e && "string" == typeof e.message) {
+        if (e && 'string' == typeof e.message) {
           let i = e.message,
-            o = e.name || "HTTP Error";
+            o = e.name || 'HTTP Error';
           throw (
-            (i.includes("401")
+            (i.includes('401')
               ? ((i = `Credentials provided failed for ${t}.`),
-                (o = "Authentication Error!"))
-              : i.includes("404") &&
+                (o = 'Authentication Error!'))
+              : i.includes('404') &&
                 ((i = `Operation ${t} failed because HTTP URL could not be found.`),
-                (o = "Remote URL Not Found!")),
+                (o = 'Remote URL Not Found!')),
             n.prompt.ue(o, i),
             new Error(i))
           );
@@ -7390,7 +7390,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       sn: function (e) {
         return this.Wt({
-          method: "listRemotes",
+          method: 'listRemotes',
           params: {
             dir: e,
           },
@@ -7400,7 +7400,7 @@ function GA_SendEvent_Failure(e, t) {
         return (
           $LOG.log(`[git:add] ${t}`),
           this.Wt({
-            method: "add",
+            method: 'add',
             params: {
               dir: e,
               filepath: t,
@@ -7410,7 +7410,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       Ie: function (e, t) {
         return this.Wt({
-          method: "listFiles",
+          method: 'listFiles',
           params: {
             dir: e,
             ref: t,
@@ -7421,7 +7421,7 @@ function GA_SendEvent_Failure(e, t) {
         return (
           $LOG.log(`[git:rm] ${t}`),
           this.Wt({
-            method: "remove",
+            method: 'remove',
             params: {
               dir: e,
               filepath: t,
@@ -7431,7 +7431,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       in: function (e, t) {
         return this.Wt({
-          method: "resolveRef",
+          method: 'resolveRef',
           params: {
             dir: e,
             ref: t,
@@ -7476,7 +7476,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       mn: function (e) {
         return this.Wt({
-          method: "statusMatrix",
+          method: 'statusMatrix',
           params: {
             dir: e,
           },
@@ -7486,7 +7486,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       Re: function (e, t) {
         return this.Wt({
-          method: "status",
+          method: 'status',
           params: {
             dir: e,
             filepath: t,
@@ -7497,7 +7497,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       _n: function (e, t) {
         return this.Wt({
-          method: "fetch",
+          method: 'fetch',
           params: {
             dir: e,
             remote: t,
@@ -7518,9 +7518,9 @@ function GA_SendEvent_Failure(e, t) {
             auth: n,
           };
         throw new ExtError({
-          name: "Connection Error: Repo url not found",
+          name: 'Connection Error: Repo url not found',
           message:
-            "Cannot connect to remote repository. Please check your Git credentials or repo url.",
+            'Cannot connect to remote repository. Please check your Git credentials or repo url.',
         });
       },
       In: function (e, { remote: t, url: n }, i) {
@@ -7540,52 +7540,52 @@ function GA_SendEvent_Failure(e, t) {
                     return o.kn(n).then(({ remoteInfo: n, auth: s }) =>
                       n.refs && n.refs.heads && n.refs.heads[a] !== r
                         ? Promise.reject({
-                            name: "Push Error: Requires Update",
+                            name: 'Push Error: Requires Update',
                             message:
-                              "Your branch is behind the remote. Please pull in changes before push.",
+                              'Your branch is behind the remote. Please pull in changes before push.',
                           })
                         : o.Cn(e, s, i, t)
                     );
                   }
                   return Promise.reject({
-                    name: "Push Error: No Commits",
-                    message: "Your repo does not have any commits to push.",
+                    name: 'Push Error: No Commits',
+                    message: 'Your repo does not have any commits to push.',
                   });
                 })
               : Promise.reject({
-                  name: "Push Error: Detached HEAD",
+                  name: 'Push Error: Detached HEAD',
                   message:
-                    "Your repo is in a detached HEAD state. Please re-checkout a branch to fix this.",
+                    'Your repo is in a detached HEAD state. Please re-checkout a branch to fix this.',
                 })
           )
           .catch(function (e) {
-            if ("string" != typeof e) return o.vn(e, "push");
-            -1 !== e.indexOf("PushRejectedNoCommonAncestry")
+            if ('string' != typeof e) return o.vn(e, 'push');
+            -1 !== e.indexOf('PushRejectedNoCommonAncestry')
               ? o.prompt.ue(
-                  "Remote Diverged",
-                  "Push rejected because no common ancestor was found with the remote branch."
+                  'Remote Diverged',
+                  'Push rejected because no common ancestor was found with the remote branch.'
                 )
-              : -1 !== e.indexOf("PushRejectedNonFastForward")
+              : -1 !== e.indexOf('PushRejectedNonFastForward')
               ? o.prompt.ue(
-                  "Requires Update",
-                  "Your branch is behind the remote. Please pull in changes before push."
+                  'Requires Update',
+                  'Your branch is behind the remote. Please pull in changes before push.'
                 )
-              : -1 !== e.indexOf("PushRejectedTagExists")
+              : -1 !== e.indexOf('PushRejectedTagExists')
               ? o.prompt.ue(
-                  "Requires Update",
-                  "Push rejected because a tag already exists."
+                  'Requires Update',
+                  'Push rejected because a tag already exists.'
                 )
-              : -1 !== e.indexOf("ReadObjectFail") &&
+              : -1 !== e.indexOf('ReadObjectFail') &&
                 o.prompt.ue(
-                  "Missing Git Object",
-                  "Push rejected because of a missing git commit object."
+                  'Missing Git Object',
+                  'Push rejected because of a missing git commit object.'
                 );
           });
       },
       Cn: function (e, t, n, i) {
         const { username: o, token: a } = t || {};
         return this.Wt({
-          method: "push",
+          method: 'push',
           params: {
             dir: e,
             ref: n,
@@ -7602,7 +7602,7 @@ function GA_SendEvent_Failure(e, t) {
         return (
           (t = t || {}),
           this.Wt({
-            method: "getRemoteInfo",
+            method: 'getRemoteInfo',
             params: {
               url: e,
               username: t.username,
@@ -7631,10 +7631,10 @@ function GA_SendEvent_Failure(e, t) {
           try {
             return (
               await n.Wt({
-                method: "listCommitsAndTags",
+                method: 'listCommitsAndTags',
                 params: {
                   dir: e,
-                  start: ["HEAD"],
+                  start: ['HEAD'],
                   finish: [`${t}/HEAD`],
                 },
               })
@@ -7642,7 +7642,7 @@ function GA_SendEvent_Failure(e, t) {
           } catch (t) {
             return (
               await n.Wt({
-                method: "log",
+                method: 'log',
                 params: {
                   dir: e,
                 },
@@ -7654,7 +7654,7 @@ function GA_SendEvent_Failure(e, t) {
       Rn: async function (e, t, n) {
         const i = await this.Ht(e, !0),
           o = await this.Wt({
-            method: "commit",
+            method: 'commit',
             params: {
               dir: e,
               message: t,
@@ -7671,7 +7671,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       zn: function (e, t, n) {
         return this.Wt({
-          method: "checkout",
+          method: 'checkout',
           params: {
             dir: e,
             ref: t,
@@ -7682,7 +7682,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       Fn: function (e, t) {
         return this.Wt({
-          method: "checkout",
+          method: 'checkout',
           params: {
             dir: e,
             ref: t,
@@ -7692,7 +7692,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       jn: function (e, t, n) {
         return this.Wt({
-          method: "branch",
+          method: 'branch',
           params: {
             dir: e,
             ref: t,
@@ -7703,12 +7703,12 @@ function GA_SendEvent_Failure(e, t) {
       },
       Pn: function (e, t, n) {
         const i = this;
-        return i.in(e, "HEAD").then(
+        return i.in(e, 'HEAD').then(
           () => i.jn(e, t, n),
           (e) => (
             i.prompt.ue(
-              "No Commit",
-              "Cannot create a dangling branch with no commit."
+              'No Commit',
+              'Cannot create a dangling branch with no commit.'
             ),
             Promise.reject(e)
           )
@@ -7716,7 +7716,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       Nn: function (e, t) {
         return this.Wt({
-          method: "deleteBranch",
+          method: 'deleteBranch',
           params: {
             dir: e,
             ref: t,
@@ -7726,7 +7726,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       On: function (e, t) {
         return this.Nn(e, t).then(
-          GA_SendEvent_Success("git_delete_branch", "git_core"),
+          GA_SendEvent_Success('git_delete_branch', 'git_core'),
           (e) => (
             this.prompt.ue(
               RES_I18N.Actions.Failed(
@@ -7740,7 +7740,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       Un: function (e, t, n) {
         return this.Wt({
-          method: "addRemote",
+          method: 'addRemote',
           params: {
             dir: e,
             remote: t,
@@ -7751,7 +7751,7 @@ function GA_SendEvent_Failure(e, t) {
       },
       Bn: function (e, t) {
         return this.Wt({
-          method: "deleteRemote",
+          method: 'deleteRemote',
           params: {
             dir: e,
             remote: t,
@@ -7761,21 +7761,21 @@ function GA_SendEvent_Failure(e, t) {
       },
       Sn: function (e, t) {
         return this.Wt({
-          method: "listBranches",
+          method: 'listBranches',
           params: {
             dir: e,
             remote: t,
           },
         }).then((e) => {
-          const n = e.filter((e) => "HEAD" !== e);
+          const n = e.filter((e) => 'HEAD' !== e);
           return (
-            $LOG.log(`[git:listBranches:${t || "local"}] (${n.join(", ")})`), n
+            $LOG.log(`[git:listBranches:${t || 'local'}] (${n.join(', ')})`), n
           );
         });
       },
       Kt: function (e) {
         return this.Wt({
-          method: "config",
+          method: 'config',
           params: e,
         });
       },
@@ -7789,7 +7789,7 @@ function GA_SendEvent_Failure(e, t) {
         return (
           n && ((i.username = n.username), (i.token = n.token)),
           this.Wt({
-            method: "clone",
+            method: 'clone',
             params: i,
             closeProgress: !0,
           })
@@ -7802,12 +7802,12 @@ function GA_SendEvent_Failure(e, t) {
         try {
           await n.Ln(e, t, o);
         } catch (e) {
-          await n.vn(e, "clone");
+          await n.vn(e, 'clone');
         }
       },
       Gn: function (e) {
         return this.Wt({
-          method: "init",
+          method: 'init',
           params: {
             dir: e,
             noOverwrite: !0,
@@ -7825,18 +7825,18 @@ const collectBody = (e) =>
       return (
         t.body &&
           t.body.byteLength &&
-          (t.headers["X-Request-Body"] = Buffer.from(t.body).toString(
-            "base64"
+          (t.headers['X-Request-Body'] = Buffer.from(t.body).toString(
+            'base64'
           )),
-        (t.headers["X-Proxy-To"] = e),
-        fetch("/proxy", t)
+        (t.headers['X-Proxy-To'] = e),
+        fetch('/proxy', t)
       );
     {
-      const n = e.slice(e.indexOf("://") + 3);
+      const n = e.slice(e.indexOf('://') + 3);
       return fetch(`https://cors.isomorphic-git.org/${n}`, t);
     }
   };
-async function GHTTP({ url: e, method: t = "GET", headers: n = {}, body: i }) {
+async function GHTTP({ url: e, method: t = 'GET', headers: n = {}, body: i }) {
   const o = i
     ? await ((a = i),
       Promise.all(a).then((e) => Buffer.concat(e.map((e) => Buffer.from(e)))))
@@ -7860,9 +7860,9 @@ async function GHTTP({ url: e, method: t = "GET", headers: n = {}, body: i }) {
     headers: r,
   };
 }
-git.plugins.set("fs", GFS),
-  git.plugins.set("http", GHTTP),
-  git.plugins.set("iterate", function (e, t) {
+git.plugins.set('fs', GFS),
+  git.plugins.set('http', GHTTP),
+  git.plugins.set('iterate', function (e, t) {
     return PromisePool({
       data: Array.from(t),
       promiseGenerator: (t) => e(t),
@@ -7870,10 +7870,10 @@ git.plugins.set("fs", GFS),
     });
   });
 const DiagnosticCategory = {
-  0: "warning",
-  1: "error",
-  2: "info",
-  3: "info",
+  0: 'warning',
+  1: 'error',
+  2: 'info',
+  3: 'info',
 };
 class LanguageServerDelegate {
   constructor(e, t) {
@@ -7887,12 +7887,12 @@ class LanguageServerDelegate {
     if (e) {
       const t = GFS.inodePathSync(e);
       if (t)
-        return t.startsWith("ext://") ? t.slice(t.lastIndexOf("?") + 1) : t;
+        return t.startsWith('ext://') ? t.slice(t.lastIndexOf('?') + 1) : t;
     }
     return null;
   }
   _bindEvents() {
-    this.sender.on("change", ({ data: e }) => this._onUpdate(e));
+    this.sender.on('change', ({ data: e }) => this._onUpdate(e));
   }
   _onUpdate(e) {
     const t = this.sessionPath;
@@ -7908,12 +7908,12 @@ class LanguageServerDelegate {
           (a += 2),
           Array.isArray(o)
             ? n.push({
-                text: o.join("\n"),
+                text: o.join('\n'),
                 start: i,
                 end: i,
               })
             : n.push({
-                text: "",
+                text: '',
                 start: i,
                 end: o,
               });
@@ -7927,20 +7927,20 @@ class LanguageServerDelegate {
       ? LSC.doValidate(t, (e) => {
           e && e.validate
             ? this.sender.emit(
-                "annotate",
+                'annotate',
                 e.validate.map(
                   ({ start: e, text: t, rule: n, severity: i }) => ({
                     row: e.line,
                     column: e.character,
                     text: t,
-                    type: DiagnosticCategory[i] || "info",
+                    type: DiagnosticCategory[i] || 'info',
                     rule: n,
                   })
                 )
               )
-            : this.sender.emit("annotate", []);
+            : this.sender.emit('annotate', []);
         })
-      : this.sender.emit("annotate", []);
+      : this.sender.emit('annotate', []);
   }
   setValue(e) {
     const t = this.sessionPath;
@@ -7959,30 +7959,30 @@ class LanguageServerDelegate {
       });
   }
 }
-ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
+ace.config.set('LanguageServerDelegate', LanguageServerDelegate),
   m
-    .module("editor")
+    .module('editor')
     .__init__(function (e) {
       (e.HintManager = function (e) {
         const t = this,
           n = e.$ace;
-        n.on("blur", function () {
+        n.on('blur', function () {
           e.observable.run({
-            action: "blur",
+            action: 'blur',
           });
         }),
-          n.on("focus", function () {
+          n.on('focus', function () {
             e.observable.run({
-              action: "focus",
+              action: 'focus',
             });
           }),
-          n.on("click", function () {
+          n.on('click', function () {
             t.close();
           }),
           (this.editor = e),
           (this.hintPopup = UI.new(
             {
-              view: "hintPopup",
+              view: 'hintPopup',
             },
             e.element
           ));
@@ -8002,27 +8002,27 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
     .__init__(function () {
       UI.def(
         {
-          __name__: "hintPopup",
+          __name__: 'hintPopup',
           __after__: function () {
             (this.element.style.margin = 0),
-              (this.element.style.pointerEvents = "auto"),
+              (this.element.style.pointerEvents = 'auto'),
               (this.element.tabIndex = -1);
           },
           displayPartToHTML: function (e) {
-            let t = "";
+            let t = '';
             switch (e.kind) {
-              case "functionName":
-                t = "ace_entity ace_name ace_function";
+              case 'functionName':
+                t = 'ace_entity ace_name ace_function';
                 break;
-              case "parameterName":
-                t = "ace_variable ace_parameter";
+              case 'parameterName':
+                t = 'ace_variable ace_parameter';
                 break;
-              case "keyword":
-                t = "ace_storage ace_type";
+              case 'keyword':
+                t = 'ace_storage ace_type';
                 break;
-              case "punctuation":
-              case "space":
-              case "text":
+              case 'punctuation':
+              case 'space':
+              case 'text':
               default:
                 return e.text;
             }
@@ -8037,8 +8037,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               e.documentation &&
                 (t.push('<div class="ace_hint_documentation">'),
                 (t = t.concat(e.documentation.map(this.displayPartToHTML))),
-                t.push("</div>")),
-              t.join("")
+                t.push('</div>')),
+              t.join('')
             );
           },
           buildSignatureHTML: function (e) {
@@ -8051,15 +8051,15 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 a === e.argumentIndex &&
                   o.push('<span class="selected-param">'),
                   (o = o.concat(n.displayParts.map(t.displayPartToHTML))),
-                  a === e.argumentIndex && o.push("</span>"),
+                  a === e.argumentIndex && o.push('</span>'),
                   s.length > a + 1 && (o = o.concat(i));
               }),
               (o = o.concat(n.suffixDisplayParts.map(t.displayPartToHTML))),
               n.documentation &&
                 (o.push('<div class="ace_hint_documentation">'),
                 (o = o.concat(n.documentation.map(t.displayPartToHTML))),
-                o.push("</div>")),
-              o.join("")
+                o.push('</div>')),
+              o.join('')
             );
           },
           open: function (e, t, n) {
@@ -8072,12 +8072,12 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               }
             else n && (i.textContent = n);
             i.parentNode || e.element.appendChild(i),
-              (i.className = "ace-lang-hint " + e.getTheme().cssClass);
+              (i.className = 'ace-lang-hint ' + e.getTheme().cssClass);
             const o = e.getCursorElement();
             if (o) {
               const t = o.getBoundingClientRect(),
                 n = e.element.getBoundingClientRect();
-              this.positionNextTo(o, "bottom-center", 0, 2),
+              this.positionNextTo(o, 'bottom-center', 0, 2),
                 this.moveWithinBoundary(
                   n,
                   {
@@ -8102,15 +8102,15 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       );
     }),
   m
-    .module("editor")
+    .module('editor')
     .__init__(function (e) {
       (e.IndentManager = function (t) {
         (this.editor = t),
-          t.$ace.on("paste", function (n) {
+          t.$ace.on('paste', function (n) {
             if (
               (t.focus(),
               1 == t.getAllSelectionRanges().length &&
-                e.Dn(n.text.split("\n")) &&
+                e.Dn(n.text.split('\n')) &&
                 !t.isCurrentSessionBlank())
             ) {
               const i = t.getCursorPosition(),
@@ -8128,7 +8128,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           indent: function (t) {
             const n = this.editor,
               i = n.getValue(),
-              o = e.Mn(i, n.getMode(), "", n.getTabSize()),
+              o = e.Mn(i, n.getMode(), '', n.getTabSize()),
               a = n.getCursorPosition();
             (t || e.Wn(i, o)) && (n.setValue(o), n.navigateTo(a.row, a.column));
           },
@@ -8138,48 +8138,48 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       Vn: function (e, t, n) {
         const i = {
           indent_size: n,
-          indent_char: " ",
-          max_preserve_newlines: "0",
+          indent_char: ' ',
+          max_preserve_newlines: '0',
           preserve_newlines: !0,
           keep_array_indentation: !0,
           break_chained_methods: !1,
-          indent_scripts: "normal",
-          brace_style: "none,preserve-inline",
+          indent_scripts: 'normal',
+          brace_style: 'none,preserve-inline',
           space_before_conditional: !0,
           unescape_strings: !1,
           jslint_happy: !1,
           end_with_newline: !1,
-          wrap_line_length: "0",
+          wrap_line_length: '0',
           indent_inner_html: !1,
           comma_first: !1,
           e4x: !0,
           indent_empty_lines: !1,
         };
         switch (t) {
-          case ".less":
-          case ".scss":
-          case ".css":
+          case '.less':
+          case '.scss':
+          case '.css':
             return beautifier.css(e, i);
-          case ".json":
-          case ".js":
-          case ".jsx":
-          case ".ts":
+          case '.json':
+          case '.js':
+          case '.jsx':
+          case '.ts':
             return beautifier.js(e, i);
-          case ".html":
-          case ".htm":
-          case ".xhtml":
-          case ".xml":
-          case ".svg":
+          case '.html':
+          case '.htm':
+          case '.xhtml':
+          case '.xml':
+          case '.svg':
             return beautifier.html(e, i);
           default:
             return e;
         }
       },
       Mn: function (e, t, n, i) {
-        n = n || "";
+        n = n || '';
         const o = (e = this.Vn(e, this.Hn(t), i)).split(/[\r]?\n/gi);
         for (let e = 1; e < o.length; e++) o[e] = n + o[e];
-        return o.join("\n");
+        return o.join('\n');
       },
       Dn: function (e) {
         return (
@@ -8202,22 +8202,22 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         return !1;
       },
     }),
-  m.module("editor").def({
+  m.module('editor').def({
     qn: function (e) {
       const t = this.Kn,
         n = e.$ace.commands,
         i = n.bindKey.bind(n);
-      i(t("Ctrl-Shift-D|Ctrl-Y", "Command-Shift-D|Command-Y"), "removeline"),
-        i(t("Ctrl-D", "Command-D"), "copylinesdown"),
-        i(t("Ctrl-R", "Command-Option-F"), "replace"),
-        i(t("Ctrl-Shift-Up", "Command-Shift-Up"), "movelinesup"),
-        i(t("Ctrl-Shift-Down", "Command-Shift-Down"), "movelinesdown"),
-        n.removeCommand("showSettingsMenu"),
-        n.removeCommand("jumptomatching"),
-        n.removeCommand("modifyNumberUp"),
-        n.removeCommand("modifyNumberDown"),
-        n.removeCommand("toggleFoldWidget"),
-        n.removeCommand("gotoline");
+      i(t('Ctrl-Shift-D|Ctrl-Y', 'Command-Shift-D|Command-Y'), 'removeline'),
+        i(t('Ctrl-D', 'Command-D'), 'copylinesdown'),
+        i(t('Ctrl-R', 'Command-Option-F'), 'replace'),
+        i(t('Ctrl-Shift-Up', 'Command-Shift-Up'), 'movelinesup'),
+        i(t('Ctrl-Shift-Down', 'Command-Shift-Down'), 'movelinesdown'),
+        n.removeCommand('showSettingsMenu'),
+        n.removeCommand('jumptomatching'),
+        n.removeCommand('modifyNumberUp'),
+        n.removeCommand('modifyNumberDown'),
+        n.removeCommand('toggleFoldWidget'),
+        n.removeCommand('gotoline');
     },
     Kn: function (e, t) {
       return {
@@ -8227,8 +8227,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
     },
   }),
   m
-    .module("editor")
-    .require("model", "prompt", "session", "path", "set", "vibrate", "memory")
+    .module('editor')
+    .require('model', 'prompt', 'session', 'path', 'set', 'vibrate', 'memory')
     .__init__(function (
       e,
       {
@@ -8254,7 +8254,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         vibrate: c,
         memory: l,
       }),
-        (e.Range = ace.require("ace/range").Range);
+        (e.Range = ace.require('ace/range').Range);
     })
     .__init__(function (e, { memory: t }) {
       class n {
@@ -8263,8 +8263,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           if (t) {
             const e = GFS.inodePathSync(t);
             if (e)
-              return e.startsWith("ext://")
-                ? e.slice(e.lastIndexOf("?") + 1)
+              return e.startsWith('ext://')
+                ? e.slice(e.lastIndexOf('?') + 1)
                 : e;
           }
           return null;
@@ -8284,35 +8284,35 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             (e.goToDefinition = o),
             e.addCommands([
               {
-                name: "goToDefinition",
+                name: 'goToDefinition',
                 exec: o,
                 bindKey: {
-                  win: "Ctrl-B",
-                  mac: "Command-B",
+                  win: 'Ctrl-B',
+                  mac: 'Command-B',
                 },
               },
               {
-                name: "getInfo",
+                name: 'getInfo',
                 exec: n,
                 bindKey: {
-                  win: "Ctrl-I",
-                  mac: "Command-I",
+                  win: 'Ctrl-I',
+                  mac: 'Command-I',
                 },
               },
               {
-                name: "getSignature",
+                name: 'getSignature',
                 exec: t,
                 bindKey: {
-                  win: "Ctrl-P",
-                  mac: "Command-P",
+                  win: 'Ctrl-P',
+                  mac: 'Command-P',
                 },
               },
               {
-                name: "renameSymbol",
+                name: 'renameSymbol',
                 exec: i,
                 bindKey: {
-                  win: "Alt-R|F2",
-                  mac: "Option-R|F2",
+                  win: 'Alt-R|F2',
+                  mac: 'Option-R|F2',
                 },
               },
             ]);
@@ -8321,7 +8321,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           const e = t.ce.bind(t);
           this._editor.observable.subscribe(
             ({ action: n, path: i, text: o }) => {
-              "sessionChange" === n &&
+              'sessionChange' === n &&
                 (LSC.setCurrentDirectory(PathUtils.dirname(i)),
                 t.de(o) && !GFS.isBinaryContent(o) && LSC.addFile(i, o, e));
             }
@@ -8424,13 +8424,13 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       },
     }),
   m
-    .module("editor")
+    .module('editor')
     .__init__(function (e) {
       e.ContextMenuManager = function (t) {
         (this.editor = t),
           window.$embedMode ||
             (t.$ace.renderer.$gutter.addEventListener(
-              "contextmenu",
+              'contextmenu',
               function (n) {
                 UI.preventEvent(n),
                   e.gutterContextMenu.open(t),
@@ -8439,7 +8439,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               }
             ),
             t.$ace.renderer.container.addEventListener(
-              "contextmenu",
+              'contextmenu',
               function (n) {
                 UI.preventEvent(n),
                   setTimeout(() => {
@@ -8452,15 +8452,15 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       };
     })
     .__init__(function (e) {
-      const t = ["typescript", "tsx", "javascript", "jsx"];
+      const t = ['typescript', 'tsx', 'javascript', 'jsx'];
       (e.editorContextMenu = UI.new(
         {
-          view: "dropdown",
-          dropdownClass: "uk-dropdown-close x-editor-context-menu",
-          dropdownAnimation: "",
+          view: 'dropdown',
+          dropdownClass: 'uk-dropdown-close x-editor-context-menu',
+          dropdownAnimation: '',
           dropdown: {
-            view: "list",
-            listStyle: "dropdown",
+            view: 'list',
+            listStyle: 'dropdown',
             filter: function (e) {
               return !(
                 (e.mode && this.mode && -1 === e.mode.indexOf(this.mode)) ||
@@ -8473,62 +8473,62 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             },
             data: [
               {
-                view: "keybindingLink",
+                view: 'keybindingLink',
                 label: i18nTag(
                   RES_I18N.Actions.GoTo(RES_I18N.Objects.Definition)
                 ),
                 mode: t,
-                tokenTypes: "identifier",
-                value: "jump",
+                tokenTypes: 'identifier',
+                value: 'jump',
               },
               {
-                view: "keybindingLink",
+                view: 'keybindingLink',
                 label: RES_I18N.Elements.ShowInfo,
                 mode: t,
-                tokenTypes: ["entity.name.function", "identifier"],
-                value: "info",
+                tokenTypes: ['entity.name.function', 'identifier'],
+                value: 'info',
               },
               {
-                view: "keybindingLink",
+                view: 'keybindingLink',
                 label: i18nTag(
-                  RES_I18N.Actions.Rename(RES_I18N.Objects.Echo("Symbol"))
+                  RES_I18N.Actions.Rename(RES_I18N.Objects.Echo('Symbol'))
                 ),
                 mode: t,
-                tokenTypes: ["entity.name.function", "identifier"],
-                value: "rename",
+                tokenTypes: ['entity.name.function', 'identifier'],
+                value: 'rename',
               },
               {
                 $divider: !0,
                 mode: t,
-                tokenTypes: ["entity.name.function", "identifier"],
+                tokenTypes: ['entity.name.function', 'identifier'],
               },
               {
-                view: "keybindingLink",
-                command: "find_in_file",
+                view: 'keybindingLink',
+                command: 'find_in_file',
                 label: RES_I18N.Elements.FindAll,
-                value: "find",
-                excludeTokenTypes: ["", null],
+                value: 'find',
+                excludeTokenTypes: ['', null],
               },
               {
-                view: "keybindingLink",
-                command: "format",
+                view: 'keybindingLink',
+                command: 'format',
                 label: RES_I18N.Elements.Format,
-                value: "format",
+                value: 'format',
               },
               {
                 $divider: !0,
               },
               {
-                view: "keybindingLink",
-                command: "undo",
+                view: 'keybindingLink',
+                command: 'undo',
                 label: RES_I18N.Elements.Undo,
-                value: "undo",
+                value: 'undo',
               },
               {
-                view: "keybindingLink",
-                command: "redo",
+                view: 'keybindingLink',
+                command: 'redo',
                 label: RES_I18N.Elements.Redo,
-                value: "redo",
+                value: 'redo',
               },
             ],
             on: {
@@ -8536,31 +8536,31 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 const n = this.editor;
                 if (n)
                   switch (t.value) {
-                    case "find":
+                    case 'find':
                       e.Yn(n.getSelectedTextOrWordAtCursor()),
-                        GA_SendEvent("editor_menu_find", "editor_menu");
+                        GA_SendEvent('editor_menu_find', 'editor_menu');
                       break;
-                    case "format":
+                    case 'format':
                       n.indentManager.indent(!0),
-                        GA_SendEvent("editor_menu_format", "editor_menu");
+                        GA_SendEvent('editor_menu_format', 'editor_menu');
                       break;
-                    case "jump":
+                    case 'jump':
                       n.goToDefinition(),
-                        GA_SendEvent("editor_menu_goto", "editor_menu");
+                        GA_SendEvent('editor_menu_goto', 'editor_menu');
                       break;
-                    case "info":
+                    case 'info':
                       n.getInfo(),
-                        GA_SendEvent("editor_menu_info", "editor_menu");
+                        GA_SendEvent('editor_menu_info', 'editor_menu');
                       break;
-                    case "rename":
+                    case 'rename':
                       n.renameSymbol(),
-                        GA_SendEvent("editor_menu_rename", "editor_menu");
+                        GA_SendEvent('editor_menu_rename', 'editor_menu');
                       break;
-                    case "undo":
-                      n.undo(), GA_SendEvent("editor_menu_undo", "editor_menu");
+                    case 'undo':
+                      n.undo(), GA_SendEvent('editor_menu_undo', 'editor_menu');
                       break;
-                    case "redo":
-                      n.redo(), GA_SendEvent("editor_menu_redo", "editor_menu");
+                    case 'redo':
+                      n.redo(), GA_SendEvent('editor_menu_redo', 'editor_menu');
                   }
               },
               onOpened: function (e, t, n) {
@@ -8582,16 +8582,16 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       )),
         (e.gutterContextMenu = UI.new(
           {
-            view: "dropdown",
+            view: 'dropdown',
             dropdown: {
-              view: "list",
-              listStyle: "dropdown",
+              view: 'list',
+              listStyle: 'dropdown',
               data: [
                 {
-                  view: "keybindingLink",
-                  command: "goToLine",
+                  view: 'keybindingLink',
+                  command: 'goToLine',
                   label: i18nTag(RES_I18N.Actions.GoTo(RES_I18N.Objects.Line)),
-                  value: "gotoline",
+                  value: 'gotoline',
                 },
               ],
               on: {
@@ -8599,7 +8599,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   const t = this.editor;
                   if (t)
                     switch (e.value) {
-                      case "gotoline":
+                      case 'gotoline':
                         t.execCommand(e.command);
                     }
                 },
@@ -8616,8 +8616,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         ));
     }),
   m
-    .module("editor")
-    .require("model", "session", "messages", "memory")
+    .module('editor')
+    .require('model', 'session', 'messages', 'memory')
     .__new__(function (e) {
       (e.editorComponents = []),
         (e.touchEditors = []),
@@ -8625,86 +8625,86 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         (e.defaultWordWrap = !0),
         (e.defaultUseAceWorkers = !1),
         (e.SupportedExtensions = {
-          ".js": "javascript_ls",
-          ".jsx": "jsx_ls",
-          ".ts": "typescript_ls",
-          ".tsx": "tsx_ls",
-          ".coffee": "coffee",
-          ".json": "json",
-          ".yaml": "yaml",
-          ".yml": "yaml",
-          ".md": "markdown",
-          ".txt": "text",
-          ".as": "actionscript",
-          ".bat": "batchfile",
-          ".c": "c_cpp",
-          ".cfm": "coldfusion",
-          ".clj": "clojure",
-          ".cpp": "c_cpp",
-          ".cs": "csharp",
-          ".dart": "dart",
-          ".ejs": "ejs",
-          ".ex": "elixir",
-          ".exs": "elixir",
-          ".fs": "fsharp",
-          ".fsx": "fsharp",
-          ".gitignore": "gitignore",
-          ".go": "golang",
-          ".h": "c_cpp",
-          ".handlebars": "handlebars",
-          ".hbs": "handlebars",
-          ".hs": "haskell",
-          ".hx": "haxe",
-          ".hjson": "hjson",
-          ".ini": "ini",
-          ".java": "java",
-          ".jsp": "jsp",
-          ".jl": "julia",
-          ".kt": "kotlin",
-          ".kts": "kotlin",
-          ".tex": "latex",
-          ".lgt": "logtalk",
-          ".lua": "lua",
-          ".m": "objectivec",
-          ".ml": "ocaml",
-          ".mli": "ocaml",
-          ".pas": "pascal",
-          ".php": "php",
-          ".pl": "perl",
-          ".pp": "pascal",
-          ".psql": "pgsql",
-          ".py": "python",
-          ".r": "r",
-          ".rb": "ruby",
-          ".red": "red",
-          ".reds": "red",
-          ".rhtml": "html_ruby",
-          ".rs": "rust",
-          ".rss": "xml",
-          ".scala": "scala",
-          ".sc": "scala",
-          ".scm": "scheme",
-          ".ss": "scheme",
-          ".sh": "sh",
-          ".sql": "sql",
-          ".swift": "swift",
-          ".xq": "xquery",
-          ".xql": "xquery",
-          ".xqm": "xquery",
-          ".xquery": "xquery",
-          ".xqy": "xquery",
-          ".svg": "svg",
-          ".xml": "xml",
-          ".html": "html_ls",
-          ".xhtml": "html_ls",
-          ".htm": "html_ls",
-          ".jade": "jade",
-          ".pug": "jade",
-          ".css": "css_ls",
-          ".scss": "scss_ls",
-          ".sass": "sass",
-          ".less": "less_ls",
-          ".styl": "stylus",
+          '.js': 'javascript_ls',
+          '.jsx': 'jsx_ls',
+          '.ts': 'typescript_ls',
+          '.tsx': 'tsx_ls',
+          '.coffee': 'coffee',
+          '.json': 'json',
+          '.yaml': 'yaml',
+          '.yml': 'yaml',
+          '.md': 'markdown',
+          '.txt': 'text',
+          '.as': 'actionscript',
+          '.bat': 'batchfile',
+          '.c': 'c_cpp',
+          '.cfm': 'coldfusion',
+          '.clj': 'clojure',
+          '.cpp': 'c_cpp',
+          '.cs': 'csharp',
+          '.dart': 'dart',
+          '.ejs': 'ejs',
+          '.ex': 'elixir',
+          '.exs': 'elixir',
+          '.fs': 'fsharp',
+          '.fsx': 'fsharp',
+          '.gitignore': 'gitignore',
+          '.go': 'golang',
+          '.h': 'c_cpp',
+          '.handlebars': 'handlebars',
+          '.hbs': 'handlebars',
+          '.hs': 'haskell',
+          '.hx': 'haxe',
+          '.hjson': 'hjson',
+          '.ini': 'ini',
+          '.java': 'java',
+          '.jsp': 'jsp',
+          '.jl': 'julia',
+          '.kt': 'kotlin',
+          '.kts': 'kotlin',
+          '.tex': 'latex',
+          '.lgt': 'logtalk',
+          '.lua': 'lua',
+          '.m': 'objectivec',
+          '.ml': 'ocaml',
+          '.mli': 'ocaml',
+          '.pas': 'pascal',
+          '.php': 'php',
+          '.pl': 'perl',
+          '.pp': 'pascal',
+          '.psql': 'pgsql',
+          '.py': 'python',
+          '.r': 'r',
+          '.rb': 'ruby',
+          '.red': 'red',
+          '.reds': 'red',
+          '.rhtml': 'html_ruby',
+          '.rs': 'rust',
+          '.rss': 'xml',
+          '.scala': 'scala',
+          '.sc': 'scala',
+          '.scm': 'scheme',
+          '.ss': 'scheme',
+          '.sh': 'sh',
+          '.sql': 'sql',
+          '.swift': 'swift',
+          '.xq': 'xquery',
+          '.xql': 'xquery',
+          '.xqm': 'xquery',
+          '.xquery': 'xquery',
+          '.xqy': 'xquery',
+          '.svg': 'svg',
+          '.xml': 'xml',
+          '.html': 'html_ls',
+          '.xhtml': 'html_ls',
+          '.htm': 'html_ls',
+          '.jade': 'jade',
+          '.pug': 'jade',
+          '.css': 'css_ls',
+          '.scss': 'scss_ls',
+          '.sass': 'sass',
+          '.less': 'less_ls',
+          '.styl': 'stylus',
         }),
         (e.SupportedModes = Object.keys(e.SupportedExtensions).reduce(function (
           t,
@@ -8726,7 +8726,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         memory: a,
         observable: new ObservableClass(),
       }),
-        (e.$dummyAceSession = ace.createEditSession("", "text")),
+        (e.$dummyAceSession = ace.createEditSession('', 'text')),
         (e.$dummyUndoManager = e.$dummyAceSession.getUndoManager()),
         (e.$sessionMetaCache = {}),
         a.observable.subscribe(({ lowOnMemory: t }) => {
@@ -8738,10 +8738,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         return e in this.SupportedExtensions;
       },
       ei: function (e) {
-        return this.SupportedExtensions[PathUtils.ext(e)] || "text";
+        return this.SupportedExtensions[PathUtils.ext(e)] || 'text';
       },
       Hn: function (e) {
-        return this.SupportedModes[e] || ".txt";
+        return this.SupportedModes[e] || '.txt';
       },
       ti: function ({ inode: e, hash: t }) {
         const n = this.$sessionMetaCache[e];
@@ -8757,7 +8757,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             });
       },
       ii: function (e) {
-        (e = e || "chrome"),
+        (e = e || 'chrome'),
           this.editorComponents.forEach(function (t) {
             t.setTheme(e);
           });
@@ -8822,8 +8822,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           });
       },
       mi: function () {
-        let e = "";
-        for (let t = 0; t < this.defaultTabSize; t++) e += " ";
+        let e = '';
+        for (let t = 0; t < this.defaultTabSize; t++) e += ' ';
         return e;
       },
       fi: function (e) {
@@ -8840,13 +8840,13 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       },
       Yn: function (e) {
         return this.observable.run({
-          action: "findAllInFiles",
+          action: 'findAllInFiles',
           text: e,
         });
       },
       Zn: function (e, { row: t, column: n }) {
         return this.observable.run({
-          action: "jumpToFile",
+          action: 'jumpToFile',
           path: e,
           row: t,
           column: n,
@@ -8856,7 +8856,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         const [n, i] = await Promise.all([
             GFS.inode(e),
             GFS.readFile(e, {
-              encoding: "utf8",
+              encoding: 'utf8',
             }),
           ]),
           o = this.ni({
@@ -8880,7 +8880,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             updateStatus: !0,
           }),
           this.observable.run({
-            action: "replaceInFile",
+            action: 'replaceInFile',
             inode: n,
             text: s,
           })
@@ -8888,23 +8888,23 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       },
     }),
   m
-    .module("editor")
+    .module('editor')
     .__new__(function (e) {
       (e.ace = {
-        userAgent: ace.require("ace/lib/useragent"),
-        emmet: ace.require("ace/ext/emmet"),
-        languageTools: ace.require("ace/ext/language_tools"),
+        userAgent: ace.require('ace/lib/useragent'),
+        emmet: ace.require('ace/ext/emmet'),
+        languageTools: ace.require('ace/ext/language_tools'),
       }),
         (e.ace.languageTools.snippetCompleter.getDocTooltip = null);
     })
     .__init__(function (e) {
       UI.def(
         {
-          __name__: "editor",
+          __name__: 'editor',
           $defaults: {
-            value: "",
-            margin: "",
-            flexSize: "flex",
+            value: '',
+            margin: '',
+            flexSize: 'flex',
             scrollMargin: UIkit2.support.touch ? 64 : 40,
             editorOptions: {},
           },
@@ -8923,13 +8923,13 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             },
           },
           __init__: function (e) {
-            const t = UI.uid("editorContainer");
+            const t = UI.uid('editorContainer');
             e.id && (UI.components[e.id] = this),
               (this.element = this.el =
-                UI.createElement("DIV", {
+                UI.createElement('DIV', {
                   id: t,
                 })),
-              UI.addClass(this.el, "uk-flex-item-1"),
+              UI.addClass(this.el, 'uk-flex-item-1'),
               (this.observable = new ObservableClass()),
               (this.sessionCache = {}),
               (this.config = e),
@@ -8940,7 +8940,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           __after__: function (t) {
             e.editorComponents.push(this),
               this.setTabSize(t.tabSize || e.defaultTabSize),
-              this.setMode(t.mode || "javascript");
+              this.setMode(t.mode || 'javascript');
           },
           init: function (t) {
             const n = this.config.scrollMargin,
@@ -8972,14 +8972,14 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           },
           initSmartEditingSupport: function (e) {
             const t = e.$ace;
-            t.on("guttermousedown", function (e) {
+            t.on('guttermousedown', function (e) {
               e.stop();
             }),
-              t.on("change", function (t) {
+              t.on('change', function (t) {
                 if (!e.$silentChange)
                   try {
                     e.observable.run({
-                      action: "edit",
+                      action: 'edit',
                       edit: t,
                     }),
                       e.debouncedSave();
@@ -8987,10 +8987,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     $LOG.error(e);
                   }
               }),
-              t.commands.on("afterExec", function (t) {
+              t.commands.on('afterExec', function (t) {
                 switch (t.command.name) {
-                  case "backspace":
-                  case "insertstring":
+                  case 'backspace':
+                  case 'insertstring':
                     if (!e.autocompleteOff) {
                       const n = t.args,
                         i = e.hintManager.isOpened(),
@@ -8998,14 +8998,14 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                       let a,
                         s = !1;
                       i ||
-                        ("html" === o && "<" === n
-                          ? ((a = "<"), (s = !0))
-                          : /^[\w.]$/.test(n) && "." == n
-                          ? ((a = "."), (s = !0))
+                        ('html' === o && '<' === n
+                          ? ((a = '<'), (s = !0))
+                          : /^[\w.]$/.test(n) && '.' == n
+                          ? ((a = '.'), (s = !0))
                           : /^[A-Za-z]$/.test(n) && (s = !0)),
                         s
                           ? e.debouncedStartAutocomplete(a)
-                          : (i || "(" === n || "," === n) &&
+                          : (i || '(' === n || ',' === n) &&
                             e.debouncedShowSignature(n);
                     }
                 }
@@ -9016,10 +9016,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     text: e,
                     event: t,
                   };
-                  this.commands.exec("paste", this, n);
+                  this.commands.exec('paste', this, n);
                 }
               }),
-              t.textInput.getElement().setAttribute("autocomplete", "off");
+              t.textInput.getElement().setAttribute('autocomplete', 'off');
           },
           initAutocompleteTokenizer: function () {
             const e = this.$ace;
@@ -9035,7 +9035,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 const n = [];
                 let i = t.data[e];
                 if (!i) return n;
-                "string" == typeof i &&
+                'string' == typeof i &&
                   (i = {
                     value: i,
                   });
@@ -9044,14 +9044,14 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 function a(e, t) {
                   e &&
                     n.push({
-                      type: (i.className || "") + (t || ""),
+                      type: (i.className || '') + (t || ''),
                       value: e,
                     });
                 }
                 i.kind &&
-                  a(" ", "completion_icon ace-lang-completion-" + i.kind);
+                  a(' ', 'completion_icon ace-lang-completion-' + i.kind);
                 const s = o.toLowerCase(),
-                  r = (t.filterText || "").toLowerCase();
+                  r = (t.filterText || '').toLowerCase();
                 let c = 0,
                   l = 0;
                 for (let e = 0; e <= r.length; e++)
@@ -9060,15 +9060,15 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     l = e;
                     const n = s.indexOf(t, c);
                     if (-1 === n) continue;
-                    a(o.slice(c, n), ""),
+                    a(o.slice(c, n), ''),
                       (c = n + t.length),
-                      a(o.slice(n, c), "completion-highlight");
+                      a(o.slice(n, c), 'completion-highlight');
                   }
                 return (
-                  a(o.slice(c, o.length), ""),
+                  a(o.slice(c, o.length), ''),
                   i.meta &&
                     n.push({
-                      type: "completion-meta",
+                      type: 'completion-meta',
                       value: i.meta,
                     }),
                   n
@@ -9078,14 +9078,14 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           },
           initProxyEvents: function (e) {
             const t = e.$ace;
-            t.on("searchBoxOpen", () =>
+            t.on('searchBoxOpen', () =>
               e.observable.run({
-                action: "searchBoxOpen",
+                action: 'searchBoxOpen',
               })
             ),
-              t.on("searchBoxClose", () =>
+              t.on('searchBoxClose', () =>
                 e.observable.run({
-                  action: "searchBoxClose",
+                  action: 'searchBoxClose',
                 })
               );
           },
@@ -9098,31 +9098,31 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             }
             t.addCommands([
               {
-                name: "force-save",
-                bindKey: n("Ctrl-S", "Command-S"),
+                name: 'force-save',
+                bindKey: n('Ctrl-S', 'Command-S'),
                 exec: function () {
                   t.saveCurrentSessionAsync(!0);
                 },
               },
               {
-                name: "find_in_file",
-                bindKey: n("Ctrl-Shift-F", "Command-Shift-F"),
+                name: 'find_in_file',
+                bindKey: n('Ctrl-Shift-F', 'Command-Shift-F'),
                 exec: function () {
                   e.Yn(t.getSelectedText());
                 },
               },
               {
-                name: "format",
-                bindKey: n("Alt-F", "Option-F"),
+                name: 'format',
+                bindKey: n('Alt-F', 'Option-F'),
                 exec: function () {
                   t.indentManager.indent(!0);
                 },
               },
               {
-                name: "goToLine",
-                bindKey: n("Ctrl-G", "Command-G"),
+                name: 'goToLine',
+                bindKey: n('Ctrl-G', 'Command-G'),
                 exec: function () {
-                  e.prompt.q(RES_I18N.Actions.GoTo(RES_I18N.Objects.Line), "", {
+                  e.prompt.q(RES_I18N.Actions.GoTo(RES_I18N.Objects.Line), '', {
                     showInput: !0,
                     onResult: function (e) {
                       t.$ace.gotoLine(parseInt(e));
@@ -9169,10 +9169,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             this.initAutocompleteTokenizer(),
               (this.$ace.autoCompleteTriggerCharacter = e),
               this.$ace.commands.byName.startAutocomplete.exec(this.$ace),
-              this.dispatch("onStartAutocomplete", [e]);
+              this.dispatch('onStartAutocomplete', [e]);
           },
           getCursorElement: function () {
-            return this.element.querySelector(".ace_cursor");
+            return this.element.querySelector('.ace_cursor');
           },
           isTextSelected: function () {
             return this.$ace.getSelectedText().length > 0;
@@ -9188,19 +9188,19 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           },
           copyText2: function () {
             this.isTextSelected() || this.$ace.selection.selectLine(),
-              document.execCommand("copy"),
+              document.execCommand('copy'),
               (this.copiedText = this.$ace.getSelectedText());
           },
           pasteText2: async function () {
             const e = await DS.clipboardText();
             null !== e
-              ? this.$ace.execCommand("paste", e)
-              : !document.execCommand("paste") &&
+              ? this.$ace.execCommand('paste', e)
+              : !document.execCommand('paste') &&
                 this.copiedText &&
-                this.$ace.execCommand("paste", this.copiedText);
+                this.$ace.execCommand('paste', this.copiedText);
           },
           cutText2: function () {
-            this.copyText2(), this.$ace.execCommand("cut");
+            this.copyText2(), this.$ace.execCommand('cut');
           },
           getSelectedText: function () {
             return this.$ace.getSelectedText();
@@ -9221,16 +9221,16 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             this.$ace.execCommand(e, t);
           },
           getMode: function () {
-            return this.getSession().$modeId.split("/").pop() || "";
+            return this.getSession().$modeId.split('/').pop() || '';
           },
           setMode: function (e) {
-            return this.getSession().setMode("ace/mode/" + e);
+            return this.getSession().setMode('ace/mode/' + e);
           },
           getTheme: function () {
-            return (this.$ace.renderer.$themeId || "").split("/").pop() || "";
+            return (this.$ace.renderer.$themeId || '').split('/').pop() || '';
           },
           setTheme: function (e) {
-            return this.$ace.setTheme("ace/theme/" + e);
+            return this.$ace.setTheme('ace/theme/' + e);
           },
           setShowGutter: function (e) {
             return this.$ace.renderer.setShowGutter(e);
@@ -9247,7 +9247,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           isDialogOpened: function () {
             return (
               !!this.$ace.searchBox &&
-              "none" != this.$ace.searchBox.element.style.display
+              'none' != this.$ace.searchBox.element.style.display
             );
           },
           navigateToNextTabstop: function () {
@@ -9264,7 +9264,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             const n = this;
             n.getSession().insert(n.$ace.selection.getCursor(), e),
               n.moveCursorBy(t.rows, t.chars),
-              "()" == e && -1 == t.chars && n.debouncedShowSignature();
+              '()' == e && -1 == t.chars && n.debouncedShowSignature();
           },
           getCursorPosition: function () {
             return this.$ace.getCursorPosition();
@@ -9291,17 +9291,17 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               if (null !== i) {
                 const t = i.value,
                   o = i.start + t.length;
-                "." === t || ("identifier" === i.type && o === n.column)
+                '.' === t || ('identifier' === i.type && o === n.column)
                   ? e.startAutoComplete()
                   : e.$ace.indent();
               } else e.$ace.indent();
             }
           },
           findDialog: function (e) {
-            e ? this.$ace.searchBox.hide() : this.$ace.execCommand("find");
+            e ? this.$ace.searchBox.hide() : this.$ace.execCommand('find');
           },
           replaceDialog: function (e) {
-            e ? this.$ace.searchBox.hide() : this.$ace.execCommand("replace");
+            e ? this.$ace.searchBox.hide() : this.$ace.execCommand('replace');
           },
           moveCursorBy: function (e, t) {
             this.clearSelection(),
@@ -9318,11 +9318,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             e.ace.emmet.isAvailable(t) &&
               (e.ace.emmet.runEmmetCommand.call(
                 {
-                  action: "expand_abbreviation",
+                  action: 'expand_abbreviation',
                 },
                 t
               ),
-              GA_SendEvent("emmet_expand", "n/a"));
+              GA_SendEvent('emmet_expand', 'n/a'));
           },
           autoCompleteNavigateUp: function () {
             if (this.isAutoCompleteOpen())
@@ -9384,27 +9384,27 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             let n = t.sessionCache[e];
             return (
               n ||
-                ((e = "@blank" == e ? "javascript" : e),
-                (n = ace.createEditSession("", "ace/mode/" + e)),
+                ((e = '@blank' == e ? 'javascript' : e),
+                (n = ace.createEditSession('', 'ace/mode/' + e)),
                 (t.sessionCache[e] = n),
-                n.selection.on("changeSelection", () =>
+                n.selection.on('changeSelection', () =>
                   t.observable.run({
-                    action: "selectionChange",
+                    action: 'selectionChange',
                     selectedText: t.getSelectedText(),
                     selectionRanges: t.getAllSelectionRanges(),
                   })
                 ),
-                n.selection.on("changeCursor", () =>
+                n.selection.on('changeCursor', () =>
                   t.observable.run({
-                    action: "positionChange",
+                    action: 'positionChange',
                     position: t.getCursorPosition(),
                   })
                 ),
                 t.hintManager &&
-                  (n.on("changeScrollTop", function () {
+                  (n.on('changeScrollTop', function () {
                     t.hintManager.close();
                   }),
-                  n.on("changeScrollLeft", function () {
+                  n.on('changeScrollLeft', function () {
                     t.hintManager.close();
                   }))),
               n
@@ -9426,7 +9426,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 (s.scrollTop = i.getScrollTop()),
                 (s.scrollLeft = i.getScrollLeft())),
               n.observable.run({
-                action: "save",
+                action: 'save',
                 manual: t,
                 text: a,
                 mtimeMs: Date.now(),
@@ -9435,8 +9435,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             );
           },
           openBlankSession: function () {
-            const t = this.cachedModeSession("@blank");
-            return e.gi(this, t, ""), this.setSession(t), t;
+            const t = this.cachedModeSession('@blank');
+            return e.gi(this, t, ''), this.setSession(t), t;
           },
           isCurrentSessionBlank: function () {
             return !this.getSession().inode;
@@ -9446,18 +9446,18 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             { text: n, skipSessionSave: i, externalContent: o, externalPath: a }
           ) {
             const s = this;
-            let r = "";
+            let r = '';
             if (a) r = o;
             else if (n) r = n;
             else {
               const e = await GFS.read(t, {
-                encoding: "utf8",
+                encoding: 'utf8',
               });
               e && (r = e);
             }
             if (GFS.isBinaryContent(r))
               throw new ExtError({
-                message: "Cannot open binary file in editor.",
+                message: 'Cannot open binary file in editor.',
               });
             const c = a ? `ext://${a}?${encodeURIComponent(t)}` : t,
               l = await GFS.inode(c),
@@ -9475,7 +9475,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               d.setUndoManager(h.undoManager),
               h.ranges && s.setSelectionRanges(h.ranges),
               await s.observable.run({
-                action: "sessionChange",
+                action: 'sessionChange',
                 writePath: c,
                 skipSessionSave: i,
                 mtimeMs: Date.now(),
@@ -9502,7 +9502,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             this.autocompleteOff = !e;
           },
           setDisplayIndentGuides: function (e) {
-            this.$ace.setOption("displayIndentGuides", e || !1);
+            this.$ace.setOption('displayIndentGuides', e || !1);
           },
           getTokenType: function (e) {
             e = e || 0;
@@ -9519,12 +9519,12 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
     .__init__(function (e) {
       UI.def(
         {
-          __name__: "touchEditor",
+          __name__: 'touchEditor',
           $defaults: {
-            flexLayout: "column",
-            margin: "",
+            flexLayout: 'column',
+            margin: '',
             editor: {
-              view: "editor",
+              view: 'editor',
             },
             keyboard: !0,
           },
@@ -9545,10 +9545,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             UI.support.touch
               ? (n.touchCursors = new e.TouchCursors(i))
               : (n.contextMenuManager = new e.ContextMenuManager(i)),
-              i.element.addEventListener("scroll", function () {
+              i.element.addEventListener('scroll', function () {
                 0 !== i.element.scrollTop && (i.element.scrollTop = 0);
               }),
-              i.addListener("onStartAutocomplete", function () {
+              i.addListener('onStartAutocomplete', function () {
                 n.initAutocomplete(i);
               });
           },
@@ -9565,61 +9565,61 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             const t = this.$keyboard,
               n = this.$editor,
               i = t.element,
-              o = $$(t.keysId + "HideKeyboard"),
+              o = $$(t.keysId + 'HideKeyboard'),
               a = $$(t.dropdownId),
               s = a.element.firstChild;
             switch (e) {
-              case "top":
-                t.set("flexLayout", "column-reverse"),
+              case 'top':
+                t.set('flexLayout', 'column-reverse'),
                   o.hide(),
                   n.setScrollMargin(8, 142),
-                  UI.addClass(i, "position-top"),
-                  UI.addClass(s, "uk-animation-slide-top"),
-                  UI.removeClass(s, "uk-animation-slide-bottom"),
-                  (a.pos = "bottom-left");
+                  UI.addClass(i, 'position-top'),
+                  UI.addClass(s, 'uk-animation-slide-top'),
+                  UI.removeClass(s, 'uk-animation-slide-bottom'),
+                  (a.pos = 'bottom-left');
                 break;
               default:
-                t.set("flexLayout", "column"),
+                t.set('flexLayout', 'column'),
                   o.show(),
                   n.setScrollMargin(8, 64),
-                  UI.removeClass(i, "position-top"),
-                  UI.removeClass(s, "uk-animation-slide-top"),
-                  UI.addClass(s, "uk-animation-slide-bottom"),
-                  (a.pos = "top-left");
+                  UI.removeClass(i, 'position-top'),
+                  UI.removeClass(s, 'uk-animation-slide-top'),
+                  UI.addClass(s, 'uk-animation-slide-bottom'),
+                  (a.pos = 'top-left');
             }
           },
           initKeyboard: function (e) {
             const t = this,
               n = e.$ace;
-            n.on("focus", function () {
+            n.on('focus', function () {
               t.$hideExtraTouchKeyboard || t.$keyboard.showExtraKeys(),
                 t.$keyboard.hideMenu(),
                 e.observable.run({
-                  action: "focus",
+                  action: 'focus',
                 });
             }),
-              n.on("blur", function () {
+              n.on('blur', function () {
                 setTimeout(t.$keyboard.hideExtraKeys, 1);
               }),
               t.$editor.observable.subscribe(function ({ action: e, path: n }) {
-                if ("sessionChange" === e) {
+                if ('sessionChange' === e) {
                   switch (PathUtils.ext(n)) {
-                    case ".css":
-                    case ".scss":
-                    case ".less":
-                      t.$keyboard.changeMode("css");
+                    case '.css':
+                    case '.scss':
+                    case '.less':
+                      t.$keyboard.changeMode('css');
                       break;
-                    case ".svg":
-                    case ".xml":
-                    case ".html":
-                      t.$keyboard.changeMode("html");
+                    case '.svg':
+                    case '.xml':
+                    case '.html':
+                      t.$keyboard.changeMode('html');
                       break;
-                    case ".js":
-                    case ".jsx":
-                    case ".ts":
-                    case ".tsx":
+                    case '.js':
+                    case '.jsx':
+                    case '.ts':
+                    case '.tsx':
                     default:
-                      t.$keyboard.changeMode("js");
+                      t.$keyboard.changeMode('js');
                   }
                 }
               });
@@ -9632,7 +9632,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               const i = t.getPopup();
               (i.renderer.$maxLines = window.innerWidth <= 480 ? 5 : 8),
                 (i.container.style.fontSize = e.fontSize),
-                i.on("touchmove", function (e) {
+                i.on('touchmove', function (e) {
                   const o = i.getFirstVisibleRow(),
                     a = i.getLastVisibleRow(),
                     s = i.getRow();
@@ -9650,115 +9650,115 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       );
     }),
   m
-    .module("editor")
-    .require("keyButton")
+    .module('editor')
+    .require('keyButton')
     .def({
       keyboardTemplate: function (e) {
-        const t = UI.uid("dropdown"),
-          n = UI.uid("icon"),
-          i = UI.uid("keys"),
-          o = UI.uid("keys"),
+        const t = UI.uid('dropdown'),
+          n = UI.uid('icon'),
+          i = UI.uid('keys'),
+          o = UI.uid('keys'),
           a = this;
         return {
-          cls: "x-editor-keyboard-container",
-          device: "touch",
+          cls: 'x-editor-keyboard-container',
+          device: 'touch',
           flex: !0,
-          flexLayout: "column",
+          flexLayout: 'column',
           dropdownId: t,
           keysId: o,
           cells: [
             {
               id: t,
-              view: "dropdown",
+              view: 'dropdown',
               hidden: !0,
-              cls: "x-editor-keyboard-dropdown",
+              cls: 'x-editor-keyboard-dropdown',
               style: {
-                position: "absolute",
-                width: "100%",
+                position: 'absolute',
+                width: '100%',
               },
-              pos: "top-left",
-              dropdownAnimation: "uk-animation-slide-bottom",
+              pos: 'top-left',
+              dropdownAnimation: 'uk-animation-slide-bottom',
               dropdown: {
-                cls: "x-editor-options-list",
+                cls: 'x-editor-options-list',
                 cells: [
                   {
-                    view: "list",
-                    cls: "uk-width-1-2",
-                    margin: "left",
-                    listStyle: "side",
+                    view: 'list',
+                    cls: 'uk-width-1-2',
+                    margin: 'left',
+                    listStyle: 'side',
                     data: [
                       {
-                        view: "link",
-                        iconClass: "ti-align-right",
-                        value: "format",
+                        view: 'link',
+                        iconClass: 'ti-align-right',
+                        value: 'format',
                         label: RES_I18N.Elements.Format,
                       },
                       {
-                        view: "link",
-                        icon: "search",
-                        value: "find",
+                        view: 'link',
+                        icon: 'search',
+                        value: 'find',
                         label: RES_I18N.Elements.FindAll,
                       },
                       {
-                        view: "link",
-                        iconClass: "ti-clipboard",
-                        value: "paste",
+                        view: 'link',
+                        iconClass: 'ti-clipboard',
+                        value: 'paste',
                         label: RES_I18N.Elements.Paste,
                       },
                     ],
                     on: {
                       onItemClick: function (t) {
                         switch (t.value) {
-                          case "format":
+                          case 'format':
                             e.indentManager.indent(!0);
                             break;
-                          case "find":
+                          case 'find':
                             a.Yn(e.getSelectedTextOrWordAtCursor());
                             break;
-                          case "paste":
+                          case 'paste':
                             e.pasteText2();
                             break;
-                          case "undo":
+                          case 'undo':
                             e.undo();
                         }
                       },
                     },
                   },
                   {
-                    view: "list",
-                    cls: "uk-width-1-2",
-                    margin: "right",
-                    listStyle: "side",
+                    view: 'list',
+                    cls: 'uk-width-1-2',
+                    margin: 'right',
+                    listStyle: 'side',
                     data: [
                       {
-                        view: "link",
-                        icon: "bolt",
-                        value: "goto",
+                        view: 'link',
+                        icon: 'bolt',
+                        value: 'goto',
                         label: i18nTag(RES_I18N.Objects.Definition),
                       },
                       {
-                        view: "link",
-                        icon: "commenting",
-                        label: "Signature",
-                        value: "signature",
+                        view: 'link',
+                        icon: 'commenting',
+                        label: 'Signature',
+                        value: 'signature',
                       },
                       {
-                        view: "link",
-                        icon: "comments",
+                        view: 'link',
+                        icon: 'comments',
                         label: RES_I18N.Elements.ShowInfo,
-                        value: "info",
+                        value: 'info',
                       },
                     ],
                     on: {
                       onItemClick: function (t) {
                         switch (t.value) {
-                          case "signature":
+                          case 'signature':
                             e.getSignature();
                             break;
-                          case "goto":
+                          case 'goto':
                             e.goToDefinition();
                             break;
-                          case "info":
+                          case 'info':
                             e.getInfo();
                         }
                       },
@@ -9768,25 +9768,25 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               },
               on: {
                 onOpen: function () {
-                  UI.addClass($$(n).element, "uk-active"), this.show();
+                  UI.addClass($$(n).element, 'uk-active'), this.show();
                 },
                 onClose: function () {
-                  UI.removeClass($$(n).element, "uk-active"), this.hide();
+                  UI.removeClass($$(n).element, 'uk-active'), this.hide();
                 },
               },
             },
             {
               id: i,
-              cls: "x-editor-keyboard",
-              flexSize: "none",
-              flexAlign: "middle",
-              flexSpace: "around",
+              cls: 'x-editor-keyboard',
+              flexSize: 'none',
+              flexAlign: 'middle',
+              flexSpace: 'around',
               cells: [
                 {
-                  view: "keyButton",
-                  batch: "js",
-                  label: "()",
-                  pos: "top-left",
+                  view: 'keyButton',
+                  batch: 'js',
+                  label: '()',
+                  pos: 'top-left',
                   multirow: !0,
                   offset: -5,
                   defaultIndex: 0,
@@ -9794,84 +9794,84 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "(",
+                            view: 'keyOption',
+                            label: '(',
                           },
                           {
-                            view: "keyOption",
-                            label: "{",
+                            view: 'keyOption',
+                            label: '{',
                           },
                           {
-                            view: "keyOption",
-                            label: "[",
+                            view: 'keyOption',
+                            label: '[',
                           },
                           {
-                            view: "keyOption",
-                            label: "<",
+                            view: 'keyOption',
+                            label: '<',
                           },
                           {
-                            view: "keyOption",
-                            label: "&#x2F",
-                            value: "/",
-                          },
-                        ],
-                      },
-                      {
-                        cells: [
-                          {
-                            view: "keyOption",
-                            label: ")",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "}",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "]",
-                          },
-                          {
-                            view: "keyOption",
-                            label: ">",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "&#x2F>",
-                            value: "/>",
+                            view: 'keyOption',
+                            label: '&#x2F',
+                            value: '/',
                           },
                         ],
                       },
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "()",
+                            view: 'keyOption',
+                            label: ')',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: '}',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: ']',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: '>',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: '&#x2F>',
+                            value: '/>',
+                          },
+                        ],
+                      },
+                      {
+                        cells: [
+                          {
+                            view: 'keyOption',
+                            label: '()',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "{}",
+                            view: 'keyOption',
+                            label: '{}',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "[]",
+                            view: 'keyOption',
+                            label: '[]',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "<>",
+                            view: 'keyOption',
+                            label: '<>',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "<&#x2F>",
-                            value: "</>",
+                            view: 'keyOption',
+                            label: '<&#x2F>',
+                            value: '</>',
                             offset: -1,
                           },
                         ],
@@ -9880,10 +9880,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "html",
-                  label: "<>",
-                  pos: "top-left",
+                  view: 'keyButton',
+                  batch: 'html',
+                  label: '<>',
+                  pos: 'top-left',
                   multirow: !0,
                   offset: -5,
                   defaultIndex: 0,
@@ -9891,84 +9891,84 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "<",
+                            view: 'keyOption',
+                            label: '<',
                           },
                           {
-                            view: "keyOption",
-                            label: "&#x2F",
-                            value: "/",
+                            view: 'keyOption',
+                            label: '&#x2F',
+                            value: '/',
                           },
                           {
-                            view: "keyOption",
-                            label: "{",
+                            view: 'keyOption',
+                            label: '{',
                           },
                           {
-                            view: "keyOption",
-                            label: "(",
+                            view: 'keyOption',
+                            label: '(',
                           },
                           {
-                            view: "keyOption",
-                            label: "[",
-                          },
-                        ],
-                      },
-                      {
-                        cells: [
-                          {
-                            view: "keyOption",
-                            label: ">",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "&#x2F>",
-                            value: "/>",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "}",
-                          },
-                          {
-                            view: "keyOption",
-                            label: ")",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "]",
+                            view: 'keyOption',
+                            label: '[',
                           },
                         ],
                       },
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "<>",
+                            view: 'keyOption',
+                            label: '>',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: '&#x2F>',
+                            value: '/>',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: '}',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: ')',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: ']',
+                          },
+                        ],
+                      },
+                      {
+                        cells: [
+                          {
+                            view: 'keyOption',
+                            label: '<>',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "<&#x2F>",
-                            value: "</>",
+                            view: 'keyOption',
+                            label: '<&#x2F>',
+                            value: '</>',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "{}",
+                            view: 'keyOption',
+                            label: '{}',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "()",
+                            view: 'keyOption',
+                            label: '()',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "[]",
+                            view: 'keyOption',
+                            label: '[]',
                             offset: -1,
                           },
                         ],
@@ -9977,10 +9977,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "css",
-                  label: "{}",
-                  pos: "top-left",
+                  view: 'keyButton',
+                  batch: 'css',
+                  label: '{}',
+                  pos: 'top-left',
                   multirow: !0,
                   offset: -5,
                   defaultIndex: 0,
@@ -9988,84 +9988,84 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "{",
+                            view: 'keyOption',
+                            label: '{',
                           },
                           {
-                            view: "keyOption",
-                            label: "(",
+                            view: 'keyOption',
+                            label: '(',
                           },
                           {
-                            view: "keyOption",
-                            label: "<",
+                            view: 'keyOption',
+                            label: '<',
                           },
                           {
-                            view: "keyOption",
-                            label: "&#x2F",
-                            value: "/",
+                            view: 'keyOption',
+                            label: '&#x2F',
+                            value: '/',
                           },
                           {
-                            view: "keyOption",
-                            label: "[",
-                          },
-                        ],
-                      },
-                      {
-                        cells: [
-                          {
-                            view: "keyOption",
-                            label: "}",
-                          },
-                          {
-                            view: "keyOption",
-                            label: ")",
-                          },
-                          {
-                            view: "keyOption",
-                            label: ">",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "&#x2F>",
-                            value: "/>",
-                          },
-                          {
-                            view: "keyOption",
-                            label: "]",
+                            view: 'keyOption',
+                            label: '[',
                           },
                         ],
                       },
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "{}",
+                            view: 'keyOption',
+                            label: '}',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: ')',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: '>',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: '&#x2F>',
+                            value: '/>',
+                          },
+                          {
+                            view: 'keyOption',
+                            label: ']',
+                          },
+                        ],
+                      },
+                      {
+                        cells: [
+                          {
+                            view: 'keyOption',
+                            label: '{}',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "()",
+                            view: 'keyOption',
+                            label: '()',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "<>",
+                            view: 'keyOption',
+                            label: '<>',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "<&#x2F>",
-                            value: "</>",
+                            view: 'keyOption',
+                            label: '<&#x2F>',
+                            value: '</>',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "[]",
+                            view: 'keyOption',
+                            label: '[]',
                             offset: -1,
                           },
                         ],
@@ -10074,10 +10074,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "js",
-                  label: "if",
-                  pos: "top-left",
+                  view: 'keyButton',
+                  batch: 'js',
+                  label: 'if',
+                  pos: 'top-left',
                   offset: -42,
                   defaultIndex: 1,
                   multirow: !0,
@@ -10085,93 +10085,93 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "in",
-                            value: "in ",
+                            view: 'keyOption',
+                            label: 'in',
+                            value: 'in ',
                           },
                           {
-                            view: "keyOption",
-                            label: "sw",
-                            value: "switch ",
+                            view: 'keyOption',
+                            label: 'sw',
+                            value: 'switch ',
                           },
                           {
-                            view: "keyOption",
-                            label: "case",
-                            value: "case ",
+                            view: 'keyOption',
+                            label: 'case',
+                            value: 'case ',
                           },
                           {
-                            view: "keyOption",
-                            label: "br",
-                            value: "break",
+                            view: 'keyOption',
+                            label: 'br',
+                            value: 'break',
                           },
                           {
-                            view: "keyOption",
-                            label: "=>",
-                            value: "=> ",
+                            view: 'keyOption',
+                            label: '=>',
+                            value: '=> ',
                           },
                           {
-                            view: "keyOption",
-                            label: "let",
-                            value: "let ",
+                            view: 'keyOption',
+                            label: 'let',
+                            value: 'let ',
                           },
                           {
-                            view: "keyOption",
-                            label: "cons",
-                            value: "const ",
+                            view: 'keyOption',
+                            label: 'cons',
+                            value: 'const ',
                           },
                           {
-                            view: "keyOption",
-                            label: "asyn",
-                            value: "async ",
+                            view: 'keyOption',
+                            label: 'asyn',
+                            value: 'async ',
                           },
                         ],
                       },
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "for",
-                            value: "for ",
+                            view: 'keyOption',
+                            label: 'for',
+                            value: 'for ',
                           },
                           {
-                            view: "keyOption",
-                            label: "if",
-                            value: "if ",
+                            view: 'keyOption',
+                            label: 'if',
+                            value: 'if ',
                           },
                           {
-                            view: "keyOption",
-                            label: "else",
-                            value: "else ",
+                            view: 'keyOption',
+                            label: 'else',
+                            value: 'else ',
                           },
                           {
-                            view: "keyOption",
-                            label: "ret",
-                            value: "return ",
+                            view: 'keyOption',
+                            label: 'ret',
+                            value: 'return ',
                           },
                           {
-                            view: "keyOption",
-                            label: "fn",
-                            value: "function ",
+                            view: 'keyOption',
+                            label: 'fn',
+                            value: 'function ',
                           },
                           {
-                            view: "keyOption",
-                            label: "var",
-                            value: "var ",
+                            view: 'keyOption',
+                            label: 'var',
+                            value: 'var ',
                           },
                           {
-                            view: "keyOption",
-                            label: "this",
-                            value: "this",
+                            view: 'keyOption',
+                            label: 'this',
+                            value: 'this',
                           },
                           {
-                            view: "keyOption",
-                            label: "awt",
-                            value: "await",
+                            view: 'keyOption',
+                            label: 'awt',
+                            value: 'await',
                           },
                         ],
                       },
@@ -10179,10 +10179,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "css",
-                  label: "px",
-                  pos: "top-left",
+                  view: 'keyButton',
+                  batch: 'css',
+                  label: 'px',
+                  pos: 'top-left',
                   offset: -42,
                   defaultIndex: 1,
                   multirow: !0,
@@ -10190,54 +10190,54 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "!im",
-                            value: "!important",
+                            view: 'keyOption',
+                            label: '!im',
+                            value: '!important',
                           },
                           {
-                            view: "keyOption",
-                            label: "pt",
+                            view: 'keyOption',
+                            label: 'pt',
                           },
                           {
-                            view: "keyOption",
-                            label: "rem",
+                            view: 'keyOption',
+                            label: 'rem',
                           },
                           {
-                            view: "keyOption",
-                            label: "rgba",
+                            view: 'keyOption',
+                            label: 'rgba',
                           },
                           {
-                            view: "keyOption",
-                            label: "auto",
+                            view: 'keyOption',
+                            label: 'auto',
                           },
                         ],
                       },
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "%",
+                            view: 'keyOption',
+                            label: '%',
                           },
                           {
-                            view: "keyOption",
-                            label: "px",
+                            view: 'keyOption',
+                            label: 'px',
                           },
                           {
-                            view: "keyOption",
-                            label: "em",
+                            view: 'keyOption',
+                            label: 'em',
                           },
                           {
-                            view: "keyOption",
-                            label: "rgb",
+                            view: 'keyOption',
+                            label: 'rgb',
                           },
                           {
-                            view: "keyOption",
-                            label: "none",
+                            view: 'keyOption',
+                            label: 'none',
                           },
                         ],
                       },
@@ -10245,10 +10245,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "html",
-                  label: "div",
-                  pos: "top-left",
+                  view: 'keyButton',
+                  batch: 'html',
+                  label: 'div',
+                  pos: 'top-left',
                   offset: -42,
                   defaultIndex: 1,
                   multirow: !0,
@@ -10256,94 +10256,94 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "html",
-                            value: "<!doctype html></html>",
+                            view: 'keyOption',
+                            label: 'html',
+                            value: '<!doctype html></html>',
                             offset: -7,
                           },
                           {
-                            view: "keyOption",
-                            label: "head",
-                            value: "<head></head>",
+                            view: 'keyOption',
+                            label: 'head',
+                            value: '<head></head>',
                             offset: -7,
                           },
                           {
-                            view: "keyOption",
-                            label: "body",
-                            value: "<body></body>",
+                            view: 'keyOption',
+                            label: 'body',
+                            value: '<body></body>',
                             offset: -7,
                           },
                           {
-                            view: "keyOption",
-                            label: "style",
-                            value: "<style></style>",
+                            view: 'keyOption',
+                            label: 'style',
+                            value: '<style></style>',
                             offset: -8,
                           },
                           {
-                            view: "keyOption",
-                            label: "scp",
-                            value: "<script></script>",
+                            view: 'keyOption',
+                            label: 'scp',
+                            value: '<script></script>',
                             offset: -9,
                           },
                           {
-                            view: "keyOption",
-                            label: "link",
-                            value: "<link>",
+                            view: 'keyOption',
+                            label: 'link',
+                            value: '<link>',
                           },
                           {
-                            view: "keyOption",
-                            label: "meta",
-                            value: "<meta>",
+                            view: 'keyOption',
+                            label: 'meta',
+                            value: '<meta>',
                           },
                         ],
                       },
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "form",
-                            value: "<form></form>",
+                            view: 'keyOption',
+                            label: 'form',
+                            value: '<form></form>',
                             offset: -7,
                           },
                           {
-                            view: "keyOption",
-                            label: "div",
-                            value: "<div></div>",
+                            view: 'keyOption',
+                            label: 'div',
+                            value: '<div></div>',
                             offset: -6,
                           },
                           {
-                            view: "keyOption",
-                            label: "span",
-                            value: "<span></span>",
+                            view: 'keyOption',
+                            label: 'span',
+                            value: '<span></span>',
                             offset: -7,
                           },
                           {
-                            view: "keyOption",
-                            label: "ul",
-                            value: "<ul></ul>",
+                            view: 'keyOption',
+                            label: 'ul',
+                            value: '<ul></ul>',
                             offset: -5,
                           },
                           {
-                            view: "keyOption",
-                            label: "li",
-                            value: "<li></li>",
+                            view: 'keyOption',
+                            label: 'li',
+                            value: '<li></li>',
                             offset: -5,
                           },
                           {
-                            view: "keyOption",
-                            label: "btn",
-                            value: "<button></button>",
+                            view: 'keyOption',
+                            label: 'btn',
+                            value: '<button></button>',
                             offset: -9,
                           },
                           {
-                            view: "keyOption",
-                            label: "img",
-                            value: "<img>",
+                            view: 'keyOption',
+                            label: 'img',
+                            value: '<img>',
                           },
                         ],
                       },
@@ -10351,10 +10351,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "html",
-                  label: "class",
-                  pos: "top-left",
+                  view: 'keyButton',
+                  batch: 'html',
+                  label: 'class',
+                  pos: 'top-left',
                   offset: -42,
                   defaultIndex: 1,
                   multirow: !0,
@@ -10362,37 +10362,37 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "click",
+                            view: 'keyOption',
+                            label: 'click',
                             value: 'onclick=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "title",
+                            view: 'keyOption',
+                            label: 'title',
                             value: 'title=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "data",
+                            view: 'keyOption',
+                            label: 'data',
                             value: 'data=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "alt",
+                            view: 'keyOption',
+                            label: 'alt',
                             value: 'alt=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "rel",
+                            view: 'keyOption',
+                            label: 'rel',
                             value: 'rel="" ',
                             offset: -1,
                           },
@@ -10401,32 +10401,32 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "src",
+                            view: 'keyOption',
+                            label: 'src',
                             value: 'src=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "class",
+                            view: 'keyOption',
+                            label: 'class',
                             value: 'class=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "style",
+                            view: 'keyOption',
+                            label: 'style',
                             value: 'style=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "id",
+                            view: 'keyOption',
+                            label: 'id',
                             value: 'id=""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "href",
+                            view: 'keyOption',
+                            label: 'href',
                             value: 'href=""',
                             offset: -1,
                           },
@@ -10436,9 +10436,9 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "js",
-                  label: "=",
+                  view: 'keyButton',
+                  batch: 'js',
+                  label: '=',
                   offset: 21,
                   defaultIndex: 2,
                   editorOptions: {
@@ -10447,36 +10447,36 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: "*",
+                        view: 'keyOption',
+                        label: '*',
                       },
                       {
-                        view: "keyOption",
-                        label: "+",
+                        view: 'keyOption',
+                        label: '+',
                       },
                       {
-                        view: "keyOption",
-                        label: "=",
+                        view: 'keyOption',
+                        label: '=',
                       },
                       {
-                        view: "keyOption",
-                        label: "-",
+                        view: 'keyOption',
+                        label: '-',
                       },
                       {
-                        view: "keyOption",
-                        label: "/",
+                        view: 'keyOption',
+                        label: '/',
                       },
                       {
-                        view: "keyOption",
-                        label: "%",
+                        view: 'keyOption',
+                        label: '%',
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "css",
-                  label: ".",
+                  view: 'keyButton',
+                  batch: 'css',
+                  label: '.',
                   offset: 21,
                   defaultIndex: 2,
                   editorOptions: {
@@ -10485,36 +10485,36 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: "_",
+                        view: 'keyOption',
+                        label: '_',
                       },
                       {
-                        view: "keyOption",
-                        label: "-",
+                        view: 'keyOption',
+                        label: '-',
                       },
                       {
-                        view: "keyOption",
-                        label: ".",
+                        view: 'keyOption',
+                        label: '.',
                       },
                       {
-                        view: "keyOption",
-                        label: "#",
+                        view: 'keyOption',
+                        label: '#',
                       },
                       {
-                        view: "keyOption",
-                        label: "&",
+                        view: 'keyOption',
+                        label: '&',
                       },
                       {
-                        view: "keyOption",
-                        label: ">",
+                        view: 'keyOption',
+                        label: '>',
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "html",
-                  label: "=",
+                  view: 'keyButton',
+                  batch: 'html',
+                  label: '=',
                   offset: 21,
                   defaultIndex: 2,
                   editorOptions: {
@@ -10523,32 +10523,32 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: "*",
+                        view: 'keyOption',
+                        label: '*',
                       },
                       {
-                        view: "keyOption",
-                        label: "+",
+                        view: 'keyOption',
+                        label: '+',
                       },
                       {
-                        view: "keyOption",
-                        label: "=",
+                        view: 'keyOption',
+                        label: '=',
                       },
                       {
-                        view: "keyOption",
-                        label: "-",
+                        view: 'keyOption',
+                        label: '-',
                       },
                       {
-                        view: "keyOption",
-                        label: "/",
+                        view: 'keyOption',
+                        label: '/',
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "js",
-                  label: "!",
+                  view: 'keyButton',
+                  batch: 'js',
+                  label: '!',
                   defaultIndex: 2,
                   editorOptions: {
                     editor: e,
@@ -10556,85 +10556,85 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: "_",
+                        view: 'keyOption',
+                        label: '_',
                       },
                       {
-                        view: "keyOption",
-                        label: "$",
+                        view: 'keyOption',
+                        label: '$',
                       },
                       {
-                        view: "keyOption",
-                        label: "!",
+                        view: 'keyOption',
+                        label: '!',
                       },
                       {
-                        view: "keyOption",
-                        label: "@",
+                        view: 'keyOption',
+                        label: '@',
                       },
                       {
-                        view: "keyOption",
-                        label: "#",
+                        view: 'keyOption',
+                        label: '#',
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "js",
-                  label: "&&",
+                  view: 'keyButton',
+                  batch: 'js',
+                  label: '&&',
                   defaultIndex: 2,
                   multirow: !0,
                   editorOptions: {
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "<=",
+                            view: 'keyOption',
+                            label: '<=',
                           },
                           {
-                            view: "keyOption",
-                            label: ">=",
+                            view: 'keyOption',
+                            label: '>=',
                           },
                           {
-                            view: "keyOption",
-                            label: "||",
+                            view: 'keyOption',
+                            label: '||',
                           },
                           {
-                            view: "keyOption",
-                            label: "!=",
+                            view: 'keyOption',
+                            label: '!=',
                           },
                           {
-                            view: "keyOption",
-                            label: "!==",
+                            view: 'keyOption',
+                            label: '!==',
                           },
                         ],
                       },
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "<",
+                            view: 'keyOption',
+                            label: '<',
                           },
                           {
-                            view: "keyOption",
-                            label: ">",
+                            view: 'keyOption',
+                            label: '>',
                           },
                           {
-                            view: "keyOption",
-                            label: "&&",
+                            view: 'keyOption',
+                            label: '&&',
                           },
                           {
-                            view: "keyOption",
-                            label: "==",
+                            view: 'keyOption',
+                            label: '==',
                           },
                           {
-                            view: "keyOption",
-                            label: "===",
+                            view: 'keyOption',
+                            label: '===',
                           },
                         ],
                       },
@@ -10642,9 +10642,9 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "css",
-                  label: ":",
+                  view: 'keyButton',
+                  batch: 'css',
+                  label: ':',
                   defaultIndex: 1,
                   editorOptions: {
                     editor: e,
@@ -10652,24 +10652,24 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: "+",
+                        view: 'keyOption',
+                        label: '+',
                       },
                       {
-                        view: "keyOption",
-                        label: ":",
+                        view: 'keyOption',
+                        label: ':',
                       },
                       {
-                        view: "keyOption",
-                        label: "@",
+                        view: 'keyOption',
+                        label: '@',
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "css",
-                  label: ";",
+                  view: 'keyButton',
+                  batch: 'css',
+                  label: ';',
                   defaultIndex: 1,
                   editorOptions: {
                     editor: e,
@@ -10677,24 +10677,24 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: ",",
+                        view: 'keyOption',
+                        label: ',',
                       },
                       {
-                        view: "keyOption",
-                        label: ";",
+                        view: 'keyOption',
+                        label: ';',
                       },
                       {
-                        view: "keyOption",
-                        label: "!",
+                        view: 'keyOption',
+                        label: '!',
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "js",
-                  label: ";",
+                  view: 'keyButton',
+                  batch: 'js',
+                  label: ';',
                   defaultIndex: 1,
                   editorOptions: {
                     editor: e,
@@ -10702,27 +10702,27 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: ":",
+                        view: 'keyOption',
+                        label: ':',
                       },
                       {
-                        view: "keyOption",
-                        label: ";",
+                        view: 'keyOption',
+                        label: ';',
                       },
                       {
-                        view: "keyOption",
-                        label: "?:",
-                        value: "?  :",
+                        view: 'keyOption',
+                        label: '?:',
+                        value: '?  :',
                         offset: -2,
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "js",
-                  label: ".",
-                  pos: "top-right",
+                  view: 'keyButton',
+                  batch: 'js',
+                  label: '.',
+                  pos: 'top-right',
                   offset: 44,
                   defaultIndex: 2,
                   editorOptions: {
@@ -10731,30 +10731,30 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   dropdown: {
                     cells: [
                       {
-                        view: "keyOption",
-                        label: "\\",
+                        view: 'keyOption',
+                        label: '\\',
                       },
                       {
-                        view: "keyOption",
-                        label: "/",
+                        view: 'keyOption',
+                        label: '/',
                       },
                       {
-                        view: "keyOption",
-                        label: ".",
+                        view: 'keyOption',
+                        label: '.',
                       },
                       {
-                        view: "keyOption",
-                        label: ",",
-                        value: ", ",
+                        view: 'keyOption',
+                        label: ',',
+                        value: ', ',
                       },
                     ],
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "js",
+                  view: 'keyButton',
+                  batch: 'js',
                   label: "''",
-                  pos: "top-right",
+                  pos: 'top-right',
                   multirow: !0,
                   offset: 4,
                   defaultIndex: 3,
@@ -10762,24 +10762,24 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "/",
+                            view: 'keyOption',
+                            label: '/',
                           },
                           {
-                            view: "keyOption",
-                            label: "`",
+                            view: 'keyOption',
+                            label: '`',
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: '"',
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: "'",
                           },
                         ],
@@ -10787,22 +10787,22 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "//",
+                            view: 'keyOption',
+                            label: '//',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
-                            label: "``",
+                            view: 'keyOption',
+                            label: '``',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: '""',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: "''",
                             offset: -1,
                           },
@@ -10812,10 +10812,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "html",
+                  view: 'keyButton',
+                  batch: 'html',
                   label: '""',
-                  pos: "top-right",
+                  pos: 'top-right',
                   multirow: !0,
                   offset: 4,
                   defaultIndex: 3,
@@ -10823,20 +10823,20 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "`",
+                            view: 'keyOption',
+                            label: '`',
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: "'",
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: '"',
                           },
                         ],
@@ -10844,17 +10844,17 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "``",
+                            view: 'keyOption',
+                            label: '``',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: "''",
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: '""',
                             offset: -1,
                           },
@@ -10864,10 +10864,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "keyButton",
-                  batch: "css",
+                  view: 'keyButton',
+                  batch: 'css',
                   label: "''",
-                  pos: "top-right",
+                  pos: 'top-right',
                   multirow: !0,
                   offset: 4,
                   defaultIndex: 3,
@@ -10875,20 +10875,20 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     editor: e,
                   },
                   dropdown: {
-                    flexLayout: "column",
+                    flexLayout: 'column',
                     cells: [
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "`",
+                            view: 'keyOption',
+                            label: '`',
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: '"',
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: "'",
                           },
                         ],
@@ -10896,17 +10896,17 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                       {
                         cells: [
                           {
-                            view: "keyOption",
-                            label: "``",
+                            view: 'keyOption',
+                            label: '``',
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: "''",
                             offset: -1,
                           },
                           {
-                            view: "keyOption",
+                            view: 'keyOption',
                             label: '""',
                             offset: -1,
                           },
@@ -10916,11 +10916,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "menuIcon",
-                  batch: "html",
-                  iconClass: "ti-shortcode",
+                  view: 'menuIcon',
+                  batch: 'html',
+                  iconClass: 'ti-shortcode',
                   style: {
-                    width: "40px",
+                    width: '40px',
                   },
                   on: {
                     onMouseDown: function () {
@@ -10932,19 +10932,19 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             },
             {
               id: o,
-              cls: "x-editor-keyboard",
-              flexSize: "none",
+              cls: 'x-editor-keyboard',
+              flexSize: 'none',
               style: {
-                padding: "0 6px",
+                padding: '0 6px',
               },
-              defaultBatch: ["tab", "arrow", "more", "close"],
+              defaultBatch: ['tab', 'arrow', 'more', 'close'],
               cells: [
                 {
-                  id: o + "Tab",
-                  batch: "tab",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-shift-right",
+                  id: o + 'Tab',
+                  batch: 'tab',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-shift-right',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.triggerTabPress(), e.focus(!0);
@@ -10952,11 +10952,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Up",
-                  batch: "arrow",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-angle-up",
+                  id: o + 'Up',
+                  batch: 'arrow',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-angle-up',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(),
@@ -10966,11 +10966,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Down",
-                  batch: "arrow",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-angle-down",
+                  id: o + 'Down',
+                  batch: 'arrow',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-angle-down',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(),
@@ -10980,11 +10980,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Left",
-                  batch: "arrow",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-angle-left",
+                  id: o + 'Left',
+                  batch: 'arrow',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-angle-left',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.moveCursorLeft(), e.focus(!0);
@@ -10992,11 +10992,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Right",
-                  batch: "arrow",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-angle-right",
+                  id: o + 'Right',
+                  batch: 'arrow',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-angle-right',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.moveCursorRight(), e.focus(!0);
@@ -11004,23 +11004,23 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Arrows",
-                  batch: "arrows",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-angle-double-left",
+                  id: o + 'Arrows',
+                  batch: 'arrows',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-angle-double-left',
                   on: {
                     onMouseDown: function () {
-                      $$(o).showBatch(["tab", "arrow", "more", "close"]);
+                      $$(o).showBatch(['tab', 'arrow', 'more', 'close']);
                     },
                   },
                 },
                 {
-                  id: o + "Undo",
-                  batch: "undo",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-back-left",
+                  id: o + 'Undo',
+                  batch: 'undo',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-back-left',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.undo();
@@ -11028,11 +11028,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Redo",
-                  batch: "redo",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-back-right",
+                  id: o + 'Redo',
+                  batch: 'redo',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-back-right',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.redo();
@@ -11040,11 +11040,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Copy",
-                  batch: "copy",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-layers",
+                  id: o + 'Copy',
+                  batch: 'copy',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-layers',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.copyText2();
@@ -11052,11 +11052,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Cut",
-                  batch: "cut",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-cut",
+                  id: o + 'Cut',
+                  batch: 'cut',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-cut',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.cutText2();
@@ -11064,11 +11064,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "Paste",
-                  batch: "paste",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-clipboard",
+                  id: o + 'Paste',
+                  batch: 'paste',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-clipboard',
                   on: {
                     onMouseDown: function () {
                       a.vibrate.lt(), e.pasteText2();
@@ -11077,10 +11077,10 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 },
                 {
                   id: n,
-                  batch: "menu",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-plus",
+                  batch: 'menu',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-plus',
                   on: {
                     onClick: function (e, n, i) {
                       UI.preventEvent(i);
@@ -11095,28 +11095,28 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  id: o + "HideKeyboard",
-                  batch: "close",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  icon: "triangle-down",
+                  id: o + 'HideKeyboard',
+                  batch: 'close',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  icon: 'triangle-down',
                 },
                 {
-                  id: o + "More",
-                  batch: "more",
-                  view: "menuIcon",
-                  flexSize: "flex",
-                  iconClass: "ti-angle-double-right",
+                  id: o + 'More',
+                  batch: 'more',
+                  view: 'menuIcon',
+                  flexSize: 'flex',
+                  iconClass: 'ti-angle-double-right',
                   on: {
                     onMouseDown: function () {
                       $$(o).showBatch([
-                        "arrows",
-                        "redo",
-                        "undo",
-                        "copy",
-                        "cut",
-                        "paste",
-                        "menu",
+                        'arrows',
+                        'redo',
+                        'undo',
+                        'copy',
+                        'cut',
+                        'paste',
+                        'menu',
                       ]);
                     },
                   },
@@ -11127,12 +11127,12 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           on: {
             onInitialized: function () {
               (this.optionsKey = $$(n)),
-                (this.leftKey = $$(o + "Left")),
-                (this.rightKey = $$(o + "Right")),
-                (this.upKey = $$(o + "Up")),
-                (this.downKey = $$(o + "Down")),
-                (this.tabKey = $$(o + "Tab")),
-                this.changeMode("js");
+                (this.leftKey = $$(o + 'Left')),
+                (this.rightKey = $$(o + 'Right')),
+                (this.upKey = $$(o + 'Up')),
+                (this.downKey = $$(o + 'Down')),
+                (this.tabKey = $$(o + 'Tab')),
+                this.changeMode('js');
             },
           },
           hideMenu: function () {
@@ -11157,7 +11157,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       },
     }),
   m
-    .module("editor")
+    .module('editor')
     .__init__(function (e) {
       (e.scrollingStates = {}), (e.activeActionBar = null);
     })
@@ -11171,38 +11171,38 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           (a.editor = t),
           (a.caretCursor = UI.new(
             {
-              cls: "x-caret-cursor",
+              cls: 'x-caret-cursor',
               hidden: !0,
-              position: "absolute",
+              position: 'absolute',
             },
             o
           )),
           (a.leftCursor = UI.new(
             {
-              cls: "x-left-cursor",
+              cls: 'x-left-cursor',
               hidden: !0,
-              position: "absolute",
+              position: 'absolute',
             },
             o
           )),
           (a.rightCursor = UI.new(
             {
-              cls: "x-right-cursor",
+              cls: 'x-right-cursor',
               hidden: !0,
-              position: "absolute",
+              position: 'absolute',
             },
             o
           )),
           (a.actionBar = UI.new(
             {
-              cls: "x-action-bar",
-              animation: "fade",
+              cls: 'x-action-bar',
+              animation: 'fade',
               hidden: !0,
-              position: "absolute",
+              position: 'absolute',
               cells: [
                 {
-                  view: "touchIcon",
-                  iconClass: "ti-cut",
+                  view: 'touchIcon',
+                  iconClass: 'ti-cut',
                   on: {
                     onTouchEnd: function () {
                       t.cutText2(), a.actionBar.hide();
@@ -11210,8 +11210,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "touchIcon",
-                  iconClass: "ti-layers",
+                  view: 'touchIcon',
+                  iconClass: 'ti-layers',
                   on: {
                     onTouchEnd: function () {
                       t.copyText2(), a.actionBar.hide();
@@ -11219,8 +11219,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "touchIcon",
-                  iconClass: "ti-clipboard",
+                  view: 'touchIcon',
+                  iconClass: 'ti-clipboard',
                   on: {
                     onTouchEnd: function () {
                       t.pasteText2(), a.actionBar.hide();
@@ -11228,8 +11228,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "touchIcon",
-                  iconClass: "ti-align-justify",
+                  view: 'touchIcon',
+                  iconClass: 'ti-align-justify',
                   on: {
                     onTouchEnd: function () {
                       a.pasteActionBar.hide(), t.selectAll();
@@ -11244,14 +11244,14 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           )),
           (a.pasteActionBar = UI.new(
             {
-              cls: "x-action-bar",
-              animation: "fade",
+              cls: 'x-action-bar',
+              animation: 'fade',
               hidden: !0,
-              position: "absolute",
+              position: 'absolute',
               cells: [
                 {
-                  view: "touchIcon",
-                  iconClass: "ti-clipboard",
+                  view: 'touchIcon',
+                  iconClass: 'ti-clipboard',
                   on: {
                     onTouchEnd: function () {
                       t.pasteText2(), a.pasteActionBar.hide();
@@ -11259,8 +11259,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   },
                 },
                 {
-                  view: "touchIcon",
-                  iconClass: "ti-align-justify",
+                  view: 'touchIcon',
+                  iconClass: 'ti-align-justify',
                   on: {
                     onTouchEnd: function () {
                       a.pasteActionBar.hide(), t.selectAll();
@@ -11273,13 +11273,13 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             },
             o
           )),
-          n.on("blur", function () {
+          n.on('blur', function () {
             a.caretCursor.hide();
           }),
-          n.on("focus", function () {
+          n.on('focus', function () {
             a.updateTextSelectionCursors();
           }),
-          a.caretCursor.element.addEventListener("touchmove", function (e) {
+          a.caretCursor.element.addEventListener('touchmove', function (e) {
             (a.$touching = !0),
               (function e(t) {
                 if (t) {
@@ -11338,7 +11338,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               })(e.changedTouches[0]),
               e.cancelable && UI.preventEvent(e);
           }),
-          a.rightCursor.element.addEventListener("touchmove", function (e) {
+          a.rightCursor.element.addEventListener('touchmove', function (e) {
             UI.preventEvent(e),
               (a.$touching = !0),
               (function e(t) {
@@ -11397,7 +11397,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 }
               })(e.changedTouches[0]);
           }),
-          a.leftCursor.element.addEventListener("touchmove", function (e) {
+          a.leftCursor.element.addEventListener('touchmove', function (e) {
             UI.preventEvent(e),
               (a.$touching = !0),
               (function e(t) {
@@ -11459,7 +11459,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 }
               })(e.changedTouches[0]);
           }),
-          i.on("afterRender", a.updateTextSelectionCursors.bind(a));
+          i.on('afterRender', a.updateTextSelectionCursors.bind(a));
         let s = null,
           r = !1,
           c = 0,
@@ -11517,7 +11517,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             (a.$touching = !1),
             a.updateTextSelectionCursors();
         }
-        o.addEventListener("touchmove", function (e) {
+        o.addEventListener('touchmove', function (e) {
           const t = e.changedTouches[0],
             n = -(t.clientX - c),
             i = -(t.clientY - l);
@@ -11525,25 +11525,25 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
             null !== s &&
             (clearTimeout(s), (s = null));
         }),
-          o.addEventListener("touchstart", function (u) {
+          o.addEventListener('touchstart', function (u) {
             const h = u.changedTouches[0];
             if (
               ((c = h.clientX),
               (l = h.clientY),
-              UI.hasClass(u.target, "ace_gutter-cell") ||
-                UI.hasClass(u.target, "ace_fold-widget") ||
-                UI.hasClass(u.target, "ace_fold"))
+              UI.hasClass(u.target, 'ace_gutter-cell') ||
+                UI.hasClass(u.target, 'ace_fold-widget') ||
+                UI.hasClass(u.target, 'ace_fold'))
             )
-              return void UI.removeClass(i.$gutter, "invisible-fold-widget");
+              return void UI.removeClass(i.$gutter, 'invisible-fold-widget');
             (a.cursorScroll = 0),
               document.hasFocus() && UI.preventEvent(u),
-              UI.addClass(i.$gutter, "invisible-fold-widget"),
-              i.$gutter.dispatchEvent(new CustomEvent("mouseout")),
+              UI.addClass(i.$gutter, 'invisible-fold-widget'),
+              i.$gutter.dispatchEvent(new CustomEvent('mouseout')),
               null !== s && (clearTimeout(s), (s = null));
             const d = u.changedTouches[0],
               p = i.pixelToScreenCoordinates(d.clientX, d.clientY);
             s = setTimeout(function () {
-              if ("start" === e.scrollingStates[o.id]) {
+              if ('start' === e.scrollingStates[o.id]) {
                 (r = !0),
                   n.selection.moveCursorToScreen(p.row, p.column),
                   n.selection.clearSelection();
@@ -11567,26 +11567,26 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                       c + s.width > o.$size.width - 8
                         ? o.$size.width - 8 - s.width
                         : c),
-                    (i.element.style.left = c + "px"),
+                    (i.element.style.left = c + 'px'),
                     (i.element.style.top =
                       (r.top < 120 ? r.bottom + 32 : r.top - s.height - 16) +
-                      "px");
+                      'px');
                 }
                 e.vibrate.lt();
               }
             }, 675);
           }),
-          a.caretCursor.element.addEventListener("touchstart", d),
-          a.caretCursor.element.addEventListener("touchend", p),
-          a.leftCursor.element.addEventListener("touchstart", d),
-          a.leftCursor.element.addEventListener("touchend", p),
-          a.rightCursor.element.addEventListener("touchstart", d),
-          a.rightCursor.element.addEventListener("touchend", p),
-          o.addEventListener("touchend", function (t) {
-            const s = t.target && UI.hasClass(t.target, "ace_content");
+          a.caretCursor.element.addEventListener('touchstart', d),
+          a.caretCursor.element.addEventListener('touchend', p),
+          a.leftCursor.element.addEventListener('touchstart', d),
+          a.leftCursor.element.addEventListener('touchend', p),
+          a.rightCursor.element.addEventListener('touchstart', d),
+          a.rightCursor.element.addEventListener('touchend', p),
+          o.addEventListener('touchend', function (t) {
+            const s = t.target && UI.hasClass(t.target, 'ace_content');
             if ((u(t, !s), (a.$touching = !1), s))
               if (r) r = !1;
-              else if ("start" === e.scrollingStates[o.id]) {
+              else if ('start' === e.scrollingStates[o.id]) {
                 const e = t.changedTouches[0],
                   o = i.pixelToScreenCoordinates(e.clientX, e.clientY);
                 n.selection.clearSelection(),
@@ -11594,8 +11594,8 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                   n.focus(!0);
               }
           }),
-          o.addEventListener("contextmenu", UI.preventEvent),
-          o.addEventListener("click", function () {
+          o.addEventListener('contextmenu', UI.preventEvent),
+          o.addEventListener('click', function () {
             n.isFocused() || n.focus();
           });
       }),
@@ -11623,11 +11623,11 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
               if (
                 (n.hide(),
                 i.show(),
-                (i.element.style.left = p.left - 18 + u - v + "px"),
-                (i.element.style.top = f + "px"),
+                (i.element.style.left = p.left - 18 + u - v + 'px'),
+                (i.element.style.top = f + 'px'),
                 o.show(),
-                (o.element.style.left = m.left + u - v + "px"),
-                (o.element.style.top = g + "px"),
+                (o.element.style.left = m.left + u - v + 'px'),
+                (o.element.style.top = g + 'px'),
                 t.$touching)
               )
                 e.vi();
@@ -11640,16 +11640,16 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                     n + t.width > l.$size.width - 8
                       ? l.$size.width - 8 - t.width
                       : n),
-                  (a.element.style.left = n + "px"),
+                  (a.element.style.left = n + 'px'),
                   (a.element.style.top =
-                    (f < 120 ? g + 32 : f - d - t.height - 16) + "px");
+                    (f < 120 ? g + 32 : f - d - t.height - 16) + 'px');
               }
             else
               s.isFocused() &&
                 (n.show(),
                 (n.element.style.left =
-                  m.left - 9 + u - l.scrollLeft + 1 + "px"),
-                (n.element.style.top = g + 1 + "px")),
+                  m.left - 9 + u - l.scrollLeft + 1 + 'px'),
+                (n.element.style.top = g + 1 + 'px')),
                 o.hide(),
                 i.hide(),
                 a.hide(),
@@ -11658,7 +11658,7 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
         });
     })
     .__init__(function (e) {
-      const t = ace.require("ace/lib/event");
+      const t = ace.require('ace/lib/event');
       t.addTouchMoveListener = function (n, i) {
         let o,
           a,
@@ -11666,17 +11666,17 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
           r = 0;
         const c = e.scrollingStates,
           l = n.id;
-        if ("ontouchmove" in n) {
+        if ('ontouchmove' in n) {
           let e, h;
-          t.addListener(n, "touchstart", function (t) {
+          t.addListener(n, 'touchstart', function (t) {
             const n = t.changedTouches[0];
             (e = n.clientX),
               (h = n.clientY),
               (o = Date.now()),
               (s = r = 0),
-              (c[l] = "start");
+              (c[l] = 'start');
           }),
-            t.addListener(n, "touchmove", function (t) {
+            t.addListener(n, 'touchmove', function (t) {
               const n = t.changedTouches[0],
                 a = (t.wheelX = -(n.clientX - e)),
                 u = (t.wheelY = -(n.clientY - h)),
@@ -11687,13 +11687,13 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
                 (e = n.clientX),
                 (h = n.clientY),
                 (o = d),
-                (Math.abs(a) > 5 || Math.abs(u) > 5) && (c[l] = "scroll"),
+                (Math.abs(a) > 5 || Math.abs(u) > 5) && (c[l] = 'scroll'),
                 i(t);
             }),
-            t.addListener(n, "touchend", function () {
+            t.addListener(n, 'touchend', function () {
               (Math.abs(s) > 18 || Math.abs(r) > 18) &&
                 ((o = a = Date.now()),
-                (c[l] = "scroll"),
+                (c[l] = 'scroll'),
                 requestAnimationFrame(u));
             });
         }
@@ -11725,17 +11725,17 @@ ace.config.set("LanguageServerDelegate", LanguageServerDelegate),
       },
     });
 const FileExtToMode = {
-    ".js": "javascript",
-    ".ts": "typescript",
-    ".jsx": "jsx",
-    ".tsx": "tsx",
-    ".css": "css",
-    ".scss": "scss",
-    ".sass": "scss",
-    ".less": "less",
-    ".html": "html",
-    ".xhtml": "html",
-    ".htm": "html",
+    '.js': 'javascript',
+    '.ts': 'typescript',
+    '.jsx': 'jsx',
+    '.tsx': 'tsx',
+    '.css': 'css',
+    '.scss': 'scss',
+    '.sass': 'scss',
+    '.less': 'less',
+    '.html': 'html',
+    '.xhtml': 'html',
+    '.htm': 'html',
   },
   convertPosition = function ({ row: e, column: t }) {
     return {
@@ -11758,12 +11758,12 @@ class LanguageServerClient {
     t.worker ? t.worker.postMessage(e) : t.queuedMessages.push(e);
   }
   $getModeFromName(e) {
-    return FileExtToMode[PathUtils.ext(e || "")];
+    return FileExtToMode[PathUtils.ext(e || '')];
   }
   addFile(e, t, n) {
     this.$postMessage(
       {
-        type: "add",
+        type: 'add',
         name: e,
         text: t,
       },
@@ -11773,7 +11773,7 @@ class LanguageServerClient {
   editFile(e, t, n) {
     this.$postMessage(
       {
-        type: "edit",
+        type: 'edit',
         name: e,
         edits: t.map(({ text: e, start: t, end: n }) => ({
           start: convertPosition(t),
@@ -11787,7 +11787,7 @@ class LanguageServerClient {
   updateFile(e, t, n) {
     this.$postMessage(
       {
-        type: "update",
+        type: 'update',
         name: e,
         text: t,
       },
@@ -11797,7 +11797,7 @@ class LanguageServerClient {
   removeFolder(e, t) {
     this.$postMessage(
       {
-        type: "removeFolder",
+        type: 'removeFolder',
         name: e,
       },
       t
@@ -11806,7 +11806,7 @@ class LanguageServerClient {
   removeFile(e, t) {
     this.$postMessage(
       {
-        type: "remove",
+        type: 'remove',
         name: e,
       },
       t
@@ -11815,10 +11815,10 @@ class LanguageServerClient {
   moveFolder(e, t, n) {
     this.$postMessage(
       {
-        type: "moveFolder",
+        type: 'moveFolder',
         name: e,
         newName: t,
-        mode: "all",
+        mode: 'all',
       },
       n
     );
@@ -11826,7 +11826,7 @@ class LanguageServerClient {
   moveFile(e, t, n, i) {
     this.$postMessage(
       {
-        type: "move",
+        type: 'move',
         name: e,
         newName: t,
         text: n,
@@ -11837,7 +11837,7 @@ class LanguageServerClient {
   setCurrentDirectory(e, t) {
     this.$postMessage(
       {
-        type: "setCurrentDirectory",
+        type: 'setCurrentDirectory',
         directoryName: e,
       },
       t
@@ -11846,8 +11846,8 @@ class LanguageServerClient {
   clearFiles(e) {
     this.$postMessage(
       {
-        type: "clear",
-        mode: "all",
+        type: 'clear',
+        mode: 'all',
       },
       e
     );
@@ -11855,7 +11855,7 @@ class LanguageServerClient {
   getCompletions(e, t, n, i) {
     this.$postMessage(
       {
-        type: "completion",
+        type: 'completion',
         name: e,
         position: convertPosition(t),
         triggerCharacter: n,
@@ -11866,7 +11866,7 @@ class LanguageServerClient {
   doValidate(e, t) {
     this.$postMessage(
       {
-        type: "validate",
+        type: 'validate',
         name: e,
       },
       t
@@ -11875,7 +11875,7 @@ class LanguageServerClient {
   getInfo(e, t, n) {
     this.$postMessage(
       {
-        type: "info",
+        type: 'info',
         name: e,
         position: convertPosition(t),
       },
@@ -11885,7 +11885,7 @@ class LanguageServerClient {
   goToDefinition(e, t, n) {
     this.$postMessage(
       {
-        type: "def",
+        type: 'def',
         name: e,
         position: convertPosition(t),
       },
@@ -11897,7 +11897,7 @@ class LanguageServerClient {
   getSignature(e, t, n, i) {
     this.$postMessage(
       {
-        type: "signature",
+        type: 'signature',
         name: e,
         position: convertPosition(t),
         triggerCharacter: n,
@@ -11908,7 +11908,7 @@ class LanguageServerClient {
   getRefs(e, t, n) {
     this.$postMessage(
       {
-        type: "ref",
+        type: 'ref',
         name: e,
         position: convertPosition(t),
       },
@@ -11918,7 +11918,7 @@ class LanguageServerClient {
   getRenameLocations(e, t, n, i) {
     this.$postMessage(
       {
-        type: ["rename", "renameInfo"],
+        type: ['rename', 'renameInfo'],
         name: e,
         position: convertPosition(t),
       },
@@ -11937,7 +11937,7 @@ class LanguageServerClient {
   getRenameInfo(e, t, n) {
     this.$postMessage(
       {
-        type: "renameInfo",
+        type: 'renameInfo',
         name: e,
         position: convertPosition(t),
       },
@@ -11948,16 +11948,16 @@ class LanguageServerClient {
     const e = this;
     if (!e.worker) {
       let t = e.pending;
-      (e.worker = new Worker("./workers/language.worker.js")),
+      (e.worker = new Worker('./workers/language.worker.js')),
         (e.worker.onmessage = function (n) {
           const i = n.data;
-          "log" == i.type
+          'log' == i.type
             ? $LOG.log(i.message)
-            : "debug" == i.type
+            : 'debug' == i.type
             ? $LOG.debug(i.message)
-            : "warn" == i.type
+            : 'warn' == i.type
             ? $LOG.warn(i.message)
-            : "error" == i.type
+            : 'error' == i.type
             ? $LOG.error(i.message)
             : i.id && t[i.id] && (t[i.id](i), delete t[i.id]),
             e.queuedMessages.length &&
@@ -11981,43 +11981,43 @@ class LanguageServerClient {
 var LSC = new LanguageServerClient();
 requestAnimationFrame(() => LSC.start()),
   m
-    .module("share")
-    .require("prompt")
+    .module('share')
+    .require('prompt')
     .__init__(function (e, { prompt: t }) {
       Object.assign(e, {
         prompt: t,
       });
-      const n = "abcdefghijklmnopqrstuvwxyz";
+      const n = 'abcdefghijklmnopqrstuvwxyz';
       (e.maxSize = 16384),
         (e.base = n + n.toUpperCase()),
         (e.baseCharCodes = new Uint8Array(
-          e.base.split("").map((e) => e.charCodeAt(0))
+          e.base.split('').map((e) => e.charCodeAt(0))
         ));
     })
     .def({
-      wi: () => $$("shareLinkInput"),
-      dt: () => $$("shareMessage"),
-      bi: () => $$("shareTitle"),
+      wi: () => $$('shareLinkInput'),
+      dt: () => $$('shareMessage'),
+      bi: () => $$('shareTitle'),
       yi: function () {
-        this.wi().element.select(), document.execCommand("copy");
+        this.wi().element.select(), document.execCommand('copy');
       },
       Si: async function ({ title: e, message: t, value: n }) {
-        this.bi().setLabel(e || ""),
-          this.dt().setValue(t || ""),
-          this.wi().setValue(n || ""),
+        this.bi().setLabel(e || ''),
+          this.dt().setValue(t || ''),
+          this.wi().setValue(n || ''),
           this.modal.open(),
-          GA_SendEvent("share_link", "n/a");
+          GA_SendEvent('share_link', 'n/a');
       },
       xi: async function (e) {
         const t = this,
           n = await GFS.lstat(e);
         if (!n) {
-          const e = "Could not share file because it does not exist.";
-          throw (t.prompt.ue("Missing File", e), Error(e));
+          const e = 'Could not share file because it does not exist.';
+          throw (t.prompt.ue('Missing File', e), Error(e));
         }
         if (!(n.size < t.maxSize)) {
-          const e = "Could not share file because it exceeds the 16 kB limit.";
-          throw (t.prompt.ue("Size Exceeded", e), Error(e));
+          const e = 'Could not share file because it exceeds the 16 kB limit.';
+          throw (t.prompt.ue('Size Exceeded', e), Error(e));
         }
         try {
           const t = await GFS.readFile(e);
@@ -12039,7 +12039,7 @@ requestAnimationFrame(() => LSC.start()),
         t.append(e);
         const n = t.flush(),
           i = this.base;
-        return n.reduce((e, t) => e + i[Math.floor(t / 5)] + (t % 5 || ""), "");
+        return n.reduce((e, t) => e + i[Math.floor(t / 5)] + (t % 5 || ''), '');
       },
       ki: function (e) {
         const t = new Uint8Array(e.length),
@@ -12053,7 +12053,7 @@ requestAnimationFrame(() => LSC.start()),
             ((i = e.charCodeAt(s)),
             !(65 <= i && i <= 122 && (i <= 90 || i >= 97)))
           )
-            throw new Error("Decoding error occurred with corrupted url.");
+            throw new Error('Decoding error occurred with corrupted url.');
           (o = e.charCodeAt(s + 1)),
             48 <= o && o <= 57
               ? ((t[a] = 5 * n.indexOf(i) + o - 48), (s += 2), a++)
@@ -12064,54 +12064,54 @@ requestAnimationFrame(() => LSC.start()),
         return r.flush(), c;
       },
     }),
-  m.module("share").__init__(function (e) {
+  m.module('share').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
-        cls: "x-prompt",
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
         center: !1,
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              id: "shareTitle",
-              view: "menuTitle",
+              id: 'shareTitle',
+              view: 'menuTitle',
               collapsable: !1,
             },
           ],
         },
         body: {
-          flexLayout: "column",
+          flexLayout: 'column',
           cells: [
             {
-              id: "shareMessage",
-              margin: "y-sm",
-              view: "label",
+              id: 'shareMessage',
+              margin: 'y-sm',
+              view: 'label',
             },
             {
-              cls: "uk-form",
-              flexAlign: "middle",
+              cls: 'uk-form',
+              flexAlign: 'middle',
               cells: [
                 {
-                  id: "shareLinkInput",
-                  view: "input",
-                  flexSize: "flex",
-                  autocapitalize: "off",
-                  autocorrect: "off",
-                  spellcheck: "false",
+                  id: 'shareLinkInput',
+                  view: 'input',
+                  flexSize: 'flex',
+                  autocapitalize: 'off',
+                  autocorrect: 'off',
+                  spellcheck: 'false',
                   readonly: !0,
                 },
                 {
-                  view: "menuIcon",
-                  icon: "copy",
-                  title: "Copy Link",
-                  margin: "x-sm",
-                  flexSize: "none",
+                  view: 'menuIcon',
+                  icon: 'copy',
+                  title: 'Copy Link',
+                  margin: 'x-sm',
+                  flexSize: 'none',
                   on: {
                     onClick: function () {
                       e.yi();
@@ -12123,12 +12123,12 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "shareCancelButton",
-              view: "button",
+              id: 'shareCancelButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -12139,11 +12139,11 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("landing")
+    .module('landing')
     .__new__((e) => {
       e.annoucements =
         '\n# Update 4.2.0\n\n## Minor Changes\n\n- Add "Share URL" option to Remotes List\n- Add header select to Annoucements page\n- Change edit action bar to icons\n\n## Bug fixes\n\n- Fixed Editor trying to open known file types that it cannot open properly\n- Fixed autocomplete for local file editing\n- Fixed breadcrumb dropdown for local file editing\n- Fixed first file not included in navigation history\n- Fixed pushing to remotes not named "origin"\n\n# Update 4.1.0\n\n## Minor Changes\n\n- New buttons added to editor keyboard\n- New icons added to interface\n- Merged Autocomplete/Check-Syntax settings (as they work together now)\n\n## Bug fixes\n\n- Fixed console log problems\n- Fixed emmet not working correctly\n- Fixed redo not responding in rare cases\n\n## Major Changes\n\n# Update 4.0.0\n\n## Major Changes\n\n- Editor and Android app versions merge (no more 0.9.x)\n- Upgrade editor by upgrading Android app, no more auto-updates\n- IDB projects (created in Editor v0.1.0 - v0.8.0) no longer supported\n\n### Autocomplete/Syntax Analysis Rewrite\n\n- Basic (keywords only) autocompletion extended to Python, Java, CoffeeScript, Less, Stylus, and more!\n- Snippets now supported in JavaScript, CSS, HTML, Python, Java, CoffeeScript, and more!\n- CSS4 syntax supported (CSS4 variables, etc.)\n- Improved code-hinting and signature lookup\n\n### Eruda Console\n\n- Default Console option in the app has been replaced with Eruda console\n- Offers greater inspection of app, (i.e. Element, Network inspection)\n- Chrome-like error messages and object inspection in the console\n\n## Minor Changes\n\n- "Auto" Orientation now supported in *Settings* for mobile devices\n- New keybinding options for editor in *Settings*\n- Bug fixes and resource usage improvements\n\n# Update 0.9.17\n\n## Bug fixes\n\n- Fixed text selection cursors not showing up\n\n# Update 0.9.16\n\n## Bug fixes\n\n- Fixed edit file not triggering change in git status\n\n# Update 0.9.15\n\n## Changes\n\n- Improved save/recover file algorithm\n- Improved backup system for all files\n- Small improvements to git branches/remotes interface\n- Renames to existing files not allowed\n- New error for non-UTF-8 file/ZIP import\n- New error when renaming to existing file\n- Minimum Chrome version required bumped to 55+\n\n## Bug fixes\n\n- Fixed move/rename operations causing unintended side effects\n- Fixed files showing in the projects menu\n- Fixed git status stale cache bug\n- Stability fixes for Android file system\n- Stability fixes for IDB file system\n\n# Update 0.9.12\n\n## Changes\n\n- Move Git authentication settings to file (preserved after updates)\n- Improved backup system for last file edited\n\n### Git\n\n- Local branch can be created without remote\n- New branch management interface (delete/add local branches)\n- New remote management interface (delete/add remotes)\n- Fetch specific remote\n- Push/pull from specific upstream branch\n\n## Bug fixes\n\n- Fixed Spanish locale\n- Stability fixes to autocomplete parser\n- Stability fixes to project index backend\n- Fixed 0-index row numbers in search\n- Fixed file search buttons missing on new project\n\n# Update 0.9.10\n\n## Changes\n\n- Add locales for Spanish, Portuguese, Japanese, Chinese\n\n## Bug fixes\n\n- Fixed ZIP import permissions issue\n- Fixed vibrating cursor during selection\n- Fixed left cursor blocked by gutter during selection\n\n# Update 0.9.7\n\n## Changes\n\n- Improved touch selection\n- Elastic touch cursor drag selection\n\n## Bug fixes\n\n- Fix project search\n\n# Update 0.9.6\n\n## Changes\n\n- "Launch" button will launch the current HTML file, otherwise defaults to the set \'Default Launch\' HTML file followed by \'index.html\'\n\n## Bug fixes\n\n- Layout fixes for desktop mode (introduced in 0.9.5)\n- Fixed image viewer not working (requires upgrade Android app to 3.0.9)\n- Fixed public BitBucket repo cloning\n\n# Update 0.9.5\n\n## PWA is here!\n\n#### An intermediate step in supporting iOS\n\n- New PWA version of app available for iOS and Android, available <a rel=\'noopener noreferrer\' href="https://spck.io/pwa" target="_blank">here</a>\n- For instructions to install PWAs visit <a rel=\'noopener noreferrer\' href="https://rangle.io/blog/progressive-web-apps-hit-the-desktop/" target="_blank">here</a>\n- Note that the PWA version uses IndexedDB and do not offer the same feature rich features as the Android App\n\n## Changes\n\n- App deep-linking available in Android app 3.0.8\n- Add new setting \'Keyboard Position\' (Mainly for iOS devices)\n\n## Extra\n- Android Q now recommends "scoped" app storage, apps will no longer be freely able to store and access files created outside the app, this affects the design choices made on filesystem integration for compatibility with future versions of Android. For more information please visit [Manage scoped external storage access](https://developer.android.com/training/data-storage/files/external-scoped)\n';
@@ -12159,16 +12159,16 @@ requestAnimationFrame(() => LSC.start()),
             (await e.Ii()) !== n &&
             (e.prompt.q(
               {
-                en: "Special Annoucement",
+                en: 'Special Annoucement',
               },
               null,
               {
                 message: {
-                  en: "There is a special announcement. Would you like to go and read it?",
+                  en: 'There is a special announcement. Would you like to go and read it?',
                 },
                 onResult: () => {
                   m.modules.main.Ci().showLanding(),
-                    e.Ei().switchToTab("update");
+                    e.Ei().switchToTab('update');
                 },
               }
             ),
@@ -12177,22 +12177,22 @@ requestAnimationFrame(() => LSC.start()),
         } else
           e.prompt.ue(
             {
-              en: "Read Carefully",
-              es: "Lea Cuidadosamente",
-              ja: "慎重に読む",
-              pt: "Leia Cuidadosamente",
-              ru: "Внимательно прочитайте",
-              zh: "仔细读",
-              zhTW: "仔細讀",
+              en: 'Read Carefully',
+              es: 'Lea Cuidadosamente',
+              ja: '慎重に読む',
+              pt: 'Leia Cuidadosamente',
+              ru: 'Внимательно прочитайте',
+              zh: '仔细读',
+              zhTW: '仔細讀',
             },
             {
-              en: "Uninstalling this app will remove all app-related (including files, projects). Please keep back-up of your projects through GIT to prevent accidental data-loss.",
-              es: "La desinstalación de esta aplicación eliminará todos los relacionados con la aplicación (incluidos archivos, proyectos). Mantenga una copia de seguridad de sus proyectos a través de GIT para evitar la pérdida accidental de datos.",
-              ja: "このアプリをアンインストールすると、アプリ関連（ファイル、プロジェクトなど）がすべて削除されます。偶発的なデータ損失を防ぐために、GITを介してプロジェクトのバックアップを保管してください。",
-              pt: "A desinstalação deste aplicativo removerá todos os aplicativos relacionados (incluindo arquivos, projetos). Mantenha o backup de seus projetos através do GIT para evitar a perda acidental de dados.",
-              ru: "Удаление этого приложения приведет к удалению всех связанных с приложением (включая файлы, проекты). Сохраняйте резервные копии своих проектов через GIT, чтобы предотвратить случайную потерю данных.",
-              zh: "卸载此应用程序将删除所有与应用程序相关的文件（包括文件，项目）。请通过GIT备份您的项目，以防止意外的数据丢失。",
-              zhTW: "卸載此應用程序將刪除所有與應用程序相關的內容（包括文件，項目）。請通過GIT備份您的項目，以防止意外的數據丟失。",
+              en: 'Uninstalling this app will remove all app-related (including files, projects). Please keep back-up of your projects through GIT to prevent accidental data-loss.',
+              es: 'La desinstalación de esta aplicación eliminará todos los relacionados con la aplicación (incluidos archivos, proyectos). Mantenga una copia de seguridad de sus proyectos a través de GIT para evitar la pérdida accidental de datos.',
+              ja: 'このアプリをアンインストールすると、アプリ関連（ファイル、プロジェクトなど）がすべて削除されます。偶発的なデータ損失を防ぐために、GITを介してプロジェクトのバックアップを保管してください。',
+              pt: 'A desinstalação deste aplicativo removerá todos os aplicativos relacionados (incluindo arquivos, projetos). Mantenha o backup de seus projetos através do GIT para evitar a perda acidental de dados.',
+              ru: 'Удаление этого приложения приведет к удалению всех связанных с приложением (включая файлы, проекты). Сохраняйте резервные копии своих проектов через GIT, чтобы предотвратить случайную потерю данных.',
+              zh: '卸载此应用程序将删除所有与应用程序相关的文件（包括文件，项目）。请通过GIT备份您的项目，以防止意外的数据丢失。',
+              zhTW: '卸載此應用程序將刪除所有與應用程序相關的內容（包括文件，項目）。請通過GIT備份您的項目，以防止意外的數據丟失。',
             },
             () => {
               e.Ai(1);
@@ -12201,25 +12201,25 @@ requestAnimationFrame(() => LSC.start()),
       },
       Ii: async function (e) {
         const t = this;
-        if (void 0 === e) return t.model.W("specialAnnoucementId");
-        await t.model.ze("specialAnnoucementId", e);
+        if (void 0 === e) return t.model.W('specialAnnoucementId');
+        await t.model.ze('specialAnnoucementId', e);
       },
       Ai: async function (e) {
         const t = this;
-        if (void 0 === e) return t.model.W("userSessionCount") || 0;
-        await t.model.ze("userSessionCount", e);
+        if (void 0 === e) return t.model.W('userSessionCount') || 0;
+        await t.model.ze('userSessionCount', e);
       },
     }),
   m
-    .module("landing")
+    .module('landing')
     .require(
-      "project",
-      "gitClient",
-      "cloneRepo",
-      "messages",
-      "prompt",
-      "model",
-      "remote"
+      'project',
+      'gitClient',
+      'cloneRepo',
+      'messages',
+      'prompt',
+      'model',
+      'remote'
     )
     .__init__(function (
       e,
@@ -12250,20 +12250,20 @@ requestAnimationFrame(() => LSC.start()),
         e.Gn();
     })
     .def({
-      Ei: () => $$("landingTab"),
-      $i: () => $$("landingProjectsList"),
-      Ri: () => $$("landingSearchBar"),
-      Ti: () => $$("landingProjectsSearch"),
-      Fi: () => $$("landingScroller"),
-      zi: () => $$("landingAnnoucements"),
-      ji: () => $$("landingAnnoucementHeaders"),
+      Ei: () => $$('landingTab'),
+      $i: () => $$('landingProjectsList'),
+      Ri: () => $$('landingSearchBar'),
+      Ti: () => $$('landingProjectsSearch'),
+      Fi: () => $$('landingScroller'),
+      zi: () => $$('landingAnnoucements'),
+      ji: () => $$('landingAnnoucementHeaders'),
       Pi: function () {
         const e = this.md.render(this.annoucements);
-        this.Fi().showBatch("annoucements"),
-          this.Ri().showBatch("annoucements");
+        this.Fi().showBatch('annoucements'),
+          this.Ri().showBatch('annoucements');
         const t = this.zi().element;
         t.innerHTML = e;
-        const n = Array.from(t.querySelectorAll("h1")),
+        const n = Array.from(t.querySelectorAll('h1')),
           i = this.ji();
         i.setNodes(n),
           i.setData(
@@ -12276,14 +12276,14 @@ requestAnimationFrame(() => LSC.start()),
       Ni: function () {
         const e = this;
         return (
-          e.Ri().showBatch("projects"),
+          e.Ri().showBatch('projects'),
           Object.keys(e.labIndex).length ? Promise.resolve(e.Oi()) : e.Ui()
         );
       },
       Ui: async function () {
         await this.Bi().then(
-          GA_SendEvent_Success("landing_refresh_list", "landing"),
-          GA_SendEvent_Failure("landing_refresh_list", "landing")
+          GA_SendEvent_Success('landing_refresh_list', 'landing'),
+          GA_SendEvent_Failure('landing_refresh_list', 'landing')
         ),
           this.Oi();
       },
@@ -12291,7 +12291,7 @@ requestAnimationFrame(() => LSC.start()),
         const e = this,
           t = e.$i(),
           n = e.Li(Object.keys(e.labIndex).map((t) => e.labIndex[t]));
-        t.setData(n), e.Fi().showBatch(n.length ? "list" : "empty");
+        t.setData(n), e.Fi().showBatch(n.length ? 'list' : 'empty');
       },
       Gi: function (e, t) {
         return (
@@ -12301,7 +12301,7 @@ requestAnimationFrame(() => LSC.start()),
       Li: function (e) {
         const t = this;
         switch (t.filters.category) {
-          case "tag":
+          case 'tag':
             return t.Di(e.filter((e) => e.tagged));
           default:
             return t.Di(e).sort(t.Gi);
@@ -12330,11 +12330,11 @@ requestAnimationFrame(() => LSC.start()),
         const e =
             tryParseJSON(
               await this.remote.F({
-                url: "labs/index.json",
+                url: 'labs/index.json',
                 retryCount: 1,
               })
             ) || {},
-          t = await this.model.W("tagged");
+          t = await this.model.W('tagged');
         return (
           t
             ? Object.keys(e).forEach(function (n) {
@@ -12348,52 +12348,52 @@ requestAnimationFrame(() => LSC.start()),
       },
       Wi: async function (e) {
         const t = this;
-        let n = (await t.model.W("tagged")) || [],
+        let n = (await t.model.W('tagged')) || [],
           i = n;
         -1 === n.indexOf(e.key)
           ? ((e.tagged = !0), (i = n.concat([e.key])))
           : ((e.tagged = !1), (i = n.filter((t) => t !== e.key))),
-          i !== n && (await t.model.ze("tagged", i));
+          i !== n && (await t.model.ze('tagged', i));
       },
     }),
-  m.module("landing").__init__(function (e) {
+  m.module('landing').__init__(function (e) {
     e.view = UI.new({
-      batch: "landing",
-      flexLayout: "column",
+      batch: 'landing',
+      flexLayout: 'column',
       cells: [
         {
-          id: "landingTab",
-          view: "list",
-          cls: "x-horizontal-menu-tab",
-          flexSize: "none",
-          listStyle: "tab",
-          itemTagClass: "x-chrome-tab",
+          id: 'landingTab',
+          view: 'list',
+          cls: 'x-horizontal-menu-tab',
+          flexSize: 'none',
+          listStyle: 'tab',
+          itemTagClass: 'x-chrome-tab',
           data: [
             {
-              view: "link",
+              view: 'link',
               style: {
-                width: "3.5em",
+                width: '3.5em',
               },
             },
             {
-              view: "menuIcon",
-              iconClass: "ti-package",
-              value: "lab",
+              view: 'menuIcon',
+              iconClass: 'ti-package',
+              value: 'lab',
             },
             {
-              view: "menuIcon",
-              iconClass: "ti-bookmark-alt",
-              value: "tag",
+              view: 'menuIcon',
+              iconClass: 'ti-bookmark-alt',
+              value: 'tag',
             },
             {
-              view: "menuIcon",
-              iconClass: "ti-comment-alt",
-              value: "update",
+              view: 'menuIcon',
+              iconClass: 'ti-comment-alt',
+              value: 'update',
             },
             {
-              view: "link",
+              view: 'link',
               style: {
-                width: "3.5em",
+                width: '3.5em',
               },
             },
           ],
@@ -12411,16 +12411,16 @@ requestAnimationFrame(() => LSC.start()),
               o = i && i.value;
             if (o)
               switch (
-                (n.setClassToItem(n.next(i), "next"),
-                n.setClassToItem(n.previous(i), "previous"),
-                n.setActive("value", o),
+                (n.setClassToItem(n.next(i), 'next'),
+                n.setClassToItem(n.previous(i), 'previous'),
+                n.setActive('value', o),
                 o)
               ) {
-                case "lab":
+                case 'lab':
                   return (e.filters.category = null), e.Ni();
-                case "tag":
-                  return (e.filters.category = "tag"), e.Ni();
-                case "update":
+                case 'tag':
+                  return (e.filters.category = 'tag'), e.Ni();
+                case 'update':
                   return e.Pi();
               }
           },
@@ -12431,19 +12431,19 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
         {
-          id: "landingSearchBar",
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
+          id: 'landingSearchBar',
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
           cells: [
             {
-              id: "landingProjectsSearch",
-              batch: "projects",
-              view: "searchField",
-              cls: "x-menu-search",
+              id: 'landingProjectsSearch',
+              batch: 'projects',
+              view: 'searchField',
+              cls: 'x-menu-search',
               style: {
-                width: "280px",
-                marginLeft: "auto",
-                marginRight: "auto",
+                width: '280px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
               },
               clearSearch: !0,
               i18nPlaceholders: RES_I18N.Actions.SearchFor(
@@ -12451,18 +12451,18 @@ requestAnimationFrame(() => LSC.start()),
               ),
               on: {
                 onKeyUp: function (t, n, i) {
-                  "Enter" === i.key && e.Ni();
+                  'Enter' === i.key && e.Ni();
                 },
               },
             },
             {
-              id: "landingAnnoucementHeaders",
-              batch: "annoucements",
-              view: "select",
-              cls: "x-menu-search",
+              id: 'landingAnnoucementHeaders',
+              batch: 'annoucements',
+              view: 'select',
+              cls: 'x-menu-search',
               style: {
-                marginLeft: "auto",
-                marginRight: "auto",
+                marginLeft: 'auto',
+                marginRight: 'auto',
               },
               data: [],
               setNodes: function (e) {
@@ -12481,62 +12481,62 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         {
-          id: "landingScroller",
-          view: "scroller",
+          id: 'landingScroller',
+          view: 'scroller',
           cells: [
             {
-              batch: "list",
-              id: "landingProjectsList",
-              view: "list",
-              flexSize: "flex",
-              textAlign: "center",
-              itemTagClass: "uk-flex-inline x-lab-item",
+              batch: 'list',
+              id: 'landingProjectsList',
+              view: 'list',
+              flexSize: 'flex',
+              textAlign: 'center',
+              itemTagClass: 'uk-flex-inline x-lab-item',
               template: function (t) {
                 return UI.new({
-                  flexLayout: "column",
+                  flexLayout: 'column',
                   cells: [
                     {
                       flex: !1,
-                      position: "relative",
+                      position: 'relative',
                       cells: [
                         {
-                          view: "icon",
+                          view: 'icon',
                           cls:
-                            "x-tag-icon" + (t.tagged ? " uk-text-primary" : ""),
-                          icon: "bookmark",
-                          size: "large",
+                            'x-tag-icon' + (t.tagged ? ' uk-text-primary' : ''),
+                          icon: 'bookmark',
+                          size: 'large',
                           on: {
                             onClick: function (n, i, o) {
                               UI.preventEvent(o);
                               const a = this.element;
                               e.Wi(t).then(function () {
                                 t.tagged
-                                  ? UI.addClass(a, "uk-text-primary")
-                                  : UI.removeClass(a, "uk-text-primary");
+                                  ? UI.addClass(a, 'uk-text-primary')
+                                  : UI.removeClass(a, 'uk-text-primary');
                               });
                             },
                           },
                         },
                         {
-                          view: "image",
-                          src: "labs/" + t.key + "/tb.nl.png",
+                          view: 'image',
+                          src: 'labs/' + t.key + '/tb.nl.png',
                           width: 128,
                           height: 128,
                         },
                       ],
                     },
                     {
-                      cls: "x-lab-item-desc",
-                      flexLayout: "column",
+                      cls: 'x-lab-item-desc',
+                      flexLayout: 'column',
                       cells: [
                         {
-                          view: "label",
+                          view: 'label',
                           label: t.name,
                         },
                         {
-                          view: "label",
+                          view: 'label',
                           label: t.label,
-                          htmlTag: "SMALL",
+                          htmlTag: 'SMALL',
                         },
                       ],
                     },
@@ -12550,30 +12550,30 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              batch: "empty",
-              textAlign: "center",
-              flexLayout: "column",
-              flexAlign: ["center", "middle"],
+              batch: 'empty',
+              textAlign: 'center',
+              flexLayout: 'column',
+              flexAlign: ['center', 'middle'],
               cells: [
                 {
-                  view: "label",
-                  cls: "uk-h5",
-                  padding: "large",
-                  label: "No matching projects found.",
+                  view: 'label',
+                  cls: 'uk-h5',
+                  padding: 'large',
+                  label: 'No matching projects found.',
                   style: {
-                    height: "160px",
+                    height: '160px',
                     opacity: 0.5,
                   },
                 },
               ],
             },
             {
-              id: "landingAnnoucements",
-              batch: "annoucements",
-              cls: "x-markdown",
-              padding: "x",
+              id: 'landingAnnoucements',
+              batch: 'annoucements',
+              cls: 'x-markdown',
+              padding: 'x',
               style: {
-                paddingBottom: "48px",
+                paddingBottom: '48px',
               },
             },
           ],
@@ -12582,7 +12582,7 @@ requestAnimationFrame(() => LSC.start()),
     });
   }),
   m
-    .module("logger")
+    .module('logger')
     .__new__((e) => {
       const t = window;
 
@@ -12610,53 +12610,53 @@ requestAnimationFrame(() => LSC.start()),
 
       function i() {}
       (t.$LOG = {
-        log: n("log"),
-        debug: n("debug"),
-        warn: n("warn"),
-        error: n("error"),
+        log: n('log'),
+        debug: n('debug'),
+        warn: n('warn'),
+        error: n('error'),
       }),
         (e.logs = []);
     })
     .def({
       $i: function () {
-        return $$("loggerList");
+        return $$('loggerList');
       },
       Ct: function () {
-        return $$("loggerSearchInput");
+        return $$('loggerSearchInput');
       },
     }),
-  m.module("logger").__init__((e) => {
+  m.module('logger').__init__((e) => {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
+        view: 'modal',
         closeButton: !1,
-        dialogClass: "uk-flex uk-flex-column",
-        dialogStyle: ["scroll", "blank"],
+        dialogClass: 'uk-flex uk-flex-column',
+        dialogStyle: ['scroll', 'blank'],
         header: {
-          flexSize: "none",
-          cls: "x-menu-title-bar shadow",
-          flexLayout: "column",
+          flexSize: 'none',
+          cls: 'x-menu-title-bar shadow',
+          flexLayout: 'column',
           cells: [
             {
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   label: RES_I18N.Elements.LogHistory,
                   collapsable: !1,
                 },
                 {
-                  cls: "x-menu-icons",
-                  flexSize: "none",
-                  defaultBatch: "",
+                  cls: 'x-menu-icons',
+                  flexSize: 'none',
+                  defaultBatch: '',
                   cells: [
                     {
-                      view: "menuToggle",
-                      icon: "search",
-                      title: "Search Logs",
+                      view: 'menuToggle',
+                      icon: 'search',
+                      title: 'Search Logs',
                       on: {
                         onToggled: function () {
                           const t = e.Ct();
@@ -12665,10 +12665,10 @@ requestAnimationFrame(() => LSC.start()),
                       },
                     },
                     {
-                      id: "loggerCloseButton",
-                      view: "menuIcon",
-                      icon: "close",
-                      title: "Close",
+                      id: 'loggerCloseButton',
+                      view: 'menuIcon',
+                      icon: 'close',
+                      title: 'Close',
                       on: {
                         onClick: function () {
                           e.modal.close();
@@ -12680,9 +12680,9 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             {
-              id: "loggerSearchInput",
-              cls: "x-menu-search",
-              view: "searchField",
+              id: 'loggerSearchInput',
+              cls: 'x-menu-search',
+              view: 'searchField',
               hidden: !0,
               i18nPlaceholders: RES_I18N.Actions.SearchFor(
                 RES_I18N.Objects.Log
@@ -12697,24 +12697,24 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         body: {
-          view: "scroller",
+          view: 'scroller',
           cells: [
             {
-              id: "loggerList",
-              view: "list",
-              padding: "x-sm y",
-              batch: "list",
+              id: 'loggerList',
+              view: 'list',
+              padding: 'x-sm y',
+              batch: 'list',
               selectable: !0,
-              flexSize: "flex",
-              listStyle: "side",
+              flexSize: 'flex',
+              listStyle: 'side',
               filter: (t) => {
                 const n = e.Ct().getValue();
-                return t.args.join(" ").includes(n);
+                return t.args.join(' ').includes(n);
               },
               template: (e) => {
-                const t = e.args.map((e) => String(e)).join(" ");
+                const t = e.args.map((e) => String(e)).join(' ');
                 return (
-                  (e.message = t + (e.times > 1 ? `(${e.times})` : "")),
+                  (e.message = t + (e.times > 1 ? `(${e.times})` : '')),
                   `<span>[${e.time.toLocaleTimeString()}] </span><span>${t}</span>`
                 );
               },
@@ -12728,10 +12728,10 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
-  m.module("main").def({
+  m.module('main').def({
     Hi: async function (e, t) {
       const n = await ENV.tmpDirAsync(e);
       await GFS.write(n, t, {
@@ -12744,9 +12744,9 @@ requestAnimationFrame(() => LSC.start()),
           atomic: !0,
         }),
         await GFS.observable.run({
-          action: "write",
+          action: 'write',
           path: e,
-          type: "file",
+          type: 'file',
           updateStatus: !0,
         });
     },
@@ -12760,7 +12760,7 @@ requestAnimationFrame(() => LSC.start()),
       }
     },
   }),
-  m.module("main").__new__(function (e) {
+  m.module('main').__new__(function (e) {
     const t = (e, t) =>
       `<svg xmlns="http://www.w3.org/2000/svg" width="${e}" height="${e}" viewBox="0 0 24 24">${t}</svg>`;
     Object.assign(e, {
@@ -12775,42 +12775,42 @@ requestAnimationFrame(() => LSC.start()),
     });
   }),
   m
-    .module("main")
+    .module('main')
     .__init__(function (e) {
       window.$embedMode || e.Ki();
     })
     .def({
       Zi: function () {
         const e = this,
-          t = e.location().hash.split("#lab:");
+          t = e.location().hash.split('#lab:');
         t[1] &&
-          (e.location().replace("/#"), e.project.Vi(null, null, null, t[1]));
+          (e.location().replace('/#'), e.project.Vi(null, null, null, t[1]));
       },
       Ki: function () {
         this.Zi(), (window.onhashchange = this.Zi.bind(this));
       },
     }),
   m
-    .module("main")
+    .module('main')
     .require(
-      "editor",
-      "files",
-      "prompt",
-      "history",
-      "messages",
-      "preview",
-      "project",
-      "model",
-      "session",
-      "viewer",
-      "landing",
-      "search",
-      "menu",
-      "settings",
-      "fileTree",
-      "memory",
-      "share",
-      "copyToProject"
+      'editor',
+      'files',
+      'prompt',
+      'history',
+      'messages',
+      'preview',
+      'project',
+      'model',
+      'session',
+      'viewer',
+      'landing',
+      'search',
+      'menu',
+      'settings',
+      'fileTree',
+      'memory',
+      'share',
+      'copyToProject'
     )
     .__init__(function (
       e,
@@ -12863,7 +12863,7 @@ requestAnimationFrame(() => LSC.start()),
         }),
         t.observable.subscribe(({ action: t, project: n }) => {
           switch (t) {
-            case "open":
+            case 'open':
               e.k().show(),
                 e._().show(),
                 e.Qi(),
@@ -12879,7 +12879,7 @@ requestAnimationFrame(() => LSC.start()),
                         const n = await GFS.size(e);
                         if (n < v.LANGUAGE_SERVICE_FILE_SIZE_LIMIT && t > 0) {
                           const i = await GFS.readFile(e, {
-                            encoding: "utf8",
+                            encoding: 'utf8',
                           });
                           GFS.isBinaryContent(i) ||
                             (LSC.addFile(e, i), (t -= n));
@@ -12887,20 +12887,20 @@ requestAnimationFrame(() => LSC.start()),
                       },
                       useRaf: !0,
                     });
-                  } else $LOG.warn("File threshold exceeded for auto file import.");
+                  } else $LOG.warn('File threshold exceeded for auto file import.');
                 });
               break;
-            case "setProject":
+            case 'setProject':
               n ||
                 (e.k().hide(),
                 e._().hide(),
                 e.Ci().showLanding(),
-                e.landing.Ei().switchToTab("lab"));
+                e.landing.Ei().switchToTab('lab'));
           }
         }),
         n.observable.subscribe((t) => {
           switch (t.action) {
-            case "jumpToFile":
+            case 'jumpToFile':
               i.Zn(t.path, t.item).then(function () {
                 e.Ci().showEditor();
               });
@@ -12917,12 +12917,12 @@ requestAnimationFrame(() => LSC.start()),
           }) => {
             const r = e.s();
             switch (t) {
-              case "findAllInFiles":
+              case 'findAllInFiles':
                 e.u().open(),
-                  e.menu.switcher().switchToTab("search", !0),
+                  e.menu.switcher().switchToTab('search', !0),
                   i && (e.search.findInput().setValue(i), e.search.Yi());
                 break;
-              case "replaceInFile": {
+              case 'replaceInFile': {
                 const t = r.getSession();
                 if (o === t.inode) {
                   const n = t.getUndoManager();
@@ -12933,7 +12933,7 @@ requestAnimationFrame(() => LSC.start()),
                 }
                 break;
               }
-              case "jumpToFile": {
+              case 'jumpToFile': {
                 o !== r.getSession().inode && (await e.O(n));
                 const t = {
                   row: a,
@@ -12952,22 +12952,22 @@ requestAnimationFrame(() => LSC.start()),
           const s = e.session.Ae(),
             { xe: r } = e.path;
           if (s && PathUtils.childOf(a, s) && !r(a)) {
-            const e = "file" === i;
+            const e = 'file' === i;
             switch (n) {
-              case "mv":
+              case 'mv':
                 if (PathUtils.childOf(o, s)) {
                   if (e) {
                     if (await t.he(o)) {
                       const e = await GFS.readFile(o, {
-                        encoding: "utf8",
+                        encoding: 'utf8',
                       });
                       GFS.isBinaryContent(e) || LSC.moveFile(a, o, e);
                     }
                   } else LSC.moveFolder(a, o);
                   break;
                 }
-              case "rmdir":
-              case "rm":
+              case 'rmdir':
+              case 'rm':
                 e ? LSC.removeFile(a) : LSC.removeFolder(a);
             }
           }
@@ -12987,9 +12987,9 @@ requestAnimationFrame(() => LSC.start()),
             o && n && PathUtils.childOf(n, o) && !a(n))
           )
             switch (t) {
-              case "mv":
-              case "rm":
-              case "rmdir":
+              case 'mv':
+              case 'rm':
+              case 'rmdir':
                 if (e.Xi().startsWith(n)) {
                   const t = e.eo();
                   if (t)
@@ -13009,14 +13009,14 @@ requestAnimationFrame(() => LSC.start()),
             preview: s,
           }) => {
             switch (t) {
-              case "update": {
+              case 'update': {
                 const t = e.eo();
                 if (t && t === n)
                   return e.O(n, {
                     skipSessionSave: !0,
                   });
               }
-              case "open":
+              case 'open':
                 if (null !== n)
                   return e
                     .O(n, {
@@ -13026,7 +13026,7 @@ requestAnimationFrame(() => LSC.start()),
                       preview: s,
                     })
                     .then(function () {
-                      GA_SendEvent("open_file", "files"),
+                      GA_SendEvent('open_file', 'files'),
                         UI.support.touch || e.s().focus();
                     });
                 e.io();
@@ -13038,10 +13038,10 @@ requestAnimationFrame(() => LSC.start()),
         }),
         e.menu.observable.subscribe(({ action: t }) => {
           switch (t) {
-            case "showMenu":
+            case 'showMenu':
               e.u().show(), e.p().show(), e.s().resize();
               break;
-            case "hideMenu":
+            case 'hideMenu':
               e.u().hide(), e.p().hide(), e.s().resize();
           }
         });
@@ -13054,8 +13054,8 @@ requestAnimationFrame(() => LSC.start()),
       e >= 1 &&
         e < 60 &&
         this.prompt.ue(
-          "Chrome Update Required",
-          "This app only works for Chrome 60+."
+          'Chrome Update Required',
+          'This app only works for Chrome 60+.'
         );
     })
     .def({
@@ -13069,54 +13069,54 @@ requestAnimationFrame(() => LSC.start()),
         this.historyTracker.push(e), this.ao();
       },
       l: function () {
-        return $$("mainFileBar");
+        return $$('mainFileBar');
       },
       so: function () {
-        return $$("mainSearchIcon");
+        return $$('mainSearchIcon');
       },
       Ci: function () {
-        return $$("mainContainer");
+        return $$('mainContainer');
       },
       ro: function () {
-        return $$("mainEditorContainer");
+        return $$('mainEditorContainer');
       },
       A: function () {
-        return $$("preview");
+        return $$('preview');
       },
       S: function () {
-        return $$("mainMenuToggleIcon");
+        return $$('mainMenuToggleIcon');
       },
       u: function () {
-        return $$("menuContainer");
+        return $$('menuContainer');
       },
       v: function () {
-        return $$("menuVerticalTab");
+        return $$('menuVerticalTab');
       },
       p: function () {
-        return $$("menuContainerResizer");
+        return $$('menuContainerResizer');
       },
       I: function () {
-        return $$("previewContainerResizer");
+        return $$('previewContainerResizer');
       },
       s: function () {
-        return this._editor || (this._editor = $$("mainEditor").$editor);
+        return this._editor || (this._editor = $$('mainEditor').$editor);
       },
       co: function () {
-        return $$("mainFileBreadcrumb");
+        return $$('mainFileBreadcrumb');
       },
       k: function () {
-        return $$("mainLaunchButton");
+        return $$('mainLaunchButton');
       },
       _: function () {
-        return $$("mainRunButton");
+        return $$('mainRunButton');
       },
       lo: function () {
-        return $$("mainNotSavedLink");
+        return $$('mainNotSavedLink');
       },
       location: function () {
         const e = window.location;
         return {
-          origin: e.protocol + "//" + e.hostname + (e.port ? ":" + e.port : ""),
+          origin: e.protocol + '//' + e.hostname + (e.port ? ':' + e.port : ''),
           hash: e.hash,
           replace: e.replace.bind(e),
         };
@@ -13142,7 +13142,7 @@ requestAnimationFrame(() => LSC.start()),
         const i = this;
         if (e)
           if (n) {
-            let o = t || (await DS.getFileContent()) || "";
+            let o = t || (await DS.getFileContent()) || '';
             await i.O(e, {
               externalPath: n,
               externalContent: o,
@@ -13158,10 +13158,10 @@ requestAnimationFrame(() => LSC.start()),
       },
       mo: function (e) {
         e.currentTarget &&
-          (DS.launchWebView(e.currentTarget.getAttribute("href")) &&
+          (DS.launchWebView(e.currentTarget.getAttribute('href')) &&
             UI.preventEvent(e),
-          $LOG.log(`[launch] ${e.currentTarget.getAttribute("href")}`),
-          GA_SendEvent("launch", "n/a"));
+          $LOG.log(`[launch] ${e.currentTarget.getAttribute('href')}`),
+          GA_SendEvent('launch', 'n/a'));
       },
       po: async function (e, t) {
         const n = ENV.tmpDirAsync(e);
@@ -13173,13 +13173,13 @@ requestAnimationFrame(() => LSC.start()),
       },
       ao: function () {
         this.historyTracker.canUndo()
-          ? ($$("mainBackButton").enable(), $$("mainBackMenuItem").enable())
-          : ($$("mainBackButton").disable(), $$("mainBackMenuItem").disable()),
+          ? ($$('mainBackButton').enable(), $$('mainBackMenuItem').enable())
+          : ($$('mainBackButton').disable(), $$('mainBackMenuItem').disable()),
           this.historyTracker.canRedo()
-            ? ($$("mainForwardButton").enable(),
-              $$("mainForwardMenuItem").enable())
-            : ($$("mainForwardButton").disable(),
-              $$("mainForwardMenuItem").disable());
+            ? ($$('mainForwardButton').enable(),
+              $$('mainForwardMenuItem').enable())
+            : ($$('mainForwardButton').disable(),
+              $$('mainForwardMenuItem').disable());
       },
       eo: function () {
         const e = this.s().getSession().inode;
@@ -13187,7 +13187,7 @@ requestAnimationFrame(() => LSC.start()),
       },
       Xi: function () {
         const e = this.co();
-        return PathUtils.join(this.session.Ae(), e.getFullPath()) || "";
+        return PathUtils.join(this.session.Ae(), e.getFullPath()) || '';
       },
       to: function (e) {
         const t = this,
@@ -13240,11 +13240,11 @@ requestAnimationFrame(() => LSC.start()),
               })
               .catch(function (e) {
                 $LOG.error(e),
-                  n.messages.dt((e && e.messageId) || "openFileError");
+                  n.messages.dt((e && e.messageId) || 'openFileError');
               });
           n.prompt.ue(
-            "File Size Too Large",
-            "File exceeds the maximum size of 5 MB allowed by the editor."
+            'File Size Too Large',
+            'File exceeds the maximum size of 5 MB allowed by the editor.'
           );
         });
       },
@@ -13258,7 +13258,7 @@ requestAnimationFrame(() => LSC.start()),
             t.to(e),
             t.files.Dt().markActive(e);
         } catch (e) {
-          $LOG.error(e), t.messages.dt((e && e.messageId) || "openFileError");
+          $LOG.error(e), t.messages.dt((e && e.messageId) || 'openFileError');
         }
       },
       yo: async function () {
@@ -13310,14 +13310,14 @@ requestAnimationFrame(() => LSC.start()),
         try {
           const i = await ENV.tmpDirAsync();
           if (!e || e.startsWith(i)) n.lo().show();
-          else if (e.startsWith("ext://")) {
-            const i = e.lastIndexOf("?");
+          else if (e.startsWith('ext://')) {
+            const i = e.lastIndexOf('?');
             await GFS.writeExternal(e.slice(6, i), t), n.lo().hide();
           } else await n.Hi(e, t), n.lo().hide();
         } catch (e) {
           n.lo().show(),
-            n.messages.dt("mainSaveFileError"),
-            $LOG.log(`[save] ${e ? e.message || String(e) : "unknown error"}`);
+            n.messages.dt('mainSaveFileError'),
+            $LOG.log(`[save] ${e ? e.message || String(e) : 'unknown error'}`);
         }
       },
       ko: function (e, t) {
@@ -13333,20 +13333,20 @@ requestAnimationFrame(() => LSC.start()),
       },
     }),
   m
-    .module("main")
-    .require("menuIcon", "fileTree", "fileBreadcrumb")
+    .module('main')
+    .require('menuIcon', 'fileTree', 'fileBreadcrumb')
     .__init__(function (e) {
       UI.new(
         {
-          fill: "height",
-          flexLayout: "",
+          fill: 'height',
+          flexLayout: '',
           cells: [
             {
-              id: "mainMenuToggleIcon",
-              view: "link",
-              cls: "svg-icon",
+              id: 'mainMenuToggleIcon',
+              view: 'link',
+              cls: 'svg-icon',
               template: e.menuIcon,
-              device: "touch",
+              device: 'touch',
               on: {
                 onClick: function () {
                   e.u().open();
@@ -13356,9 +13356,9 @@ requestAnimationFrame(() => LSC.start()),
             e.menu.verticalTabView,
             e.menu.menuView,
             {
-              id: "menuContainerResizer",
-              view: "resizer",
-              direction: "x",
+              id: 'menuContainerResizer',
+              view: 'resizer',
+              direction: 'x',
               minValue: function () {
                 return 280 + e.do();
               },
@@ -13368,140 +13368,140 @@ requestAnimationFrame(() => LSC.start()),
               on: {
                 onHandleResized: function (t) {
                   const n = t - e.do();
-                  (e.menu.switcher().element.style.width = n + "px"),
+                  (e.menu.switcher().element.style.width = n + 'px'),
                     e.s().resize();
                 },
               },
             },
             {
-              id: "mainContainer",
+              id: 'mainContainer',
               cells: [
                 {
-                  id: "mainEditorContainer",
-                  batch: "editor",
-                  flexLayout: "column",
-                  position: "relative",
+                  id: 'mainEditorContainer',
+                  batch: 'editor',
+                  flexLayout: 'column',
+                  position: 'relative',
                   cells: [
                     {
-                      id: "mainFileBar",
-                      batch: "bar",
-                      fill: "width",
-                      flexSize: "",
-                      cls: ["x-bar", "float"],
-                      flexAlign: "middle",
+                      id: 'mainFileBar',
+                      batch: 'bar',
+                      fill: 'width',
+                      flexSize: '',
+                      cls: ['x-bar', 'float'],
+                      flexAlign: 'middle',
                       selectable: !1,
                       cells: [
                         {
-                          id: "mainBackButton",
-                          view: "menuIcon",
-                          device: "notouch",
-                          icon: "chevron-left",
+                          id: 'mainBackButton',
+                          view: 'menuIcon',
+                          device: 'notouch',
+                          icon: 'chevron-left',
                           disabled: !0,
-                          iconClass: "",
+                          iconClass: '',
                           on: {
                             onClick: function () {
                               e.yo().then(
                                 GA_SendEvent_Success(
-                                  "previous_file",
-                                  "file_navigation"
+                                  'previous_file',
+                                  'file_navigation'
                                 ),
                                 GA_SendEvent_Failure(
-                                  "previous_file",
-                                  "file_navigation"
+                                  'previous_file',
+                                  'file_navigation'
                                 )
                               );
                             },
                           },
                         },
                         {
-                          id: "mainForwardButton",
-                          view: "menuIcon",
-                          device: "notouch",
-                          icon: "chevron-right",
+                          id: 'mainForwardButton',
+                          view: 'menuIcon',
+                          device: 'notouch',
+                          icon: 'chevron-right',
                           disabled: !0,
-                          iconClass: "",
+                          iconClass: '',
                           on: {
                             onClick: function () {
                               e.So().then(
                                 GA_SendEvent_Success(
-                                  "previous_file",
-                                  "file_navigation"
+                                  'previous_file',
+                                  'file_navigation'
                                 ),
                                 GA_SendEvent_Failure(
-                                  "previous_file",
-                                  "file_navigation"
+                                  'previous_file',
+                                  'file_navigation'
                                 )
                               );
                             },
                           },
                         },
                         {
-                          view: "spacer",
+                          view: 'spacer',
                           width: 36,
-                          cls: "uk-hidden-notouch",
+                          cls: 'uk-hidden-notouch',
                         },
                         {
-                          id: "mainFileBreadcrumbScroller",
-                          view: "scroller",
-                          scrollDirection: "x",
+                          id: 'mainFileBreadcrumbScroller',
+                          view: 'scroller',
+                          scrollDirection: 'x',
                           cells: [
                             {
-                              id: "mainFileBreadcrumb",
-                              view: "fileBreadcrumb",
+                              id: 'mainFileBreadcrumb',
+                              view: 'fileBreadcrumb',
                               data: [],
-                              dropdownEvent: "onPathItemClick",
+                              dropdownEvent: 'onPathItemClick',
                               dropdownOptions: {
-                                id: "mainBreadcrumbDropdown",
-                                pos: "bottom-left",
-                                dropdownAnimation: "",
+                                id: 'mainBreadcrumbDropdown',
+                                pos: 'bottom-left',
+                                dropdownAnimation: '',
                                 marginX: -18,
                               },
                               dropdown: {
-                                id: "mainBreadcrumbDropdownContent",
-                                flexLayout: "column",
-                                cls: "uk-overflow-hidden",
+                                id: 'mainBreadcrumbDropdownContent',
+                                flexLayout: 'column',
+                                cls: 'uk-overflow-hidden',
                                 cells: [
                                   {
-                                    cls: "x-menu-title-bar",
-                                    margin: "y-sm",
-                                    device: "touch",
+                                    cls: 'x-menu-title-bar',
+                                    margin: 'y-sm',
+                                    device: 'touch',
                                     cells: [
                                       {
-                                        id: "mainBackMenuItem",
-                                        view: "link",
-                                        margin: "left",
-                                        icon: "chevron-left",
-                                        flexSize: "flex",
-                                        label: "Back",
-                                        wrap: "nowrap",
+                                        id: 'mainBackMenuItem',
+                                        view: 'link',
+                                        margin: 'left',
+                                        icon: 'chevron-left',
+                                        flexSize: 'flex',
+                                        label: 'Back',
+                                        wrap: 'nowrap',
                                         disabled: !0,
                                         on: {
                                           onClick: function () {
                                             e.yo(),
                                               GA_SendEvent(
-                                                "previous_file",
-                                                "file_navigation"
+                                                'previous_file',
+                                                'file_navigation'
                                               );
                                           },
                                         },
                                       },
                                       {
-                                        id: "mainForwardMenuItem",
-                                        view: "link",
-                                        margin: "right",
+                                        id: 'mainForwardMenuItem',
+                                        view: 'link',
+                                        margin: 'right',
                                         alignIconRight: !0,
-                                        textAlign: "right",
-                                        icon: "chevron-right",
-                                        flexSize: "flex",
-                                        label: "Next",
-                                        wrap: "nowrap",
+                                        textAlign: 'right',
+                                        icon: 'chevron-right',
+                                        flexSize: 'flex',
+                                        label: 'Next',
+                                        wrap: 'nowrap',
                                         disabled: !0,
                                         on: {
                                           onClick: function () {
                                             e.So(),
                                               GA_SendEvent(
-                                                "next_file",
-                                                "file_navigation"
+                                                'next_file',
+                                                'file_navigation'
                                               );
                                           },
                                         },
@@ -13509,35 +13509,35 @@ requestAnimationFrame(() => LSC.start()),
                                     ],
                                   },
                                   {
-                                    id: "mainFileBreadcrumbDropdownScroller",
-                                    view: "scroller",
+                                    id: 'mainFileBreadcrumbDropdownScroller',
+                                    view: 'scroller',
                                     cells: [
                                       {
-                                        id: "mainFileBreadcrumbDropdownList",
-                                        view: "list",
-                                        listStyle: "dropdown",
+                                        id: 'mainFileBreadcrumbDropdownList',
+                                        view: 'list',
+                                        listStyle: 'dropdown',
                                         template: function (t) {
                                           return (
                                             '<a class="x-text-overflow-ellipsis">' +
                                             e.fileTree.xt(t) +
                                             t.label +
-                                            "</a>"
+                                            '</a>'
                                           );
                                         },
                                         on: {
                                           onItemClick: function (t) {
                                             if (t.$branch) {
                                               UI.removeClass(
-                                                $$("mainBreadcrumbDropdown")
+                                                $$('mainBreadcrumbDropdown')
                                                   .element,
-                                                "uk-open"
+                                                'uk-open'
                                               );
                                               const n = e.files
                                                 .Dt()
                                                 .getParentBranch(t.path);
                                               $$(
-                                                "mainBreadcrumbDropdownContent"
-                                              ).dispatch("onOpen", [
+                                                'mainBreadcrumbDropdownContent'
+                                              ).dispatch('onOpen', [
                                                 null,
                                                 null,
                                                 {
@@ -13548,8 +13548,8 @@ requestAnimationFrame(() => LSC.start()),
                                             } else
                                               e.O(t.path),
                                                 GA_SendEvent(
-                                                  "open_file_breadcrumb",
-                                                  "file_navigation"
+                                                  'open_file_breadcrumb',
+                                                  'file_navigation'
                                                 );
                                           },
                                         },
@@ -13560,9 +13560,9 @@ requestAnimationFrame(() => LSC.start()),
                                 on: {
                                   onOpen: function (e, t, n) {
                                     this.element.style.height =
-                                      n.files.length > 12 ? "360px" : null;
+                                      n.files.length > 12 ? '360px' : null;
                                     const i = $$(
-                                        "mainFileBreadcrumbDropdownList"
+                                        'mainFileBreadcrumbDropdownList'
                                       ),
                                       o = n.files.map(function (e) {
                                         return {
@@ -13576,7 +13576,7 @@ requestAnimationFrame(() => LSC.start()),
                                     n.parent &&
                                       o.unshift({
                                         path: n.parent.path,
-                                        label: "..",
+                                        label: '..',
                                         file: !1,
                                         $branch: !0,
                                         $children: n.parent.$children,
@@ -13584,7 +13584,7 @@ requestAnimationFrame(() => LSC.start()),
                                       i.setData(o),
                                       n.selectedPath &&
                                         i.select(
-                                          i.findOne("path", n.selectedPath)
+                                          i.findOne('path', n.selectedPath)
                                         );
                                   },
                                 },
@@ -13597,7 +13597,7 @@ requestAnimationFrame(() => LSC.start()),
                                       a = e.files.Dt(),
                                       s = a.getParentBranch(o),
                                       r = a.getParentBranch(s.path);
-                                    this.dispatch("onPathItemClick", [
+                                    this.dispatch('onPathItemClick', [
                                       {
                                         parent: r,
                                         files: s.$children,
@@ -13606,7 +13606,7 @@ requestAnimationFrame(() => LSC.start()),
                                       n.lastChild,
                                     ]);
                                   } else
-                                    this.dispatch("onPathItemClick", [
+                                    this.dispatch('onPathItemClick', [
                                       {
                                         files: [t],
                                         selectedPath: t.path,
@@ -13617,19 +13617,19 @@ requestAnimationFrame(() => LSC.start()),
                               },
                             },
                             {
-                              id: "mainNotSavedLink",
-                              view: "link",
-                              textColor: "danger",
+                              id: 'mainNotSavedLink',
+                              view: 'link',
+                              textColor: 'danger',
                               attributes: i18nAttributes({
-                                en: "Unsaved",
-                                es: "Sin Guardar",
-                                ja: "未保存",
-                                pt: "Não Salvo",
-                                ru: "Hеспасенный",
-                                zh: "没有保存",
-                                zhTW: "沒有保存",
+                                en: 'Unsaved',
+                                es: 'Sin Guardar',
+                                ja: '未保存',
+                                pt: 'Não Salvo',
+                                ru: 'Hеспасенный',
+                                zh: '没有保存',
+                                zhTW: '沒有保存',
                               }),
-                              margin: "x-sm",
+                              margin: 'x-sm',
                               hidden: !0,
                               on: {
                                 onClick: function () {
@@ -13640,44 +13640,44 @@ requestAnimationFrame(() => LSC.start()),
                           ],
                         },
                         {
-                          id: "mainSearchIcon",
-                          view: "menuToggle",
-                          cls: "x-menu-icon",
-                          icon: "search",
-                          title: "Search File",
+                          id: 'mainSearchIcon',
+                          view: 'menuToggle',
+                          cls: 'x-menu-icon',
+                          icon: 'search',
+                          title: 'Search File',
                           on: {
                             onToggled: function () {
                               const t = e.s();
                               this.isSelected()
-                                ? (t.execCommand("find"),
-                                  GA_SendEvent("file_search", "n/a"))
+                                ? (t.execCommand('find'),
+                                  GA_SendEvent('file_search', 'n/a'))
                                 : t.$ace.searchBox && t.$ace.searchBox.hide();
                             },
                           },
                         },
                         {
-                          id: "mainLaunchButton",
-                          view: "link",
-                          cls: "svg-icon",
+                          id: 'mainLaunchButton',
+                          view: 'link',
+                          cls: 'svg-icon',
                           template: e.playIcon,
                           hidden: !0,
-                          title: "Launch New Window",
+                          title: 'Launch New Window',
                           style: {
-                            color: "#0dbf7f",
+                            color: '#0dbf7f',
                           },
                           on: {
                             onInitialized: function () {
                               this.element.addEventListener(
-                                "mousedown",
+                                'mousedown',
                                 function () {
                                   const t = e.eo(),
-                                    n = PathUtils.hasExt(t, ".html")
+                                    n = PathUtils.hasExt(t, '.html')
                                       ? ENV.resource(t)
                                       : e.preview.Co();
                                   UI.setAttributes(this, {
                                     href: n,
-                                    target: "_blank",
-                                    ref: "noopener noreferrer",
+                                    target: '_blank',
+                                    ref: 'noopener noreferrer',
                                   });
                                 }
                               );
@@ -13688,17 +13688,17 @@ requestAnimationFrame(() => LSC.start()),
                           },
                         },
                         {
-                          id: "mainRunButton",
-                          view: "menuToggle",
-                          cls: "x-menu-icon",
-                          iconClass: "ti-layout-media-right",
-                          title: "Side Window",
-                          device: "notouch",
+                          id: 'mainRunButton',
+                          view: 'menuToggle',
+                          cls: 'x-menu-icon',
+                          iconClass: 'ti-layout-media-right',
+                          title: 'Side Window',
+                          device: 'notouch',
                           on: {
                             onToggled: function () {
                               this.isSelected()
-                                ? (e.fo(), GA_SendEvent("run", "n/a"))
-                                : (e.preview.iframe().setSrc("about:blank"),
+                                ? (e.fo(), GA_SendEvent('run', 'n/a'))
+                                : (e.preview.iframe().setSrc('about:blank'),
                                   e.preview.onHidePreviewContainer());
                             },
                           },
@@ -13706,11 +13706,11 @@ requestAnimationFrame(() => LSC.start()),
                       ],
                     },
                     {
-                      batch: "editor",
-                      id: "mainEditor",
-                      view: "touchEditor",
+                      batch: 'editor',
+                      id: 'mainEditor',
+                      view: 'touchEditor',
                       editor: {
-                        view: "editor",
+                        view: 'editor',
                         on: {
                           onInitialized: function () {
                             this.observable.subscribe(
@@ -13722,19 +13722,19 @@ requestAnimationFrame(() => LSC.start()),
                                 skipSessionSave: a,
                               }) => {
                                 switch (t) {
-                                  case "searchBoxOpen":
+                                  case 'searchBoxOpen':
                                     e.so().select();
                                     break;
-                                  case "searchBoxClose":
+                                  case 'searchBoxClose':
                                     e.so().deselect();
                                     break;
-                                  case "sessionChange":
+                                  case 'sessionChange':
                                     return e._o(i, o);
-                                  case "save":
+                                  case 'save':
                                     n ? e.ko(i, o) : a || e._o(i, o);
                                     break;
-                                  case "focus":
-                                    $$("mainBreadcrumbDropdown").close();
+                                  case 'focus':
+                                    $$('mainBreadcrumbDropdown').close();
                                 }
                               }
                             );
@@ -13769,19 +13769,19 @@ requestAnimationFrame(() => LSC.start()),
                 },
               },
               showEditor: function () {
-                this.showBatch("editor"), e.ro().showBatch(["bar", "editor"]);
+                this.showBatch('editor'), e.ro().showBatch(['bar', 'editor']);
               },
               showViewer: function () {
-                this.showBatch("editor"), e.ro().showBatch(["bar", "viewer"]);
+                this.showBatch('editor'), e.ro().showBatch(['bar', 'viewer']);
               },
               showLanding: function () {
-                this.showBatch("landing");
+                this.showBatch('landing');
               },
             },
             {
-              id: "previewContainerResizer",
-              view: "resizer",
-              direction: "x",
+              id: 'previewContainerResizer',
+              view: 'resizer',
+              direction: 'x',
               hidden: !0,
               minValue: function () {
                 const t = e.do();
@@ -13794,7 +13794,7 @@ requestAnimationFrame(() => LSC.start()),
                 onHandleResized: function (t) {
                   if (t > 0) {
                     const n = window.innerWidth - t - 2;
-                    (e.A().el.style.width = n.toFixed(0) + "px"),
+                    (e.A().el.style.width = n.toFixed(0) + 'px'),
                       e.s().resize();
                   }
                 },
@@ -13803,12 +13803,12 @@ requestAnimationFrame(() => LSC.start()),
             e.preview.view,
           ],
         },
-        document.getElementById("appContainer")
+        document.getElementById('appContainer')
       );
     }),
   m
-    .module("preview")
-    .require("model", "session", "history", "messages")
+    .module('preview')
+    .require('model', 'session', 'history', 'messages')
     .__init__(function (e, { model: t, session: n, history: i, messages: o }) {
       Object.assign(e, {
         model: t,
@@ -13818,14 +13818,14 @@ requestAnimationFrame(() => LSC.start()),
       }),
         (e.historyTracker = new e.history.HistoryTracker()),
         e.session.observable.subscribe(({ action: t }) => {
-          if ("open" === t) return e.Qi(), e.Eo();
+          if ('open' === t) return e.Qi(), e.Eo();
         }),
         GFS.observable.subscribe(({ path: t, action: n }) => {
-          if ("write" === n) {
+          if ('write' === n) {
             const n = e.session.Ae();
             if (n && PathUtils.childOf(t, n))
               switch (PathUtils.ext(t)) {
-                case ".html":
+                case '.html':
                   e.Eo();
               }
           }
@@ -13838,16 +13838,16 @@ requestAnimationFrame(() => LSC.start()),
         this.historyTracker.reset();
       },
       fileSelect: function () {
-        return $$("previewFileSelect");
+        return $$('previewFileSelect');
       },
       iframe: function () {
-        return $$("iframe");
+        return $$('iframe');
       },
       backButton: function () {
-        return $$("previewBackIcon");
+        return $$('previewBackIcon');
       },
       forwardButton: function () {
-        return $$("previewForwardIcon");
+        return $$('previewForwardIcon');
       },
       $o: function (e) {
         this.useLiveMode = e;
@@ -13860,48 +13860,48 @@ requestAnimationFrame(() => LSC.start()),
         const e = this.fileSelect().getFilePaths(),
           t = (this.session.Se() || {}).defaultLaunchFilePath,
           n = -1 !== e.indexOf(t) ? t : this.fileSelect().getValue();
-        return ENV.resource(n) || "about:blank";
+        return ENV.resource(n) || 'about:blank';
       },
       Eo: async function () {
         const e = this.session.Ae(),
           t = await GFS.readdirDeep(e);
         this.fileSelect().setFilesData(
-          t.filter((e) => PathUtils.hasExt(e, ".html"))
+          t.filter((e) => PathUtils.hasExt(e, '.html'))
         );
       },
     }),
   m
-    .module("preview")
-    .require("fileSelect")
+    .module('preview')
+    .require('fileSelect')
     .__new__(function (e) {
       e.view = UI.new({
         id: e.__name__,
-        view: "drawer",
+        view: 'drawer',
         touchOnly: !0,
         $blockDrawerPan: !0,
         hidden: !0,
-        flexSize: "",
+        flexSize: '',
         template: {
           style: {
-            width: "100%",
-            height: "100%",
+            width: '100%',
+            height: '100%',
           },
-          cls: "offcanvas-bar",
+          cls: 'offcanvas-bar',
           template: {
-            flexLayout: "column",
-            fill: "screen",
+            flexLayout: 'column',
+            fill: 'screen',
             cells: [
               {
-                id: "previewActionBar",
-                cls: ["uk-form", "x-menu-title-bar", "shadow", "x-menu-icons"],
-                flexAlign: "middle",
-                flexSize: "none",
+                id: 'previewActionBar',
+                cls: ['uk-form', 'x-menu-title-bar', 'shadow', 'x-menu-icons'],
+                flexAlign: 'middle',
+                flexSize: 'none',
                 cells: [
                   {
-                    id: "previewBackIcon",
-                    view: "menuIcon",
-                    margin: "left",
-                    iconClass: "ti-arrow-left",
+                    id: 'previewBackIcon',
+                    view: 'menuIcon',
+                    margin: 'left',
+                    iconClass: 'ti-arrow-left',
                     disabled: !0,
                     on: {
                       onClick: function () {
@@ -13910,9 +13910,9 @@ requestAnimationFrame(() => LSC.start()),
                     },
                   },
                   {
-                    id: "previewForwardIcon",
-                    view: "menuIcon",
-                    iconClass: "ti-arrow-right",
+                    id: 'previewForwardIcon',
+                    view: 'menuIcon',
+                    iconClass: 'ti-arrow-right',
                     disabled: !0,
                     on: {
                       onClick: function () {
@@ -13921,9 +13921,9 @@ requestAnimationFrame(() => LSC.start()),
                     },
                   },
                   {
-                    id: "previewRefreshIcon",
-                    view: "menuIcon",
-                    icon: "refresh",
+                    id: 'previewRefreshIcon',
+                    view: 'menuIcon',
+                    icon: 'refresh',
                     on: {
                       onClick: function () {
                         e.iframe().refresh();
@@ -13931,8 +13931,8 @@ requestAnimationFrame(() => LSC.start()),
                     },
                   },
                   {
-                    id: "previewFileSelect",
-                    view: "fileSelect",
+                    id: 'previewFileSelect',
+                    view: 'fileSelect',
                     on: {
                       onChange: function () {
                         e.uo();
@@ -13942,11 +13942,11 @@ requestAnimationFrame(() => LSC.start()),
                 ],
               },
               {
-                id: "iframe",
-                flexSize: "flex",
-                htmlTag: "IFRAME",
+                id: 'iframe',
+                flexSize: 'flex',
+                htmlTag: 'IFRAME',
                 style: {
-                  background: "white",
+                  background: 'white',
                 },
                 refresh: function () {
                   e.uo(!0);
@@ -13978,20 +13978,20 @@ requestAnimationFrame(() => LSC.start()),
                   const i = this.element;
                   i.contentWindow && null != i.contentWindow.location
                     ? (i.contentWindow.location = t)
-                    : i.setAttribute("src", t);
+                    : i.setAttribute('src', t);
                 },
               },
             ],
           },
         },
         style: {
-          width: "33%",
+          width: '33%',
         },
       });
     }),
   m
-    .module("menu")
-    .require("session", "search", "projects")
+    .module('menu')
+    .require('session', 'search', 'projects')
     .__init__(function (e, { session: t, search: n, projects: i }) {
       const o = new ObservableClass();
       Object.assign(e, {
@@ -13999,80 +13999,80 @@ requestAnimationFrame(() => LSC.start()),
       }),
         t.observable.subscribe(({ action: t, project: n }) => {
           switch (t) {
-            case "open":
-              e.switcher().switchToTab("files", !0);
+            case 'open':
+              e.switcher().switchToTab('files', !0);
               break;
-            case "setProject":
+            case 'setProject':
               n ||
                 (UI.support.touch
-                  ? e.switcher().switchToTab("projects")
+                  ? e.switcher().switchToTab('projects')
                   : o.run({
-                      action: "hideMenu",
+                      action: 'hideMenu',
                     }));
           }
         }),
         n.observable.subscribe((t) => {
           switch (t.action) {
-            case "blockDrawer":
+            case 'blockDrawer':
               e.u().$blockDrawerPan = t.block;
           }
         }),
         i.observable.subscribe((t) => {
           switch (t.action) {
-            case "blockDrawer":
+            case 'blockDrawer':
               e.u().$blockDrawerPan = t.block;
           }
         });
     })
     .def({
       u: function () {
-        return $$("menuContainer");
+        return $$('menuContainer');
       },
       Ei: function () {
-        return $$("menuTab");
+        return $$('menuTab');
       },
       v: function () {
-        return $$("menuVerticalTab");
+        return $$('menuVerticalTab');
       },
       switcher: function () {
-        return $$("menuSwitcher");
+        return $$('menuSwitcher');
       },
     }),
   m
-    .module("menu")
-    .require("projects", "files", "search", "settings", "menuIcon", "keyButton")
+    .module('menu')
+    .require('projects', 'files', 'search', 'settings', 'menuIcon', 'keyButton')
     .__init__(function (
       e,
       { projects: t, files: n, search: i, settings: o, keyButton: a }
     ) {
       e.verticalTabView = UI.new({
-        id: "menuVerticalTab",
-        view: "list",
-        cls: "x-vertical-menu-tab",
-        listStyle: ["tab", "tab-left"],
-        flexSize: "none",
-        device: "notouch",
+        id: 'menuVerticalTab',
+        view: 'list',
+        cls: 'x-vertical-menu-tab',
+        listStyle: ['tab', 'tab-left'],
+        flexSize: 'none',
+        device: 'notouch',
         data: [
           {
-            id: "menuVerticalProjectsTab",
-            view: "menuIcon",
-            iconClass: "ti-archive",
-            value: "projects",
+            id: 'menuVerticalProjectsTab',
+            view: 'menuIcon',
+            iconClass: 'ti-archive',
+            value: 'projects',
           },
           {
-            view: "menuIcon",
-            iconClass: "ti-files",
-            value: "files",
+            view: 'menuIcon',
+            iconClass: 'ti-files',
+            value: 'files',
           },
           {
-            view: "menuIcon",
-            icon: "search",
-            value: "search",
+            view: 'menuIcon',
+            icon: 'search',
+            value: 'search',
           },
           {
-            view: "menuIcon",
-            icon: "cog",
-            value: "settings",
+            view: 'menuIcon',
+            icon: 'cog',
+            value: 'settings',
           },
         ],
         on: {
@@ -14080,63 +14080,63 @@ requestAnimationFrame(() => LSC.start()),
             this.isSelected(t)
               ? (this.deselectAll(),
                 e.observable.run({
-                  action: "hideMenu",
+                  action: 'hideMenu',
                 }))
               : e.switcher().switchToTab(t.value, !0);
           },
         },
       });
       const s = {
-        id: "menuSwitcher",
-        cls: ["uk-offcanvas-bar", "uk-overflow-hidden"],
+        id: 'menuSwitcher',
+        cls: ['uk-offcanvas-bar', 'uk-overflow-hidden'],
         style: {
-          width: "300px",
+          width: '300px',
         },
         template: {
-          flexLayout: "column",
-          flexSize: "",
-          fill: "height",
+          flexLayout: 'column',
+          flexSize: '',
+          fill: 'height',
           cells: [
             {
-              id: "menuTab",
-              view: "list",
-              cls: "x-horizontal-menu-tab",
-              listStyle: "tab",
-              itemTagClass: "x-chrome-tab",
-              device: "touch",
+              id: 'menuTab',
+              view: 'list',
+              cls: 'x-horizontal-menu-tab',
+              listStyle: 'tab',
+              itemTagClass: 'x-chrome-tab',
+              device: 'touch',
               style: {
                 zIndex: 20,
               },
               data: [
                 {
-                  view: "link",
+                  view: 'link',
                 },
                 {
-                  id: "menuProjectsTab",
-                  view: "menuIcon",
-                  iconClass: "ti-archive",
-                  value: "projects",
+                  id: 'menuProjectsTab',
+                  view: 'menuIcon',
+                  iconClass: 'ti-archive',
+                  value: 'projects',
                 },
                 {
-                  id: "menuFilesTab",
-                  view: "menuIcon",
-                  iconClass: "ti-files",
-                  value: "files",
+                  id: 'menuFilesTab',
+                  view: 'menuIcon',
+                  iconClass: 'ti-files',
+                  value: 'files',
                 },
                 {
-                  id: "menuSearchTab",
-                  view: "menuIcon",
-                  icon: "search",
-                  value: "search",
+                  id: 'menuSearchTab',
+                  view: 'menuIcon',
+                  icon: 'search',
+                  value: 'search',
                 },
                 {
-                  id: "menuSettingsTab",
-                  view: "menuIcon",
-                  icon: "cog",
-                  value: "settings",
+                  id: 'menuSettingsTab',
+                  view: 'menuIcon',
+                  icon: 'cog',
+                  value: 'settings',
                 },
                 {
-                  view: "link",
+                  view: 'link',
                 },
               ],
               setClassToItem: function (e, t) {
@@ -14154,12 +14154,12 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "menuSwitcherContainer",
-              view: "list",
-              cls: "x-min-height-0",
+              id: 'menuSwitcherContainer',
+              view: 'list',
+              cls: 'x-min-height-0',
               flex: !0,
-              flexSize: "flex",
-              itemTagClass: "uk-flex uk-width-1-1",
+              flexSize: 'flex',
+              itemTagClass: 'uk-flex uk-width-1-1',
               data: [t.view, n.view, i.view, o.view],
             },
           ],
@@ -14171,41 +14171,41 @@ requestAnimationFrame(() => LSC.start()),
             s = a && a.value;
           if (
             s &&
-            (i.setClassToItem(i.next(a), "next"),
-            i.setClassToItem(i.previous(a), "previous"),
-            i.setActive("value", s),
-            o.setActive("value", s),
-            $$("menuSwitcherContainer").showBatch(s),
+            (i.setClassToItem(i.next(a), 'next'),
+            i.setClassToItem(i.previous(a), 'previous'),
+            i.setActive('value', s),
+            o.setActive('value', s),
+            $$('menuSwitcherContainer').showBatch(s),
             n)
           )
             return e.observable.run({
-              action: "showMenu",
+              action: 'showMenu',
             });
         },
       };
       e.menuView = UI.new({
-        id: "menuContainer",
-        view: "drawer",
+        id: 'menuContainer',
+        view: 'drawer',
         touchOnly: !0,
         edge: !0,
-        flexSize: "",
+        flexSize: '',
         openable: function () {
           return !a.activeKey;
         },
         template: s,
       });
     }),
-  m.module("diff-editor").__new__(function (e) {
+  m.module('diff-editor').__new__(function (e) {
     const t = ace.require,
-      n = t("ace/lib/dom"),
-      i = t("ace/lib/oop"),
-      o = t("ace/lib/lang"),
-      a = t("ace/lib/event_emitter").EventEmitter,
-      s = t("ace/layer/lines").Lines;
-    e.Range = t("ace/range").Range;
+      n = t('ace/lib/dom'),
+      i = t('ace/lib/oop'),
+      o = t('ace/lib/lang'),
+      a = t('ace/lib/event_emitter').EventEmitter,
+      s = t('ace/layer/lines').Lines;
+    e.Range = t('ace/range').Range;
     const r = function (e) {
-      (this.element = n.createElement("div")),
-        (this.element.className = "ace_layer ace_gutter-layer ace_diff-gutter"),
+      (this.element = n.createElement('div')),
+        (this.element.className = 'ace_layer ace_gutter-layer ace_diff-gutter'),
         e.appendChild(this.element),
         this.setShowFoldWidgets(this.$showFoldWidgets),
         (this.gutterWidth = 0),
@@ -14216,26 +14216,26 @@ requestAnimationFrame(() => LSC.start()),
     };
 
     function c(e) {
-      const t = n.createElement("span");
-      n.addCssClass(t, "ace_line-number"), e.appendChild(t);
-      const i = n.createElement("span");
-      return n.addCssClass(i, "ace_line-number"), e.appendChild(i), e;
+      const t = n.createElement('span');
+      n.addCssClass(t, 'ace_line-number'), e.appendChild(t);
+      const i = n.createElement('span');
+      return n.addCssClass(i, 'ace_line-number'), e.appendChild(i), e;
     }
     (function () {
       i.implement(this, a),
         (this.setSession = function (e) {
           this.session &&
-            this.session.removeEventListener("change", this.$updateAnnotations),
+            this.session.removeEventListener('change', this.$updateAnnotations),
             (this.session = e),
-            e && e.on("change", this.$updateAnnotations);
+            e && e.on('change', this.$updateAnnotations);
         }),
         (this.addGutterDecoration = function (e, t) {
-          $LOG.warn && $LOG.warn("deprecated use session.addGutterDecoration"),
+          $LOG.warn && $LOG.warn('deprecated use session.addGutterDecoration'),
             this.session.addGutterDecoration(e, t);
         }),
         (this.removeGutterDecoration = function (e, t) {
           $LOG.warn &&
-            $LOG.warn("deprecated use session.removeGutterDecoration"),
+            $LOG.warn('deprecated use session.removeGutterDecoration'),
             this.session.removeGutterDecoration(e, t);
         }),
         (this.setAnnotations = function (e) {
@@ -14249,14 +14249,14 @@ requestAnimationFrame(() => LSC.start()),
                 {
                   text: [],
                 });
-            const s = n.text ? o.escapeHTML(n.text) : n.html || "";
+            const s = n.text ? o.escapeHTML(n.text) : n.html || '';
             -1 === a.text.indexOf(s) && a.text.push(s);
             const r = n.type;
-            "error" == r
-              ? (a.className = " ace_error")
-              : "warning" == r && " ace_error" != a.className
-              ? (a.className = " ace_warning")
-              : "info" != r || a.className || (a.className = " ace_info");
+            'error' == r
+              ? (a.className = ' ace_error')
+              : 'warning' == r && ' ace_error' != a.className
+              ? (a.className = ' ace_warning')
+              : 'info' != r || a.className || (a.className = ' ace_info');
           }
         }),
         (this.$updateAnnotations = function (e) {
@@ -14264,7 +14264,7 @@ requestAnimationFrame(() => LSC.start()),
           const t = e.start.row,
             n = e.end.row - t;
           if (0 === n);
-          else if ("remove" == e.action)
+          else if ('remove' == e.action)
             this.$annotations.splice(t, n + 1, null);
           else {
             const e = new Array(n + 1);
@@ -14311,7 +14311,7 @@ requestAnimationFrame(() => LSC.start()),
           const t = this.session,
             n = t.gutterRenderer || this.$renderer,
             i = t.$firstLineNumber;
-          let o = this.$lines.last() ? this.$lines.last().text : "";
+          let o = this.$lines.last() ? this.$lines.last().text : '';
           (this.$fixedWidth || t.$useWrapMode) && (o = t.getLength() + i);
           let a = n
             ? n.getWidth(t, o, e)
@@ -14322,8 +14322,8 @@ requestAnimationFrame(() => LSC.start()),
               isNaN(a) ||
               ((this.gutterWidth = a),
               (this.element.parentNode.style.width = this.element.style.width =
-                Math.ceil(this.gutterWidth) + "px"),
-              this._signal("changeGutterWidth", a));
+                Math.ceil(this.gutterWidth) + 'px'),
+              this._signal('changeGutterWidth', a));
         }),
         (this.$updateCursorRow = function () {
           if (!this.$highlightGutterLine) return;
@@ -14341,8 +14341,8 @@ requestAnimationFrame(() => LSC.start()),
           this.$cursorCell &&
             (this.$cursorCell.element.className =
               this.$cursorCell.element.className.replace(
-                "ace_gutter-active-line ",
-                ""
+                'ace_gutter-active-line ',
+                ''
               ));
           const t = this.$lines.cells;
           this.$cursorCell = null;
@@ -14355,7 +14355,7 @@ requestAnimationFrame(() => LSC.start()),
                 n = t[e - 1];
               }
               (n.element.className =
-                "ace_gutter-active-line " + n.element.className),
+                'ace_gutter-active-line ' + n.element.className),
                 (this.$cursorCell = n);
               break;
             }
@@ -14429,7 +14429,7 @@ requestAnimationFrame(() => LSC.start()),
             m = this.$showFoldWidgets && s.foldWidgets,
             f = i ? i.start.row : Number.MAX_VALUE;
           let g,
-            v = "ace_gutter-cell ";
+            v = 'ace_gutter-cell ';
           if (
             (this.$highlightGutterLine &&
               (o == this.$cursorRow ||
@@ -14437,13 +14437,13 @@ requestAnimationFrame(() => LSC.start()),
                   o < this.$cursorRow &&
                   o >= f &&
                   this.$cursorRow <= i.end.row)) &&
-              ((v += "ace_gutter-active-line "),
+              ((v += 'ace_gutter-active-line '),
               this.$cursorCell != e &&
                 (this.$cursorCell &&
                   (this.$cursorCell.element.className =
                     this.$cursorCell.element.className.replace(
-                      "ace_gutter-active-line ",
-                      ""
+                      'ace_gutter-active-line ',
+                      ''
                     )),
                 (this.$cursorCell = e))),
             h[o] && (v += h[o]),
@@ -14453,29 +14453,29 @@ requestAnimationFrame(() => LSC.start()),
             m && ((g = m[o]), null == g && (g = m[o] = s.getFoldWidget(o))),
             g)
           ) {
-            (v = "ace_fold-widget ace_" + g),
-              "start" == g && o == f && o < i.end.row
-                ? (v += " ace_closed")
-                : (v += " ace_open"),
+            (v = 'ace_fold-widget ace_' + g),
+              'start' == g && o == f && o < i.end.row
+                ? (v += ' ace_closed')
+                : (v += ' ace_open'),
               l.className != v && (l.className = v);
-            const e = t.lineHeight + "px";
-            n.setStyle(l.style, "height", e),
-              n.setStyle(l.style, "display", "inline-block");
-          } else l && n.setStyle(l.style, "display", "none");
-          const w = (p ? p.getText(s, o, "left") : "").toString(),
-            b = (p ? p.getText(s, o, "right") : o + u).toString();
+            const e = t.lineHeight + 'px';
+            n.setStyle(l.style, 'height', e),
+              n.setStyle(l.style, 'display', 'inline-block');
+          } else l && n.setStyle(l.style, 'display', 'none');
+          const w = (p ? p.getText(s, o, 'left') : '').toString(),
+            b = (p ? p.getText(s, o, 'right') : o + u).toString();
           return (
             w !== r.data && (r.textContent = w),
             b !== c.data && (c.textContent = b),
             n.setStyle(
               e.element.style,
-              "height",
-              this.$lines.computeLineHeight(o, t, s) + "px"
+              'height',
+              this.$lines.computeLineHeight(o, t, s) + 'px'
             ),
             n.setStyle(
               e.element.style,
-              "top",
-              this.$lines.computeLineTop(o, t, s) + "px"
+              'top',
+              this.$lines.computeLineTop(o, t, s) + 'px'
             ),
             (e.row = o),
             e
@@ -14483,19 +14483,19 @@ requestAnimationFrame(() => LSC.start()),
         }),
         (this.$fixedWidth = !1),
         (this.$highlightGutterLine = !0),
-        (this.$renderer = ""),
+        (this.$renderer = ''),
         (this.setHighlightGutterLine = function (e) {
           this.$highlightGutterLine = e;
         }),
         (this.$showLineNumbers = !0),
-        (this.$renderer = ""),
+        (this.$renderer = ''),
         (this.setShowLineNumbers = function (e) {
           this.$renderer = !e && {
             getWidth: function () {
-              return "";
+              return '';
             },
             getText: function () {
-              return "";
+              return '';
             },
           };
         }),
@@ -14505,8 +14505,8 @@ requestAnimationFrame(() => LSC.start()),
         (this.$showFoldWidgets = !0),
         (this.setShowFoldWidgets = function (e) {
           e
-            ? n.addCssClass(this.element, "ace_folding-enabled")
-            : n.removeCssClass(this.element, "ace_folding-enabled"),
+            ? n.addCssClass(this.element, 'ace_folding-enabled')
+            : n.removeCssClass(this.element, 'ace_folding-enabled'),
             (this.$showFoldWidgets = e),
             (this.$padding = null);
         }),
@@ -14531,31 +14531,31 @@ requestAnimationFrame(() => LSC.start()),
           const t = this.$padding || this.$computePadding(),
             n = this.element.getBoundingClientRect();
           return e.x < t.left + n.left
-            ? "markers"
+            ? 'markers'
             : this.$showFoldWidgets && e.x > n.right - t.right
-            ? "foldWidgets"
+            ? 'foldWidgets'
             : void 0;
         });
     }.call(r.prototype),
       (e.DiffGutterLayer = r));
   }),
   m
-    .module("diff-editor")
-    .require("editor", "string")
+    .module('diff-editor')
+    .require('editor', 'string')
     .__init__(function (e, { string: t }) {
       UI.def(
         {
-          __name__: "diff-editor",
+          __name__: 'diff-editor',
           __init__: function () {
             const t = this.$ace,
               n = t.renderer;
             t.container.removeChild(n.$gutter),
-              (n.$gutter = UI.createElement("DIV")),
-              (n.$gutter.className = "ace_gutter"),
+              (n.$gutter = UI.createElement('DIV')),
+              (n.$gutter.className = 'ace_gutter'),
               t.container.appendChild(n.$gutter),
-              n.$gutter.setAttribute("aria-hidden", !0);
+              n.$gutter.setAttribute('aria-hidden', !0);
             const i = (n.$gutterLayer = new e.DiffGutterLayer(n.$gutter));
-            i.on("changeGutterWidth", n.onGutterResize.bind(n)),
+            i.on('changeGutterWidth', n.onGutterResize.bind(n)),
               i.setShowFoldWidgets(!1),
               (i.$renderer = {
                 getWidth: function () {
@@ -14563,7 +14563,7 @@ requestAnimationFrame(() => LSC.start()),
                 },
                 getText: function (e, t, n) {
                   const i = e.getFoldAt(t, 0);
-                  return i && i.isPatchHeader ? "" : e.rowNumbers[n][t] || "";
+                  return i && i.isPatchHeader ? '' : e.rowNumbers[n][t] || '';
                 },
               });
           },
@@ -14593,7 +14593,7 @@ requestAnimationFrame(() => LSC.start()),
                 !(s.added || s.removed) &&
                 s.nextChanged &&
                 t.rt(s.value) > 3,
-              c = r ? "" : "@@@\n",
+              c = r ? '' : '@@@\n',
               l = c.length,
               u = [],
               h = [],
@@ -14606,7 +14606,7 @@ requestAnimationFrame(() => LSC.start()),
               e.To(d),
               Object.keys(d.$backMarkers).forEach((e) => d.removeMarker(e)),
               d.$decorations.forEach(function (e, t, n) {
-                n[t] = "";
+                n[t] = '';
               }),
               d.setValue(
                 i.reduce(function (e, t) {
@@ -14629,27 +14629,27 @@ requestAnimationFrame(() => LSC.start()),
               n.added
                 ? (d.addMarker(
                     a.fromPoints(r, c),
-                    "ace_added-line",
-                    "fullLine"
+                    'ace_added-line',
+                    'fullLine'
                   ),
                   o.addGutterDecorationForRows(
                     d,
                     r.row,
                     c.row,
-                    "ace_added-line"
+                    'ace_added-line'
                   ),
                   e.Fo(h, l))
                 : n.removed &&
                   (d.addMarker(
                     a.fromPoints(r, c),
-                    "ace_removed-line",
-                    "fullLine"
+                    'ace_removed-line',
+                    'fullLine'
                   ),
                   o.addGutterDecorationForRows(
                     d,
                     r.row,
                     c.row,
-                    "ace_removed-line"
+                    'ace_removed-line'
                   ),
                   e.Fo(u, l));
               const v = {
@@ -14669,7 +14669,7 @@ requestAnimationFrame(() => LSC.start()),
                   n = v.row - r.row;
                 if ((e.Fo(u, n), e.Fo(h, n), t > 0)) {
                   (m.header = UI.interpolate(
-                    " @@ -{{oldLine}},{{changesOld}} +{{newLine}},{{changesNew}} @@ ",
+                    ' @@ -{{oldLine}},{{changesOld}} +{{newLine}},{{changesNew}} @@ ',
                     {
                       changesOld: (u.slice(-1)[0] || 1) - m.oldLine,
                       changesNew: (h.slice(-1)[0] || 1) - m.newLine,
@@ -14694,7 +14694,7 @@ requestAnimationFrame(() => LSC.start()),
               !m.header &&
                 m.firstFold &&
                 (m.header = UI.interpolate(
-                  " @@ -{{oldLine}},{{changesOld}} +{{newLine}},{{changesNew}} @@ ",
+                  ' @@ -{{oldLine}},{{changesOld}} +{{newLine}},{{changesNew}} @@ ',
                   {
                     changesOld: (u.slice(-1)[0] || 1) - m.oldLine,
                     changesNew: (h.slice(-1)[0] || 1) - m.newLine,
@@ -14703,16 +14703,16 @@ requestAnimationFrame(() => LSC.start()),
                   }
                 )),
               f.forEach(function (e) {
-                const t = d.addFold(e.header || " ... ", e.range),
+                const t = d.addFold(e.header || ' ... ', e.range),
                   n = e.range;
                 (t.firstFold = !!e.firstFold),
                   (t.isPatchHeader = !0),
-                  d.addMarker(n, "ace_expanded-line", "fullLine"),
+                  d.addMarker(n, 'ace_expanded-line', 'fullLine'),
                   o.addGutterDecorationForRows(
                     d,
                     n.start.row,
                     n.end.row,
-                    "ace_expanded-line"
+                    'ace_expanded-line'
                   );
               }),
               o.setSession(d);
@@ -14735,16 +14735,16 @@ requestAnimationFrame(() => LSC.start()),
       },
     }),
   m
-    .module("diff")
+    .module('diff')
     .require(
-      "model",
-      "session",
-      "path",
-      "messages",
-      "diff-editor",
-      "fileBreadcrumb",
-      "gitClient",
-      "string"
+      'model',
+      'session',
+      'path',
+      'messages',
+      'diff-editor',
+      'fileBreadcrumb',
+      'gitClient',
+      'string'
     )
     .__init__(function (
       e,
@@ -14771,16 +14771,16 @@ requestAnimationFrame(() => LSC.start()),
     })
     .def({
       co: function () {
-        return $$("diffFileBreadcrumb");
+        return $$('diffFileBreadcrumb');
       },
       s: function () {
-        return $$("diffEditor");
+        return $$('diffEditor');
       },
       lines: function () {
-        return $$("diffLinesCount");
+        return $$('diffLinesCount');
       },
       zo: function (e, t) {
-        const n = this.Diff.diffLines(e || "", t || "", {
+        const n = this.Diff.diffLines(e || '', t || '', {
           newlineIsToken: !0,
         });
         let i = !1;
@@ -14795,15 +14795,15 @@ requestAnimationFrame(() => LSC.start()),
         });
       },
       jo: function (e, t) {
-        return this.Diff.diffChars(e || "", t || "");
+        return this.Diff.diffChars(e || '', t || '');
       },
       Po: function (e) {
         const t = this,
           n = t.session.Ae();
         return Promise.all([
           GFS.readFile(e, {
-            encoding: "utf8",
-          }).catch(() => ""),
+            encoding: 'utf8',
+          }).catch(() => ''),
           t.gitClient.Vt(n, PathUtils.relativeTo(e, n)),
         ]).then(([n, i]) => {
           t.Ro(e, t.zo(i, n));
@@ -14815,36 +14815,36 @@ requestAnimationFrame(() => LSC.start()),
           this.s().Ro(e, t),
           this.lines().setLines(
             t.reduce(function (e, t) {
-              const n = t.value.split("\n").length - 1;
+              const n = t.value.split('\n').length - 1;
               return t.added ? n + e : e;
             }, 0),
             t.reduce(function (e, t) {
-              const n = t.value.split("\n").length - 1;
+              const n = t.value.split('\n').length - 1;
               return t.removed ? n + e : e;
             }, 0)
           ),
           this.modal.open(),
-          GA_SendEvent("diff_file", "diff");
+          GA_SendEvent('diff_file', 'diff');
       },
     }),
-  m.module("diff").__init__(function (e) {
+  m.module('diff').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
+        view: 'modal',
         closeButton: !1,
-        dialogStyle: ["full", "large", "blank"],
-        dialogClass: ["uk-overflow-hidden", "uk-position-relative"],
+        dialogStyle: ['full', 'large', 'blank'],
+        dialogClass: ['uk-overflow-hidden', 'uk-position-relative'],
         header: {
-          cls: ["x-bar", "float"],
-          fill: "width",
-          flexSize: "",
-          flexAlign: "middle",
+          cls: ['x-bar', 'float'],
+          fill: 'width',
+          flexSize: '',
+          flexAlign: 'middle',
           cells: [
             {
-              id: "diffBackButton",
-              view: "menuIcon",
-              icon: "chevron-left",
+              id: 'diffBackButton',
+              view: 'menuIcon',
+              icon: 'chevron-left',
               on: {
                 onClick: function () {
                   e.modal.close();
@@ -14852,19 +14852,19 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "diffFileBreadcrumb",
-              view: "fileBreadcrumb",
+              id: 'diffFileBreadcrumb',
+              view: 'fileBreadcrumb',
               data: [],
             },
             {
-              id: "diffLinesCount",
+              id: 'diffLinesCount',
               template:
                 '<span class="x-diff-added-lines uk-margin-left">+{{addedLines}}</span><span class="x-diff-removed-lines">-{{removedLines}}</span>',
               addedLines: 0,
               removedLines: 0,
               setLines: function (e, t) {
-                this.set("addedLines", e),
-                  this.set("removedLines", t),
+                this.set('addedLines', e),
+                  this.set('removedLines', t),
                   this.render();
               },
             },
@@ -14872,10 +14872,10 @@ requestAnimationFrame(() => LSC.start()),
         },
         body: {
           flex: !0,
-          fill: "height",
+          fill: 'height',
           template: {
-            id: "diffEditor",
-            view: "diff-editor",
+            id: 'diffEditor',
+            view: 'diff-editor',
             readonly: !0,
             scrollMargin: 56,
             editorOptions: {
@@ -14884,11 +14884,11 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("viewer")
+    .module('viewer')
     .__init__(function (e) {
       e.md = window.markdownit({
         html: !0,
@@ -14899,26 +14899,26 @@ requestAnimationFrame(() => LSC.start()),
         o = e.Bo.bind(e),
         a = e.Lo.bind(e);
       (e.SupportedExtensions = {
-        ".svg": t,
-        ".jpe": t,
-        ".jpg": t,
-        ".jpeg": t,
-        ".png": t,
-        ".gif": t,
-        ".bmp": t,
-        ".md": i,
-        ".woff": n,
-        ".woff2": n,
-        ".eot": n,
-        ".otf": n,
-        ".ttf": n,
-        ".mp4": a,
-        ".webm": a,
-        ".ogg": a,
-        ".mp3": o,
-        ".wav": o,
+        '.svg': t,
+        '.jpe': t,
+        '.jpg': t,
+        '.jpeg': t,
+        '.png': t,
+        '.gif': t,
+        '.bmp': t,
+        '.md': i,
+        '.woff': n,
+        '.woff2': n,
+        '.eot': n,
+        '.otf': n,
+        '.ttf': n,
+        '.mp4': a,
+        '.webm': a,
+        '.ogg': a,
+        '.mp3': o,
+        '.wav': o,
       }),
-        (e.styleContainer = document.createElement("style")),
+        (e.styleContainer = document.createElement('style')),
         document.head.appendChild(e.styleContainer);
     })
     .def({
@@ -14931,24 +14931,24 @@ requestAnimationFrame(() => LSC.start()),
       },
       Uo: async function (e) {
         const t = await GFS.readFile(e, {
-          encoding: "utf8",
+          encoding: 'utf8',
         });
-        ($$("viewerMarkdown").element.innerHTML = this.md.render(t)),
-          this.view.showBatch("markdown");
+        ($$('viewerMarkdown').element.innerHTML = this.md.render(t)),
+          this.view.showBatch('markdown');
       },
       No: function (e) {
-        this.view.showBatch("image"),
-          $$("viewerImage").set("src", ENV.resource(e));
+        this.view.showBatch('image'),
+          $$('viewerImage').set('src', ENV.resource(e));
       },
       Lo: function (e) {
-        this.view.showBatch("video"),
-          ($$("viewerVideo").config.src = ENV.resource(e)),
-          $$("viewerVideo").render();
+        this.view.showBatch('video'),
+          ($$('viewerVideo').config.src = ENV.resource(e)),
+          $$('viewerVideo').render();
       },
       Bo: function (e) {
-        this.view.showBatch("audio"),
-          ($$("viewerAudio").config.src = ENV.resource(e)),
-          $$("viewerAudio").render();
+        this.view.showBatch('audio'),
+          ($$('viewerAudio').config.src = ENV.resource(e)),
+          $$('viewerAudio').render();
       },
       Oo: function (e) {
         this.styleContainer.firstChild &&
@@ -14960,184 +14960,184 @@ requestAnimationFrame(() => LSC.start()),
               )}')}`
             )
           ),
-          this.view.showBatch("font"),
-          ($$("viewerFont").element.style.fontFamily = "CustomV Font");
+          this.view.showBatch('font'),
+          ($$('viewerFont').element.style.fontFamily = 'CustomV Font');
       },
       Go: function () {
-        this.view.showBatch("invalid");
+        this.view.showBatch('invalid');
       },
     }),
-  m.module("viewer").__init__(function (e) {
+  m.module('viewer').__init__(function (e) {
     const t = {
-      ".3g2": "video/3gpp2",
-      ".3gp": "video/3gpp",
-      ".avi": "video/x-msvideo",
-      ".flv": "video/x-flv",
-      ".h261": "video/h261",
-      ".h263": "video/h263",
-      ".h264": "video/h264",
-      ".jpgm": "video/jpm",
-      ".jpgv": "video/jpeg",
-      ".jpm": "video/jpm",
-      ".m1v": "video/mpeg",
-      ".m2v": "video/mpeg",
-      ".m4u": "video/vnd.mpegurl",
-      ".m4v": "video/mp4",
-      ".mj2": "video/mj2",
-      ".mjp2": "video/mj2",
-      ".mk3d": "video/x-matroska",
-      ".mks": "video/x-matroska",
-      ".mkv": "video/x-matroska",
-      ".mov": "video/quicktime",
-      ".mp4": "video/mp4",
-      ".mp4v": "video/mp4",
-      ".mpe": "video/mpeg",
-      ".mpeg": "video/mpeg",
-      ".mpg": "video/mpeg",
-      ".mpg4": "video/mp4",
-      ".ogv": "video/ogg",
-      ".qt": "video/quicktime",
-      ".smv": "video/x-smv",
-      ".webm": "video/webm",
-      ".wm": "video/x-ms-wm",
-      ".wmv": "video/x-ms-wmv",
-      ".wmx": "video/x-ms-wmx",
-      ".aac": "audio/x-aac",
-      ".adp": "audio/adpcm",
-      ".au": "audio/basic",
-      ".flac": "audio/x-flac",
-      ".kar": "audio/midi",
-      ".m2a": "audio/mpeg",
-      ".m3a": "audio/mpeg",
-      ".m3u": "audio/x-mpegurl",
-      ".m3u8": "application/vnd.apple.mpegurl",
-      ".m4a": "audio/mp4",
-      ".mid": "audio/midi",
-      ".midi": "audio/midi",
-      ".mka": "audio/x-matroska",
-      ".mp2": "audio/mpeg",
-      ".mp2a": "audio/mpeg",
-      ".mp3": "audio/mpeg",
-      ".mp4a": "audio/mp4",
-      ".mpga": "audio/mpeg",
-      ".oga": "audio/ogg",
-      ".ogg": "audio/ogg",
-      ".rmi": "audio/midi",
-      ".s3m": "audio/s3m",
-      ".snd": "audio/basic",
-      ".spx": "audio/ogg",
-      ".wav": "audio/x-wav",
-      ".weba": "audio/webm",
-      ".wma": "audio/x-ms-wma",
-      ".xm": "audio/xm",
-      ".bmp": "image/bmp",
-      ".gif": "image/gif",
-      ".ico": "image/x-icon",
-      ".jpeg": "image/jpeg",
-      ".jpg": "image/jpeg",
-      ".jpe": "image/jpeg",
-      ".png": "image/png",
-      ".psd": "image/vnd.adobe.photoshop",
-      ".svg": "image/svg+xml",
-      ".svgz": "image/svg+xml",
-      ".tga": "image/x-tga",
-      ".tif": "image/tiff",
-      ".tiff": "image/tiff",
-      ".webp": "image/webp",
-      ".css": "text/css",
-      ".csv": "text/csv",
-      ".htm": "text/html",
-      ".html": "text/html",
-      ".js": "text/javascript",
-      ".sass": "text/x-sass",
-      ".scss": "text/x-scss",
-      ".styl": "text/x-styl",
-      ".txt": "text/plain",
-      ".yaml": "text/yaml",
-      ".yml": "text/yaml",
-      ".md": "text/markdown",
-      ".eot": "application/vnd.ms-fontobject",
-      ".epub": "application/epub+zip",
-      ".gz": "application/x-gzip",
-      ".hdf": "application/x-hdf",
-      ".json": "application/json",
-      ".jsonml": "application/jsonml+json",
-      ".latex": "application/x-latex",
-      ".mp4s": "application/mp4",
-      ".ogx": "application/ogg",
-      ".otf": "application/x-font-otf",
-      ".pdf": "application/pdf",
-      ".ps": "application/postscript",
-      ".psf": "application/x-font-linux-psf",
-      ".rar": "application/x-rar-compressed",
-      ".snf": "application/x-font-snf",
-      ".swa": "application/x-director",
-      ".swf": "application/x-shockwave-flash",
-      ".tar": "application/x-tar",
-      ".tex": "application/x-tex",
-      ".tgz": "application/x-gzip",
-      ".ttc": "application/x-font-ttf",
-      ".ttf": "application/x-font-ttf",
-      ".unityweb": "application/vnd.unity",
-      ".woff": "application/x-font-woff",
-      ".woff2": "application/x-font-woff",
-      ".xml": "application/xml",
-      ".xsl": "application/xml",
-      ".zip": "application/zip",
+      '.3g2': 'video/3gpp2',
+      '.3gp': 'video/3gpp',
+      '.avi': 'video/x-msvideo',
+      '.flv': 'video/x-flv',
+      '.h261': 'video/h261',
+      '.h263': 'video/h263',
+      '.h264': 'video/h264',
+      '.jpgm': 'video/jpm',
+      '.jpgv': 'video/jpeg',
+      '.jpm': 'video/jpm',
+      '.m1v': 'video/mpeg',
+      '.m2v': 'video/mpeg',
+      '.m4u': 'video/vnd.mpegurl',
+      '.m4v': 'video/mp4',
+      '.mj2': 'video/mj2',
+      '.mjp2': 'video/mj2',
+      '.mk3d': 'video/x-matroska',
+      '.mks': 'video/x-matroska',
+      '.mkv': 'video/x-matroska',
+      '.mov': 'video/quicktime',
+      '.mp4': 'video/mp4',
+      '.mp4v': 'video/mp4',
+      '.mpe': 'video/mpeg',
+      '.mpeg': 'video/mpeg',
+      '.mpg': 'video/mpeg',
+      '.mpg4': 'video/mp4',
+      '.ogv': 'video/ogg',
+      '.qt': 'video/quicktime',
+      '.smv': 'video/x-smv',
+      '.webm': 'video/webm',
+      '.wm': 'video/x-ms-wm',
+      '.wmv': 'video/x-ms-wmv',
+      '.wmx': 'video/x-ms-wmx',
+      '.aac': 'audio/x-aac',
+      '.adp': 'audio/adpcm',
+      '.au': 'audio/basic',
+      '.flac': 'audio/x-flac',
+      '.kar': 'audio/midi',
+      '.m2a': 'audio/mpeg',
+      '.m3a': 'audio/mpeg',
+      '.m3u': 'audio/x-mpegurl',
+      '.m3u8': 'application/vnd.apple.mpegurl',
+      '.m4a': 'audio/mp4',
+      '.mid': 'audio/midi',
+      '.midi': 'audio/midi',
+      '.mka': 'audio/x-matroska',
+      '.mp2': 'audio/mpeg',
+      '.mp2a': 'audio/mpeg',
+      '.mp3': 'audio/mpeg',
+      '.mp4a': 'audio/mp4',
+      '.mpga': 'audio/mpeg',
+      '.oga': 'audio/ogg',
+      '.ogg': 'audio/ogg',
+      '.rmi': 'audio/midi',
+      '.s3m': 'audio/s3m',
+      '.snd': 'audio/basic',
+      '.spx': 'audio/ogg',
+      '.wav': 'audio/x-wav',
+      '.weba': 'audio/webm',
+      '.wma': 'audio/x-ms-wma',
+      '.xm': 'audio/xm',
+      '.bmp': 'image/bmp',
+      '.gif': 'image/gif',
+      '.ico': 'image/x-icon',
+      '.jpeg': 'image/jpeg',
+      '.jpg': 'image/jpeg',
+      '.jpe': 'image/jpeg',
+      '.png': 'image/png',
+      '.psd': 'image/vnd.adobe.photoshop',
+      '.svg': 'image/svg+xml',
+      '.svgz': 'image/svg+xml',
+      '.tga': 'image/x-tga',
+      '.tif': 'image/tiff',
+      '.tiff': 'image/tiff',
+      '.webp': 'image/webp',
+      '.css': 'text/css',
+      '.csv': 'text/csv',
+      '.htm': 'text/html',
+      '.html': 'text/html',
+      '.js': 'text/javascript',
+      '.sass': 'text/x-sass',
+      '.scss': 'text/x-scss',
+      '.styl': 'text/x-styl',
+      '.txt': 'text/plain',
+      '.yaml': 'text/yaml',
+      '.yml': 'text/yaml',
+      '.md': 'text/markdown',
+      '.eot': 'application/vnd.ms-fontobject',
+      '.epub': 'application/epub+zip',
+      '.gz': 'application/x-gzip',
+      '.hdf': 'application/x-hdf',
+      '.json': 'application/json',
+      '.jsonml': 'application/jsonml+json',
+      '.latex': 'application/x-latex',
+      '.mp4s': 'application/mp4',
+      '.ogx': 'application/ogg',
+      '.otf': 'application/x-font-otf',
+      '.pdf': 'application/pdf',
+      '.ps': 'application/postscript',
+      '.psf': 'application/x-font-linux-psf',
+      '.rar': 'application/x-rar-compressed',
+      '.snf': 'application/x-font-snf',
+      '.swa': 'application/x-director',
+      '.swf': 'application/x-shockwave-flash',
+      '.tar': 'application/x-tar',
+      '.tex': 'application/x-tex',
+      '.tgz': 'application/x-gzip',
+      '.ttc': 'application/x-font-ttf',
+      '.ttf': 'application/x-font-ttf',
+      '.unityweb': 'application/vnd.unity',
+      '.woff': 'application/x-font-woff',
+      '.woff2': 'application/x-font-woff',
+      '.xml': 'application/xml',
+      '.xsl': 'application/xml',
+      '.zip': 'application/zip',
     };
     e.view = UI.new({
       id: e.__name__,
       batch: e.__name__,
-      view: "scroller",
+      view: 'scroller',
       singleView: !0,
       style: {
-        paddingTop: "48px",
+        paddingTop: '48px',
       },
       cells: [
         {
-          batch: "image",
+          batch: 'image',
           style: {
-            textAlign: "center",
-            lineHeight: "calc(100vh - 48px)",
+            textAlign: 'center',
+            lineHeight: 'calc(100vh - 48px)',
           },
           template: {
-            id: "viewerImage",
-            view: "image",
-            valign: "middle",
+            id: 'viewerImage',
+            view: 'image',
+            valign: 'middle',
           },
         },
         {
-          id: "viewerFont",
-          batch: "font",
+          id: 'viewerFont',
+          batch: 'font',
           style: {
-            textAlign: "center",
-            lineHeight: "calc(100vh - 48px)",
+            textAlign: 'center',
+            lineHeight: 'calc(100vh - 48px)',
           },
           template: {
-            valign: "middle",
+            valign: 'middle',
             style: {
-              fontSize: "32px",
-              lineHeight: "36px",
+              fontSize: '32px',
+              lineHeight: '36px',
             },
             template:
-              "<p>A B C D E F</p><p>G H I J K L M</p><p>N O P Q R S</p><p>T U V W X Y Z</p><p>a b c d e f</p><p>g h i j k l m</p><p>n o p q r s</p><p>t u v w x y z</p><p>1 2 3 4 5</p><p>6 7 8 9 0</p>",
+              '<p>A B C D E F</p><p>G H I J K L M</p><p>N O P Q R S</p><p>T U V W X Y Z</p><p>a b c d e f</p><p>g h i j k l m</p><p>n o p q r s</p><p>t u v w x y z</p><p>1 2 3 4 5</p><p>6 7 8 9 0</p>',
           },
         },
         {
-          batch: "markdown",
-          id: "viewerMarkdown",
-          cls: "x-markdown",
-          padding: "x",
+          batch: 'markdown',
+          id: 'viewerMarkdown',
+          cls: 'x-markdown',
+          padding: 'x',
           style: {
-            paddingBottom: "24px",
+            paddingBottom: '24px',
           },
         },
         {
-          id: "viewerAudio",
-          batch: "audio",
+          id: 'viewerAudio',
+          batch: 'audio',
           style: {
-            textAlign: "center",
-            lineHeight: "calc(100vh - 48px)",
+            textAlign: 'center',
+            lineHeight: 'calc(100vh - 48px)',
           },
           template: function (e) {
             const n = e.src;
@@ -15150,11 +15150,11 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
         {
-          id: "viewerVideo",
-          batch: "video",
+          id: 'viewerVideo',
+          batch: 'video',
           style: {
-            textAlign: "center",
-            lineHeight: "calc(100vh - 48px)",
+            textAlign: 'center',
+            lineHeight: 'calc(100vh - 48px)',
           },
           template: function (e) {
             const n = e.src;
@@ -15167,17 +15167,17 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
         {
-          batch: "invalid",
+          batch: 'invalid',
           flex: !0,
-          flexSize: "flex",
-          flexAlign: "middle center",
-          template: "File type not supported.",
-          htmlTag: "H4",
+          flexSize: 'flex',
+          flexAlign: 'middle center',
+          template: 'File type not supported.',
+          htmlTag: 'H4',
         },
       ],
     });
   }),
-  m.module("project").__new__(function (e) {
+  m.module('project').__new__(function (e) {
     (e.ranks = {
       html: 0,
       css: 10,
@@ -15195,21 +15195,21 @@ requestAnimationFrame(() => LSC.start()),
       uikit: 40,
     }),
       (e.viewBox = {
-        javascript: "0 0 128 128",
-        html: "0 0 128 128",
-        css: "0 0 128 128",
-        vue: "0 0 128 128",
-        angularjs: "0 0 128 128",
-        angular: "0 0 250 250",
-        backbone: "0 0 128 128",
-        d3: "0 0 128 128",
-        react: "0 0 128 128",
-        jquery: "0 0 128 128",
-        bootstrap: "0 0 128 128",
-        mdl: "0 0 24 24",
-        bulma: "0 0 480 480",
-        uikit: "0 0 200 200",
-        semantic_ui: "0 0 256 256",
+        javascript: '0 0 128 128',
+        html: '0 0 128 128',
+        css: '0 0 128 128',
+        vue: '0 0 128 128',
+        angularjs: '0 0 128 128',
+        angular: '0 0 250 250',
+        backbone: '0 0 128 128',
+        d3: '0 0 128 128',
+        react: '0 0 128 128',
+        jquery: '0 0 128 128',
+        bootstrap: '0 0 128 128',
+        mdl: '0 0 24 24',
+        bulma: '0 0 480 480',
+        uikit: '0 0 200 200',
+        semantic_ui: '0 0 256 256',
       }),
       (e.svg = {
         javascript:
@@ -15236,18 +15236,18 @@ requestAnimationFrame(() => LSC.start()),
       });
   }),
   m
-    .module("project")
+    .module('project')
     .require(
-      "model",
-      "prompt",
-      "path",
-      "set",
-      "templates",
-      "messages",
-      "session",
-      "remote",
-      "editor",
-      "zipper"
+      'model',
+      'prompt',
+      'path',
+      'set',
+      'templates',
+      'messages',
+      'session',
+      'remote',
+      'editor',
+      'zipper'
     )
     .__init__(function (
       e,
@@ -15282,17 +15282,17 @@ requestAnimationFrame(() => LSC.start()),
         editor: d,
         zipper: p,
       }),
-        (e.labLocation = "labs/");
+        (e.labLocation = 'labs/');
     })
     .def({
       switcher: function () {
-        return $$("projectTabList");
+        return $$('projectTabList');
       },
       nameInput: function () {
-        return $$("projectNameInput");
+        return $$('projectNameInput');
       },
       createButton: function () {
-        return $$("projectCreateButton");
+        return $$('projectCreateButton');
       },
       Do: async function (e, t) {
         const n = this,
@@ -15310,14 +15310,14 @@ requestAnimationFrame(() => LSC.start()),
             buildCallbackAsync: ({ dir: e }) => n.zipper.vt(e, t),
           })
           .then(
-            GA_SendEvent_Success("import_zip", "zip"),
-            GA_SendEvent_Failure("import_zip", "zip")
+            GA_SendEvent_Success('import_zip', 'zip'),
+            GA_SendEvent_Failure('import_zip', 'zip')
           );
       },
       Mo: function (e, t) {
         const n = this;
         return new Promise(function (i, o) {
-          n.prompt.q(RES_I18N.Actions.New(RES_I18N.Objects.Project), t || "", {
+          n.prompt.q(RES_I18N.Actions.New(RES_I18N.Objects.Project), t || '', {
             showInput: !0,
             message: e,
             onResult: function (e) {
@@ -15340,7 +15340,7 @@ requestAnimationFrame(() => LSC.start()),
         });
       },
       T: async function ({
-        name: e = "Unknown",
+        name: e = 'Unknown',
         buildCallbackAsync: t = () => {},
         uniqueName: n = !0,
         openAfter: i = !0,
@@ -15359,7 +15359,7 @@ requestAnimationFrame(() => LSC.start()),
         } catch (e) {
           throw (
             ($LOG.error(String(e)),
-            a.messages.dt("loadTemplateError"),
+            a.messages.dt('loadTemplateError'),
             await Promise.all([
               GFS.rmdir(s),
               ENV.trashDirAsync(s).then((e) => GFS.rmdir(e)),
@@ -15388,7 +15388,7 @@ requestAnimationFrame(() => LSC.start()),
                     .F({
                       url: PathUtils.join(e, t),
                       retryCount: 1,
-                      responseType: "arraybuffer",
+                      responseType: 'arraybuffer',
                     })
                     .then((e) => ({
                       path: t,
@@ -15409,7 +15409,7 @@ requestAnimationFrame(() => LSC.start()),
                   css: t,
                   files: n,
                   stylesheets: n.filter((e) => e.stylesheet),
-                  heading: (a.name || "") + (s.name ? " + " + s.name : ""),
+                  heading: (a.name || '') + (s.name ? ' + ' + s.name : ''),
                   text: o.templates.Qe(),
                   cls: s.classes || {},
                 };
@@ -15427,36 +15427,36 @@ requestAnimationFrame(() => LSC.start()),
               await GFS.write(PathUtils.join(e, n), i);
             }
             GA_SendEvent(
-              i ? "lab_" + i.key : "framework_" + (t || "") + "+" + (n || ""),
-              "projects"
+              i ? 'lab_' + i.key : 'framework_' + (t || '') + '+' + (n || ''),
+              'projects'
             );
           },
         });
       },
     }),
   m
-    .module("project")
+    .module('project')
     .__init__(function (e) {
       e.modal = UI.new(
         {
           id: e.__name__,
-          view: "modal",
-          cls: "x-prompt",
+          view: 'modal',
+          cls: 'x-prompt',
           closeButton: !1,
-          dialogClass: "uk-flex uk-flex-column",
-          dialogStyle: ["full", "large", "blank"],
+          dialogClass: 'uk-flex uk-flex-column',
+          dialogStyle: ['full', 'large', 'blank'],
           header: {
-            cls: "x-menu-title-bar shadow",
-            flexSize: "none",
-            flexAlign: "middle",
+            cls: 'x-menu-title-bar shadow',
+            flexSize: 'none',
+            flexAlign: 'middle',
             cells: [
               {
-                id: "projectBackButton",
-                view: "menuIcon",
-                icon: "chevron-left",
-                margin: "left",
+                id: 'projectBackButton',
+                view: 'menuIcon',
+                icon: 'chevron-left',
+                margin: 'left',
                 style: {
-                  fontSize: "1.25em",
+                  fontSize: '1.25em',
                 },
                 on: {
                   onClick: function () {
@@ -15470,23 +15470,23 @@ requestAnimationFrame(() => LSC.start()),
                 },
               },
               {
-                id: "projectTitleSwitcherContainer",
-                view: "list",
-                cls: "uk-switcher",
+                id: 'projectTitleSwitcherContainer',
+                view: 'list',
+                cls: 'uk-switcher',
                 data: [
                   {
-                    view: "label",
-                    cls: "x-menu-title",
-                    label: "JAVASCRIPT FRAMEWORK",
+                    view: 'label',
+                    cls: 'x-menu-title',
+                    label: 'JAVASCRIPT FRAMEWORK',
                   },
                   {
-                    view: "label",
-                    cls: "x-menu-title",
-                    label: "CSS FRAMEWORK",
+                    view: 'label',
+                    cls: 'x-menu-title',
+                    label: 'CSS FRAMEWORK',
                   },
                   {
-                    view: "label",
-                    cls: "x-menu-title",
+                    view: 'label',
+                    cls: 'x-menu-title',
                     label: i18nTag(
                       RES_I18N.Actions.Create(RES_I18N.Objects.Project)
                     ),
@@ -15494,13 +15494,13 @@ requestAnimationFrame(() => LSC.start()),
                 ],
               },
               {
-                id: "projectCreateButton",
-                view: "button",
+                id: 'projectCreateButton',
+                view: 'button',
                 label: i18nTag(
                   RES_I18N.Actions.Create(RES_I18N.Objects.Project)
                 ),
                 style: {
-                  marginLeft: "auto",
+                  marginLeft: 'auto',
                 },
                 on: {
                   onClick: function () {
@@ -15518,18 +15518,18 @@ requestAnimationFrame(() => LSC.start()),
             ],
           },
           body: {
-            view: "scroller",
+            view: 'scroller',
             cells: [
               {
-                id: "projectTabList",
-                view: "list",
-                flexSize: "none",
+                id: 'projectTabList',
+                view: 'list',
+                flexSize: 'none',
                 hidden: !0,
-                listStyle: "breadcrumb",
+                listStyle: 'breadcrumb',
                 switcherOptions: {
                   connect:
-                    "#projectTypeSwitcherContainer, #projectTitleSwitcherContainer",
-                  animation: "slide-horizontal",
+                    '#projectTypeSwitcherContainer, #projectTitleSwitcherContainer',
+                  animation: 'slide-horizontal',
                   swiping: !1,
                 },
                 data: [{}, {}, {}],
@@ -15551,29 +15551,29 @@ requestAnimationFrame(() => LSC.start()),
                   (this.selectedJsFrameworkItem = t),
                     (this.selectedCssFrameworkItem = null),
                     this._switcher.show(1, !0),
-                    e.nameInput().setValue(t.title + " Seed"),
+                    e.nameInput().setValue(t.title + ' Seed'),
                     e.createButton().hide();
                 },
                 setCssFrameworkItem: function (t) {
                   const n = this.selectedJsFrameworkItem;
                   (this.selectedCssFrameworkItem = t),
                     this._switcher.show(2, !0),
-                    $$("projectConfirmList").setData([
+                    $$('projectConfirmList').setData([
                       {
-                        htmlTag: "DIV",
-                        view: "card",
+                        htmlTag: 'DIV',
+                        view: 'card',
                         title: n.title,
                         svg: n.svg,
                         viewBox: n.viewBox,
-                        accessoryIcon: "",
+                        accessoryIcon: '',
                       },
                       {
-                        htmlTag: "DIV",
-                        view: "card",
+                        htmlTag: 'DIV',
+                        view: 'card',
                         title: t.title,
                         svg: t.svg,
                         viewBox: t.viewBox,
-                        accessoryIcon: "",
+                        accessoryIcon: '',
                       },
                     ]),
                     e.createButton().show(),
@@ -15589,18 +15589,18 @@ requestAnimationFrame(() => LSC.start()),
                 },
               },
               {
-                flexSize: "flex",
+                flexSize: 'flex',
                 template: {
-                  id: "projectTypeSwitcherContainer",
-                  view: "list",
-                  cls: "uk-switcher",
+                  id: 'projectTypeSwitcherContainer',
+                  view: 'list',
+                  cls: 'uk-switcher',
                   data: [
                     e.Wo(),
                     e.Vo(),
                     {
-                      view: "flexgrid",
-                      margin: "x y",
-                      flexLayout: "column",
+                      view: 'flexgrid',
+                      margin: 'x y',
+                      flexLayout: 'column',
                       cells: [
                         {
                           template: i18nTag(
@@ -15609,27 +15609,27 @@ requestAnimationFrame(() => LSC.start()),
                           selectable: !1,
                         },
                         {
-                          id: "projectNameInput",
-                          view: "input",
-                          width: "full",
-                          size: "large",
-                          margin: "top bottom-lg",
+                          id: 'projectNameInput',
+                          view: 'input',
+                          width: 'full',
+                          size: 'large',
+                          margin: 'top bottom-lg',
                           i18nPlaceholders: RES_I18N.Objects.NameFor(
                             RES_I18N.Objects.Project
                           ),
                           on: {
                             onKeyUp: function (t, n, i) {
-                              "Enter" === i.key &&
-                                e.createButton().dispatch("onClick");
+                              'Enter' === i.key &&
+                                e.createButton().dispatch('onClick');
                             },
                           },
                         },
                         {
                           template: '<span class="uk-h6">Packages</span>',
-                          margin: "bottom",
+                          margin: 'bottom',
                           selectable: !1,
                         },
-                        e.Ho("projectConfirmList", []),
+                        e.Ho('projectConfirmList', []),
                       ],
                     },
                   ],
@@ -15643,16 +15643,16 @@ requestAnimationFrame(() => LSC.start()),
             },
           },
         },
-        document.getElementById("appContainer")
+        document.getElementById('appContainer')
       );
     })
     .def({
       Ho: function (e, t, n) {
         return {
           id: e,
-          view: "list",
-          listStyle: "side line",
-          cls: "uk-padding-remove",
+          view: 'list',
+          listStyle: 'side line',
+          cls: 'uk-padding-remove',
           data: t,
           on: n,
         };
@@ -15661,12 +15661,12 @@ requestAnimationFrame(() => LSC.start()),
         const e = this,
           t = e.templates.frameworks.js;
         return e.Ho(
-          "projectAppList",
+          'projectAppList',
           [
             {
-              view: "card",
-              title: "No JS Framework",
-              label: "Work with a clean slate.",
+              view: 'card',
+              title: 'No JS Framework',
+              label: 'Work with a clean slate.',
               svg: e.svg.javascript,
               viewBox: e.viewBox.javascript,
               rank: 1,
@@ -15676,7 +15676,7 @@ requestAnimationFrame(() => LSC.start()),
               Object.keys(t).map(function (n) {
                 const i = t[n];
                 return {
-                  view: "card",
+                  view: 'card',
                   value: n,
                   title: i.name,
                   label: i.info,
@@ -15691,7 +15691,7 @@ requestAnimationFrame(() => LSC.start()),
             })
             .concat([
               {
-                view: "spacer",
+                view: 'spacer',
                 height: 96,
               },
             ]),
@@ -15706,13 +15706,13 @@ requestAnimationFrame(() => LSC.start()),
         const e = this,
           t = e.templates.frameworks.css;
         return e.Ho(
-          "projectStyleList",
+          'projectStyleList',
           [
             {
-              view: "card",
-              title: "No CSS Framework",
-              label: "Work on a clean canvas.",
-              value: "",
+              view: 'card',
+              title: 'No CSS Framework',
+              label: 'Work on a clean canvas.',
+              value: '',
               svg: e.svg.css,
               viewBox: e.viewBox.css,
             },
@@ -15723,7 +15723,7 @@ requestAnimationFrame(() => LSC.start()),
                 .map((n) => {
                   const i = t[n];
                   return {
-                    view: "card",
+                    view: 'card',
                     value: n,
                     title: i.name,
                     label: i.info,
@@ -15734,7 +15734,7 @@ requestAnimationFrame(() => LSC.start()),
             )
             .concat([
               {
-                view: "spacer",
+                view: 'spacer',
                 height: 96,
               },
             ]),
@@ -15770,13 +15770,13 @@ requestAnimationFrame(() => LSC.start()),
    * SOFTWARE.
    */
   ace.define(
-    "ace/theme/ayu-light",
-    ["require", "exports", "module", "ace/lib/dom"],
+    'ace/theme/ayu-light',
+    ['require', 'exports', 'module', 'ace/lib/dom'],
     function (e, t, n) {
       (t.isDark = !1),
-        (t.cssClass = "ace-ayu-light"),
+        (t.cssClass = 'ace-ayu-light'),
         (t.cssText =
-          ".ace-ayu-light .ace_gutter {color: #1069a9;}.ace-ayu-light .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4/PkzAAW2AtoE25PsAAAAAElFTkSuQmCC) right repeat-y;}.ace-ayu-light .ace_print-margin {width: 1px;background: #e8e8e8}.ace-ayu-light {color: #35373a}.ace-ayu-light .ace_cursor {color: #FF6A00}.ace-ayu-light .ace_marker-layer .ace_selection {background: #a5dfff}.ace-ayu-light.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px #FAFAFA;border-radius: 2px}.ace-ayu-light .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-ayu-light .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #FF0000}.ace-ayu-light .ace_marker-layer .ace_active-line {border: 2px solid #eee;box-sizing: border-box;}.ace-ayu-light .ace_marker-layer .ace_selected-word {border: 1px solid #74caf9}.ace-ayu-light .ace_keyword.ace_operator {color: #ED9366}.ace-ayu-light .ace_constant.ace_language {color: #A37ACC}.ace-ayu-light .ace_constant.ace_numeric {color: #A37ACC}.ace-ayu-light .ace_constant.ace_character {color: #A37ACC}.ace-ayu-light .ace_constant.ace_character.ace_escape {color: #4CBF99}.ace-ayu-light .ace_constant.ace_other {color: #A37ACC}.ace-ayu-light .ace_support.ace_function {color: #F07171}.ace-ayu-light .ace_support.ace_constant {color: #ED9366}.ace-ayu-light .ace_support.ace_class {color: #55B4D4}.ace-ayu-light .ace_support.ace_type {color: #55B4D4}.ace-ayu-light .ace_tag-name.ace_tag,.ace-ayu-light .ace_storage,.ace-ayu-light .ace_keyword {color: #FA6E32}.ace-ayu-light .ace_storage.ace_type {color: #FA6E32}.ace-ayu-light .ace_invalid {color: #F51818}.ace-ayu-light .ace_invalid.ace_deprecated {color: #FFFFFF;background-color: #FA6E32}.ace-ayu-light .ace_string {color: #86B300}.ace-ayu-light .ace_string.ace_regexp {color: #4CBF99}.ace-ayu-light .ace_comment {color: #ABB0B6}.ace-ayu-light .ace_variable {color: #55B4D4}.ace-ayu-light .ace_variable.ace_parameter {color: #A37ACC}.ace-ayu-light .ace_entity.ace_other.ace_attribute-name {color: #F29718}.ace-ayu-light .ace_entity.ace_name.ace_function {color: #F29718}.ace-ayu-light .ace_entity.ace_name.ace_tag {color: #55B4D4}.ace-ayu-light .ace_heading {color: #4845f7;}.ace-ayu-light .ace_list {color: #30a584;}");
+          '.ace-ayu-light .ace_gutter {color: #1069a9;}.ace-ayu-light .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4/PkzAAW2AtoE25PsAAAAAElFTkSuQmCC) right repeat-y;}.ace-ayu-light .ace_print-margin {width: 1px;background: #e8e8e8}.ace-ayu-light {color: #35373a}.ace-ayu-light .ace_cursor {color: #FF6A00}.ace-ayu-light .ace_marker-layer .ace_selection {background: #a5dfff}.ace-ayu-light.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px #FAFAFA;border-radius: 2px}.ace-ayu-light .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-ayu-light .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #FF0000}.ace-ayu-light .ace_marker-layer .ace_active-line {border: 2px solid #eee;box-sizing: border-box;}.ace-ayu-light .ace_marker-layer .ace_selected-word {border: 1px solid #74caf9}.ace-ayu-light .ace_keyword.ace_operator {color: #ED9366}.ace-ayu-light .ace_constant.ace_language {color: #A37ACC}.ace-ayu-light .ace_constant.ace_numeric {color: #A37ACC}.ace-ayu-light .ace_constant.ace_character {color: #A37ACC}.ace-ayu-light .ace_constant.ace_character.ace_escape {color: #4CBF99}.ace-ayu-light .ace_constant.ace_other {color: #A37ACC}.ace-ayu-light .ace_support.ace_function {color: #F07171}.ace-ayu-light .ace_support.ace_constant {color: #ED9366}.ace-ayu-light .ace_support.ace_class {color: #55B4D4}.ace-ayu-light .ace_support.ace_type {color: #55B4D4}.ace-ayu-light .ace_tag-name.ace_tag,.ace-ayu-light .ace_storage,.ace-ayu-light .ace_keyword {color: #FA6E32}.ace-ayu-light .ace_storage.ace_type {color: #FA6E32}.ace-ayu-light .ace_invalid {color: #F51818}.ace-ayu-light .ace_invalid.ace_deprecated {color: #FFFFFF;background-color: #FA6E32}.ace-ayu-light .ace_string {color: #86B300}.ace-ayu-light .ace_string.ace_regexp {color: #4CBF99}.ace-ayu-light .ace_comment {color: #ABB0B6}.ace-ayu-light .ace_variable {color: #55B4D4}.ace-ayu-light .ace_variable.ace_parameter {color: #A37ACC}.ace-ayu-light .ace_entity.ace_other.ace_attribute-name {color: #F29718}.ace-ayu-light .ace_entity.ace_name.ace_function {color: #F29718}.ace-ayu-light .ace_entity.ace_name.ace_tag {color: #55B4D4}.ace-ayu-light .ace_heading {color: #4845f7;}.ace-ayu-light .ace_list {color: #30a584;}');
     }
   ),
   /*!
@@ -15803,91 +15803,91 @@ requestAnimationFrame(() => LSC.start()),
    * SOFTWARE.
    */
   ace.define(
-    "ace/theme/ayu-mirage",
-    ["require", "exports", "module", "ace/lib/dom"],
+    'ace/theme/ayu-mirage',
+    ['require', 'exports', 'module', 'ace/lib/dom'],
     function (e, t, n) {
       (t.isDark = !0),
-        (t.cssClass = "ace-ayu-mirage"),
+        (t.cssClass = 'ace-ayu-mirage'),
         (t.cssText =
-          ".ace-ayu-mirage .ace_gutter {color: rgb(125,127,129)}.ace-ayu-mirage .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12PQNbMHAAE2AKNSM6cKAAAAAElFTkSuQmCC) right repeat-y;}.ace-ayu-mirage .ace_print-margin {width: 1px;background: #333a48}.ace-ayu-mirage {color: #ddd}.ace-ayu-mirage .ace_cursor {color: #FFCC66}.ace-ayu-mirage .ace_marker-layer .ace_selection {background: #063e63;border-radius: 0;}.ace-ayu-mirage.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px black;}.ace-ayu-mirage .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-ayu-mirage .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #FFCC66}.ace-ayu-mirage .ace_marker-layer .ace_active-line {border: 2px solid #3a424a;box-sizing: border-box;}.ace-ayu-mirage .ace_marker-layer .ace_selected-word {background-color: rgba(125, 81, 64, 0.8);}.ace-ayu-mirage .ace_keyword.ace_operator {color: #F29E74}.ace-ayu-mirage .ace_constant.ace_language {color: #D4BFFF}.ace-ayu-mirage .ace_constant.ace_numeric {color: #D4BFFF}.ace-ayu-mirage .ace_punctuation,.ace-ayu-mirage .ace_punctuation.ace_tag {color: #bbb}.ace-ayu-mirage .ace_constant.ace_character {color: #D4BFFF}.ace-ayu-mirage .ace_constant.ace_character.ace_escape {color: #95E6CB}.ace-ayu-mirage .ace_constant.ace_other {color: #D4BFFF}.ace-ayu-mirage .ace_support.ace_function {color: #F28779}.ace-ayu-mirage .ace_support.ace_class {color: #5CCFE6}.ace-ayu-mirage .ace_support.ace_type {color: #5CCFE6}.ace-ayu-mirage .ace_meta.ace_tag,.ace-ayu-mirage .ace_tag-name.ace_tag,.ace-ayu-mirage .ace_storage,.ace-ayu-mirage .ace_keyword {color: #FFA759}.ace-ayu-mirage .ace_storage.ace_type {color: #FFA759}.ace-ayu-mirage .ace_invalid {color: #FF3333}.ace-ayu-mirage .ace_invalid.ace_deprecated {color: #FFFFFF;background-color: #FFA759}.ace-ayu-mirage .ace_string {color: #BAE67E}.ace-ayu-mirage .ace_string.ace_regexp {color: #95E6CB}.ace-ayu-mirage .ace_comment {color: #5C6773}.ace-ayu-mirage .ace_variable {color: #FFD580}.ace-ayu-mirage .ace_variable.ace_parameter {color: #D4BFFF}.ace-ayu-mirage .ace_entity.ace_other.ace_attribute-name {color: #FFD580}.ace-ayu-mirage .ace_entity.ace_name.ace_function {color: #FFD580}.ace-ayu-mirage .ace_entity.ace_name.ace_tag {color: #5CCFE6}.ace-ayu-mirage .ace_heading {color: #8987ff;}.ace-ayu-mirage .ace_list {color: #4ad3ac;}");
+          '.ace-ayu-mirage .ace_gutter {color: rgb(125,127,129)}.ace-ayu-mirage .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12PQNbMHAAE2AKNSM6cKAAAAAElFTkSuQmCC) right repeat-y;}.ace-ayu-mirage .ace_print-margin {width: 1px;background: #333a48}.ace-ayu-mirage {color: #ddd}.ace-ayu-mirage .ace_cursor {color: #FFCC66}.ace-ayu-mirage .ace_marker-layer .ace_selection {background: #063e63;border-radius: 0;}.ace-ayu-mirage.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px black;}.ace-ayu-mirage .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-ayu-mirage .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #FFCC66}.ace-ayu-mirage .ace_marker-layer .ace_active-line {border: 2px solid #3a424a;box-sizing: border-box;}.ace-ayu-mirage .ace_marker-layer .ace_selected-word {background-color: rgba(125, 81, 64, 0.8);}.ace-ayu-mirage .ace_keyword.ace_operator {color: #F29E74}.ace-ayu-mirage .ace_constant.ace_language {color: #D4BFFF}.ace-ayu-mirage .ace_constant.ace_numeric {color: #D4BFFF}.ace-ayu-mirage .ace_punctuation,.ace-ayu-mirage .ace_punctuation.ace_tag {color: #bbb}.ace-ayu-mirage .ace_constant.ace_character {color: #D4BFFF}.ace-ayu-mirage .ace_constant.ace_character.ace_escape {color: #95E6CB}.ace-ayu-mirage .ace_constant.ace_other {color: #D4BFFF}.ace-ayu-mirage .ace_support.ace_function {color: #F28779}.ace-ayu-mirage .ace_support.ace_class {color: #5CCFE6}.ace-ayu-mirage .ace_support.ace_type {color: #5CCFE6}.ace-ayu-mirage .ace_meta.ace_tag,.ace-ayu-mirage .ace_tag-name.ace_tag,.ace-ayu-mirage .ace_storage,.ace-ayu-mirage .ace_keyword {color: #FFA759}.ace-ayu-mirage .ace_storage.ace_type {color: #FFA759}.ace-ayu-mirage .ace_invalid {color: #FF3333}.ace-ayu-mirage .ace_invalid.ace_deprecated {color: #FFFFFF;background-color: #FFA759}.ace-ayu-mirage .ace_string {color: #BAE67E}.ace-ayu-mirage .ace_string.ace_regexp {color: #95E6CB}.ace-ayu-mirage .ace_comment {color: #5C6773}.ace-ayu-mirage .ace_variable {color: #FFD580}.ace-ayu-mirage .ace_variable.ace_parameter {color: #D4BFFF}.ace-ayu-mirage .ace_entity.ace_other.ace_attribute-name {color: #FFD580}.ace-ayu-mirage .ace_entity.ace_name.ace_function {color: #FFD580}.ace-ayu-mirage .ace_entity.ace_name.ace_tag {color: #5CCFE6}.ace-ayu-mirage .ace_heading {color: #8987ff;}.ace-ayu-mirage .ace_list {color: #4ad3ac;}');
     }
   ),
   ace.define(
-    "ace/theme/chrome",
-    ["require", "exports", "module", "ace/lib/dom"],
+    'ace/theme/chrome',
+    ['require', 'exports', 'module', 'ace/lib/dom'],
     function (e, t, n) {
       (t.isDark = !1),
-        (t.cssClass = "ace-chrome"),
+        (t.cssClass = 'ace-chrome'),
         (t.cssText =
-          ".ace-chrome .ace_gutter {color: #1069a9;}.ace-chrome .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4/PkzAAW2AtoE25PsAAAAAElFTkSuQmCC) right repeat-y;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color: rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {border: 2px solid #eee;box-sizing: border-box;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}");
+          '.ace-chrome .ace_gutter {color: #1069a9;}.ace-chrome .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4/PkzAAW2AtoE25PsAAAAAElFTkSuQmCC) right repeat-y;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color: rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {border: 2px solid #eee;box-sizing: border-box;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}');
     }
   ),
   ace.define(
-    "ace/theme/dracula",
-    ["require", "exports", "module", "ace/lib/dom"],
+    'ace/theme/dracula',
+    ['require', 'exports', 'module', 'ace/lib/dom'],
     function (e, t, n) {
       (t.isDark = !0),
-        (t.cssClass = "ace-dracula"),
+        (t.cssClass = 'ace-dracula'),
         (t.cssText =
-          ".ace-dracula .ace_gutter {color: rgb(144,145,148)}.ace-dracula .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12PQNbMHAAE2AKNSM6cKAAAAAElFTkSuQmCC) right repeat-y;}.ace-dracula .ace_print-margin {width: 1px;background: #e8e8e8}.ace-dracula {color: #ddd}.ace-dracula .ace_cursor {color: #F8F8F0}.ace-dracula .ace_marker-layer .ace_selection {background: #063e63;border-radius: 0;}.ace-dracula.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px black;}.ace-dracula .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-dracula .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #F8F8F0}.ace-dracula .ace_marker-layer .ace_active-line {border: 2px solid #3a424a;box-sizing: border-box;}.ace-dracula .ace_marker-layer .ace_selected-word {background-color: rgba(125, 81, 64, 0.8);}.ace-dracula .ace_keyword {color: #d3a0ff}.ace-dracula .ace_keyword.ace_operator {color: #ddd}.ace-dracula .ace_constant.ace_language {color: #bd93f9}.ace-dracula .ace_constant.ace_numeric {color: #c3e8d1}.ace-dracula .ace_constant.ace_character {color: #bd93f9}.ace-dracula .ace_constant.ace_character.ace_escape {color: #ff79c6}.ace-dracula .ace_constant.ace_other {color: #bd93f9}.ace-dracula .ace_identifier {color: #aef1ff}.ace-dracula .ace_support.ace_function {color: #57afff}.ace-dracula .ace_support.ace_constant {color: #aef1ff}.ace-dracula .ace_support.ace_class {color: #aef1ff}.ace-dracula .ace_support.ace_type {color: #aef1ff}.ace-dracula .ace_meta.ace_tag,.ace-dracula .ace_storage {color: #57afff}.ace-dracula .ace_storage.ace_type {color: #57afff}.ace-dracula .ace_invalid {color: #F8F8F0;background-color: #ff79c6}.ace-dracula .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #bd93f9}.ace-dracula .ace_string {color: #f1fa8c}.ace-dracula .ace_comment {color: #7988b5}.ace-dracula .ace_constant,.ace-dracula .ace_variable {color: #a6ffbd}.ace-dracula .ace_variable.ace_parameter {color: #aef1ff}.ace-dracula .ace_entity.ace_other.ace_attribute-name {color: #aef1ff}.ace-dracula .ace_entity.ace_name.ace_function {color: #fff8d3}.ace-dracula .ace_xml-pe.ace_xml,.ace-dracula .ace_punctuation.ace_tag {color: #999}.ace-dracula .ace_tag-name.ace_tag,.ace-dracula .ace_entity.ace_name.ace_tag {color: #57afff}.ace-dracula .ace_heading {color: #aef1ff;}.ace-dracula .ace_markup.ace_list {color: #57afff;}");
+          '.ace-dracula .ace_gutter {color: rgb(144,145,148)}.ace-dracula .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12PQNbMHAAE2AKNSM6cKAAAAAElFTkSuQmCC) right repeat-y;}.ace-dracula .ace_print-margin {width: 1px;background: #e8e8e8}.ace-dracula {color: #ddd}.ace-dracula .ace_cursor {color: #F8F8F0}.ace-dracula .ace_marker-layer .ace_selection {background: #063e63;border-radius: 0;}.ace-dracula.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px black;}.ace-dracula .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-dracula .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #F8F8F0}.ace-dracula .ace_marker-layer .ace_active-line {border: 2px solid #3a424a;box-sizing: border-box;}.ace-dracula .ace_marker-layer .ace_selected-word {background-color: rgba(125, 81, 64, 0.8);}.ace-dracula .ace_keyword {color: #d3a0ff}.ace-dracula .ace_keyword.ace_operator {color: #ddd}.ace-dracula .ace_constant.ace_language {color: #bd93f9}.ace-dracula .ace_constant.ace_numeric {color: #c3e8d1}.ace-dracula .ace_constant.ace_character {color: #bd93f9}.ace-dracula .ace_constant.ace_character.ace_escape {color: #ff79c6}.ace-dracula .ace_constant.ace_other {color: #bd93f9}.ace-dracula .ace_identifier {color: #aef1ff}.ace-dracula .ace_support.ace_function {color: #57afff}.ace-dracula .ace_support.ace_constant {color: #aef1ff}.ace-dracula .ace_support.ace_class {color: #aef1ff}.ace-dracula .ace_support.ace_type {color: #aef1ff}.ace-dracula .ace_meta.ace_tag,.ace-dracula .ace_storage {color: #57afff}.ace-dracula .ace_storage.ace_type {color: #57afff}.ace-dracula .ace_invalid {color: #F8F8F0;background-color: #ff79c6}.ace-dracula .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #bd93f9}.ace-dracula .ace_string {color: #f1fa8c}.ace-dracula .ace_comment {color: #7988b5}.ace-dracula .ace_constant,.ace-dracula .ace_variable {color: #a6ffbd}.ace-dracula .ace_variable.ace_parameter {color: #aef1ff}.ace-dracula .ace_entity.ace_other.ace_attribute-name {color: #aef1ff}.ace-dracula .ace_entity.ace_name.ace_function {color: #fff8d3}.ace-dracula .ace_xml-pe.ace_xml,.ace-dracula .ace_punctuation.ace_tag {color: #999}.ace-dracula .ace_tag-name.ace_tag,.ace-dracula .ace_entity.ace_name.ace_tag {color: #57afff}.ace-dracula .ace_heading {color: #aef1ff;}.ace-dracula .ace_markup.ace_list {color: #57afff;}');
     }
   ),
   ace.define(
-    "ace/theme/monokai",
-    ["require", "exports", "module", "ace/lib/dom"],
+    'ace/theme/monokai',
+    ['require', 'exports', 'module', 'ace/lib/dom'],
     function (e, t, n) {
       (t.isDark = !0),
-        (t.cssClass = "ace-monokai"),
+        (t.cssClass = 'ace-monokai'),
         (t.cssText =
-          ".ace-monokai .ace_gutter {color: #8F908A}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12PQNbMHAAE2AKNSM6cKAAAAAElFTkSuQmCC) right repeat-y;}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {color: #ddd}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #063e63;border-radius: 0;}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px black;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #F8F8F0}.ace-monokai .ace_marker-layer .ace_active-line {border: 2px solid #3a424a;box-sizing: border-box;}.ace-monokai .ace_marker-layer .ace_selected-word {background-color: rgba(125, 81, 64, 0.8);}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #bbb}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_heading {color: #66D9EF;}.ace-monokai .ace_markup.ace_list {color: #A6E22E;}");
+          '.ace-monokai .ace_gutter {color: #8F908A}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12PQNbMHAAE2AKNSM6cKAAAAAElFTkSuQmCC) right repeat-y;}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {color: #ddd}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #063e63;border-radius: 0;}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px black;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #F8F8F0}.ace-monokai .ace_marker-layer .ace_active-line {border: 2px solid #3a424a;box-sizing: border-box;}.ace-monokai .ace_marker-layer .ace_selected-word {background-color: rgba(125, 81, 64, 0.8);}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #bbb}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_heading {color: #66D9EF;}.ace-monokai .ace_markup.ace_list {color: #A6E22E;}');
     }
   ),
   ace.define(
-    "ace/theme/xcode",
-    ["require", "exports", "module", "ace/lib/dom"],
+    'ace/theme/xcode',
+    ['require', 'exports', 'module', 'ace/lib/dom'],
     function (e, t, n) {
       (t.isDark = !1),
-        (t.cssClass = "ace-xcode"),
+        (t.cssClass = 'ace-xcode'),
         (t.cssText =
-          ".ace-xcode .ace_gutter {color: #1069a9;}.ace-xcode .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4/PkzAAW2AtoE25PsAAAAAElFTkSuQmCC) right repeat-y;}.ace-xcode .ace_print-margin {width: 1px;background: #e8e8e8}.ace-xcode {color: black}.ace-xcode .ace_cursor {color: black}.ace-xcode .ace_marker-layer .ace_selection {background: #B5D5FF}.ace-xcode.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px #fff;}.ace-xcode .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-xcode .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #BFBFBF}.ace-xcode .ace_marker-layer .ace_active-line {border: 2px solid #eee;box-sizing: border-box;}.ace-xcode .ace_marker-layer .ace_selected-word {border: 1px solid #B5D5FF}.ace-xcode .ace_constant.ace_language,.ace-xcode .ace_keyword,.ace-xcode .ace_meta,.ace-xcode .ace_variable.ace_language {color: #C800A4}.ace-xcode .ace_invisible {color: #BFBFBF}.ace-xcode .ace_constant.ace_character,.ace-xcode .ace_constant.ace_other {color: #275A5E}.ace-xcode .ace_constant.ace_numeric {color: #3A00DC}.ace-xcode .ace_entity.ace_other.ace_attribute-name,.ace-xcode .ace_support.ace_constant,.ace-xcode .ace_support.ace_function {color: #450084}.ace-xcode .ace_entity.ace_name.ace_tag,.ace-xcode .ace_support.ace_class,.ace-xcode .ace_support.ace_type {color: #790EAD}.ace-xcode .ace_heading {  color: #e20505;}.ace-xcode .ace_markup.ace_list {  color: #5400a3;}.ace-xcode .ace_storage {color: #C900A4}.ace-xcode .ace_string {color: #DF0002}.ace-xcode .ace_comment {color: #008E00}");
+          '.ace-xcode .ace_gutter {color: #1069a9;}.ace-xcode .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4/PkzAAW2AtoE25PsAAAAAElFTkSuQmCC) right repeat-y;}.ace-xcode .ace_print-margin {width: 1px;background: #e8e8e8}.ace-xcode {color: black}.ace-xcode .ace_cursor {color: black}.ace-xcode .ace_marker-layer .ace_selection {background: #B5D5FF}.ace-xcode.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px #fff;}.ace-xcode .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-xcode .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #BFBFBF}.ace-xcode .ace_marker-layer .ace_active-line {border: 2px solid #eee;box-sizing: border-box;}.ace-xcode .ace_marker-layer .ace_selected-word {border: 1px solid #B5D5FF}.ace-xcode .ace_constant.ace_language,.ace-xcode .ace_keyword,.ace-xcode .ace_meta,.ace-xcode .ace_variable.ace_language {color: #C800A4}.ace-xcode .ace_invisible {color: #BFBFBF}.ace-xcode .ace_constant.ace_character,.ace-xcode .ace_constant.ace_other {color: #275A5E}.ace-xcode .ace_constant.ace_numeric {color: #3A00DC}.ace-xcode .ace_entity.ace_other.ace_attribute-name,.ace-xcode .ace_support.ace_constant,.ace-xcode .ace_support.ace_function {color: #450084}.ace-xcode .ace_entity.ace_name.ace_tag,.ace-xcode .ace_support.ace_class,.ace-xcode .ace_support.ace_type {color: #790EAD}.ace-xcode .ace_heading {  color: #e20505;}.ace-xcode .ace_markup.ace_list {  color: #5400a3;}.ace-xcode .ace_storage {color: #C900A4}.ace-xcode .ace_string {color: #DF0002}.ace-xcode .ace_comment {color: #008E00}');
     }
   ),
-  m.module("addBranch").__init__(function (e) {
+  m.module('addBranch').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
-        cls: "x-prompt",
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
         center: !1,
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               label: i18nTag(RES_I18N.Actions.Create(RES_I18N.Objects.Branch)),
               collapsable: !1,
             },
           ],
         },
         body: {
-          flexLayout: "column",
-          cls: "uk-form",
-          margin: "top",
+          flexLayout: 'column',
+          cls: 'uk-form',
+          margin: 'top',
           cells: [
             {
-              id: "addBranchInput",
-              view: "input",
+              id: 'addBranchInput',
+              view: 'input',
               i18nPlaceholders: RES_I18N.Objects.NameFor(
                 RES_I18N.Objects.Branch
               ),
               on: {
                 onKeyUp: function (t, n, i) {
                   this.validateAsync().then(() => {
-                    "Enter" == i.key && e.qo().dispatch("onClick");
+                    'Enter' == i.key && e.qo().dispatch('onClick');
                   });
                 },
               },
@@ -15899,10 +15899,10 @@ requestAnimationFrame(() => LSC.start()),
                 if (n)
                   if (
                     /[~^:\s\\]/.test(n) ||
-                    n.endsWith("/") ||
-                    n.includes("..") ||
-                    n.startsWith(".") ||
-                    n.toLowerCase().endsWith(".lock")
+                    n.endsWith('/') ||
+                    n.includes('..') ||
+                    n.startsWith('.') ||
+                    n.toLowerCase().endsWith('.lock')
                   )
                     o = RES_I18N.ErrorMessages.InvalidFor(i);
                   else {
@@ -15918,12 +15918,12 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "addBranchCancelButton",
-              view: "button",
+              id: 'addBranchCancelButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -15932,11 +15932,11 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "addBranchOkButton",
-              view: "button",
+              id: 'addBranchOkButton',
+              view: 'button',
               label: RES_I18N.Elements.Ok,
               style: {
-                minWidth: "64px",
+                minWidth: '64px',
               },
               on: {
                 onClick: function () {
@@ -15957,12 +15957,12 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("addGitAuth")
-    .require("git")
+    .module('addGitAuth')
+    .require('git')
     .__init__(function (e, { git: t }) {
       e.git = t;
     })
@@ -15998,22 +15998,22 @@ requestAnimationFrame(() => LSC.start()),
     })
     .def({
       Zo: function () {
-        return $$("addGitAuthHostSelect");
+        return $$('addGitAuthHostSelect');
       },
       Qo: function () {
-        return $$("addGitTokenInput");
+        return $$('addGitTokenInput');
       },
       Yo: function () {
-        return $$("addGitUsernameInput");
+        return $$('addGitUsernameInput');
       },
       Jo: function () {
-        return $$("addGitAuthorEmailInput");
+        return $$('addGitAuthorEmailInput');
       },
       Ko: function (e, t, n) {
         const i = this;
         if (e) {
           const t = i.Zo();
-          t.setValue(e), t.dispatch("onChange");
+          t.setValue(e), t.dispatch('onChange');
         }
         i.modal.open({
           onResult: t,
@@ -16028,76 +16028,76 @@ requestAnimationFrame(() => LSC.start()),
         await this.CredentialManager.setItemAsync(i, e, n, t);
       },
     }),
-  m.module("addGitAuth").__init__(function (e) {
+  m.module('addGitAuth').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        cls: "x-prompt",
-        view: "modal",
+        cls: 'x-prompt',
+        view: 'modal',
         closeButton: !1,
         bgClose: !1,
         center: !1,
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               label: RES_I18N.Elements.GitCredentials,
               collapsable: !1,
             },
             {
-              flexSize: "none",
+              flexSize: 'none',
               cells: [
                 {
-                  view: "label",
-                  textColor: "muted",
+                  view: 'label',
+                  textColor: 'muted',
                   label: i18nTag({
-                    en: "Provider",
-                    es: "Proveedor",
-                    ja: "プロバイダー",
-                    pt: "Provedor",
-                    ru: "Поставщик",
-                    zh: "提供者",
-                    zhTW: "提供者",
+                    en: 'Provider',
+                    es: 'Proveedor',
+                    ja: 'プロバイダー',
+                    pt: 'Provedor',
+                    ru: 'Поставщик',
+                    zh: '提供者',
+                    zhTW: '提供者',
                   }),
                 },
                 {
-                  id: "addGitAuthHostSelect",
-                  view: "select",
-                  textColor: "primary",
-                  margin: "x",
+                  id: 'addGitAuthHostSelect',
+                  view: 'select',
+                  textColor: 'primary',
+                  margin: 'x',
                   style: {
-                    border: "none",
-                    padding: "0",
+                    border: 'none',
+                    padding: '0',
                   },
                   data: [
                     {
-                      value: "git",
-                      label: "Default",
+                      value: 'git',
+                      label: 'Default',
                     },
                     {
-                      value: "github.com",
-                      label: "GitHub",
-                      optgroup: "Host",
+                      value: 'github.com',
+                      label: 'GitHub',
+                      optgroup: 'Host',
                     },
                     {
-                      value: "bitbucket.org",
-                      label: "BitBucket",
-                      optgroup: "Host",
+                      value: 'bitbucket.org',
+                      label: 'BitBucket',
+                      optgroup: 'Host',
                     },
                     {
-                      value: "gitlab.com",
-                      label: "GitLab",
-                      optgroup: "Host",
+                      value: 'gitlab.com',
+                      label: 'GitLab',
+                      optgroup: 'Host',
                     },
                   ],
                   on: {
                     onChange: function () {
                       const t = this.getValue();
-                      $$("addGitAuthMessage").showBatch(t),
+                      $$('addGitAuthMessage').showBatch(t),
                         e.modal.updateFieldsForProviderAsync(t);
                     },
                   },
@@ -16107,77 +16107,77 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         body: {
-          flexLayout: "column",
-          margin: "top",
+          flexLayout: 'column',
+          margin: 'top',
           cells: [
             {
-              id: "addGitUsernameInput",
-              view: "input",
-              autocapitalize: "off",
-              autocorrect: "off",
-              spellcheck: "false",
+              id: 'addGitUsernameInput',
+              view: 'input',
+              autocapitalize: 'off',
+              autocorrect: 'off',
+              spellcheck: 'false',
               i18nPlaceholders: RES_I18N.Placeholders.Username,
               on: {
                 onKeyUp: function (t, n, i) {
-                  "Enter" == i.key && e.Qo().focus();
+                  'Enter' == i.key && e.Qo().focus();
                 },
               },
             },
             {
-              id: "addGitTokenInput",
-              view: "input",
-              autocapitalize: "off",
-              autocorrect: "off",
-              spellcheck: "false",
+              id: 'addGitTokenInput',
+              view: 'input',
+              autocapitalize: 'off',
+              autocorrect: 'off',
+              spellcheck: 'false',
               i18nPlaceholders: {
-                en: "Password/Token",
-                es: "Contraseña/Token",
-                ja: "パスワード/Token",
-                pt: "Senha/Token",
-                ru: "Пароль/Token",
-                zh: "密码/Token",
-                zhTW: "密碼/Token",
+                en: 'Password/Token',
+                es: 'Contraseña/Token',
+                ja: 'パスワード/Token',
+                pt: 'Senha/Token',
+                ru: 'Пароль/Token',
+                zh: '密码/Token',
+                zhTW: '密碼/Token',
               },
               on: {
                 onKeyUp: function (t, n, i) {
-                  "Enter" == i.key && this.getValue() && e.Jo().focus();
+                  'Enter' == i.key && this.getValue() && e.Jo().focus();
                 },
               },
             },
             {
-              id: "addGitAuthorEmailInput",
-              view: "input",
-              autocapitalize: "off",
-              autocorrect: "off",
-              spellcheck: "false",
+              id: 'addGitAuthorEmailInput',
+              view: 'input',
+              autocapitalize: 'off',
+              autocorrect: 'off',
+              spellcheck: 'false',
               i18nPlaceholders: RES_I18N.Objects.AuthorEmail,
-              type: "email",
+              type: 'email',
               on: {
                 onKeyUp: function (e, t, n) {
-                  "Enter" == n.key &&
-                    $$("addGitAuthOkButton").dispatch("onClick");
+                  'Enter' == n.key &&
+                    $$('addGitAuthOkButton').dispatch('onClick');
                 },
               },
             },
             {
-              id: "addGitAuthMessage",
-              margin: "top-sm left-sm",
+              id: 'addGitAuthMessage',
+              margin: 'top-sm left-sm',
               cells: [
                 {
-                  batch: "github.com",
-                  htmlTag: "SPAN",
+                  batch: 'github.com',
+                  htmlTag: 'SPAN',
                   template:
                     "Create a <a href='https://github.com/settings/tokens' rel='noopener noreferrer' target='_blank'>GitHub token</a>.",
                 },
                 {
-                  batch: "gitlab.com",
-                  htmlTag: "SPAN",
+                  batch: 'gitlab.com',
+                  htmlTag: 'SPAN',
                   template:
                     "How to create a <a href='https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html' rel='noopener noreferrer' target='_blank'>GitLab token</a>.",
                 },
                 {
-                  batch: "bitbucket.org",
-                  htmlTag: "SPAN",
+                  batch: 'bitbucket.org',
+                  htmlTag: 'SPAN',
                   template:
                     "How to create a <a href='https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html' rel='noopener noreferrer' target='_blank'>BitBucket token</a>.",
                 },
@@ -16191,12 +16191,12 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "addGitAuthCancelButton",
-              view: "button",
+              id: 'addGitAuthCancelButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -16205,11 +16205,11 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "addGitAuthOkButton",
-              view: "button",
+              id: 'addGitAuthOkButton',
+              view: 'button',
               label: RES_I18N.Elements.Ok,
               style: {
-                minWidth: "64px",
+                minWidth: '64px',
               },
               on: {
                 onClick: function () {
@@ -16241,12 +16241,12 @@ requestAnimationFrame(() => LSC.start()),
           });
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("checkoutBranch")
-    .require("gitClient", "session", "prompt")
+    .module('checkoutBranch')
+    .require('gitClient', 'session', 'prompt')
     .__init__(function (e, { gitClient: t, session: n, prompt: i }) {
       Object.assign(e, {
         gitClient: t,
@@ -16256,7 +16256,7 @@ requestAnimationFrame(() => LSC.start()),
     })
     .def({
       select: function () {
-        return $$("checkoutBranchSelect");
+        return $$('checkoutBranchSelect');
       },
       ea: async function (e) {
         const t = this,
@@ -16265,16 +16265,16 @@ requestAnimationFrame(() => LSC.start()),
           await t.ta(e),
           t.prompt.ue(
             RES_I18N.Objects.Fetch,
-            "Successfully updated all remote branches."
+            'Successfully updated all remote branches.'
           );
       },
       na: function (e) {
         return e
-          .filter(({ name: e }) => "HEAD" !== e)
+          .filter(({ name: e }) => 'HEAD' !== e)
           .map((e) => ({
             label: e.name,
             value: e.name,
-            optgroup: e.remote ? `Remote: ${e.remote}` : "Local",
+            optgroup: e.remote ? `Remote: ${e.remote}` : 'Local',
           }));
       },
       ta: async function (e) {
@@ -16293,50 +16293,50 @@ requestAnimationFrame(() => LSC.start()),
           await this.session.Ge(this.session.Se());
       },
     }),
-  m.module("checkoutBranch").__init__(function (e) {
+  m.module('checkoutBranch').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
-        cls: "x-prompt",
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
         center: !1,
         style: {
           zIndex: 1900,
         },
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               label: RES_I18N.Elements.Checkout,
               collapsable: !1,
             },
           ],
         },
         body: {
-          cls: "uk-form",
-          margin: "top",
-          flexAlign: "middle",
+          cls: 'uk-form',
+          margin: 'top',
+          flexAlign: 'middle',
           cells: [
             {
-              id: "checkoutBranchSelect",
-              view: "select",
-              flexSize: "flex",
+              id: 'checkoutBranchSelect',
+              view: 'select',
+              flexSize: 'flex',
               data: [],
               style: {
-                maxWidth: "calc(100% - 56px)",
+                maxWidth: 'calc(100% - 56px)',
               },
             },
             {
-              view: "menuIcon",
-              icon: "refresh",
-              title: "Fetch All Remotes",
-              margin: "x-sm",
-              flexSize: "none",
+              view: 'menuIcon',
+              icon: 'refresh',
+              title: 'Fetch All Remotes',
+              margin: 'x-sm',
+              flexSize: 'none',
               on: {
                 onClick: function () {
                   const t = e.modal.projectDir;
@@ -16347,12 +16347,12 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "checkoutBranchCancelButton",
-              view: "button",
+              id: 'checkoutBranchCancelButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -16361,11 +16361,11 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "checkoutBranchOkButton",
-              view: "button",
+              id: 'checkoutBranchOkButton',
+              view: 'button',
               label: RES_I18N.Elements.Ok,
               style: {
-                minWidth: "64px",
+                minWidth: '64px',
               },
               on: {
                 onClick: function () {
@@ -16387,12 +16387,12 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("cloneRepo")
-    .require("gitClient", "git", "addGitAuth", "initRepo", "project")
+    .module('cloneRepo')
+    .require('gitClient', 'git', 'addGitAuth', 'initRepo', 'project')
     .__init__(function (
       e,
       { gitClient: t, git: n, addGitAuth: i, initRepo: o, project: a }
@@ -16409,55 +16409,55 @@ requestAnimationFrame(() => LSC.start()),
       e.modal = UI.new(
         {
           id: e.__name__,
-          view: "modal",
-          cls: "x-prompt",
+          view: 'modal',
+          cls: 'x-prompt',
           closeButton: !1,
           center: !1,
           header: {
-            cls: "x-menu-title-bar shadow",
-            flexSize: "none",
-            flexSpace: "between",
-            flexAlign: "middle",
+            cls: 'x-menu-title-bar shadow',
+            flexSize: 'none',
+            flexSpace: 'between',
+            flexAlign: 'middle',
             cells: [
               {
-                view: "menuTitle",
+                view: 'menuTitle',
                 label: RES_I18N.Elements.CloneRepo,
                 collapsable: !1,
               },
             ],
           },
           body: {
-            flexLayout: "column",
+            flexLayout: 'column',
             cells: [
               {
-                view: "link",
-                htmlTag: "SPAN",
-                margin: "y-sm",
+                view: 'link',
+                htmlTag: 'SPAN',
+                margin: 'y-sm',
                 template: `${i18nTag(
                   RES_I18N.Actions.Set(RES_I18N.Objects.Credentials),
-                  "a"
+                  'a'
                 )} to access for ${RES_I18N.Elements.PrivateRepository}.`,
                 on: {
                   onClick: function (t, n, i) {
-                    "A" === i.target.tagName &&
+                    'A' === i.target.tagName &&
                       (e.modal.close(), e.addGitAuth.Ko());
                   },
                 },
               },
               {
-                id: "cloneRepoUrlInput",
-                view: "input",
-                width: "full",
-                size: "large",
-                autocapitalize: "off",
-                autocorrect: "off",
-                spellcheck: "false",
+                id: 'cloneRepoUrlInput',
+                view: 'input',
+                width: 'full',
+                size: 'large',
+                autocapitalize: 'off',
+                autocorrect: 'off',
+                spellcheck: 'false',
                 i18nPlaceholders: RES_I18N.Placeholders.HttpsUrl,
                 on: {
                   onKeyUp: function (e, t, n) {
                     this.validate(function () {
-                      "Enter" == n.key &&
-                        $$("cloneRepoOkButton").dispatch("onClick");
+                      'Enter' == n.key &&
+                        $$('cloneRepoOkButton').dispatch('onClick');
                     });
                   },
                 },
@@ -16468,19 +16468,19 @@ requestAnimationFrame(() => LSC.start()),
                   i
                     ? o
                       ? (n.raiseConcern(null), t && t(o))
-                      : n.raiseConcern("Please enter a valid HTTPS repo url.")
+                      : n.raiseConcern('Please enter a valid HTTPS repo url.')
                     : n.raiseConcern(null);
                 },
               },
             ],
           },
           footer: {
-            flexAlign: "right",
-            margin: "y",
+            flexAlign: 'right',
+            margin: 'y',
             cells: [
               {
-                id: "cloneRepoCancelButton",
-                view: "button",
+                id: 'cloneRepoCancelButton',
+                view: 'button',
                 label: RES_I18N.Elements.Cancel,
                 on: {
                   onClick: function () {
@@ -16489,15 +16489,15 @@ requestAnimationFrame(() => LSC.start()),
                 },
               },
               {
-                id: "cloneRepoOkButton",
-                view: "button",
+                id: 'cloneRepoOkButton',
+                view: 'button',
                 label: RES_I18N.Elements.Ok,
                 style: {
-                  minWidth: "64px",
+                  minWidth: '64px',
                 },
                 on: {
                   onClick: function () {
-                    const t = $$("cloneRepoUrlInput");
+                    const t = $$('cloneRepoUrlInput');
                     t.setValue(e.git.J(t.getValue())),
                       t.validate(function (t) {
                         e.modal.close(), e.aa(t.repoName, t.url);
@@ -16509,11 +16509,11 @@ requestAnimationFrame(() => LSC.start()),
           },
           on: {
             onOpened: function () {
-              $$("cloneRepoUrlInput").setValue("");
+              $$('cloneRepoUrlInput').setValue('');
             },
           },
         },
-        document.getElementById("appContainer")
+        document.getElementById('appContainer')
       );
     })
     .def({
@@ -16533,14 +16533,14 @@ requestAnimationFrame(() => LSC.start()),
             },
           })
           .then(
-            GA_SendEvent_Success("clone_git_repo", "git_core"),
-            GA_SendEvent_Failure("clone_git_repo", "git_core")
+            GA_SendEvent_Success('clone_git_repo', 'git_core'),
+            GA_SendEvent_Failure('clone_git_repo', 'git_core')
           );
       },
     }),
   m
-    .module("commitMessage")
-    .require("git", "gitClient", "path")
+    .module('commitMessage')
+    .require('git', 'gitClient', 'path')
     .__init__(function (e, { git: t, gitClient: n, path: i }) {
       Object.assign(e, {
         git: t,
@@ -16550,19 +16550,19 @@ requestAnimationFrame(() => LSC.start()),
     })
     .def({
       commitMessage: function () {
-        return $$("commitMessageInput");
+        return $$('commitMessageInput');
       },
       authorName: function () {
-        return $$("commitAuthorName");
+        return $$('commitAuthorName');
       },
       authorEmail: function () {
-        return $$("commitAuthorEmail");
+        return $$('commitAuthorEmail');
       },
       qo: function () {
-        return $$("commitMessageOkButton");
+        return $$('commitMessageOkButton');
       },
       ra: function () {
-        return $$("commitMessageCredentialSelect");
+        return $$('commitMessageCredentialSelect');
       },
       ca: async function (e) {
         const t = this;
@@ -16573,10 +16573,10 @@ requestAnimationFrame(() => LSC.start()),
         } catch (e) {
           n = null;
         }
-        t.ra().setValue(n || "git");
+        t.ra().setValue(n || 'git');
         const i = await t.git.ie(n);
         return (
-          t.commitMessage().setValue(""),
+          t.commitMessage().setValue(''),
           t.authorName().setValue(i.username),
           t.authorEmail().setValue(i.email),
           new Promise(function (e, n) {
@@ -16588,61 +16588,61 @@ requestAnimationFrame(() => LSC.start()),
         );
       },
     }),
-  m.module("commitMessage").__init__(function (e) {
+  m.module('commitMessage').__init__(function (e) {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
-        cls: "x-prompt",
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
         center: !1,
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               label: RES_I18N.Elements.CommitAll,
               collapsable: !1,
             },
             {
-              flexSize: "none",
+              flexSize: 'none',
               cells: [
                 {
-                  view: "label",
-                  textColor: "muted",
+                  view: 'label',
+                  textColor: 'muted',
                   label: i18nTag(RES_I18N.Objects.Credentials),
                 },
                 {
-                  id: "commitMessageCredentialSelect",
-                  view: "select",
-                  textColor: "primary",
-                  margin: "x",
+                  id: 'commitMessageCredentialSelect',
+                  view: 'select',
+                  textColor: 'primary',
+                  margin: 'x',
                   style: {
-                    border: "none",
-                    padding: "0",
+                    border: 'none',
+                    padding: '0',
                   },
                   data: [
                     {
-                      value: "git",
-                      label: "Default",
+                      value: 'git',
+                      label: 'Default',
                     },
                     {
-                      value: "github.com",
-                      label: "GitHub",
-                      optgroup: "Host",
+                      value: 'github.com',
+                      label: 'GitHub',
+                      optgroup: 'Host',
                     },
                     {
-                      value: "bitbucket.org",
-                      label: "BitBucket",
-                      optgroup: "Host",
+                      value: 'bitbucket.org',
+                      label: 'BitBucket',
+                      optgroup: 'Host',
                     },
                     {
-                      value: "gitlab.com",
-                      label: "GitLab",
-                      optgroup: "Host",
+                      value: 'gitlab.com',
+                      label: 'GitLab',
+                      optgroup: 'Host',
                     },
                   ],
                   on: {
@@ -16659,15 +16659,15 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         body: {
-          flexLayout: "column",
-          margin: "top",
+          flexLayout: 'column',
+          margin: 'top',
           cells: [
             {
-              id: "commitMessageInput",
-              view: "input",
-              autocapitalize: "off",
-              autocorrect: "off",
-              spellcheck: "false",
+              id: 'commitMessageInput',
+              view: 'input',
+              autocapitalize: 'off',
+              autocorrect: 'off',
+              spellcheck: 'false',
               i18nPlaceholders: RES_I18N.Objects.CommitMessage,
               validateAsync: async function () {
                 const e = this,
@@ -16686,17 +16686,17 @@ requestAnimationFrame(() => LSC.start()),
               on: {
                 onKeyUp: function (t, n, i) {
                   this.validateAsync().then(() => {
-                    "Enter" == i.key && e.authorName().focus();
+                    'Enter' == i.key && e.authorName().focus();
                   });
                 },
               },
             },
             {
-              id: "commitAuthorName",
-              view: "input",
-              autocapitalize: "off",
-              autocorrect: "off",
-              spellcheck: "false",
+              id: 'commitAuthorName',
+              view: 'input',
+              autocapitalize: 'off',
+              autocorrect: 'off',
+              spellcheck: 'false',
               i18nPlaceholders: RES_I18N.Objects.NameFor(
                 RES_I18N.Objects.Author
               ),
@@ -16717,19 +16717,19 @@ requestAnimationFrame(() => LSC.start()),
               on: {
                 onKeyUp: function (t, n, i) {
                   this.validateAsync().then(() => {
-                    "Enter" == i.key && e.authorEmail().focus();
+                    'Enter' == i.key && e.authorEmail().focus();
                   });
                 },
               },
             },
             {
-              id: "commitAuthorEmail",
-              view: "input",
-              autocapitalize: "off",
-              autocorrect: "off",
-              spellcheck: "false",
+              id: 'commitAuthorEmail',
+              view: 'input',
+              autocapitalize: 'off',
+              autocorrect: 'off',
+              spellcheck: 'false',
               i18nPlaceholders: RES_I18N.Objects.AuthorEmail,
-              type: "email",
+              type: 'email',
               validateAsync: async function () {
                 const e = this,
                   t = e.getValue();
@@ -16747,7 +16747,7 @@ requestAnimationFrame(() => LSC.start()),
               on: {
                 onKeyUp: function (t, n, i) {
                   this.validateAsync().then(() => {
-                    "Enter" == i.key && e.qo().dispatch("onClick");
+                    'Enter' == i.key && e.qo().dispatch('onClick');
                   });
                 },
               },
@@ -16755,12 +16755,12 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "commitMessageCancelButton",
-              view: "button",
+              id: 'commitMessageCancelButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -16769,11 +16769,11 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "commitMessageOkButton",
-              view: "button",
+              id: 'commitMessageOkButton',
+              view: 'button',
               label: RES_I18N.Elements.Ok,
               style: {
-                minWidth: "64px",
+                minWidth: '64px',
               },
               on: {
                 onClick: function () {
@@ -16809,12 +16809,12 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("initRepo")
-    .require("gitClient", "session", "model", "gitRemotes")
+    .module('initRepo')
+    .require('gitClient', 'session', 'model', 'gitRemotes')
     .__init__(function (
       e,
       { gitClient: t, session: n, model: i, gitRemotes: o }
@@ -16836,8 +16836,8 @@ requestAnimationFrame(() => LSC.start()),
       },
     }),
   m
-    .module("gitBranches")
-    .require("string", "checkoutBranch", "addGitAuth", "gitClient", "session")
+    .module('gitBranches')
+    .require('string', 'checkoutBranch', 'addGitAuth', 'gitClient', 'session')
     .__init__(function (
       e,
       { addGitAuth: t, gitClient: n, checkoutBranch: i, string: o, session: a }
@@ -16850,33 +16850,33 @@ requestAnimationFrame(() => LSC.start()),
         session: a,
       }),
         a.observable.subscribe(function ({ action: t, projectDir: n }) {
-          if ("syncGit" === t) return e.ua(n);
+          if ('syncGit' === t) return e.ua(n);
         });
     })
     .def({
       ha: function () {
-        return $$("gitBranchesOkButton");
+        return $$('gitBranchesOkButton');
       },
       da: function () {
-        return $$("gitBranchesAddInput");
+        return $$('gitBranchesAddInput');
       },
       $i: function () {
-        return $$("gitBranchesList");
+        return $$('gitBranchesList');
       },
       pa: function () {
-        return $$("gitBranchesListContainer");
+        return $$('gitBranchesListContainer');
       },
       ma: function () {
-        return $$("gitBranchesRemoteList");
+        return $$('gitBranchesRemoteList');
       },
       fa: function () {
-        return $$("gitBranchesRemoteListContainer");
+        return $$('gitBranchesRemoteListContainer');
       },
       ga: function () {
-        return $$("gitBranchesSearchInput");
+        return $$('gitBranchesSearchInput');
       },
       va: function (e) {
-        this.da().setValue(""), this.addModal.open(e);
+        this.da().setValue(''), this.addModal.open(e);
       },
       wa: async function (e) {
         await this.ua(e), this.modal.open(e);
@@ -16891,54 +16891,54 @@ requestAnimationFrame(() => LSC.start()),
         if (o.length) {
           const e = t.$i();
           e.setData(o), e.deselectAll();
-          const n = e.findOne("ref", i);
-          n && e.select(n), t.pa().showBatch("list");
-        } else t.pa().showBatch("empty");
+          const n = e.findOne('ref', i);
+          n && e.select(n), t.pa().showBatch('list');
+        } else t.pa().showBatch('empty');
         const a = n.filter((e) => !!e.remote);
         a.length
-          ? (t.ma().setData(a), t.fa().showBatch("list"))
-          : t.fa().showBatch("empty");
+          ? (t.ma().setData(a), t.fa().showBatch('list'))
+          : t.fa().showBatch('empty');
       },
       Nn: async function (e, t) {
         return await this.gitClient.On(e, t), this.ua(e);
       },
     }),
-  m.module("gitBranches").__init__(function (e) {
+  m.module('gitBranches').__init__(function (e) {
     e.addModal = UI.new(
       {
-        id: "gitBranchesAddModal",
-        view: "modal",
-        cls: "x-prompt",
+        id: 'gitBranchesAddModal',
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
         center: !1,
         header: {
-          cls: "x-menu-title-bar shadow",
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          cls: 'x-menu-title-bar shadow',
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               label: i18nTag(RES_I18N.Actions.Create(RES_I18N.Objects.Branch)),
               collapsable: !1,
             },
           ],
         },
         body: {
-          flexLayout: "column",
-          cls: "uk-form",
-          margin: "top",
+          flexLayout: 'column',
+          cls: 'uk-form',
+          margin: 'top',
           cells: [
             {
-              id: "gitBranchesAddInput",
-              view: "input",
+              id: 'gitBranchesAddInput',
+              view: 'input',
               i18nPlaceholders: RES_I18N.Objects.NameFor(
                 RES_I18N.Objects.Branch
               ),
               on: {
                 onKeyUp: function (t, n, i) {
                   this.validateAsync().then(() => {
-                    "Enter" == i.key && e.ha().dispatch("onClick");
+                    'Enter' == i.key && e.ha().dispatch('onClick');
                   });
                 },
               },
@@ -16949,10 +16949,10 @@ requestAnimationFrame(() => LSC.start()),
                 if (n) {
                   if (
                     /[~^:\s\\]/.test(n) ||
-                    n.endsWith("/") ||
-                    n.includes("..") ||
-                    n.startsWith(".") ||
-                    n.toLowerCase().endsWith(".lock")
+                    n.endsWith('/') ||
+                    n.includes('..') ||
+                    n.startsWith('.') ||
+                    n.toLowerCase().endsWith('.lock')
                   )
                     throw (
                       ((i = RES_I18N.ErrorMessages.InvalidFor(
@@ -16986,12 +16986,12 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         footer: {
-          flexAlign: "right",
-          margin: "y",
+          flexAlign: 'right',
+          margin: 'y',
           cells: [
             {
-              id: "gitBranchesCancelButton",
-              view: "button",
+              id: 'gitBranchesCancelButton',
+              view: 'button',
               label: RES_I18N.Elements.Cancel,
               on: {
                 onClick: function () {
@@ -17000,11 +17000,11 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "gitBranchesOkButton",
-              view: "button",
+              id: 'gitBranchesOkButton',
+              view: 'button',
               label: RES_I18N.Elements.Ok,
               style: {
-                minWidth: "64px",
+                minWidth: '64px',
               },
               on: {
                 onClick: function () {
@@ -17027,44 +17027,44 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
     const t = (t) => t.ref.includes(e.ga().getValue());
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
-        cls: "x-prompt",
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
-        dialogClass: "uk-flex uk-flex-column",
-        dialogStyle: ["scroll", "blank"],
+        dialogClass: 'uk-flex uk-flex-column',
+        dialogStyle: ['scroll', 'blank'],
         style: {
           zIndex: 1900,
         },
         header: {
-          flexSize: "none",
-          cls: "x-menu-title-bar shadow",
-          flexLayout: "column",
+          flexSize: 'none',
+          cls: 'x-menu-title-bar shadow',
+          flexLayout: 'column',
           cells: [
             {
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   label: RES_I18N.Elements.Branches,
                   collapsable: !1,
                 },
                 {
-                  cls: "x-menu-icons",
-                  flexSize: "none",
-                  defaultBatch: "",
+                  cls: 'x-menu-icons',
+                  flexSize: 'none',
+                  defaultBatch: '',
                   cells: [
                     {
-                      view: "menuToggle",
-                      icon: "search",
-                      title: "Search Branches",
+                      view: 'menuToggle',
+                      icon: 'search',
+                      title: 'Search Branches',
                       on: {
                         onToggled: function () {
                           const t = e.ga();
@@ -17073,10 +17073,10 @@ requestAnimationFrame(() => LSC.start()),
                       },
                     },
                     {
-                      id: "gitBranchesAddButton",
-                      view: "menuIcon",
-                      icon: "plus",
-                      margin: "right",
+                      id: 'gitBranchesAddButton',
+                      view: 'menuIcon',
+                      icon: 'plus',
+                      margin: 'right',
                       on: {
                         onClick: function () {
                           e.va(e.modal.projectDir);
@@ -17084,9 +17084,9 @@ requestAnimationFrame(() => LSC.start()),
                       },
                     },
                     {
-                      id: "gitBranchesCloseButton",
-                      view: "menuIcon",
-                      icon: "close",
+                      id: 'gitBranchesCloseButton',
+                      view: 'menuIcon',
+                      icon: 'close',
                       on: {
                         onClick: function () {
                           e.modal.close();
@@ -17098,11 +17098,11 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             {
-              id: "gitBranchesSearchInput",
-              cls: "x-menu-search",
-              view: "searchField",
+              id: 'gitBranchesSearchInput',
+              cls: 'x-menu-search',
+              view: 'searchField',
               hidden: !0,
-              flexSize: "flex",
+              flexSize: 'flex',
               i18nPlaceholders: RES_I18N.Actions.SearchFor(
                 RES_I18N.Objects.Branch
               ),
@@ -17116,13 +17116,13 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         body: {
-          view: "scroller",
+          view: 'scroller',
           cells: [
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               label: RES_I18N.Elements.Local,
               style: {
-                padding: "0.5em 1em",
+                padding: '0.5em 1em',
               },
               on: {
                 onToggled: function (t) {
@@ -17132,51 +17132,51 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "gitBranchesListContainer",
-              flexSize: "none",
+              id: 'gitBranchesListContainer',
+              flexSize: 'none',
               cells: [
                 {
-                  batch: "list",
-                  id: "gitBranchesList",
-                  view: "list",
+                  batch: 'list',
+                  id: 'gitBranchesList',
+                  view: 'list',
                   selectable: !0,
-                  flexSize: "flex",
-                  listStyle: "side",
+                  flexSize: 'flex',
+                  listStyle: 'side',
                   template: function (t) {
                     return {
-                      cls: "x-list-item",
+                      cls: 'x-list-item',
                       template: {
-                        cls: "x-list-item-meta",
-                        flexAlign: "middle",
+                        cls: 'x-list-item-meta',
+                        flexAlign: 'middle',
                         cells: [
                           {
                             flex: !1,
-                            flexSize: "flex",
+                            flexSize: 'flex',
                             style: {
                               minWidth: 0,
                             },
                             cells: [
                               {
-                                view: "label",
-                                cls: "x-flex-text-overflow-ellipsis",
-                                htmlTag: "DIV",
+                                view: 'label',
+                                cls: 'x-flex-text-overflow-ellipsis',
+                                htmlTag: 'DIV',
                                 label: e.string.at(t.name),
                               },
                               {
-                                view: "label",
-                                cls: "x-flex-text-overflow-ellipsis",
-                                htmlTag: "DIV",
-                                textColor: "muted",
+                                view: 'label',
+                                cls: 'x-flex-text-overflow-ellipsis',
+                                htmlTag: 'DIV',
+                                textColor: 'muted',
                                 label: e.string.at(t.ref),
                               },
                             ],
                           },
                           {
-                            view: "menuIcon",
-                            tagClass: "",
-                            margin: "left",
-                            text: "large",
-                            icon: "pull",
+                            view: 'menuIcon',
+                            tagClass: '',
+                            margin: 'left',
+                            text: 'large',
+                            icon: 'pull',
                             on: {
                               onClick: function () {
                                 e.checkoutBranch.oa({
@@ -17187,11 +17187,11 @@ requestAnimationFrame(() => LSC.start()),
                             },
                           },
                           {
-                            view: "menuIcon",
-                            tagClass: "",
-                            margin: "left",
-                            text: "large",
-                            iconClass: "ti-trash",
+                            view: 'menuIcon',
+                            tagClass: '',
+                            margin: 'left',
+                            text: 'large',
+                            iconClass: 'ti-trash',
                             on: {
                               onClick: function () {
                                 e.Nn(e.modal.projectDir, t.name);
@@ -17206,24 +17206,24 @@ requestAnimationFrame(() => LSC.start()),
                   data: [],
                 },
                 {
-                  batch: "empty",
-                  textAlign: "center",
-                  fill: "height",
-                  flexLayout: "column",
-                  flexAlign: ["center", "middle"],
+                  batch: 'empty',
+                  textAlign: 'center',
+                  fill: 'height',
+                  flexLayout: 'column',
+                  flexAlign: ['center', 'middle'],
                   cells: [
                     {
-                      cls: "uk-h5",
-                      view: "label",
-                      padding: "large",
+                      cls: 'uk-h5',
+                      view: 'label',
+                      padding: 'large',
                       attributes: i18nAttributes({
-                        en: "No Branches",
-                        es: "Sin Ramals",
-                        ja: "ブランチなし",
-                        pt: "Sem Ramos",
-                        ru: "Нет ветви",
-                        zh: "没有分支",
-                        zhTW: "沒有分支",
+                        en: 'No Branches',
+                        es: 'Sin Ramals',
+                        ja: 'ブランチなし',
+                        pt: 'Sem Ramos',
+                        ru: 'Нет ветви',
+                        zh: '没有分支',
+                        zhTW: '沒有分支',
                       }),
                       style: {
                         opacity: 0.5,
@@ -17234,10 +17234,10 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               label: RES_I18N.Elements.RemoteBranches,
               style: {
-                padding: "0.5em 1em",
+                padding: '0.5em 1em',
               },
               on: {
                 onToggled: function (t) {
@@ -17247,51 +17247,51 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              id: "gitBranchesRemoteListContainer",
-              flexLayout: "column",
+              id: 'gitBranchesRemoteListContainer',
+              flexLayout: 'column',
               cells: [
                 {
-                  batch: "list",
-                  id: "gitBranchesRemoteList",
-                  view: "list",
+                  batch: 'list',
+                  id: 'gitBranchesRemoteList',
+                  view: 'list',
                   selectable: !0,
-                  flexSize: "flex",
-                  listStyle: "side",
+                  flexSize: 'flex',
+                  listStyle: 'side',
                   template: function (t) {
                     return {
-                      cls: "x-list-item",
+                      cls: 'x-list-item',
                       template: {
-                        cls: "x-list-item-meta",
-                        flexAlign: "middle",
+                        cls: 'x-list-item-meta',
+                        flexAlign: 'middle',
                         cells: [
                           {
                             flex: !1,
-                            flexSize: "flex",
+                            flexSize: 'flex',
                             style: {
                               minWidth: 0,
                             },
                             cells: [
                               {
-                                view: "label",
-                                cls: "x-flex-text-overflow-ellipsis",
-                                htmlTag: "DIV",
+                                view: 'label',
+                                cls: 'x-flex-text-overflow-ellipsis',
+                                htmlTag: 'DIV',
                                 label: e.string.at(t.name),
                               },
                               {
-                                view: "label",
-                                cls: "x-flex-text-overflow-ellipsis",
-                                htmlTag: "DIV",
-                                textColor: "muted",
+                                view: 'label',
+                                cls: 'x-flex-text-overflow-ellipsis',
+                                htmlTag: 'DIV',
+                                textColor: 'muted',
                                 label: e.string.at(t.ref),
                               },
                             ],
                           },
                           {
-                            view: "menuIcon",
-                            tagClass: "",
-                            margin: "left",
-                            text: "large",
-                            icon: "pull",
+                            view: 'menuIcon',
+                            tagClass: '',
+                            margin: 'left',
+                            text: 'large',
+                            icon: 'pull',
                             on: {
                               onClick: function () {
                                 e.checkoutBranch.oa({
@@ -17309,24 +17309,24 @@ requestAnimationFrame(() => LSC.start()),
                   data: [],
                 },
                 {
-                  batch: "empty",
-                  textAlign: "center",
-                  fill: "height",
-                  flexLayout: "column",
-                  flexAlign: ["center", "middle"],
+                  batch: 'empty',
+                  textAlign: 'center',
+                  fill: 'height',
+                  flexLayout: 'column',
+                  flexAlign: ['center', 'middle'],
                   cells: [
                     {
-                      cls: "uk-h5",
-                      view: "label",
-                      padding: "large",
+                      cls: 'uk-h5',
+                      view: 'label',
+                      padding: 'large',
                       attributes: i18nAttributes({
-                        en: "No Remote Branches",
-                        es: "Sin Ramals Remoto",
-                        ja: "リモートブランチなし",
-                        pt: "Sem Ramos Remoto",
-                        ru: "Нет ветви внешнего",
-                        zh: "没有远端分支",
-                        zhTW: "沒有远端分支",
+                        en: 'No Remote Branches',
+                        es: 'Sin Ramals Remoto',
+                        ja: 'リモートブランチなし',
+                        pt: 'Sem Ramos Remoto',
+                        ru: 'Нет ветви внешнего',
+                        zh: '没有远端分支',
+                        zhTW: '沒有远端分支',
                       }),
                       style: {
                         opacity: 0.5,
@@ -17344,12 +17344,12 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("gitRemotes")
-    .require("gitClient", "git", "prompt", "share")
+    .module('gitRemotes')
+    .require('gitClient', 'git', 'prompt', 'share')
     .__init__(function (e, { gitClient: t, git: n, prompt: i, share: o }) {
       Object.assign(e, {
         gitClient: t,
@@ -17360,40 +17360,40 @@ requestAnimationFrame(() => LSC.start()),
     })
     .def({
       $i: function () {
-        return $$("gitRemotesList");
+        return $$('gitRemotesList');
       },
       ga: function () {
-        return $$("gitRemotesSearchInput");
+        return $$('gitRemotesSearchInput');
       },
       ba: function () {
-        return $$("gitRemotesUpstreamModalTitle");
+        return $$('gitRemotesUpstreamModalTitle');
       },
       ya: function () {
-        return $$("gitRemotesUpstreamModalBody");
+        return $$('gitRemotesUpstreamModalBody');
       },
       Sa: function () {
-        return $$("gitRemotesAddRemoteTitleIcon");
+        return $$('gitRemotesAddRemoteTitleIcon');
       },
       xa: function () {
-        return $$("gitRemotesUpstreamRemoteSelect");
+        return $$('gitRemotesUpstreamRemoteSelect');
       },
       _a: function () {
-        return $$("gitRemotesRemoteOnlySelect");
+        return $$('gitRemotesRemoteOnlySelect');
       },
       ka: function () {
-        return $$("gitRemotesUpstreamBranchSelect");
+        return $$('gitRemotesUpstreamBranchSelect');
       },
       ha: function () {
-        return $$("gitRemotesAddModalOkButton");
+        return $$('gitRemotesAddModalOkButton');
       },
       Aa: function () {
-        return $$("gitRemotesUrlInput");
+        return $$('gitRemotesUrlInput');
       },
       Ia: function () {
-        return $$("gitRemotesNameInput");
+        return $$('gitRemotesNameInput');
       },
       Ca: function () {
-        return $$("gitRemotesContainer");
+        return $$('gitRemotesContainer');
       },
       Ea: async function ({ projectDir: e, afterModalCallback: t }) {
         const n = this,
@@ -17475,7 +17475,7 @@ requestAnimationFrame(() => LSC.start()),
             value: e,
           }))
         ),
-          i.setValue(t || "origin");
+          i.setValue(t || 'origin');
       },
       za: async function (e) {
         const [t, n] = await Promise.all([
@@ -17483,7 +17483,7 @@ requestAnimationFrame(() => LSC.start()),
             this.gitClient.sn(e),
           ]),
           i = this.xa(),
-          o = t || "origin";
+          o = t || 'origin';
         return (
           i.setData(
             n.map(({ remote: e }) => ({
@@ -17516,53 +17516,53 @@ requestAnimationFrame(() => LSC.start()),
         if (i.length) {
           const e = t.$i();
           e.setData(i), e.deselectAll();
-          const o = e.findOne("remote", n);
-          o && e.select(o), t.Ca().showBatch("list");
-        } else t.Ca().showBatch("empty");
+          const o = e.findOne('remote', n);
+          o && e.select(o), t.Ca().showBatch('list');
+        } else t.Ca().showBatch('empty');
       },
       Oa: async function (e) {
         await this.$a(e), this.modal.open(e);
       },
     }),
   m
-    .module("gitRemotes")
-    .require("string")
+    .module('gitRemotes')
+    .require('string')
     .__init__((e, { string: t }) => {
       (e.addModal = UI.new(
         {
-          id: "gitRemotesAddModal",
-          view: "modal",
-          cls: "x-prompt",
+          id: 'gitRemotesAddModal',
+          view: 'modal',
+          cls: 'x-prompt',
           closeButton: !1,
           bgclose: !1,
           center: !1,
           header: {
-            cls: "x-menu-title-bar shadow",
-            flexSize: "none",
-            flexSpace: "between",
-            flexAlign: "middle",
+            cls: 'x-menu-title-bar shadow',
+            flexSize: 'none',
+            flexSpace: 'between',
+            flexAlign: 'middle',
             cells: [
               {
-                view: "menuTitle",
+                view: 'menuTitle',
                 label: i18nTag(RES_I18N.Actions.New(RES_I18N.Objects.Remote)),
                 collapsable: !1,
               },
             ],
           },
           body: {
-            flexLayout: "column",
-            margin: "top",
+            flexLayout: 'column',
+            margin: 'top',
             cells: [
               {
-                id: "gitRemotesNameInput",
-                view: "input",
+                id: 'gitRemotesNameInput',
+                view: 'input',
                 i18nPlaceholders: RES_I18N.Objects.NameFor(
                   RES_I18N.Objects.Remote
                 ),
                 on: {
                   onKeyUp: function (t, n, i) {
                     this.validateAsync().then(() => {
-                      "Enter" == i.key && e.ha().dispatch("onClick");
+                      'Enter' == i.key && e.ha().dispatch('onClick');
                     });
                   },
                 },
@@ -17595,13 +17595,13 @@ requestAnimationFrame(() => LSC.start()),
                 },
               },
               {
-                id: "gitRemotesUrlInput",
-                view: "input",
+                id: 'gitRemotesUrlInput',
+                view: 'input',
                 i18nPlaceholders: RES_I18N.Placeholders.HttpsUrl,
                 on: {
                   onKeyUp: function (t, n, i) {
                     this.validateAsync().then(() => {
-                      "Enter" == i.key && e.ha().dispatch("onClick");
+                      'Enter' == i.key && e.ha().dispatch('onClick');
                     });
                   },
                 },
@@ -17632,12 +17632,12 @@ requestAnimationFrame(() => LSC.start()),
             ],
           },
           footer: {
-            flexAlign: "right",
-            margin: "y",
+            flexAlign: 'right',
+            margin: 'y',
             cells: [
               {
-                id: "gitRemotesAddModalCancelButton",
-                view: "button",
+                id: 'gitRemotesAddModalCancelButton',
+                view: 'button',
                 label: RES_I18N.Elements.Cancel,
                 on: {
                   onClick: function () {
@@ -17646,11 +17646,11 @@ requestAnimationFrame(() => LSC.start()),
                 },
               },
               {
-                id: "gitRemotesAddModalOkButton",
-                view: "button",
+                id: 'gitRemotesAddModalOkButton',
+                view: 'button',
                 label: RES_I18N.Elements.Ok,
                 style: {
-                  minWidth: "64px",
+                  minWidth: '64px',
                 },
                 on: {
                   onClick: function () {
@@ -17658,7 +17658,7 @@ requestAnimationFrame(() => LSC.start()),
                       n = e.Ia();
                     return (
                       t.setValue(e.git.J(t.getValue())),
-                      n.getValue() || n.setValue("origin"),
+                      n.getValue() || n.setValue('origin'),
                       Promise.all([n.validateAsync(), t.validateAsync()]).then(
                         ([n, i]) =>
                           e.gitClient.kn(i).then(
@@ -17674,13 +17674,13 @@ requestAnimationFrame(() => LSC.start()),
                             () => {
                               t.raiseConcern(
                                 i18nTag({
-                                  en: "Failed to connect. GIT URL may not be valid.",
-                                  es: "No se pudo conectar. El enlace puede estar roto.",
-                                  ja: "接続に失敗しました。リンクが壊れている可能性があります。",
-                                  pt: "Falha ao conectar. O link pode estar quebrado.",
-                                  ru: "Не удалось подключиться. GIT URL может быть недействительным.",
-                                  zh: "连接失败。链接可能中断了。",
-                                  zhTW: "無法連線。連接可能已經中斷。",
+                                  en: 'Failed to connect. GIT URL may not be valid.',
+                                  es: 'No se pudo conectar. El enlace puede estar roto.',
+                                  ja: '接続に失敗しました。リンクが壊れている可能性があります。',
+                                  pt: 'Falha ao conectar. O link pode estar quebrado.',
+                                  ru: 'Не удалось подключиться. GIT URL может быть недействительным.',
+                                  zh: '连接失败。链接可能中断了。',
+                                  zhTW: '無法連線。連接可能已經中斷。',
                                 })
                               );
                             }
@@ -17698,8 +17698,8 @@ requestAnimationFrame(() => LSC.start()),
               n,
               { resolve: i, reject: o, projectDir: a }
             ) {
-              e.Ia().setValue(""),
-                e.Aa().setValue(""),
+              e.Ia().setValue(''),
+                e.Aa().setValue(''),
                 Object.assign(this, {
                   resolve: i,
                   reject: o,
@@ -17708,13 +17708,13 @@ requestAnimationFrame(() => LSC.start()),
             },
           },
         },
-        document.getElementById("appContainer")
+        document.getElementById('appContainer')
       )),
         (e.upstreamModal = UI.new(
           {
-            id: "gitRemotesUpstreamModal",
-            view: "modal",
-            cls: "x-prompt",
+            id: 'gitRemotesUpstreamModal',
+            view: 'modal',
+            cls: 'x-prompt',
             closeButton: !1,
             bgclose: !1,
             center: !1,
@@ -17722,24 +17722,24 @@ requestAnimationFrame(() => LSC.start()),
               zIndex: 1900,
             },
             header: {
-              cls: "x-menu-title-bar shadow",
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              cls: 'x-menu-title-bar shadow',
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  id: "gitRemotesUpstreamModalTitle",
-                  view: "menuTitle",
-                  label: "",
+                  id: 'gitRemotesUpstreamModalTitle',
+                  view: 'menuTitle',
+                  label: '',
                   collapsable: !1,
                 },
                 {
-                  id: "gitRemotesAddRemoteTitleIcon",
-                  cls: "x-menu-icons",
-                  view: "menuIcon",
-                  icon: "plus",
-                  title: "Add Remote",
-                  flexSize: "none",
+                  id: 'gitRemotesAddRemoteTitleIcon',
+                  cls: 'x-menu-icons',
+                  view: 'menuIcon',
+                  icon: 'plus',
+                  title: 'Add Remote',
+                  flexSize: 'none',
                   on: {
                     onClick: function () {
                       const t = e.upstreamModal.projectDir;
@@ -17755,21 +17755,21 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             body: {
-              id: "gitRemotesUpstreamModalBody",
-              margin: "top",
+              id: 'gitRemotesUpstreamModalBody',
+              margin: 'top',
               cells: [
                 {
-                  batch: "upstream",
-                  view: "form",
-                  formStyle: "horizontal",
-                  fill: "width",
+                  batch: 'upstream',
+                  view: 'form',
+                  formStyle: 'horizontal',
+                  fill: 'width',
                   fieldset: [
                     {
-                      id: "gitRemotesUpstreamRemoteSelect",
+                      id: 'gitRemotesUpstreamRemoteSelect',
                       formLabel: RES_I18N.Elements.Remotes,
-                      view: "select",
+                      view: 'select',
                       style: {
-                        maxWidth: "calc(100% - 128px)",
+                        maxWidth: 'calc(100% - 128px)',
                       },
                       data: [],
                       on: {
@@ -17779,32 +17779,32 @@ requestAnimationFrame(() => LSC.start()),
                       },
                     },
                     {
-                      id: "gitRemotesUpstreamBranchSelect",
+                      id: 'gitRemotesUpstreamBranchSelect',
                       formLabel: RES_I18N.Elements.Branches,
-                      view: "select",
+                      view: 'select',
                       style: {
-                        maxWidth: "calc(100% - 128px)",
+                        maxWidth: 'calc(100% - 128px)',
                       },
                       data: [],
                     },
                   ],
                 },
                 {
-                  batch: "remoteOnly",
+                  batch: 'remoteOnly',
                   cells: [
                     {
-                      id: "gitRemotesRemoteOnlySelect",
-                      flexSize: "flex",
-                      view: "select",
+                      id: 'gitRemotesRemoteOnlySelect',
+                      flexSize: 'flex',
+                      view: 'select',
                       data: [],
                     },
                     {
-                      cls: "x-menu-icons",
-                      view: "menuIcon",
-                      icon: "plus",
-                      margin: "left",
-                      title: "Add Remote",
-                      flexSize: "none",
+                      cls: 'x-menu-icons',
+                      view: 'menuIcon',
+                      icon: 'plus',
+                      margin: 'left',
+                      title: 'Add Remote',
+                      flexSize: 'none',
                       on: {
                         onClick: function () {
                           const t = e.upstreamModal.projectDir;
@@ -17822,12 +17822,12 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             footer: {
-              flexAlign: "right",
-              margin: "y",
+              flexAlign: 'right',
+              margin: 'y',
               cells: [
                 {
-                  id: "gitRemotesUpstreamModalCancelButton",
-                  view: "button",
+                  id: 'gitRemotesUpstreamModalCancelButton',
+                  view: 'button',
                   label: RES_I18N.Elements.Cancel,
                   on: {
                     onClick: function () {
@@ -17837,11 +17837,11 @@ requestAnimationFrame(() => LSC.start()),
                   },
                 },
                 {
-                  id: "gitRemotesUpstreamModalOkButton",
-                  view: "button",
+                  id: 'gitRemotesUpstreamModalOkButton',
+                  view: 'button',
                   label: RES_I18N.Elements.Ok,
                   style: {
-                    minWidth: "64px",
+                    minWidth: '64px',
                   },
                   on: {
                     onClick: function () {
@@ -17887,12 +17887,12 @@ requestAnimationFrame(() => LSC.start()),
                   remoteOnly: s,
                 }),
                   s
-                    ? (e.ya().showBatch("remoteOnly"), e.Sa().hide())
-                    : (e.ya().showBatch("upstream"), e.Sa().show()),
+                    ? (e.ya().showBatch('remoteOnly'), e.Sa().hide())
+                    : (e.ya().showBatch('upstream'), e.Sa().show()),
                   r &&
                     ((e.ba().config.label =
-                      ("string" == typeof r ? r : i18nTag(r)) +
-                      ": " +
+                      ('string' == typeof r ? r : i18nTag(r)) +
+                      ': ' +
                       i18nTag(
                         s
                           ? RES_I18N.Actions.Select(RES_I18N.Objects.Remote)
@@ -17902,44 +17902,44 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
           },
-          document.getElementById("appContainer")
+          document.getElementById('appContainer')
         )),
         (e.modal = UI.new(
           {
             id: e.__name__,
-            view: "modal",
-            cls: "x-prompt",
+            view: 'modal',
+            cls: 'x-prompt',
             center: !1,
             closeButton: !1,
-            dialogClass: "uk-flex uk-flex-column",
-            dialogStyle: ["blank"],
+            dialogClass: 'uk-flex uk-flex-column',
+            dialogStyle: ['blank'],
             style: {
               zIndex: 1900,
             },
             header: {
-              flexSize: "none",
-              cls: "x-menu-title-bar shadow",
-              flexLayout: "column",
+              flexSize: 'none',
+              cls: 'x-menu-title-bar shadow',
+              flexLayout: 'column',
               cells: [
                 {
-                  flexSize: "none",
-                  flexSpace: "between",
-                  flexAlign: "middle",
+                  flexSize: 'none',
+                  flexSpace: 'between',
+                  flexAlign: 'middle',
                   cells: [
                     {
-                      view: "menuTitle",
+                      view: 'menuTitle',
                       label: RES_I18N.Elements.Remotes,
                       collapsable: !1,
                     },
                     {
-                      cls: "x-menu-icons",
-                      flexSize: "none",
-                      defaultBatch: "",
+                      cls: 'x-menu-icons',
+                      flexSize: 'none',
+                      defaultBatch: '',
                       cells: [
                         {
-                          view: "menuToggle",
-                          icon: "search",
-                          title: "Search Remotes",
+                          view: 'menuToggle',
+                          icon: 'search',
+                          title: 'Search Remotes',
                           on: {
                             onToggled: function () {
                               const t = e.ga();
@@ -17950,11 +17950,11 @@ requestAnimationFrame(() => LSC.start()),
                           },
                         },
                         {
-                          id: "gitRemotesAddButton",
-                          view: "menuIcon",
-                          icon: "plus",
-                          title: "Add Remote",
-                          margin: "right",
+                          id: 'gitRemotesAddButton',
+                          view: 'menuIcon',
+                          icon: 'plus',
+                          title: 'Add Remote',
+                          margin: 'right',
                           on: {
                             onClick: function () {
                               const { projectDir: t } = e.modal;
@@ -17965,9 +17965,9 @@ requestAnimationFrame(() => LSC.start()),
                           },
                         },
                         {
-                          id: "gitRemotesCloseButton",
-                          view: "menuIcon",
-                          icon: "close",
+                          id: 'gitRemotesCloseButton',
+                          view: 'menuIcon',
+                          icon: 'close',
                           on: {
                             onClick: function () {
                               e.modal.close();
@@ -17979,11 +17979,11 @@ requestAnimationFrame(() => LSC.start()),
                   ],
                 },
                 {
-                  id: "gitRemotesSearchInput",
-                  cls: "x-menu-search",
-                  view: "searchField",
+                  id: 'gitRemotesSearchInput',
+                  cls: 'x-menu-search',
+                  view: 'searchField',
                   hidden: !0,
-                  flexSize: "flex",
+                  flexSize: 'flex',
                   i18nPlaceholders: RES_I18N.Actions.SearchFor(
                     RES_I18N.Objects.Remote
                   ),
@@ -17997,51 +17997,51 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             body: {
-              id: "gitRemotesContainer",
-              view: "scroller",
+              id: 'gitRemotesContainer',
+              view: 'scroller',
               cells: [
                 {
-                  id: "gitRemotesList",
-                  batch: "list",
-                  view: "list",
+                  id: 'gitRemotesList',
+                  batch: 'list',
+                  view: 'list',
                   selectable: !0,
-                  flexSize: "flex",
-                  listStyle: "side",
+                  flexSize: 'flex',
+                  listStyle: 'side',
                   template: function (n) {
                     return {
-                      cls: "x-list-item",
+                      cls: 'x-list-item',
                       template: {
-                        cls: "x-list-item-meta",
-                        flexAlign: "middle",
+                        cls: 'x-list-item-meta',
+                        flexAlign: 'middle',
                         cells: [
                           {
                             flex: !1,
-                            flexSize: "flex",
+                            flexSize: 'flex',
                             style: {
                               minWidth: 0,
                             },
                             cells: [
                               {
-                                view: "label",
-                                cls: "x-flex-text-overflow-ellipsis",
-                                htmlTag: "DIV",
+                                view: 'label',
+                                cls: 'x-flex-text-overflow-ellipsis',
+                                htmlTag: 'DIV',
                                 label: t.at(n.remote),
                               },
                               {
-                                view: "label",
-                                cls: "x-flex-text-overflow-ellipsis",
-                                htmlTag: "DIV",
-                                textColor: "muted",
+                                view: 'label',
+                                cls: 'x-flex-text-overflow-ellipsis',
+                                htmlTag: 'DIV',
+                                textColor: 'muted',
                                 label: t.at(n.url),
                               },
                             ],
                           },
                           {
-                            view: "menuIcon",
-                            margin: "left",
-                            tagClass: "",
-                            text: "large",
-                            iconClass: "ti-share",
+                            view: 'menuIcon',
+                            margin: 'left',
+                            tagClass: '',
+                            text: 'large',
+                            iconClass: 'ti-share',
                             on: {
                               onClick: function () {
                                 e.Pa(n.url);
@@ -18049,11 +18049,11 @@ requestAnimationFrame(() => LSC.start()),
                             },
                           },
                           {
-                            view: "menuIcon",
-                            margin: "left",
-                            tagClass: "",
-                            text: "large",
-                            iconClass: "ti-trash",
+                            view: 'menuIcon',
+                            margin: 'left',
+                            tagClass: '',
+                            text: 'large',
+                            iconClass: 'ti-trash',
                             on: {
                               onClick: function () {
                                 e.Bn(e.modal.projectDir, n.remote);
@@ -18068,24 +18068,24 @@ requestAnimationFrame(() => LSC.start()),
                   data: [],
                 },
                 {
-                  batch: "empty",
-                  textAlign: "center",
-                  fill: "height",
-                  flexLayout: "column",
-                  flexAlign: ["center", "middle"],
+                  batch: 'empty',
+                  textAlign: 'center',
+                  fill: 'height',
+                  flexLayout: 'column',
+                  flexAlign: ['center', 'middle'],
                   cells: [
                     {
-                      cls: "uk-h5",
-                      view: "label",
-                      padding: "large",
+                      cls: 'uk-h5',
+                      view: 'label',
+                      padding: 'large',
                       attributes: i18nAttributes({
-                        en: "No Remotes. Click ＋ to add a remote.",
-                        es: "Sin remotos. Haga clic en ＋ para agregar un remoto.",
-                        ja: "リモートなし。 ＋をクリックして、リモートを追加します。",
-                        pt: "Sem remotos. Clique em ＋ para adicionar um remoto.",
-                        ru: "Нет Bнешние. Нажмите ＋, чтобы добавить Bнешние.",
-                        zh: "没有远端。单击＋添加远端。",
-                        zhTW: "沒有遠端。單擊＋添加遠端。",
+                        en: 'No Remotes. Click ＋ to add a remote.',
+                        es: 'Sin remotos. Haga clic en ＋ para agregar un remoto.',
+                        ja: 'リモートなし。 ＋をクリックして、リモートを追加します。',
+                        pt: 'Sem remotos. Clique em ＋ para adicionar um remoto.',
+                        ru: 'Нет Bнешние. Нажмите ＋, чтобы добавить Bнешние.',
+                        zh: '没有远端。单击＋添加远端。',
+                        zhTW: '沒有遠端。單擊＋添加遠端。',
                       }),
                       style: {
                         opacity: 0.5,
@@ -18101,12 +18101,12 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
           },
-          document.getElementById("appContainer")
+          document.getElementById('appContainer')
         ));
     }),
   m
-    .module("gitLogger")
-    .require("gitClient", "prompt")
+    .module('gitLogger')
+    .require('gitClient', 'prompt')
     .__init__(function (e, { gitClient: t, prompt: n }) {
       Object.assign(e, {
         gitClient: t,
@@ -18115,10 +18115,10 @@ requestAnimationFrame(() => LSC.start()),
     })
     .def({
       $i: function () {
-        return $$("gitLoggerList");
+        return $$('gitLoggerList');
       },
       Ct: function () {
-        return $$("gitLoggerSearchInput");
+        return $$('gitLoggerSearchInput');
       },
       Ua: async function (e) {
         const t = this;
@@ -18132,7 +18132,7 @@ requestAnimationFrame(() => LSC.start()),
               const o = i.find((t) => t.oid === e);
               o &&
                 (n[t].remote
-                  ? (o.remote = n[t].remote + "/" + n[t].name)
+                  ? (o.remote = n[t].remote + '/' + n[t].name)
                   : (o.head = n[t].name));
             }
           ),
@@ -18141,47 +18141,47 @@ requestAnimationFrame(() => LSC.start()),
         } catch (e) {
           throw (
             (t.prompt.ue(
-              "Git Log Failed",
-              e.message || "An error occurred in gathering log info."
+              'Git Log Failed',
+              e.message || 'An error occurred in gathering log info.'
             ),
             e)
           );
         }
       },
     }),
-  m.module("gitLogger").__init__((e) => {
+  m.module('gitLogger').__init__((e) => {
     e.modal = UI.new(
       {
         id: e.__name__,
-        view: "modal",
-        cls: "x-prompt",
+        view: 'modal',
+        cls: 'x-prompt',
         closeButton: !1,
-        dialogClass: "uk-flex uk-flex-column",
-        dialogStyle: ["scroll", "blank"],
+        dialogClass: 'uk-flex uk-flex-column',
+        dialogStyle: ['scroll', 'blank'],
         header: {
-          flexSize: "none",
-          cls: "x-menu-title-bar shadow",
-          flexLayout: "column",
+          flexSize: 'none',
+          cls: 'x-menu-title-bar shadow',
+          flexLayout: 'column',
           cells: [
             {
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   label: RES_I18N.Elements.LogHistory,
                   collapsable: !1,
                 },
                 {
-                  cls: "x-menu-icons",
-                  flexSize: "none",
-                  defaultBatch: "",
+                  cls: 'x-menu-icons',
+                  flexSize: 'none',
+                  defaultBatch: '',
                   cells: [
                     {
-                      view: "menuToggle",
-                      icon: "search",
-                      title: "Search Files",
+                      view: 'menuToggle',
+                      icon: 'search',
+                      title: 'Search Files',
                       on: {
                         onToggled: function () {
                           const t = e.Ct();
@@ -18190,10 +18190,10 @@ requestAnimationFrame(() => LSC.start()),
                       },
                     },
                     {
-                      id: "gitLoggerCloseButton",
-                      view: "menuIcon",
-                      icon: "close",
-                      title: "Close",
+                      id: 'gitLoggerCloseButton',
+                      view: 'menuIcon',
+                      icon: 'close',
+                      title: 'Close',
                       on: {
                         onClick: function () {
                           e.modal.close();
@@ -18205,9 +18205,9 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             {
-              id: "gitLoggerSearchInput",
-              cls: "x-menu-search",
-              view: "searchField",
+              id: 'gitLoggerSearchInput',
+              cls: 'x-menu-search',
+              view: 'searchField',
               hidden: !0,
               i18nPlaceholders: RES_I18N.Actions.SearchFor(
                 RES_I18N.Objects.Log
@@ -18222,16 +18222,16 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         body: {
-          view: "scroller",
+          view: 'scroller',
           cells: [
             {
-              id: "gitLoggerList",
-              view: "list",
-              padding: "x-sm y",
-              batch: "list",
+              id: 'gitLoggerList',
+              view: 'list',
+              padding: 'x-sm y',
+              batch: 'list',
               selectable: !0,
-              flexSize: "flex",
-              listStyle: "side",
+              flexSize: 'flex',
+              listStyle: 'side',
               filter: (t) => {
                 const n = e.Ct().getValue();
                 return t.message.includes(n) || t.oid.includes(n);
@@ -18251,7 +18251,7 @@ requestAnimationFrame(() => LSC.start()),
                       `<span class='uk-badge uk-badge-notification uk-badge-danger'>${o}</span>`
                     ),
                   `${
-                    u.length ? `<div>${u.join(" ")}</div>` : ""
+                    u.length ? `<div>${u.join(' ')}</div>` : ''
                   }<span class='x-commit-title'>Commit:</span><small class='x-commit-oid uk-margin-small-right'>${n}</small>\n              <div><span class='x-commit-title'>Author:</span>${r} &lt;${c}&gt;</div>\n              <div><span class='x-commit-title'>Date:</span>${l}</div>\n              <div class='x-commit-message'>${a}</div>`
                 );
               },
@@ -18260,12 +18260,12 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
       },
-      document.getElementById("appContainer")
+      document.getElementById('appContainer')
     );
   }),
   m
-    .module("fileTreeController")
-    .require("model", "path", "session", "fileTree")
+    .module('fileTreeController')
+    .require('model', 'path', 'session', 'fileTree')
     .__init__(function (e, { model: t, path: n, session: i }) {
       (e.model = t), (e.path = n), (e.session = i);
     })
@@ -18275,7 +18275,7 @@ requestAnimationFrame(() => LSC.start()),
       }),
         (e.FileTreeController.prototype = {
           root: function () {
-            return this.tree().findOne("root", !0);
+            return this.tree().findOne('root', !0);
           },
           sync: function (t) {
             const n = this,
@@ -18319,12 +18319,12 @@ requestAnimationFrame(() => LSC.start()),
           },
           showInTree: function (e) {
             const t = this;
-            e.split("/").forEach(function (e, n, i) {
-              t.openBranch(i.slice(0, n + 1).join("/"));
+            e.split('/').forEach(function (e, n, i) {
+              t.openBranch(i.slice(0, n + 1).join('/'));
             });
           },
           get: function (e, t) {
-            const n = this.tree().findOne("path", e);
+            const n = this.tree().findOne('path', e);
             if (!n && t) throw new Error(`Path ${e} not found.`);
             return n;
           },
@@ -18345,7 +18345,7 @@ requestAnimationFrame(() => LSC.start()),
             this.tree().clearAll();
           },
           addRoot: function (e) {
-            const t = PathUtils.basename(e).replace(/«[^»]*»/g, "");
+            const t = PathUtils.basename(e).replace(/«[^»]*»/g, '');
             return this.add({
               $branch: !0,
               $draggable: !1,
@@ -18358,7 +18358,7 @@ requestAnimationFrame(() => LSC.start()),
           },
           addBranch: function (e, t) {
             if (!(t = t || this.getParentBranch(e)))
-              return void $LOG.warn("Could not find parent for: " + e);
+              return void $LOG.warn('Could not find parent for: ' + e);
             const n = PathUtils.basename(e);
             return this.add({
               $branch: !0,
@@ -18389,7 +18389,7 @@ requestAnimationFrame(() => LSC.start()),
           },
           addLeaf: function (e, t) {
             if (!(t = t || this.getParentBranch(e)))
-              return void $LOG.warn("Could not find parent for: " + e);
+              return void $LOG.warn('Could not find parent for: ' + e);
             const n = PathUtils.basename(e),
               i = {
                 $branch: !1,
@@ -18431,7 +18431,7 @@ requestAnimationFrame(() => LSC.start()),
         return r & n || r & s || r & a || r & o || r & i;
       },
     }),
-  m.module("files").def({
+  m.module('files').def({
     La: function (e) {
       const t = this,
         n = PathUtils.dirname(e);
@@ -18509,27 +18509,27 @@ requestAnimationFrame(() => LSC.start()),
         if (i)
           return Promise.reject({
             message: `You have ${i} unmerged file(s) in conflict.`,
-            name: "Commit Failed",
+            name: 'Commit Failed',
             files: n,
           });
         if (0 === n.length)
           return Promise.reject({
             message: i18nTag({
-              en: "No files were changed or added since the last commit.",
-              es: "No se cambiaron o añadieron ficheros desde la última consignación (commit).",
-              ja: "最後のコミットから変更/追加されたファイルはありません。",
-              pt: "Nenhum arquivo foi alterado ou adicionado desde a última submissão.",
-              ru: "Ни один файл не был изменен или добавлен с момента последней фиксации.",
-              zh: "在上次提交后没有添加或更改过文件",
-              zhTW: "從上次提交以來沒有任何檔案變動或加入",
+              en: 'No files were changed or added since the last commit.',
+              es: 'No se cambiaron o añadieron ficheros desde la última consignación (commit).',
+              ja: '最後のコミットから変更/追加されたファイルはありません。',
+              pt: 'Nenhum arquivo foi alterado ou adicionado desde a última submissão.',
+              ru: 'Ни один файл не был изменен или добавлен с момента последней фиксации.',
+              zh: '在上次提交后没有添加或更改过文件',
+              zhTW: '從上次提交以來沒有任何檔案變動或加入',
             }),
             name: i18nTag({
-              en: "No Changes",
-              es: "Sin Cambios",
-              ja: "変更なし",
-              pt: "Sem Alterações",
-              zh: "没有变化",
-              zhTW: "沒有變化",
+              en: 'No Changes',
+              es: 'Sin Cambios',
+              ja: '変更なし',
+              pt: 'Sem Alterações',
+              zh: '没有变化',
+              zhTW: '沒有變化',
             }),
             files: n,
           });
@@ -18545,8 +18545,8 @@ requestAnimationFrame(() => LSC.start()),
         await this.gitClient
           .Rn(e, n, i)
           .then(
-            GA_SendEvent_Success("commit_all", "git_core"),
-            GA_SendEvent_Failure("commit_all", "git_core")
+            GA_SendEvent_Success('commit_all', 'git_core'),
+            GA_SendEvent_Failure('commit_all', 'git_core')
           ),
         await this.session.Ve(e);
     },
@@ -18561,12 +18561,12 @@ requestAnimationFrame(() => LSC.start()),
             noChecks: !0,
           })
           .then(
-            GA_SendEvent_Success("git_revert_all", "git_core"),
-            GA_SendEvent_Failure("git_revert_all", "git_core")
+            GA_SendEvent_Success('git_revert_all', 'git_core'),
+            GA_SendEvent_Failure('git_revert_all', 'git_core')
           );
       t.prompt.ue(
-        "Revert Failed",
-        "Revert failed due to missing HEAD commit. Please perform a checkout to fix this problem."
+        'Revert Failed',
+        'Revert failed due to missing HEAD commit. Please perform a checkout to fix this problem.'
       );
     },
     Ha: function () {
@@ -18581,32 +18581,32 @@ requestAnimationFrame(() => LSC.start()),
       const e = this;
       if (!e.historyTracker.canUndo())
         return Promise.reject({
-          source: "files.model",
-          fn: "pvUndoLastActionAsync",
-          message: "No undo action exists.",
+          source: 'files.model',
+          fn: 'pvUndoLastActionAsync',
+          message: 'No undo action exists.',
         });
       const t = e.historyTracker.popUndo(),
         n = t.action;
       let i;
       switch (n) {
-        case "delete":
+        case 'delete':
           i = e.Za(t);
           break;
-        case "updatePath":
+        case 'updatePath':
           i = e.Qa(t);
           break;
-        case "addFile":
+        case 'addFile':
           i = e.Ya(t);
           break;
-        case "addFolder":
+        case 'addFolder':
           i = e.Ja(t);
           break;
         default:
           i = Promise.reject({
-            source: "files.model",
-            fn: "pvUndoLastActionAsync",
+            source: 'files.model',
+            fn: 'pvUndoLastActionAsync',
             action: n,
-            message: "Undo history action unrecognized",
+            message: 'Undo history action unrecognized',
           });
       }
       return i
@@ -18614,40 +18614,40 @@ requestAnimationFrame(() => LSC.start()),
           e.historyTracker.pushRedo(t);
         })
         .then(
-          GA_SendEvent_Success("undo_action", "undo_redo"),
-          GA_SendEvent_Failure("undo_action", "undo_redo")
+          GA_SendEvent_Success('undo_action', 'undo_redo'),
+          GA_SendEvent_Failure('undo_action', 'undo_redo')
         );
     },
     Xa: function () {
       const e = this;
       if (!e.historyTracker.canRedo())
         return Promise.reject({
-          source: "files.model",
-          fn: "pvRedoLastActionAsync",
-          message: "No redo action exists.",
+          source: 'files.model',
+          fn: 'pvRedoLastActionAsync',
+          message: 'No redo action exists.',
         });
       const t = e.historyTracker.popRedo(),
         n = t.action;
       let i;
       switch (n) {
-        case "delete":
+        case 'delete':
           i = e.ts(t);
           break;
-        case "updatePath":
+        case 'updatePath':
           i = e.os(t);
           break;
-        case "addFile":
+        case 'addFile':
           i = e.as(t);
           break;
-        case "addFolder":
+        case 'addFolder':
           i = e.ss(t);
           break;
         default:
           i = Promise.reject({
-            source: "files.model",
-            fn: "pvRedoLastActionAsync",
+            source: 'files.model',
+            fn: 'pvRedoLastActionAsync',
             action: n,
-            message: "Redo history action unrecognized",
+            message: 'Redo history action unrecognized',
           });
       }
       return i
@@ -18655,8 +18655,8 @@ requestAnimationFrame(() => LSC.start()),
           e.historyTracker.pushUndo(t);
         })
         .then(
-          GA_SendEvent_Success("redo_action", "undo_redo"),
-          GA_SendEvent_Failure("redo_action", "undo_redo")
+          GA_SendEvent_Success('redo_action', 'undo_redo'),
+          GA_SendEvent_Failure('redo_action', 'undo_redo')
         );
     },
     Za: async function (e) {
@@ -18732,8 +18732,8 @@ requestAnimationFrame(() => LSC.start()),
         i = await t.gitClient
           .Vt(n, PathUtils.relativeTo(e, n))
           .then(
-            GA_SendEvent_Success("git_revert_file", "git_core"),
-            GA_SendEvent_Failure("git_revert_file", "git_core")
+            GA_SendEvent_Success('git_revert_file', 'git_core'),
+            GA_SendEvent_Failure('git_revert_file', 'git_core')
           );
       if (null !== i)
         return (
@@ -18741,7 +18741,7 @@ requestAnimationFrame(() => LSC.start()),
             updateStatus: !0,
           }),
           t.observable.run({
-            action: "update",
+            action: 'update',
             path: e,
           })
         );
@@ -18754,22 +18754,22 @@ requestAnimationFrame(() => LSC.start()),
         0 === n.length &&
           t.prompt.ue(
             {
-              en: "No Remote",
-              es: "No Remoto",
-              ja: "リモートなし",
-              pt: "No Remoto",
-              ru: "Нет внешнего",
-              zh: "没有远端",
-              zhTW: "沒有遠端",
+              en: 'No Remote',
+              es: 'No Remoto',
+              ja: 'リモートなし',
+              pt: 'No Remoto',
+              ru: 'Нет внешнего',
+              zh: '没有远端',
+              zhTW: '沒有遠端',
             },
             {
-              en: "Please add a remote.",
-              es: "Por favor agregue un remoto.",
-              ja: "リモートを追加してください",
-              pt: "Por favor, adicione um remoto.",
-              ru: "Пожалуйста, добавьте внешний.",
-              zh: "请添加一个远端",
-              zhTW: "請添加一個遠端",
+              en: 'Please add a remote.',
+              es: 'Por favor agregue un remoto.',
+              ja: 'リモートを追加してください',
+              pt: 'Por favor, adicione um remoto.',
+              ru: 'Пожалуйста, добавьте внешний.',
+              zh: '请添加一个远端',
+              zhTW: '請添加一個遠端',
             }
           ),
         n.length > 0
@@ -18786,8 +18786,8 @@ requestAnimationFrame(() => LSC.start()),
         await t.gitClient
           .cn(e, o, i)
           .then(
-            GA_SendEvent_Success("pull_git_repo", "git_core"),
-            GA_SendEvent_Failure("pull_git_repo", "git_core")
+            GA_SendEvent_Success('pull_git_repo', 'git_core'),
+            GA_SendEvent_Failure('pull_git_repo', 'git_core')
           );
       }
     },
@@ -18802,8 +18802,8 @@ requestAnimationFrame(() => LSC.start()),
         await t.gitClient
           .In(e, o, i)
           .then(
-            GA_SendEvent_Success("push_git_repo", "git_core"),
-            GA_SendEvent_Failure("push_git_repo", "git_core")
+            GA_SendEvent_Success('push_git_repo', 'git_core'),
+            GA_SendEvent_Failure('push_git_repo', 'git_core')
           );
         const a = RES_I18N.Objects.Remote;
         t.prompt.ue(RES_I18N.Objects.SuccessfulFor(RES_I18N.Objects.Push), {
@@ -18825,7 +18825,7 @@ requestAnimationFrame(() => LSC.start()),
     ls: async function (e) {
       const { oldpath: t, path: n } = await this.ds(e);
       this.qa({
-        action: "delete",
+        action: 'delete',
         label: RES_I18N.Elements.Delete,
         oldpath: t,
         path: n,
@@ -18836,23 +18836,23 @@ requestAnimationFrame(() => LSC.start()),
       if (!t) {
         const i = n.editor.mi();
         switch (PathUtils.ext(e)) {
-          case ".html":
+          case '.html':
             t = n.templates.qe(i);
             break;
-          case ".js":
+          case '.js':
             t = n.templates.He(i);
             break;
-          case ".css":
+          case '.css':
             t = n.templates.Ke(i);
             break;
           default:
-            t = "";
+            t = '';
         }
       }
       await n.fs(e, t);
     },
     gs: function (e, t) {
-      return this.vs(e, PathUtils.join(t, PathUtils.basename(e)), "Move");
+      return this.vs(e, PathUtils.join(t, PathUtils.basename(e)), 'Move');
     },
     vs: async function (e, t, n) {
       return (
@@ -18861,7 +18861,7 @@ requestAnimationFrame(() => LSC.start()),
           path: t,
         }),
         this.qa({
-          action: "updatePath",
+          action: 'updatePath',
           label: n,
           oldpath: e,
           path: t,
@@ -18889,7 +18889,7 @@ requestAnimationFrame(() => LSC.start()),
     fs: async function (e, t) {
       await this.ws(e, t),
         this.qa({
-          action: "addFile",
+          action: 'addFile',
           label: i18nTag(RES_I18N.Actions.New(RES_I18N.Objects.File)),
           path: e,
           content: t,
@@ -18915,7 +18915,7 @@ requestAnimationFrame(() => LSC.start()),
       return (
         await this.bs(e),
         this.qa({
-          action: "addFolder",
+          action: 'addFolder',
           label: i18nTag(RES_I18N.Actions.New(RES_I18N.Objects.Folder)),
           path: e,
         })
@@ -18939,20 +18939,20 @@ requestAnimationFrame(() => LSC.start()),
               en: `Do you want to recreate these ${e} files?`,
             },
             cancelLabel: {
-              en: "Keep",
-              es: "Manten",
-              ja: "保持",
-              pt: "Manter",
-              zh: "保留",
-              zhTW: "保留",
+              en: 'Keep',
+              es: 'Manten',
+              ja: '保持',
+              pt: 'Manter',
+              zh: '保留',
+              zhTW: '保留',
             },
             okLabel: {
-              en: "Recreate",
-              es: "Recrear",
-              ja: "再作成する",
-              pt: "Recriar",
-              zh: "重新创建",
-              zhTW: "重新創建",
+              en: 'Recreate',
+              es: 'Recrear',
+              ja: '再作成する',
+              pt: 'Recriar',
+              zh: '重新创建',
+              zhTW: '重新創建',
             },
             onResult: n,
             onDismiss: i,
@@ -19000,10 +19000,10 @@ requestAnimationFrame(() => LSC.start()),
     _s: function (e) {
       return new Promise(function (t, n) {
         const i = new FileReader();
-        i.addEventListener("error", function () {
+        i.addEventListener('error', function () {
           n(i.error);
         }),
-          i.addEventListener("load", function () {
+          i.addEventListener('load', function () {
             t({
               name: e.name,
               data: i.result,
@@ -19014,30 +19014,30 @@ requestAnimationFrame(() => LSC.start()),
     },
   }),
   m
-    .module("files")
+    .module('files')
     .require(
-      "model",
-      "path",
-      "session",
-      "messages",
-      "templates",
-      "prompt",
-      "history",
-      "diff",
-      "project",
-      "gitClient",
-      "checkoutBranch",
-      "gitBranches",
-      "commitMessage",
-      "gitRemotes",
-      "initRepo",
-      "string",
-      "fileTreeController",
-      "metadata",
-      "gitLogger",
-      "zipper",
-      "memory",
-      "share"
+      'model',
+      'path',
+      'session',
+      'messages',
+      'templates',
+      'prompt',
+      'history',
+      'diff',
+      'project',
+      'gitClient',
+      'checkoutBranch',
+      'gitBranches',
+      'commitMessage',
+      'gitRemotes',
+      'initRepo',
+      'string',
+      'fileTreeController',
+      'metadata',
+      'gitLogger',
+      'zipper',
+      'memory',
+      'share'
     )
     .__init__(function (
       e,
@@ -19099,12 +19099,12 @@ requestAnimationFrame(() => LSC.start()),
         (e.historyTracker = new l.HistoryTracker()),
         (e.treeController = new b.FileTreeController(e.Gt)),
         (e.fileQuery = {
-          searchPhrase: "",
+          searchPhrase: '',
         }),
         y.observable.subscribe(({ path: t, action: n, status: i }) => {
           const o = e.Dt();
           switch (n) {
-            case "updateStatus": {
+            case 'updateStatus': {
               const n = o.get(t);
               n && o.markStatus(n, i), e.As();
               break;
@@ -19121,9 +19121,9 @@ requestAnimationFrame(() => LSC.start()),
             const e = (e, t) => e && PathUtils.childOf(e, t) && !A(e);
             if (e(a, s) || e(o, s))
               switch (t) {
-                case "mv":
-                case "rmdir":
-                case "rm": {
+                case 'mv':
+                case 'rmdir':
+                case 'rm': {
                   const e = r.get(a);
                   e && r.remove(e), $LOG.log(`[file:${t}] ${a}`);
                   break;
@@ -19131,24 +19131,24 @@ requestAnimationFrame(() => LSC.start()),
               }
             if (e(a, s) || e(o, s))
               switch (t) {
-                case "mv":
-                  "file" === n
+                case 'mv':
+                  'file' === n
                     ? r.get(o) || r.addLeaf(o)
-                    : "folder" === n &&
+                    : 'folder' === n &&
                       (r.get(o) || (o === s ? r.addRoot(o) : r.addBranch(o)),
                       r.sync(o)),
                     $LOG.log(`[file:sync] ${n}: ${o}`);
                   break;
-                case "write":
+                case 'write':
                   r.get(o) || r.addLeaf(o);
                   break;
-                case "mkdir":
+                case 'mkdir':
                   r.get(s) || r.addRoot(s),
                     PathUtils.normalizePath(o) !== s &&
                       PathUtils.relativeTo(o, s)
-                        .split("/")
+                        .split('/')
                         .map((e, t, n) => {
-                          const i = `${s}/${n.slice(0, t + 1).join("/")}`;
+                          const i = `${s}/${n.slice(0, t + 1).join('/')}`;
                           i === s || r.get(i) || r.addBranch(i);
                         });
               }
@@ -19157,16 +19157,16 @@ requestAnimationFrame(() => LSC.start()),
       ),
         i.observable.subscribe(async ({ action: t, project: n }) => {
           switch (t) {
-            case "setProject":
+            case 'setProject':
               e.Is(n);
               break;
-            case "open": {
+            case 'open': {
               const t = e.Dt();
               let { dir: i, currentFilePath: o } = n;
               if (
                 (t.clearAll(),
                 e.Ha(),
-                e.Ci().showBatch("list"),
+                e.Ci().showBatch('list'),
                 t.addRoot(i),
                 await t.sync(i),
                 o)
@@ -19174,14 +19174,14 @@ requestAnimationFrame(() => LSC.start()),
                 return (
                   o.startsWith(i) || (o = PathUtils.join(i, o)),
                   e.observable.run({
-                    action: "open",
+                    action: 'open',
                     path: o,
                     showInTree: !0,
                     skipSessionSave: !0,
                   })
                 );
               await e.observable.run({
-                action: "open",
+                action: 'open',
                 path: null,
               }),
                 await y.V(n),
@@ -19192,34 +19192,34 @@ requestAnimationFrame(() => LSC.start()),
     })
     .def({
       u: function () {
-        return $$("menuContainer");
+        return $$('menuContainer');
       },
       Dt: function () {
         return this.treeController;
       },
       Gt: function () {
-        return $$("filesTree");
+        return $$('filesTree');
       },
       Cs: function () {
-        return $$("filesGitList");
+        return $$('filesGitList');
       },
       Ci: function () {
-        return $$("filesContainer");
+        return $$('filesContainer');
       },
       contextMenu: function () {
-        return $$("fileContextMenu");
+        return $$('fileContextMenu');
       },
       Es: function () {
-        return $$("filesGitInitMenu");
+        return $$('filesGitInitMenu');
       },
       $s: function () {
-        return $$("filesBranchesRemotesMenu");
+        return $$('filesBranchesRemotesMenu');
       },
       Rs: function () {
-        return $$("filesAddMenuList");
+        return $$('filesAddMenuList');
       },
       Ts: function () {
-        return $$("filesAddMenuIcon");
+        return $$('filesAddMenuIcon');
       },
       Fs: function () {
         this.Ts().dropdownPopup.close(), this.dropdownMenu.close();
@@ -19231,17 +19231,17 @@ requestAnimationFrame(() => LSC.start()),
       Is: function (e) {
         if (e) {
           const { git: t, dir: n } = e;
-          $$("filesActionsContainer").showBatch(["search", "add"]),
-            $$("filesGitActionsContainer").showBatch(t ? "git" : "init"),
+          $$('filesActionsContainer').showBatch(['search', 'add']),
+            $$('filesGitActionsContainer').showBatch(t ? 'git' : 'init'),
             t &&
               this.gitClient.Ht(n).then((e) => {
-                $$("filesCurrentBranchItem").setValue(
-                  i18nTag(RES_I18N.Objects.BranchWithName(e || ""))
+                $$('filesCurrentBranchItem').setValue(
+                  i18nTag(RES_I18N.Objects.BranchWithName(e || ''))
                 );
               });
         } else
-          $$("filesActionsContainer").showBatch(),
-            $$("filesGitActionsContainer").showBatch();
+          $$('filesActionsContainer').showBatch(),
+            $$('filesGitActionsContainer').showBatch();
       },
       zs: function (e) {
         const { dir: t, defaultLaunchFilePath: n } = this.session.Se(),
@@ -19256,7 +19256,7 @@ requestAnimationFrame(() => LSC.start()),
       },
       Ps: function (e, t) {
         const n = this;
-        n.prompt.q(RES_I18N.Actions.New(RES_I18N.Objects.File), "", {
+        n.prompt.q(RES_I18N.Actions.New(RES_I18N.Objects.File), '', {
           placeholders: RES_I18N.Placeholders.EnterNameOrPath,
           showInput: !0,
           onResult: function (e) {
@@ -19264,13 +19264,13 @@ requestAnimationFrame(() => LSC.start()),
               .ps(e, t)
               .then(() =>
                 n.observable.run({
-                  action: "open",
+                  action: 'open',
                   path: e,
                 })
               )
               .then(
-                GA_SendEvent_Success("add_file", "files"),
-                GA_SendEvent_Failure("add_file", "files")
+                GA_SendEvent_Success('add_file', 'files'),
+                GA_SendEvent_Failure('add_file', 'files')
               );
           },
           onValidate: n.Ns.bind(n, e.path),
@@ -19282,15 +19282,15 @@ requestAnimationFrame(() => LSC.start()),
       },
       Os: function (e) {
         const t = this;
-        t.prompt.q(RES_I18N.Actions.New(RES_I18N.Objects.Folder), "", {
+        t.prompt.q(RES_I18N.Actions.New(RES_I18N.Objects.Folder), '', {
           placeholders: RES_I18N.Placeholders.EnterNameOrPath,
           showInput: !0,
           onResult: function (e) {
             return t
               .ys(e)
               .then(
-                GA_SendEvent_Success("add_folder", "files"),
-                GA_SendEvent_Failure("add_folder", "files")
+                GA_SendEvent_Success('add_folder', 'files'),
+                GA_SendEvent_Failure('add_folder', 'files')
               );
           },
           onValidate: t.Ns.bind(t, e.path),
@@ -19312,10 +19312,10 @@ requestAnimationFrame(() => LSC.start()),
             showInput: !0,
             onResult: function (n) {
               return t
-                .vs(e.path, n, "Rename")
+                .vs(e.path, n, 'Rename')
                 .then(
-                  GA_SendEvent_Success("rename_file", "files"),
-                  GA_SendEvent_Failure("rename_file", "files")
+                  GA_SendEvent_Success('rename_file', 'files'),
+                  GA_SendEvent_Failure('rename_file', 'files')
                 );
             },
             onValidate: t.Ns.bind(t, PathUtils.dirname(e.path)),
@@ -19329,7 +19329,7 @@ requestAnimationFrame(() => LSC.start()),
           RES_I18N.Actions.Delete(
             e.file ? RES_I18N.Objects.File : RES_I18N.Objects.Folder
           ),
-          "",
+          '',
           {
             message: RES_I18N.Actions.Delete({
               en: `: ${n}?`,
@@ -19344,8 +19344,8 @@ requestAnimationFrame(() => LSC.start()),
               return t
                 .ls(e.path)
                 .then(
-                  GA_SendEvent_Success("delete_file", "files"),
-                  GA_SendEvent_Failure("delete_file", "files")
+                  GA_SendEvent_Success('delete_file', 'files'),
+                  GA_SendEvent_Failure('delete_file', 'files')
                 );
             },
           }
@@ -19369,12 +19369,12 @@ requestAnimationFrame(() => LSC.start()),
       Ds: function (e) {
         this.prompt.q(RES_I18N.Elements.RevertAll, null, {
           message: {
-            en: "Revert all changes back to the HEAD commit? Warning: changes will be permanently lost!",
-            es: "¿Revertir todos los cambios a la confirmación HEAD? Advertencia: ¡los cambios se perderán permanentemente!",
-            ja: "本当すべての変更を取り消して、HEADのリビジョンに戻りますか。変更を破棄して?",
-            pt: "Reverter todas as alterações de volta para o commit HEAD? Aviso: as alterações serão perdidas permanentemente!",
-            zh: "确定要复原中的所有变更并回到HEAD版本？警告：更改将永久丢失!",
-            zhTW: "確定要復原中的所有變更並回到HEAD版本？警告：更改將永久丟失!",
+            en: 'Revert all changes back to the HEAD commit? Warning: changes will be permanently lost!',
+            es: '¿Revertir todos los cambios a la confirmación HEAD? Advertencia: ¡los cambios se perderán permanentemente!',
+            ja: '本当すべての変更を取り消して、HEADのリビジョンに戻りますか。変更を破棄して?',
+            pt: 'Reverter todas as alterações de volta para o commit HEAD? Aviso: as alterações serão perdidas permanentemente!',
+            zh: '确定要复原中的所有变更并回到HEAD版本？警告：更改将永久丢失!',
+            zhTW: '確定要復原中的所有變更並回到HEAD版本？警告：更改將永久丟失!',
           },
           okLabel: RES_I18N.Elements.Revert,
           onResult: this.Va.bind(this, e),
@@ -19395,24 +19395,24 @@ requestAnimationFrame(() => LSC.start()),
         return n ? Promise.reject(n) : i;
       },
       Ms: function () {
-        const e = $$("filesUndoIcon"),
-          t = $$("filesRedoIcon");
+        const e = $$('filesUndoIcon'),
+          t = $$('filesRedoIcon');
         if (e) {
           const t = this.historyTracker.getLastUndo();
           t
-            ? (e.enable(), e.setLabel(RES_I18N.Elements.Undo + ": " + t.label))
+            ? (e.enable(), e.setLabel(RES_I18N.Elements.Undo + ': ' + t.label))
             : e.disable();
         }
         if (t) {
           const e = this.historyTracker.getLastRedo();
           e
-            ? (t.enable(), t.setLabel(RES_I18N.Elements.Redo + ": " + e.label))
+            ? (t.enable(), t.setLabel(RES_I18N.Elements.Redo + ': ' + e.label))
             : t.disable();
         }
       },
       Ws: function (e, t) {
-        const n = (e && e.path) || "";
-        return n.slice(n.indexOf("/")).toLowerCase().includes(t);
+        const n = (e && e.path) || '';
+        return n.slice(n.indexOf('/')).toLowerCase().includes(t);
       },
       Vs: function (e) {
         const t = this,
@@ -19420,7 +19420,7 @@ requestAnimationFrame(() => LSC.start()),
         let i = !0;
         if (n) {
           i = !1;
-          const o = RegExp("(" + t.string.st(n) + ")", "ig");
+          const o = RegExp('(' + t.string.st(n) + ')', 'ig');
           o.test(e.name)
             ? ((e.label = e.name.replace(
                 o,
@@ -19435,127 +19435,127 @@ requestAnimationFrame(() => LSC.start()),
       },
     }),
   m
-    .module("files")
-    .require("fileTree")
+    .module('files')
+    .require('fileTree')
     .__init__(function (e, { fileTree: t }) {
       const n = {
-          id: "filesBarContainer",
-          flexSize: "none",
-          flexLayout: "column",
-          cls: "x-menu-title-bar shadow",
+          id: 'filesBarContainer',
+          flexSize: 'none',
+          flexLayout: 'column',
+          cls: 'x-menu-title-bar shadow',
           cells: [
             {
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   attributes: i18nAttributes({
-                    en: "Files",
-                    es: "Archivos",
-                    ja: "ファイル",
-                    pt: "Arquivos",
-                    ru: "файлы",
-                    zh: "文件",
-                    zhTW: "檔案",
+                    en: 'Files',
+                    es: 'Archivos',
+                    ja: 'ファイル',
+                    pt: 'Arquivos',
+                    ru: 'файлы',
+                    zh: '文件',
+                    zhTW: '檔案',
                   }),
                   on: {
                     onToggled: function (e) {
-                      const t = $$("filesScroller");
+                      const t = $$('filesScroller');
                       e.visible ? t.show() : t.hide();
                     },
                   },
                 },
                 {
-                  id: "filesActionsContainer",
-                  cls: "x-menu-icons",
-                  flexSize: "none",
-                  defaultBatch: "none",
+                  id: 'filesActionsContainer',
+                  cls: 'x-menu-icons',
+                  flexSize: 'none',
+                  defaultBatch: 'none',
                   cells: [
                     {
-                      batch: "search",
-                      view: "menuToggle",
-                      cls: "x-menu-icon",
-                      icon: "search",
-                      title: "Search Files",
+                      batch: 'search',
+                      view: 'menuToggle',
+                      cls: 'x-menu-icon',
+                      icon: 'search',
+                      title: 'Search Files',
                       on: {
                         onToggled: function () {
-                          const e = $$("filesSearch");
+                          const e = $$('filesSearch');
                           this.isSelected() ? (e.show(), e.focus()) : e.hide();
                         },
                       },
                     },
                     {
-                      id: "filesAddMenuIcon",
-                      view: "menuIcon",
-                      batch: "add",
-                      icon: "plus",
-                      title: "Add Files",
+                      id: 'filesAddMenuIcon',
+                      view: 'menuIcon',
+                      batch: 'add',
+                      icon: 'plus',
+                      title: 'Add Files',
                       dropdownOptions: {
-                        pos: "bottom-right",
-                        relativeTo: "filesBarContainer",
-                        dropdownAnimation: "",
+                        pos: 'bottom-right',
+                        relativeTo: 'filesBarContainer',
+                        dropdownAnimation: '',
                       },
                       dropdown: {
-                        id: "filesAddMenuList",
-                        view: "list",
-                        listStyle: "dropdown",
+                        id: 'filesAddMenuList',
+                        view: 'list',
+                        listStyle: 'dropdown',
                         data: [
                           {
-                            view: "link",
-                            value: "file",
-                            iconClass: "ti-file",
+                            view: 'link',
+                            value: 'file',
+                            iconClass: 'ti-file',
                             label: i18nTag(
                               RES_I18N.Actions.New(RES_I18N.Objects.File)
                             ),
                           },
                           {
-                            view: "link",
-                            value: "folder",
-                            iconClass: "ti-folder",
+                            view: 'link',
+                            value: 'folder',
+                            iconClass: 'ti-folder',
                             label: i18nTag(
                               RES_I18N.Actions.New(RES_I18N.Objects.Folder)
                             ),
                           },
-                          s("filesUploadButton"),
+                          s('filesUploadButton'),
                           {
                             $divider: !0,
                           },
                           {
-                            id: "filesUndoIcon",
-                            view: "link",
-                            value: "undo",
-                            iconClass: "ti-back-left",
+                            id: 'filesUndoIcon',
+                            view: 'link',
+                            value: 'undo',
+                            iconClass: 'ti-back-left',
                             label: RES_I18N.Elements.Undo,
                             disabled: !0,
                           },
                           {
-                            id: "filesRedoIcon",
-                            view: "link",
-                            value: "redo",
-                            iconClass: "ti-back-right",
+                            id: 'filesRedoIcon',
+                            view: 'link',
+                            value: 'redo',
+                            iconClass: 'ti-back-right',
                             label: RES_I18N.Elements.Redo,
                             disabled: !0,
                           },
                         ],
                         on: {
                           onOpen: function () {
-                            $$("filesUploadButton").reset(), e.Ms();
+                            $$('filesUploadButton').reset(), e.Ms();
                           },
                           onItemClick: function (t) {
                             if (e.session.Se())
                               switch (t.value) {
-                                case "file":
+                                case 'file':
                                   e.Io();
                                   break;
-                                case "folder":
+                                case 'folder':
                                   e.Us();
                                   break;
-                                case "undo":
+                                case 'undo':
                                   e.Ka();
                                   break;
-                                case "redo":
+                                case 'redo':
                                   e.Xa();
                               }
                           },
@@ -19567,12 +19567,12 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             {
-              id: "filesSearch",
-              cls: "x-menu-search",
-              view: "searchField",
-              batch: "search",
+              id: 'filesSearch',
+              cls: 'x-menu-search',
+              view: 'searchField',
+              batch: 'search',
               hidden: !0,
-              flexSize: "none",
+              flexSize: 'none',
               i18nPlaceholders: RES_I18N.Actions.Enter(
                 RES_I18N.Objects.NameFor(RES_I18N.Objects.File)
               ),
@@ -19580,11 +19580,11 @@ requestAnimationFrame(() => LSC.start()),
               on: {
                 onFocus: function () {
                   (e.u().$blockDrawerPan = !0),
-                    UI.addClass(this.el, "uk-focus");
+                    UI.addClass(this.el, 'uk-focus');
                 },
                 onBlur: function () {
                   (e.u().$blockDrawerPan = !1),
-                    UI.removeClass(this.el, "uk-focus");
+                    UI.removeClass(this.el, 'uk-focus');
                 },
                 onInput: function () {
                   (e.fileQuery.searchPhrase = this.getValue()),
@@ -19595,46 +19595,46 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         i = {
-          id: "filesGitBarContainer",
-          flexSize: "none",
-          flexLayout: "column",
-          cls: "x-menu-title-bar shadow collapsed",
+          id: 'filesGitBarContainer',
+          flexSize: 'none',
+          flexLayout: 'column',
+          cls: 'x-menu-title-bar shadow collapsed',
           cells: [
             {
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   attributes: i18nAttributes({
-                    en: "SOURCE CONTROL",
-                    es: "CONTROL DE VERSIONES",
-                    ja: "ソース管理",
-                    pt: "CONTROLE DE VERSÃO",
-                    ru: "Управления источником",
-                    zh: "源代码控制",
-                    zhTW: "源代碼控制",
+                    en: 'SOURCE CONTROL',
+                    es: 'CONTROL DE VERSIONES',
+                    ja: 'ソース管理',
+                    pt: 'CONTROLE DE VERSÃO',
+                    ru: 'Управления источником',
+                    zh: '源代码控制',
+                    zhTW: '源代碼控制',
                   }),
                   visible: !1,
                   on: {
                     onToggled: function (e) {
-                      const t = $$("filesGitScroller");
+                      const t = $$('filesGitScroller');
                       e.visible ? t.show() : t.hide();
                     },
                   },
                 },
                 {
-                  id: "filesGitActionsContainer",
-                  cls: "x-menu-icons",
-                  flexSize: "none",
-                  defaultBatch: "none",
+                  id: 'filesGitActionsContainer',
+                  cls: 'x-menu-icons',
+                  flexSize: 'none',
+                  defaultBatch: 'none',
                   cells: [
                     {
-                      view: "menuIcon",
-                      batch: "init",
-                      icon: "plus",
-                      title: "Git Init",
+                      view: 'menuIcon',
+                      batch: 'init',
+                      icon: 'plus',
+                      title: 'Git Init',
                       on: {
                         onClick: function () {
                           const t = e.session.Ae();
@@ -19643,49 +19643,49 @@ requestAnimationFrame(() => LSC.start()),
                       },
                     },
                     {
-                      view: "menuIcon",
-                      batch: "git",
-                      icon: "git-fork",
-                      title: "Branches/Remotes",
+                      view: 'menuIcon',
+                      batch: 'git',
+                      icon: 'git-fork',
+                      title: 'Branches/Remotes',
                       dropdownOptions: {
-                        pos: "bottom-right",
-                        relativeTo: "filesGitBarContainer",
-                        dropdownAnimation: "",
-                        dropdownClass: "uk-dropdown-close x-dropdown-large",
+                        pos: 'bottom-right',
+                        relativeTo: 'filesGitBarContainer',
+                        dropdownAnimation: '',
+                        dropdownClass: 'uk-dropdown-close x-dropdown-large',
                       },
                       dropdown: {
-                        id: "filesBranchesRemotesMenu",
-                        view: "list",
-                        listStyle: "dropdown",
+                        id: 'filesBranchesRemotesMenu',
+                        view: 'list',
+                        listStyle: 'dropdown',
                         data: [
                           {
-                            view: "link",
-                            value: "git:branches",
-                            icon: "git-branch",
+                            view: 'link',
+                            value: 'git:branches',
+                            icon: 'git-branch',
                             label: RES_I18N.Elements.Branches,
                           },
                           {
-                            view: "link",
-                            value: "git:checkout",
-                            icon: "pull",
+                            view: 'link',
+                            value: 'git:checkout',
+                            icon: 'pull',
                             label: RES_I18N.Elements.Checkout,
                           },
                           {
-                            view: "link",
-                            value: "git:remotes",
-                            icon: "social",
+                            view: 'link',
+                            value: 'git:remotes',
+                            icon: 'social',
                             label: RES_I18N.Elements.Remotes,
                           },
                           {
-                            view: "link",
-                            value: "git:fetch",
-                            icon: "download",
+                            view: 'link',
+                            value: 'git:fetch',
+                            icon: 'download',
                             label: i18nTag(RES_I18N.Objects.Fetch),
                           },
                           {
-                            view: "link",
-                            value: "git:log",
-                            icon: "list",
+                            view: 'link',
+                            value: 'git:log',
+                            icon: 'list',
                             label: RES_I18N.Elements.LogHistory,
                           },
                         ],
@@ -19694,19 +19694,19 @@ requestAnimationFrame(() => LSC.start()),
                             const n = e.session.Ae();
                             if (n)
                               switch (t.value) {
-                                case "git:branches":
+                                case 'git:branches':
                                   e.gitBranches.wa(n);
                                   break;
-                                case "git:remotes":
+                                case 'git:remotes':
                                   e.gitRemotes.Oa(n);
                                   break;
-                                case "git:fetch":
+                                case 'git:fetch':
                                   e.gitRemotes.Ra(n);
                                   break;
-                                case "git:checkout":
+                                case 'git:checkout':
                                   e.checkoutBranch.ia(n);
                                   break;
-                                case "git:log":
+                                case 'git:log':
                                   e.gitLogger.Ua(n);
                               }
                           },
@@ -19714,51 +19714,51 @@ requestAnimationFrame(() => LSC.start()),
                       },
                     },
                     {
-                      view: "menuIcon",
-                      batch: "git",
-                      icon: "git-branch",
-                      title: "Git Operations",
+                      view: 'menuIcon',
+                      batch: 'git',
+                      icon: 'git-branch',
+                      title: 'Git Operations',
                       dropdownOptions: {
-                        pos: "bottom-right",
-                        relativeTo: "filesGitBarContainer",
-                        dropdownAnimation: "",
-                        dropdownClass: "uk-dropdown-close x-dropdown-large",
+                        pos: 'bottom-right',
+                        relativeTo: 'filesGitBarContainer',
+                        dropdownAnimation: '',
+                        dropdownClass: 'uk-dropdown-close x-dropdown-large',
                       },
                       dropdown: {
-                        view: "list",
-                        listStyle: "dropdown",
+                        view: 'list',
+                        listStyle: 'dropdown',
                         data: [
                           {
-                            id: "filesCurrentBranchItem",
-                            view: "label",
-                            cls: "uk-nav-header",
-                            label: i18nTag(RES_I18N.Objects.BranchWithName("")),
+                            id: 'filesCurrentBranchItem',
+                            view: 'label',
+                            cls: 'uk-nav-header',
+                            label: i18nTag(RES_I18N.Objects.BranchWithName('')),
                           },
                           {
-                            id: "filesCommitAllMenuItem",
-                            view: "link",
-                            value: "git:commit",
-                            icon: "file-edit",
+                            id: 'filesCommitAllMenuItem',
+                            view: 'link',
+                            value: 'git:commit',
+                            icon: 'file-edit',
                             label: RES_I18N.Elements.CommitAll,
                           },
                           {
-                            view: "link",
-                            value: "git:pull",
-                            icon: "pull",
+                            view: 'link',
+                            value: 'git:pull',
+                            icon: 'pull',
                             label: i18nTag(RES_I18N.Objects.Pull),
                           },
                           {
-                            id: "filesPushMenuItem",
-                            view: "link",
-                            value: "git:push",
-                            icon: "push",
+                            id: 'filesPushMenuItem',
+                            view: 'link',
+                            value: 'git:push',
+                            icon: 'push',
                             label: i18nTag(RES_I18N.Objects.Push),
                           },
                           {
-                            id: "filesRevertAllMenuItem",
-                            view: "link",
-                            value: "git:revert",
-                            iconClass: "ti-back-left",
+                            id: 'filesRevertAllMenuItem',
+                            view: 'link',
+                            value: 'git:revert',
+                            iconClass: 'ti-back-left',
                             label: RES_I18N.Elements.RevertAll,
                           },
                         ],
@@ -19772,17 +19772,17 @@ requestAnimationFrame(() => LSC.start()),
                                 : e;
                             e.gitClient.Zt(t).then((i) => {
                               e.gitClient.$n(t, i).then((e) => {
-                                $$("filesPushMenuItem").setLabel(
+                                $$('filesPushMenuItem').setLabel(
                                   n(i18nTag(RES_I18N.Objects.Push), e)
                                 );
                               });
                             });
                             const i = e.Cs().data,
                               o = i ? i.length : 0;
-                            $$("filesCommitAllMenuItem").setLabel(
+                            $$('filesCommitAllMenuItem').setLabel(
                               n(RES_I18N.Elements.CommitAll, o)
                             ),
-                              $$("filesRevertAllMenuItem").setLabel(
+                              $$('filesRevertAllMenuItem').setLabel(
                                 n(RES_I18N.Elements.RevertAll, o)
                               );
                           },
@@ -19790,13 +19790,13 @@ requestAnimationFrame(() => LSC.start()),
                             const n = e.session.Ae();
                             if (n)
                               switch (t.value) {
-                                case "git:commit":
+                                case 'git:commit':
                                   return e.Wa(n);
-                                case "git:revert":
+                                case 'git:revert':
                                   return e.Ds(n);
-                                case "git:pull":
+                                case 'git:pull':
                                   return e.hn(n);
-                                case "git:push":
+                                case 'git:push':
                                   return e.hs(n);
                               }
                           },
@@ -19811,172 +19811,172 @@ requestAnimationFrame(() => LSC.start()),
         };
       e.dropdownMenu = UI.new(
         {
-          view: "dropdown",
-          dropdownAnimation: "",
+          view: 'dropdown',
+          dropdownAnimation: '',
           dropdown: {
-            id: "fileContextMenu",
-            view: "list",
+            id: 'fileContextMenu',
+            view: 'list',
             data: [
               {
-                id: "pasteItemContextButton",
-                view: "link",
-                value: "paste",
-                iconClass: "ti-paste",
+                id: 'pasteItemContextButton',
+                view: 'link',
+                value: 'paste',
+                iconClass: 'ti-paste',
                 label: RES_I18N.Elements.Paste,
-                batch: "pastable",
+                batch: 'pastable',
               },
               {
                 $divider: !0,
-                batch: "pastable",
+                batch: 'pastable',
               },
               {
-                id: "newFileContextButton",
-                view: "link",
-                value: "new",
-                iconClass: "ti-file",
+                id: 'newFileContextButton',
+                view: 'link',
+                value: 'new',
+                iconClass: 'ti-file',
                 label: i18nTag(RES_I18N.Actions.New(RES_I18N.Objects.File)),
-                batch: "folder",
+                batch: 'folder',
               },
               {
-                id: "newFolderContextButton",
-                view: "link",
-                value: "folder",
-                iconClass: "ti-folder",
+                id: 'newFolderContextButton',
+                view: 'link',
+                value: 'folder',
+                iconClass: 'ti-folder',
                 label: i18nTag(RES_I18N.Actions.New(RES_I18N.Objects.Folder)),
-                batch: "folder",
+                batch: 'folder',
               },
-              s("uploadFileContextButton"),
+              s('uploadFileContextButton'),
               {
                 $divider: !0,
-                batch: "folder",
+                batch: 'folder',
               },
               {
-                id: "cutItemContextButton",
-                view: "link",
-                value: "cut",
-                iconClass: "ti-cut",
+                id: 'cutItemContextButton',
+                view: 'link',
+                value: 'cut',
+                iconClass: 'ti-cut',
                 label: RES_I18N.Elements.Cut,
-                batch: "cutable",
+                batch: 'cutable',
               },
               {
-                id: "renameItemContextButton",
-                view: "link",
-                value: "rename",
-                iconClass: "ti-pencil",
+                id: 'renameItemContextButton',
+                view: 'link',
+                value: 'rename',
+                iconClass: 'ti-pencil',
                 label: RES_I18N.Elements.Rename,
-                batch: "renameable",
+                batch: 'renameable',
               },
               {
-                id: "deleteItemContextButton",
-                view: "link",
-                value: "delete",
-                iconClass: "ti-trash",
+                id: 'deleteItemContextButton',
+                view: 'link',
+                value: 'delete',
+                iconClass: 'ti-trash',
                 label: RES_I18N.Elements.Delete,
-                batch: "editable",
+                batch: 'editable',
               },
               {
-                id: "shareItemContextButton",
-                view: "link",
-                value: "share",
-                iconClass: "ti-link",
+                id: 'shareItemContextButton',
+                view: 'link',
+                value: 'share',
+                iconClass: 'ti-link',
                 label: RES_I18N.Elements.ShareLink,
-                batch: "file:edit",
+                batch: 'file:edit',
               },
               {
-                id: "exportItemContextButton",
-                view: "link",
-                value: "export",
-                iconClass: "ti-share",
+                id: 'exportItemContextButton',
+                view: 'link',
+                value: 'export',
+                iconClass: 'ti-share',
                 label: RES_I18N.Elements.Export,
-                batch: "exportable",
+                batch: 'exportable',
               },
               {
                 $divider: !0,
-                batch: "git:divider",
+                batch: 'git:divider',
               },
               {
-                view: "link",
-                value: "diff",
-                iconClass: "ti-exchange-vertical",
+                view: 'link',
+                value: 'diff',
+                iconClass: 'ti-exchange-vertical',
                 label: i18nTag(RES_I18N.Actions.View(RES_I18N.Objects.Diff)),
-                batch: "git:changed",
+                batch: 'git:changed',
               },
               {
-                view: "link",
-                value: "resolve-conflict",
-                icon: "check",
+                view: 'link',
+                value: 'resolve-conflict',
+                icon: 'check',
                 label: RES_I18N.Elements.MarkResolved,
-                batch: "git:conflict",
+                batch: 'git:conflict',
               },
               {
-                view: "link",
-                value: "revert",
-                iconClass: "ti-back-left",
+                view: 'link',
+                value: 'revert',
+                iconClass: 'ti-back-left',
                 label: RES_I18N.Elements.Revert,
-                batch: "git:changed",
+                batch: 'git:changed',
               },
               {
                 $divider: !0,
-                batch: "file",
+                batch: 'file',
               },
               {
-                view: "link",
-                value: "edit",
-                iconClass: "ti-pencil-alt",
+                view: 'link',
+                value: 'edit',
+                iconClass: 'ti-pencil-alt',
                 label: RES_I18N.Elements.Edit,
-                batch: "file:edit",
+                batch: 'file:edit',
               },
               {
-                view: "link",
-                value: "preview",
-                iconClass: "ti-image",
+                view: 'link',
+                value: 'preview',
+                iconClass: 'ti-image',
                 label: i18nTag(RES_I18N.Objects.Preview),
-                batch: "file:preview",
+                batch: 'file:preview',
               },
               {
-                id: "setAsDefaultItemContextButton",
-                view: "link",
-                value: "default",
-                icon: "star",
-                label: "Launch Default",
-                batch: "file:default",
+                id: 'setAsDefaultItemContextButton',
+                view: 'link',
+                value: 'default',
+                icon: 'star',
+                label: 'Launch Default',
+                batch: 'file:default',
               },
             ],
             on: {
               onOpen: function (t, n, i) {
-                const o = ["renameable"];
+                const o = ['renameable'];
                 if (
                   ((this.masterConfig = i),
-                  i.root || (o.push("editable"), o.push("cutable")),
+                  i.root || (o.push('editable'), o.push('cutable')),
                   i.file)
                 ) {
-                  const t = PathUtils.ext(i.path || ""),
+                  const t = PathUtils.ext(i.path || ''),
                     n = e.editor.Xn(t),
                     a = e.viewer.Xn(t);
                   let s = !1;
-                  o.push("file"),
+                  o.push('file'),
                     console.log(i.status),
                     i.status & GitStatusTypes.CHANGED &&
-                      (e.path.tt(i.path) || (o.push("git:changed"), (s = !0))),
+                      (e.path.tt(i.path) || (o.push('git:changed'), (s = !0))),
                     i.status & GitStatusTypes.CONFLICT &&
-                      (o.push("git:conflict"), (s = !0)),
-                    s && o.push("git:divider"),
+                      (o.push('git:conflict'), (s = !0)),
+                    s && o.push('git:divider'),
                     i.isDefaultLaunchFile ||
-                      ".html" != t ||
-                      o.push("file:default"),
-                    (!n && a) || o.push("file:edit"),
-                    a && o.push("file:preview");
+                      '.html' != t ||
+                      o.push('file:default'),
+                    (!n && a) || o.push('file:edit'),
+                    a && o.push('file:preview');
                 } else {
                   if (this.source) {
                     const e = this.source.path,
                       t = i.path;
-                    e === t || t.startsWith(e) || o.push("pastable");
+                    e === t || t.startsWith(e) || o.push('pastable');
                   }
-                  o.push("folder");
+                  o.push('folder');
                 }
-                o.push("exportable"),
+                o.push('exportable'),
                   this.showBatch(o),
-                  $$("uploadFileContextButton").reset();
+                  $$('uploadFileContextButton').reset();
               },
               onClose: function () {
                 this.masterConfig = null;
@@ -19986,65 +19986,65 @@ requestAnimationFrame(() => LSC.start()),
                   i = n.masterConfig,
                   o = i && i.path;
                 switch (t.value) {
-                  case "cut":
-                    (n.source = i), GA_SendEvent("cut_file", "files");
+                  case 'cut':
+                    (n.source = i), GA_SendEvent('cut_file', 'files');
                     break;
-                  case "paste": {
+                  case 'paste': {
                     const t = n.source && n.source.path;
                     e.Dt().get(t) &&
                       (t === o ||
                         o.startsWith(t) ||
                         (e.gs(t, o), i.$branch && i.$closed && e.Gt().open(i))),
                       (n.source = null),
-                      GA_SendEvent("paste_file", "files");
+                      GA_SendEvent('paste_file', 'files');
                     break;
                   }
-                  case "edit":
+                  case 'edit':
                     e.observable.run({
-                      action: "open",
+                      action: 'open',
                       path: o,
                     });
                     break;
-                  case "share":
+                  case 'share':
                     e.share.Si({
                       title: RES_I18N.Elements.ShareLink,
                       message:
-                        "The url below is self-contained and can be accessed without an internet connection if you downloaded the app.",
+                        'The url below is self-contained and can be accessed without an internet connection if you downloaded the app.',
                       value: await e.share.xi(o),
                     });
                     break;
-                  case "export":
+                  case 'export':
                     i.file ? e.zipper.gt(o) : e.zipper.ut(o);
                     break;
-                  case "preview":
+                  case 'preview':
                     e.observable.run({
-                      action: "open",
+                      action: 'open',
                       path: o,
                       preview: !0,
                     });
                     break;
-                  case "folder":
+                  case 'folder':
                     e.Us(i);
                     break;
-                  case "new":
+                  case 'new':
                     e.Io(i);
                     break;
-                  case "rename":
+                  case 'rename':
                     i.root ? e.La(o) : e.Bs(i);
                     break;
-                  case "delete":
+                  case 'delete':
                     e.Ls(i);
                     break;
-                  case "diff":
+                  case 'diff':
                     e.diff.Po(o);
                     break;
-                  case "revert":
+                  case 'revert':
                     e.Gs(o);
                     break;
-                  case "resolve-conflict":
+                  case 'resolve-conflict':
                     e.rs(o);
                     break;
-                  case "default":
+                  case 'default':
                     e.zs(i);
                 }
               },
@@ -20054,19 +20054,19 @@ requestAnimationFrame(() => LSC.start()),
         document.body
       );
       const o = {
-          id: "filesContainer",
-          batch: "projects",
+          id: 'filesContainer',
+          batch: 'projects',
           flex: !1,
-          flexLayout: "",
-          flexSize: "",
-          fill: "height",
+          flexLayout: '',
+          flexSize: '',
+          fill: 'height',
           cells: [
             {
-              id: "filesTree",
-              view: "fileTree",
-              batch: "list",
-              flexSize: "flex",
-              dataTransfer: "path",
+              id: 'filesTree',
+              view: 'fileTree',
+              batch: 'list',
+              flexSize: 'flex',
+              dataTransfer: 'path',
               data: [],
               filter: e.Vs.bind(e),
               allowDrag: !0,
@@ -20100,11 +20100,11 @@ requestAnimationFrame(() => LSC.start()),
                 onItemClick: function (t, n, i) {
                   UI.preventEvent(i),
                     e.Fs(),
-                    "I" == i.target.tagName && UI.hasClass(i.target, "menu")
+                    'I' == i.target.tagName && UI.hasClass(i.target, 'menu')
                       ? (e.dropdownMenu.open(t),
                         e.dropdownMenu.positionNextTo(
                           n,
-                          "bottom-right",
+                          'bottom-right',
                           this.config.dropdownMarginX,
                           this.config.dropdownMarginY
                         ),
@@ -20112,15 +20112,15 @@ requestAnimationFrame(() => LSC.start()),
                         this.toggle(t))
                       : t.$branch ||
                         e.observable.run({
-                          action: "open",
+                          action: 'open',
                           path: t.path,
                         });
                 },
               },
             },
             {
-              batch: "list",
-              view: "spacer",
+              batch: 'list',
+              view: 'spacer',
               height: 128,
             },
           ],
@@ -20131,27 +20131,27 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
         a = {
-          id: "filesGitList",
-          view: "list",
-          cls: "x-file-git-list",
-          listStyle: "side",
-          itemTagClass: "uk-flex",
+          id: 'filesGitList',
+          view: 'list',
+          cls: 'x-file-git-list',
+          listStyle: 'side',
+          itemTagClass: 'uk-flex',
           template: function ({ status: n, path: i }) {
             const o = e.session.Ae(),
               a = t.yt(n),
               s = PathUtils.basename(i),
               r = PathUtils.dirname(PathUtils.relativeTo(i, o));
             return `<div class='uk-flex-item-1'>${`<span class='x-git-list-name x-text-overflow-ellipsis ${a}'>${s}</span>`}${
-              "." !== r
+              '.' !== r
                 ? `<span class='x-git-ignored x-git-list-dir x-text-overflow-ellipsis'>${r}</span>`
-                : ""
+                : ''
             }</div><div class='x-menu-icons'><i title='Revert' class='uk-icon-refresh revert'></i></div>`;
           },
           on: {
             onItemClick: function ({ path: t }, n, i) {
               UI.preventEvent(i),
-                "I" == i.target.tagName
-                  ? UI.hasClass(i.target, "revert") && e.Gs(t)
+                'I' == i.target.tagName
+                  ? UI.hasClass(i.target, 'revert') && e.Gs(t)
                   : e.diff.Po(t);
             },
           },
@@ -20160,14 +20160,14 @@ requestAnimationFrame(() => LSC.start()),
       function s(t) {
         return {
           id: t,
-          view: "link",
-          uploader: "multiple",
-          value: "upload",
-          batch: "folder",
-          iconClass: "ti-upload",
+          view: 'link',
+          uploader: 'multiple',
+          value: 'upload',
+          batch: 'folder',
+          iconClass: 'ti-upload',
           label: i18nTag(RES_I18N.Actions.Upload(RES_I18N.Objects.File)),
           reset: function () {
-            this._uploader.value = "";
+            this._uploader.value = '';
           },
           on: {
             onClick: function (t, n, i) {
@@ -20179,23 +20179,23 @@ requestAnimationFrame(() => LSC.start()),
               const i = e.session.Ae();
               if (i) {
                 const t = this.parentConfig ? this.parentConfig.path : i;
-                e.xs(t, n.files), GA_SendEvent("upload_files", "files");
+                e.xs(t, n.files), GA_SendEvent('upload_files', 'files');
               }
             },
           },
         };
       }
       e.view = UI.new({
-        batch: "files",
-        fill: "height",
-        flexLayout: "column",
-        cls: "x-max-width-100",
+        batch: 'files',
+        fill: 'height',
+        flexLayout: 'column',
+        cls: 'x-max-width-100',
         cells: [
           n,
           {
-            id: "filesScroller",
-            view: "scroller",
-            flexSize: "flex",
+            id: 'filesScroller',
+            view: 'scroller',
+            flexSize: 'flex',
             cells: [o],
             on: {
               onScroll: function () {
@@ -20205,10 +20205,10 @@ requestAnimationFrame(() => LSC.start()),
           },
           i,
           {
-            id: "filesGitScroller",
-            view: "scroller",
+            id: 'filesGitScroller',
+            view: 'scroller',
             hidden: !0,
-            flexSize: "flex",
+            flexSize: 'flex',
             cells: [a],
             on: {
               onScroll: function () {
@@ -20219,7 +20219,7 @@ requestAnimationFrame(() => LSC.start()),
         ],
       });
     }),
-  m.module("projects").def({
+  m.module('projects').def({
     Hs: UIkit2.Utils.debounce(
       function () {
         this.M();
@@ -20230,29 +20230,29 @@ requestAnimationFrame(() => LSC.start()),
     M: async function () {
       const e = await this.model.Oe();
       e.sort((e, t) => t.modifiedAt - e.modifiedAt),
-        this.container().showBatch(e.length > 0 ? "list" : "empty"),
+        this.container().showBatch(e.length > 0 ? 'list' : 'empty'),
         this.$i().setData(e),
         this.qs();
     },
   }),
   m
-    .module("projects")
+    .module('projects')
     .require(
-      "prompt",
-      "project",
-      "messages",
-      "session",
-      "date",
-      "path",
-      "zipper",
-      "cloneRepo",
-      "addGitAuth",
-      "checkoutBranch",
-      "gitClient",
-      "model",
-      "landing",
-      "string",
-      "files"
+      'prompt',
+      'project',
+      'messages',
+      'session',
+      'date',
+      'path',
+      'zipper',
+      'cloneRepo',
+      'addGitAuth',
+      'checkoutBranch',
+      'gitClient',
+      'model',
+      'landing',
+      'string',
+      'files'
     )
     .__init__(function (
       e,
@@ -20295,27 +20295,27 @@ requestAnimationFrame(() => LSC.start()),
         observable: new ObservableClass(),
       }),
         o.observable.subscribe(({ action: t }) => {
-          ("open" !== t && "close" !== t) || e.qs();
+          ('open' !== t && 'close' !== t) || e.qs();
         }),
         p.observable.subscribe(({ type: t }) => {
-          ("project" !== t && "projects" !== t) || e.Hs();
+          ('project' !== t && 'projects' !== t) || e.Hs();
         });
     })
     .def({
       qs: function () {
         const e = this.$i();
         e.refresh(), e.deselectAll();
-        const t = e.findOne("dir", this.session.Ae());
+        const t = e.findOne('dir', this.session.Ae());
         t && e.select(t);
       },
       Ti: function () {
-        return $$("projectsSearch");
+        return $$('projectsSearch');
       },
       container: function () {
-        return $$("projectsContainer");
+        return $$('projectsContainer');
       },
       $i: function () {
-        return $$("projectsList");
+        return $$('projectsList');
       },
       Ks: function () {
         this.projectMenu.close();
@@ -20324,7 +20324,7 @@ requestAnimationFrame(() => LSC.start()),
         const t = this,
           n = String(Math.random()).slice(2, 5),
           i = t.string.at(PathUtils.basename(e));
-        t.prompt.q(RES_I18N.Actions.Delete(RES_I18N.Objects.Project), "", {
+        t.prompt.q(RES_I18N.Actions.Delete(RES_I18N.Objects.Project), '', {
           message: {
             en: `Type '${n}' to confirm. '${i}' will be permanently deleted. It can NOT be recovered!`,
             es: `Escriba '${n}' para confirmar. '${i}' se borrará permanentemente. ¡No se podrá recuperar!`,
@@ -20341,7 +20341,7 @@ requestAnimationFrame(() => LSC.start()),
             if (o !== n)
               return t.prompt.Lt(`What you typed did not match '${n}'.`), !0;
             t.model.P(e).then(function () {
-              t.messages.dt("deleteProjectMessage", {
+              t.messages.dt('deleteProjectMessage', {
                 name: i,
               });
             });
@@ -20349,49 +20349,49 @@ requestAnimationFrame(() => LSC.start()),
         });
       },
     }),
-  m.module("projects").__new__(function (e) {
+  m.module('projects').__new__(function (e) {
     const t = {
-      cls: "x-menu-title-bar shadow",
-      id: "projectsBarContainer",
-      flexSize: "none",
-      flexLayout: "column",
+      cls: 'x-menu-title-bar shadow',
+      id: 'projectsBarContainer',
+      flexSize: 'none',
+      flexLayout: 'column',
       cells: [
         {
-          flexSize: "none",
-          flexSpace: "between",
-          flexAlign: "middle",
+          flexSize: 'none',
+          flexSpace: 'between',
+          flexAlign: 'middle',
           cells: [
             {
-              view: "menuTitle",
+              view: 'menuTitle',
               attributes: i18nAttributes({
-                en: "PROJECTS",
-                es: "PROYECTO",
-                ja: "プロジェクト",
-                pt: "PROJETOS",
-                ru: "проектов",
-                zh: "项目",
-                zhTW: "專案",
+                en: 'PROJECTS',
+                es: 'PROYECTO',
+                ja: 'プロジェクト',
+                pt: 'PROJETOS',
+                ru: 'проектов',
+                zh: '项目',
+                zhTW: '專案',
               }),
               collapsable: !1,
               on: {
                 onToggled: function (e) {
-                  const t = $$("projectsScroller");
+                  const t = $$('projectsScroller');
                   e.visible ? t.show() : t.hide();
                 },
               },
             },
             {
-              id: "projectsActionsContainer",
-              cls: "x-menu-icons",
-              flexSize: "none",
-              defaultBatch: "",
+              id: 'projectsActionsContainer',
+              cls: 'x-menu-icons',
+              flexSize: 'none',
+              defaultBatch: '',
               cells: [
                 {
-                  id: "projectsSearchButton",
-                  cls: "x-menu-icon",
-                  view: "menuToggle",
-                  icon: "search",
-                  title: "Search Projects",
+                  id: 'projectsSearchButton',
+                  cls: 'x-menu-icon',
+                  view: 'menuToggle',
+                  icon: 'search',
+                  title: 'Search Projects',
                   on: {
                     onToggled: function () {
                       const t = e.Ti();
@@ -20400,40 +20400,40 @@ requestAnimationFrame(() => LSC.start()),
                   },
                 },
                 {
-                  id: "projectsGitButton",
-                  view: "menuIcon",
-                  icon: "git-fork",
-                  title: "Git Clone",
+                  id: 'projectsGitButton',
+                  view: 'menuIcon',
+                  icon: 'git-fork',
+                  title: 'Git Clone',
                   dropdownOptions: {
-                    pos: "bottom-right",
-                    relativeTo: "projectsBarContainer",
-                    dropdownAnimation: "",
+                    pos: 'bottom-right',
+                    relativeTo: 'projectsBarContainer',
+                    dropdownAnimation: '',
                   },
                   dropdown: {
-                    id: "projectsGitListMenu",
-                    view: "list",
-                    listStyle: "dropdown",
+                    id: 'projectsGitListMenu',
+                    view: 'list',
+                    listStyle: 'dropdown',
                     data: [
                       {
-                        view: "link",
-                        value: "git:clone",
-                        icon: "git-fork",
+                        view: 'link',
+                        value: 'git:clone',
+                        icon: 'git-fork',
                         label: RES_I18N.Elements.CloneRepo,
                       },
                       {
-                        view: "link",
-                        value: "git:auth",
-                        iconClass: "ti-lock",
+                        view: 'link',
+                        value: 'git:auth',
+                        iconClass: 'ti-lock',
                         label: RES_I18N.Elements.GitCredentials,
                       },
                     ],
                     on: {
                       onItemClick: function (t) {
                         switch (t.value) {
-                          case "git:auth":
+                          case 'git:auth':
                             e.addGitAuth.Ko();
                             break;
-                          case "git:clone":
+                          case 'git:clone':
                             e.cloneRepo.sa();
                         }
                       },
@@ -20441,40 +20441,40 @@ requestAnimationFrame(() => LSC.start()),
                   },
                 },
                 {
-                  id: "projectsAddButton",
-                  view: "menuIcon",
-                  icon: "plus",
-                  title: "Add Project",
+                  id: 'projectsAddButton',
+                  view: 'menuIcon',
+                  icon: 'plus',
+                  title: 'Add Project',
                   dropdownOptions: {
-                    pos: "bottom-right",
-                    relativeTo: "projectsBarContainer",
-                    dropdownAnimation: "",
+                    pos: 'bottom-right',
+                    relativeTo: 'projectsBarContainer',
+                    dropdownAnimation: '',
                   },
                   dropdown: {
-                    id: "projectsAddListMenu",
-                    view: "list",
-                    listStyle: "dropdown",
+                    id: 'projectsAddListMenu',
+                    view: 'list',
+                    listStyle: 'dropdown',
                     data: [
                       {
-                        view: "link",
-                        value: "new",
-                        iconClass: "ti-archive",
+                        view: 'link',
+                        value: 'new',
+                        iconClass: 'ti-archive',
                         label: i18nTag(
                           RES_I18N.Actions.New(RES_I18N.Objects.Project)
                         ),
                       },
                       {
-                        id: "projectsImportZipButton",
-                        view: "link",
-                        value: "import:zip",
-                        iconClass: "ti-zip",
+                        id: 'projectsImportZipButton',
+                        view: 'link',
+                        value: 'import:zip',
+                        iconClass: 'ti-zip',
                         label: i18nTag(
-                          RES_I18N.Actions.Import(RES_I18N.Objects.Echo("ZIP"))
+                          RES_I18N.Actions.Import(RES_I18N.Objects.Echo('ZIP'))
                         ),
                         uploader: !0,
                         on: {
                           onClick: function () {
-                            this._uploader.value = "";
+                            this._uploader.value = '';
                           },
                           onFileChange: function (t, n) {
                             const i = n.files[0];
@@ -20494,23 +20494,23 @@ requestAnimationFrame(() => LSC.start()),
                         $divider: !0,
                       },
                       {
-                        view: "link",
-                        value: "update",
-                        iconClass: "ti-comment-alt",
+                        view: 'link',
+                        value: 'update',
+                        iconClass: 'ti-comment-alt',
                         label: i18nTag({
-                          en: "Change Log",
-                          es: "Registro de Cambios",
-                          ja: "変更ログ",
-                          pt: "Histórico de Mudanças",
-                          ru: "Журнал изменений",
-                          zh: "改动日志",
-                          zhTW: "變更日誌",
+                          en: 'Change Log',
+                          es: 'Registro de Cambios',
+                          ja: '変更ログ',
+                          pt: 'Histórico de Mudanças',
+                          ru: 'Журнал изменений',
+                          zh: '改动日志',
+                          zhTW: '變更日誌',
                         }),
                       },
                       {
-                        view: "link",
-                        value: "lab",
-                        iconClass: "ti-package",
+                        view: 'link',
+                        value: 'lab',
+                        iconClass: 'ti-package',
                         label: i18nTag(
                           RES_I18N.Actions.View(RES_I18N.Objects.Labs)
                         ),
@@ -20519,16 +20519,16 @@ requestAnimationFrame(() => LSC.start()),
                     on: {
                       onItemClick: function (t) {
                         switch (t.value) {
-                          case "new":
+                          case 'new':
                             e.project.modal.open();
                             break;
-                          case "update":
+                          case 'update':
                             e.main.Ci().showLanding(),
-                              e.landing.Ei().switchToTab("update");
+                              e.landing.Ei().switchToTab('update');
                             break;
-                          case "lab":
+                          case 'lab':
                             e.main.Ci().showLanding(),
-                              e.landing.Ei().switchToTab("lab");
+                              e.landing.Ei().switchToTab('lab');
                         }
                       },
                     },
@@ -20539,11 +20539,11 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         {
-          id: "projectsSearch",
-          cls: "x-menu-search",
-          view: "searchField",
+          id: 'projectsSearch',
+          cls: 'x-menu-search',
+          view: 'searchField',
           hidden: !0,
-          flexSize: "flex",
+          flexSize: 'flex',
           i18nPlaceholders: RES_I18N.Actions.Enter(
             RES_I18N.Objects.NameFor(RES_I18N.Objects.Project)
           ),
@@ -20551,17 +20551,17 @@ requestAnimationFrame(() => LSC.start()),
           on: {
             onFocus: function () {
               e.observable.run({
-                action: "blockDrawer",
+                action: 'blockDrawer',
                 block: !0,
               }),
-                UI.addClass(this.el, "uk-focus");
+                UI.addClass(this.el, 'uk-focus');
             },
             onBlur: function () {
               e.observable.run({
-                action: "blockDrawer",
+                action: 'blockDrawer',
                 block: !1,
               }),
-                UI.removeClass(this.el, "uk-focus");
+                UI.removeClass(this.el, 'uk-focus');
             },
             onInput: function () {
               (e.projectQuery.searchPhrase = this.getValue()), e.$i().refresh();
@@ -20572,29 +20572,29 @@ requestAnimationFrame(() => LSC.start()),
     };
     e.projectMenu = UI.new(
       {
-        view: "dropdown",
+        view: 'dropdown',
         dropdown: {
-          view: "list",
-          listStyle: "dropdown",
+          view: 'list',
+          listStyle: 'dropdown',
           data: [
             {
-              view: "link",
-              value: "download",
-              iconClass: "ti-zip",
+              view: 'link',
+              value: 'download',
+              iconClass: 'ti-zip',
               label: i18nTag(
-                RES_I18N.Actions.Export(RES_I18N.Objects.Echo("ZIP"))
+                RES_I18N.Actions.Export(RES_I18N.Objects.Echo('ZIP'))
               ),
             },
             {
-              view: "link",
-              value: "rename",
-              iconClass: "ti-pencil",
+              view: 'link',
+              value: 'rename',
+              iconClass: 'ti-pencil',
               label: RES_I18N.Elements.Rename,
             },
             {
-              view: "link",
-              value: "delete",
-              iconClass: "ti-trash",
+              view: 'link',
+              value: 'delete',
+              iconClass: 'ti-trash',
               label: RES_I18N.Elements.Delete,
             },
           ],
@@ -20603,13 +20603,13 @@ requestAnimationFrame(() => LSC.start()),
               const n = this.project && this.project.dir;
               if (n)
                 switch (t.value) {
-                  case "download":
+                  case 'download':
                     e.zipper.ut(n);
                     break;
-                  case "rename":
+                  case 'rename':
                     e.files.La(n);
                     break;
-                  case "delete":
+                  case 'delete':
                     e.Zs(n);
                 }
             },
@@ -20622,26 +20622,26 @@ requestAnimationFrame(() => LSC.start()),
       document.body
     );
     const n = {
-      id: "projectsContainer",
-      fill: "height",
-      batch: "projects",
+      id: 'projectsContainer',
+      fill: 'height',
+      batch: 'projects',
       flex: !1,
-      flexLayout: "",
-      flexSize: "",
+      flexLayout: '',
+      flexSize: '',
       cells: [
         {
-          id: "projectsList",
-          view: "list",
-          batch: "list",
-          flexSize: "flex",
-          listStyle: "side",
+          id: 'projectsList',
+          view: 'list',
+          batch: 'list',
+          flexSize: 'flex',
+          listStyle: 'side',
           filter: function (t) {
             const n = e.projectQuery.searchPhrase.toLowerCase(),
-              i = PathUtils.basename(t.dir).replace(/«[^»]*»/g, "");
+              i = PathUtils.basename(t.dir).replace(/«[^»]*»/g, '');
             let o = !0;
             if (n)
               if (((o = i.toLowerCase().includes(n)), o)) {
-                const o = RegExp("(" + e.string.st(n) + ")", "ig");
+                const o = RegExp('(' + e.string.st(n) + ')', 'ig');
                 (t.label = i.replace(
                   o,
                   '<span class="x-search-highlight">$&</span>'
@@ -20654,18 +20654,18 @@ requestAnimationFrame(() => LSC.start()),
           },
           template: function (t) {
             const { dir: n, modifiedAt: i, git: o, label: a } = t,
-              s = `${o ? "GIT " : ""}${PathUtils.isIDB(n) ? "IDB" : ""}`,
+              s = `${o ? 'GIT ' : ''}${PathUtils.isIDB(n) ? 'IDB' : ''}`,
               r = e.date.Je.bind(e.date);
             return {
-              cls: "x-list-item",
+              cls: 'x-list-item',
               template: {
-                cls: "x-list-item-meta",
-                flexAlign: "middle",
+                cls: 'x-list-item-meta',
+                flexAlign: 'middle',
                 cells: [
                   {
-                    view: "image",
-                    htmlTag: "SVG",
-                    margin: "right-sm",
+                    view: 'image',
+                    htmlTag: 'SVG',
+                    margin: 'right-sm',
                     width: 40,
                     height: 40,
                     on: {
@@ -20676,46 +20676,46 @@ requestAnimationFrame(() => LSC.start()),
                   },
                   {
                     flex: !1,
-                    flexSize: "flex",
+                    flexSize: 'flex',
                     style: {
                       minWidth: 0,
                     },
                     cells: [
                       {
-                        view: "label",
+                        view: 'label',
                         flex: !0,
-                        htmlTag: "DIV",
+                        htmlTag: 'DIV',
                         label:
                           `<span class='x-text-overflow-ellipsis'>${a}</span>` +
                           (s
                             ? `<small class='uk-text-muted uk-margin-small-left'>${s}</span>`
-                            : ""),
+                            : ''),
                       },
                       {
-                        view: "label",
-                        text: "small",
-                        htmlTag: "DIV",
+                        view: 'label',
+                        text: 'small',
+                        htmlTag: 'DIV',
                         attributes: i18nAttributes({
-                          en: "Modified " + r(i),
-                          es: "Modificado " + r(i),
-                          ja: "修正済み" + r(i, "ja"),
-                          pt: "Modificado " + r(i, "pt"),
-                          ru: "Изменено " + r(i, "ru"),
-                          zh: "修改于" + r(i, "zh"),
-                          zhTW: "修改" + r(i, "zhTW"),
+                          en: 'Modified ' + r(i),
+                          es: 'Modificado ' + r(i),
+                          ja: '修正済み' + r(i, 'ja'),
+                          pt: 'Modificado ' + r(i, 'pt'),
+                          ru: 'Изменено ' + r(i, 'ru'),
+                          zh: '修改于' + r(i, 'zh'),
+                          zhTW: '修改' + r(i, 'zhTW'),
                         }),
                       },
                     ],
                   },
                   {
-                    view: "menuIcon",
-                    tagClass: "",
-                    icon: "more-vertical",
+                    view: 'menuIcon',
+                    tagClass: '',
+                    icon: 'more-vertical',
                     on: {
                       onClick: function (n, i, o) {
                         o && UI.preventEvent(o),
                           e.projectMenu.open(t),
-                          e.projectMenu.positionNextTo(this.el, "bottom-right"),
+                          e.projectMenu.positionNextTo(this.el, 'bottom-right'),
                           e.projectMenu.moveWithinBoundary();
                       },
                     },
@@ -20731,41 +20731,41 @@ requestAnimationFrame(() => LSC.start()),
           },
         },
         {
-          batch: "empty",
-          textAlign: "center",
-          flexLayout: "column",
-          flexAlign: ["center", "middle"],
+          batch: 'empty',
+          textAlign: 'center',
+          flexLayout: 'column',
+          flexAlign: ['center', 'middle'],
           cells: [
             {
-              view: "label",
-              cls: "uk-h5",
-              padding: "large",
-              label: "No projects found.",
+              view: 'label',
+              cls: 'uk-h5',
+              padding: 'large',
+              label: 'No projects found.',
               style: {
-                height: "160px",
+                height: '160px',
                 opacity: 0.5,
               },
             },
           ],
         },
         {
-          batch: "list",
-          view: "spacer",
+          batch: 'list',
+          view: 'spacer',
           height: 128,
         },
       ],
     };
     (e.view = UI.new({
-      batch: "projects",
-      fill: "height",
-      cls: "x-max-width-100",
-      flexLayout: "column",
+      batch: 'projects',
+      fill: 'height',
+      cls: 'x-max-width-100',
+      flexLayout: 'column',
       cells: [
         t,
         {
-          id: "projectsScroller",
-          view: "scroller",
-          flexSize: "flex",
+          id: 'projectsScroller',
+          view: 'scroller',
+          flexSize: 'flex',
           cells: [n],
           on: {
             onScroll: function () {
@@ -20776,19 +20776,19 @@ requestAnimationFrame(() => LSC.start()),
       ],
     })),
       (e.projectQuery = {
-        searchPhrase: "",
+        searchPhrase: '',
       });
   }),
   m
-    .module("search")
+    .module('search')
     .require(
-      "prompt",
-      "path",
-      "session",
-      "editor",
-      "messages",
-      "string",
-      "searchSettings"
+      'prompt',
+      'path',
+      'session',
+      'editor',
+      'messages',
+      'string',
+      'searchSettings'
     )
     .__init__(
       (
@@ -20814,21 +20814,21 @@ requestAnimationFrame(() => LSC.start()),
           observable: new ObservableClass(),
         }),
           (e.entityMap = {
-            "&": "&amp",
-            "<": "&lt",
-            ">": "&gt",
-            '"': "&quot",
-            "'": "&#39",
-            "/": "&#x2F",
-            "`": "&#x60",
-            "=": "&#x3D",
+            '&': '&amp',
+            '<': '&lt',
+            '>': '&gt',
+            '"': '&quot',
+            "'": '&#39',
+            '/': '&#x2F',
+            '`': '&#x60',
+            '=': '&#x3D',
           }),
           e.session.observable.subscribe(({ action: t }) => {
-            "open" === t && e.Qi();
+            'open' === t && e.Qi();
           }),
           e.searchSettings.observable.subscribe(({ action: t }) => {
             switch (t) {
-              case "updateSettings":
+              case 'updateSettings':
                 e.Yi();
             }
           }),
@@ -20847,38 +20847,38 @@ requestAnimationFrame(() => LSC.start()),
           e.Gt() &&
             (e.Gt().setData([]),
             e.container().clearResults(),
-            e.replaceInput().setValue(""),
-            e.findInput().setValue(""));
+            e.replaceInput().setValue(''),
+            e.findInput().setValue(''));
       },
       u: function () {
-        return $$("menuContainer");
+        return $$('menuContainer');
       },
       statusLabel: function () {
-        return $$("searchStatusLabel");
+        return $$('searchStatusLabel');
       },
       findInput: function () {
-        return $$("searchFindInput");
+        return $$('searchFindInput');
       },
       replaceInput: function () {
-        return $$("searchReplaceInput");
+        return $$('searchReplaceInput');
       },
       Gt: function () {
-        return $$("searchTree");
+        return $$('searchTree');
       },
       container: function () {
-        return $$("searchContainer");
+        return $$('searchContainer');
       },
       progress: function () {
-        return $$("searchProgress");
+        return $$('searchProgress');
       },
       isMatchCaseOn: function () {
-        return $$("searchCaseSensitiveIcon").isSelected();
+        return $$('searchCaseSensitiveIcon').isSelected();
       },
       isMatchWholeWordOn: function () {
-        return $$("searchWholeWordIcon").isSelected();
+        return $$('searchWholeWordIcon').isSelected();
       },
       isRegExOn: function () {
-        return $$("searchRegExIcon").isSelected();
+        return $$('searchRegExIcon').isSelected();
       },
       clearAll: function () {
         this.Gt().clearAll();
@@ -20886,15 +20886,15 @@ requestAnimationFrame(() => LSC.start()),
       Ys: function (e, t, n, i) {
         return (
           (e = t ? e : this.string.st(e)),
-          (e = i ? "\\b" + e + "\\b" : e),
-          new RegExp(e, n ? "gm" : "igm")
+          (e = i ? '\\b' + e + '\\b' : e),
+          new RegExp(e, n ? 'gm' : 'igm')
         );
       },
       Js: function () {
         const e = this,
           t = e.searchResults || [];
         return e.running
-          ? (e.messages.dt("searchBusyError"), !1)
+          ? (e.messages.dt('searchBusyError'), !1)
           : 0 !== t.length;
       },
       Xs: function (e) {
@@ -20931,16 +20931,16 @@ requestAnimationFrame(() => LSC.start()),
               (e) => ((t.running = !1), Promise.reject(e))
             )
             .then(
-              GA_SendEvent_Success("search_replace", "search"),
-              GA_SendEvent_Failure("search_replace", "search")
+              GA_SendEvent_Success('search_replace', 'search'),
+              GA_SendEvent_Failure('search_replace', 'search')
             )
         );
       },
       er: function () {
         const e = this;
         if (e.Js()) {
-          const t = e.string.at(e.replaceInput().getValue() || ""),
-            n = e.string.at(e.searchTerm || "");
+          const t = e.string.at(e.replaceInput().getValue() || ''),
+            n = e.string.at(e.searchTerm || '');
           e.prompt.q(RES_I18N.Elements.ReplaceAll, null, {
             message: {
               en: `Replace all occurrences of 「${n}」 with 「${t}」?`,
@@ -20953,7 +20953,7 @@ requestAnimationFrame(() => LSC.start()),
             onResult: function () {
               e.Xs(e.replaceInput().getValue());
             },
-            type: "confirm",
+            type: 'confirm',
           });
         }
       },
@@ -20973,7 +20973,7 @@ requestAnimationFrame(() => LSC.start()),
                 file: !0,
                 id: o,
                 path: o,
-                cls: "x-search-branch",
+                cls: 'x-search-branch',
                 label: PathUtils.basename(o),
               }),
             i.nodeId)
@@ -20989,7 +20989,7 @@ requestAnimationFrame(() => LSC.start()),
               $branch: !1,
               $parent: o,
               search: !0,
-              cls: "x-search-item",
+              cls: 'x-search-item',
               label: e.nr(i.line, i.match, i.start.row),
               path: i.path,
               row: i.start.row,
@@ -21038,13 +21038,13 @@ requestAnimationFrame(() => LSC.start()),
           n = e.isMatchWholeWordOn(),
           i = e.isMatchCaseOn(),
           o = e.isRegExOn();
-        if ("string" != typeof t || 0 === t.length)
-          return Promise.reject("Invalid search pattern.");
+        if ('string' != typeof t || 0 === t.length)
+          return Promise.reject('Invalid search pattern.');
         const a = e.Ys(t, o, i, n),
           s = e.session.Ae(),
           r = e.Qs(),
           c = e.searchSettings.Mt();
-        if (!s) return Promise.reject("No current project.");
+        if (!s) return Promise.reject('No current project.');
         e.searchTerm = t;
         const l = (e.searchResults = []),
           u = e.progress();
@@ -21053,12 +21053,12 @@ requestAnimationFrame(() => LSC.start()),
           UI.setAttributes(
             e.statusLabel().element,
             i18nAttributes({
-              en: "Searching…",
-              es: "Buscando…",
-              ja: "検索中…",
-              pt: "A procurar…",
-              zh: "搜索…",
-              zhTW: "搜尋中…",
+              en: 'Searching…',
+              es: 'Buscando…',
+              ja: '検索中…',
+              pt: 'A procurar…',
+              zh: '搜索…',
+              zhTW: '搜尋中…',
             })
           ),
           u.setValue(0),
@@ -21074,23 +21074,23 @@ requestAnimationFrame(() => LSC.start()),
                 data: t,
                 promiseGenerator: (t) =>
                   l !== e.searchResults
-                    ? ($LOG.log("Search aborted."),
-                      Promise.reject("Search aborted."))
+                    ? ($LOG.log('Search aborted.'),
+                      Promise.reject('Search aborted.'))
                     : ((o = (++i / n) * 100),
                       o - u.getValue() > 5 && u.setValue(o),
                       GFS.readFile(t, {
-                        encoding: "utf8",
+                        encoding: 'utf8',
                       }).then((n) => {
                         const i = e.ir(n, a, t, 32, r);
                         return (
                           l.push.apply(l, i),
                           l.length >= r
                             ? ((l.length = r),
-                              $LOG.log("[search] Max results reached."),
-                              Promise.reject("Exceeded max number of results."))
+                              $LOG.log('[search] Max results reached.'),
+                              Promise.reject('Exceeded max number of results.'))
                             : l !== e.searchResults
-                            ? ($LOG.log("Search aborted."),
-                              Promise.reject("Search aborted."))
+                            ? ($LOG.log('Search aborted.'),
+                              Promise.reject('Search aborted.'))
                             : void (i.length && e.tr())
                         );
                       })),
@@ -21100,8 +21100,8 @@ requestAnimationFrame(() => LSC.start()),
               });
             })
             .then(
-              GA_SendEvent_Success("search_find_display", "search"),
-              GA_SendEvent_Failure("search_find_display", "search")
+              GA_SendEvent_Success('search_find_display', 'search'),
+              GA_SendEvent_Failure('search_find_display', 'search')
             )
             .then(
               function () {
@@ -21127,9 +21127,9 @@ requestAnimationFrame(() => LSC.start()),
           s = e.slice(o, o + i);
         return (
           (a = a.split(/[\n\r]/).pop()),
-          (a = a.replace(/^\s+/, "")),
+          (a = a.replace(/^\s+/, '')),
           (s = s.split(/[\n\r]/).shift()),
-          (s = s.replace(/\s+$/, "")),
+          (s = s.replace(/\s+$/, '')),
           a.length + s.length > i &&
             ((a = a.slice(Math.max(0, a.length - Math.floor(i / 2)))),
             (s = s.slice(0, i - a.length))),
@@ -21153,56 +21153,56 @@ requestAnimationFrame(() => LSC.start()),
         return (
           `<small class='x-search-item-row uk-text-muted'>${n + 1}</small>` +
           e
-            .split("")
+            .split('')
             .map((e, t) => {
               let n = i.entityMap[e] || e;
               return (
                 t === o && (n = '<span class="x-search-highlight">' + n),
-                t === a - 1 && (n += "</span>"),
+                t === a - 1 && (n += '</span>'),
                 n
               );
             })
-            .join("")
+            .join('')
         );
       },
     }),
   m
-    .module("search")
-    .require("fileTree")
+    .module('search')
+    .require('fileTree')
     .__init__(function (e) {
       const t = UI.new({
-          id: "searchBarContainer",
-          flexSize: "none",
-          flexLayout: "column",
+          id: 'searchBarContainer',
+          flexSize: 'none',
+          flexLayout: 'column',
           cells: [
             {
-              cls: "x-menu-title-bar",
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              cls: 'x-menu-title-bar',
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   label: RES_I18N.Elements.Find,
                   on: {
                     onToggled: function (e) {
-                      const t = $$("searchFindInput");
+                      const t = $$('searchFindInput');
                       e.visible ? (t.show(), t.focus()) : t.hide();
                     },
                   },
                 },
                 {
-                  cls: "x-menu-icons",
-                  flexSize: "none",
+                  cls: 'x-menu-icons',
+                  flexSize: 'none',
                   cells: [
                     {
-                      id: "searchSettingsIcon",
-                      view: "menuIcon",
-                      iconClass: "ti-filter",
-                      title: "Filter Files",
+                      id: 'searchSettingsIcon',
+                      view: 'menuIcon',
+                      iconClass: 'ti-filter',
+                      title: 'Filter Files',
                       style: {
-                        fontSize: "1em",
-                        marginRight: "24px",
+                        fontSize: '1em',
+                        marginRight: '24px',
                       },
                       on: {
                         onClick: function () {
@@ -21215,40 +21215,40 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             {
-              id: "searchFindInput",
-              cls: "x-menu-search",
-              view: "searchField",
+              id: 'searchFindInput',
+              cls: 'x-menu-search',
+              view: 'searchField',
               i18nPlaceholders: {
-                en: "Find Text",
-                es: "Buscar Texto",
-                ja: "検索キーワード",
-                pt: "Pesquisar Texto",
-                ru: "Найти текст",
-                zh: "搜索关键词",
-                zhTW: "搜索關鍵詞",
+                en: 'Find Text',
+                es: 'Buscar Texto',
+                ja: '検索キーワード',
+                pt: 'Pesquisar Texto',
+                ru: 'Найти текст',
+                zh: '搜索关键词',
+                zhTW: '搜索關鍵詞',
               },
               clearSearch: !0,
               searchOptions: [
                 {
-                  id: "searchRegExIcon",
-                  view: "menuToggle",
+                  id: 'searchRegExIcon',
+                  view: 'menuToggle',
                   outline: !0,
-                  cls: "ace_icon regex",
-                  title: "Use RegEx",
+                  cls: 'ace_icon regex',
+                  title: 'Use RegEx',
                 },
                 {
-                  id: "searchCaseSensitiveIcon",
-                  view: "menuToggle",
+                  id: 'searchCaseSensitiveIcon',
+                  view: 'menuToggle',
                   outline: !0,
-                  cls: "ace_icon case-sensitive",
-                  title: "Match Case",
+                  cls: 'ace_icon case-sensitive',
+                  title: 'Match Case',
                 },
                 {
-                  id: "searchWholeWordIcon",
-                  view: "menuToggle",
+                  id: 'searchWholeWordIcon',
+                  view: 'menuToggle',
                   outline: !0,
-                  cls: "ace_icon whole-word",
-                  title: "Match Whole Word",
+                  cls: 'ace_icon whole-word',
+                  title: 'Match Whole Word',
                 },
               ],
               updateSearchAsync: function () {
@@ -21256,35 +21256,35 @@ requestAnimationFrame(() => LSC.start()),
               },
               on: {
                 onKeyUp: function (e, t, n) {
-                  "Enter" === n.key && this.updateSearchAsync();
+                  'Enter' === n.key && this.updateSearchAsync();
                 },
                 onFocus: function () {
                   e.observable.run({
-                    action: "blockDrawer",
+                    action: 'blockDrawer',
                     block: !0,
                   });
                 },
                 onBlur: function () {
                   e.observable.run({
-                    action: "blockDrawer",
+                    action: 'blockDrawer',
                     block: !1,
                   });
                 },
               },
             },
             {
-              cls: "x-menu-title-bar",
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              cls: 'x-menu-title-bar',
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   label: RES_I18N.Elements.Replace,
                   visible: !1,
                   on: {
                     onToggled: function (e) {
-                      const t = $$("searchReplaceInput");
+                      const t = $$('searchReplaceInput');
                       e.visible ? (t.show(), t.focus()) : t.hide();
                     },
                   },
@@ -21292,23 +21292,23 @@ requestAnimationFrame(() => LSC.start()),
               ],
             },
             {
-              id: "searchReplaceInput",
-              view: "searchField",
-              cls: "x-menu-search",
+              id: 'searchReplaceInput',
+              view: 'searchField',
+              cls: 'x-menu-search',
               hidden: !0,
               i18nPlaceholders: {
-                en: "Replace Text",
-                es: "Reemplazar Texto",
-                ja: "代替テキスト",
-                pt: "Substituir Texto",
-                ru: "Заменить текст",
-                zh: "替换文字",
-                zhTW: "替換文字",
+                en: 'Replace Text',
+                es: 'Reemplazar Texto',
+                ja: '代替テキスト',
+                pt: 'Substituir Texto',
+                ru: 'Заменить текст',
+                zh: '替换文字',
+                zhTW: '替換文字',
               },
               clearSearch: !0,
               on: {
                 onKeyUp: function (t, n, i) {
-                  "Enter" === i.key && e.er();
+                  'Enter' === i.key && e.er();
                 },
                 onFocus: function () {
                   e.u().$blockDrawerPan = !0;
@@ -21319,54 +21319,54 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              cls: "x-menu-title-bar shadow",
-              flexSize: "none",
-              flexSpace: "between",
-              flexAlign: "middle",
+              cls: 'x-menu-title-bar shadow',
+              flexSize: 'none',
+              flexSpace: 'between',
+              flexAlign: 'middle',
               cells: [
                 {
-                  view: "menuTitle",
+                  view: 'menuTitle',
                   label: RES_I18N.Elements.FindResults,
                   on: {
                     onToggled: function (e) {
-                      const t = $$("searchContainer");
+                      const t = $$('searchContainer');
                       e.visible ? t.show() : t.hide();
                     },
                   },
                 },
                 {
-                  flexSize: "none",
+                  flexSize: 'none',
                   cells: [
                     {
-                      id: "searchStatusLabel",
-                      view: "label",
-                      label: "",
-                      htmlTag: "SMALL",
-                      margin: "x",
+                      id: 'searchStatusLabel',
+                      view: 'label',
+                      label: '',
+                      htmlTag: 'SMALL',
+                      margin: 'x',
                     },
                   ],
                 },
               ],
             },
             {
-              id: "searchProgress",
-              view: "progress",
-              size: "mini",
-              color: "primary",
+              id: 'searchProgress',
+              view: 'progress',
+              size: 'mini',
+              color: 'primary',
             },
           ],
         }),
         n = {
-          id: "searchContainer",
-          batch: "search",
-          fill: "height",
-          flexLayout: "column",
+          id: 'searchContainer',
+          batch: 'search',
+          fill: 'height',
+          flexLayout: 'column',
           cells: [
             {
-              id: "searchTree",
-              view: "fileTree",
-              batch: "list",
-              flexSize: "flex",
+              id: 'searchTree',
+              view: 'fileTree',
+              batch: 'list',
+              flexSize: 'flex',
               allowDrag: !1,
               indentWidth: 8,
               data: [],
@@ -21390,12 +21390,12 @@ requestAnimationFrame(() => LSC.start()),
               },
               on: {
                 onAdded: function () {
-                  this.$count > 1 && e.container().showBatch(["list"]);
+                  this.$count > 1 && e.container().showBatch(['list']);
                 },
                 onItemClick: function (t) {
                   t.search &&
                     e.observable.run({
-                      action: "jumpToFile",
+                      action: 'jumpToFile',
                       path: t.path,
                       item: t,
                     });
@@ -21403,64 +21403,64 @@ requestAnimationFrame(() => LSC.start()),
               },
             },
             {
-              batch: "empty",
-              textAlign: "center",
-              fill: "height",
-              flexLayout: "column",
-              flexAlign: ["center", "middle"],
+              batch: 'empty',
+              textAlign: 'center',
+              fill: 'height',
+              flexLayout: 'column',
+              flexAlign: ['center', 'middle'],
               cells: [
                 {
-                  id: "searchEmptyMessage",
-                  cls: "uk-h5",
-                  view: "label",
-                  padding: "large",
+                  id: 'searchEmptyMessage',
+                  cls: 'uk-h5',
+                  view: 'label',
+                  padding: 'large',
                   attributes: i18nAttributes({
-                    en: "Find & Replace in Files",
-                    es: "Buscar y Reemplazar en Archivos",
-                    ja: "複数のファイルから検索",
-                    pt: "Localizar e Substituir em Ficheiros",
-                    ru: "Найти и Заменить в файлах",
-                    zh: "在多个文件中查找…",
-                    zhTW: "多重檔案尋找",
+                    en: 'Find & Replace in Files',
+                    es: 'Buscar y Reemplazar en Archivos',
+                    ja: '複数のファイルから検索',
+                    pt: 'Localizar e Substituir em Ficheiros',
+                    ru: 'Найти и Заменить в файлах',
+                    zh: '在多个文件中查找…',
+                    zhTW: '多重檔案尋找',
                   }),
                   style: {
-                    height: "160px",
+                    height: '160px',
                     opacity: 0.5,
                   },
                 },
               ],
             },
             {
-              batch: "list",
-              view: "spacer",
+              batch: 'list',
+              view: 'spacer',
               height: 256,
             },
           ],
           clearResults: function () {
-            e.statusLabel().setValue("&nbsp"), this.showBatch(["empty"]);
+            e.statusLabel().setValue('&nbsp'), this.showBatch(['empty']);
           },
           displayNoResults: function () {
-            e.statusLabel().setValue("0 results");
+            e.statusLabel().setValue('0 results');
           },
         };
       e.view = UI.new({
-        batch: "search",
-        fill: "screen",
-        cls: "x-max-width-100",
-        flexLayout: "column",
+        batch: 'search',
+        fill: 'screen',
+        cls: 'x-max-width-100',
+        flexLayout: 'column',
         cells: [
           t,
           {
-            id: "searchScroller",
-            view: "scroller",
-            flexSize: "flex",
+            id: 'searchScroller',
+            view: 'scroller',
+            flexSize: 'flex',
             cells: [n],
           },
         ],
       });
     }),
   m
-    .module("settings")
+    .module('settings')
     .__init__(function (e) {
       (e.supportAnimation = UIkit2.support.animation),
         (e.supportTransition = UIkit2.support.transition);
@@ -21468,17 +21468,17 @@ requestAnimationFrame(() => LSC.start()),
     .def({
       rr: function (e) {
         e
-          ? (UI.removeClass(document.body, "no-animation"),
+          ? (UI.removeClass(document.body, 'no-animation'),
             (UIkit2.support.animation = this.supportAnimation),
             (UIkit2.support.transition = this.supportTransition))
-          : (UI.addClass(document.body, "no-animation"),
+          : (UI.addClass(document.body, 'no-animation'),
             (UIkit2.support.animation = !1),
             (UIkit2.support.transition = !1));
       },
     }),
   m
-    .module("settings")
-    .require("editor", "session", "preview", "addGitAuth", "vibrate", "path")
+    .module('settings')
+    .require('editor', 'session', 'preview', 'addGitAuth', 'vibrate', 'path')
     .__init__(function (
       e,
       { editor: t, session: n, preview: i, addGitAuth: o, vibrate: a, path: s }
@@ -21490,21 +21490,21 @@ requestAnimationFrame(() => LSC.start()),
         addGitAuth: o,
         vibrate: a,
         path: s,
-        darkThemes: ["monokai", "ayu-mirage", "dracula"],
+        darkThemes: ['monokai', 'ayu-mirage', 'dracula'],
       });
     })
     .def({
       editorForm: function () {
-        return $$("settingsEditorForm");
+        return $$('settingsEditorForm');
       },
       appearanceForm: function () {
-        return $$("settingsAppearanceForm");
+        return $$('settingsAppearanceForm');
       },
       previewForm: function () {
-        return $$("settingsPreviewForm");
+        return $$('settingsPreviewForm');
       },
       touchForm: function () {
-        return $$("settingsTouchForm");
+        return $$('settingsTouchForm');
       },
       cr: function () {
         const e = {};
@@ -21533,19 +21533,19 @@ requestAnimationFrame(() => LSC.start()),
             e,
             JSON.parse(
               await GFS.readFile(await ENV.settingsConfigPathAsync(), {
-                encoding: "utf8",
+                encoding: 'utf8',
               })
             )
           );
         } catch (e) {
-          $LOG.log("[settings] deserialize error");
+          $LOG.log('[settings] deserialize error');
         }
         return e;
       },
       C: function (e) {
         -1 !== this.darkThemes.indexOf(e)
-          ? UI.addClass(document.documentElement, "dark")
-          : UI.removeClass(document.documentElement, "dark"),
+          ? UI.addClass(document.documentElement, 'dark')
+          : UI.removeClass(document.documentElement, 'dark'),
           this.editor.ii(e);
       },
       U: function (e) {
@@ -21558,18 +21558,18 @@ requestAnimationFrame(() => LSC.start()),
         this.editor.di(e);
       },
       ur: function (e) {
-        this.editor.si("ace" === e ? null : e);
+        this.editor.si('ace' === e ? null : e);
       },
       hr: function (e) {
         ENV.locale = e;
-        const t = e.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
-        document.documentElement.setAttribute("lang", t),
+        const t = e.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+        document.documentElement.setAttribute('lang', t),
           Object.keys(UI.components)
             .map((e) => UI.components[e])
             .filter((e) => e.i18nPlaceholders)
             .forEach((t) => {
               const n = t.config.i18nPlaceholders;
-              t.set("placeholder", n[e] || n.en || "");
+              t.set('placeholder', n[e] || n.en || '');
             });
       },
       D: async function () {
@@ -21586,7 +21586,7 @@ requestAnimationFrame(() => LSC.start()),
         const t = this.editorForm();
         t.setValues(e),
           t.getFieldset().$components.forEach(function (t) {
-            m.isDefined(e[t.name]) && t.dispatch("onChange");
+            m.isDefined(e[t.name]) && t.dispatch('onChange');
           });
       },
       mr: function (e) {
@@ -21597,12 +21597,12 @@ requestAnimationFrame(() => LSC.start()),
           this.touchForm()
             .getFieldset()
             .$components.forEach(function (t) {
-              m.isDefined(e[t.name]) && t.dispatch("onChange");
+              m.isDefined(e[t.name]) && t.dispatch('onChange');
             });
       },
     }),
   m
-    .module("settings")
+    .module('settings')
     .__new__(function (e) {
       e.deviceTouchSupport = UI.support.touch;
     })
@@ -21611,97 +21611,97 @@ requestAnimationFrame(() => LSC.start()),
       { logger: t, addGitAuth: n, cookieBanner: i, editor: o }
     ) {
       const a = {
-          id: "settingsEditorForm",
-          view: "form",
-          margin: "top",
-          formStyle: "horizontal line",
+          id: 'settingsEditorForm',
+          view: 'form',
+          margin: 'top',
+          formStyle: 'horizontal line',
           fieldset: [
             {
               formLabelAttributes: i18nAttributes({
-                en: "Autocomplete / Check Syntax",
-                es: "Autocompletar / Verificar Sintaxis",
-                ja: "自動補完    / 構文を確認する",
-                pt: "Autocompletar / Verificar Sintaxe",
-                ru: "Автозавершение / Проверьте синтаксис",
-                zh: "自动补全     / 检查语法",
-                zhTW: "自動補全     / 檢查語法",
+                en: 'Autocomplete / Check Syntax',
+                es: 'Autocompletar / Verificar Sintaxis',
+                ja: '自動補完    / 構文を確認する',
+                pt: 'Autocompletar / Verificar Sintaxe',
+                ru: 'Автозавершение / Проверьте синтаксис',
+                zh: '自动补全     / 检查语法',
+                zhTW: '自動補全     / 檢查語法',
               }),
-              view: "toggle",
-              name: "editorAutocomplete",
+              view: 'toggle',
+              name: 'editorAutocomplete',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
                   o.oi(this.getValue()),
                     o.Jn(this.getValue()),
                     i &&
-                      (e.G(), GA_SendEvent("change_autocomplete", "settings"));
+                      (e.G(), GA_SendEvent('change_autocomplete', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Font Size",
-                es: "Tamaño de Fuente",
-                ja: "フォントサイズ",
-                pt: "Tamanho da Fonte",
-                ru: "Pазмер шрифта",
-                zh: "字号",
-                zhTW: "字型",
+                en: 'Font Size',
+                es: 'Tamaño de Fuente',
+                ja: 'フォントサイズ',
+                pt: 'Tamanho da Fonte',
+                ru: 'Pазмер шрифта',
+                zh: '字号',
+                zhTW: '字型',
               }),
-              view: "select",
-              name: "editorFontSize",
+              view: 'select',
+              name: 'editorFontSize',
               data: [
                 {
-                  value: "10px",
-                  label: "10px",
+                  value: '10px',
+                  label: '10px',
                 },
                 {
-                  value: "11px",
-                  label: "11px",
+                  value: '11px',
+                  label: '11px',
                 },
                 {
-                  value: "12px",
-                  label: "12px",
+                  value: '12px',
+                  label: '12px',
                 },
                 {
-                  value: "13px",
-                  label: "13px",
+                  value: '13px',
+                  label: '13px',
                 },
                 {
-                  value: "14px",
-                  label: "14px",
+                  value: '14px',
+                  label: '14px',
                 },
                 {
-                  value: "15px",
-                  label: "15px",
+                  value: '15px',
+                  label: '15px',
                 },
                 {
-                  value: "16px",
-                  label: "16px",
+                  value: '16px',
+                  label: '16px',
                 },
               ],
               on: {
                 onInitialized: function () {
-                  this.setValue(window.innerWidth <= 480 ? "12px" : "14px");
+                  this.setValue(window.innerWidth <= 480 ? '12px' : '14px');
                 },
                 onChange: function (t, n, i) {
                   e.U(this.getValue()),
-                    i && (e.G(), GA_SendEvent("change_font_size", "settings"));
+                    i && (e.G(), GA_SendEvent('change_font_size', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Indent Guide",
-                es: "Guías de Sangría",
-                ja: "インデントガイド",
-                pt: "Guia de Indentação",
-                ru: "Подсказки для отступов",
-                zh: "缩进对齐线",
-                zhTW: "縮排對齊線",
+                en: 'Indent Guide',
+                es: 'Guías de Sangría',
+                ja: 'インデントガイド',
+                pt: 'Guia de Indentação',
+                ru: 'Подсказки для отступов',
+                zh: '缩进对齐线',
+                zhTW: '縮排對齊線',
               }),
-              view: "toggle",
-              name: "editorIndentGuides",
+              view: 'toggle',
+              name: 'editorIndentGuides',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
@@ -21711,28 +21711,28 @@ requestAnimationFrame(() => LSC.start()),
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Keybindings",
-                es: "Atajos de teclado",
-                ja: "キーバインド",
-                pt: "Combinações de teclas",
-                ru: "Сочетания клавиш",
-                zh: "键绑定",
-                zhTW: "鍵綁定",
+                en: 'Keybindings',
+                es: 'Atajos de teclado',
+                ja: 'キーバインド',
+                pt: 'Combinações de teclas',
+                ru: 'Сочетания клавиш',
+                zh: '键绑定',
+                zhTW: '鍵綁定',
               }),
-              view: "select",
-              name: "editorKeybinding",
+              view: 'select',
+              name: 'editorKeybinding',
               data: [
                 {
-                  value: "ace",
-                  label: "Ace",
+                  value: 'ace',
+                  label: 'Ace',
                 },
                 {
-                  value: "ace/keyboard/sublime",
-                  label: "Sublime",
+                  value: 'ace/keyboard/sublime',
+                  label: 'Sublime',
                 },
                 {
-                  value: "ace/keyboard/vscode",
-                  label: "VSCode",
+                  value: 'ace/keyboard/vscode',
+                  label: 'VSCode',
                 },
               ],
               on: {
@@ -21742,22 +21742,22 @@ requestAnimationFrame(() => LSC.start()),
                 onChange: function (t, n, i) {
                   e.ur(this.getValue()),
                     i &&
-                      (e.G(), GA_SendEvent("change_keybindings", "settings"));
+                      (e.G(), GA_SendEvent('change_keybindings', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Line Numbers",
-                es: "Números de Línea",
-                ja: "行番号を表示",
-                pt: "Números de Linha",
-                ru: "Hомера строк",
-                zh: "显示行号",
-                zhTW: "顯示行號",
+                en: 'Line Numbers',
+                es: 'Números de Línea',
+                ja: '行番号を表示',
+                pt: 'Números de Linha',
+                ru: 'Hомера строк',
+                zh: '显示行号',
+                zhTW: '顯示行號',
               }),
-              view: "toggle",
-              name: "editorLineNumbers",
+              view: 'toggle',
+              name: 'editorLineNumbers',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
@@ -21767,100 +21767,100 @@ requestAnimationFrame(() => LSC.start()),
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Tab Size",
-                es: "Tamaño de Tab",
-                ja: "タブ幅",
-                pt: "Tamanho do Tab",
-                ru: "Ширина отступа",
-                zh: "Tab 长度",
-                zhTW: "Tab 長度",
+                en: 'Tab Size',
+                es: 'Tamaño de Tab',
+                ja: 'タブ幅',
+                pt: 'Tamanho do Tab',
+                ru: 'Ширина отступа',
+                zh: 'Tab 长度',
+                zhTW: 'Tab 長度',
               }),
-              view: "select",
-              name: "editorTabSize",
+              view: 'select',
+              name: 'editorTabSize',
               data: [
                 {
-                  value: "1",
-                  label: "1",
+                  value: '1',
+                  label: '1',
                 },
                 {
-                  value: "2",
-                  label: "2",
+                  value: '2',
+                  label: '2',
                 },
                 {
-                  value: "3",
-                  label: "3",
+                  value: '3',
+                  label: '3',
                 },
                 {
-                  value: "4",
-                  label: "4",
+                  value: '4',
+                  label: '4',
                 },
                 {
-                  value: "8",
-                  label: "8",
+                  value: '8',
+                  label: '8',
                 },
               ],
               on: {
                 onInitialized: function () {
-                  this.setValue("2");
+                  this.setValue('2');
                 },
                 onChange: function (t, n, i) {
                   e.B(this.getValue()),
-                    i && (e.G(), GA_SendEvent("change_tab_size", "settings"));
+                    i && (e.G(), GA_SendEvent('change_tab_size', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Word Wrap",
-                es: "Ajuste de Línea",
-                ja: "自動折り返し",
-                pt: "Quebra de Linha",
-                ru: "Перенос строк",
-                zh: "自动换行",
-                zhTW: "自動換行",
+                en: 'Word Wrap',
+                es: 'Ajuste de Línea',
+                ja: '自動折り返し',
+                pt: 'Quebra de Linha',
+                ru: 'Перенос строк',
+                zh: '自动换行',
+                zhTW: '自動換行',
               }),
-              view: "toggle",
-              name: "editorWordWrap",
+              view: 'toggle',
+              name: 'editorWordWrap',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
                   o.ai(this.getValue()),
-                    i && (e.G(), GA_SendEvent("change_word_wrap", "settings"));
+                    i && (e.G(), GA_SendEvent('change_word_wrap', 'settings'));
                 },
               },
             },
           ],
         },
         s = {
-          id: "settingsMobileForm",
-          view: "form",
-          margin: "top",
-          formStyle: "horizontal line",
+          id: 'settingsMobileForm',
+          view: 'form',
+          margin: 'top',
+          formStyle: 'horizontal line',
           fieldset: [
             {
               formLabelAttributes: i18nAttributes({
-                en: "Orientation",
-                es: "Orientación",
-                ja: "デバイスの向き",
-                pt: "Orientação",
-                ru: "Oриентация",
-                zh: "方向",
-                zhTW: "設備方向",
+                en: 'Orientation',
+                es: 'Orientación',
+                ja: 'デバイスの向き',
+                pt: 'Orientação',
+                ru: 'Oриентация',
+                zh: '方向',
+                zhTW: '設備方向',
               }),
-              view: "select",
-              name: "touchOrientation",
+              view: 'select',
+              name: 'touchOrientation',
               data: [
                 {
-                  value: "portrait",
-                  label: "Portrait",
+                  value: 'portrait',
+                  label: 'Portrait',
                 },
                 {
-                  value: "landscape",
-                  label: "Landscape",
+                  value: 'landscape',
+                  label: 'Landscape',
                 },
                 {
-                  value: "auto",
-                  label: "Auto",
+                  value: 'auto',
+                  label: 'Auto',
                 },
               ],
               on: {
@@ -21875,23 +21875,23 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         r = {
-          id: "settingsTouchForm",
-          view: "form",
-          margin: "top",
-          formStyle: "horizontal line",
+          id: 'settingsTouchForm',
+          view: 'form',
+          margin: 'top',
+          formStyle: 'horizontal line',
           fieldset: [
             {
               formLabelAttributes: i18nAttributes({
-                en: "Touch Features",
-                es: "Funciones Táctiles",
-                ja: "タッチ機能",
-                pt: "Recursos de Toque",
-                ru: "Особенности сенсорного экрана",
-                zh: "触控功能",
-                zhTW: "觸控功能",
+                en: 'Touch Features',
+                es: 'Funciones Táctiles',
+                ja: 'タッチ機能',
+                pt: 'Recursos de Toque',
+                ru: 'Особенности сенсорного экрана',
+                zh: '触控功能',
+                zhTW: '觸控功能',
               }),
-              view: "toggle",
-              name: "touchFeatures",
+              view: 'toggle',
+              name: 'touchFeatures',
               checked: e.deviceTouchSupport,
               on: {
                 onChange: function (t, n, i) {
@@ -21899,126 +21899,126 @@ requestAnimationFrame(() => LSC.start()),
                   this.getValue()
                     ? e.deviceTouchSupport &&
                       ((UI.support.touch = !0),
-                      UI.removeClass(o, "uk-notouch"),
-                      UI.addClass(o, "uk-touch"))
+                      UI.removeClass(o, 'uk-notouch'),
+                      UI.addClass(o, 'uk-touch'))
                     : ((UI.support.touch = !1),
-                      UI.removeClass(o, "uk-touch"),
-                      UI.addClass(o, "uk-notouch")),
+                      UI.removeClass(o, 'uk-touch'),
+                      UI.addClass(o, 'uk-notouch')),
                     i &&
                       (e.G(),
-                      GA_SendEvent("change_touch_features", "settings"));
+                      GA_SendEvent('change_touch_features', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Haptic Keypress",
-                es: "Táctil Háptica",
-                ja: "触覚キープレス",
-                pt: "Tecla Táctil",
-                ru: "Tактильная клавиша",
-                zh: "触觉按键",
-                zhTW: "觸覺按鍵",
+                en: 'Haptic Keypress',
+                es: 'Táctil Háptica',
+                ja: '触覚キープレス',
+                pt: 'Tecla Táctil',
+                ru: 'Tактильная клавиша',
+                zh: '触觉按键',
+                zhTW: '觸覺按鍵',
               }),
-              view: "toggle",
-              name: "touchHapticKeypress",
+              view: 'toggle',
+              name: 'touchHapticKeypress',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
                   o.fi(this.getValue()),
                     i &&
                       (e.G(),
-                      GA_SendEvent("change_haptic_keypress", "settings"));
+                      GA_SendEvent('change_haptic_keypress', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Keyboard Position",
-                es: "Posición del Teclado",
-                ja: "キーボードの位置",
-                pt: "Posição do Teclado",
-                ru: "Положение клавиатуры",
-                zh: "键盘位置",
-                zhTW: "鍵盤位置",
+                en: 'Keyboard Position',
+                es: 'Posición del Teclado',
+                ja: 'キーボードの位置',
+                pt: 'Posição do Teclado',
+                ru: 'Положение клавиатуры',
+                zh: '键盘位置',
+                zhTW: '鍵盤位置',
               }),
-              view: "select",
-              name: "touchKeyboardPosition",
+              view: 'select',
+              name: 'touchKeyboardPosition',
               data: [
                 {
-                  value: "top",
-                  label: "Top",
+                  value: 'top',
+                  label: 'Top',
                 },
                 {
-                  value: "bottom",
-                  label: "Bottom",
+                  value: 'bottom',
+                  label: 'Bottom',
                 },
               ],
               on: {
                 onInitialized: function () {
-                  this.setValue(o.ace.userAgent.isIOS ? "top" : "bottom");
+                  this.setValue(o.ace.userAgent.isIOS ? 'top' : 'bottom');
                 },
                 onChange: function (t, n, i) {
                   o.li(this.getValue()),
                     i &&
                       (e.G(),
-                      GA_SendEvent("change_keyboard_position", "settings"));
+                      GA_SendEvent('change_keyboard_position', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Extra Keyboard",
-                es: "Teclado Extra",
-                ja: "追加のキーボード",
-                pt: "Teclado Extra",
-                zh: "额外的键盘",
-                zhTW: "額外的鍵盤",
+                en: 'Extra Keyboard',
+                es: 'Teclado Extra',
+                ja: '追加のキーボード',
+                pt: 'Teclado Extra',
+                zh: '额外的键盘',
+                zhTW: '額外的鍵盤',
               }),
-              view: "toggle",
-              name: "touchExtraKeyboard",
+              view: 'toggle',
+              name: 'touchExtraKeyboard',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
                   o.ri(this.getValue()),
                     i &&
                       (e.G(),
-                      GA_SendEvent("change_extra_keyboard", "settings"));
+                      GA_SendEvent('change_extra_keyboard', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Touch Keyboard",
-                es: "Teclado Táctil",
-                ja: "タッチキーボード",
-                pt: "Teclado de Toque",
-                zh: "软键盘",
-                zhTW: "軟鍵盤",
+                en: 'Touch Keyboard',
+                es: 'Teclado Táctil',
+                ja: 'タッチキーボード',
+                pt: 'Teclado de Toque',
+                zh: '软键盘',
+                zhTW: '軟鍵盤',
               }),
-              view: "toggle",
-              name: "touchKeyboard",
+              view: 'toggle',
+              name: 'touchKeyboard',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
                   o.ci(this.getValue()),
                     i &&
                       (e.G(),
-                      GA_SendEvent("change_touch_keyboard", "settings"));
+                      GA_SendEvent('change_touch_keyboard', 'settings'));
                 },
               },
             },
           ],
         },
         c = {
-          id: "settingsGitForm",
-          view: "form",
-          margin: "top",
-          formStyle: "horizontal line",
+          id: 'settingsGitForm',
+          view: 'form',
+          margin: 'top',
+          formStyle: 'horizontal line',
           fieldset: [
             {
               formLabel: i18nTag(RES_I18N.Objects.Credentials),
-              view: "link",
+              view: 'link',
               label: RES_I18N.Elements.Open,
               on: {
                 onClick: function () {
@@ -22029,228 +22029,228 @@ requestAnimationFrame(() => LSC.start()),
           ],
         },
         l = {
-          id: "settingsAppearanceForm",
-          view: "form",
-          margin: "top",
-          formStyle: "horizontal line",
+          id: 'settingsAppearanceForm',
+          view: 'form',
+          margin: 'top',
+          formStyle: 'horizontal line',
           fieldset: [
             {
               formLabelAttributes: i18nAttributes({
-                en: "Animations",
-                es: "Animaciones",
-                ja: "アニメーション",
-                pt: "Animações",
-                ru: "Анимации",
-                zh: "动画效果",
-                zhTW: "動畫效果",
+                en: 'Animations',
+                es: 'Animaciones',
+                ja: 'アニメーション',
+                pt: 'Animações',
+                ru: 'Анимации',
+                zh: '动画效果',
+                zhTW: '動畫效果',
               }),
-              view: "toggle",
-              name: "appearanceAnimations",
+              view: 'toggle',
+              name: 'appearanceAnimations',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
                   e.rr(this.getValue()),
-                    i && (e.G(), GA_SendEvent("change_animations", "settings"));
+                    i && (e.G(), GA_SendEvent('change_animations', 'settings'));
                 },
               },
             },
             {
-              formLabel: "Language",
-              view: "select",
-              name: "appearanceLanguage",
+              formLabel: 'Language',
+              view: 'select',
+              name: 'appearanceLanguage',
               data: [
                 {
-                  value: "en",
-                  label: "English",
+                  value: 'en',
+                  label: 'English',
                 },
                 {
-                  value: "es",
-                  label: "Español",
+                  value: 'es',
+                  label: 'Español',
                 },
                 {
-                  value: "pt",
-                  label: "Portugues",
+                  value: 'pt',
+                  label: 'Portugues',
                 },
                 {
-                  value: "ru",
-                  label: "Pусский",
+                  value: 'ru',
+                  label: 'Pусский',
                 },
                 {
-                  value: "ja",
-                  label: "日本語",
+                  value: 'ja',
+                  label: '日本語',
                 },
                 {
-                  value: "zh",
-                  label: "简体中文",
+                  value: 'zh',
+                  label: '简体中文',
                 },
                 {
-                  value: "zhTW",
-                  label: "繁體中文",
+                  value: 'zhTW',
+                  label: '繁體中文',
                 },
               ],
               on: {
                 onInitialized: function () {
                   this.setValue(
                     {
-                      en: "en",
-                      "en-us": "en",
-                      "en-ca": "en",
-                      "en-gb": "en",
-                      "en-in": "en",
-                      es: "es",
-                      "es-ar": "es",
-                      "es-gt": "es",
-                      "es-cr": "es",
-                      "es-pa": "es",
-                      "es-do": "es",
-                      "es-es": "es",
-                      "es-mx": "es",
-                      "es-ve": "es",
-                      "es-co": "es",
-                      "es-pe": "es",
-                      "es-ec": "es",
-                      "es-cl": "es",
-                      "es-uy": "es",
-                      "es-py": "es",
-                      "es-bo": "es",
-                      "es-sv": "es",
-                      "es-hn": "es",
-                      "es-ni": "es",
-                      "es-pr": "es",
-                      "es-us": "es",
-                      ja: "ja",
-                      "ja-jp": "ja",
-                      pt: "pt",
-                      "pt-br": "pt",
-                      ru: "ru",
-                      "ru-ru": "ru",
-                      zh: "zh",
-                      "zh-cn": "zh",
-                      "zh-sg": "zh",
-                      "zh-hk": "zhTW",
-                      "zh-tw": "zhTW",
-                    }[navigator.language.toLowerCase()] || "en"
+                      en: 'en',
+                      'en-us': 'en',
+                      'en-ca': 'en',
+                      'en-gb': 'en',
+                      'en-in': 'en',
+                      es: 'es',
+                      'es-ar': 'es',
+                      'es-gt': 'es',
+                      'es-cr': 'es',
+                      'es-pa': 'es',
+                      'es-do': 'es',
+                      'es-es': 'es',
+                      'es-mx': 'es',
+                      'es-ve': 'es',
+                      'es-co': 'es',
+                      'es-pe': 'es',
+                      'es-ec': 'es',
+                      'es-cl': 'es',
+                      'es-uy': 'es',
+                      'es-py': 'es',
+                      'es-bo': 'es',
+                      'es-sv': 'es',
+                      'es-hn': 'es',
+                      'es-ni': 'es',
+                      'es-pr': 'es',
+                      'es-us': 'es',
+                      ja: 'ja',
+                      'ja-jp': 'ja',
+                      pt: 'pt',
+                      'pt-br': 'pt',
+                      ru: 'ru',
+                      'ru-ru': 'ru',
+                      zh: 'zh',
+                      'zh-cn': 'zh',
+                      'zh-sg': 'zh',
+                      'zh-hk': 'zhTW',
+                      'zh-tw': 'zhTW',
+                    }[navigator.language.toLowerCase()] || 'en'
                   );
                 },
                 onChange: function (t, n, i) {
                   e.hr(this.getValue()),
-                    i && (e.G(), GA_SendEvent("change_language", "settings"));
+                    i && (e.G(), GA_SendEvent('change_language', 'settings'));
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Theme",
-                es: "Tema",
-                ja: "テーマ",
-                pt: "Temas",
-                ru: "Тема",
-                zh: "主题",
-                zhTW: "佈景主題",
+                en: 'Theme',
+                es: 'Tema',
+                ja: 'テーマ',
+                pt: 'Temas',
+                ru: 'Тема',
+                zh: '主题',
+                zhTW: '佈景主題',
               }),
-              view: "select",
-              name: "appearanceTheme",
+              view: 'select',
+              name: 'appearanceTheme',
               data: [
                 {
-                  value: "ayu-light",
-                  label: "Ayu Light",
-                  optgroup: "Light",
+                  value: 'ayu-light',
+                  label: 'Ayu Light',
+                  optgroup: 'Light',
                 },
                 {
-                  value: "chrome",
-                  label: "Chrome",
-                  optgroup: "Light",
+                  value: 'chrome',
+                  label: 'Chrome',
+                  optgroup: 'Light',
                 },
                 {
-                  value: "xcode",
-                  label: "XCode",
-                  optgroup: "Light",
+                  value: 'xcode',
+                  label: 'XCode',
+                  optgroup: 'Light',
                 },
                 {
-                  value: "ayu-mirage",
-                  label: "Ayu Mirage",
-                  optgroup: "Dark",
+                  value: 'ayu-mirage',
+                  label: 'Ayu Mirage',
+                  optgroup: 'Dark',
                 },
                 {
-                  value: "dracula",
-                  label: "Dracula",
-                  optgroup: "Dark",
+                  value: 'dracula',
+                  label: 'Dracula',
+                  optgroup: 'Dark',
                 },
                 {
-                  value: "monokai",
-                  label: "Monokai",
-                  optgroup: "Dark",
+                  value: 'monokai',
+                  label: 'Monokai',
+                  optgroup: 'Dark',
                 },
               ],
               on: {
                 onInitialized: function () {
-                  this.setValue("xcode");
+                  this.setValue('xcode');
                 },
                 onChange: function (t, n, i) {
                   e.C(this.getValue()),
-                    i && (e.G(), GA_SendEvent("change_theme", "settings"));
+                    i && (e.G(), GA_SendEvent('change_theme', 'settings'));
                 },
               },
             },
           ],
         },
         u = {
-          id: "settingsPreviewForm",
-          view: "form",
-          margin: "top",
-          formStyle: "horizontal line",
+          id: 'settingsPreviewForm',
+          view: 'form',
+          margin: 'top',
+          formStyle: 'horizontal line',
           fieldset: [
             {
-              formLabel: "Live Preview",
-              view: "toggle",
-              name: "previewUseLiveMode",
+              formLabel: 'Live Preview',
+              view: 'toggle',
+              name: 'previewUseLiveMode',
               checked: !0,
               on: {
                 onChange: function (t, n, i) {
                   e.preview.$o(this.getValue()),
                     i &&
-                      (e.G(), GA_SendEvent("change_live_preview", "settings"));
+                      (e.G(), GA_SendEvent('change_live_preview', 'settings'));
                 },
               },
             },
           ],
         },
         h = {
-          id: "settingsAboutForm",
-          view: "form",
-          margin: "top",
-          formStyle: "horizontal line",
+          id: 'settingsAboutForm',
+          view: 'form',
+          margin: 'top',
+          formStyle: 'horizontal line',
           fieldset: [
             {
               formLabelAttributes: i18nAttributes({
-                en: "Build",
-                es: "Versión",
-                ja: "バージョン",
-                pt: "Versão",
-                ru: "Версия",
-                zh: "版本号",
-                zhTW: "版本號",
+                en: 'Build',
+                es: 'Versión',
+                ja: 'バージョン',
+                pt: 'Versão',
+                ru: 'Версия',
+                zh: '版本号',
+                zhTW: '版本號',
               }),
-              view: "label",
-              label: "",
+              view: 'label',
+              label: '',
               on: {
                 onInitialized: async function () {
                   const e = await DS.versionName();
-                  this.setValue(e || window.$version || "dev");
+                  this.setValue(e || window.$version || 'dev');
                 },
               },
             },
             {
               formLabelAttributes: i18nAttributes({
-                en: "Terms Agreement",
-                es: "Términos de Uso",
-                ja: "利用条件",
-                pt: "Termos de Uso",
-                ru: "Условия эксплуатации",
-                zh: "使用条款",
-                zhTW: "使用條款",
+                en: 'Terms Agreement',
+                es: 'Términos de Uso',
+                ja: '利用条件',
+                pt: 'Termos de Uso',
+                ru: 'Условия эксплуатации',
+                zh: '使用条款',
+                zhTW: '使用條款',
               }),
-              view: "link",
+              view: 'link',
               label: RES_I18N.Elements.Open,
               on: {
                 onClick: function () {
@@ -22260,7 +22260,7 @@ requestAnimationFrame(() => LSC.start()),
             },
             {
               formLabel: RES_I18N.Elements.LogHistory,
-              view: "link",
+              view: 'link',
               label: RES_I18N.Elements.Open,
               on: {
                 onClick: function () {
@@ -22285,8 +22285,8 @@ requestAnimationFrame(() => LSC.start()),
 
       function m(e, t) {
         return {
-          cls: "x-menu-title-bar",
-          view: "menuTitle",
+          cls: 'x-menu-title-bar',
+          view: 'menuTitle',
           attributes: i18nAttributes(e),
           on: {
             onToggled: function (e) {
@@ -22297,108 +22297,108 @@ requestAnimationFrame(() => LSC.start()),
         };
       }
       e.view = UI.new({
-        batch: "settings",
+        batch: 'settings',
         id: e.__name__,
-        fill: "height",
-        flexLayout: "column",
-        cls: "x-max-width-100",
+        fill: 'height',
+        flexLayout: 'column',
+        cls: 'x-max-width-100',
         cells: [
           {
-            cls: "x-menu-title-bar shadow",
-            view: "menuTitle",
+            cls: 'x-menu-title-bar shadow',
+            view: 'menuTitle',
             attributes: i18nAttributes({
-              en: "SETTINGS",
-              es: "Opciones",
-              ja: "環境設定",
-              pt: "Preferências",
-              ru: "Настройки",
-              zh: "设置",
-              zhTW: "設定",
+              en: 'SETTINGS',
+              es: 'Opciones',
+              ja: '環境設定',
+              pt: 'Preferências',
+              ru: 'Настройки',
+              zh: '设置',
+              zhTW: '設定',
             }),
             collapsable: !1,
           },
           {
-            view: "scroller",
-            flexSize: "flex",
+            view: 'scroller',
+            flexSize: 'flex',
             cells: [
               m(
                 {
-                  en: "GIT",
+                  en: 'GIT',
                 },
-                "settingsGitForm"
+                'settingsGitForm'
               ),
               c,
               m(
                 {
-                  en: "APPEARANCE",
-                  es: "APARIENCIA",
-                  ja: "出現",
-                  pt: "APARÊNCIA",
-                  ru: "Внешность",
-                  zh: "外观",
-                  zhTW: "出現",
+                  en: 'APPEARANCE',
+                  es: 'APARIENCIA',
+                  ja: '出現',
+                  pt: 'APARÊNCIA',
+                  ru: 'Внешность',
+                  zh: '外观',
+                  zhTW: '出現',
                 },
-                "settingsAppearanceForm"
+                'settingsAppearanceForm'
               ),
               l,
               m(
                 {
-                  en: "EDITOR",
-                  ja: "エディタ設定",
-                  ru: "Pедактор",
-                  zh: "编辑器",
-                  zhTW: "編輯器",
+                  en: 'EDITOR',
+                  ja: 'エディタ設定',
+                  ru: 'Pедактор',
+                  zh: '编辑器',
+                  zhTW: '編輯器',
                 },
-                "settingsEditorForm"
+                'settingsEditorForm'
               ),
               a,
-              m(RES_I18N.Objects.Preview, "settingsPreviewForm"),
+              m(RES_I18N.Objects.Preview, 'settingsPreviewForm'),
               u,
               d(
                 m(
                   {
-                    en: "MOBILE",
-                    es: "MÓVIL",
-                    ja: "モバイル",
-                    pt: "MÓVEL",
-                    ru: "Mобильный",
-                    zh: "移动",
-                    zhTW: "移動",
+                    en: 'MOBILE',
+                    es: 'MÓVIL',
+                    ja: 'モバイル',
+                    pt: 'MÓVEL',
+                    ru: 'Mобильный',
+                    zh: '移动',
+                    zhTW: '移動',
                   },
-                  "settingsMobileForm"
+                  'settingsMobileForm'
                 )
               ),
               d(s),
               p(
                 m(
                   {
-                    en: "TOUCH",
-                    es: "TOQUE",
-                    ja: "タッ",
-                    pt: "TOQUE",
-                    ru: "Cенсорный",
-                    zh: "触控功能",
-                    zhTW: "觸控功能",
+                    en: 'TOUCH',
+                    es: 'TOQUE',
+                    ja: 'タッ',
+                    pt: 'TOQUE',
+                    ru: 'Cенсорный',
+                    zh: '触控功能',
+                    zhTW: '觸控功能',
                   },
-                  "settingsTouchForm"
+                  'settingsTouchForm'
                 )
               ),
               p(r),
               m(
                 {
-                  en: "ABOUT",
-                  es: "ACERCA DE",
-                  ja: "について",
-                  pt: "SOBRE",
-                  ru: "О Spck",
-                  zh: "关于",
-                  zhTW: "關於",
+                  en: 'ABOUT',
+                  es: 'ACERCA DE',
+                  ja: 'について',
+                  pt: 'SOBRE',
+                  ru: 'О Spck',
+                  zh: '关于',
+                  zhTW: '關於',
                 },
-                "settingsAboutForm"
+                'settingsAboutForm'
               ),
               h,
               {
-                view: "spacer",
+                view: 'spacer',
                 height: 64,
               },
             ],

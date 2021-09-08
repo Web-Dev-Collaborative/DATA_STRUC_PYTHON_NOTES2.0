@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /* eslint-disable */
 var __createBinding =
   (this && this.__createBinding) ||
@@ -20,13 +20,13 @@ var __setModuleDefault =
   (this && this.__setModuleDefault) ||
   (Object.create
     ? function (o, v) {
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: true,
           value: v,
         });
       }
     : function (o, v) {
-        o["default"] = v;
+        o['default'] = v;
       });
 var __importStar =
   (this && this.__importStar) ||
@@ -35,7 +35,7 @@ var __importStar =
     var result = {};
     if (mod != null)
       for (var k in mod)
-        if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        if (k !== 'default' && Object.prototype.hasOwnProperty.call(mod, k))
           __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
@@ -47,7 +47,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
         if (
           e.indexOf(p[i]) < 0 &&
@@ -66,7 +66,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.useMenuButtonContext =
@@ -90,27 +90,27 @@ exports.useMenuButtonContext =
  *
  * TODO: Fix flash when opening a menu button on a screen with another open menu
  */
-const react_1 = __importStar(require("react"));
-const prop_types_1 = __importDefault(require("prop-types"));
-const auto_id_1 = require("@reach/auto-id");
-const popover_1 = __importDefault(require("@reach/popover"));
-const descendants_1 = require("@reach/descendants");
-const utils_1 = require("@reach/utils");
+const react_1 = __importStar(require('react'));
+const prop_types_1 = __importDefault(require('prop-types'));
+const auto_id_1 = require('@reach/auto-id');
+const popover_1 = __importDefault(require('@reach/popover'));
+const descendants_1 = require('@reach/descendants');
+const utils_1 = require('@reach/utils');
 const __DEV__ = false;
 ////////////////////////////////////////////////////////////////////////////////
 // Actions
-const CLEAR_SELECTION_INDEX = "CLEAR_SELECTION_INDEX";
-const CLICK_MENU_ITEM = "CLICK_MENU_ITEM";
-const CLOSE_MENU = "CLOSE_MENU";
-const OPEN_MENU_AT_FIRST_ITEM = "OPEN_MENU_AT_FIRST_ITEM";
-const OPEN_MENU_CLEARED = "OPEN_MENU_CLEARED";
-const SEARCH_FOR_ITEM = "SEARCH_FOR_ITEM";
-const SELECT_ITEM_AT_INDEX = "SELECT_ITEM_AT_INDEX";
-const SET_BUTTON_ID = "SET_BUTTON_ID";
+const CLEAR_SELECTION_INDEX = 'CLEAR_SELECTION_INDEX';
+const CLICK_MENU_ITEM = 'CLICK_MENU_ITEM';
+const CLOSE_MENU = 'CLOSE_MENU';
+const OPEN_MENU_AT_FIRST_ITEM = 'OPEN_MENU_AT_FIRST_ITEM';
+const OPEN_MENU_CLEARED = 'OPEN_MENU_CLEARED';
+const SEARCH_FOR_ITEM = 'SEARCH_FOR_ITEM';
+const SELECT_ITEM_AT_INDEX = 'SELECT_ITEM_AT_INDEX';
+const SET_BUTTON_ID = 'SET_BUTTON_ID';
 const MenuDescendantContext = descendants_1.createDescendantContext(
-  "MenuDescendantContext"
+  'MenuDescendantContext'
 );
-const MenuContext = utils_1.createNamedContext("MenuContext", {});
+const MenuContext = utils_1.createNamedContext('MenuContext', {});
 const initialState = {
   // The button ID is needed for aria controls and can be set directly and
   // updated for top-level use via context. Otherwise a default is set by useId.
@@ -121,7 +121,7 @@ const initialState = {
   isExpanded: false,
   // When a user begins typing a character string, the selection will change if
   // a matching item is found
-  typeaheadQuery: "",
+  typeaheadQuery: '',
   // The index of the current selected item. When the selection is cleared a
   // value of -1 is used.
   selectionIndex: -1,
@@ -146,7 +146,7 @@ exports.Menu = ({ id, defaultOpen = false, children }) => {
     })
   );
   let _id = auto_id_1.useId(id);
-  let menuId = id || utils_1.makeId("menu", _id);
+  let menuId = id || utils_1.makeId('menu', _id);
   // We use an event listener attached to the window to capture outside clicks
   // that close the menu. We don't want the initial button click to trigger this
   // when a menu is closed, so we can track this behavior in a ref for now.
@@ -191,7 +191,7 @@ exports.Menu = ({ id, defaultOpen = false, children }) => {
       window.__REACH_DISABLE_TOOLTIPS = false;
     }
   }, [state.isExpanded]);
-  react_1.useEffect(() => utils_1.checkStyles("menu-button"), []);
+  react_1.useEffect(() => utils_1.checkStyles('menu-button'), []);
   return react_1.default.createElement(
     descendants_1.DescendantProvider,
     {
@@ -216,7 +216,7 @@ exports.Menu = ({ id, defaultOpen = false, children }) => {
   );
 };
 if (__DEV__) {
-  exports.Menu.displayName = "Menu";
+  exports.Menu.displayName = 'Menu';
   exports.Menu.propTypes = {
     children: prop_types_1.default.oneOfType([
       prop_types_1.default.func,
@@ -237,8 +237,8 @@ exports.MenuButton = utils_1.forwardRefWithAs(function MenuButton(
   _a,
   forwardedRef
 ) {
-  var { as: Comp = "button", onKeyDown, onMouseDown, id } = _a,
-    props = __rest(_a, ["as", "onKeyDown", "onMouseDown", "id"]);
+  var { as: Comp = 'button', onKeyDown, onMouseDown, id } = _a,
+    props = __rest(_a, ['as', 'onKeyDown', 'onMouseDown', 'id']);
   let {
     buttonRef,
     buttonClickedRef,
@@ -252,8 +252,8 @@ exports.MenuButton = utils_1.forwardRefWithAs(function MenuButton(
       id != null
         ? id
         : menuId
-        ? utils_1.makeId("menu-button", menuId)
-        : "menu-button";
+        ? utils_1.makeId('menu-button', menuId)
+        : 'menu-button';
     if (buttonId !== newButtonId) {
       dispatch({
         type: SET_BUTTON_ID,
@@ -264,15 +264,15 @@ exports.MenuButton = utils_1.forwardRefWithAs(function MenuButton(
 
   function handleKeyDown(event) {
     switch (event.key) {
-      case "ArrowDown":
-      case "ArrowUp":
+      case 'ArrowDown':
+      case 'ArrowUp':
         event.preventDefault(); // prevent scroll
         dispatch({
           type: OPEN_MENU_AT_FIRST_ITEM,
         });
         break;
-      case "Enter":
-      case " ":
+      case 'Enter':
+      case ' ':
         dispatch({
           type: OPEN_MENU_AT_FIRST_ITEM,
         });
@@ -309,24 +309,24 @@ exports.MenuButton = utils_1.forwardRefWithAs(function MenuButton(
     // https://www.w3.org/TR/wai-aria-practices-1.2/#menubutton
     Object.assign(
       {
-        "aria-expanded": isExpanded ? true : undefined,
-        "aria-haspopup": true,
-        "aria-controls": menuId,
+        'aria-expanded': isExpanded ? true : undefined,
+        'aria-haspopup': true,
+        'aria-controls': menuId,
       },
       props,
       {
         ref: ref,
-        "data-reach-menu-button": "",
+        'data-reach-menu-button': '',
         id: buttonId || undefined,
         onKeyDown: utils_1.wrapEvent(onKeyDown, handleKeyDown),
         onMouseDown: utils_1.wrapEvent(onMouseDown, handleMouseDown),
-        type: "button",
+        type: 'button',
       }
     )
   );
 });
 if (__DEV__) {
-  exports.MenuButton.displayName = "MenuButton";
+  exports.MenuButton.displayName = 'MenuButton';
   exports.MenuButton.propTypes = {
     children: prop_types_1.default.node,
   };
@@ -356,18 +356,18 @@ const MenuItemImpl = utils_1.forwardRefWithAs(function MenuItemImpl(
       valueText: valueTextProp,
     } = _a,
     props = __rest(_a, [
-      "as",
-      "index",
-      "isLink",
-      "onClick",
-      "onDragStart",
-      "onMouseDown",
-      "onMouseEnter",
-      "onMouseLeave",
-      "onMouseMove",
-      "onMouseUp",
-      "onSelect",
-      "valueText",
+      'as',
+      'index',
+      'isLink',
+      'onClick',
+      'onDragStart',
+      'onMouseDown',
+      'onMouseEnter',
+      'onMouseLeave',
+      'onMouseMove',
+      'onMouseUp',
+      'onSelect',
+      'valueText',
     ]);
   let {
     buttonRef,
@@ -380,7 +380,7 @@ const MenuItemImpl = utils_1.forwardRefWithAs(function MenuItemImpl(
   // After the ref is mounted to the DOM node, we check to see if we have an
   // explicit valueText prop before looking for the node's textContent for
   // typeahead functionality.
-  let [valueText, setValueText] = react_1.useState(valueTextProp || "");
+  let [valueText, setValueText] = react_1.useState(valueTextProp || '');
   let setValueTextFromDom = react_1.useCallback(
     (node) => {
       if (node) {
@@ -514,23 +514,23 @@ const MenuItemImpl = utils_1.forwardRefWithAs(function MenuItemImpl(
   react_1.useEffect(() => {
     let ownerDocument = utils_1.getOwnerDocument(ownRef.current) || document;
     let listener = () => (mouseEventStarted.current = false);
-    ownerDocument.addEventListener("mouseup", listener);
-    return () => ownerDocument.removeEventListener("mouseup", listener);
+    ownerDocument.addEventListener('mouseup', listener);
+    return () => ownerDocument.removeEventListener('mouseup', listener);
   }, []);
   return react_1.default.createElement(
     Comp,
     Object.assign(
       {
-        role: "menuitem",
+        role: 'menuitem',
         id: useMenuItemId(index),
         tabIndex: -1,
       },
       props,
       {
         ref: ref,
-        "data-reach-menu-item": "",
-        "data-selected": isSelected ? "" : undefined,
-        "data-valuetext": valueText,
+        'data-reach-menu-item': '',
+        'data-selected': isSelected ? '' : undefined,
+        'data-valuetext': valueText,
         onClick: utils_1.wrapEvent(onClick, handleClick),
         onDragStart: utils_1.wrapEvent(onDragStart, handleDragStart),
         onMouseDown: utils_1.wrapEvent(onMouseDown, handleMouseDown),
@@ -554,8 +554,8 @@ exports.MenuItem = utils_1.forwardRefWithAs(function MenuItem(
   _a,
   forwardedRef
 ) {
-  var { as = "div" } = _a,
-    props = __rest(_a, ["as"]);
+  var { as = 'div' } = _a,
+    props = __rest(_a, ['as']);
   return react_1.default.createElement(
     MenuItemImpl,
     Object.assign({}, props, {
@@ -565,7 +565,7 @@ exports.MenuItem = utils_1.forwardRefWithAs(function MenuItem(
   );
 });
 if (__DEV__) {
-  exports.MenuItem.displayName = "MenuItem";
+  exports.MenuItem.displayName = 'MenuItem';
   exports.MenuItem.propTypes = {
     as: prop_types_1.default.any,
     onSelect: prop_types_1.default.func.isRequired,
@@ -585,8 +585,8 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
   _a,
   forwardedRef
 ) {
-  var { as: Comp = "div", children, id, onKeyDown } = _a,
-    props = __rest(_a, ["as", "children", "id", "onKeyDown"]);
+  var { as: Comp = 'div', children, id, onKeyDown } = _a,
+    props = __rest(_a, ['as', 'children', 'id', 'onKeyDown']);
   const {
     menuId,
     dispatch,
@@ -613,7 +613,7 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
         typeaheadQuery &&
         dispatch({
           type: SEARCH_FOR_ITEM,
-          payload: "",
+          payload: '',
         }),
       1000
     );
@@ -668,8 +668,8 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
         return;
       }
       switch (key) {
-        case "Enter":
-        case " ":
+        case 'Enter':
+        case ' ':
           let selected = menuItems.find(
             (item) => item.index === selectionIndex
           );
@@ -693,7 +693,7 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
             }
           }
           break;
-        case "Escape":
+        case 'Escape':
           focus(buttonRef.current);
           dispatch({
             type: CLOSE_MENU,
@@ -702,7 +702,7 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
             },
           });
           break;
-        case "Tab":
+        case 'Tab':
           // prevent leaving
           event.preventDefault();
           break;
@@ -721,7 +721,7 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
     },
     descendants_1.useDescendantKeyDown(MenuDescendantContext, {
       currentIndex: selectionIndex,
-      orientation: "vertical",
+      orientation: 'vertical',
       rotate: false,
       callback: (index) => {
         dispatch({
@@ -731,7 +731,7 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
           },
         });
       },
-      key: "index",
+      key: 'index',
     })
   );
   return (
@@ -745,18 +745,18 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
       // https://www.w3.org/TR/wai-aria-practices-1.2/examples/menu-button/menu-button-actions-active-descendant.html
       Object.assign(
         {
-          "aria-activedescendant": useMenuItemId(selectionIndex) || undefined,
-          "aria-labelledby": buttonId || undefined,
+          'aria-activedescendant': useMenuItemId(selectionIndex) || undefined,
+          'aria-labelledby': buttonId || undefined,
           // The element that contains the menu items displayed by activating the
           // button has role menu.
           // https://www.w3.org/TR/wai-aria-practices-1.2/#menubutton
-          role: "menu",
+          role: 'menu',
           tabIndex: -1,
         },
         props,
         {
           ref: ref,
-          "data-reach-menu-items": "",
+          'data-reach-menu-items': '',
           id: menuId,
           onKeyDown: utils_1.wrapEvent(onKeyDown, handleKeyDown),
         }
@@ -766,7 +766,7 @@ exports.MenuItems = utils_1.forwardRefWithAs(function MenuItems(
   );
 });
 if (__DEV__) {
-  exports.MenuItems.displayName = "MenuItems";
+  exports.MenuItems.displayName = 'MenuItems';
   exports.MenuItems.propTypes = {
     children: prop_types_1.default.node,
   };
@@ -787,24 +787,24 @@ exports.MenuLink = utils_1.forwardRefWithAs(function MenuLink(
   _a,
   forwardedRef
 ) {
-  var { as = "a", component, onSelect } = _a,
-    props = __rest(_a, ["as", "component", "onSelect"]);
+  var { as = 'a', component, onSelect } = _a,
+    props = __rest(_a, ['as', 'component', 'onSelect']);
   if (component) {
     console.warn(
-      "[@reach/menu-button]: Please use the `as` prop instead of `component`."
+      '[@reach/menu-button]: Please use the `as` prop instead of `component`.'
     );
   }
   return react_1.default.createElement(
-    "div",
+    'div',
     {
-      role: "none",
+      role: 'none',
       tabIndex: -1,
     },
     react_1.default.createElement(
       MenuItemImpl,
       Object.assign({}, props, {
         ref: forwardedRef,
-        "data-reach-menu-link": "",
+        'data-reach-menu-link': '',
         as: as,
         isLink: true,
         onSelect: onSelect || utils_1.noop,
@@ -813,7 +813,7 @@ exports.MenuLink = utils_1.forwardRefWithAs(function MenuLink(
   );
 });
 if (__DEV__) {
-  exports.MenuLink.displayName = "MenuLink";
+  exports.MenuLink.displayName = 'MenuLink';
   exports.MenuLink.propTypes = {
     as: prop_types_1.default.any,
     component: prop_types_1.default.any,
@@ -830,7 +830,7 @@ if (__DEV__) {
  */
 exports.MenuList = react_1.forwardRef(function MenuList(_a, forwardedRef) {
   var { portal = true } = _a,
-    props = __rest(_a, ["portal"]);
+    props = __rest(_a, ['portal']);
   return react_1.default.createElement(
     exports.MenuPopover,
     {
@@ -840,13 +840,13 @@ exports.MenuList = react_1.forwardRef(function MenuList(_a, forwardedRef) {
       exports.MenuItems,
       Object.assign({}, props, {
         ref: forwardedRef,
-        "data-reach-menu-list": "",
+        'data-reach-menu-list': '',
       })
     )
   );
 });
 if (__DEV__) {
-  exports.MenuList.displayName = "MenuList";
+  exports.MenuList.displayName = 'MenuList';
   exports.MenuList.propTypes = {
     children: prop_types_1.default.node.isRequired,
   };
@@ -867,7 +867,7 @@ exports.MenuPopover = react_1.forwardRef(function MenuPopover(
   forwardedRef
 ) {
   var { children, portal = true, position } = _a,
-    props = __rest(_a, ["children", "portal", "position"]);
+    props = __rest(_a, ['children', 'portal', 'position']);
   const {
     buttonRef,
     buttonClickedRef,
@@ -901,17 +901,17 @@ exports.MenuPopover = react_1.forwardRef(function MenuPopover(
         }
       }
     }
-    window.addEventListener("mousedown", listener);
+    window.addEventListener('mousedown', listener);
     return () => {
-      window.removeEventListener("mousedown", listener);
+      window.removeEventListener('mousedown', listener);
     };
   }, [buttonClickedRef, buttonRef, dispatch, isExpanded, menuRef, popoverRef]);
   let commonProps = Object.assign(
     {
       ref,
       // TODO: remove in 1.0
-      "data-reach-menu": "",
-      "data-reach-menu-popover": "",
+      'data-reach-menu': '',
+      'data-reach-menu-popover': '',
       hidden: !isExpanded,
       children,
     },
@@ -925,10 +925,10 @@ exports.MenuPopover = react_1.forwardRef(function MenuPopover(
           position: position,
         })
       )
-    : react_1.default.createElement("div", Object.assign({}, commonProps));
+    : react_1.default.createElement('div', Object.assign({}, commonProps));
 });
 if (__DEV__) {
-  exports.MenuPopover.displayName = "MenuPopover";
+  exports.MenuPopover.displayName = 'MenuPopover';
   exports.MenuPopover.propTypes = {
     children: prop_types_1.default.node,
   };
@@ -957,7 +957,7 @@ exports.useMenuButtonContext = useMenuButtonContext;
  * expected that the matching menu item is selected. This is our matching
  * function.
  */
-function findItemFromTypeahead(items, string = "") {
+function findItemFromTypeahead(items, string = '') {
   if (!string) {
     return null;
   }
@@ -1031,7 +1031,7 @@ function reducer(state, action = {}) {
         buttonId: action.payload,
       });
     case SEARCH_FOR_ITEM:
-      if (typeof action.payload !== "undefined") {
+      if (typeof action.payload !== 'undefined') {
         return Object.assign(Object.assign({}, state), {
           typeaheadQuery: action.payload,
         });

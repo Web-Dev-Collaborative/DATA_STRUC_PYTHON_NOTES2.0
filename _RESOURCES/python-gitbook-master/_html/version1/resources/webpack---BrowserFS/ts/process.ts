@@ -2,9 +2,9 @@
 // to avoid circular dependencies :(
 // (path depends on process for cwd(), TTY depends on streams which depends
 //  on process.nextTick/process.stdout/stderr/stdin).
-import _path = require("path");
-import _TTY = require("./tty");
-import events = require("events");
+import _path = require('path');
+import _TTY = require('./tty');
+import events = require('events');
 
 // Path depends on process. Avoid a circular reference by dynamically including path when we need it.
 var path: typeof _path = null;
@@ -86,7 +86,7 @@ class NextTickQueue {
 class Process extends events.EventEmitter implements NodeJS.Process {
   private startTime = Date.now();
 
-  private _cwd: string = "/";
+  private _cwd: string = '/';
   /**
    * Changes the current working directory.
    *
@@ -101,7 +101,7 @@ class Process extends events.EventEmitter implements NodeJS.Process {
   public chdir(dir: string): void {
     // XXX: Circular dependency hack.
     if (path === null) {
-      path = require("path");
+      path = require('path');
     }
     this._cwd = path.resolve(dir);
   }
@@ -118,7 +118,7 @@ class Process extends events.EventEmitter implements NodeJS.Process {
    * Returns what platform you are running on.
    * @return [String]
    */
-  public platform: string = "browser";
+  public platform: string = 'browser';
   /**
    * Number of seconds BrowserFS has been running.
    * @return [Number]
@@ -143,14 +143,14 @@ class Process extends events.EventEmitter implements NodeJS.Process {
   public execPath = __dirname;
 
   public abort(): void {
-    this.emit("abort");
+    this.emit('abort');
   }
 
   public env: { [name: string]: string } = {};
   public exitCode: number = 0;
   public exit(code: number): void {
     this.exitCode = code;
-    this.emit("exit", [code]);
+    this.emit('exit', [code]);
   }
 
   private _gid: number = 1;
@@ -158,7 +158,7 @@ class Process extends events.EventEmitter implements NodeJS.Process {
     return this._gid;
   }
   public setgid(gid: number | string): void {
-    if (typeof gid === "number") {
+    if (typeof gid === 'number') {
       this._gid = gid;
     } else {
       this._gid = 1;
@@ -170,41 +170,41 @@ class Process extends events.EventEmitter implements NodeJS.Process {
     return this._uid;
   }
   public setuid(uid: number | string): void {
-    if (typeof uid === "number") {
+    if (typeof uid === 'number') {
       this._uid = uid;
     } else {
       this._uid = 1;
     }
   }
 
-  public version: string = "v5.0";
+  public version: string = 'v5.0';
 
   public versions = {
-    http_parser: "0.0",
-    node: "5.0",
-    v8: "0.0",
-    uv: "0.0",
-    zlib: "0.0",
-    ares: "0.0",
-    icu: "0.0",
-    modules: "0",
-    openssl: "0.0",
+    http_parser: '0.0',
+    node: '5.0',
+    v8: '0.0',
+    uv: '0.0',
+    zlib: '0.0',
+    ares: '0.0',
+    icu: '0.0',
+    modules: '0',
+    openssl: '0.0',
   };
 
   public config = {
     target_defaults: {
       cflags: <any[]>[],
-      default_configuration: "Release",
+      default_configuration: 'Release',
       defines: <string[]>[],
       include_dirs: <string[]>[],
       libraries: <string[]>[],
     },
     variables: {
       clang: 0,
-      host_arch: "x32",
+      host_arch: 'x32',
       node_install_npm: false,
       node_install_waf: false,
-      node_prefix: "",
+      node_prefix: '',
       node_shared_cares: false,
       node_shared_http_parser: false,
       node_shared_libuv: false,
@@ -215,21 +215,21 @@ class Process extends events.EventEmitter implements NodeJS.Process {
       node_use_openssl: false,
       node_shared_openssl: false,
       strict_aliasing: false,
-      target_arch: "x32",
+      target_arch: 'x32',
       v8_use_snapshot: false,
       v8_no_strict_aliasing: 0,
-      visibility: "",
+      visibility: '',
     },
   };
 
   public kill(pid: number, signal?: string): void {
-    this.emit("kill", [pid, signal]);
+    this.emit('kill', [pid, signal]);
   }
 
   public pid = (Math.random() * 1000) | 0;
 
-  public title = "node";
-  public arch = "x32";
+  public title = 'node';
+  public arch = 'x32';
   public memoryUsage(): { rss: number; heapTotal: number; heapUsed: number } {
     return { rss: 0, heapTotal: 0, heapUsed: 0 };
   }
@@ -238,15 +238,15 @@ class Process extends events.EventEmitter implements NodeJS.Process {
   public umask(mask: number = this._mask): number {
     let oldMask = this._mask;
     this._mask = mask;
-    this.emit("umask", [mask]);
+    this.emit('umask', [mask]);
     return oldMask;
   }
 
   public hrtime(): [number, number] {
     let timeinfo: number;
-    if (typeof performance !== "undefined") {
+    if (typeof performance !== 'undefined') {
       timeinfo = performance.now();
-    } else if (Date["now"]) {
+    } else if (Date['now']) {
       timeinfo = Date.now();
     } else {
       timeinfo = new Date().getTime();
@@ -263,7 +263,7 @@ class Process extends events.EventEmitter implements NodeJS.Process {
   public initializeTTYs(): void {
     // Guard against multiple invocations.
     if (this.stdout === null) {
-      let TTY: typeof _TTY = require("./tty");
+      let TTY: typeof _TTY = require('./tty');
       this.stdout = new TTY();
       this.stderr = new TTY();
       this.stdin = new TTY();

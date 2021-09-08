@@ -5,11 +5,11 @@
  * https://github.com/Microsoft/monaco-json/blob/master/LICENSE.md
  *-----------------------------------------------------------------------------*/
 define(
-  "vs/language/json/workerManager",
-  ["require", "exports"],
+  'vs/language/json/workerManager',
+  ['require', 'exports'],
   function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
     var c = monaco.Promise,
@@ -48,7 +48,7 @@ define(
               (this._lastUsedTime = Date.now()),
               this._client ||
                 ((this._worker = monaco.editor.createWebWorker({
-                  moduleId: "vs/language/json/jsonWorker",
+                  moduleId: 'vs/language/json/jsonWorker',
                   label: this._defaults.languageId,
                   createData: {
                     languageSettings: this._defaults.diagnosticsOptions,
@@ -94,17 +94,17 @@ define(
   }
 ),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
-        define("vscode-languageserver-types/main", ["require", "exports"], e);
+        define('vscode-languageserver-types/main', ['require', 'exports'], e);
   })(function (e, t) {
-    "use strict";
+    'use strict';
     var a, n, r, o, i, s, c, u, f, d, l, g, h, p, m, v, y, b, k, C, _, E, T, w;
-    Object.defineProperty(t, "__esModule", {
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       ((n = a = t.Position || (t.Position = {})).create = function (e, t) {
@@ -129,15 +129,15 @@ define(
             end: t,
           };
         throw new Error(
-          "Range#create called with invalid arguments[" +
+          'Range#create called with invalid arguments[' +
             e +
-            ", " +
+            ', ' +
             t +
-            ", " +
+            ', ' +
             n +
-            ", " +
+            ', ' +
             r +
-            "]"
+            ']'
         );
       }),
       (o.is = function (e) {
@@ -206,9 +206,9 @@ define(
         );
       }),
       ((l = t.FoldingRangeKind || (t.FoldingRangeKind = {})).Comment =
-        "comment"),
-      (l.Imports = "imports"),
-      (l.Region = "region"),
+        'comment'),
+      (l.Imports = 'imports'),
+      (l.Region = 'region'),
       ((g = t.FoldingRange || (t.FoldingRange = {})).create = function (
         e,
         t,
@@ -317,7 +317,7 @@ define(
       (_.del = function (e) {
         return {
           range: e,
-          newText: "",
+          newText: '',
         };
       }),
       (_.is = function (e) {
@@ -401,7 +401,7 @@ define(
                   }));
         }
         return (
-          Object.defineProperty(e.prototype, "edit", {
+          Object.defineProperty(e.prototype, 'edit', {
             get: function () {
               return this._workspaceEdit;
             },
@@ -418,7 +418,7 @@ define(
                 !this._workspaceEdit.documentChanges)
               )
                 throw new Error(
-                  "Workspace edit is not configured for versioned document changes."
+                  'Workspace edit is not configured for versioned document changes.'
                 );
               var t = e;
               if (!(r = this._textEditChanges[t.uri])) {
@@ -440,7 +440,7 @@ define(
               !this._workspaceEdit.changes)
             )
               throw new Error(
-                "Workspace edit is not configured for normal text edit changes."
+                'Workspace edit is not configured for normal text edit changes.'
               );
             var r;
             if (!(r = this._textEditChanges[e])) {
@@ -501,8 +501,8 @@ define(
           Z.string(t.text)
         );
       }),
-      ((M = I = t.MarkupKind || (t.MarkupKind = {})).PlainText = "plaintext"),
-      (M.Markdown = "markdown"),
+      ((M = I = t.MarkupKind || (t.MarkupKind = {})).PlainText = 'plaintext'),
+      (M.Markdown = 'markdown'),
       ((j = I = t.MarkupKind || (t.MarkupKind = {})).is = function (e) {
         var t = e;
         return t === j.PlainText || t === j.Markdown;
@@ -551,7 +551,7 @@ define(
       }),
       ((N = D = t.MarkedString || (t.MarkedString = {})).fromPlainText =
         function (e) {
-          return e.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
+          return e.replace(/[\\`*_{}[\]()#+\-.!]/g, '\\$&');
         }),
       (N.is = function (e) {
         var t = e;
@@ -689,13 +689,13 @@ define(
         );
       }),
       (t.DocumentSymbol = Y),
-      ((q = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = "quickfix"),
-      (q.Refactor = "refactor"),
-      (q.RefactorExtract = "refactor.extract"),
-      (q.RefactorInline = "refactor.inline"),
-      (q.RefactorRewrite = "refactor.rewrite"),
-      (q.Source = "source"),
-      (q.SourceOrganizeImports = "source.organizeImports"),
+      ((q = t.CodeActionKind || (t.CodeActionKind = {})).QuickFix = 'quickfix'),
+      (q.Refactor = 'refactor'),
+      (q.RefactorExtract = 'refactor.extract'),
+      (q.RefactorInline = 'refactor.inline'),
+      (q.RefactorRewrite = 'refactor.rewrite'),
+      (q.Source = 'source'),
+      (q.SourceOrganizeImports = 'source.organizeImports'),
       ((B = t.CodeActionContext || (t.CodeActionContext = {})).create =
         function (e, t) {
           var n = {
@@ -783,7 +783,7 @@ define(
         );
       }),
       (t.DocumentLink = X),
-      (t.EOL = ["\n", "\r\n", "\r"]),
+      (t.EOL = ['\n', '\r\n', '\r']),
       (($ = t.TextDocument || (t.TextDocument = {})).create = function (
         e,
         t,
@@ -834,7 +834,7 @@ define(
           var a = r[i],
             s = e.offsetAt(a.range.start),
             c = e.offsetAt(a.range.end);
-          if (!(c <= o)) throw new Error("Ovelapping edit");
+          if (!(c <= o)) throw new Error('Ovelapping edit');
           (n = n.substring(0, s) + a.newText + n.substring(c, n.length)),
             (o = s);
         }
@@ -857,21 +857,21 @@ define(
             (this._lineOffsets = null);
         }
         return (
-          Object.defineProperty(e.prototype, "uri", {
+          Object.defineProperty(e.prototype, 'uri', {
             get: function () {
               return this._uri;
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "languageId", {
+          Object.defineProperty(e.prototype, 'languageId', {
             get: function () {
               return this._languageId;
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "version", {
+          Object.defineProperty(e.prototype, 'version', {
             get: function () {
               return this._version;
             },
@@ -900,10 +900,10 @@ define(
               ) {
                 n && (e.push(r), (n = !1));
                 var o = t.charAt(r);
-                (n = "\r" === o || "\n" === o),
-                  "\r" === o &&
+                (n = '\r' === o || '\n' === o),
+                  '\r' === o &&
                     r + 1 < t.length &&
-                    "\n" === t.charAt(r + 1) &&
+                    '\n' === t.charAt(r + 1) &&
                     r++;
               }
               n && 0 < t.length && e.push(t.length), (this._lineOffsets = e);
@@ -931,7 +931,7 @@ define(
               r = e.line + 1 < t.length ? t[e.line + 1] : this._content.length;
             return Math.max(Math.min(n + e.character, r), n);
           }),
-          Object.defineProperty(e.prototype, "lineCount", {
+          Object.defineProperty(e.prototype, 'lineCount', {
             get: function () {
               return this.getLineOffsets().length;
             },
@@ -953,34 +953,34 @@ define(
         return !0 === e || !1 === e;
       }),
       (ee.string = function (e) {
-        return "[object String]" === te.call(e);
+        return '[object String]' === te.call(e);
       }),
       (ee.number = function (e) {
-        return "[object Number]" === te.call(e);
+        return '[object Number]' === te.call(e);
       }),
       (ee.func = function (e) {
-        return "[object Function]" === te.call(e);
+        return '[object Function]' === te.call(e);
       }),
       (ee.objectLiteral = function (e) {
-        return null !== e && "object" == typeof e;
+        return null !== e && 'object' == typeof e;
       }),
       (ee.typedArray = function (e, t) {
         return Array.isArray(e) && e.every(t);
       });
   }),
   define(
-    "vscode-languageserver-types",
-    ["vscode-languageserver-types/main"],
+    'vscode-languageserver-types',
+    ['vscode-languageserver-types/main'],
     function (e) {
       return e;
     }
   ),
   define(
-    "vs/language/json/languageFeatures",
-    ["require", "exports", "vscode-languageserver-types"],
+    'vs/language/json/languageFeatures',
+    ['require', 'exports', 'vscode-languageserver-types'],
     function (e, t, i) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       monaco.Uri;
@@ -1058,7 +1058,7 @@ define(
                     var t = e.map(function (e) {
                         return (
                           (n =
-                            "number" == typeof (t = e).code
+                            'number' == typeof (t = e).code
                               ? String(t.code)
                               : t.code),
                           {
@@ -1188,9 +1188,9 @@ define(
           this._worker = e;
         }
         return (
-          Object.defineProperty(e.prototype, "triggerCharacters", {
+          Object.defineProperty(e.prototype, 'triggerCharacters', {
             get: function () {
-              return [" ", ":"];
+              return [' ', ':'];
             },
             enumerable: !0,
             configurable: !0,
@@ -1240,20 +1240,20 @@ define(
       })();
 
       function d(e) {
-        return "string" == typeof e
+        return 'string' == typeof e
           ? {
               value: e,
             }
-          : (t = e) && "object" == typeof t && "string" == typeof t.kind
-          ? "plaintext" === e.kind
+          : (t = e) && 'object' == typeof t && 'string' == typeof t.kind
+          ? 'plaintext' === e.kind
             ? {
-                value: e.value.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&"),
+                value: e.value.replace(/[\\`*_{}[\]()#+\-.!]/g, '\\$&'),
               }
             : {
                 value: e.value,
               }
           : {
-              value: "```" + e.language + "\n" + e.value + "\n```\n",
+              value: '```' + e.language + '\n' + e.value + '\n```\n',
             };
         var t;
       }
@@ -1304,7 +1304,7 @@ define(
                     return e.map(function (e) {
                       return {
                         name: e.name,
-                        detail: "",
+                        detail: '',
                         containerName: e.containerName,
                         kind: (function (e) {
                           var t = monaco.languages.SymbolKind;
@@ -1526,15 +1526,15 @@ define(
     }
   ),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
-        define("jsonc-parser/impl/scanner", ["require", "exports"], e);
+        define('jsonc-parser/impl/scanner', ['require', 'exports'], e);
   })(function (e, t) {
-    "use strict";
+    'use strict';
 
     function l(e) {
       return (
@@ -1559,14 +1559,14 @@ define(
     function h(e) {
       return 48 <= e && e <= 57;
     }
-    Object.defineProperty(t, "__esModule", {
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     }),
       (t.createScanner = function (i, e) {
         void 0 === e && (e = !1);
         var a = 0,
           o = i.length,
-          r = "",
+          r = '',
           s = 0,
           c = 16,
           u = 0;
@@ -1586,7 +1586,7 @@ define(
         }
 
         function t() {
-          if (((r = ""), (u = 0), o <= (s = a))) return (s = o), (c = 17);
+          if (((r = ''), (u = 0), o <= (s = a))) return (s = o), (c = 17);
           var e = i.charCodeAt(a);
           if (l(e)) {
             for (
@@ -1600,7 +1600,7 @@ define(
             return (
               a++,
               (r += String.fromCharCode(e)),
-              13 === e && 10 === i.charCodeAt(a) && (a++, (r += "\n")),
+              13 === e && 10 === i.charCodeAt(a) && (a++, (r += '\n')),
               (c = 14)
             );
           switch (e) {
@@ -1620,7 +1620,7 @@ define(
               return (
                 a++,
                 (r = (function () {
-                  for (var e = "", t = a; ; ) {
+                  for (var e = '', t = a; ; ) {
                     if (o <= a) {
                       (e += i.substring(t, a)), (u = 2);
                       break;
@@ -1649,25 +1649,25 @@ define(
                           e += '"';
                           break;
                         case 92:
-                          e += "\\";
+                          e += '\\';
                           break;
                         case 47:
-                          e += "/";
+                          e += '/';
                           break;
                         case 98:
-                          e += "\b";
+                          e += '\b';
                           break;
                         case 102:
-                          e += "\f";
+                          e += '\f';
                           break;
                         case 110:
-                          e += "\n";
+                          e += '\n';
                           break;
                         case 114:
-                          e += "\r";
+                          e += '\r';
                           break;
                         case 116:
-                          e += "\t";
+                          e += '\t';
                           break;
                         case 117:
                           var r = f(4, !0);
@@ -1753,11 +1753,11 @@ define(
               for (; a < o && d(e); ) a++, (e = i.charCodeAt(a));
               if (s !== a) {
                 switch ((r = i.substring(s, a))) {
-                  case "true":
+                  case 'true':
                     return (c = 8);
-                  case "false":
+                  case 'false':
                     return (c = 9);
-                  case "null":
+                  case 'null':
                     return (c = 7);
                 }
                 return (c = 16);
@@ -1783,7 +1783,7 @@ define(
         }
         return {
           setPosition: function (e) {
-            (a = e), (r = ""), (c = 16), (u = s = 0);
+            (a = e), (r = ''), (c = 16), (u = s = 0);
           },
           getPosition: function () {
             return a;
@@ -1813,31 +1813,31 @@ define(
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/impl/format",
-          ["require", "exports", "./scanner"],
+          'jsonc-parser/impl/format',
+          ['require', 'exports', './scanner'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var T = e("./scanner");
+    var T = e('./scanner');
 
     function w(e, t) {
-      for (var n = "", r = 0; r < t; r++) n += e;
+      for (var n = '', r = 0; r < t; r++) n += e;
       return n;
     }
 
     function S(e, t) {
-      return -1 !== "\r\n".indexOf(e.charAt(t));
+      return -1 !== '\r\n'.indexOf(e.charAt(t));
     }
     (t.format = function (r, e, t) {
       var n, o, i, a, s;
@@ -1849,9 +1849,9 @@ define(
           (n = (function (e, t) {
             for (var n = 0, r = 0, o = t.tabSize || 4; n < e.length; ) {
               var i = e.charAt(n);
-              if (" " === i) r++;
+              if (' ' === i) r++;
               else {
-                if ("\t" !== i) break;
+                if ('\t' !== i) break;
                 r += o;
               }
               n++;
@@ -1863,17 +1863,17 @@ define(
         f = (function (e, t) {
           for (var n = 0; n < t.length; n++) {
             var r = t.charAt(n);
-            if ("\r" === r)
-              return n + 1 < t.length && "\n" === t.charAt(n + 1)
-                ? "\r\n"
-                : "\r";
-            if ("\n" === r) return "\n";
+            if ('\r' === r)
+              return n + 1 < t.length && '\n' === t.charAt(n + 1)
+                ? '\r\n'
+                : '\r';
+            if ('\n' === r) return '\n';
           }
-          return (e && e.eol) || "\n";
+          return (e && e.eol) || '\n';
         })(t, r),
         d = !1,
         l = 0;
-      u = t.insertSpaces ? w(" ", t.tabSize || 4) : "\t";
+      u = t.insertSpaces ? w(' ', t.tabSize || 4) : '\t';
       var g = T.createScanner(o, !1),
         h = !1;
 
@@ -1907,13 +1907,13 @@ define(
       }
       for (; 17 !== b; ) {
         for (
-          var C = g.getTokenOffset() + g.getTokenLength() + i, _ = m(), E = "";
+          var C = g.getTokenOffset() + g.getTokenLength() + i, _ = m(), E = '';
           !d && (12 === _ || 13 === _);
 
         )
-          y(" ", C, g.getTokenOffset() + i),
+          y(' ', C, g.getTokenOffset() + i),
             (C = g.getTokenOffset() + g.getTokenLength() + i),
-            (E = 12 === _ ? p() : ""),
+            (E = 12 === _ ? p() : ''),
             (_ = m());
         if (2 === _) 1 !== b && (l--, (E = p()));
         else if (4 === _) 3 !== b && (l--, (E = p()));
@@ -1928,14 +1928,14 @@ define(
               E = p();
               break;
             case 13:
-              E = d ? p() : " ";
+              E = d ? p() : ' ';
               break;
             case 6:
-              E = " ";
+              E = ' ';
               break;
             case 10:
               if (6 === _) {
-                E = "";
+                E = '';
                 break;
               }
             case 7:
@@ -1945,7 +1945,7 @@ define(
             case 2:
             case 4:
               12 === _ || 13 === _
-                ? (E = " ")
+                ? (E = ' ')
                 : 5 !== _ && 17 !== _ && (h = !0);
               break;
             case 16:
@@ -1960,23 +1960,23 @@ define(
       (t.isEOL = S);
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/impl/parser",
-          ["require", "exports", "./scanner"],
+          'jsonc-parser/impl/parser',
+          ['require', 'exports', './scanner'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var C = e("./scanner");
+    var C = e('./scanner');
 
     function s(e, t, n) {
       return (
@@ -2088,7 +2088,7 @@ define(
               u(), v();
               for (var e = !1; 4 !== o.getToken() && 17 !== o.getToken(); ) {
                 if (5 === o.getToken()) {
-                  if ((e || y(4, [], []), l(","), v(), 4 === o.getToken() && m))
+                  if ((e || y(4, [], []), l(','), v(), 4 === o.getToken() && m))
                     break;
                 } else e && y(6, [], []);
                 k() || y(4, [], [4, 5]), (e = !0);
@@ -2100,14 +2100,14 @@ define(
               a(), v();
               for (var e = !1; 2 !== o.getToken() && 17 !== o.getToken(); ) {
                 if (5 === o.getToken()) {
-                  if ((e || y(4, [], []), l(","), v(), 2 === o.getToken() && m))
+                  if ((e || y(4, [], []), l(','), v(), 2 === o.getToken() && m))
                     break;
                 } else e && y(6, [], []);
                 (10 !== o.getToken()
                   ? (y(3, [], [2, 5]), 0)
                   : (b(!1),
                     6 === o.getToken()
-                      ? (l(":"), v(), k() || y(4, [], [2, 5]))
+                      ? (l(':'), v(), k() || y(4, [], [2, 5]))
                       : y(5, [], [2, 5]),
                     1)) || y(4, [], [2, 5]),
                   (e = !0);
@@ -2122,7 +2122,7 @@ define(
                 case 11:
                   var e = 0;
                   try {
-                    "number" != typeof (e = JSON.parse(o.getTokenValue())) &&
+                    'number' != typeof (e = JSON.parse(o.getTokenValue())) &&
                       (y(2), (e = 0));
                   } catch (e) {
                     y(2);
@@ -2154,14 +2154,14 @@ define(
 
     function d(e) {
       switch (typeof e) {
-        case "boolean":
-          return "boolean";
-        case "number":
-          return "number";
-        case "string":
-          return "string";
+        case 'boolean':
+          return 'boolean';
+        case 'number':
+          return 'number';
+        case 'string':
+          return 'string';
         default:
-          return "null";
+          return 'null';
       }
     }
     (t.getLocation = function (e, o) {
@@ -2172,7 +2172,7 @@ define(
           value: {},
           offset: 0,
           length: 0,
-          type: "object",
+          type: 'object',
           parent: void 0,
         },
         u = !1;
@@ -2189,11 +2189,11 @@ define(
         f(e, {
           onObjectBegin: function (e, t) {
             if (o <= e) throw a;
-            (s = void 0), (u = e < o), i.push("");
+            (s = void 0), (u = e < o), i.push('');
           },
           onObjectProperty: function (e, t, n) {
             if (o < t) throw a;
-            if ((r(e, t, n, "property"), (i[i.length - 1] = e), o <= t + n))
+            if ((r(e, t, n, 'property'), (i[i.length - 1] = e), o <= t + n))
               throw a;
           },
           onObjectEnd: function (e, t) {
@@ -2214,13 +2214,13 @@ define(
           },
           onSeparator: function (e, t, n) {
             if (o <= t) throw a;
-            if (":" === e && s && "property" === s.type)
+            if (':' === e && s && 'property' === s.type)
               (s.colonOffset = t), (u = !1), (s = void 0);
-            else if ("," === e) {
+            else if (',' === e) {
               var r = i[i.length - 1];
-              "number" == typeof r
+              'number' == typeof r
                 ? (i[i.length - 1] = r + 1)
-                : ((u = !0), (i[i.length - 1] = "")),
+                : ((u = !0), (i[i.length - 1] = '')),
                 (s = void 0);
             }
           },
@@ -2234,8 +2234,8 @@ define(
         isAtPropertyKey: u,
         matches: function (e) {
           for (var t = 0, n = 0; t < e.length && n < i.length; n++)
-            if (e[t] === i[n] || "*" === e[t]) t++;
-            else if ("**" !== e[t]) return !1;
+            if (e[t] === i[n] || '*' === e[t]) t++;
+            else if ('**' !== e[t]) return !1;
           return t === e.length;
         },
       };
@@ -2287,7 +2287,7 @@ define(
       (t.parseTree = function (e, r, t) {
         void 0 === r && (r = []);
         var o = {
-          type: "array",
+          type: 'array',
           offset: -1,
           length: -1,
           children: [],
@@ -2295,7 +2295,7 @@ define(
         };
 
         function i(e) {
-          "property" === o.type && ((o.length = e - o.offset), (o = o.parent));
+          'property' === o.type && ((o.length = e - o.offset), (o = o.parent));
         }
 
         function a(e) {
@@ -2306,7 +2306,7 @@ define(
           {
             onObjectBegin: function (e) {
               o = a({
-                type: "object",
+                type: 'object',
                 offset: e,
                 length: -1,
                 parent: o,
@@ -2315,13 +2315,13 @@ define(
             },
             onObjectProperty: function (e, t, n) {
               (o = a({
-                type: "property",
+                type: 'property',
                 offset: t,
                 length: -1,
                 parent: o,
                 children: [],
               })).children.push({
-                type: "string",
+                type: 'string',
                 value: e,
                 offset: t,
                 length: n,
@@ -2333,7 +2333,7 @@ define(
             },
             onArrayBegin: function (e, t) {
               o = a({
-                type: "array",
+                type: 'array',
                 offset: e,
                 length: -1,
                 parent: o,
@@ -2354,8 +2354,8 @@ define(
                 i(t + n);
             },
             onSeparator: function (e, t, n) {
-              "property" === o.type &&
-                (":" === e ? (o.colonOffset = t) : "," === e && i(t));
+              'property' === o.type &&
+                (':' === e ? (o.colonOffset = t) : ',' === e && i(t));
             },
             onError: function (e, t, n) {
               r.push({
@@ -2374,8 +2374,8 @@ define(
         if (e) {
           for (var n = e, r = 0, o = t; r < o.length; r++) {
             var i = o[r];
-            if ("string" == typeof i) {
-              if ("object" !== n.type || !Array.isArray(n.children)) return;
+            if ('string' == typeof i) {
+              if ('object' !== n.type || !Array.isArray(n.children)) return;
               for (var a = !1, s = 0, c = n.children; s < c.length; s++) {
                 var u = c[s];
                 if (Array.isArray(u.children) && u.children[0].value === i) {
@@ -2387,7 +2387,7 @@ define(
             } else {
               var f = i;
               if (
-                "array" !== n.type ||
+                'array' !== n.type ||
                 f < 0 ||
                 !Array.isArray(n.children) ||
                 f >= n.children.length
@@ -2402,10 +2402,10 @@ define(
       (t.getNodePath = function e(t) {
         if (!t.parent || !t.parent.children) return [];
         var n = e(t.parent);
-        if ("property" === t.parent.type) {
+        if ('property' === t.parent.type) {
           var r = t.parent.children[0].value;
           n.push(r);
-        } else if ("array" === t.parent.type) {
+        } else if ('array' === t.parent.type) {
           var o = t.parent.children.indexOf(t);
           -1 !== o && n.push(o);
         }
@@ -2413,9 +2413,9 @@ define(
       }),
       (t.getNodeValue = function e(t) {
         switch (t.type) {
-          case "array":
+          case 'array':
             return t.children.map(e);
-          case "object":
+          case 'object':
             for (
               var n = Object.create(null), r = 0, o = t.children;
               r < o.length;
@@ -2426,10 +2426,10 @@ define(
               a && (n[i.children[0].value] = e(a));
             }
             return n;
-          case "null":
-          case "string":
-          case "number":
-          case "boolean":
+          case 'null':
+          case 'string':
+          case 'number':
+          case 'boolean':
             return t.value;
           default:
             return;
@@ -2465,28 +2465,28 @@ define(
                 (a = o.getPosition());
           }
         } while (17 !== n);
-        return i.join("");
+        return i.join('');
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/impl/edit",
-          ["require", "exports", "./format", "./parser"],
+          'jsonc-parser/impl/edit',
+          ['require', 'exports', './format', './parser'],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var u = e("./format"),
-      k = e("./parser");
+    var u = e('./format'),
+      k = e('./parser');
 
     function r(e, t, n, r, o) {
       for (
@@ -2496,17 +2496,17 @@ define(
         void 0 === (s = k.findNodeAtLocation(a, t)) && void 0 !== n);
 
       )
-        "string" == typeof c ? (((i = {})[c] = n), (n = i)) : (n = [n]);
+        'string' == typeof c ? (((i = {})[c] = n), (n = i)) : (n = [n]);
       if (s) {
         if (
-          "object" === s.type &&
-          "string" == typeof c &&
+          'object' === s.type &&
+          'string' == typeof c &&
           Array.isArray(s.children)
         ) {
           var u = k.findNodeAtLocation(s, [c]);
           if (void 0 !== u) {
             if (void 0 === n) {
-              if (!u.parent) throw new Error("Malformed AST");
+              if (!u.parent) throw new Error('Malformed AST');
               var f = s.children.indexOf(u.parent),
                 d = void 0,
                 l = u.parent.offset + u.parent.length;
@@ -2518,7 +2518,7 @@ define(
                 {
                   offset: d,
                   length: l - d,
-                  content: "",
+                  content: '',
                 },
                 r
               );
@@ -2534,7 +2534,7 @@ define(
             );
           }
           if (void 0 === n) return [];
-          var g = JSON.stringify(c) + ": " + JSON.stringify(n),
+          var g = JSON.stringify(c) + ': ' + JSON.stringify(n),
             h = o
               ? o(
                   s.children.map(function (e) {
@@ -2550,7 +2550,7 @@ define(
                 ? {
                     offset: (y = s.children[h - 1]).offset + y.length,
                     length: 0,
-                    content: "," + g,
+                    content: ',' + g,
                   }
                 : 0 === s.children.length
                 ? {
@@ -2561,18 +2561,18 @@ define(
                 : {
                     offset: s.offset + 1,
                     length: 0,
-                    content: g + ",",
+                    content: g + ',',
                   }),
             r
           );
         }
         if (
-          "array" === s.type &&
-          "number" == typeof c &&
+          'array' === s.type &&
+          'number' == typeof c &&
           Array.isArray(s.children)
         ) {
           if (-1 === c) {
-            (g = "" + JSON.stringify(n)), (p = void 0);
+            (g = '' + JSON.stringify(n)), (p = void 0);
             if (0 === s.children.length)
               p = {
                 offset: s.offset + 1,
@@ -2584,7 +2584,7 @@ define(
                 offset:
                   (y = s.children[s.children.length - 1]).offset + y.length,
                 length: 0,
-                content: "," + g,
+                content: ',' + g,
               };
             return C(e, p, r);
           }
@@ -2596,7 +2596,7 @@ define(
               p = {
                 offset: s.offset + 1,
                 length: s.length - 2,
-                content: "",
+                content: '',
               };
             else if (s.children.length - 1 === m) {
               var y,
@@ -2604,26 +2604,26 @@ define(
               p = {
                 offset: b,
                 length: s.offset + s.length - 2 - b,
-                content: "",
+                content: '',
               };
             } else
               p = {
                 offset: v.offset,
                 length: s.children[m + 1].offset - v.offset,
-                content: "",
+                content: '',
               };
             return C(e, p, r);
           }
-          throw new Error("Array modification not supported yet");
+          throw new Error('Array modification not supported yet');
         }
         throw new Error(
-          "Can not add " +
-            ("number" != typeof c ? "index" : "property") +
-            " to parent of type " +
+          'Can not add ' +
+            ('number' != typeof c ? 'index' : 'property') +
+            ' to parent of type ' +
             s.type
         );
       }
-      if (void 0 === n) throw new Error("Can not delete in empty document");
+      if (void 0 === n) throw new Error('Can not delete in empty document');
       return C(
         e,
         {
@@ -2682,37 +2682,37 @@ define(
       (t.setProperty = r),
       (t.applyEdit = f),
       (t.isWS = function (e, t) {
-        return -1 !== "\r\n \t".indexOf(e.charAt(t));
+        return -1 !== '\r\n \t'.indexOf(e.charAt(t));
       });
   }),
   (function (e) {
-    if ("object" == typeof module && "object" == typeof module.exports) {
+    if ('object' == typeof module && 'object' == typeof module.exports) {
       var t = e(require, exports);
       void 0 !== t && (module.exports = t);
     } else
-      "function" == typeof define &&
+      'function' == typeof define &&
         define.amd &&
         define(
-          "jsonc-parser/main",
+          'jsonc-parser/main',
           [
-            "require",
-            "exports",
-            "./impl/format",
-            "./impl/edit",
-            "./impl/scanner",
-            "./impl/parser",
+            'require',
+            'exports',
+            './impl/format',
+            './impl/edit',
+            './impl/scanner',
+            './impl/parser',
           ],
           e
         );
   })(function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
+    'use strict';
+    Object.defineProperty(t, '__esModule', {
       value: !0,
     });
-    var r = e("./impl/format"),
-      o = e("./impl/edit"),
-      n = e("./impl/scanner"),
-      i = e("./impl/parser");
+    var r = e('./impl/format'),
+      o = e('./impl/edit'),
+      n = e('./impl/scanner'),
+      i = e('./impl/parser');
     (t.createScanner = n.createScanner),
       (t.getLocation = i.getLocation),
       (t.parse = i.parse),
@@ -2734,15 +2734,15 @@ define(
         return e;
       });
   }),
-  define("jsonc-parser", ["jsonc-parser/main"], function (e) {
+  define('jsonc-parser', ['jsonc-parser/main'], function (e) {
     return e;
   }),
   define(
-    "vs/language/json/tokenization",
-    ["require", "exports", "jsonc-parser"],
+    'vs/language/json/tokenization',
+    ['require', 'exports', 'jsonc-parser'],
     function (e, g, h) {
-      "use strict";
-      Object.defineProperty(g, "__esModule", {
+      'use strict';
+      Object.defineProperty(g, '__esModule', {
         value: !0,
       }),
         (g.createTokenizationSupport = function (o) {
@@ -2760,7 +2760,7 @@ define(
                     (t = '"' + t), (i = 1);
                     break;
                   case 1:
-                    (t = "/*" + t), (i = 2);
+                    (t = '/*' + t), (i = 2);
                 }
                 var s,
                   c,
@@ -2775,11 +2775,11 @@ define(
 
                 ) {
                   var d = r + u.getPosition(),
-                    l = "";
+                    l = '';
                   if (17 === (s = u.scan())) break;
                   if (d === r + u.getPosition())
                     throw new Error(
-                      "Scanner did not advance, next 3 characters are: " +
+                      'Scanner did not advance, next 3 characters are: ' +
                         t.substr(u.getPosition(), 3)
                     );
                   switch ((a && (d -= i), (a = 0 < i), s)) {
@@ -2830,17 +2830,17 @@ define(
             },
           };
         }),
-        (g.TOKEN_DELIM_OBJECT = "delimiter.bracket.json"),
-        (g.TOKEN_DELIM_ARRAY = "delimiter.array.json"),
-        (g.TOKEN_DELIM_COLON = "delimiter.colon.json"),
-        (g.TOKEN_DELIM_COMMA = "delimiter.comma.json"),
-        (g.TOKEN_VALUE_BOOLEAN = "keyword.json"),
-        (g.TOKEN_VALUE_NULL = "keyword.json"),
-        (g.TOKEN_VALUE_STRING = "string.value.json"),
-        (g.TOKEN_VALUE_NUMBER = "number.json"),
-        (g.TOKEN_PROPERTY_NAME = "string.key.json"),
-        (g.TOKEN_COMMENT_BLOCK = "comment.block.json"),
-        (g.TOKEN_COMMENT_LINE = "comment.line.json");
+        (g.TOKEN_DELIM_OBJECT = 'delimiter.bracket.json'),
+        (g.TOKEN_DELIM_ARRAY = 'delimiter.array.json'),
+        (g.TOKEN_DELIM_COLON = 'delimiter.colon.json'),
+        (g.TOKEN_DELIM_COMMA = 'delimiter.comma.json'),
+        (g.TOKEN_VALUE_BOOLEAN = 'keyword.json'),
+        (g.TOKEN_VALUE_NULL = 'keyword.json'),
+        (g.TOKEN_VALUE_STRING = 'string.value.json'),
+        (g.TOKEN_VALUE_NUMBER = 'number.json'),
+        (g.TOKEN_PROPERTY_NAME = 'string.key.json'),
+        (g.TOKEN_COMMENT_BLOCK = 'comment.block.json'),
+        (g.TOKEN_COMMENT_LINE = 'comment.line.json');
       var p = (function () {
         function t(e, t, n) {
           (this._state = e), (this.scanError = t), (this.lastWasColon = n);
@@ -2869,17 +2869,17 @@ define(
     }
   ),
   define(
-    "vs/language/json/jsonMode",
+    'vs/language/json/jsonMode',
     [
-      "require",
-      "exports",
-      "./workerManager",
-      "./languageFeatures",
-      "./tokenization",
+      'require',
+      'exports',
+      './workerManager',
+      './languageFeatures',
+      './tokenization',
     ],
     function (e, t, i, a, s) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.setupMode = function (e) {
@@ -2943,28 +2943,28 @@ define(
       var c = {
         wordPattern: /(-?\d*\.\d\w*)|([^\[\{\]\}\:\"\,\s]+)/g,
         comments: {
-          lineComment: "//",
-          blockComment: ["/*", "*/"],
+          lineComment: '//',
+          blockComment: ['/*', '*/'],
         },
         brackets: [
-          ["{", "}"],
-          ["[", "]"],
+          ['{', '}'],
+          ['[', ']'],
         ],
         autoClosingPairs: [
           {
-            open: "{",
-            close: "}",
-            notIn: ["string"],
+            open: '{',
+            close: '}',
+            notIn: ['string'],
           },
           {
-            open: "[",
-            close: "]",
-            notIn: ["string"],
+            open: '[',
+            close: ']',
+            notIn: ['string'],
           },
           {
             open: '"',
             close: '"',
-            notIn: ["string"],
+            notIn: ['string'],
           },
         ],
       };

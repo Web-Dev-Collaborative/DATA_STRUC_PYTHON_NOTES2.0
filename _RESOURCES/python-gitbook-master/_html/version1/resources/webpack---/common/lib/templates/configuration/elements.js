@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,7 +8,7 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.ConfigDescription =
@@ -18,8 +18,8 @@ exports.ConfigDescription =
   exports.PaddedConfig =
   exports.PaddedPreference =
     void 0;
-const styled_components_1 = __importDefault(require("styled-components"));
-const Preference_1 = require("../../components/Preference");
+const styled_components_1 = __importDefault(require('styled-components'));
+const Preference_1 = require('../../components/Preference');
 exports.PaddedPreference = styled_components_1.default(Preference_1.Preference)`
   width: 100%;
   padding: 0;
@@ -45,13 +45,13 @@ exports.ConfigName = styled_components_1.default.span`
   flex: 1;
   font-weight: 400;
 
-  color: ${(props) => props.theme["sideBar.foreground"] || "inherit"};
+  color: ${(props) => props.theme['sideBar.foreground'] || 'inherit'};
 `;
 exports.ConfigValue = styled_components_1.default.div``;
 exports.ConfigDescription = styled_components_1.default.div`
   margin-top: 0.25rem;
   font-weight: 500;
-  color: ${(props) => props.theme["sideBar.foreground"] || "inherit"};
+  color: ${(props) => props.theme['sideBar.foreground'] || 'inherit'};
   opacity: 0.8;
   font-size: 0.875rem;
   max-width: 75%;

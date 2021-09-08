@@ -60,7 +60,7 @@
 }
 
 body.dark,
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   --aa-text-color-rgb: 183, 192, 199;
   --aa-primary-color-rgb: 146, 138, 255;
   --aa-muted-color-rgb: 146, 138, 255;
@@ -545,7 +545,7 @@ body[data-theme="dark"] {
   padding: calc(var(--aa-spacing-half) / 2);
 }
 
-.aa-Item[aria-selected="true"] {
+.aa-Item[aria-selected='true'] {
   background-color: rgba(179, 173, 214, 0.205);
   background-color: rgba(
     var(--aa-selected-color-rgb),
@@ -553,8 +553,8 @@ body[data-theme="dark"] {
   );
 }
 
-.aa-Item[aria-selected="true"] .aa-ActiveOnly,
-.aa-Item[aria-selected="true"] .aa-ItemActionButton {
+.aa-Item[aria-selected='true'] .aa-ActiveOnly,
+.aa-Item[aria-selected='true'] .aa-ItemActionButton {
   visibility: visible;
 }
 
@@ -691,7 +691,7 @@ body[data-theme="dark"] {
   border-color: rgba(128, 126, 163, 0.64);
   border-color: rgba(var(--aa-muted-color-rgb), 0.64);
   border-style: solid;
-  content: "";
+  content: '';
   display: inline-block;
   left: 1px;
   position: relative;
@@ -870,7 +870,7 @@ body[data-theme="dark"] {
   );
   bottom: -8px;
   bottom: calc(var(--aa-spacing-half) * -1);
-  content: "";
+  content: '';
   height: 8px;
   height: var(--aa-spacing-half);
   left: 0;
@@ -911,7 +911,7 @@ body[data-theme="dark"] {
     rgba(var(--aa-background-color-rgb), 0),
     rgba(var(--aa-muted-color-rgb), var(--aa-muted-color-alpha))
   );
-  content: "";
+  content: '';
   height: 16px;
   height: var(--aa-spacing);
   left: 0;
@@ -1260,7 +1260,7 @@ body[data-theme="dark"] {
   text-decoration: none;
 }
 
-.aa-Item[aria-selected="true"] {
+.aa-Item[aria-selected='true'] {
   background-color: var(--color-selected);
 }
 

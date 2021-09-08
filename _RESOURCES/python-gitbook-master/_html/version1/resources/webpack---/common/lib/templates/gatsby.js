@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,26 +8,26 @@ var __importDefault =
           default: mod,
         };
   };
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-const template_1 = __importDefault(require("./template"));
-const decorate_selector_1 = require("../utils/decorate-selector");
-const configuration_1 = __importDefault(require("./configuration"));
+const template_1 = __importDefault(require('./template'));
+const decorate_selector_1 = require('../utils/decorate-selector');
+const configuration_1 = __importDefault(require('./configuration'));
 class GatsbyTemplate extends template_1.default {
   getViews() {
     const GATSBY_VIEWS = [
       {
         views: [
           {
-            id: "codesandbox.browser",
+            id: 'codesandbox.browser',
           },
           {
-            id: "codesandbox.browser",
+            id: 'codesandbox.browser',
             closeable: true,
             options: {
-              url: "/___graphql",
-              title: "GraphiQL",
+              url: '/___graphql',
+              title: 'GraphiQL',
             },
           },
         ],
@@ -36,13 +36,13 @@ class GatsbyTemplate extends template_1.default {
         open: true,
         views: [
           {
-            id: "codesandbox.terminal",
+            id: 'codesandbox.terminal',
           },
           {
-            id: "codesandbox.console",
+            id: 'codesandbox.console',
           },
           {
-            id: "codesandbox.problems",
+            id: 'codesandbox.problems',
           },
         ],
       },
@@ -51,17 +51,17 @@ class GatsbyTemplate extends template_1.default {
   }
 }
 exports.default = new GatsbyTemplate(
-  "gatsby",
-  "Gatsby",
-  "https://www.gatsbyjs.org/",
-  "github/gatsbyjs/gatsby-starter-default",
-  decorate_selector_1.decorateSelector(() => "#8C65B3"),
+  'gatsby',
+  'Gatsby',
+  'https://www.gatsbyjs.org/',
+  'github/gatsbyjs/gatsby-starter-default',
+  decorate_selector_1.decorateSelector(() => '#8C65B3'),
   {
     extraConfigurations: {
-      "/.babelrc": configuration_1.default.babelrc,
+      '/.babelrc': configuration_1.default.babelrc,
     },
-    distDir: "public",
-    mainFile: ["/src/pages/index.js"],
+    distDir: 'public',
+    mainFile: ['/src/pages/index.js'],
     showOnHomePage: true,
     main: true,
     popular: true,

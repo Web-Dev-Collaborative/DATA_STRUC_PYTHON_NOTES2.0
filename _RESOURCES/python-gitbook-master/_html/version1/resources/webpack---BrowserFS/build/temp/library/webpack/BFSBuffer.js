@@ -1,1 +1,1 @@
-module.exports = require("buffer").Buffer;
+module.exports = require('buffer').Buffer;

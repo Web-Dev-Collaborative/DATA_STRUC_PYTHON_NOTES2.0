@@ -20,26 +20,26 @@
         });
     }),
     (t.r = function (n) {
-      "undefined" !== typeof Symbol &&
+      'undefined' !== typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(n, Symbol.toStringTag, {
-          value: "Module",
+          value: 'Module',
         }),
-        Object.defineProperty(n, "__esModule", {
+        Object.defineProperty(n, '__esModule', {
           value: !0,
         });
     }),
     (t.t = function (n, e) {
       if ((1 & e && (n = t(n)), 8 & e)) return n;
-      if (4 & e && "object" === typeof n && n && n.__esModule) return n;
+      if (4 & e && 'object' === typeof n && n && n.__esModule) return n;
       var o = Object.create(null);
       if (
         (t.r(o),
-        Object.defineProperty(o, "default", {
+        Object.defineProperty(o, 'default', {
           enumerable: !0,
           value: n,
         }),
-        2 & e && "string" != typeof n)
+        2 & e && 'string' != typeof n)
       )
         for (var r in n)
           t.d(
@@ -60,31 +60,31 @@
           : function () {
               return n;
             };
-      return t.d(e, "a", e), e;
+      return t.d(e, 'a', e), e;
     }),
     (t.o = function (n, e) {
       return Object.prototype.hasOwnProperty.call(n, e);
     }),
-    (t.p = "https://codesandbox.io/"),
-    t((t.s = "./src/banner.js"));
+    (t.p = 'https://codesandbox.io/'),
+    t((t.s = './src/banner.js'));
 })({
-  "./src/banner.js": function (n, e) {
+  './src/banner.js': function (n, e) {
     var t;
     var o = function n() {
       if (
-        ("undefined" === typeof window ||
+        ('undefined' === typeof window ||
           (window.location &&
-            window.location.href.indexOf("?standalone") > -1) ||
+            window.location.href.indexOf('?standalone') > -1) ||
           (!window.opener && window.parent === window)) &&
         !localStorage.HIDE_PHISHING_BANNER
       ) {
-        var e = document.createElement("iframe"),
-          o = "sb__open-sandbox".concat(Math.floor(100 * Math.random()));
+        var e = document.createElement('iframe'),
+          o = 'sb__open-sandbox'.concat(Math.floor(100 * Math.random()));
         e.setAttribute(
-          "style",
-          "\n  position: fixed;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  border: none;\n  width: 100%;\n  z-index: 9999999999999;\n"
+          'style',
+          '\n  position: fixed;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  border: none;\n  width: 100%;\n  z-index: 9999999999999;\n'
         ),
-          e.setAttribute("id", o),
+          e.setAttribute('id', o),
           clearInterval(t),
           (t = setInterval(function () {
             document.getElementById(o) || n();
@@ -105,13 +105,13 @@
       }
     };
     try {
-      var r = document.location.host.split(".")[0];
-      fetch("https://codesandbox.io/api/v1/sandboxes/".concat(r, "/phishing"))
+      var r = document.location.host.split('.')[0];
+      fetch('https://codesandbox.io/api/v1/sandboxes/'.concat(r, '/phishing'))
         .then(function (n) {
           return n.json();
         })
         .then(function (n) {
-          n.deleted && window.location.replace("https://codesandbox.io/phew"),
+          n.deleted && window.location.replace('https://codesandbox.io/phew'),
             n.flagged &&
               setTimeout(function () {
                 return o();

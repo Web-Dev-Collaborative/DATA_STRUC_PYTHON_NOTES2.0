@@ -1,27 +1,27 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [18, 45],
   {
-    "+cRy": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    '+cRy': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("owkM"),
-        i = n("MOv1"),
-        o = n("CcFB");
+      var r = n('owkM'),
+        i = n('MOv1'),
+        o = n('CcFB');
       t.ImplementationRequest = o.ImplementationRequest;
-      var s = n("8ahE");
+      var s = n('8ahE');
       t.TypeDefinitionRequest = s.TypeDefinitionRequest;
-      var a = n("VqZt");
+      var a = n('VqZt');
       (t.WorkspaceFoldersRequest = a.WorkspaceFoldersRequest),
         (t.DidChangeWorkspaceFoldersNotification =
           a.DidChangeWorkspaceFoldersNotification);
-      var u = n("sKb1");
+      var u = n('sKb1');
       t.ConfigurationRequest = u.ConfigurationRequest;
-      var c = n("zZpG");
+      var c = n('zZpG');
       (t.DocumentColorRequest = c.DocumentColorRequest),
         (t.ColorPresentationRequest = c.ColorPresentationRequest);
-      var l = n("3JnO");
+      var l = n('3JnO');
       (t.FoldingRangeRequest = l.FoldingRangeRequest),
         (function (e) {
           e.is = function (e) {
@@ -32,40 +32,40 @@
           };
         })(t.DocumentFilter || (t.DocumentFilter = {})),
         (function (e) {
-          e.type = new i.RequestType("client/registerCapability");
+          e.type = new i.RequestType('client/registerCapability');
         })(t.RegistrationRequest || (t.RegistrationRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("client/unregisterCapability");
+          e.type = new i.RequestType('client/unregisterCapability');
         })(t.UnregistrationRequest || (t.UnregistrationRequest = {})),
         (function (e) {
-          (e.Create = "create"), (e.Rename = "rename"), (e.Delete = "delete");
+          (e.Create = 'create'), (e.Rename = 'rename'), (e.Delete = 'delete');
         })(t.ResourceOperationKind || (t.ResourceOperationKind = {})),
         (function (e) {
-          (e.Abort = "abort"),
-            (e.Transactional = "transactional"),
-            (e.TextOnlyTransactional = "textOnlyTransactional"),
-            (e.Undo = "undo");
+          (e.Abort = 'abort'),
+            (e.Transactional = 'transactional'),
+            (e.TextOnlyTransactional = 'textOnlyTransactional'),
+            (e.Undo = 'undo');
         })(t.FailureHandlingKind || (t.FailureHandlingKind = {})),
         (function (e) {
           (e.None = 0), (e.Full = 1), (e.Incremental = 2);
         })(t.TextDocumentSyncKind || (t.TextDocumentSyncKind = {})),
         (function (e) {
-          e.type = new i.RequestType("initialize");
+          e.type = new i.RequestType('initialize');
         })(t.InitializeRequest || (t.InitializeRequest = {})),
         (function (e) {
           e.unknownProtocolVersion = 1;
         })(t.InitializeError || (t.InitializeError = {})),
         (function (e) {
-          e.type = new i.NotificationType("initialized");
+          e.type = new i.NotificationType('initialized');
         })(t.InitializedNotification || (t.InitializedNotification = {})),
         (function (e) {
-          e.type = new i.RequestType0("shutdown");
+          e.type = new i.RequestType0('shutdown');
         })(t.ShutdownRequest || (t.ShutdownRequest = {})),
         (function (e) {
-          e.type = new i.NotificationType0("exit");
+          e.type = new i.NotificationType0('exit');
         })(t.ExitNotification || (t.ExitNotification = {})),
         (function (e) {
-          e.type = new i.NotificationType("workspace/didChangeConfiguration");
+          e.type = new i.NotificationType('workspace/didChangeConfiguration');
         })(
           t.DidChangeConfigurationNotification ||
             (t.DidChangeConfigurationNotification = {})
@@ -74,55 +74,55 @@
           (e.Error = 1), (e.Warning = 2), (e.Info = 3), (e.Log = 4);
         })(t.MessageType || (t.MessageType = {})),
         (function (e) {
-          e.type = new i.NotificationType("window/showMessage");
+          e.type = new i.NotificationType('window/showMessage');
         })(t.ShowMessageNotification || (t.ShowMessageNotification = {})),
         (function (e) {
-          e.type = new i.RequestType("window/showMessageRequest");
+          e.type = new i.RequestType('window/showMessageRequest');
         })(t.ShowMessageRequest || (t.ShowMessageRequest = {})),
         (function (e) {
-          e.type = new i.NotificationType("window/logMessage");
+          e.type = new i.NotificationType('window/logMessage');
         })(t.LogMessageNotification || (t.LogMessageNotification = {})),
         (function (e) {
-          e.type = new i.NotificationType("telemetry/event");
+          e.type = new i.NotificationType('telemetry/event');
         })(t.TelemetryEventNotification || (t.TelemetryEventNotification = {})),
         (function (e) {
-          e.type = new i.NotificationType("textDocument/didOpen");
+          e.type = new i.NotificationType('textDocument/didOpen');
         })(
           t.DidOpenTextDocumentNotification ||
             (t.DidOpenTextDocumentNotification = {})
         ),
         (function (e) {
-          e.type = new i.NotificationType("textDocument/didChange");
+          e.type = new i.NotificationType('textDocument/didChange');
         })(
           t.DidChangeTextDocumentNotification ||
             (t.DidChangeTextDocumentNotification = {})
         ),
         (function (e) {
-          e.type = new i.NotificationType("textDocument/didClose");
+          e.type = new i.NotificationType('textDocument/didClose');
         })(
           t.DidCloseTextDocumentNotification ||
             (t.DidCloseTextDocumentNotification = {})
         ),
         (function (e) {
-          e.type = new i.NotificationType("textDocument/didSave");
+          e.type = new i.NotificationType('textDocument/didSave');
         })(
           t.DidSaveTextDocumentNotification ||
             (t.DidSaveTextDocumentNotification = {})
         ),
         (function (e) {
-          e.type = new i.NotificationType("textDocument/willSave");
+          e.type = new i.NotificationType('textDocument/willSave');
         })(
           t.WillSaveTextDocumentNotification ||
             (t.WillSaveTextDocumentNotification = {})
         ),
         (function (e) {
-          e.type = new i.RequestType("textDocument/willSaveWaitUntil");
+          e.type = new i.RequestType('textDocument/willSaveWaitUntil');
         })(
           t.WillSaveTextDocumentWaitUntilRequest ||
             (t.WillSaveTextDocumentWaitUntilRequest = {})
         ),
         (function (e) {
-          e.type = new i.NotificationType("workspace/didChangeWatchedFiles");
+          e.type = new i.NotificationType('workspace/didChangeWatchedFiles');
         })(
           t.DidChangeWatchedFilesNotification ||
             (t.DidChangeWatchedFilesNotification = {})
@@ -134,7 +134,7 @@
           (e.Create = 1), (e.Change = 2), (e.Delete = 4);
         })(t.WatchKind || (t.WatchKind = {})),
         (function (e) {
-          e.type = new i.NotificationType("textDocument/publishDiagnostics");
+          e.type = new i.NotificationType('textDocument/publishDiagnostics');
         })(
           t.PublishDiagnosticsNotification ||
             (t.PublishDiagnosticsNotification = {})
@@ -145,77 +145,77 @@
             (e.TriggerForIncompleteCompletions = 3);
         })(t.CompletionTriggerKind || (t.CompletionTriggerKind = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/completion");
+          e.type = new i.RequestType('textDocument/completion');
         })(t.CompletionRequest || (t.CompletionRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("completionItem/resolve");
+          e.type = new i.RequestType('completionItem/resolve');
         })(t.CompletionResolveRequest || (t.CompletionResolveRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/hover");
+          e.type = new i.RequestType('textDocument/hover');
         })(t.HoverRequest || (t.HoverRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/signatureHelp");
+          e.type = new i.RequestType('textDocument/signatureHelp');
         })(t.SignatureHelpRequest || (t.SignatureHelpRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/definition");
+          e.type = new i.RequestType('textDocument/definition');
         })(t.DefinitionRequest || (t.DefinitionRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/references");
+          e.type = new i.RequestType('textDocument/references');
         })(t.ReferencesRequest || (t.ReferencesRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/documentHighlight");
+          e.type = new i.RequestType('textDocument/documentHighlight');
         })(t.DocumentHighlightRequest || (t.DocumentHighlightRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/documentSymbol");
+          e.type = new i.RequestType('textDocument/documentSymbol');
         })(t.DocumentSymbolRequest || (t.DocumentSymbolRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("workspace/symbol");
+          e.type = new i.RequestType('workspace/symbol');
         })(t.WorkspaceSymbolRequest || (t.WorkspaceSymbolRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/codeAction");
+          e.type = new i.RequestType('textDocument/codeAction');
         })(t.CodeActionRequest || (t.CodeActionRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/codeLens");
+          e.type = new i.RequestType('textDocument/codeLens');
         })(t.CodeLensRequest || (t.CodeLensRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("codeLens/resolve");
+          e.type = new i.RequestType('codeLens/resolve');
         })(t.CodeLensResolveRequest || (t.CodeLensResolveRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/formatting");
+          e.type = new i.RequestType('textDocument/formatting');
         })(t.DocumentFormattingRequest || (t.DocumentFormattingRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/rangeFormatting");
+          e.type = new i.RequestType('textDocument/rangeFormatting');
         })(
           t.DocumentRangeFormattingRequest ||
             (t.DocumentRangeFormattingRequest = {})
         ),
         (function (e) {
-          e.type = new i.RequestType("textDocument/onTypeFormatting");
+          e.type = new i.RequestType('textDocument/onTypeFormatting');
         })(
           t.DocumentOnTypeFormattingRequest ||
             (t.DocumentOnTypeFormattingRequest = {})
         ),
         (function (e) {
-          e.type = new i.RequestType("textDocument/rename");
+          e.type = new i.RequestType('textDocument/rename');
         })(t.RenameRequest || (t.RenameRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/prepareRename");
+          e.type = new i.RequestType('textDocument/prepareRename');
         })(t.PrepareRenameRequest || (t.PrepareRenameRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("textDocument/documentLink");
+          e.type = new i.RequestType('textDocument/documentLink');
         })(t.DocumentLinkRequest || (t.DocumentLinkRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("documentLink/resolve");
+          e.type = new i.RequestType('documentLink/resolve');
         })(t.DocumentLinkResolveRequest || (t.DocumentLinkResolveRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("workspace/executeCommand");
+          e.type = new i.RequestType('workspace/executeCommand');
         })(t.ExecuteCommandRequest || (t.ExecuteCommandRequest = {})),
         (function (e) {
-          e.type = new i.RequestType("workspace/applyEdit");
+          e.type = new i.RequestType('workspace/applyEdit');
         })(t.ApplyWorkspaceEditRequest || (t.ApplyWorkspaceEditRequest = {}));
     },
-    "/7TX": function (e, t, n) {
-      "use strict";
+    '/7TX': function (e, t, n) {
+      'use strict';
       var r =
         (this && this.__extends) ||
         (function () {
@@ -241,11 +241,11 @@
                   : ((r.prototype = n.prototype), new r()));
           };
         })();
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var i,
-        o = n("1vg8");
+        o = n('1vg8');
       !(function (e) {
         (e.ParseError = -32700),
           (e.InvalidRequest = -32600),
@@ -288,14 +288,14 @@
           (this._method = e), (this._numberOfParams = t);
         }
         return (
-          Object.defineProperty(e.prototype, "method", {
+          Object.defineProperty(e.prototype, 'method', {
             get: function () {
               return this._method;
             },
             enumerable: !0,
             configurable: !0,
           }),
-          Object.defineProperty(e.prototype, "numberOfParams", {
+          Object.defineProperty(e.prototype, 'numberOfParams', {
             get: function () {
               return this._numberOfParams;
             },
@@ -499,23 +499,23 @@
           );
         });
     },
-    "3JnO": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    '3JnO': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("MOv1");
+      var r = n('MOv1');
       !(function (e) {
-        (e.Comment = "comment"), (e.Imports = "imports"), (e.Region = "region");
+        (e.Comment = 'comment'), (e.Imports = 'imports'), (e.Region = 'region');
       })(t.FoldingRangeKind || (t.FoldingRangeKind = {})),
         (function (e) {
-          e.type = new r.RequestType("textDocument/foldingRange");
+          e.type = new r.RequestType('textDocument/foldingRange');
         })(t.FoldingRangeRequest || (t.FoldingRangeRequest = {}));
     },
-    "4Wfv": function (e, t, n) {
-      "use strict";
+    '4Wfv': function (e, t, n) {
+      'use strict';
       var r;
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (function (e) {
@@ -538,7 +538,7 @@
           (e.prototype.isEmpty = function () {
             return !this._head && !this._tail;
           }),
-          Object.defineProperty(e.prototype, "size", {
+          Object.defineProperty(e.prototype, 'size', {
             get: function () {
               return this._size;
             },
@@ -587,7 +587,7 @@
           }),
           (e.prototype.shift = function () {
             if (this._head || this._tail) {
-              if (!this._head || !this._tail) throw new Error("Invalid list");
+              if (!this._head || !this._tail) throw new Error('Invalid list');
               var e = this._head;
               return (
                 this._map.delete(e.key),
@@ -617,14 +617,14 @@
           }),
           (e.prototype.addItemFirst = function (e) {
             if (this._head || this._tail) {
-              if (!this._head) throw new Error("Invalid list");
+              if (!this._head) throw new Error('Invalid list');
               (e.next = this._head), (this._head.previous = e);
             } else this._tail = e;
             this._head = e;
           }),
           (e.prototype.addItemLast = function (e) {
             if (this._head || this._tail) {
-              if (!this._tail) throw new Error("Invalid list");
+              if (!this._tail) throw new Error('Invalid list');
               (e.previous = this._tail), (this._tail.next = e);
             } else this._head = e;
             this._tail = e;
@@ -637,12 +637,12 @@
             else {
               var t = e.next,
                 n = e.previous;
-              if (!t || !n) throw new Error("Invalid list");
+              if (!t || !n) throw new Error('Invalid list');
               (t.previous = n), (n.next = t);
             }
           }),
           (e.prototype.touch = function (e, t) {
-            if (!this._head || !this._tail) throw new Error("Invalid list");
+            if (!this._head || !this._tail) throw new Error('Invalid list');
             if (t === r.First || t === r.Last)
               if (t === r.First) {
                 if (e === this._head) return;
@@ -672,146 +672,146 @@
       })();
       t.LinkedMap = i;
     },
-    "7Z1E": function (e, t, n) {
-      "use strict";
+    '7Z1E': function (e, t, n) {
+      'use strict';
       var r, i, o, s, a, u, c, l, d, f, p, h, g, m, v, y, O, b;
       n.r(t),
-        n.d(t, "Position", function () {
+        n.d(t, 'Position', function () {
           return r;
         }),
-        n.d(t, "Range", function () {
+        n.d(t, 'Range', function () {
           return i;
         }),
-        n.d(t, "Location", function () {
+        n.d(t, 'Location', function () {
           return o;
         }),
-        n.d(t, "Color", function () {
+        n.d(t, 'Color', function () {
           return s;
         }),
-        n.d(t, "ColorInformation", function () {
+        n.d(t, 'ColorInformation', function () {
           return a;
         }),
-        n.d(t, "ColorPresentation", function () {
+        n.d(t, 'ColorPresentation', function () {
           return u;
         }),
-        n.d(t, "FoldingRangeKind", function () {
+        n.d(t, 'FoldingRangeKind', function () {
           return c;
         }),
-        n.d(t, "FoldingRange", function () {
+        n.d(t, 'FoldingRange', function () {
           return l;
         }),
-        n.d(t, "DiagnosticRelatedInformation", function () {
+        n.d(t, 'DiagnosticRelatedInformation', function () {
           return d;
         }),
-        n.d(t, "DiagnosticSeverity", function () {
+        n.d(t, 'DiagnosticSeverity', function () {
           return f;
         }),
-        n.d(t, "Diagnostic", function () {
+        n.d(t, 'Diagnostic', function () {
           return p;
         }),
-        n.d(t, "Command", function () {
+        n.d(t, 'Command', function () {
           return h;
         }),
-        n.d(t, "TextEdit", function () {
+        n.d(t, 'TextEdit', function () {
           return g;
         }),
-        n.d(t, "TextDocumentEdit", function () {
+        n.d(t, 'TextDocumentEdit', function () {
           return m;
         }),
-        n.d(t, "CreateFile", function () {
+        n.d(t, 'CreateFile', function () {
           return v;
         }),
-        n.d(t, "RenameFile", function () {
+        n.d(t, 'RenameFile', function () {
           return y;
         }),
-        n.d(t, "DeleteFile", function () {
+        n.d(t, 'DeleteFile', function () {
           return O;
         }),
-        n.d(t, "WorkspaceEdit", function () {
+        n.d(t, 'WorkspaceEdit', function () {
           return b;
         }),
-        n.d(t, "WorkspaceChange", function () {
+        n.d(t, 'WorkspaceChange', function () {
           return L;
         }),
-        n.d(t, "TextDocumentIdentifier", function () {
+        n.d(t, 'TextDocumentIdentifier', function () {
           return w;
         }),
-        n.d(t, "VersionedTextDocumentIdentifier", function () {
+        n.d(t, 'VersionedTextDocumentIdentifier', function () {
           return k;
         }),
-        n.d(t, "TextDocumentItem", function () {
+        n.d(t, 'TextDocumentItem', function () {
           return R;
         }),
-        n.d(t, "MarkupKind", function () {
+        n.d(t, 'MarkupKind', function () {
           return x;
         }),
-        n.d(t, "MarkupContent", function () {
+        n.d(t, 'MarkupContent', function () {
           return T;
         }),
-        n.d(t, "CompletionItemKind", function () {
+        n.d(t, 'CompletionItemKind', function () {
           return C;
         }),
-        n.d(t, "InsertTextFormat", function () {
+        n.d(t, 'InsertTextFormat', function () {
           return _;
         }),
-        n.d(t, "CompletionItem", function () {
+        n.d(t, 'CompletionItem', function () {
           return E;
         }),
-        n.d(t, "CompletionList", function () {
+        n.d(t, 'CompletionList', function () {
           return q;
         }),
-        n.d(t, "MarkedString", function () {
+        n.d(t, 'MarkedString', function () {
           return P;
         }),
-        n.d(t, "Hover", function () {
+        n.d(t, 'Hover', function () {
           return D;
         }),
-        n.d(t, "ParameterInformation", function () {
+        n.d(t, 'ParameterInformation', function () {
           return S;
         }),
-        n.d(t, "SignatureInformation", function () {
+        n.d(t, 'SignatureInformation', function () {
           return N;
         }),
-        n.d(t, "DocumentHighlightKind", function () {
+        n.d(t, 'DocumentHighlightKind', function () {
           return M;
         }),
-        n.d(t, "DocumentHighlight", function () {
+        n.d(t, 'DocumentHighlight', function () {
           return $;
         }),
-        n.d(t, "SymbolKind", function () {
+        n.d(t, 'SymbolKind', function () {
           return I;
         }),
-        n.d(t, "SymbolInformation", function () {
+        n.d(t, 'SymbolInformation', function () {
           return j;
         }),
-        n.d(t, "DocumentSymbol", function () {
+        n.d(t, 'DocumentSymbol', function () {
           return X;
         }),
-        n.d(t, "CodeActionKind", function () {
+        n.d(t, 'CodeActionKind', function () {
           return A;
         }),
-        n.d(t, "CodeActionContext", function () {
+        n.d(t, 'CodeActionContext', function () {
           return F;
         }),
-        n.d(t, "CodeAction", function () {
+        n.d(t, 'CodeAction', function () {
           return Q;
         }),
-        n.d(t, "CodeLens", function () {
+        n.d(t, 'CodeLens', function () {
           return V;
         }),
-        n.d(t, "FormattingOptions", function () {
+        n.d(t, 'FormattingOptions', function () {
           return U;
         }),
-        n.d(t, "DocumentLink", function () {
+        n.d(t, 'DocumentLink', function () {
           return z;
         }),
-        n.d(t, "EOL", function () {
+        n.d(t, 'EOL', function () {
           return G;
         }),
-        n.d(t, "TextDocument", function () {
+        n.d(t, 'TextDocument', function () {
           return J;
         }),
-        n.d(t, "TextDocumentSaveReason", function () {
+        n.d(t, 'TextDocumentSaveReason', function () {
           return Z;
         }),
         (function (e) {
@@ -841,15 +841,15 @@
                 end: t,
               };
             throw new Error(
-              "Range#create called with invalid arguments[" +
+              'Range#create called with invalid arguments[' +
                 e +
-                ", " +
+                ', ' +
                 t +
-                ", " +
+                ', ' +
                 n +
-                ", " +
+                ', ' +
                 i +
-                "]"
+                ']'
             );
           }),
             (e.is = function (e) {
@@ -923,9 +923,9 @@
             });
         })(u || (u = {})),
         (function (e) {
-          (e.Comment = "comment"),
-            (e.Imports = "imports"),
-            (e.Region = "region");
+          (e.Comment = 'comment'),
+            (e.Imports = 'imports'),
+            (e.Region = 'region');
         })(c || (c = {})),
         (function (e) {
           (e.create = function (e, t, n, r, i) {
@@ -1028,7 +1028,7 @@
             (e.del = function (e) {
               return {
                 range: e,
-                newText: "",
+                newText: '',
               };
             }),
             (e.is = function (e) {
@@ -1053,7 +1053,7 @@
         (function (e) {
           (e.create = function (e, t) {
             var n = {
-              kind: "create",
+              kind: 'create',
               uri: e,
             };
             return (
@@ -1067,7 +1067,7 @@
               var t = e;
               return (
                 t &&
-                "create" === t.kind &&
+                'create' === t.kind &&
                 Y.string(t.uri) &&
                 (void 0 === t.options ||
                   ((void 0 === t.options.overwrite ||
@@ -1080,7 +1080,7 @@
         (function (e) {
           (e.create = function (e, t, n) {
             var r = {
-              kind: "rename",
+              kind: 'rename',
               oldUri: e,
               newUri: t,
             };
@@ -1095,7 +1095,7 @@
               var t = e;
               return (
                 t &&
-                "rename" === t.kind &&
+                'rename' === t.kind &&
                 Y.string(t.oldUri) &&
                 Y.string(t.newUri) &&
                 (void 0 === t.options ||
@@ -1109,7 +1109,7 @@
         (function (e) {
           (e.create = function (e, t) {
             var n = {
-              kind: "delete",
+              kind: 'delete',
               uri: e,
             };
             return (
@@ -1123,7 +1123,7 @@
               var t = e;
               return (
                 t &&
-                "delete" === t.kind &&
+                'delete' === t.kind &&
                 Y.string(t.uri) &&
                 (void 0 === t.options ||
                   ((void 0 === t.options.recursive ||
@@ -1211,7 +1211,7 @@
                     }));
           }
           return (
-            Object.defineProperty(e.prototype, "edit", {
+            Object.defineProperty(e.prototype, 'edit', {
               get: function () {
                 return this._workspaceEdit;
               },
@@ -1228,7 +1228,7 @@
                   !this._workspaceEdit.documentChanges)
                 )
                   throw new Error(
-                    "Workspace edit is not configured for document changes."
+                    'Workspace edit is not configured for document changes.'
                   );
                 var t = e;
                 if (!(r = this._textEditChanges[t.uri])) {
@@ -1250,7 +1250,7 @@
                 !this._workspaceEdit.changes)
               )
                 throw new Error(
-                  "Workspace edit is not configured for normal text edit changes."
+                  'Workspace edit is not configured for normal text edit changes.'
                 );
               var r;
               if (!(r = this._textEditChanges[e])) {
@@ -1276,7 +1276,7 @@
             (e.prototype.checkDocumentChanges = function () {
               if (!this._workspaceEdit || !this._workspaceEdit.documentChanges)
                 throw new Error(
-                  "Workspace edit is not configured for document changes."
+                  'Workspace edit is not configured for document changes.'
                 );
             }),
             e
@@ -1330,7 +1330,7 @@
             });
         })(R || (R = {})),
         (function (e) {
-          (e.PlainText = "plaintext"), (e.Markdown = "markdown");
+          (e.PlainText = 'plaintext'), (e.Markdown = 'markdown');
         })(x || (x = {})),
         (function (e) {
           e.is = function (t) {
@@ -1391,7 +1391,7 @@
         })(q || (q = {})),
         (function (e) {
           (e.fromPlainText = function (e) {
-            return e.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
+            return e.replace(/[\\`*_{}[\]()#+\-.!]/g, '\\$&');
           }),
             (e.is = function (e) {
               var t = e;
@@ -1525,13 +1525,13 @@
           });
       })(X || (X = {})),
         (function (e) {
-          (e.QuickFix = "quickfix"),
-            (e.Refactor = "refactor"),
-            (e.RefactorExtract = "refactor.extract"),
-            (e.RefactorInline = "refactor.inline"),
-            (e.RefactorRewrite = "refactor.rewrite"),
-            (e.Source = "source"),
-            (e.SourceOrganizeImports = "source.organizeImports");
+          (e.QuickFix = 'quickfix'),
+            (e.Refactor = 'refactor'),
+            (e.RefactorExtract = 'refactor.extract'),
+            (e.RefactorInline = 'refactor.inline'),
+            (e.RefactorRewrite = 'refactor.rewrite'),
+            (e.Source = 'source'),
+            (e.SourceOrganizeImports = 'source.organizeImports');
         })(A || (A = {})),
         (function (e) {
           (e.create = function (e, t) {
@@ -1624,7 +1624,7 @@
       })(z || (z = {}));
       var J,
         Z,
-        G = ["\n", "\r\n", "\r"];
+        G = ['\n', '\r\n', '\r'];
       !(function (e) {
         function t(e, n) {
           if (e.length <= 1) return e;
@@ -1672,7 +1672,7 @@
               var a = i[s],
                 u = e.offsetAt(a.range.start),
                 c = e.offsetAt(a.range.end);
-              if (!(c <= o)) throw new Error("Ovelapping edit");
+              if (!(c <= o)) throw new Error('Ovelapping edit');
               (r = r.substring(0, u) + a.newText + r.substring(c, r.length)),
                 (o = u);
             }
@@ -1692,21 +1692,21 @@
               (this._lineOffsets = null);
           }
           return (
-            Object.defineProperty(e.prototype, "uri", {
+            Object.defineProperty(e.prototype, 'uri', {
               get: function () {
                 return this._uri;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(e.prototype, "languageId", {
+            Object.defineProperty(e.prototype, 'languageId', {
               get: function () {
                 return this._languageId;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(e.prototype, "version", {
+            Object.defineProperty(e.prototype, 'version', {
               get: function () {
                 return this._version;
               },
@@ -1735,10 +1735,10 @@
                 ) {
                   n && (e.push(r), (n = !1));
                   var i = t.charAt(r);
-                  (n = "\r" === i || "\n" === i),
-                    "\r" === i &&
+                  (n = '\r' === i || '\n' === i),
+                    '\r' === i &&
                       r + 1 < t.length &&
-                      "\n" === t.charAt(r + 1) &&
+                      '\n' === t.charAt(r + 1) &&
                       r++;
                 }
                 n && t.length > 0 && e.push(t.length), (this._lineOffsets = e);
@@ -1767,7 +1767,7 @@
                   e.line + 1 < t.length ? t[e.line + 1] : this._content.length;
               return Math.max(Math.min(n + e.character, r), n);
             }),
-            Object.defineProperty(e.prototype, "lineCount", {
+            Object.defineProperty(e.prototype, 'lineCount', {
               get: function () {
                 return this.getLineOffsets().length;
               },
@@ -1780,52 +1780,52 @@
       !(function (e) {
         var t = Object.prototype.toString;
         (e.defined = function (e) {
-          return "undefined" !== typeof e;
+          return 'undefined' !== typeof e;
         }),
           (e.undefined = function (e) {
-            return "undefined" === typeof e;
+            return 'undefined' === typeof e;
           }),
           (e.boolean = function (e) {
             return !0 === e || !1 === e;
           }),
           (e.string = function (e) {
-            return "[object String]" === t.call(e);
+            return '[object String]' === t.call(e);
           }),
           (e.number = function (e) {
-            return "[object Number]" === t.call(e);
+            return '[object Number]' === t.call(e);
           }),
           (e.func = function (e) {
-            return "[object Function]" === t.call(e);
+            return '[object Function]' === t.call(e);
           }),
           (e.objectLiteral = function (e) {
-            return null !== e && "object" === typeof e;
+            return null !== e && 'object' === typeof e;
           }),
           (e.typedArray = function (e, t) {
             return Array.isArray(e) && e.every(t);
           });
       })(Y || (Y = {}));
     },
-    "87dK": function (e, t, n) {
-      "use strict";
+    '87dK': function (e, t, n) {
+      'use strict';
       n.r(t),
-        n.d(t, "conf", function () {
+        n.d(t, 'conf', function () {
           return i;
         }),
-        n.d(t, "language", function () {
+        n.d(t, 'language', function () {
           return o;
         });
-      var r = "undefined" === typeof monaco ? self.monaco : monaco,
+      var r = 'undefined' === typeof monaco ? self.monaco : monaco,
         i = {
           wordPattern:
             /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g,
           comments: {
-            lineComment: "//",
-            blockComment: ["/*", "*/"],
+            lineComment: '//',
+            blockComment: ['/*', '*/'],
           },
           brackets: [
-            ["{", "}"],
-            ["[", "]"],
-            ["(", ")"],
+            ['{', '}'],
+            ['[', ']'],
+            ['(', ')'],
           ],
           onEnterRules: [
             {
@@ -1833,21 +1833,21 @@
               afterText: /^\s*\*\/$/,
               action: {
                 indentAction: r.languages.IndentAction.IndentOutdent,
-                appendText: " * ",
+                appendText: ' * ',
               },
             },
             {
               beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
               action: {
                 indentAction: r.languages.IndentAction.None,
-                appendText: " * ",
+                appendText: ' * ',
               },
             },
             {
               beforeText: /^(\t|(\ \ ))*\ \*(\ ([^\*]|\*(?!\/))*)?$/,
               action: {
                 indentAction: r.languages.IndentAction.None,
-                appendText: "* ",
+                appendText: '* ',
               },
             },
             {
@@ -1860,172 +1860,172 @@
           ],
           autoClosingPairs: [
             {
-              open: "{",
-              close: "}",
+              open: '{',
+              close: '}',
             },
             {
-              open: "[",
-              close: "]",
+              open: '[',
+              close: ']',
             },
             {
-              open: "(",
-              close: ")",
+              open: '(',
+              close: ')',
             },
             {
               open: '"',
               close: '"',
-              notIn: ["string"],
+              notIn: ['string'],
             },
             {
               open: "'",
               close: "'",
-              notIn: ["string", "comment"],
+              notIn: ['string', 'comment'],
             },
             {
-              open: "`",
-              close: "`",
-              notIn: ["string", "comment"],
+              open: '`',
+              close: '`',
+              notIn: ['string', 'comment'],
             },
             {
-              open: "/**",
-              close: " */",
-              notIn: ["string"],
+              open: '/**',
+              close: ' */',
+              notIn: ['string'],
             },
           ],
           folding: {
             markers: {
-              start: new RegExp("^\\s*//\\s*#?region\\b"),
-              end: new RegExp("^\\s*//\\s*#?endregion\\b"),
+              start: new RegExp('^\\s*//\\s*#?region\\b'),
+              end: new RegExp('^\\s*//\\s*#?endregion\\b'),
             },
           },
         },
         o = {
-          defaultToken: "invalid",
-          tokenPostfix: ".ts",
+          defaultToken: 'invalid',
+          tokenPostfix: '.ts',
           keywords: [
-            "abstract",
-            "as",
-            "break",
-            "case",
-            "catch",
-            "class",
-            "continue",
-            "const",
-            "constructor",
-            "debugger",
-            "declare",
-            "default",
-            "delete",
-            "do",
-            "else",
-            "enum",
-            "export",
-            "extends",
-            "false",
-            "finally",
-            "for",
-            "from",
-            "function",
-            "get",
-            "if",
-            "implements",
-            "import",
-            "in",
-            "infer",
-            "instanceof",
-            "interface",
-            "is",
-            "keyof",
-            "let",
-            "module",
-            "namespace",
-            "new",
-            "null",
-            "package",
-            "private",
-            "protected",
-            "public",
-            "readonly",
-            "require",
-            "global",
-            "return",
-            "set",
-            "static",
-            "super",
-            "switch",
-            "symbol",
-            "this",
-            "throw",
-            "true",
-            "try",
-            "type",
-            "typeof",
-            "unique",
-            "var",
-            "void",
-            "while",
-            "with",
-            "yield",
-            "async",
-            "await",
-            "of",
+            'abstract',
+            'as',
+            'break',
+            'case',
+            'catch',
+            'class',
+            'continue',
+            'const',
+            'constructor',
+            'debugger',
+            'declare',
+            'default',
+            'delete',
+            'do',
+            'else',
+            'enum',
+            'export',
+            'extends',
+            'false',
+            'finally',
+            'for',
+            'from',
+            'function',
+            'get',
+            'if',
+            'implements',
+            'import',
+            'in',
+            'infer',
+            'instanceof',
+            'interface',
+            'is',
+            'keyof',
+            'let',
+            'module',
+            'namespace',
+            'new',
+            'null',
+            'package',
+            'private',
+            'protected',
+            'public',
+            'readonly',
+            'require',
+            'global',
+            'return',
+            'set',
+            'static',
+            'super',
+            'switch',
+            'symbol',
+            'this',
+            'throw',
+            'true',
+            'try',
+            'type',
+            'typeof',
+            'unique',
+            'var',
+            'void',
+            'while',
+            'with',
+            'yield',
+            'async',
+            'await',
+            'of',
           ],
           typeKeywords: [
-            "any",
-            "boolean",
-            "number",
-            "object",
-            "string",
-            "undefined",
-            "bigint",
-            "never",
-            "unknown",
+            'any',
+            'boolean',
+            'number',
+            'object',
+            'string',
+            'undefined',
+            'bigint',
+            'never',
+            'unknown',
           ],
           operators: [
-            "<=",
-            ">=",
-            "==",
-            "!=",
-            "===",
-            "!==",
-            "=>",
-            "+",
-            "-",
-            "**",
-            "*",
-            "/",
-            "%",
-            "++",
-            "--",
-            "<<",
-            "</",
-            ">>",
-            ">>>",
-            "&",
-            "|",
-            "^",
-            "!",
-            "~",
-            "&&",
-            "||",
-            "??",
-            "?",
-            ":",
-            "=",
-            "+=",
-            "-=",
-            "*=",
-            "**=",
-            "/=",
-            "%=",
-            "<<=",
-            ">>=",
-            ">>>=",
-            "&=",
-            "|=",
-            "^=",
-            "@",
-            "#",
+            '<=',
+            '>=',
+            '==',
+            '!=',
+            '===',
+            '!==',
+            '=>',
+            '+',
+            '-',
+            '**',
+            '*',
+            '/',
+            '%',
+            '++',
+            '--',
+            '<<',
+            '</',
+            '>>',
+            '>>>',
+            '&',
+            '|',
+            '^',
+            '!',
+            '~',
+            '&&',
+            '||',
+            '??',
+            '?',
+            ':',
+            '=',
+            '+=',
+            '-=',
+            '*=',
+            '**=',
+            '/=',
+            '%=',
+            '<<=',
+            '>>=',
+            '>>>=',
+            '&=',
+            '|=',
+            '^=',
+            '@',
+            '#',
           ],
           symbols: /[=><!~?:&|+\-*\/\^%#]+/,
           escapes:
@@ -2039,9 +2039,9 @@
             /\\(?:[bBdDfnrstvwWn0\\\/]|@regexpctl|c[A-Z]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})/,
           tokenizer: {
             root: [
-              [/[{}]/, "delimiter.bracket"],
+              [/[{}]/, 'delimiter.bracket'],
               {
-                include: "common",
+                include: 'common',
               },
             ],
             common: [
@@ -2049,175 +2049,175 @@
                 /[a-z_$][\w$]*/,
                 {
                   cases: {
-                    "@typeKeywords": "keyword",
-                    "@keywords": "keyword",
-                    "@default": "identifier",
+                    '@typeKeywords': 'keyword',
+                    '@keywords': 'keyword',
+                    '@default': 'identifier',
                   },
                 },
               ],
-              [/[A-Z][\w\$]*/, "type.identifier"],
+              [/[A-Z][\w\$]*/, 'type.identifier'],
               {
-                include: "@whitespace",
+                include: '@whitespace',
               },
               [
                 /\/(?=([^\\\/]|\\.)+\/([gimsuy]*)(\s*)(\.|;|,|\)|\]|\}|$))/,
                 {
-                  token: "regexp",
-                  bracket: "@open",
-                  next: "@regexp",
+                  token: 'regexp',
+                  bracket: '@open',
+                  next: '@regexp',
                 },
               ],
-              [/[()\[\]]/, "@brackets"],
-              [/[<>](?!@symbols)/, "@brackets"],
-              [/!(?=([^=]|$))/, "delimiter"],
+              [/[()\[\]]/, '@brackets'],
+              [/[<>](?!@symbols)/, '@brackets'],
+              [/!(?=([^=]|$))/, 'delimiter'],
               [
                 /@symbols/,
                 {
                   cases: {
-                    "@operators": "delimiter",
-                    "@default": "",
+                    '@operators': 'delimiter',
+                    '@default': '',
                   },
                 },
               ],
-              [/(@digits)[eE]([\-+]?(@digits))?/, "number.float"],
-              [/(@digits)\.(@digits)([eE][\-+]?(@digits))?/, "number.float"],
-              [/0[xX](@hexdigits)n?/, "number.hex"],
-              [/0[oO]?(@octaldigits)n?/, "number.octal"],
-              [/0[bB](@binarydigits)n?/, "number.binary"],
-              [/(@digits)n?/, "number"],
-              [/[;,.]/, "delimiter"],
-              [/"([^"\\]|\\.)*$/, "string.invalid"],
-              [/'([^'\\]|\\.)*$/, "string.invalid"],
-              [/"/, "string", "@string_double"],
-              [/'/, "string", "@string_single"],
-              [/`/, "string", "@string_backtick"],
+              [/(@digits)[eE]([\-+]?(@digits))?/, 'number.float'],
+              [/(@digits)\.(@digits)([eE][\-+]?(@digits))?/, 'number.float'],
+              [/0[xX](@hexdigits)n?/, 'number.hex'],
+              [/0[oO]?(@octaldigits)n?/, 'number.octal'],
+              [/0[bB](@binarydigits)n?/, 'number.binary'],
+              [/(@digits)n?/, 'number'],
+              [/[;,.]/, 'delimiter'],
+              [/"([^"\\]|\\.)*$/, 'string.invalid'],
+              [/'([^'\\]|\\.)*$/, 'string.invalid'],
+              [/"/, 'string', '@string_double'],
+              [/'/, 'string', '@string_single'],
+              [/`/, 'string', '@string_backtick'],
             ],
             whitespace: [
-              [/[ \t\r\n]+/, ""],
-              [/\/\*\*(?!\/)/, "comment.doc", "@jsdoc"],
-              [/\/\*/, "comment", "@comment"],
-              [/\/\/.*$/, "comment"],
+              [/[ \t\r\n]+/, ''],
+              [/\/\*\*(?!\/)/, 'comment.doc', '@jsdoc'],
+              [/\/\*/, 'comment', '@comment'],
+              [/\/\/.*$/, 'comment'],
             ],
             comment: [
-              [/[^\/*]+/, "comment"],
-              [/\*\//, "comment", "@pop"],
-              [/[\/*]/, "comment"],
+              [/[^\/*]+/, 'comment'],
+              [/\*\//, 'comment', '@pop'],
+              [/[\/*]/, 'comment'],
             ],
             jsdoc: [
-              [/[^\/*]+/, "comment.doc"],
-              [/\*\//, "comment.doc", "@pop"],
-              [/[\/*]/, "comment.doc"],
+              [/[^\/*]+/, 'comment.doc'],
+              [/\*\//, 'comment.doc', '@pop'],
+              [/[\/*]/, 'comment.doc'],
             ],
             regexp: [
               [
                 /(\{)(\d+(?:,\d*)?)(\})/,
                 [
-                  "regexp.escape.control",
-                  "regexp.escape.control",
-                  "regexp.escape.control",
+                  'regexp.escape.control',
+                  'regexp.escape.control',
+                  'regexp.escape.control',
                 ],
               ],
               [
                 /(\[)(\^?)(?=(?:[^\]\\\/]|\\.)+)/,
                 [
-                  "regexp.escape.control",
+                  'regexp.escape.control',
                   {
-                    token: "regexp.escape.control",
-                    next: "@regexrange",
+                    token: 'regexp.escape.control',
+                    next: '@regexrange',
                   },
                 ],
               ],
               [
                 /(\()(\?:|\?=|\?!)/,
-                ["regexp.escape.control", "regexp.escape.control"],
+                ['regexp.escape.control', 'regexp.escape.control'],
               ],
-              [/[()]/, "regexp.escape.control"],
-              [/@regexpctl/, "regexp.escape.control"],
-              [/[^\\\/]/, "regexp"],
-              [/@regexpesc/, "regexp.escape"],
-              [/\\\./, "regexp.invalid"],
+              [/[()]/, 'regexp.escape.control'],
+              [/@regexpctl/, 'regexp.escape.control'],
+              [/[^\\\/]/, 'regexp'],
+              [/@regexpesc/, 'regexp.escape'],
+              [/\\\./, 'regexp.invalid'],
               [
                 /(\/)([gimsuy]*)/,
                 [
                   {
-                    token: "regexp",
-                    bracket: "@close",
-                    next: "@pop",
+                    token: 'regexp',
+                    bracket: '@close',
+                    next: '@pop',
                   },
-                  "keyword.other",
+                  'keyword.other',
                 ],
               ],
             ],
             regexrange: [
-              [/-/, "regexp.escape.control"],
-              [/\^/, "regexp.invalid"],
-              [/@regexpesc/, "regexp.escape"],
-              [/[^\]]/, "regexp"],
+              [/-/, 'regexp.escape.control'],
+              [/\^/, 'regexp.invalid'],
+              [/@regexpesc/, 'regexp.escape'],
+              [/[^\]]/, 'regexp'],
               [
                 /\]/,
                 {
-                  token: "regexp.escape.control",
-                  next: "@pop",
-                  bracket: "@close",
+                  token: 'regexp.escape.control',
+                  next: '@pop',
+                  bracket: '@close',
                 },
               ],
             ],
             string_double: [
-              [/[^\\"]+/, "string"],
-              [/@escapes/, "string.escape"],
-              [/\\./, "string.escape.invalid"],
-              [/"/, "string", "@pop"],
+              [/[^\\"]+/, 'string'],
+              [/@escapes/, 'string.escape'],
+              [/\\./, 'string.escape.invalid'],
+              [/"/, 'string', '@pop'],
             ],
             string_single: [
-              [/[^\\']+/, "string"],
-              [/@escapes/, "string.escape"],
-              [/\\./, "string.escape.invalid"],
-              [/'/, "string", "@pop"],
+              [/[^\\']+/, 'string'],
+              [/@escapes/, 'string.escape'],
+              [/\\./, 'string.escape.invalid'],
+              [/'/, 'string', '@pop'],
             ],
             string_backtick: [
               [
                 /\$\{/,
                 {
-                  token: "delimiter.bracket",
-                  next: "@bracketCounting",
+                  token: 'delimiter.bracket',
+                  next: '@bracketCounting',
                 },
               ],
-              [/[^\\`$]+/, "string"],
-              [/@escapes/, "string.escape"],
-              [/\\./, "string.escape.invalid"],
-              [/`/, "string", "@pop"],
+              [/[^\\`$]+/, 'string'],
+              [/@escapes/, 'string.escape'],
+              [/\\./, 'string.escape.invalid'],
+              [/`/, 'string', '@pop'],
             ],
             bracketCounting: [
-              [/\{/, "delimiter.bracket", "@bracketCounting"],
-              [/\}/, "delimiter.bracket", "@pop"],
+              [/\{/, 'delimiter.bracket', '@bracketCounting'],
+              [/\}/, 'delimiter.bracket', '@pop'],
               {
-                include: "common",
+                include: 'common',
               },
             ],
           },
         };
     },
-    "8ahE": function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+    '8ahE': function (e, t, n) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("MOv1");
+      var r = n('MOv1');
       !(function (e) {
-        e.type = new r.RequestType("textDocument/typeDefinition");
+        e.type = new r.RequestType('textDocument/typeDefinition');
       })(t.TypeDefinitionRequest || (t.TypeDefinitionRequest = {}));
     },
     ALIN: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("RUQ2"),
-        i = n("uWpP"),
-        o = n("vIUA");
+      var r = n('RUQ2'),
+        i = n('uWpP'),
+        o = n('vIUA');
       (t.createClientSocketTransport = function (e, t) {
         var n;
-        void 0 === t && (t = "utf-8");
+        void 0 === t && (t = 'utf-8');
         var s = new Promise(function (e, t) {
           n = e;
         });
@@ -2229,9 +2229,9 @@
                 new o.SocketMessageWriter(e, t),
               ]);
           });
-          c.on("error", u),
-            c.listen(e, "127.0.0.1", function () {
-              c.removeListener("error", u),
+          c.on('error', u),
+            c.listen(e, '127.0.0.1', function () {
+              c.removeListener('error', u),
                 a({
                   onConnected: function () {
                     return s;
@@ -2241,8 +2241,8 @@
         });
       }),
         (t.createServerSocketTransport = function (e, t) {
-          void 0 === t && (t = "utf-8");
-          var n = r.createConnection(e, "127.0.0.1");
+          void 0 === t && (t = 'utf-8');
+          var n = r.createConnection(e, '127.0.0.1');
           return [
             new i.SocketMessageReader(n, t),
             new o.SocketMessageWriter(n, t),
@@ -2250,12 +2250,12 @@
         });
     },
     BA4U: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      const r = n("fIkx"),
-        i = n("Gkij");
+      const r = n('fIkx'),
+        i = n('Gkij');
       var o;
       !(function (e) {
         (e.None = Object.freeze({
@@ -2318,15 +2318,15 @@
       };
     },
     BOov: function (e, t, n) {
-      "use strict";
+      'use strict';
 
       function r(e) {
         for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
       }
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var i = n("MOv1");
+      var i = n('MOv1');
       (t.ErrorCodes = i.ErrorCodes),
         (t.ResponseError = i.ResponseError),
         (t.CancellationToken = i.CancellationToken),
@@ -2354,14 +2354,14 @@
         (t.generateRandomPipeName = i.generateRandomPipeName),
         (t.createClientSocketTransport = i.createClientSocketTransport),
         (t.createServerSocketTransport = i.createServerSocketTransport),
-        r(n("7Z1E")),
-        r(n("+cRy")),
+        r(n('7Z1E')),
+        r(n('+cRy')),
         (t.createProtocolConnection = function (e, t, n, r) {
           return i.createMessageConnection(e, t, n, r);
         });
     },
-    "C+6V": function (e, t, n) {
-      "use strict";
+    'C+6V': function (e, t, n) {
+      'use strict';
       (function (e) {
         var r =
           (this && this.__extends) ||
@@ -2392,11 +2392,11 @@
         function i(e) {
           for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
         }
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
-        var o = n("1vg8"),
-          s = n("/7TX");
+        var o = n('1vg8'),
+          s = n('/7TX');
         (t.RequestType = s.RequestType),
           (t.RequestType0 = s.RequestType0),
           (t.RequestType1 = s.RequestType1),
@@ -2421,21 +2421,21 @@
           (t.NotificationType7 = s.NotificationType7),
           (t.NotificationType8 = s.NotificationType8),
           (t.NotificationType9 = s.NotificationType9);
-        var a = n("uWpP");
+        var a = n('uWpP');
         (t.MessageReader = a.MessageReader),
           (t.StreamMessageReader = a.StreamMessageReader),
           (t.IPCMessageReader = a.IPCMessageReader),
           (t.SocketMessageReader = a.SocketMessageReader);
-        var u = n("vIUA");
+        var u = n('vIUA');
         (t.MessageWriter = u.MessageWriter),
           (t.StreamMessageWriter = u.StreamMessageWriter),
           (t.IPCMessageWriter = u.IPCMessageWriter),
           (t.SocketMessageWriter = u.SocketMessageWriter);
-        var c = n("Z5Ki");
+        var c = n('Z5Ki');
         (t.Disposable = c.Disposable),
           (t.Event = c.Event),
           (t.Emitter = c.Emitter);
-        var l = n("Ff8q");
+        var l = n('Ff8q');
         (t.CancellationTokenSource = l.CancellationTokenSource),
           (t.CancellationToken = l.CancellationToken);
         var d,
@@ -2443,11 +2443,11 @@
           p,
           h,
           g,
-          m = n("4Wfv");
-        i(n("qL5x")),
-          i(n("ALIN")),
+          m = n('4Wfv');
+        i(n('qL5x')),
+          i(n('ALIN')),
           (function (e) {
-            e.type = new s.NotificationType("$/cancelRequest");
+            e.type = new s.NotificationType('$/cancelRequest');
           })(d || (d = {})),
           (t.NullLogger = Object.freeze({
             error: function () {},
@@ -2456,18 +2456,18 @@
             log: function () {},
           })),
           (function (e) {
-            (e[(e.Off = 0)] = "Off"),
-              (e[(e.Messages = 1)] = "Messages"),
-              (e[(e.Verbose = 2)] = "Verbose");
+            (e[(e.Off = 0)] = 'Off'),
+              (e[(e.Messages = 1)] = 'Messages'),
+              (e[(e.Verbose = 2)] = 'Verbose');
           })((f = t.Trace || (t.Trace = {}))),
           (function (e) {
             (e.fromString = function (t) {
               switch ((t = t.toLowerCase())) {
-                case "off":
+                case 'off':
                   return e.Off;
-                case "messages":
+                case 'messages':
                   return e.Messages;
-                case "verbose":
+                case 'verbose':
                   return e.Verbose;
                 default:
                   return e.Off;
@@ -2476,26 +2476,26 @@
               (e.toString = function (t) {
                 switch (t) {
                   case e.Off:
-                    return "off";
+                    return 'off';
                   case e.Messages:
-                    return "messages";
+                    return 'messages';
                   case e.Verbose:
-                    return "verbose";
+                    return 'verbose';
                   default:
-                    return "off";
+                    return 'off';
                 }
               });
           })((f = t.Trace || (t.Trace = {}))),
           (function (e) {
-            e.type = new s.NotificationType("$/setTraceNotification");
+            e.type = new s.NotificationType('$/setTraceNotification');
           })((p = t.SetTraceNotification || (t.SetTraceNotification = {}))),
           (function (e) {
-            e.type = new s.NotificationType("$/logTraceNotification");
+            e.type = new s.NotificationType('$/logTraceNotification');
           })((h = t.LogTraceNotification || (t.LogTraceNotification = {}))),
           (function (e) {
-            (e[(e.Closed = 1)] = "Closed"),
-              (e[(e.Disposed = 2)] = "Disposed"),
-              (e[(e.AlreadyListening = 3)] = "AlreadyListening");
+            (e[(e.Closed = 1)] = 'Closed'),
+              (e[(e.Disposed = 2)] = 'Disposed'),
+              (e[(e.AlreadyListening = 3)] = 'AlreadyListening');
           })((g = t.ConnectionErrors || (t.ConnectionErrors = {})));
         var v,
           y = (function (e) {
@@ -2512,7 +2512,7 @@
             O = 0,
             b = 0,
             w = 0,
-            k = "2.0",
+            k = '2.0',
             R = void 0,
             x = Object.create(null),
             T = void 0,
@@ -2528,7 +2528,7 @@
             $ = new c.Emitter();
 
           function I(e) {
-            return "req-" + e.toString();
+            return 'req-' + e.toString();
           }
 
           function j(e, t) {
@@ -2538,11 +2538,11 @@
               : s.isResponseMessage(t)
               ? e.set(
                   null === (n = t.id)
-                    ? "res-unknown-" + (++w).toString()
-                    : "res-" + n.toString(),
+                    ? 'res-unknown-' + (++w).toString()
+                    : 'res-' + n.toString(),
                   t
                 )
-              : e.set("not-" + (++b).toString(), t);
+              : e.set('not-' + (++b).toString(), t);
           }
 
           function W(e) {}
@@ -2613,13 +2613,13 @@
                               P === f.Verbose &&
                                 e.params &&
                                 (t =
-                                  "Params: " +
+                                  'Params: ' +
                                   JSON.stringify(e.params, null, 4) +
-                                  "\n\n");
+                                  '\n\n');
                               u.log(
                                 "Received request '" +
                                   e.method +
-                                  " - (" +
+                                  ' - (' +
                                   e.id +
                                   ")'.",
                                 t
@@ -2672,9 +2672,9 @@
                                               ? r(
                                                   new s.ResponseError(
                                                     s.ErrorCodes.InternalError,
-                                                    "Request " +
+                                                    'Request ' +
                                                       e.method +
-                                                      " failed with message: " +
+                                                      ' failed with message: ' +
                                                       t.message
                                                   ),
                                                   e.method,
@@ -2683,9 +2683,9 @@
                                               : r(
                                                   new s.ResponseError(
                                                     s.ErrorCodes.InternalError,
-                                                    "Request " +
+                                                    'Request ' +
                                                       e.method +
-                                                      " failed unexpectedly without providing any details."
+                                                      ' failed unexpectedly without providing any details.'
                                                   ),
                                                   e.method,
                                                   p
@@ -2702,9 +2702,9 @@
                                     ? r(
                                         new s.ResponseError(
                                           s.ErrorCodes.InternalError,
-                                          "Request " +
+                                          'Request ' +
                                             e.method +
-                                            " failed with message: " +
+                                            ' failed with message: ' +
                                             y.message
                                         ),
                                         e.method,
@@ -2713,9 +2713,9 @@
                                     : r(
                                         new s.ResponseError(
                                           s.ErrorCodes.InternalError,
-                                          "Request " +
+                                          'Request ' +
                                             e.method +
-                                            " failed unexpectedly without providing any details."
+                                            ' failed unexpectedly without providing any details.'
                                         ),
                                         e.method,
                                         p
@@ -2725,7 +2725,7 @@
                               r(
                                 new s.ResponseError(
                                   s.ErrorCodes.MethodNotFound,
-                                  "Unhandled method " + e.method
+                                  'Unhandled method ' + e.method
                                 ),
                                 e.method,
                                 p
@@ -2758,10 +2758,10 @@
                                   var t = void 0;
                                   P === f.Verbose &&
                                     (t = e.params
-                                      ? "Params: " +
+                                      ? 'Params: ' +
                                         JSON.stringify(e.params, null, 4) +
-                                        "\n\n"
-                                      : "No parameters provided.\n\n");
+                                        '\n\n'
+                                      : 'No parameters provided.\n\n');
                                   u.log(
                                     "Received notification '" + e.method + "'.",
                                     t
@@ -2805,11 +2805,11 @@
                             if (null === e.id)
                               e.error
                                 ? r.error(
-                                    "Received response message without id: Error is: \n" +
+                                    'Received response message without id: Error is: \n' +
                                       JSON.stringify(e.error, void 0, 4)
                                   )
                                 : r.error(
-                                    "Received response message without id. No further error information provided."
+                                    'Received response message without id. No further error information provided.'
                                   );
                             else {
                               var t = String(e.id),
@@ -2821,44 +2821,44 @@
                                   P === f.Verbose &&
                                     (e.error && e.error.data
                                       ? (n =
-                                          "Error data: " +
+                                          'Error data: ' +
                                           JSON.stringify(
                                             e.error.data,
                                             null,
                                             4
                                           ) +
-                                          "\n\n")
+                                          '\n\n')
                                       : e.result
                                       ? (n =
-                                          "Result: " +
+                                          'Result: ' +
                                           JSON.stringify(e.result, null, 4) +
-                                          "\n\n")
+                                          '\n\n')
                                       : void 0 === e.error &&
-                                        (n = "No result returned.\n\n"));
+                                        (n = 'No result returned.\n\n'));
                                   if (t) {
                                     var r = e.error
-                                      ? " Request failed: " +
+                                      ? ' Request failed: ' +
                                         e.error.message +
-                                        " (" +
+                                        ' (' +
                                         e.error.code +
-                                        ")."
-                                      : "";
+                                        ').'
+                                      : '';
                                     u.log(
                                       "Received response '" +
                                         t.method +
-                                        " - (" +
+                                        ' - (' +
                                         e.id +
                                         ")' in " +
                                         (Date.now() - t.timerStart) +
-                                        "ms." +
+                                        'ms.' +
                                         r,
                                       n
                                     );
                                   } else
                                     u.log(
-                                      "Received response " +
+                                      'Received response ' +
                                         e.id +
-                                        " without active response promise.",
+                                        ' without active response promise.',
                                       n
                                     );
                                 })(e, n),
@@ -2877,7 +2877,7 @@
                                     );
                                   } else {
                                     if (void 0 === e.result)
-                                      throw new Error("Should never happen.");
+                                      throw new Error('Should never happen.');
                                     n.resolve(e.result);
                                   }
                                 } catch (i) {
@@ -2899,9 +2899,9 @@
                           })(e)
                         : (function (e) {
                             if (!e)
-                              return void r.error("Received empty message.");
+                              return void r.error('Received empty message.');
                             r.error(
-                              "Received message which is neither a response nor a notification message:\n" +
+                              'Received message which is neither a response nor a notification message:\n' +
                                 JSON.stringify(e, null, 4)
                             );
                             var t = e;
@@ -2911,7 +2911,7 @@
                               i &&
                                 i.reject(
                                   new Error(
-                                    "The received response has neither a result nor an error property."
+                                    'The received response has neither a result nor an error property.'
                                   )
                                 );
                             }
@@ -2960,9 +2960,9 @@
               var t = void 0;
               P === f.Verbose &&
                 e.params &&
-                (t = "Params: " + JSON.stringify(e.params, null, 4) + "\n\n"),
+                (t = 'Params: ' + JSON.stringify(e.params, null, 4) + '\n\n'),
                 u.log(
-                  "Sending request '" + e.method + " - (" + e.id + ")'.",
+                  "Sending request '" + e.method + ' - (' + e.id + ")'.",
                   t
                 );
             }
@@ -2973,8 +2973,8 @@
               var t = void 0;
               P === f.Verbose &&
                 (t = e.params
-                  ? "Params: " + JSON.stringify(e.params, null, 4) + "\n\n"
-                  : "No parameters provided.\n\n"),
+                  ? 'Params: ' + JSON.stringify(e.params, null, 4) + '\n\n'
+                  : 'No parameters provided.\n\n'),
                 u.log("Sending notification '" + e.method + "'.", t);
             }
           }
@@ -2985,33 +2985,33 @@
               P === f.Verbose &&
                 (e.error && e.error.data
                   ? (r =
-                      "Error data: " +
+                      'Error data: ' +
                       JSON.stringify(e.error.data, null, 4) +
-                      "\n\n")
+                      '\n\n')
                   : e.result
                   ? (r =
-                      "Result: " + JSON.stringify(e.result, null, 4) + "\n\n")
-                  : void 0 === e.error && (r = "No result returned.\n\n")),
+                      'Result: ' + JSON.stringify(e.result, null, 4) + '\n\n')
+                  : void 0 === e.error && (r = 'No result returned.\n\n')),
                 u.log(
                   "Sending response '" +
                     t +
-                    " - (" +
+                    ' - (' +
                     e.id +
                     ")'. Processing request took " +
                     (Date.now() - n) +
-                    "ms",
+                    'ms',
                   r
                 );
             }
           }
 
           function Z() {
-            if (A()) throw new y(g.Closed, "Connection is closed.");
-            if (F()) throw new y(g.Disposed, "Connection is disposed.");
+            if (A()) throw new y(g.Closed, 'Connection is closed.');
+            if (F()) throw new y(g.Disposed, 'Connection is disposed.');
           }
 
           function G() {
-            if (!L()) throw new Error("Call listen() first.");
+            if (!L()) throw new Error('Call listen() first.');
           }
 
           function Y(e) {
@@ -3128,7 +3128,7 @@
                     a.reject(
                       new s.ResponseError(
                         s.ErrorCodes.MessageWriteError,
-                        u.message ? u.message : "Unknown reason"
+                        u.message ? u.message : 'Unknown reason'
                       )
                     ),
                       (a = null);
@@ -3177,7 +3177,7 @@
             dispose: function () {
               if (!F()) {
                 (D = v.Disposed), $.fire(void 0);
-                var e = new Error("Connection got disposed.");
+                var e = new Error('Connection got disposed.');
                 Object.keys(E).forEach(function (t) {
                   E[t].reject(e);
                 }),
@@ -3194,14 +3194,14 @@
                   if (L())
                     throw new y(
                       g.AlreadyListening,
-                      "Connection is already listening"
+                      'Connection is already listening'
                     );
                 })(),
                 (D = v.Listening),
                 t.listen(U);
             },
             inspect: function () {
-              console.log("inspect");
+              console.log('inspect');
             },
           };
           return (
@@ -3221,10 +3221,10 @@
             };
           })(t.ConnectionStrategy || (t.ConnectionStrategy = {})),
           (function (e) {
-            (e[(e.New = 1)] = "New"),
-              (e[(e.Listening = 2)] = "Listening"),
-              (e[(e.Closed = 3)] = "Closed"),
-              (e[(e.Disposed = 4)] = "Disposed");
+            (e[(e.New = 1)] = 'New'),
+              (e[(e.Listening = 2)] = 'Listening'),
+              (e[(e.Closed = 3)] = 'Closed'),
+              (e[(e.Disposed = 4)] = 'Disposed');
           })(v || (v = {})),
           (t.createMessageConnection = function (e, n, r, i) {
             var o;
@@ -3244,20 +3244,20 @@
               )
             );
           });
-      }.call(this, n("CfyG").setImmediate));
+      }.call(this, n('CfyG').setImmediate));
     },
     CcFB: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("MOv1");
+      var r = n('MOv1');
       !(function (e) {
-        e.type = new r.RequestType("textDocument/implementation");
+        e.type = new r.RequestType('textDocument/implementation');
       })(t.ImplementationRequest || (t.ImplementationRequest = {}));
     },
     DFRf: function (e, t, n) {
-      "use strict";
+      'use strict';
       var r =
           (this && this.__awaiter) ||
           function (e, t, n, r) {
@@ -3310,7 +3310,7 @@
                 throw: a(1),
                 return: a(2),
               }),
-              "function" === typeof Symbol &&
+              'function' === typeof Symbol &&
                 (o[Symbol.iterator] = function () {
                   return this;
                 }),
@@ -3320,7 +3320,7 @@
             function a(o) {
               return function (a) {
                 return (function (o) {
-                  if (n) throw new TypeError("Generator is already executing.");
+                  if (n) throw new TypeError('Generator is already executing.');
                   for (; s; )
                     try {
                       if (
@@ -3395,16 +3395,16 @@
               };
             }
           };
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var o = n("hde3"),
-        s = n("oL6p"),
-        a = n("Gz0x");
+      var o = n('hde3'),
+        s = n('oL6p'),
+        a = n('Gz0x');
       t.createVSCodeApi = function (e) {
         var t = this,
           n = function () {
-            throw new Error("unsupported");
+            throw new Error('unsupported');
           },
           u = o.default,
           c = function (e, t) {
@@ -3415,7 +3415,7 @@
               (this.range = e), (this.command = t);
             }
             return (
-              Object.defineProperty(e.prototype, "isResolved", {
+              Object.defineProperty(e.prototype, 'isResolved', {
                 get: function () {
                   return !!this.command;
                 },
@@ -3434,20 +3434,20 @@
             }
             return (
               (e.Empty = new e()),
-              (e.QuickFix = new e("quickfix")),
-              (e.Refactor = new e("refactor")),
-              (e.RefactorExtract = new e("refactor.extract")),
-              (e.RefactorInline = new e("refactor.inline")),
-              (e.RefactorRewrite = new e("refactor.rewrite")),
-              (e.Source = new e("source")),
-              (e.SourceOrganizeImports = new e("source.organizeImports")),
+              (e.QuickFix = new e('quickfix')),
+              (e.Refactor = new e('refactor')),
+              (e.RefactorExtract = new e('refactor.extract')),
+              (e.RefactorInline = new e('refactor.inline')),
+              (e.RefactorRewrite = new e('refactor.rewrite')),
+              (e.Source = new e('source')),
+              (e.SourceOrganizeImports = new e('source.organizeImports')),
               e
             );
           })(),
           p = {
             createFileSystemWatcher: function (t, n, r, i) {
               var o = e();
-              if ("string" !== typeof t) throw new Error("unsupported");
+              if ('string' !== typeof t) throw new Error('unsupported');
               if (o.workspace.createFileSystemWatcher) {
                 var s = o.workspace.createFileSystemWatcher(t, n, r, i);
                 return Object.assign(s, {
@@ -3472,7 +3472,7 @@
                 return i(this, function (r) {
                   if (((t = e()), a.WorkspaceEdit.is(n)))
                     return [2, t.workspace.applyEdit(n)];
-                  throw new Error("unsupported");
+                  throw new Error('unsupported');
                 });
               });
             },
@@ -3587,9 +3587,9 @@
           h = {
             match: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               if (!a.DocumentIdentifier.is(n))
-                throw new Error("unexpected document: " + JSON.stringify(n));
+                throw new Error('unexpected document: ' + JSON.stringify(n));
               return e().languages.match(t, n) ? 1 : 0;
             },
             createDiagnosticCollection: function (t) {
@@ -3598,7 +3598,7 @@
                   ? r.languages.createDiagnosticCollection(t)
                   : void 0;
               return {
-                name: t || "default",
+                name: t || 'default',
                 set: function (e, t) {
                   i && (t ? i.set(e.toString(), t) : i.set(e.toString(), []));
                 },
@@ -3616,7 +3616,7 @@
               for (var r = [], i = 2; i < arguments.length; i++)
                 r[i - 2] = arguments[i];
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var o = e().languages;
               if (!o.registerCompletionItemProvider)
                 return s.Disposable.create(function () {});
@@ -3650,7 +3650,7 @@
             },
             registerCodeActionsProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerCodeActionsProvider
                 ? r.registerCodeActionsProvider(t, {
@@ -3665,7 +3665,7 @@
             },
             registerCodeLensProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               if (!r.registerCodeLensProvider)
                 return s.Disposable.create(function () {});
@@ -3684,7 +3684,7 @@
             },
             registerDefinitionProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerDefinitionProvider
                 ? r.registerDefinitionProvider(t, {
@@ -3698,7 +3698,7 @@
             },
             registerImplementationProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerImplementationProvider
                 ? r.registerImplementationProvider(t, {
@@ -3712,7 +3712,7 @@
             },
             registerTypeDefinitionProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerTypeDefinitionProvider
                 ? r.registerTypeDefinitionProvider(t, {
@@ -3726,7 +3726,7 @@
             },
             registerHoverProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerHoverProvider
                 ? r.registerHoverProvider(t, {
@@ -3740,7 +3740,7 @@
             },
             registerDocumentHighlightProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerDocumentHighlightProvider
                 ? r.registerDocumentHighlightProvider(t, {
@@ -3754,7 +3754,7 @@
             },
             registerDocumentSymbolProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerDocumentSymbolProvider
                 ? r.registerDocumentSymbolProvider(t, {
@@ -3778,7 +3778,7 @@
             },
             registerReferenceProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerReferenceProvider
                 ? r.registerReferenceProvider(t, {
@@ -3793,7 +3793,7 @@
             },
             registerRenameProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerRenameProvider
                 ? r.registerRenameProvider(t, {
@@ -3808,7 +3808,7 @@
             },
             registerDocumentFormattingEditProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerDocumentFormattingEditProvider
                 ? r.registerDocumentFormattingEditProvider(t, {
@@ -3822,7 +3822,7 @@
             },
             registerDocumentRangeFormattingEditProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerDocumentRangeFormattingEditProvider
                 ? r.registerDocumentRangeFormattingEditProvider(t, {
@@ -3839,7 +3839,7 @@
               for (var i = [], o = 3; o < arguments.length; o++)
                 i[o - 3] = arguments[o];
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var u = e().languages;
               return u.registerOnTypeFormattingEditProvider
                 ? u.registerOnTypeFormattingEditProvider.apply(
@@ -3864,7 +3864,7 @@
               for (var r = [], i = 2; i < arguments.length; i++)
                 r[i - 2] = arguments[i];
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var o = e().languages;
               return o.registerSignatureHelpProvider
                 ? o.registerSignatureHelpProvider.apply(
@@ -3884,7 +3884,7 @@
             },
             registerDocumentLinkProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               if (!r.registerDocumentLinkProvider)
                 return s.Disposable.create(function () {});
@@ -3903,7 +3903,7 @@
             },
             registerColorProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerColorProvider
                 ? r.registerColorProvider(t, {
@@ -3929,7 +3929,7 @@
             },
             registerFoldingRangeProvider: function (t, n) {
               if (!a.isDocumentSelector(t))
-                throw new Error("unexpected selector: " + JSON.stringify(t));
+                throw new Error('unexpected selector: ' + JSON.stringify(t));
               var r = e().languages;
               return r.registerFoldingRangeProvider
                 ? r.registerFoldingRangeProvider(t, {
@@ -3947,11 +3947,11 @@
           };
 
         function g(t, n, r) {
-          if ("string" !== typeof n)
-            throw new Error("unexpected message: " + JSON.stringify(n));
+          if ('string' !== typeof n)
+            throw new Error('unexpected message: ' + JSON.stringify(n));
           var i = n;
           if (void 0 !== r && !Array.isArray(r))
-            throw new Error("unexpected actions: " + JSON.stringify(r));
+            throw new Error('unexpected actions: ' + JSON.stringify(r));
           var o = r || [],
             s = e().window;
           return s
@@ -4047,13 +4047,13 @@
       };
     },
     Ff8q: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var r,
-        i = n("Z5Ki"),
-        o = n("1vg8");
+        i = n('Z5Ki'),
+        o = n('1vg8');
       !(function (e) {
         (e.None = Object.freeze({
           isCancellationRequested: !1,
@@ -4093,14 +4093,14 @@
                 this._emitter &&
                   (this._emitter.fire(void 0), (this._emitter = void 0)));
             }),
-            Object.defineProperty(e.prototype, "isCancellationRequested", {
+            Object.defineProperty(e.prototype, 'isCancellationRequested', {
               get: function () {
                 return this._isCancelled;
               },
               enumerable: !0,
               configurable: !0,
             }),
-            Object.defineProperty(e.prototype, "onCancellationRequested", {
+            Object.defineProperty(e.prototype, 'onCancellationRequested', {
               get: function () {
                 return this._isCancelled
                   ? s
@@ -4116,7 +4116,7 @@
         u = (function () {
           function e() {}
           return (
-            Object.defineProperty(e.prototype, "token", {
+            Object.defineProperty(e.prototype, 'token', {
               get: function () {
                 return this._token || (this._token = new a()), this._token;
               },
@@ -4135,16 +4135,16 @@
       t.CancellationTokenSource = u;
     },
     Gkij: function (e, t, n) {
-      "use strict";
+      'use strict';
 
       function r(e) {
-        return "string" === typeof e || e instanceof String;
+        return 'string' === typeof e || e instanceof String;
       }
 
       function i(e) {
         return Array.isArray(e);
       }
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.boolean = function (e) {
@@ -4152,13 +4152,13 @@
         }),
         (t.string = r),
         (t.number = function (e) {
-          return "number" === typeof e || e instanceof Number;
+          return 'number' === typeof e || e instanceof Number;
         }),
         (t.error = function (e) {
           return e instanceof Error;
         }),
         (t.func = function (e) {
-          return "function" === typeof e;
+          return 'function' === typeof e;
         }),
         (t.array = i),
         (t.stringArray = function (e) {
@@ -4166,34 +4166,34 @@
         });
     },
     Gz0x: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("BOov"),
-        i = n("C+6V");
+      var r = n('BOov'),
+        i = n('C+6V');
       (t.Disposable = i.Disposable),
         (t.CancellationToken = i.CancellationToken),
         (t.Event = i.Event),
         (t.Emitter = i.Emitter),
         (function (e) {
           for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
-        })(n("BOov")),
+        })(n('BOov')),
         (function (e) {
           var t = window,
-            n = Symbol("Services");
+            n = Symbol('Services');
           (e.get = function () {
             var e = t[n];
             if (!e)
               throw new Error(
-                "Language Client services has not been installed"
+                'Language Client services has not been installed'
               );
             return e;
           }),
             (e.install = function (e) {
               t[n] &&
                 console.error(
-                  new Error("Language Client services has been overriden")
+                  new Error('Language Client services has been overriden')
                 ),
                 (t[n] = e);
             });
@@ -4202,40 +4202,40 @@
           return (
             !(!e || !Array.isArray(e)) &&
             e.every(function (e) {
-              return "string" === typeof e || r.DocumentFilter.is(e);
+              return 'string' === typeof e || r.DocumentFilter.is(e);
             })
           );
         }),
         (function (e) {
           e.is = function (e) {
-            return !!e && "uri" in e && "languageId" in e;
+            return !!e && 'uri' in e && 'languageId' in e;
           };
         })(t.DocumentIdentifier || (t.DocumentIdentifier = {})),
         (function (e) {
-          (e[(e.Global = 1)] = "Global"),
-            (e[(e.Workspace = 2)] = "Workspace"),
-            (e[(e.WorkspaceFolder = 3)] = "WorkspaceFolder");
+          (e[(e.Global = 1)] = 'Global'),
+            (e[(e.Workspace = 2)] = 'Workspace'),
+            (e[(e.WorkspaceFolder = 3)] = 'WorkspaceFolder');
         })(t.ConfigurationTarget || (t.ConfigurationTarget = {}));
     },
     I0O9: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e) {
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
-        const r = n("tpqs"),
-          i = n("PENG"),
-          o = n("HEbw"),
-          s = n("RUQ2"),
-          a = n("K4MX"),
-          u = n("k5Vz");
+        const r = n('tpqs'),
+          i = n('PENG'),
+          o = n('HEbw'),
+          s = n('RUQ2'),
+          a = n('K4MX'),
+          u = n('k5Vz');
         (t.generateRandomPipeName = function () {
-          const t = o.randomBytes(21).toString("hex");
-          return "win32" === e.platform
+          const t = o.randomBytes(21).toString('hex');
+          return 'win32' === e.platform
             ? `\\\\.\\pipe\\vscode-jsonrpc-${t}-sock`
             : r.join(i.tmpdir(), `vscode-${t}.sock`);
         }),
-          (t.createClientPipeTransport = function (e, t = "utf-8") {
+          (t.createClientPipeTransport = function (e, t = 'utf-8') {
             let n,
               r = new Promise((e, t) => {
                 n = e;
@@ -4248,44 +4248,44 @@
                     new u.SocketMessageWriter(e, t),
                   ]);
               });
-              c.on("error", o),
+              c.on('error', o),
                 c.listen(e, () => {
-                  c.removeListener("error", o),
+                  c.removeListener('error', o),
                     i({
                       onConnected: () => r,
                     });
                 });
             });
           }),
-          (t.createServerPipeTransport = function (e, t = "utf-8") {
+          (t.createServerPipeTransport = function (e, t = 'utf-8') {
             const n = s.createConnection(e);
             return [
               new a.SocketMessageReader(n, t),
               new u.SocketMessageWriter(n, t),
             ];
           });
-      }.call(this, n("8oxB")));
+      }.call(this, n('8oxB')));
     },
     K4MX: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e) {
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
-        const r = n("fIkx"),
-          i = n("Gkij");
+        const r = n('fIkx'),
+          i = n('Gkij');
         let o = 8192,
-          s = e.from("\r", "ascii")[0],
-          a = e.from("\n", "ascii")[0];
+          s = e.from('\r', 'ascii')[0],
+          a = e.from('\n', 'ascii')[0];
         class u {
-          constructor(t = "utf8") {
+          constructor(t = 'utf8') {
             (this.encoding = t),
               (this.index = 0),
               (this.buffer = e.allocUnsafe(o));
           }
           append(t) {
             var n = t;
-            if ("string" === typeof t) {
+            if ('string' === typeof t) {
               var r = t,
                 i = e.byteLength(r, this.encoding);
               (n = e.allocUnsafe(i)).write(r, 0, i, this.encoding);
@@ -4320,13 +4320,13 @@
             if (t + 3 >= this.index) return e;
             (e = Object.create(null)),
               this.buffer
-                .toString("ascii", 0, t)
-                .split("\r\n")
+                .toString('ascii', 0, t)
+                .split('\r\n')
                 .forEach((t) => {
-                  let n = t.indexOf(":");
+                  let n = t.indexOf(':');
                   if (-1 === n)
                     throw new Error(
-                      "Message header must separate key and value using :"
+                      'Message header must separate key and value using :'
                     );
                   let r = t.substr(0, n),
                     i = t.substr(n + 1).trim();
@@ -4398,14 +4398,14 @@
               ? e
               : new Error(
                   `Reader recevied error. Reason: ${
-                    i.string(e.message) ? e.message : "unknown"
+                    i.string(e.message) ? e.message : 'unknown'
                   }`
                 );
           }
         }
         t.AbstractMessageReader = c;
         class l extends c {
-          constructor(e, t = "utf8") {
+          constructor(e, t = 'utf8') {
             super(),
               (this.readable = e),
               (this.buffer = new u(t)),
@@ -4422,25 +4422,25 @@
               (this.messageToken = 0),
               (this.partialMessageTimer = void 0),
               (this.callback = e),
-              this.readable.on("data", (e) => {
+              this.readable.on('data', (e) => {
                 this.onData(e);
               }),
-              this.readable.on("error", (e) => this.fireError(e)),
-              this.readable.on("close", () => this.fireClose());
+              this.readable.on('error', (e) => this.fireError(e)),
+              this.readable.on('close', () => this.fireClose());
           }
           onData(e) {
             for (this.buffer.append(e); ; ) {
               if (-1 === this.nextMessageLength) {
                 let e = this.buffer.tryReadHeaders();
                 if (!e) return;
-                let t = e["Content-Length"];
+                let t = e['Content-Length'];
                 if (!t)
                   throw new Error(
-                    "Header must provide a Content-Length property."
+                    'Header must provide a Content-Length property.'
                   );
                 let n = parseInt(t);
                 if (isNaN(n))
-                  throw new Error("Content-Length value must be a number.");
+                  throw new Error('Content-Length value must be a number.');
                 this.nextMessageLength = n;
               }
               var t = this.buffer.tryReadContent(this.nextMessageLength);
@@ -4481,31 +4481,31 @@
           constructor(e) {
             super(), (this.process = e);
             let t = this.process;
-            t.on("error", (e) => this.fireError(e)),
-              t.on("close", () => this.fireClose());
+            t.on('error', (e) => this.fireError(e)),
+              t.on('close', () => this.fireClose());
           }
           listen(e) {
-            this.process.on("message", e);
+            this.process.on('message', e);
           }
         };
         t.SocketMessageReader = class extends l {
-          constructor(e, t = "utf-8") {
+          constructor(e, t = 'utf-8') {
             super(e, t);
           }
         };
-      }.call(this, n("HDXh").Buffer));
+      }.call(this, n('HDXh').Buffer));
     },
     MOv1: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e) {
         function r(e) {
           for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
         }
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
-        const i = n("Gkij"),
-          o = n("f7Fo");
+        const i = n('Gkij'),
+          o = n('f7Fo');
         (t.RequestType = o.RequestType),
           (t.RequestType0 = o.RequestType0),
           (t.RequestType1 = o.RequestType1),
@@ -4530,29 +4530,29 @@
           (t.NotificationType7 = o.NotificationType7),
           (t.NotificationType8 = o.NotificationType8),
           (t.NotificationType9 = o.NotificationType9);
-        const s = n("K4MX");
+        const s = n('K4MX');
         (t.MessageReader = s.MessageReader),
           (t.StreamMessageReader = s.StreamMessageReader),
           (t.IPCMessageReader = s.IPCMessageReader),
           (t.SocketMessageReader = s.SocketMessageReader);
-        const a = n("k5Vz");
+        const a = n('k5Vz');
         (t.MessageWriter = a.MessageWriter),
           (t.StreamMessageWriter = a.StreamMessageWriter),
           (t.IPCMessageWriter = a.IPCMessageWriter),
           (t.SocketMessageWriter = a.SocketMessageWriter);
-        const u = n("fIkx");
+        const u = n('fIkx');
         (t.Disposable = u.Disposable),
           (t.Event = u.Event),
           (t.Emitter = u.Emitter);
-        const c = n("BA4U");
+        const c = n('BA4U');
         (t.CancellationTokenSource = c.CancellationTokenSource),
           (t.CancellationToken = c.CancellationToken);
-        const l = n("wSv1");
+        const l = n('wSv1');
         var d, f, p, h, g, m, v;
-        r(n("I0O9")),
-          r(n("uUC1")),
+        r(n('I0O9')),
+          r(n('uUC1')),
           (function (e) {
-            e.type = new o.NotificationType("$/cancelRequest");
+            e.type = new o.NotificationType('$/cancelRequest');
           })(d || (d = {})),
           (t.NullLogger = Object.freeze({
             error: () => {},
@@ -4561,18 +4561,18 @@
             log: () => {},
           })),
           (function (e) {
-            (e[(e.Off = 0)] = "Off"),
-              (e[(e.Messages = 1)] = "Messages"),
-              (e[(e.Verbose = 2)] = "Verbose");
+            (e[(e.Off = 0)] = 'Off'),
+              (e[(e.Messages = 1)] = 'Messages'),
+              (e[(e.Verbose = 2)] = 'Verbose');
           })((f = t.Trace || (t.Trace = {}))),
           (function (e) {
             (e.fromString = function (t) {
               switch ((t = t.toLowerCase())) {
-                case "off":
+                case 'off':
                   return e.Off;
-                case "messages":
+                case 'messages':
                   return e.Messages;
-                case "verbose":
+                case 'verbose':
                   return e.Verbose;
                 default:
                   return e.Off;
@@ -4581,34 +4581,34 @@
               (e.toString = function (t) {
                 switch (t) {
                   case e.Off:
-                    return "off";
+                    return 'off';
                   case e.Messages:
-                    return "messages";
+                    return 'messages';
                   case e.Verbose:
-                    return "verbose";
+                    return 'verbose';
                   default:
-                    return "off";
+                    return 'off';
                 }
               });
           })((f = t.Trace || (t.Trace = {}))),
           (function (e) {
-            (e.Text = "text"), (e.JSON = "json");
+            (e.Text = 'text'), (e.JSON = 'json');
           })(t.TraceFormat || (t.TraceFormat = {})),
           (function (e) {
             e.fromString = function (t) {
-              return "json" === (t = t.toLowerCase()) ? e.JSON : e.Text;
+              return 'json' === (t = t.toLowerCase()) ? e.JSON : e.Text;
             };
           })((p = t.TraceFormat || (t.TraceFormat = {}))),
           (function (e) {
-            e.type = new o.NotificationType("$/setTraceNotification");
+            e.type = new o.NotificationType('$/setTraceNotification');
           })((h = t.SetTraceNotification || (t.SetTraceNotification = {}))),
           (function (e) {
-            e.type = new o.NotificationType("$/logTraceNotification");
+            e.type = new o.NotificationType('$/logTraceNotification');
           })((g = t.LogTraceNotification || (t.LogTraceNotification = {}))),
           (function (e) {
-            (e[(e.Closed = 1)] = "Closed"),
-              (e[(e.Disposed = 2)] = "Disposed"),
-              (e[(e.AlreadyListening = 3)] = "AlreadyListening");
+            (e[(e.Closed = 1)] = 'Closed'),
+              (e[(e.Disposed = 2)] = 'Disposed'),
+              (e[(e.AlreadyListening = 3)] = 'AlreadyListening');
           })((m = t.ConnectionErrors || (t.ConnectionErrors = {})));
         class y extends Error {
           constructor(e, t) {
@@ -4620,7 +4620,7 @@
           let a = 0,
             O = 0,
             b = 0;
-          const w = "2.0";
+          const w = '2.0';
           let k,
             R,
             x,
@@ -4639,7 +4639,7 @@
             j = new u.Emitter();
 
           function W(e) {
-            return "req-" + e.toString();
+            return 'req-' + e.toString();
           }
 
           function L(e, t) {
@@ -4649,11 +4649,11 @@
               : o.isResponseMessage(t)
               ? e.set(
                   null === (n = t.id)
-                    ? "res-unknown-" + (++b).toString()
-                    : "res-" + n.toString(),
+                    ? 'res-unknown-' + (++b).toString()
+                    : 'res-' + n.toString(),
                   t
                 )
-              : e.set("not-" + (++O).toString(), t);
+              : e.set('not-' + (++O).toString(), t);
           }
 
           function A(e) {}
@@ -4733,7 +4733,7 @@
                                     `Received request '${e.method} - (${e.id})'.`,
                                     t
                                   );
-                              } else Z("receive-request", e);
+                              } else Z('receive-request', e);
                             })(e);
                             let a,
                               u,
@@ -4856,12 +4856,12 @@
                                             null,
                                             4
                                           )}\n\n`
-                                        : "No parameters provided.\n\n"),
+                                        : 'No parameters provided.\n\n'),
                                       T.log(
                                         `Received notification '${e.method}'.`,
                                         t
                                       );
-                                  } else Z("receive-notification", e);
+                                  } else Z('receive-notification', e);
                                 })(e),
                                   void 0 === e.params ||
                                   (void 0 !== t && 0 === t.numberOfParams)
@@ -4900,7 +4900,7 @@
                                     )}`
                                   )
                                 : r.error(
-                                    "Received response message without id. No further error information provided."
+                                    'Received response message without id. No further error information provided.'
                                   );
                             else {
                               let n = String(e.id),
@@ -4925,12 +4925,12 @@
                                               4
                                             )}\n\n`)
                                           : void 0 === e.error &&
-                                            (n = "No result returned.\n\n")),
+                                            (n = 'No result returned.\n\n')),
                                       t)
                                     ) {
                                       let r = e.error
                                         ? ` Request failed: ${e.error.message} (${e.error.code}).`
-                                        : "";
+                                        : '';
                                       T.log(
                                         `Received response '${t.method} - (${
                                           e.id
@@ -4944,7 +4944,7 @@
                                         `Received response ${e.id} without active response promise.`,
                                         n
                                       );
-                                  } else Z("receive-response", e);
+                                  } else Z('receive-response', e);
                                 })(e, i),
                                 i)
                               ) {
@@ -4961,7 +4961,7 @@
                                     );
                                   } else {
                                     if (void 0 === e.result)
-                                      throw new Error("Should never happen.");
+                                      throw new Error('Should never happen.');
                                     i.resolve(e.result);
                                   }
                                 } catch (t) {
@@ -4978,7 +4978,7 @@
                           })(e)
                         : (function (e) {
                             if (!e)
-                              return void r.error("Received empty message.");
+                              return void r.error('Received empty message.');
                             r.error(
                               `Received message which is neither a response nor a notification message:\n${JSON.stringify(
                                 e,
@@ -4993,7 +4993,7 @@
                               n &&
                                 n.reject(
                                   new Error(
-                                    "The received response has neither a result nor an error property."
+                                    'The received response has neither a result nor an error property.'
                                   )
                                 );
                             }
@@ -5050,14 +5050,14 @@
                       )}\n\n`)
                     : e.result
                     ? (r = `Result: ${JSON.stringify(e.result, null, 4)}\n\n`)
-                    : void 0 === e.error && (r = "No result returned.\n\n")),
+                    : void 0 === e.error && (r = 'No result returned.\n\n')),
                   T.log(
                     `Sending response '${t} - (${
                       e.id
                     })'. Processing request took ${Date.now() - n}ms`,
                     r
                   );
-              } else Z("send-response", e);
+              } else Z('send-response', e);
           }
 
           function Z(e, t) {
@@ -5072,8 +5072,8 @@
           }
 
           function G() {
-            if (Q()) throw new y(m.Closed, "Connection is closed.");
-            if (V()) throw new y(m.Disposed, "Connection is disposed.");
+            if (Q()) throw new y(m.Closed, 'Connection is closed.');
+            if (V()) throw new y(m.Disposed, 'Connection is disposed.');
           }
 
           function Y(e) {
@@ -5125,9 +5125,9 @@
                     D === f.Verbose &&
                       (t = e.params
                         ? `Params: ${JSON.stringify(e.params, null, 4)}\n\n`
-                        : "No parameters provided.\n\n"),
+                        : 'No parameters provided.\n\n'),
                       T.log(`Sending notification '${e.method}'.`, t);
-                  } else Z("send-notification", e);
+                  } else Z('send-notification', e);
               })(s),
                 n.write(s);
             },
@@ -5151,7 +5151,7 @@
               if (
                 (G(),
                 (function () {
-                  if (!F()) throw new Error("Call listen() first.");
+                  if (!F()) throw new Error('Call listen() first.');
                 })(),
                 i.string(e))
               )
@@ -5208,7 +5208,7 @@
                             `Sending request '${e.method} - (${e.id})'.`,
                             t
                           );
-                      } else Z("send-request", e);
+                      } else Z('send-request', e);
                   })(i);
                   try {
                     n.write(i);
@@ -5216,7 +5216,7 @@
                     a.reject(
                       new o.ResponseError(
                         o.ErrorCodes.MessageWriteError,
-                        u.message ? u.message : "Unknown reason"
+                        u.message ? u.message : 'Unknown reason'
                       )
                     ),
                       (a = null);
@@ -5273,7 +5273,7 @@
             dispose: () => {
               if (V()) return;
               (N = v.Disposed), j.fire(void 0);
-              let e = new Error("Connection got disposed.");
+              let e = new Error('Connection got disposed.');
               Object.keys(q).forEach((t) => {
                 q[t].reject(e);
               }),
@@ -5289,14 +5289,14 @@
                   if (F())
                     throw new y(
                       m.AlreadyListening,
-                      "Connection is already listening"
+                      'Connection is already listening'
                     );
                 })(),
                 (N = v.Listening),
                 t.listen(z);
             },
             inspect: () => {
-              console.log("inspect");
+              console.log('inspect');
             },
           };
           return (
@@ -5316,10 +5316,10 @@
             };
           })(t.ConnectionStrategy || (t.ConnectionStrategy = {})),
           (function (e) {
-            (e[(e.New = 1)] = "New"),
-              (e[(e.Listening = 2)] = "Listening"),
-              (e[(e.Closed = 3)] = "Closed"),
-              (e[(e.Disposed = 4)] = "Disposed");
+            (e[(e.New = 1)] = 'New'),
+              (e[(e.Listening = 2)] = 'Listening'),
+              (e[(e.Closed = 3)] = 'Closed'),
+              (e[(e.Disposed = 4)] = 'Disposed');
           })(v || (v = {})),
           (t.createMessageConnection = function (e, n, r, i) {
             var o;
@@ -5339,14 +5339,14 @@
               )
             );
           });
-      }.call(this, n("CfyG").setImmediate));
+      }.call(this, n('CfyG').setImmediate));
     },
     PENG: function (e, t) {
       (t.endianness = function () {
-        return "LE";
+        return 'LE';
       }),
         (t.hostname = function () {
-          return "undefined" !== typeof location ? location.hostname : "";
+          return 'undefined' !== typeof location ? location.hostname : '';
         }),
         (t.loadavg = function () {
           return [];
@@ -5364,44 +5364,44 @@
           return [];
         }),
         (t.type = function () {
-          return "Browser";
+          return 'Browser';
         }),
         (t.release = function () {
-          return "undefined" !== typeof navigator ? navigator.appVersion : "";
+          return 'undefined' !== typeof navigator ? navigator.appVersion : '';
         }),
         (t.networkInterfaces = t.getNetworkInterfaces =
           function () {
             return {};
           }),
         (t.arch = function () {
-          return "javascript";
+          return 'javascript';
         }),
         (t.platform = function () {
-          return "browser";
+          return 'browser';
         }),
         (t.tmpdir = t.tmpDir =
           function () {
-            return "/tmp";
+            return '/tmp';
           }),
-        (t.EOL = "\n"),
+        (t.EOL = '\n'),
         (t.homedir = function () {
-          return "/";
+          return '/';
         });
     },
     PQU8: function (e, t, n) {
-      "use strict";
+      'use strict';
       n.r(t),
-        n.d(t, "html", function () {
+        n.d(t, 'html', function () {
           return H;
         }),
-        n.d(t, "htmlCompletion", function () {
+        n.d(t, 'htmlCompletion', function () {
           return K;
         }),
-        n.d(t, "htmlLanguage", function () {
+        n.d(t, 'htmlLanguage', function () {
           return Y;
         });
-      var r = n("LPyM"),
-        i = n("lmln");
+      var r = n('LPyM'),
+        i = n('lmln');
       const o = {
           area: !0,
           base: !0,
@@ -5528,7 +5528,7 @@
         if (d == n && l == e) return c;
         let r = e.peek(t);
         for (; u(r); ) r = e.peek(++t);
-        let i = "";
+        let i = '';
         for (
           ;
           45 == (o = r) ||
@@ -5557,11 +5557,11 @@
         v = new r.a({
           start: null,
           shift: (e, t, n, r) =>
-            m.indexOf(t) > -1 ? new g(f(r, 1) || "", e) : e,
+            m.indexOf(t) > -1 ? new g(f(r, 1) || '', e) : e,
           reduce: (e, t) => (18 == t && e ? e.parent : e),
           reuse(e, t, n, r) {
             let i = t.type.id;
-            return 4 == i || 35 == i ? new g(f(r, 1) || "", e) : e;
+            return 4 == i || 35 == i ? new g(f(r, 1) || '', e) : e;
           },
           hash: (e) => (e ? e.hash : 0),
           strict: !1,
@@ -5584,9 +5584,9 @@
               for (let e = t.context; e; e = e.parent) if (e.name == r) return;
               e.acceptToken(10);
             } else {
-              if ("script" == r) return e.acceptToken(5);
-              if ("style" == r) return e.acceptToken(6);
-              if ("textarea" == r) return e.acceptToken(7);
+              if ('script' == r) return e.acceptToken(5);
+              if ('style' == r) return e.acceptToken(6);
+              if ('textarea' == r) return e.acceptToken(7);
               i && a[i] && a[i][r] ? e.acceptToken(56, -1) : e.acceptToken(4);
             }
           },
@@ -5608,7 +5608,7 @@
               n && e.acceptToken(57);
               break;
             }
-            if (e.next == "--\x3e".charCodeAt(t)) {
+            if (e.next == '--\x3e'.charCodeAt(t)) {
               if ((t++, 3 == t)) {
                 n > 3 && e.acceptToken(57, -2);
                 break;
@@ -5647,18 +5647,18 @@
           }
         });
       }
-      const k = w("script", 53, 1),
-        R = w("style", 54, 2),
-        x = w("textarea", 55, 3),
+      const k = w('script', 53, 1),
+        R = w('style', 54, 2),
+        x = w('textarea', 55, 3),
         T = r.c.deserialize({
           version: 13,
           states:
             ",fOVO!jOOO!TQ#tO'#CoO!YQ#tO'#CyO!_Q#tO'#C|O!dQ#tO'#DPO!iOXO'#CnO!tOYO'#CnO#PO[O'#CnO$YO!jO'#CnOOOW'#Cn'#CnO$aO$fO'#DSO$iQ#tO'#DUO$nQ#tO'#DVOOOW'#Dj'#DjOOOW'#DX'#DXQVO!jOOO$sQ&jO,59ZO${Q&jO,59eO%TQ&jO,59hO%]Q&zO,59kOOOX'#D]'#D]O%hOXO'#CwO%sOXO,59YOOOY'#D^'#D^O%{OYO'#CzO&WOYO,59YOOO['#D_'#D_O&`O[O'#C}O&kO[O,59YOOOW'#D`'#D`O&sO!jO,59YO&zQ#tO'#DQOOOW,59Y,59YOOOp'#Da'#DaO'PO$fO,59nOOOW,59n,59nO'XQ#tO,59pO'^Q#tO,59qOOOW-E7V-E7VO'cQ&zO'#CqOOQ`'#DY'#DYO'qQ&jO1G.uOOOX1G.u1G.uO'yQ&jO1G/POOOY1G/P1G/PO(RQ&jO1G/SOOO[1G/S1G/SO(ZQ&zO1G/VOOOW1G/V1G/VOOOW1G/X1G/XOOOX-E7Z-E7ZO(fQ#tO'#CxOOOW1G.t1G.tOOOY-E7[-E7[O(kQ#tO'#C{OOO[-E7]-E7]O(pQ#tO'#DOOOOW-E7^-E7^O(uQ#tO,59lOOOp-E7_-E7_OOOW1G/Y1G/YOOOW1G/[1G/[OOOW1G/]1G/]O(zQ,UO,59]OOQ`-E7W-E7WOOOX7+$a7+$aOOOY7+$k7+$kOOO[7+$n7+$nOOOW7+$q7+$qOOOW7+$s7+$sO)VQ#tO,59dO)[Q#tO,59gO)aQ#tO,59jOOOW1G/W1G/WO)fO7[O'#CtO)tOMhO'#CtOOQ`1G.w1G.wOOOW1G/O1G/OOOOW1G/R1G/ROOOW1G/U1G/UOOOO'#DZ'#DZO*SO7[O,59`OOQ`,59`,59`OOOO'#D['#D[O*bOMhO,59`OOOO-E7X-E7XOOQ`1G.z1G.zOOOO-E7Y-E7Y",
           stateData:
-            "*x~O!]OS~OSSOTPOUQOVROX[OYZOZ]O^]O_]O`]Oa]Ow]Oz^O!cYO~Od`O~OdaO~OdbO~OdcO~O!VdOPkP!YkP~O!WgOQnP!YnP~O!XjORqP!YqP~OSSOTPOUQOVROWoOX[OYZOZ]O^]O_]O`]Oa]Ow]O!cYO~O!YpO~P#[O!ZqO!dsO~OdtO~OduO~OfwOjzO~OfwOj|O~OfwOj!OO~O[!ROfwOj!QO~O!VdOPkX!YkX~OP!TO!Y!UO~O!WgOQnX!YnX~OQ!WO!Y!UO~O!XjORqX!YqX~OR!YO!Y!UO~O!Y!UO~P#[Od![O~O!ZqO!d!^O~Oj!_O~Oj!`O~Og!aOfeXjeX[eX~OfwOj!cO~OfwOj!dO~OfwOj!eO~O[!gOfwOj!fO~Od!hO~Od!iO~Od!jO~Oj!kO~Oi!nO!_!lO!a!mO~Oj!oO~Oj!pO~Oj!qO~O_!rO`!rO!_!tO!`!rO~O_!uO`!uO!a!tO!b!uO~O_!rO`!rO!_!xO!`!rO~O_!uO`!uO!a!xO!b!uO~O`_a!cwz!c~",
-          goto: "%i!_PPPPPPPPPPPPPPPPPP!`!fP!lPP!vPP!y!|#P#V#Y#]#c#f#i#o#u!`P!`!`P#{$R$e$k$q$w$}%T%ZPPPPPPPP%aX]OW_nXTOW_nax`abcy{}!PR!n!aRfTR!UfXUOW_nRiUR!UiXVOW_nRlVR!UlXWOW_nQpWR!UnXXOW_nQ_ORv_Qy`Q{aQ}bQ!PcX!by{}!PQ!s!lR!w!sQ!v!mR!y!vQeTR!SeQhUR!VhQkVR!XkQnWR!ZnQrYR!]rS^O_TmWn",
+            '*x~O!]OS~OSSOTPOUQOVROX[OYZOZ]O^]O_]O`]Oa]Ow]Oz^O!cYO~Od`O~OdaO~OdbO~OdcO~O!VdOPkP!YkP~O!WgOQnP!YnP~O!XjORqP!YqP~OSSOTPOUQOVROWoOX[OYZOZ]O^]O_]O`]Oa]Ow]O!cYO~O!YpO~P#[O!ZqO!dsO~OdtO~OduO~OfwOjzO~OfwOj|O~OfwOj!OO~O[!ROfwOj!QO~O!VdOPkX!YkX~OP!TO!Y!UO~O!WgOQnX!YnX~OQ!WO!Y!UO~O!XjORqX!YqX~OR!YO!Y!UO~O!Y!UO~P#[Od![O~O!ZqO!d!^O~Oj!_O~Oj!`O~Og!aOfeXjeX[eX~OfwOj!cO~OfwOj!dO~OfwOj!eO~O[!gOfwOj!fO~Od!hO~Od!iO~Od!jO~Oj!kO~Oi!nO!_!lO!a!mO~Oj!oO~Oj!pO~Oj!qO~O_!rO`!rO!_!tO!`!rO~O_!uO`!uO!a!tO!b!uO~O_!rO`!rO!_!xO!`!rO~O_!uO`!uO!a!xO!b!uO~O`_a!cwz!c~',
+          goto: '%i!_PPPPPPPPPPPPPPPPPP!`!fP!lPP!vPP!y!|#P#V#Y#]#c#f#i#o#u!`P!`!`P#{$R$e$k$q$w$}%T%ZPPPPPPPP%aX]OW_nXTOW_nax`abcy{}!PR!n!aRfTR!UfXUOW_nRiUR!UiXVOW_nRlVR!UlXWOW_nQpWR!UnXXOW_nQ_ORv_Qy`Q{aQ}bQ!PcX!by{}!PQ!s!lR!w!sQ!v!mR!y!vQeTR!SeQhUR!VhQkVR!XkQnWR!ZnQrYR!]rS^O_TmWn',
           nodeNames:
-            "\u26a0 StartCloseTag StartCloseTag StartCloseTag StartTag StartTag StartTag StartTag StartCloseTag StartCloseTag StartCloseTag IncompleteCloseTag SelfCloseEndTag Document Text EntityReference CharacterReference InvalidEntity Element OpenTag TagName Attribute AttributeName Is AttributeValue UnquotedAttributeValue EndTag ScriptText CloseTag OpenTag StyleText CloseTag OpenTag TextareaText CloseTag OpenTag CloseTag SelfClosingTag Comment ProcessingInst MismatchedCloseTag CloseTag DoctypeDecl",
+            '\u26a0 StartCloseTag StartCloseTag StartCloseTag StartTag StartTag StartTag StartTag StartCloseTag StartCloseTag StartCloseTag IncompleteCloseTag SelfCloseEndTag Document Text EntityReference CharacterReference InvalidEntity Element OpenTag TagName Attribute AttributeName Is AttributeValue UnquotedAttributeValue EndTag ScriptText CloseTag OpenTag StyleText CloseTag OpenTag TextareaText CloseTag OpenTag CloseTag SelfClosingTag Comment ProcessingInst MismatchedCloseTag CloseTag DoctypeDecl',
           maxTerm: 66,
           context: v,
           nodeProps: [
@@ -5674,15 +5674,15 @@
               8,
               9,
               10,
-              "EndTag",
+              'EndTag',
               4,
-              "EndTag SelfCloseEndTag",
+              'EndTag SelfCloseEndTag',
               -4,
               19,
               29,
               32,
               35,
-              "CloseTag",
+              'CloseTag',
             ],
             [
               i.b.group,
@@ -5696,27 +5696,27 @@
               39,
               40,
               41,
-              "Entity",
+              'Entity',
               14,
-              "Entity TextContent",
+              'Entity TextContent',
               -3,
               27,
               30,
               33,
-              "TextContent Entity",
+              'TextContent Entity',
             ],
             [
               i.b.openedBy,
               12,
-              "StartTag",
+              'StartTag',
               26,
-              "StartTag StartCloseTag",
+              'StartTag StartCloseTag',
               -4,
               28,
               31,
               34,
               36,
-              "OpenTag",
+              'OpenTag',
             ],
           ],
           skippedNodes: [0],
@@ -5735,17 +5735,17 @@
 
       function C(e, t) {
         let n = Object.create(null);
-        for (let r of e.firstChild.getChildren("Attribute")) {
-          let e = r.getChild("AttributeName"),
+        for (let r of e.firstChild.getChildren('Attribute')) {
+          let e = r.getChild('AttributeName'),
             i =
-              r.getChild("AttributeValue") ||
-              r.getChild("UnquotedAttributeValue");
+              r.getChild('AttributeValue') ||
+              r.getChild('UnquotedAttributeValue');
           e &&
             (n[t.read(e.from, e.to)] = i
-              ? "AttributeValue" == i.name
+              ? 'AttributeValue' == i.name
                 ? t.read(i.from + 1, i.to - 1)
                 : t.read(i.from, i.to)
-              : "");
+              : '');
         }
         return n;
       }
@@ -5766,16 +5766,16 @@
           r = [];
         for (let i of e) {
           let e =
-            "script" == i.tag
+            'script' == i.tag
               ? t
-              : "style" == i.tag
+              : 'style' == i.tag
               ? n
-              : "textarea" == i.tag
+              : 'textarea' == i.tag
               ? r
               : null;
           if (!e)
             throw new RangeError(
-              "Only script, style, and textarea tags can host nested parsers"
+              'Only script, style, and textarea tags can host nested parsers'
             );
           e.push(i);
         }
@@ -5790,19 +5790,19 @@
             : null;
         });
       }
-      var q = n("Bxk6"),
-        P = n("tzg4"),
-        D = n("yqQ+"),
-        S = n("ubVE");
-      const N = ["_blank", "_self", "_top", "_parent"],
-        M = ["ascii", "utf-8", "utf-16", "latin1", "latin1"],
-        $ = ["get", "post", "put", "delete"],
+      var q = n('Bxk6'),
+        P = n('tzg4'),
+        D = n('yqQ+'),
+        S = n('ubVE');
+      const N = ['_blank', '_self', '_top', '_parent'],
+        M = ['ascii', 'utf-8', 'utf-16', 'latin1', 'latin1'],
+        $ = ['get', 'post', 'put', 'delete'],
         I = [
-          "application/x-www-form-urlencoded",
-          "multipart/form-data",
-          "text/plain",
+          'application/x-www-form-urlencoded',
+          'multipart/form-data',
+          'text/plain',
         ],
-        j = ["true", "false"],
+        j = ['true', 'false'],
         W = {},
         L = {
           a: {
@@ -5829,7 +5829,7 @@
               media: null,
               hreflang: null,
               type: null,
-              shape: ["default", "rect", "circle", "poly"],
+              shape: ['default', 'rect', 'circle', 'poly'],
             },
           },
           article: W,
@@ -5838,11 +5838,11 @@
             attrs: {
               src: null,
               mediagroup: null,
-              crossorigin: ["anonymous", "use-credentials"],
-              preload: ["none", "metadata", "auto"],
-              autoplay: ["autoplay"],
-              loop: ["loop"],
-              controls: ["controls"],
+              crossorigin: ['anonymous', 'use-credentials'],
+              preload: ['none', 'metadata', 'auto'],
+              autoplay: ['autoplay'],
+              loop: ['loop'],
+              controls: ['controls'],
             },
           },
           b: W,
@@ -5869,13 +5869,13 @@
               formaction: null,
               name: null,
               value: null,
-              autofocus: ["autofocus"],
-              disabled: ["autofocus"],
+              autofocus: ['autofocus'],
+              disabled: ['autofocus'],
               formenctype: I,
               formmethod: $,
-              formnovalidate: ["novalidate"],
+              formnovalidate: ['novalidate'],
               formtarget: N,
-              type: ["submit", "reset", "button"],
+              type: ['submit', 'reset', 'button'],
             },
           },
           canvas: {
@@ -5900,14 +5900,14 @@
           },
           command: {
             attrs: {
-              type: ["command", "checkbox", "radio"],
+              type: ['command', 'checkbox', 'radio'],
               label: null,
               icon: null,
               radiogroup: null,
               command: null,
               title: null,
-              disabled: ["disabled"],
-              checked: ["checked"],
+              disabled: ['disabled'],
+              checked: ['checked'],
             },
           },
           data: {
@@ -5917,8 +5917,8 @@
           },
           datagrid: {
             attrs: {
-              disabled: ["disabled"],
-              multiple: ["multiple"],
+              disabled: ['disabled'],
+              multiple: ['multiple'],
             },
           },
           datalist: {
@@ -5935,7 +5935,7 @@
           },
           details: {
             attrs: {
-              open: ["open"],
+              open: ['open'],
             },
           },
           dfn: W,
@@ -5959,7 +5959,7 @@
           },
           fieldset: {
             attrs: {
-              disabled: ["disabled"],
+              disabled: ['disabled'],
               form: null,
               name: null,
             },
@@ -5972,11 +5972,11 @@
             attrs: {
               action: null,
               name: null,
-              "accept-charset": M,
-              autocomplete: ["on", "off"],
+              'accept-charset': M,
+              autocomplete: ['on', 'off'],
               enctype: I,
               method: $,
-              novalidate: ["novalidate"],
+              novalidate: ['novalidate'],
               target: N,
             },
           },
@@ -5990,14 +5990,14 @@
           h6: W,
           head: {
             children: [
-              "title",
-              "base",
-              "link",
-              "style",
-              "meta",
-              "script",
-              "noscript",
-              "command",
+              'title',
+              'base',
+              'link',
+              'style',
+              'meta',
+              'script',
+              'noscript',
+              'command',
             ],
           },
           header: W,
@@ -6007,7 +6007,7 @@
             attrs: {
               manifest: null,
             },
-            children: ["head", "body"],
+            children: ['head', 'body'],
           },
           i: W,
           iframe: {
@@ -6018,12 +6018,12 @@
               width: null,
               height: null,
               sandbox: [
-                "allow-top-navigation",
-                "allow-same-origin",
-                "allow-forms",
-                "allow-scripts",
+                'allow-top-navigation',
+                'allow-same-origin',
+                'allow-forms',
+                'allow-scripts',
               ],
-              seamless: ["seamless"],
+              seamless: ['seamless'],
             },
           },
           img: {
@@ -6034,7 +6034,7 @@
               usemap: null,
               width: null,
               height: null,
-              crossorigin: ["anonymous", "use-credentials"],
+              crossorigin: ['anonymous', 'use-credentials'],
             },
           },
           input: {
@@ -6056,42 +6056,42 @@
               step: null,
               value: null,
               width: null,
-              accept: ["audio/*", "video/*", "image/*"],
-              autocomplete: ["on", "off"],
-              autofocus: ["autofocus"],
-              checked: ["checked"],
-              disabled: ["disabled"],
+              accept: ['audio/*', 'video/*', 'image/*'],
+              autocomplete: ['on', 'off'],
+              autofocus: ['autofocus'],
+              checked: ['checked'],
+              disabled: ['disabled'],
               formenctype: I,
               formmethod: $,
-              formnovalidate: ["novalidate"],
+              formnovalidate: ['novalidate'],
               formtarget: N,
-              multiple: ["multiple"],
-              readonly: ["readonly"],
-              required: ["required"],
+              multiple: ['multiple'],
+              readonly: ['readonly'],
+              required: ['required'],
               type: [
-                "hidden",
-                "text",
-                "search",
-                "tel",
-                "url",
-                "email",
-                "password",
-                "datetime",
-                "date",
-                "month",
-                "week",
-                "time",
-                "datetime-local",
-                "number",
-                "range",
-                "color",
-                "checkbox",
-                "radio",
-                "file",
-                "submit",
-                "image",
-                "reset",
-                "button",
+                'hidden',
+                'text',
+                'search',
+                'tel',
+                'url',
+                'email',
+                'password',
+                'datetime',
+                'date',
+                'month',
+                'week',
+                'time',
+                'datetime-local',
+                'number',
+                'range',
+                'color',
+                'checkbox',
+                'radio',
+                'file',
+                'submit',
+                'image',
+                'reset',
+                'button',
               ],
             },
           },
@@ -6107,9 +6107,9 @@
               challenge: null,
               form: null,
               name: null,
-              autofocus: ["autofocus"],
-              disabled: ["disabled"],
-              keytype: ["RSA"],
+              autofocus: ['autofocus'],
+              disabled: ['disabled'],
+              keytype: ['RSA'],
             },
           },
           label: {
@@ -6130,7 +6130,7 @@
               type: null,
               hreflang: null,
               media: null,
-              sizes: ["all", "16x16", "16x16 32x32", "16x16 32x32 64x64"],
+              sizes: ['all', '16x16', '16x16 32x32', '16x16 32x32 64x64'],
             },
           },
           map: {
@@ -6142,7 +6142,7 @@
           menu: {
             attrs: {
               label: null,
-              type: ["list", "context", "toolbar"],
+              type: ['list', 'context', 'toolbar'],
             },
           },
           meta: {
@@ -6150,18 +6150,18 @@
               content: null,
               charset: M,
               name: [
-                "viewport",
-                "application-name",
-                "author",
-                "description",
-                "generator",
-                "keywords",
+                'viewport',
+                'application-name',
+                'author',
+                'description',
+                'generator',
+                'keywords',
               ],
-              "http-equiv": [
-                "content-language",
-                "content-type",
-                "default-style",
-                "refresh",
+              'http-equiv': [
+                'content-language',
+                'content-type',
+                'default-style',
+                'refresh',
               ],
             },
           },
@@ -6187,28 +6187,28 @@
               form: null,
               width: null,
               height: null,
-              typemustmatch: ["typemustmatch"],
+              typemustmatch: ['typemustmatch'],
             },
           },
           ol: {
             attrs: {
-              reversed: ["reversed"],
+              reversed: ['reversed'],
               start: null,
-              type: ["1", "a", "A", "i", "I"],
+              type: ['1', 'a', 'A', 'i', 'I'],
             },
-            children: ["li", "script", "template", "ul", "ol"],
+            children: ['li', 'script', 'template', 'ul', 'ol'],
           },
           optgroup: {
             attrs: {
-              disabled: ["disabled"],
+              disabled: ['disabled'],
               label: null,
             },
           },
           option: {
             attrs: {
-              disabled: ["disabled"],
+              disabled: ['disabled'],
               label: null,
-              selected: ["selected"],
+              selected: ['selected'],
               value: null,
             },
           },
@@ -6245,10 +6245,10 @@
           samp: W,
           script: {
             attrs: {
-              type: ["text/javascript"],
+              type: ['text/javascript'],
               src: null,
-              async: ["async"],
-              defer: ["defer"],
+              async: ['async'],
+              defer: ['defer'],
               charset: M,
             },
           },
@@ -6258,9 +6258,9 @@
               form: null,
               name: null,
               size: null,
-              autofocus: ["autofocus"],
-              disabled: ["disabled"],
-              multiple: ["multiple"],
+              autofocus: ['autofocus'],
+              disabled: ['disabled'],
+              multiple: ['multiple'],
             },
           },
           small: W,
@@ -6276,7 +6276,7 @@
           strong: W,
           style: {
             attrs: {
-              type: ["text/css"],
+              type: ['text/css'],
               media: null,
               scoped: null,
             },
@@ -6302,11 +6302,11 @@
               placeholder: null,
               rows: null,
               cols: null,
-              autofocus: ["autofocus"],
-              disabled: ["disabled"],
-              readonly: ["readonly"],
-              required: ["required"],
-              wrap: ["soft", "hard"],
+              autofocus: ['autofocus'],
+              disabled: ['disabled'],
+              readonly: ['readonly'],
+              required: ['required'],
+              wrap: ['soft', 'hard'],
             },
           },
           tfoot: W,
@@ -6315,7 +6315,7 @@
               colspan: null,
               rowspan: null,
               headers: null,
-              scope: ["row", "col", "rowgroup", "colgroup"],
+              scope: ['row', 'col', 'rowgroup', 'colgroup'],
             },
           },
           thead: W,
@@ -6332,11 +6332,11 @@
               label: null,
               default: null,
               kind: [
-                "subtitles",
-                "captions",
-                "descriptions",
-                "chapters",
-                "metadata",
+                'subtitles',
+                'captions',
+                'descriptions',
+                'chapters',
+                'metadata',
               ],
               srclang: null,
             },
@@ -6344,7 +6344,7 @@
           tt: W,
           u: W,
           ul: {
-            children: ["li", "script", "template", "ul", "ol"],
+            children: ['li', 'script', 'template', 'ul', 'ol'],
           },
           var: W,
           video: {
@@ -6353,12 +6353,12 @@
               poster: null,
               width: null,
               height: null,
-              crossorigin: ["anonymous", "use-credentials"],
-              preload: ["auto", "metadata", "none"],
-              autoplay: ["autoplay"],
-              mediagroup: ["movie"],
-              muted: ["muted"],
-              controls: ["controls"],
+              crossorigin: ['anonymous', 'use-credentials'],
+              preload: ['auto', 'metadata', 'none'],
+              autoplay: ['autoplay'],
+              mediagroup: ['movie'],
+              muted: ['muted'],
+              controls: ['controls'],
             },
           },
           wbr: W,
@@ -6368,33 +6368,33 @@
           class: null,
           contenteditable: j,
           contextmenu: null,
-          dir: ["ltr", "rtl", "auto"],
-          draggable: ["true", "false", "auto"],
-          dropzone: ["copy", "move", "link", "string:", "file:"],
-          hidden: ["hidden"],
+          dir: ['ltr', 'rtl', 'auto'],
+          draggable: ['true', 'false', 'auto'],
+          dropzone: ['copy', 'move', 'link', 'string:', 'file:'],
+          hidden: ['hidden'],
           id: null,
-          inert: ["inert"],
+          inert: ['inert'],
           itemid: null,
           itemprop: null,
           itemref: null,
-          itemscope: ["itemscope"],
+          itemscope: ['itemscope'],
           itemtype: null,
           lang: [
-            "ar",
-            "bn",
-            "de",
-            "en-GB",
-            "en-US",
-            "es",
-            "fr",
-            "hi",
-            "id",
-            "ja",
-            "pa",
-            "pt",
-            "ru",
-            "tr",
-            "zh",
+            'ar',
+            'bn',
+            'de',
+            'en-GB',
+            'en-US',
+            'es',
+            'fr',
+            'hi',
+            'id',
+            'ja',
+            'pa',
+            'pt',
+            'ru',
+            'tr',
+            'zh',
           ],
           spellcheck: j,
           autocorrect: j,
@@ -6402,73 +6402,73 @@
           style: null,
           tabindex: null,
           title: null,
-          translate: ["yes", "no"],
+          translate: ['yes', 'no'],
           onclick: null,
           rel: [
-            "stylesheet",
-            "alternate",
-            "author",
-            "bookmark",
-            "help",
-            "license",
-            "next",
-            "nofollow",
-            "noreferrer",
-            "prefetch",
-            "prev",
-            "search",
-            "tag",
+            'stylesheet',
+            'alternate',
+            'author',
+            'bookmark',
+            'help',
+            'license',
+            'next',
+            'nofollow',
+            'noreferrer',
+            'prefetch',
+            'prev',
+            'search',
+            'tag',
           ],
-          role: "alert application article banner button cell checkbox complementary contentinfo dialog document feed figure form grid gridcell heading img list listbox listitem main navigation region row rowgroup search switch tab table tabpanel textbox timer".split(
-            " "
+          role: 'alert application article banner button cell checkbox complementary contentinfo dialog document feed figure form grid gridcell heading img list listbox listitem main navigation region row rowgroup search switch tab table tabpanel textbox timer'.split(
+            ' '
           ),
-          "aria-activedescendant": null,
-          "aria-atomic": j,
-          "aria-autocomplete": ["inline", "list", "both", "none"],
-          "aria-busy": j,
-          "aria-checked": ["true", "false", "mixed", "undefined"],
-          "aria-controls": null,
-          "aria-describedby": null,
-          "aria-disabled": j,
-          "aria-dropeffect": null,
-          "aria-expanded": ["true", "false", "undefined"],
-          "aria-flowto": null,
-          "aria-grabbed": ["true", "false", "undefined"],
-          "aria-haspopup": j,
-          "aria-hidden": j,
-          "aria-invalid": ["true", "false", "grammar", "spelling"],
-          "aria-label": null,
-          "aria-labelledby": null,
-          "aria-level": null,
-          "aria-live": ["off", "polite", "assertive"],
-          "aria-multiline": j,
-          "aria-multiselectable": j,
-          "aria-owns": null,
-          "aria-posinset": null,
-          "aria-pressed": ["true", "false", "mixed", "undefined"],
-          "aria-readonly": j,
-          "aria-relevant": null,
-          "aria-required": j,
-          "aria-selected": ["true", "false", "undefined"],
-          "aria-setsize": null,
-          "aria-sort": ["ascending", "descending", "none", "other"],
-          "aria-valuemax": null,
-          "aria-valuemin": null,
-          "aria-valuenow": null,
-          "aria-valuetext": null,
+          'aria-activedescendant': null,
+          'aria-atomic': j,
+          'aria-autocomplete': ['inline', 'list', 'both', 'none'],
+          'aria-busy': j,
+          'aria-checked': ['true', 'false', 'mixed', 'undefined'],
+          'aria-controls': null,
+          'aria-describedby': null,
+          'aria-disabled': j,
+          'aria-dropeffect': null,
+          'aria-expanded': ['true', 'false', 'undefined'],
+          'aria-flowto': null,
+          'aria-grabbed': ['true', 'false', 'undefined'],
+          'aria-haspopup': j,
+          'aria-hidden': j,
+          'aria-invalid': ['true', 'false', 'grammar', 'spelling'],
+          'aria-label': null,
+          'aria-labelledby': null,
+          'aria-level': null,
+          'aria-live': ['off', 'polite', 'assertive'],
+          'aria-multiline': j,
+          'aria-multiselectable': j,
+          'aria-owns': null,
+          'aria-posinset': null,
+          'aria-pressed': ['true', 'false', 'mixed', 'undefined'],
+          'aria-readonly': j,
+          'aria-relevant': null,
+          'aria-required': j,
+          'aria-selected': ['true', 'false', 'undefined'],
+          'aria-setsize': null,
+          'aria-sort': ['ascending', 'descending', 'none', 'other'],
+          'aria-valuemax': null,
+          'aria-valuemin': null,
+          'aria-valuenow': null,
+          'aria-valuetext': null,
         },
         F = Object.keys(L),
         Q = Object.keys(A);
 
       function V(e, t) {
         let n = t.firstChild,
-          r = n && n.getChild("TagName");
-        return r ? e.sliceString(r.from, r.to) : "";
+          r = n && n.getChild('TagName');
+        return r ? e.sliceString(r.from, r.to) : '';
       }
 
       function U(e, t = !1) {
         for (let n = e.parent; n; n = n.parent)
-          if ("Element" == n.name) {
+          if ('Element' == n.name) {
             if (!t) return n;
             t = !1;
           }
@@ -6485,10 +6485,10 @@
         let n = [];
         for (let r = t; (r = U(r)); ) {
           let i = V(e, r);
-          if (i && "CloseTag" == r.lastChild.name) break;
+          if (i && 'CloseTag' == r.lastChild.name) break;
           i &&
             n.indexOf(i) < 0 &&
-            ("EndTag" == t.name || t.from >= r.firstChild.to) &&
+            ('EndTag' == t.name || t.from >= r.firstChild.to) &&
             n.push(i);
         }
         return n;
@@ -6496,20 +6496,20 @@
       const J = /^[:\-\.\w\u00b7-\uffff]+$/;
 
       function Z(e, t, n, r) {
-        let i = /\s*>/.test(e.sliceDoc(r, r + 5)) ? "" : ">";
+        let i = /\s*>/.test(e.sliceDoc(r, r + 5)) ? '' : '>';
         return {
           from: n,
           to: r,
           options: X(e.doc, t)
             .map((e) => ({
               label: e,
-              type: "type",
+              type: 'type',
             }))
             .concat(
               z(e.doc, t).map((e, t) => ({
-                label: "/" + e,
-                apply: "/" + e + i,
-                type: "type",
+                label: '/' + e,
+                apply: '/' + e + i,
+                type: 'type',
                 boost: 99 - t,
               }))
             ),
@@ -6518,14 +6518,14 @@
       }
 
       function G(e, t, n, r) {
-        let i = /\s*>/.test(e.sliceDoc(r, r + 5)) ? "" : ">";
+        let i = /\s*>/.test(e.sliceDoc(r, r + 5)) ? '' : '>';
         return {
           from: n,
           to: r,
           options: z(e.doc, t).map((e, t) => ({
             label: e,
             apply: e + i,
-            type: "type",
+            type: 'type',
             boost: 99 - t,
           })),
           span: J,
@@ -6541,7 +6541,7 @@
                     ? e.continue()
                     : e.lineIndent(e.node.from) + (t[2] ? 0 : e.unit);
                 },
-                "OpenTag CloseTag SelfClosingTag": (e) =>
+                'OpenTag CloseTag SelfClosingTag': (e) =>
                   e.column(e.node.from) + e.unit,
                 Document(e) {
                   if (e.pos + /\s*/.exec(e.textAfter)[0].length < e.node.to)
@@ -6550,12 +6550,12 @@
                     n = null;
                   for (let r = e.node; ; ) {
                     let e = r.lastChild;
-                    if (!e || "Element" != e.name || e.to != r.to) break;
+                    if (!e || 'Element' != e.name || e.to != r.to) break;
                     n = r = e;
                   }
                   return n &&
                     (!(t = n.lastChild) ||
-                      ("CloseTag" != t.name && "SelfClosingTag" != t.name))
+                      ('CloseTag' != t.name && 'SelfClosingTag' != t.name))
                     ? e.lineIndent(n.from) + e.unit
                     : null;
                 },
@@ -6564,25 +6564,25 @@
                 Element(e) {
                   let t = e.firstChild,
                     n = e.lastChild;
-                  return t && "OpenTag" == t.name
+                  return t && 'OpenTag' == t.name
                     ? {
                         from: t.to,
-                        to: "CloseTag" == n.name ? n.from : e.to,
+                        to: 'CloseTag' == n.name ? n.from : e.to,
                       }
                     : null;
                 },
               }),
               Object(S.c)({
                 AttributeValue: S.d.string,
-                "Text RawText": S.d.content,
-                "StartTag StartCloseTag SelfCloserEndTag EndTag SelfCloseEndTag":
+                'Text RawText': S.d.content,
+                'StartTag StartCloseTag SelfCloserEndTag EndTag SelfCloseEndTag':
                   S.d.angleBracket,
                 TagName: S.d.tagName,
-                "MismatchedCloseTag/TagName": [S.d.tagName, S.d.invalid],
+                'MismatchedCloseTag/TagName': [S.d.tagName, S.d.invalid],
                 AttributeName: S.d.propertyName,
                 UnquotedAttributeValue: S.d.string,
                 Is: S.d.definitionOperator,
-                "EntityReference CharacterReference": S.d.character,
+                'EntityReference CharacterReference': S.d.character,
                 Comment: S.d.blockComment,
                 ProcessingInst: S.d.processingInstruction,
                 DoctypeDecl: S.d.documentMeta,
@@ -6590,7 +6590,7 @@
             ],
             wrap: E([
               {
-                tag: "script",
+                tag: 'script',
                 attrs: (e) =>
                   !e.type ||
                   /^(?:text|application)\/(?:x-)?(?:java|ecma)script$|^module$|^$/i.test(
@@ -6599,9 +6599,9 @@
                 parser: P.javascriptLanguage.parser,
               },
               {
-                tag: "style",
+                tag: 'style',
                 attrs: (e) =>
-                  (!e.lang || "css" == e.lang) &&
+                  (!e.lang || 'css' == e.lang) &&
                   (!e.type || /^(text\/)?(x-)?(stylesheet|css)$/i.test(e.type)),
                 parser: q.cssLanguage.parser,
               },
@@ -6610,8 +6610,8 @@
           languageData: {
             commentTokens: {
               block: {
-                open: "\x3c!--",
-                close: "--\x3e",
+                open: '\x3c!--',
+                close: '--\x3e',
               },
             },
             indentOnInput: /^\s*<\/\w+\W$/,
@@ -6627,17 +6627,17 @@
               if (!e || !e.type.isError || e.from < e.to) break;
               (r = i = o), (s = e.from);
             }
-            return "TagName" == i.name
+            return 'TagName' == i.name
               ? i.parent && /CloseTag$/.test(i.parent.name)
                 ? G(t, i, i.from, n)
                 : Z(t, i, i.from, n)
-              : "StartTag" == i.name
+              : 'StartTag' == i.name
               ? Z(t, i, n, n)
-              : "StartCloseTag" == i.name || "IncompleteCloseTag" == i.name
+              : 'StartCloseTag' == i.name || 'IncompleteCloseTag' == i.name
               ? G(t, i, n, n)
               : (e.explicit &&
-                  ("OpenTag" == i.name || "SelfClosingTag" == i.name)) ||
-                "AttributeName" == i.name
+                  ('OpenTag' == i.name || 'SelfClosingTag' == i.name)) ||
+                'AttributeName' == i.name
               ? (function (e, t, n, r) {
                   let i = U(t),
                     o = i ? L[V(e.doc, i)] : null;
@@ -6649,21 +6649,21 @@
                       : Q
                     ).map((e) => ({
                       label: e,
-                      type: "property",
+                      type: 'property',
                     })),
                     span: J,
                   };
-                })(t, i, "AttributeName" == i.name ? i.from : n, n)
-              : "Is" == i.name ||
-                "AttributeValue" == i.name ||
-                "UnquotedAttributeValue" == i.name
+                })(t, i, 'AttributeName' == i.name ? i.from : n, n)
+              : 'Is' == i.name ||
+                'AttributeValue' == i.name ||
+                'UnquotedAttributeValue' == i.name
               ? (function (e, t, n, r) {
                   var i;
                   let o,
                     s =
                       null === (i = t.parent) || void 0 === i
                         ? void 0
-                        : i.getChild("AttributeName"),
+                        : i.getChild('AttributeName'),
                     a = [];
                   if (s) {
                     let i = e.sliceDoc(s.from, s.to),
@@ -6681,8 +6681,8 @@
                         s = '"';
                       /^['"]/.test(t)
                         ? ((o = '"' == t[0] ? /^[^"]*$/ : /^[^']*$/),
-                          (i = ""),
-                          (s = e.sliceDoc(r, r + 1) == t[0] ? "" : t[0]),
+                          (i = ''),
+                          (s = e.sliceDoc(r, r + 1) == t[0] ? '' : t[0]),
                           (t = t.slice(1)),
                           n++)
                         : (o = /^[^\s<>='"]*$/);
@@ -6690,7 +6690,7 @@
                         a.push({
                           label: e,
                           apply: i + e + s,
-                          type: "constant",
+                          type: 'constant',
                         });
                     }
                   }
@@ -6700,24 +6700,24 @@
                     options: a,
                     span: o,
                   };
-                })(t, i, "Is" == i.name ? n : i.from, n)
+                })(t, i, 'Is' == i.name ? n : i.from, n)
               : !e.explicit ||
-                ("Element" != r.name &&
-                  "Text" != r.name &&
-                  "Document" != r.name)
+                ('Element' != r.name &&
+                  'Text' != r.name &&
+                  'Document' != r.name)
               ? null
               : (function (e, t, n) {
                   let r = [],
                     i = 0;
                   for (let o of X(e.doc, t))
                     r.push({
-                      label: "<" + o,
-                      type: "type",
+                      label: '<' + o,
+                      type: 'type',
                     });
                   for (let o of z(e.doc, t))
                     r.push({
-                      label: "</" + o + ">",
-                      type: "type",
+                      label: '</' + o + '>',
+                      type: 'type',
                       boost: 99 - i++,
                     });
                   return {
@@ -6735,7 +6735,7 @@
         return (
           !1 === e.matchClosingTags &&
             (t = t.configure({
-              dialect: "noMatch",
+              dialect: 'noMatch',
             })),
           new D.e(t, [
             K,
@@ -6747,22 +6747,22 @@
     },
     RUQ2: function (e, t, n) {
       (function (e) {
-        var t = n("RUQ2");
+        var t = n('RUQ2');
         for (k in t) e[k] = t[k];
-      }.call(this, n("ntbh")));
+      }.call(this, n('ntbh')));
     },
     VqZt: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("MOv1");
+      var r = n('MOv1');
       !(function (e) {
-        e.type = new r.RequestType0("workspace/workspaceFolders");
+        e.type = new r.RequestType0('workspace/workspaceFolders');
       })(t.WorkspaceFoldersRequest || (t.WorkspaceFoldersRequest = {})),
         (function (e) {
           e.type = new r.NotificationType(
-            "workspace/didChangeWorkspaceFolders"
+            'workspace/didChangeWorkspaceFolders'
           );
         })(
           t.DidChangeWorkspaceFoldersNotification ||
@@ -6770,11 +6770,11 @@
         );
     },
     f7Fo: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      const r = n("Gkij");
+      const r = n('Gkij');
       var i;
       !(function (e) {
         (e.ParseError = -32700),
@@ -6946,8 +6946,8 @@
         });
     },
     fIkx: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (function (e) {
@@ -6988,7 +6988,7 @@
               }
             if (n)
               throw new Error(
-                "When adding a listener with a context, you should remove it with the same context"
+                'When adding a listener with a context, you should remove it with the same context'
               );
           }
         }
@@ -7061,7 +7061,7 @@
       (i._noop = function () {}), (t.Emitter = i);
     },
     hde3: function (e, t, n) {
-      "use strict";
+      'use strict';
       n.r(t),
         function (e) {
           var n,
@@ -7088,20 +7088,20 @@
                       : ((r.prototype = n.prototype), new r()));
               };
             })();
-          if ("object" === typeof e) n = "win32" === e.platform;
-          else if ("object" === typeof navigator) {
+          if ('object' === typeof e) n = 'win32' === e.platform;
+          else if ('object' === typeof navigator) {
             var i = navigator.userAgent;
-            n = i.indexOf("Windows") >= 0;
+            n = i.indexOf('Windows') >= 0;
           }
           var o = /^\w[\w\d+.-]*$/,
             s = /^\//,
             a = /^\/\//;
-          var u = "",
-            c = "/",
+          var u = '',
+            c = '/',
             l = /^(([^:/?#]+?):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/,
             d = (function () {
               function e(e, t, n, r, i) {
-                "object" === typeof e
+                'object' === typeof e
                   ? ((this.scheme = e.scheme || u),
                     (this.authority = e.authority || u),
                     (this.path = e.path || u),
@@ -7111,9 +7111,9 @@
                     (this.authority = t || u),
                     (this.path = (function (e, t) {
                       switch (e) {
-                        case "https":
-                        case "http":
-                        case "file":
+                        case 'https':
+                        case 'http':
+                        case 'file':
                           t ? t[0] !== c && (t = c + t) : (t = c);
                       }
                       return t;
@@ -7123,7 +7123,7 @@
                     (function (e) {
                       if (e.scheme && !o.test(e.scheme))
                         throw new Error(
-                          "[UriError]: Scheme contains illegal characters."
+                          '[UriError]: Scheme contains illegal characters.'
                         );
                       if (e.path)
                         if (e.authority) {
@@ -7142,14 +7142,14 @@
                   return (
                     t instanceof e ||
                     (!!t &&
-                      "string" === typeof t.authority &&
-                      "string" === typeof t.fragment &&
-                      "string" === typeof t.path &&
-                      "string" === typeof t.query &&
-                      "string" === typeof t.scheme)
+                      'string' === typeof t.authority &&
+                      'string' === typeof t.fragment &&
+                      'string' === typeof t.path &&
+                      'string' === typeof t.query &&
+                      'string' === typeof t.scheme)
                   );
                 }),
-                Object.defineProperty(e.prototype, "fsPath", {
+                Object.defineProperty(e.prototype, 'fsPath', {
                   get: function () {
                     return v(this);
                   },
@@ -7200,7 +7200,7 @@
                       ? ((t = e.substring(2)), (e = c))
                       : ((t = e.substring(2, r)), (e = e.substring(r) || c));
                   }
-                  return new p("file", t, e, u, u);
+                  return new p('file', t, e, u, u);
                 }),
                 (e.from = function (e) {
                   return new p(
@@ -7239,7 +7239,7 @@
               }
               return (
                 r(t, e),
-                Object.defineProperty(t.prototype, "fsPath", {
+                Object.defineProperty(t.prototype, 'fsPath', {
                   get: function () {
                     return (
                       this._fsPath || (this._fsPath = v(this)), this._fsPath
@@ -7276,25 +7276,25 @@
               );
             })(d),
             h =
-              (((f = {})[58] = "%3A"),
-              (f[47] = "%2F"),
-              (f[63] = "%3F"),
-              (f[35] = "%23"),
-              (f[91] = "%5B"),
-              (f[93] = "%5D"),
-              (f[64] = "%40"),
-              (f[33] = "%21"),
-              (f[36] = "%24"),
-              (f[38] = "%26"),
-              (f[39] = "%27"),
-              (f[40] = "%28"),
-              (f[41] = "%29"),
-              (f[42] = "%2A"),
-              (f[43] = "%2B"),
-              (f[44] = "%2C"),
-              (f[59] = "%3B"),
-              (f[61] = "%3D"),
-              (f[32] = "%20"),
+              (((f = {})[58] = '%3A'),
+              (f[47] = '%2F'),
+              (f[63] = '%3F'),
+              (f[35] = '%23'),
+              (f[91] = '%5B'),
+              (f[93] = '%5D'),
+              (f[64] = '%40'),
+              (f[33] = '%21'),
+              (f[36] = '%24'),
+              (f[38] = '%26'),
+              (f[39] = '%27'),
+              (f[40] = '%28'),
+              (f[41] = '%29'),
+              (f[42] = '%2A'),
+              (f[43] = '%2B'),
+              (f[44] = '%2C'),
+              (f[59] = '%3B'),
+              (f[61] = '%3D'),
+              (f[32] = '%20'),
               f);
 
           function g(e, t) {
@@ -7343,8 +7343,8 @@
             var t;
             return (
               (t =
-                e.authority && e.path.length > 1 && "file" === e.scheme
-                  ? "//" + e.authority + e.path
+                e.authority && e.path.length > 1 && 'file' === e.scheme
+                  ? '//' + e.authority + e.path
                   : 47 === e.path.charCodeAt(0) &&
                     ((e.path.charCodeAt(1) >= 65 &&
                       e.path.charCodeAt(1) <= 90) ||
@@ -7353,36 +7353,36 @@
                     58 === e.path.charCodeAt(2)
                   ? e.path[1].toLowerCase() + e.path.substr(2)
                   : e.path),
-              n && (t = t.replace(/\//g, "\\")),
+              n && (t = t.replace(/\//g, '\\')),
               t
             );
           }
 
           function y(e, t) {
             var n = t ? m : g,
-              r = "",
+              r = '',
               i = e.scheme,
               o = e.authority,
               s = e.path,
               a = e.query,
               u = e.fragment;
             if (
-              (i && ((r += i), (r += ":")),
-              (o || "file" === i) && ((r += c), (r += c)),
+              (i && ((r += i), (r += ':')),
+              (o || 'file' === i) && ((r += c), (r += c)),
               o)
             ) {
-              var l = o.indexOf("@");
+              var l = o.indexOf('@');
               if (-1 !== l) {
                 var d = o.substr(0, l);
                 (o = o.substr(l + 1)),
-                  -1 === (l = d.indexOf(":"))
+                  -1 === (l = d.indexOf(':'))
                     ? (r += n(d, !1))
                     : ((r += n(d.substr(0, l), !1)),
-                      (r += ":"),
+                      (r += ':'),
                       (r += n(d.substr(l + 1), !1))),
-                  (r += "@");
+                  (r += '@');
               }
-              -1 === (l = (o = o.toLowerCase()).indexOf(":"))
+              -1 === (l = (o = o.toLowerCase()).indexOf(':'))
                 ? (r += n(o, !1))
                 : ((r += n(o.substr(0, l), !1)), (r += o.substr(l)));
             }
@@ -7394,33 +7394,33 @@
               )
                 (f = s.charCodeAt(1)) >= 65 &&
                   f <= 90 &&
-                  (s = "/" + String.fromCharCode(f + 32) + ":" + s.substr(3));
+                  (s = '/' + String.fromCharCode(f + 32) + ':' + s.substr(3));
               else if (s.length >= 2 && 58 === s.charCodeAt(1)) {
                 var f;
                 (f = s.charCodeAt(0)) >= 65 &&
                   f <= 90 &&
-                  (s = String.fromCharCode(f + 32) + ":" + s.substr(2));
+                  (s = String.fromCharCode(f + 32) + ':' + s.substr(2));
               }
               r += n(s, !0);
             }
             return (
-              a && ((r += "?"), (r += n(a, !1))),
-              u && ((r += "#"), (r += t ? u : g(u, !1))),
+              a && ((r += '?'), (r += n(a, !1))),
+              u && ((r += '#'), (r += t ? u : g(u, !1))),
               r
             );
           }
-        }.call(this, n("8oxB"));
+        }.call(this, n('8oxB'));
     },
     k5Vz: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e) {
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
-        const r = n("fIkx"),
-          i = n("Gkij");
-        let o = "Content-Length: ",
-          s = "\r\n";
+        const r = n('fIkx'),
+          i = n('Gkij');
+        let o = 'Content-Length: ',
+          s = '\r\n';
         !(function (e) {
           e.is = function (e) {
             let t = e;
@@ -7458,27 +7458,27 @@
               ? e
               : new Error(
                   `Writer recevied error. Reason: ${
-                    i.string(e.message) ? e.message : "unknown"
+                    i.string(e.message) ? e.message : 'unknown'
                   }`
                 );
           }
         }
         t.AbstractMessageWriter = a;
         t.StreamMessageWriter = class extends a {
-          constructor(e, t = "utf8") {
+          constructor(e, t = 'utf8') {
             super(),
               (this.writable = e),
               (this.encoding = t),
               (this.errorCount = 0),
-              this.writable.on("error", (e) => this.fireError(e)),
-              this.writable.on("close", () => this.fireClose());
+              this.writable.on('error', (e) => this.fireError(e)),
+              this.writable.on('close', () => this.fireClose());
           }
           write(t) {
             let n = JSON.stringify(t),
               r = e.byteLength(n, this.encoding),
               i = [o, r.toString(), s, s];
             try {
-              this.writable.write(i.join(""), "ascii"),
+              this.writable.write(i.join(''), 'ascii'),
                 this.writable.write(n, this.encoding),
                 (this.errorCount = 0);
             } catch (a) {
@@ -7494,8 +7494,8 @@
               (this.queue = []),
               (this.sending = !1);
             let t = this.process;
-            t.on("error", (e) => this.fireError(e)),
-              t.on("close", () => this.fireClose);
+            t.on('error', (e) => this.fireError(e)),
+              t.on('close', () => this.fireClose);
           }
           write(e) {
             this.sending || 0 !== this.queue.length
@@ -7521,15 +7521,15 @@
           }
         };
         t.SocketMessageWriter = class extends a {
-          constructor(e, t = "utf8") {
+          constructor(e, t = 'utf8') {
             super(),
               (this.socket = e),
               (this.queue = []),
               (this.sending = !1),
               (this.encoding = t),
               (this.errorCount = 0),
-              this.socket.on("error", (e) => this.fireError(e)),
-              this.socket.on("close", () => this.fireClose());
+              this.socket.on('error', (e) => this.fireError(e)),
+              this.socket.on('close', () => this.fireClose());
           }
           write(e) {
             this.sending || 0 !== this.queue.length
@@ -7542,7 +7542,7 @@
               i = [o, r.toString(), s, s];
             try {
               (this.sending = !0),
-                this.socket.write(i.join(""), "ascii", (e) => {
+                this.socket.write(i.join(''), 'ascii', (e) => {
                   e && this.handleError(e, t);
                   try {
                     this.socket.write(n, this.encoding, (e) => {
@@ -7563,14 +7563,14 @@
             this.errorCount++, this.fireError(e, t, this.errorCount);
           }
         };
-      }.call(this, n("HDXh").Buffer));
+      }.call(this, n('HDXh').Buffer));
     },
     oL6p: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("Gz0x");
+      var r = n('Gz0x');
       t.Disposable = r.Disposable;
       var i = (function () {
         function e() {
@@ -7599,20 +7599,20 @@
       t.DisposableCollection = i;
     },
     owkM: function (e, t, n) {
-      "use strict";
+      'use strict';
 
       function r(e) {
-        return "string" === typeof e || e instanceof String;
+        return 'string' === typeof e || e instanceof String;
       }
 
       function i(e) {
-        return "function" === typeof e;
+        return 'function' === typeof e;
       }
 
       function o(e) {
         return Array.isArray(e);
       }
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.boolean = function (e) {
@@ -7620,7 +7620,7 @@
         }),
         (t.string = r),
         (t.number = function (e) {
-          return "number" === typeof e || e instanceof Number;
+          return 'number' === typeof e || e instanceof Number;
         }),
         (t.error = function (e) {
           return e instanceof Error;
@@ -7643,26 +7643,26 @@
         });
     },
     qL5x: function (e, t, n) {
-      "use strict";
+      'use strict';
       (function (e) {
-        Object.defineProperty(t, "__esModule", {
+        Object.defineProperty(t, '__esModule', {
           value: !0,
         });
-        var r = n("tpqs"),
-          i = n("PENG"),
-          o = n("HEbw"),
-          s = n("RUQ2"),
-          a = n("uWpP"),
-          u = n("vIUA");
+        var r = n('tpqs'),
+          i = n('PENG'),
+          o = n('HEbw'),
+          s = n('RUQ2'),
+          a = n('uWpP'),
+          u = n('vIUA');
         (t.generateRandomPipeName = function () {
-          var t = o.randomBytes(21).toString("hex");
-          return "win32" === e.platform
-            ? "\\\\.\\pipe\\vscode-jsonrpc-" + t + "-sock"
-            : r.join(i.tmpdir(), "vscode-" + t + ".sock");
+          var t = o.randomBytes(21).toString('hex');
+          return 'win32' === e.platform
+            ? '\\\\.\\pipe\\vscode-jsonrpc-' + t + '-sock'
+            : r.join(i.tmpdir(), 'vscode-' + t + '.sock');
         }),
           (t.createClientPipeTransport = function (e, t) {
             var n;
-            void 0 === t && (t = "utf-8");
+            void 0 === t && (t = 'utf-8');
             var r = new Promise(function (e, t) {
               n = e;
             });
@@ -7674,9 +7674,9 @@
                     new u.SocketMessageWriter(e, t),
                   ]);
               });
-              c.on("error", o),
+              c.on('error', o),
                 c.listen(e, function () {
-                  c.removeListener("error", o),
+                  c.removeListener('error', o),
                     i({
                       onConnected: function () {
                         return r;
@@ -7686,34 +7686,34 @@
             });
           }),
           (t.createServerPipeTransport = function (e, t) {
-            void 0 === t && (t = "utf-8");
+            void 0 === t && (t = 'utf-8');
             var n = s.createConnection(e);
             return [
               new a.SocketMessageReader(n, t),
               new u.SocketMessageWriter(n, t),
             ];
           });
-      }.call(this, n("8oxB")));
+      }.call(this, n('8oxB')));
     },
     sKb1: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("MOv1");
+      var r = n('MOv1');
       !(function (e) {
-        e.type = new r.RequestType("workspace/configuration");
+        e.type = new r.RequestType('workspace/configuration');
       })(t.ConfigurationRequest || (t.ConfigurationRequest = {}));
     },
     uUC1: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      const r = n("RUQ2"),
-        i = n("K4MX"),
-        o = n("k5Vz");
-      (t.createClientSocketTransport = function (e, t = "utf-8") {
+      const r = n('RUQ2'),
+        i = n('K4MX'),
+        o = n('k5Vz');
+      (t.createClientSocketTransport = function (e, t = 'utf-8') {
         let n,
           s = new Promise((e, t) => {
             n = e;
@@ -7726,17 +7726,17 @@
                 new o.SocketMessageWriter(e, t),
               ]);
           });
-          c.on("error", u),
-            c.listen(e, "127.0.0.1", () => {
-              c.removeListener("error", u),
+          c.on('error', u),
+            c.listen(e, '127.0.0.1', () => {
+              c.removeListener('error', u),
                 a({
                   onConnected: () => s,
                 });
             });
         });
       }),
-        (t.createServerSocketTransport = function (e, t = "utf-8") {
-          const n = r.createConnection(e, "127.0.0.1");
+        (t.createServerSocketTransport = function (e, t = 'utf-8') {
+          const n = r.createConnection(e, '127.0.0.1');
           return [
             new i.SocketMessageReader(n, t),
             new o.SocketMessageWriter(n, t),
@@ -7744,15 +7744,15 @@
         });
     },
     uoVZ: function (e, t, n) {
-      "use strict";
-      var r = n("DFRf"),
-        i = n("Gz0x");
+      'use strict';
+      var r = n('DFRf'),
+        i = n('Gz0x');
       e.exports = r.createVSCodeApi(i.Services.get);
     },
     wSv1: function (e, t, n) {
-      "use strict";
+      'use strict';
       var r;
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (function (e) {
@@ -7818,7 +7818,7 @@
         }
         shift() {
           if (!this._head && !this._tail) return;
-          if (!this._head || !this._tail) throw new Error("Invalid list");
+          if (!this._head || !this._tail) throw new Error('Invalid list');
           const e = this._head;
           return (
             this._map.delete(e.key), this.removeItem(e), this._size--, e.value
@@ -7850,14 +7850,14 @@
         }
         addItemFirst(e) {
           if (this._head || this._tail) {
-            if (!this._head) throw new Error("Invalid list");
+            if (!this._head) throw new Error('Invalid list');
             (e.next = this._head), (this._head.previous = e);
           } else this._tail = e;
           this._head = e;
         }
         addItemLast(e) {
           if (this._head || this._tail) {
-            if (!this._tail) throw new Error("Invalid list");
+            if (!this._tail) throw new Error('Invalid list');
             (e.previous = this._tail), (this._tail.next = e);
           } else this._head = e;
           this._tail = e;
@@ -7870,12 +7870,12 @@
           else {
             const t = e.next,
               n = e.previous;
-            if (!t || !n) throw new Error("Invalid list");
+            if (!t || !n) throw new Error('Invalid list');
             (t.previous = n), (n.next = t);
           }
         }
         touch(e, t) {
-          if (!this._head || !this._tail) throw new Error("Invalid list");
+          if (!this._head || !this._tail) throw new Error('Invalid list');
           if (t === r.First || t === r.Last)
             if (t === r.First) {
               if (e === this._head) return;
@@ -7904,16 +7904,16 @@
       };
     },
     zZpG: function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
-      var r = n("MOv1");
+      var r = n('MOv1');
       !(function (e) {
-        e.type = new r.RequestType("textDocument/documentColor");
+        e.type = new r.RequestType('textDocument/documentColor');
       })(t.DocumentColorRequest || (t.DocumentColorRequest = {})),
         (function (e) {
-          e.type = new r.RequestType("textDocument/colorPresentation");
+          e.type = new r.RequestType('textDocument/colorPresentation');
         })(t.ColorPresentationRequest || (t.ColorPresentationRequest = {}));
     },
   },

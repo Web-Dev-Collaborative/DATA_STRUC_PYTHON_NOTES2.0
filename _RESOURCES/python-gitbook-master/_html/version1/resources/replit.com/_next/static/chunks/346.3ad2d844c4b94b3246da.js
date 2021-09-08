@@ -1,17 +1,17 @@
 (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
   [346],
   {
-    "0fl0": function (e, t, i) {
+    '0fl0': function (e, t, i) {
       self,
         (e.exports = (() => {
-          "use strict";
+          'use strict';
           var e = {
               258: (e, t) => {
-                Object.defineProperty(t, "__esModule", {
+                Object.defineProperty(t, '__esModule', {
                   value: !0,
                 }),
                   (t.SearchAddon = void 0);
-                var i = " ~!@#$%^&*()+`-=[]{}|;:\"',./<>?",
+                var i = ' ~!@#$%^&*()+`-=[]{}|;:"\',./<>?',
                   r = (function () {
                     function e() {
                       this._linesCacheTimeoutId = 0;
@@ -24,7 +24,7 @@
                       (e.prototype.findNext = function (e, t) {
                         if (!this._terminal)
                           throw new Error(
-                            "Cannot use addon until it has been loaded"
+                            'Cannot use addon until it has been loaded'
                           );
                         if (!e || 0 === e.length)
                           return this._terminal.clearSelection(), !1;
@@ -75,7 +75,7 @@
                       (e.prototype.findPrevious = function (e, t) {
                         if (!this._terminal)
                           throw new Error(
-                            "Cannot use addon until it has been loaded"
+                            'Cannot use addon until it has been loaded'
                           );
                         if (!e || 0 === e.length)
                           return this._terminal.clearSelection(), !1;
@@ -202,7 +202,7 @@
                           c = i.caseSensitive ? l : l.toLowerCase(),
                           f = -1;
                         if (i.regex) {
-                          var u = RegExp(h, "g"),
+                          var u = RegExp(h, 'g'),
                             _ = void 0;
                           if (r)
                             for (; (_ = u.exec(c.slice(0, o))); )
@@ -246,7 +246,7 @@
                         function (e, t) {
                           var i,
                             r = this._terminal,
-                            n = "";
+                            n = '';
                           do {
                             var s = r.buffer.active.getLine(e + 1);
                             i = !!s && s.isWrapped;

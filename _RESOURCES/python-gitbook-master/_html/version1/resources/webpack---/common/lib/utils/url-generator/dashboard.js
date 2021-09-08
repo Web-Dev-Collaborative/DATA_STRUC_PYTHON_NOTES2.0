@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.discoverSearch =
@@ -24,7 +24,7 @@ exports.discoverSearch =
   exports.ALL_SANDBOXES_URL_PREFIX =
   exports.DASHBOARD_URL_PREFIX =
     void 0;
-exports.DASHBOARD_URL_PREFIX = "/dashboard";
+exports.DASHBOARD_URL_PREFIX = '/dashboard';
 exports.ALL_SANDBOXES_URL_PREFIX = `${exports.DASHBOARD_URL_PREFIX}/all`;
 
 function appendTeamIdQueryParam(url, teamId) {
@@ -36,9 +36,9 @@ function appendTeamIdQueryParam(url, teamId) {
 
 function sanitizePath(path) {
   return path
-    .split("/")
-    .map((p) => p.split(" ").map(encodeURIComponent).join(" "))
-    .join("/");
+    .split('/')
+    .map((p) => p.split(' ').map(encodeURIComponent).join(' '))
+    .join('/');
 }
 exports.allSandboxes = (path, teamId) =>
   appendTeamIdQueryParam(
@@ -94,10 +94,10 @@ exports.search = (query, teamId) => {
     `${exports.DASHBOARD_URL_PREFIX}/search`,
     teamId
   );
-  if (searchUrl.includes("?")) {
-    searchUrl += "&";
+  if (searchUrl.includes('?')) {
+    searchUrl += '&';
   } else {
-    searchUrl += "?";
+    searchUrl += '?';
   }
   searchUrl += `query=${query}`;
   return searchUrl;
@@ -119,8 +119,8 @@ exports.discoverSearch = (query, teamId) => {
     `${exports.DASHBOARD_URL_PREFIX}/discover/search`,
     teamId
   );
-  if (searchUrl.includes("?")) searchUrl += "&";
-  else searchUrl += "?";
+  if (searchUrl.includes('?')) searchUrl += '&';
+  else searchUrl += '?';
   searchUrl += `query=${query}`;
   return searchUrl;
 };
