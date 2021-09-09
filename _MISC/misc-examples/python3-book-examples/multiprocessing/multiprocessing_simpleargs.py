@@ -1,4 +1,3 @@
-# Copyright (c) 2008 Doug Hellmann All rights reserved.
 #
 """Passing arguments to threads when they are created
 """

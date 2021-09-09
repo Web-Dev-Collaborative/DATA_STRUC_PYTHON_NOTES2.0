@@ -1,4 +1,3 @@
-# Copyright (c) 2008 Doug Hellmann All rights reserved.
 #
 """Normal locks cannot be acquired more than once
 """

@@ -1,4 +1,3 @@
-# Copyright (c) 2008 Doug Hellmann All rights reserved.
 #
 """Separate a path into its directory and base components.
 """

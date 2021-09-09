@@ -1,4 +1,3 @@
-# Copyright (c) 2008 Doug Hellmann All rights reserved.
 #
 """Compare files in two directories.
 """

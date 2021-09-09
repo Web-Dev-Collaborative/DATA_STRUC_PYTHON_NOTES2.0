@@ -1,4 +1,3 @@
-# Copyright (c) 2008 Doug Hellmann All rights reserved.
 #
 """Using proxy instead of ref.
 """

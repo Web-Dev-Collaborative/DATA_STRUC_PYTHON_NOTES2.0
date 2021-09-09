@@ -1,160 +1,858 @@
-# Navigation
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/00_python_cheatsheet.ipynb
 
 
-#### Website Version
+https://github.com/bgoonz/python-gitbook/commit/89ee83715da365910327b8b818e33bbe0a368f5c
 
-## Table of contents
 
-* [Home](https://bgoonz42.gitbook.io/datastructures-in-pytho/README)
-* [Navigation](https://bgoonz42.gitbook.io/datastructures-in-pytho/navigation)
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/00_python_cheatsheet.ipynb
 
-### Curriculum
 
-* [Outline](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled)
-* [wk17](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/README)
-  * [Outline-w17](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/outline)
-  * [homework](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/week-overview)
-  * [D1-Module 01 - Python I](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/untitled-2/README)
-    * [Install Python](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/untitled-2/install-python)
-  * [D2- Module 02 - Python II](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/untitled-1-1)
-  * [D3- Module 03 - Python III](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/untitled-1)
-  * [D4-Module 04 - Python IV](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-3/untitled)
-* [wk18](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-2/README)
-  * [Outline-W-18](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-2/untitled-4)
-  * [D1- Module 01 - Number Bases and Character Encoding](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-2/untitled-3)
-  * [D2- Module 02 - Hash Tables I](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-2/untitled-2)
-  * [D3-Module 03 - Hash Tables II](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-2/untitled-1)
-  * [D4- Module 04 - Searching and Recursion](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-2/untitled)
-* [wk19](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-4/README)
-  * [Outline-W-19](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-4/overview)
-  * [D1- Module 01 - Linked Lists](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-4/untitled-3)
-  * [D2- Module 02 - Queues and Stacks](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-4/untitled-7)
-  * [D3- Module 03 - Binary Search Trees](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-4/untitled-8)
-  * [D4- Module 04 - Tree Traversal](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-4/untitled-5)
-* [wk20](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-1/README)
-  * [Outline-W-20](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-1/overview)
-  * [D1-Graphs I](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-1/untitled-5)
-  * [D2-Graphs 2](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-1/untitled-4)
-  * [DFS](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-1/untitled-1)
-  * [D4](https://bgoonz42.gitbook.io/datastructures-in-pytho/cirriculumn/untitled-1/untitled-2)
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/01_python_basics.ipynb
 
-### Utilities
 
-* [Code lab Notebooks](https://bgoonz42.gitbook.io/datastructures-in-pytho/utilities/code-lab-notebooks)
-* [Repl.IT](https://bgoonz42.gitbook.io/datastructures-in-pytho/utilities/repl.it/README)
-  * [Trinket](https://bgoonz42.gitbook.io/datastructures-in-pytho/utilities/repl.it/trinket)
-* [Utilites](https://bgoonz42.gitbook.io/datastructures-in-pytho/utilities/untitled/README)
-  * [YouTube](https://bgoonz42.gitbook.io/datastructures-in-pytho/utilities/untitled/untitled)
-  * [Code Lab  Notebook Embeds From Lecture](https://bgoonz42.gitbook.io/datastructures-in-pytho/utilities/untitled/code-lab-notebook-embeds-from-lecture)
+https://github.com/bgoonz/python-gitbook/commit/fd613da637afa66ea93238eaaf19b6fed7e7daf9
 
-### practice
 
-* [Supplemental Practice:](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/supplemental-practice/README)
-  * [Random Examples](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/supplemental-practice/random-examples)
-  * [Prompts](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/supplemental-practice/prompts)
-* [Abstract Data Structures:](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/README)
-  * [Untitled](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-7)
-  * [Industry Standard Algorithms](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/industry-standard-algorithms)
-  * [Interview Practice Resources](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/interview-practice-resources)
-  * [Overflow Practice Problems](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/overflow-practice-problems)
-  * [Array](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/array/README)
-    * [Extra-Array](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/array/extra-array)
-  * [Stack](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/stack)
-  * [Queue](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/queue)
-  * [Queue Sandbox](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/queue-sandbox)
-  * [Binary Search](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/binary-search)
-  * [BST Explained](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/bst-explained)
-  * [Binary Tree](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/binary-tree)
-  * [Binary Search Tree](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/binary-search-tree/README)
-    * [BST Insert](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/binary-search-tree/bst-insert)
-  * [Recursion](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-6/README)
-    * [Recursion Explained](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-6/recursion-explained/README)
-      * [Recursion Examples](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-6/recursion-explained/recursion-examples)
-  * [Hash Table](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-5)
-  * [Linked List](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-4/README)
-    * [Double Linked List](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-4/double-linked-list)
-    * [List Operations](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-4/list-operations)
-  * [Sorting](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-3/README)
-    * [SelectionSort](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-3/selectionsort)
-    * [Quick Sort](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-3/untitled-7)
-    * [Merge Sort](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-3/merge-sort)
-    * [Insertion Sort](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-3/insertion-sort)
-  * [Searching](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-2)
-  * [Graphs](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled-1)
-  * [Exotic](https://bgoonz42.gitbook.io/datastructures-in-pytho/practice/untitled/untitled)
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/01_python_basics.ipynb
 
-### Resources
 
-* [Python VS JavaScript](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/python-vs-javascript)
-* [Misc. Resources](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/untitled-1)
-* [Things To Internalize:](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/things-to-internalize/README)
-  * [Functions](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/things-to-internalize/functions)
-* [Intro To Python w Jupyter Notebooks](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/intro-to-python-w-jupyter-notebooks)
-* [Calculating Big O](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/calculating-big-o)
-* [Python Cheat Sheet](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/python-cheat-sheet)
-* [Code Signal CGA Sprint Resources](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/code-signal-cga-sprint-resources)
-* [Youtube](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/youtube)
-* [Useful Links](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/untitled/README)
-  * [My-Links](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/untitled/my-links)
-  * [Beginners Guide To Python](https://bgoonz42.gitbook.io/datastructures-in-pytho/resources/untitled/beginners-guide-to-python)
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/02_flow_control.ipynb
 
-### quick-reference
 
-* [Python Snippets](https://bgoonz42.gitbook.io/datastructures-in-pytho/quick-reference/python-snippets)
-* [Python Module Index:](https://bgoonz42.gitbook.io/datastructures-in-pytho/quick-reference/python-module-index)
-* [Useful Info](https://bgoonz42.gitbook.io/datastructures-in-pytho/quick-reference/untitled)
-* [Python Glossary](https://bgoonz42.gitbook.io/datastructures-in-pytho/quick-reference/python-glossary)
-* [index](https://bgoonz42.gitbook.io/datastructures-in-pytho/quick-reference/untitled-1)
-* [List Of Python Cheat Sheets](https://bgoonz42.gitbook.io/datastructures-in-pytho/quick-reference/bash-commands)
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/02_flow_control.ipynb
 
-### Python-Docs <a id="stdlib"></a>
 
-* [Basic Syntax](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/basic-syntax)
-* [Values Expressions & Statments](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/values-expressions-and-statments)
-* [Python Standard Library  \(STDLIB\)](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/python-standard-library-stdlib)
-* [Docs](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/untitled/README)
-  * [String-Methods](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/untitled/string-methods)
-* [Built In Functions](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/built-in-functions)
-* [Lists](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/lists/README)
-  * [Examples](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/lists/examples)
-* [Dictionaries](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/dictionaries)
-* [Classes](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/classes/README)
-  * [Python Objects & Classes](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/classes/python-objects-and-classes)
-  * [index](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/classes/untitled)
-* [Queue & Stacks](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/queue-and-stacks)
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/03_functions.ipynb
 
-### MISC
 
-* [Unsorted Examples](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/unsorted-examples)
-* [Outline](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/outline)
-* [About Python](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/untitled/README)
-  * [Python VS JavaScript](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/untitled/python-vs-javascript)
-  * [Python Modules & Python Packages](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/untitled/untitled-1)
-  * [Misc](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/untitled/misc)
-  * [Python's Default Argument Values and Lists](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/untitled/pythons-default-argument-values-and-lists)
-  * [SCRAP](https://bgoonz42.gitbook.io/datastructures-in-pytho/misc/untitled/untitled)
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/03_functions.ipynb
 
-### Interview Prep
 
-* [Interview Resources](https://bgoonz42.gitbook.io/datastructures-in-pytho/interview-prep/interview-resources/README)
-  * [How to Write an Effective Resume of Python Developer](https://bgoonz42.gitbook.io/datastructures-in-pytho/interview-prep/interview-resources/how-to-write-an-effective-resume-of-python-developer)
-  * [Interview Checklist](https://bgoonz42.gitbook.io/datastructures-in-pytho/interview-prep/interview-resources/interview-checklist)
-  * [150 Practice Problems & Solutions](https://bgoonz42.gitbook.io/datastructures-in-pytho/interview-prep/interview-resources/150-practice-problems-and-solutions)
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/04_exception_handling.ipynb
 
-### Installations Setup & Env
 
-* [python-setup](https://bgoonz42.gitbook.io/datastructures-in-pytho/installations-setup-and-env/untitled)
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/04_exception_handling.ipynb
 
-### Aux-Exploration
 
-* [Subject](https://bgoonz42.gitbook.io/datastructures-in-pytho/aux-exploration/subject/README)
-  * [List Directory Contents](https://bgoonz42.gitbook.io/datastructures-in-pytho/aux-exploration/subject/list-directory-contents)
-  * [Employee Manager](https://bgoonz42.gitbook.io/datastructures-in-pytho/aux-exploration/subject/untitled-5)
-  * [OS Module](https://bgoonz42.gitbook.io/datastructures-in-pytho/aux-exploration/subject/untitled-4)
-  * [Untitled](https://bgoonz42.gitbook.io/datastructures-in-pytho/aux-exploration/subject/untitled-3)
-  * [Untitled](https://bgoonz42.gitbook.io/datastructures-in-pytho/aux-exploration/subject/untitled-2)
-  * [Untitled](https://bgoonz42.gitbook.io/datastructures-in-pytho/aux-exploration/subject/untitled-1)
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/05_lists_and_tuples.ipynb
 
-------------------------------------------------------------------------------
 
-------------------------------------------------------------------------------
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/05_lists_and_tuples.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/06_dictionaries.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/06_dictionaries.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/07_sets.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/07_sets.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/08_itertools_module.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/08_itertools_module.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/09_comprehensions.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/09_comprehensions.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/10-linkedlist.pdf
+
+
+https://github.com/bgoonz/python-gitbook/commit/3413aa49c36a6108b705cf7703f0122cda8561ba
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/10-linkedlist.pdf
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/10_manipulating_strings.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/10_manipulating_strings.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/11_string_formatting.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/11_string_formatting.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/12_regular_expressions.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/12_regular_expressions.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/13_file_and_directory_paths.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/13_file_and_directory_paths.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/14_reading_and_writing_files.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/14_reading_and_writing_files.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/15_json_yaml.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/15_json_yaml.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/16_debugging.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/16_debugging.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/17_lambda_and_ternary_conditionals_operators.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/17_lambda_and_ternary_conditionals_operators.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/18_args_and_kwargs.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/18_args_and_kwargs.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/19_context_manager.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/19_context_manager.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/20__main__top_level_script_environment.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/20__main__top_level_script_environment.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/21_setup.py.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/21_setup.py.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/22_dataclasses.ipynb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/22_dataclasses.ipynb
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/backpedal%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/commit/92a8ab42ef6b8401afc4446e86adcb0ee26e2adb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/backpedal%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/backpedal.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/backpedal.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/beginners_python_cheat_sheet_pcc_all.pdf
+
+
+https://github.com/bgoonz/python-gitbook/commit/36ee1afb22e26c71e59fefe61b1ff10532b3661a
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/beginners_python_cheat_sheet_pcc_all.pdf
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bfs_paths_dict%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/commit/a655f88cbf2d8ff81f009553166839a9c16e6acb
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bfs_paths_dict%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bfs_paths_dict%20(2).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bfs_paths_dict%20(2).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bfs_paths_dict.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bfs_paths_dict.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bfs_search_dict%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bfs_search_dict%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bfs_search_dict.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bfs_search_dict.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bfs_search_grid%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bfs_search_grid%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bfs_search_grid.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bfs_search_grid.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bigo.png
+
+
+https://github.com/bgoonz/python-gitbook/commit/549d27ee7b6dc0a8fcedcdda7919393def7c0de8
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bigo.png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bipartite_matching_single%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bipartite_matching_single%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bipartite_matching_single%20(2).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bipartite_matching_single%20(2).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bipartite_matching_single.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bipartite_matching_single.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bisect_search%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bisect_search%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bisect_search.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bisect_search.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bst_make_balanced_recur%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bst_make_balanced_recur%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bst_make_balanced_recur.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bst_make_balanced_recur.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bt_inorder_traversal_recur%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bt_inorder_traversal_recur%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bt_inorder_traversal_recur.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bt_inorder_traversal_recur.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bt_level_order_traversal_iter%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bt_level_order_traversal_iter%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/bt_level_order_traversal_iter.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/bt_level_order_traversal_iter.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/celebrity%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/celebrity%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/celebrity.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/celebrity.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/counting_sort_dict%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/counting_sort_dict%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/counting_sort_dict%20(2).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/counting_sort_dict%20(2).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/counting_sort_dict.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/counting_sort_dict.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/counting_sort_list%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/counting_sort_list%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/counting_sort_list%20(2).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/counting_sort_list%20(2).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/counting_sort_list.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/counting_sort_list.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dfs_component_dict%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dfs_component_dict%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dfs_component_dict%20(2).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dfs_component_dict%20(2).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dfs_component_dict.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dfs_component_dict.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dfs_component_dict_recur%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dfs_component_dict_recur%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dfs_component_dict_recur.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dfs_component_dict_recur.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dfs_components_grid.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dfs_components_grid.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dfs_paths_dict_recur.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dfs_paths_dict_recur.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dijkstras_distances_min%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dijkstras_distances_min%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dijkstras_distances_min.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dijkstras_distances_min.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dijkstras_path_pq%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dijkstras_path_pq%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/dijkstras_path_pq.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/dijkstras_path_pq.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/employees.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/employees.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/examples.zip
+
+
+https://github.com/bgoonz/python-gitbook/commit/590281a01e5f3fa91e4d909d8ce9b6fa24e8eaaf
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/examples.zip
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/4053ed52846d1571bd5bd9e24bf68b572d5df8d5
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/70d0ba2910fef9065344ef48a94f70740f57bbc6
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(10).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(10).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(11).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(11).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(12).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(12).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(13).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(13).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(14).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(14).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(15).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(15).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(16).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(16).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(17).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(17).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(18).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(18).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(2).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(2).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(3).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(3).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(4).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(4).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(5).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(5).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(6).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(6).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(7).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(7).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(8).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(8).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4)%20(9).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4)%20(9).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(19)%20(4).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/83bb4a6fc9e3b0028e10ba4c2f2e69949b74b9ba
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(19)%20(4).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(2)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/3b8fedb5f8f44427ae21184d94f38a7a0d6c66ff
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(2)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(2).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/f8a33b5ac5df47b587b4d69ee38f555691d48db7
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(2).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(24).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/2200cb3395425deba6f398dd8694b15e32a7de91
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(24).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(26)%20(2)%20(2)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/3189a4b425565beac46f56893530ff1b41d883b7
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(26)%20(2)%20(2)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(26)%20(2)%20(2)%20(2).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(26)%20(2)%20(2)%20(2).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(26)%20(2)%20(2).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(26)%20(2)%20(2).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(27).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(27).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(28)%20(1)%20(1).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(28)%20(1)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(28)%20(1).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(28)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(29).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(29).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(3).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(3).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(30).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/49af1ccb42d7a4aef70109a791840ace7c84236b
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(30).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(31).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(31).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(33).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(33).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(34).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(34).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(35).png
+
+
+https://github.com/bgoonz/python-gitbook/commit/ad1cee9d46a43b2e1eae626d3329ad5e4d94103d
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(35).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(36).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(36).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(37).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(37).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(1).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(2).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(2).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(3).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(3).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(4).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(4).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(5).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(5).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(6).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1)%20(6).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(4)%20(6)%20(5)%20(1).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image%20(5).png
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image%20(5).png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/image.png
+
+
+https://github.com/bgoonz/python-gitbook/commit/5171a8c55413c46c1e79b1fb118ad0d37d2b9e78
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/image.png
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/ipynb.zip
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/ipynb.zip
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/josephus_problem_recur.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/josephus_problem_recur.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/knapsack_simple.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/knapsack_simple.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/partition.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/partition.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/prims.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/prims.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/python-space.pdf
+
+
+https://github.com/bgoonz/python-gitbook/commit/dfd42a820f4c9625d02c8fb8e5eff0eb3c391a99
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/python-space.pdf
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/quickselect.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/quickselect.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/quicksort%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/quicksort%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/quicksort%20(2).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/quicksort%20(2).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/quicksort.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/quicksort.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/selection_sort_iter%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/selection_sort_iter%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/selection_sort_iter.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/selection_sort_iter.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/selection_sort_recur%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/selection_sort_recur%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/selection_sort_recur.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/selection_sort_recur.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/tests%20(1).py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/tests%20(1).py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/tests.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/tests.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/topo_sort_count.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/topo_sort_count.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/valid_nesting_multi.py
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/valid_nesting_multi.py
+
+
+https://github.com/bgoonz/python-gitbook/blob/master/.gitbook/assets/zen-of-python.pdf
+
+
+https://github.com/bgoonz/python-gitbook/commit/d099a8868f77f46e5c99426926294e349342375a
+
+
+https://raw.githubusercontent.com/bgoonz/python-gitbook/master/.gitbook/assets/zen-of-python.pdf
+
+

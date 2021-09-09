@@ -1,4 +1,3 @@
-# Copyright (c) 2008 Doug Hellmann All rights reserved.
 #
 """Calling update() more than once is like calling
 it with all of the data at once.
