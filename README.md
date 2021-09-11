@@ -1,6 +1,7 @@
 # Python Data Structures Repo & Website
 
-# - [Other Repo](https://github.com/bgoonz/python-gitbook)  - [Website for other repo](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/untitled)
+# - [Other Repo](https://github.com/bgoonz/python-gitbook)  
+# - [Website for other repo](https://bgoonz42.gitbook.io/datastructures-in-pytho/stdlib/untitled)
 # - [Website for this repo](https://ds-unit-5-lambda.netlify.app/)
 
 
