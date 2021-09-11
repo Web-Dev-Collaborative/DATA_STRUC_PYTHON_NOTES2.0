@@ -1,14 +1,4 @@
-[![Aayushi Johari](https://miro.medium.com/fit/c/96/96/0*qi14KVra23cQqJzE)](https://medium.com/@aayushijohari?source=post_page-----f371d7fc0054--------------------------------)
 
-![](https://miro.medium.com/max/1280/1*3ayWkHrzkx00IGZhDIn2JA.png)
-
-Python, you’ve heard of it and wonder what’s so special with this language. With the rise of **Machine Learning** and **Artificial Intelligence**, it is impossible to get away from it. You may question yourself, **is Python easy to learn?** Let me tell you, **it actually is**! and I am here to help you get started with Python basics.
-
-![](https://miro.medium.com/max/60/1*YLv7_1UZVQDjU5pgfYr_dg.png?q=20)
-
-![](https://miro.medium.com/max/300/1*YLv7_1UZVQDjU5pgfYr_dg.png)
-
-This blog will be a walk-through for:
 
 - What is Python?
 - Features of Python
